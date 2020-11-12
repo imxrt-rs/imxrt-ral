@@ -17,9 +17,9 @@ jobs:
         run: make ci
       - name: Ensure RAL is consistent with checked-in code
         run: git update-index --refresh && git diff-index --quiet HEAD
-      - name: Check format for HAL(s)
+      - name: Check format for RAL
         run: cargo fmt --all -- --check
-      - name: Run clippy for HAL(s)
+      - name: Run clippy for RAL
         run: cargo clippy -- -D warnings
 
   build-ral:
@@ -29,20 +29,7 @@ jobs:
         feature: ["imxrt1011", "imxrt1015", "imxrt1021", "imxrt1051", "imxrt1052", "imxrt1061", "imxrt1062", "imxrt1064"]
     steps:
     - uses: actions/checkout@v2
-    - name: Build imxrt-ral for (${{ matrix.feature }}) RAL
+    - name: Build for (${{ matrix.feature }}) RAL
       run: cargo build --verbose --features ${{ matrix.feature }}
-    - name: Run tests (${{ matrix.feature }}) for RAL
+    - name: Run tests for (${{ matrix.feature }}) RAL
       run: cargo test --verbose --features ${{ matrix.feature }}
-
-  build-hals:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build HAL(s)
-      run: cd imxrt1060-hal && cargo build --verbose
-    - name: Run HAL(s) tests
-      run: cargo test --verbose
-    - name: Check format for HAL(s)
-      run: cargo fmt --all -- --check
-    - name: Run clippy for HAL(s)
-      run: cargo clippy -- -D warnings
