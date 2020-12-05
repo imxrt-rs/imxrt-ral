@@ -763,12 +763,13 @@ pub struct ResetValues {
     pub CNT: u32,
 }
 #[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<N> {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) _inst: PhantomData<N>,
 }
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<N> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -777,21 +778,24 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<N: Send> Send for Instance<N> {}
 
 /// Access functions for the GPT1 peripheral instance
 pub mod GPT1 {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
+    use typenum::*;
 
     #[cfg(not(feature = "nosync"))]
-    use super::Instance;
+    pub type Instance = super::Instance<U1>;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
         addr: 0x401ec000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in GPT1
@@ -879,16 +883,19 @@ pub const GPT1: *const RegisterBlock = 0x401ec000 as *const _;
 /// Access functions for the GPT2 peripheral instance
 pub mod GPT2 {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
+    use typenum::*;
 
     #[cfg(not(feature = "nosync"))]
-    use super::Instance;
+    pub type Instance = super::Instance<U2>;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
         addr: 0x401f0000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in GPT2

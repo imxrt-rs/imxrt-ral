@@ -12,11 +12,12 @@ pub use crate::imxrt106::peripherals::dcdc::{REG0, REG1, REG2, REG3};
 /// Access functions for the DCDC peripheral instance
 pub mod DCDC {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

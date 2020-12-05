@@ -147,11 +147,12 @@ pub use crate::imxrt105::peripherals::iomuxc::{
 /// Access functions for the IOMUXC peripheral instance
 pub mod IOMUXC {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

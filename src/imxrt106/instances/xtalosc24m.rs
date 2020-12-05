@@ -17,11 +17,12 @@ pub use crate::imxrt106::peripherals::xtalosc24m::{
 /// Access functions for the XTALOSC24M peripheral instance
 pub mod XTALOSC24M {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

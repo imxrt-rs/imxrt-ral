@@ -20,11 +20,12 @@ pub use crate::imxrt101::peripherals::dcp::{
 /// Access functions for the DCP peripheral instance
 pub mod DCP {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

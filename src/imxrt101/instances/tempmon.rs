@@ -15,11 +15,12 @@ pub use crate::imxrt101::peripherals::tempmon::{
 /// Access functions for the TEMPMON peripheral instance
 pub mod TEMPMON {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

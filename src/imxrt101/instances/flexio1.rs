@@ -28,11 +28,12 @@ pub use crate::imxrt101::peripherals::flexio1::{
 /// Access functions for the FLEXIO1 peripheral instance
 pub mod FLEXIO1 {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

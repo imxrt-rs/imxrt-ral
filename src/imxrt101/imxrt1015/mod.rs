@@ -8,6 +8,8 @@ pub mod interrupts;
 pub use self::interrupts::Interrupt;
 pub use self::interrupts::Interrupt as interrupt;
 
+#[cfg(all(feature = "rtic", not(feature = "nosync")))]
+use typenum::*;
 pub mod aipstz;
 pub mod dcdc;
 pub mod pit;
@@ -62,10 +64,10 @@ pub mod xbarb;
 #[cfg(all(feature = "rtic", not(feature = "nosync")))]
 #[allow(non_snake_case)]
 pub struct Peripherals {
-    pub AIPSTZ1: aipstz::Instance,
-    pub AIPSTZ2: aipstz::Instance,
-    pub AIPSTZ3: aipstz::Instance,
-    pub AIPSTZ4: aipstz::Instance,
+    pub AIPSTZ1: aipstz::Instance<U1>,
+    pub AIPSTZ2: aipstz::Instance<U2>,
+    pub AIPSTZ3: aipstz::Instance<U3>,
+    pub AIPSTZ4: aipstz::Instance<U4>,
     pub DCDC: dcdc::Instance,
     pub PIT: pit::Instance,
     pub IOMUXC_SNVS_GPR: iomuxc_snvs_gpr::Instance,
@@ -73,8 +75,8 @@ pub struct Peripherals {
     pub IOMUXC_GPR: iomuxc_gpr::Instance,
     pub FLEXRAM: flexram::Instance,
     pub EWM: ewm::Instance,
-    pub WDOG1: wdog::Instance,
-    pub WDOG2: wdog::Instance,
+    pub WDOG1: wdog::Instance<U1>,
+    pub WDOG2: wdog::Instance<U2>,
     pub RTWDOG: rtwdog::Instance,
     pub ADC1: adc1::Instance,
     pub TRNG: trng::Instance,
@@ -93,18 +95,18 @@ pub struct Peripherals {
     pub SRC: src::Instance,
     pub CCM: ccm::Instance,
     pub ROMC: romc::Instance,
-    pub LPUART1: lpuart::Instance,
-    pub LPUART2: lpuart::Instance,
-    pub LPUART3: lpuart::Instance,
-    pub LPUART4: lpuart::Instance,
+    pub LPUART1: lpuart::Instance<U1>,
+    pub LPUART2: lpuart::Instance<U2>,
+    pub LPUART3: lpuart::Instance<U3>,
+    pub LPUART4: lpuart::Instance<U4>,
     pub FLEXIO1: flexio1::Instance,
-    pub GPIO1: gpio::Instance,
-    pub GPIO5: gpio::Instance,
-    pub GPIO2: gpio::Instance,
-    pub GPIO3: gpio::Instance,
+    pub GPIO1: gpio::Instance<U1>,
+    pub GPIO5: gpio::Instance<U5>,
+    pub GPIO2: gpio::Instance<U2>,
+    pub GPIO3: gpio::Instance<U3>,
     pub TMR1: tmr1::Instance,
-    pub GPT1: gpt::Instance,
-    pub GPT2: gpt::Instance,
+    pub GPT1: gpt::Instance<U1>,
+    pub GPT2: gpt::Instance<U2>,
     pub OCOTP: ocotp::Instance,
     pub IOMUXC: iomuxc::Instance,
     pub KPP: kpp::Instance,
@@ -113,11 +115,11 @@ pub struct Peripherals {
     pub USBNC: usbnc::Instance,
     pub DCP: dcp::Instance,
     pub SPDIF: spdif::Instance,
-    pub SAI1: sai::Instance,
-    pub SAI2: sai::Instance,
-    pub SAI3: sai::Instance,
-    pub LPSPI1: lpspi::Instance,
-    pub LPSPI2: lpspi::Instance,
+    pub SAI1: sai::Instance<U1>,
+    pub SAI2: sai::Instance<U2>,
+    pub SAI3: sai::Instance<U3>,
+    pub LPSPI1: lpspi::Instance<U1>,
+    pub LPSPI2: lpspi::Instance<U2>,
     pub ADC_ETC: adc_etc::Instance,
     pub AOI: aoi::Instance,
     pub XBARA: xbara::Instance,
@@ -125,8 +127,8 @@ pub struct Peripherals {
     pub ENC1: enc1::Instance,
     pub PWM1: pwm1::Instance,
     pub BEE: bee::Instance,
-    pub LPI2C1: lpi2c::Instance,
-    pub LPI2C2: lpi2c::Instance,
+    pub LPI2C1: lpi2c::Instance<U1>,
+    pub LPI2C2: lpi2c::Instance<U2>,
 }
 
 #[cfg(all(feature = "rtic", feature = "nosync"))]

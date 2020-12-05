@@ -505,27 +505,6 @@ pub mod BAUD {
             pub const MAEN1_1: u32 = 0b1;
         }
     }
-
-    /// Receiver Idle DMA Enable
-    pub mod RIDMAE {
-        /// Offset (20 bits)
-        pub const offset: u32 = 20;
-        /// Mask (1 bit: 1 << 20)
-        pub const mask: u32 = 1 << offset;
-        /// Read-only values (empty)
-        pub mod R {}
-        /// Write-only values (empty)
-        pub mod W {}
-        /// Read-write values
-        pub mod RW {
-
-            /// 0b0: DMA request disabled.
-            pub const RIDMAE_0: u32 = 0b0;
-
-            /// 0b1: DMA request enabled.
-            pub const RIDMAE_1: u32 = 0b1;
-        }
-    }
 }
 
 /// LPUART Status Register
@@ -2436,7 +2415,6 @@ impl<N> ::core::ops::Deref for Instance<N> {
     }
 }
 
-#[cfg(not(feature = "nosync"))]
 unsafe impl<N: Send> Send for Instance<N> {}
 
 /// Access functions for the LPUART1 peripheral instance
@@ -2446,9 +2424,6 @@ pub mod LPUART1 {
 
     #[cfg(not(feature = "nosync"))]
     pub type Instance = super::Instance<U1>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
@@ -2477,7 +2452,7 @@ pub mod LPUART1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static LPUART1_TAKEN: AtomicBool = AtomicBool::new(false);
+    static mut LPUART1_TAKEN: bool = false;
 
     /// Safe access to LPUART1
     ///
@@ -2494,12 +2469,14 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        let taken = LPUART1_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART1_TAKEN {
+                None
+            } else {
+                LPUART1_TAKEN = true;
+                Some(INSTANCE)
+            }
+        })
     }
 
     /// Release exclusive access to LPUART1
@@ -2511,10 +2488,13 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART1_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART1_TAKEN && inst.addr == INSTANCE.addr {
+                LPUART1_TAKEN = false;
+            } else {
+                panic!("Released a peripheral which was not taken");
+            }
+        });
     }
 
     /// Unsafely steal LPUART1
@@ -2525,7 +2505,7 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART1_TAKEN.store(true, Ordering::SeqCst);
+        LPUART1_TAKEN = true;
         INSTANCE
     }
 }
@@ -2548,9 +2528,6 @@ pub mod LPUART2 {
 
     #[cfg(not(feature = "nosync"))]
     pub type Instance = super::Instance<U2>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
@@ -2579,7 +2556,7 @@ pub mod LPUART2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static LPUART2_TAKEN: AtomicBool = AtomicBool::new(false);
+    static mut LPUART2_TAKEN: bool = false;
 
     /// Safe access to LPUART2
     ///
@@ -2596,12 +2573,14 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        let taken = LPUART2_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART2_TAKEN {
+                None
+            } else {
+                LPUART2_TAKEN = true;
+                Some(INSTANCE)
+            }
+        })
     }
 
     /// Release exclusive access to LPUART2
@@ -2613,10 +2592,13 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART2_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART2_TAKEN && inst.addr == INSTANCE.addr {
+                LPUART2_TAKEN = false;
+            } else {
+                panic!("Released a peripheral which was not taken");
+            }
+        });
     }
 
     /// Unsafely steal LPUART2
@@ -2627,7 +2609,7 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART2_TAKEN.store(true, Ordering::SeqCst);
+        LPUART2_TAKEN = true;
         INSTANCE
     }
 }
@@ -2650,9 +2632,6 @@ pub mod LPUART3 {
 
     #[cfg(not(feature = "nosync"))]
     pub type Instance = super::Instance<U3>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
@@ -2681,7 +2660,7 @@ pub mod LPUART3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static LPUART3_TAKEN: AtomicBool = AtomicBool::new(false);
+    static mut LPUART3_TAKEN: bool = false;
 
     /// Safe access to LPUART3
     ///
@@ -2698,12 +2677,14 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        let taken = LPUART3_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART3_TAKEN {
+                None
+            } else {
+                LPUART3_TAKEN = true;
+                Some(INSTANCE)
+            }
+        })
     }
 
     /// Release exclusive access to LPUART3
@@ -2715,10 +2696,13 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART3_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART3_TAKEN && inst.addr == INSTANCE.addr {
+                LPUART3_TAKEN = false;
+            } else {
+                panic!("Released a peripheral which was not taken");
+            }
+        });
     }
 
     /// Unsafely steal LPUART3
@@ -2729,7 +2713,7 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART3_TAKEN.store(true, Ordering::SeqCst);
+        LPUART3_TAKEN = true;
         INSTANCE
     }
 }
@@ -2752,9 +2736,6 @@ pub mod LPUART4 {
 
     #[cfg(not(feature = "nosync"))]
     pub type Instance = super::Instance<U4>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
@@ -2783,7 +2764,7 @@ pub mod LPUART4 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static LPUART4_TAKEN: AtomicBool = AtomicBool::new(false);
+    static mut LPUART4_TAKEN: bool = false;
 
     /// Safe access to LPUART4
     ///
@@ -2800,12 +2781,14 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        let taken = LPUART4_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART4_TAKEN {
+                None
+            } else {
+                LPUART4_TAKEN = true;
+                Some(INSTANCE)
+            }
+        })
     }
 
     /// Release exclusive access to LPUART4
@@ -2817,10 +2800,13 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART4_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
+        external_cortex_m::interrupt::free(|_| unsafe {
+            if LPUART4_TAKEN && inst.addr == INSTANCE.addr {
+                LPUART4_TAKEN = false;
+            } else {
+                panic!("Released a peripheral which was not taken");
+            }
+        });
     }
 
     /// Unsafely steal LPUART4
@@ -2831,7 +2817,7 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART4_TAKEN.store(true, Ordering::SeqCst);
+        LPUART4_TAKEN = true;
         INSTANCE
     }
 }
@@ -2846,411 +2832,3 @@ pub mod LPUART4 {
 /// This constant is provided for ease of use in unsafe code: you can
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const LPUART4: *const RegisterBlock = 0x40190000 as *const _;
-
-/// Access functions for the LPUART5 peripheral instance
-pub mod LPUART5 {
-    use super::ResetValues;
-    use typenum::*;
-
-    #[cfg(not(feature = "nosync"))]
-    pub type Instance = super::Instance<U5>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
-        addr: 0x40194000,
-        _marker: ::core::marker::PhantomData,
-        _inst: ::core::marker::PhantomData,
-    };
-
-    /// Reset values for each field in LPUART5
-    pub const reset: ResetValues = ResetValues {
-        VERID: 0x04010003,
-        PARAM: 0x00000202,
-        GLOBAL: 0x00000000,
-        PINCFG: 0x00000000,
-        BAUD: 0x0F000004,
-        STAT: 0x00C00000,
-        CTRL: 0x00000000,
-        DATA: 0x00001000,
-        MATCH: 0x00000000,
-        MODIR: 0x00000000,
-        FIFO: 0x00C00011,
-        WATER: 0x00000000,
-    };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART5_TAKEN: AtomicBool = AtomicBool::new(false);
-
-    /// Safe access to LPUART5
-    ///
-    /// This function returns `Some(Instance)` if this instance is not
-    /// currently taken, and `None` if it is. This ensures that if you
-    /// do get `Some(Instance)`, you are ensured unique access to
-    /// the peripheral and there cannot be data races (unless other
-    /// code uses `unsafe`, of course). You can then pass the
-    /// `Instance` around to other functions as required. When you're
-    /// done with it, you can call `release(instance)` to return it.
-    ///
-    /// `Instance` itself dereferences to a `RegisterBlock`, which
-    /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn take() -> Option<Instance> {
-        let taken = LPUART5_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
-    }
-
-    /// Release exclusive access to LPUART5
-    ///
-    /// This function allows you to return an `Instance` so that it
-    /// is available to `take()` again. This function will panic if
-    /// you return a different `Instance` or if this instance is not
-    /// already taken.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART5_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
-    }
-
-    /// Unsafely steal LPUART5
-    ///
-    /// This function is similar to take() but forcibly takes the
-    /// Instance, marking it as taken irregardless of its previous
-    /// state.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub unsafe fn steal() -> Instance {
-        LPUART5_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
-    }
-}
-
-/// Raw pointer to LPUART5
-///
-/// Dereferencing this is unsafe because you are not ensured unique
-/// access to the peripheral, so you may encounter data races with
-/// other users of this peripheral. It is up to you to ensure you
-/// will not cause data races.
-///
-/// This constant is provided for ease of use in unsafe code: you can
-/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const LPUART5: *const RegisterBlock = 0x40194000 as *const _;
-
-/// Access functions for the LPUART6 peripheral instance
-pub mod LPUART6 {
-    use super::ResetValues;
-    use typenum::*;
-
-    #[cfg(not(feature = "nosync"))]
-    pub type Instance = super::Instance<U6>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
-        addr: 0x40198000,
-        _marker: ::core::marker::PhantomData,
-        _inst: ::core::marker::PhantomData,
-    };
-
-    /// Reset values for each field in LPUART6
-    pub const reset: ResetValues = ResetValues {
-        VERID: 0x04010003,
-        PARAM: 0x00000202,
-        GLOBAL: 0x00000000,
-        PINCFG: 0x00000000,
-        BAUD: 0x0F000004,
-        STAT: 0x00C00000,
-        CTRL: 0x00000000,
-        DATA: 0x00001000,
-        MATCH: 0x00000000,
-        MODIR: 0x00000000,
-        FIFO: 0x00C00011,
-        WATER: 0x00000000,
-    };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART6_TAKEN: AtomicBool = AtomicBool::new(false);
-
-    /// Safe access to LPUART6
-    ///
-    /// This function returns `Some(Instance)` if this instance is not
-    /// currently taken, and `None` if it is. This ensures that if you
-    /// do get `Some(Instance)`, you are ensured unique access to
-    /// the peripheral and there cannot be data races (unless other
-    /// code uses `unsafe`, of course). You can then pass the
-    /// `Instance` around to other functions as required. When you're
-    /// done with it, you can call `release(instance)` to return it.
-    ///
-    /// `Instance` itself dereferences to a `RegisterBlock`, which
-    /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn take() -> Option<Instance> {
-        let taken = LPUART6_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
-    }
-
-    /// Release exclusive access to LPUART6
-    ///
-    /// This function allows you to return an `Instance` so that it
-    /// is available to `take()` again. This function will panic if
-    /// you return a different `Instance` or if this instance is not
-    /// already taken.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART6_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
-    }
-
-    /// Unsafely steal LPUART6
-    ///
-    /// This function is similar to take() but forcibly takes the
-    /// Instance, marking it as taken irregardless of its previous
-    /// state.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub unsafe fn steal() -> Instance {
-        LPUART6_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
-    }
-}
-
-/// Raw pointer to LPUART6
-///
-/// Dereferencing this is unsafe because you are not ensured unique
-/// access to the peripheral, so you may encounter data races with
-/// other users of this peripheral. It is up to you to ensure you
-/// will not cause data races.
-///
-/// This constant is provided for ease of use in unsafe code: you can
-/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const LPUART6: *const RegisterBlock = 0x40198000 as *const _;
-
-/// Access functions for the LPUART7 peripheral instance
-pub mod LPUART7 {
-    use super::ResetValues;
-    use typenum::*;
-
-    #[cfg(not(feature = "nosync"))]
-    pub type Instance = super::Instance<U7>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
-        addr: 0x4019c000,
-        _marker: ::core::marker::PhantomData,
-        _inst: ::core::marker::PhantomData,
-    };
-
-    /// Reset values for each field in LPUART7
-    pub const reset: ResetValues = ResetValues {
-        VERID: 0x04010003,
-        PARAM: 0x00000202,
-        GLOBAL: 0x00000000,
-        PINCFG: 0x00000000,
-        BAUD: 0x0F000004,
-        STAT: 0x00C00000,
-        CTRL: 0x00000000,
-        DATA: 0x00001000,
-        MATCH: 0x00000000,
-        MODIR: 0x00000000,
-        FIFO: 0x00C00011,
-        WATER: 0x00000000,
-    };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART7_TAKEN: AtomicBool = AtomicBool::new(false);
-
-    /// Safe access to LPUART7
-    ///
-    /// This function returns `Some(Instance)` if this instance is not
-    /// currently taken, and `None` if it is. This ensures that if you
-    /// do get `Some(Instance)`, you are ensured unique access to
-    /// the peripheral and there cannot be data races (unless other
-    /// code uses `unsafe`, of course). You can then pass the
-    /// `Instance` around to other functions as required. When you're
-    /// done with it, you can call `release(instance)` to return it.
-    ///
-    /// `Instance` itself dereferences to a `RegisterBlock`, which
-    /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn take() -> Option<Instance> {
-        let taken = LPUART7_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
-    }
-
-    /// Release exclusive access to LPUART7
-    ///
-    /// This function allows you to return an `Instance` so that it
-    /// is available to `take()` again. This function will panic if
-    /// you return a different `Instance` or if this instance is not
-    /// already taken.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART7_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
-    }
-
-    /// Unsafely steal LPUART7
-    ///
-    /// This function is similar to take() but forcibly takes the
-    /// Instance, marking it as taken irregardless of its previous
-    /// state.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub unsafe fn steal() -> Instance {
-        LPUART7_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
-    }
-}
-
-/// Raw pointer to LPUART7
-///
-/// Dereferencing this is unsafe because you are not ensured unique
-/// access to the peripheral, so you may encounter data races with
-/// other users of this peripheral. It is up to you to ensure you
-/// will not cause data races.
-///
-/// This constant is provided for ease of use in unsafe code: you can
-/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const LPUART7: *const RegisterBlock = 0x4019c000 as *const _;
-
-/// Access functions for the LPUART8 peripheral instance
-pub mod LPUART8 {
-    use super::ResetValues;
-    use typenum::*;
-
-    #[cfg(not(feature = "nosync"))]
-    pub type Instance = super::Instance<U8>;
-
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
-        addr: 0x401a0000,
-        _marker: ::core::marker::PhantomData,
-        _inst: ::core::marker::PhantomData,
-    };
-
-    /// Reset values for each field in LPUART8
-    pub const reset: ResetValues = ResetValues {
-        VERID: 0x04010003,
-        PARAM: 0x00000202,
-        GLOBAL: 0x00000000,
-        PINCFG: 0x00000000,
-        BAUD: 0x0F000004,
-        STAT: 0x00C00000,
-        CTRL: 0x00000000,
-        DATA: 0x00001000,
-        MATCH: 0x00000000,
-        MODIR: 0x00000000,
-        FIFO: 0x00C00011,
-        WATER: 0x00000000,
-    };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART8_TAKEN: AtomicBool = AtomicBool::new(false);
-
-    /// Safe access to LPUART8
-    ///
-    /// This function returns `Some(Instance)` if this instance is not
-    /// currently taken, and `None` if it is. This ensures that if you
-    /// do get `Some(Instance)`, you are ensured unique access to
-    /// the peripheral and there cannot be data races (unless other
-    /// code uses `unsafe`, of course). You can then pass the
-    /// `Instance` around to other functions as required. When you're
-    /// done with it, you can call `release(instance)` to return it.
-    ///
-    /// `Instance` itself dereferences to a `RegisterBlock`, which
-    /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn take() -> Option<Instance> {
-        let taken = LPUART8_TAKEN.swap(true, Ordering::SeqCst);
-        if taken {
-            None
-        } else {
-            Some(INSTANCE)
-        }
-    }
-
-    /// Release exclusive access to LPUART8
-    ///
-    /// This function allows you to return an `Instance` so that it
-    /// is available to `take()` again. This function will panic if
-    /// you return a different `Instance` or if this instance is not
-    /// already taken.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
-        let taken = LPUART8_TAKEN.swap(false, Ordering::SeqCst);
-        assert!(taken, "Released a peripheral which was not taken");
-    }
-
-    /// Unsafely steal LPUART8
-    ///
-    /// This function is similar to take() but forcibly takes the
-    /// Instance, marking it as taken irregardless of its previous
-    /// state.
-    #[cfg(not(feature = "nosync"))]
-    #[inline]
-    pub unsafe fn steal() -> Instance {
-        LPUART8_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
-    }
-}
-
-/// Raw pointer to LPUART8
-///
-/// Dereferencing this is unsafe because you are not ensured unique
-/// access to the peripheral, so you may encounter data races with
-/// other users of this peripheral. It is up to you to ensure you
-/// will not cause data races.
-///
-/// This constant is provided for ease of use in unsafe code: you can
-/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const LPUART8: *const RegisterBlock = 0x401a0000 as *const _;

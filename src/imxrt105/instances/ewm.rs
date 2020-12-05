@@ -12,11 +12,12 @@ pub use crate::imxrt105::peripherals::ewm::{CLKCTRL, CLKPRESCALER, CMPH, CMPL, C
 /// Access functions for the EWM peripheral instance
 pub mod EWM {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {

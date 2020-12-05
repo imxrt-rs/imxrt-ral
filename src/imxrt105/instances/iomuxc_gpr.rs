@@ -15,11 +15,12 @@ pub use crate::imxrt105::peripherals::iomuxc_gpr::{
 /// Access functions for the IOMUXC_GPR peripheral instance
 pub mod IOMUXC_GPR {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
+
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
