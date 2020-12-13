@@ -25,12 +25,8 @@ no-default-features = true
 default-target = "thumbv7em-none-eabihf"
 
 # Change dependencies in imxrtral.py, not here!
-[dependencies.bare-metal]
-version = "0.2.5"
-optional = true
-
 [dependencies.cortex-m]
-version = "0.6.2"
+version = "0.7.2"
 optional = true
 
 [lib]
@@ -43,12 +39,12 @@ inline-asm = ["cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
-doc = ["bare-metal", "cortex-m"]
-imxrt1011 = ["bare-metal", "cortex-m"]
-imxrt1015 = ["bare-metal", "cortex-m"]
-imxrt1021 = ["bare-metal", "cortex-m"]
-imxrt1051 = ["bare-metal", "cortex-m"]
-imxrt1052 = ["bare-metal", "cortex-m"]
-imxrt1061 = ["bare-metal", "cortex-m"]
-imxrt1062 = ["bare-metal", "cortex-m"]
-imxrt1064 = ["bare-metal", "cortex-m"]
+doc = ["cortex-m"]
+imxrt1011 = ["cortex-m"]
+imxrt1015 = ["cortex-m"]
+imxrt1021 = ["cortex-m"]
+imxrt1051 = ["cortex-m"]
+imxrt1052 = ["cortex-m"]
+imxrt1061 = ["cortex-m"]
+imxrt1062 = ["cortex-m"]
+imxrt1064 = ["cortex-m"]
