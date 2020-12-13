@@ -26,16 +26,12 @@ CRATE_LIB_PREAMBLE = """\
 //!
 //! When built, you must specify a device feature, such as `imxrt1062`.
 //! This will cause all modules in that device's module to be re-exported
-//! from the top level, so that for example `imxrt::gpio` will resolve to
-//! `imxrt::imxrt1062::gpio`.
+//! from the top level, so that for example `imxrt_ral::gpio` will resolve to
+//! `imxrt_ral::imxrt1062::gpio`.
 //!
 //! In the generated documentation, all devices are visible inside their family
 //! modules, but when built for a specific device, only that devices' constants
 //! will be available.
-//!
-//! See the
-//! [README](https://github.com/imxrt-rs/imxrt-ral/blob/master/README.md)
-//! for example usage.
 
 #![no_std]
 #![allow(clippy::all)]
