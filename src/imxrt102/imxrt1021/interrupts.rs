@@ -1,4 +1,3 @@
-extern crate bare_metal;
 #[cfg(feature = "rt")]
 extern "C" {
     fn DMA0_DMA16();
@@ -727,9 +726,9 @@ pub enum Interrupt {
     /// 141:
     PWM2_FAULT = 141,
 }
-unsafe impl bare_metal::Nr for Interrupt {
+unsafe impl external_cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline]
-    fn nr(&self) -> u8 {
-        *self as u8
+    fn number(self) -> u16 {
+        self as u16
     }
 }

@@ -1,4 +1,3 @@
-extern crate bare_metal;
 #[cfg(feature = "rt")]
 extern "C" {
     fn DMA0();
@@ -386,9 +385,9 @@ pub enum Interrupt {
     /// 79:
     ADC_ETC_ERROR_IRQ = 79,
 }
-unsafe impl bare_metal::Nr for Interrupt {
+unsafe impl external_cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline]
-    fn nr(&self) -> u8 {
-        *self as u8
+    fn number(self) -> u16 {
+        self as u16
     }
 }
