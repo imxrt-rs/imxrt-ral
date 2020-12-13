@@ -11,6 +11,10 @@ This maintains consistency with the other chip variants.
 Cortex-M registers, consider using the
 [`cortex-m`][https://crates.io/crates/cortex-m] crate.
 
+**BREAKING** The RAL depends on `cortex-m`, version `0.7`. All `Interrupt`
+enumerations now implement `cortex_m::interrupt::InterruptNumber`, instead
+of `bare_metal::Nr`.
+
 Mark all registers as `#[repr(transparent)]`.
 
 ## [0.4.2] 2021-03-11
