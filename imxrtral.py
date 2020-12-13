@@ -76,12 +76,8 @@ no-default-features = true
 default-target = "thumbv7em-none-eabihf"
 
 # Change dependencies in imxrtral.py, not here!
-[dependencies.bare-metal]
-version = "0.2.5"
-optional = true
-
 [dependencies.cortex-m]
-version = "0.6.2"
+version = "0.7.2"
 optional = true
 
 [lib]
@@ -94,9 +90,9 @@ inline-asm = ["cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
-doc = ["bare-metal", "cortex-m"]
+doc = ["cortex-m"]
 """
-CHIP_DEPENDENCIES = '"bare-metal", "cortex-m"'
+CHIP_DEPENDENCIES = '"cortex-m"'
 
 BUILD_RS_TEMPLATE = """\
 use std::env;
@@ -1197,7 +1193,6 @@ class Device(Node):
         devicepath = os.path.join(familypath, self.name)
         iname = os.path.join(devicepath, "interrupts.rs")
         with open(iname, "w") as f:
-            f.write("extern crate bare_metal;\n")
             f.write('#[cfg(feature="rt")]\nextern "C" {\n')
             for interrupt in self.interrupts:
                 f.write(f'    fn {interrupt.name}();\n')
@@ -1239,10 +1234,10 @@ class Device(Node):
                 f.write(f"{interrupt.name} = {interrupt.value},\n")
             f.write("}\n")
             f.write("""\
-                unsafe impl bare_metal::Nr for Interrupt {
+                unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
                     #[inline]
-                    fn nr(&self) -> u8 {
-                        *self as u8
+                    fn number(self) -> u16 {
+                        self as u16
                     }
                 }\n""")
         rustfmt(iname)
