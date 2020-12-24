@@ -26,7 +26,23 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        feature: ["imxrt1011", "imxrt1015", "imxrt1021", "imxrt1051", "imxrt1052", "imxrt1061", "imxrt1062", "imxrt1064"]
+        feature:
+          # Individual chips
+          - "imxrt1011"
+          - "imxrt1015"
+          - "imxrt1021"
+          - "imxrt1051"
+          - "imxrt1052"
+          - "imxrt1061"
+          - "imxrt1062"
+          - "imxrt1064"
+          # Chip + other features
+          #
+          # Only checking this once, assuming that code gen
+          # is consistent across all chips.
+          - "imxrt1062,rt"
+          - "imxrt1062,rtic"
+          - "imxrt1062,rt,rtic"
     steps:
     - uses: actions/checkout@v2
     - name: Build for (${{ matrix.feature }}) RAL
