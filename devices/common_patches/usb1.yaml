@@ -27,3 +27,15 @@ USB1:
     ENDPTCTRL[1234567]:
       displayName: "ENDPTCTRL%s"
       description: "Endpoint Control %s"
+
+  # Correct USBCMD[ATDTW] bit offset
+  #
+  # Bit is correct in 1011 and 1015 SVDs, but
+  # it's incorrect in all others. It's placed in
+  # the 12th, reserved bit. Confirmed in
+  # the 1020, 1050, and 1060 reference manuals
+  # that bit 14 is correct.
+  USBCMD:
+    _modify:
+      ATDTW:
+        bitOffset: 14

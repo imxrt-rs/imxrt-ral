@@ -930,9 +930,9 @@ pub mod USBCMD {
 
     /// Add dTD TripWire - Read/Write
     pub mod ATDTW {
-        /// Offset (12 bits)
-        pub const offset: u32 = 12;
-        /// Mask (1 bit: 1 << 12)
+        /// Offset (14 bits)
+        pub const offset: u32 = 14;
+        /// Mask (1 bit: 1 << 14)
         pub const mask: u32 = 1 << offset;
         /// Read-only values (empty)
         pub mod R {}
