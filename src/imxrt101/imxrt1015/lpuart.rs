@@ -516,8 +516,15 @@ pub mod BAUD {
         pub mod R {}
         /// Write-only values (empty)
         pub mod W {}
-        /// Read-write values (empty)
-        pub mod RW {}
+        /// Read-write values
+        pub mod RW {
+
+            /// 0b0: DMA request disabled
+            pub const RIDMAE_0: u32 = 0b0;
+
+            /// 0b1: DMA request enabled
+            pub const RIDMAE_1: u32 = 0b1;
+        }
     }
 }
 

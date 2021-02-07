@@ -1,6 +1,4 @@
 # Add RIDMAE to LPUARTx BAUD registers
-#
-# TODO figure out how to add the enumerate values?
 LPUART*:
   BAUD:
     _add:
@@ -9,3 +7,6 @@ LPUART*:
         bitOffset: 20
         bitWidth: 1
         access: read-write
+    RIDMAE:
+      RIDMAE_0: [0, "DMA request disabled."]
+      RIDMAE_1: [1, "DMA request enabled."]

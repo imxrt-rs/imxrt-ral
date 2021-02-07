@@ -32,6 +32,9 @@ pub mod pgc;
 pub mod romc;
 
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
+pub mod lpuart;
+
+#[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod flexio1;
 
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
