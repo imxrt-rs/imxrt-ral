@@ -3293,7 +3293,7 @@ pub struct RegisterBlock {
     pub ENDPTFLUSH: RWRegister<u32>,
 
     /// Endpoint Status
-    pub ENDPTSTAT: RORegister<u32>,
+    pub ENDPTSTAT: RWRegister<u32>,
 
     /// Endpoint Complete
     pub ENDPTCOMPLETE: RWRegister<u32>,
