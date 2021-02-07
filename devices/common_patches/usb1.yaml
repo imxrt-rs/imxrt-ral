@@ -1,9 +1,15 @@
-# Use an array to specify the ENDPTCTRL registers
+# - Use an array to specify the ENDPTCTRL registers
+# - Change ENDPTSTAT to read-write
 #
 # The 0th ENDPTCTRL is always a control endpoint, which has
 # fewer fields than the rest of the ENDPTCTRL registers. It
 # also has a different reset value. We exclude ENDPTCTRL0
 # from the array.
+#
+# ENDPTSTAT is marked as read-only in the original SVDs, and
+# the reference manual. However, the "Bus Reset" sections of
+# i.MX RT reference manuals indicate that we need to read the
+# register, then write the values back, during bus reset.
 
 USB1:
   # svdtool doesn't seem to respect or utilize the '%s' placeholders, although there are
@@ -15,6 +21,8 @@ USB1:
   _modify:
     ENDPTCTRL1:
       description: Endpoint Control
+    ENDPTSTAT:
+      access: read-write
   _array:
     ENDPTCTRL[1234567]:
       displayName: "ENDPTCTRL%s"
