@@ -1,0 +1,11 @@
+# Add RIDMAE to LPUARTx BAUD registers
+#
+# TODO figure out how to add the enumerate values?
+LPUART*:
+  BAUD:
+    _add:
+      RIDMAE:
+        description: Receiver Idle DMA Enable
+        bitOffset: 20
+        bitWidth: 1
+        access: read-write
