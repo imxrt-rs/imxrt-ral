@@ -505,6 +505,20 @@ pub mod BAUD {
             pub const MAEN1_1: u32 = 0b1;
         }
     }
+
+    /// Receiver Idle DMA Enable
+    pub mod RIDMAE {
+        /// Offset (20 bits)
+        pub const offset: u32 = 20;
+        /// Mask (1 bit: 1 << 20)
+        pub const mask: u32 = 1 << offset;
+        /// Read-only values (empty)
+        pub mod R {}
+        /// Write-only values (empty)
+        pub mod W {}
+        /// Read-write values (empty)
+        pub mod RW {}
+    }
 }
 
 /// LPUART Status Register
