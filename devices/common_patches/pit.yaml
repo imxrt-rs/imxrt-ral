@@ -1,0 +1,10 @@
+# PIT timer patches
+#
+# - Fix LDVAL mask: should be 32 bits. Incorrectly specified as 24 bits
+#   for 1015, 1021
+
+PIT:
+  LDVAL*:
+    _modify:
+      TSV:
+        bitWidth: 32
