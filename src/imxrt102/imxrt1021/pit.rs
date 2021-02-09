@@ -95,8 +95,8 @@ pub mod LDVAL0 {
     pub mod TSV {
         /// Offset (0 bits)
         pub const offset: u32 = 0;
-        /// Mask (24 bits: 0xffffff << 0)
-        pub const mask: u32 = 0xffffff << offset;
+        /// Mask (32 bits: 0xffffffff << 0)
+        pub const mask: u32 = 0xffffffff << offset;
         /// Read-only values (empty)
         pub mod R {}
         /// Write-only values (empty)
