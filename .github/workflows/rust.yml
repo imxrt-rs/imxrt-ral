@@ -19,8 +19,6 @@ jobs:
         run: git update-index --refresh && git diff-index --quiet HEAD
       - name: Check format for RAL
         run: cargo fmt --all -- --check
-      - name: Run clippy for RAL
-        run: cargo clippy -- -D warnings
 
   build-ral:
     runs-on: ubuntu-latest
