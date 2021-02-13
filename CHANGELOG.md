@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+This release corrects for missing, or incomplete, information in the i.MX RT
+SVD files. The changes manifest in the `imxrt-ral` crate.
+
+* Change USB's `ENDPTSTAT` access to read-write, supporting the access required
+  for USB bus resets.
+* Add RIDMAE field to the BAUD register of i.MX RT 1015 and 1021 LPUART
+  peripherals.
+* Correct USBCMD[ATDTW] bit offset for 1021, 1051, 1052, 1061, 1062, and 1064
+  chips. SVD identifies the offset as 12, when it's 14. Refer to the reference
+  manuals for more information.
+* Correct the LDVAL bitwidth for PIT peripherals on 1015 and 1021 chips. The
+  SVDs indicate that the field is 24 bits, when it's 32 bits.
+
 ## [0.4.0] 2020-08-29
 
 * **BREAKING** The RAL's `"rtfm"` feature is changed to `"rtic"`, reflecting the framework's
