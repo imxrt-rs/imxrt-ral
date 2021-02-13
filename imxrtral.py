@@ -73,6 +73,7 @@ version = "0.4.1"
 [package.metadata.docs.rs]
 features = ["doc"]
 no-default-features = true
+default-target = "thumbv7em-none-eabihf"
 
 [dependencies]
 # Change dependency versions in imxrtral.py, not here!
