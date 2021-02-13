@@ -47,3 +47,19 @@ jobs:
       run: cargo build --verbose --features ${{ matrix.feature }}
     - name: Run tests for (${{ matrix.feature }}) RAL
       run: cargo test --verbose --features ${{ matrix.feature }}
+
+  examples-teensy4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: thumbv7em-none-eabihf
+          override: true
+          profile: minimal
+      - name: Build examples/teensy4
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf
