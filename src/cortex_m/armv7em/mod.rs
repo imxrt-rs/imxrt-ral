@@ -1,4 +1,4 @@
-//! stm32ral module for armv7em
+//! Register access layer for armv7em
 
 pub use super::instances::cpb;
 pub use super::instances::cpuid;

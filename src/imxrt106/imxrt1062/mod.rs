@@ -1,4 +1,4 @@
-//! stm32ral module for imxrt1062
+//! Register access layer for imxrt1062
 
 /// Number of priority bits implemented by the NVIC
 pub const NVIC_PRIO_BITS: u8 = 4;

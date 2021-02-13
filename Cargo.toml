@@ -24,7 +24,7 @@ features = ["doc"]
 no-default-features = true
 
 [dependencies]
-# Change dependency versions in stm32ral.py, not here!
+# Change dependency versions in imxrtral.py, not here!
 bare-metal = "0.2.5"
 external_cortex_m = { package = "cortex-m", version = "0.6.2" }
 # TODO use imxrt-rt here in place cortex-m-rt = { version = "0.6.12", optional = true }

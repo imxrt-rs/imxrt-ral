@@ -1,4 +1,4 @@
-//! stm32ral module for armv6m
+//! Register access layer for armv6m
 
 pub mod cpuid;
 pub use super::instances::dcb;

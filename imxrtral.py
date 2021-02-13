@@ -75,7 +75,7 @@ features = ["doc"]
 no-default-features = true
 
 [dependencies]
-# Change dependency versions in stm32ral.py, not here!
+# Change dependency versions in imxrtral.py, not here!
 bare-metal = "0.2.5"
 external_cortex_m = { package = "cortex-m", version = "0.6.2" }
 # TODO use imxrt-rt here in place cortex-m-rt = { version = "0.6.12", optional = true }
@@ -1258,7 +1258,7 @@ class Device(Node):
             self.to_interrupt_file(familypath)
         mname = os.path.join(devicepath, "mod.rs")
         with open(mname, "w") as f:
-            f.write(f"//! stm32ral module for {self.name}\n\n")
+            f.write(f"//! Register access layer for {self.name}\n\n")
             prio_bits = self.cpu.nvic_prio_bits
             if not self.special:
                 f.write("/// Number of priority bits implemented by the NVIC")
