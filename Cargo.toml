@@ -4,7 +4,7 @@
 name = "imxrt-ral"
 authors = ["Tom Burdick <tom.burdick@electromatic.us>", "Ian McIntyre <ianpmcintyre@gmail.com>"]
 description = "Register access layer for all NXP i.MX RT microcontrollers"
-repository = "https://github.com/imxrt-rs/imxrt-rs"
+repository = "https://github.com/imxrt-rs/imxrt-ral"
 readme = "README.md"
 keywords = ["imxrt", "nxp", "embedded", "no_std"]
 categories = ["embedded", "no-std"]

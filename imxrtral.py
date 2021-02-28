@@ -34,7 +34,7 @@ CRATE_LIB_PREAMBLE = """\
 //! will be available.
 //!
 //! See the
-//! [README](https://github.com/imxrt-rs/imxrt-rs/blob/master/imxrt-ral/README.md)
+//! [README](https://github.com/imxrt-rs/imxrt-ral/blob/master/README.md)
 //! for example usage.
 
 #![no_std]
@@ -55,7 +55,7 @@ CRATE_CARGO_TOML_PREAMBLE = """\
 name = "imxrt-ral"
 authors = ["Tom Burdick <tom.burdick@electromatic.us>", "Ian McIntyre <ianpmcintyre@gmail.com>"]
 description = "Register access layer for all NXP i.MX RT microcontrollers"
-repository = "https://github.com/imxrt-rs/imxrt-rs"
+repository = "https://github.com/imxrt-rs/imxrt-ral"
 readme = "README.md"
 keywords = ["imxrt", "nxp", "embedded", "no_std"]
 categories = ["embedded", "no-std"]
