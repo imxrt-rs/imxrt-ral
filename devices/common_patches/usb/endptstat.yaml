@@ -1,0 +1,7 @@
+# ENDPTSTAT is marked as read-only in the original SVDs, and
+# the reference manual. However, the "Bus Reset" sections of
+# i.MX RT reference manuals indicate that we need to read the
+# register, then write the values back, during bus reset.
+_modify:
+  ENDPTSTAT:
+    access: read-write

@@ -1,4 +1,4 @@
-USB1:
+USB:
   _include:
     - "./usb/endptctrl_array.yaml"
     - "./usb/endptstat.yaml"

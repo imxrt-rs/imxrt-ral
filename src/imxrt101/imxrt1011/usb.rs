@@ -3,9 +3,9 @@
 //! USB
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::usb1::Instance;
-pub use crate::imxrt101::peripherals::usb1::{RegisterBlock, ResetValues};
-pub use crate::imxrt101::peripherals::usb1::{
+pub use crate::imxrt101::peripherals::usb::Instance;
+pub use crate::imxrt101::peripherals::usb::{RegisterBlock, ResetValues};
+pub use crate::imxrt101::peripherals::usb::{
     ASYNCLISTADDR, BURSTSIZE, CAPLENGTH, CONFIGFLAG, DCCPARAMS, DCIVERSION, DEVICEADDR,
     ENDPTCOMPLETE, ENDPTCTRL0, ENDPTCTRL1, ENDPTCTRL2, ENDPTCTRL3, ENDPTCTRL4, ENDPTCTRL5,
     ENDPTCTRL6, ENDPTCTRL7, ENDPTFLUSH, ENDPTNAK, ENDPTNAKEN, ENDPTPRIME, ENDPTSETUPSTAT,
@@ -14,8 +14,8 @@ pub use crate::imxrt101::peripherals::usb1::{
     TXFILLTUNING, USBCMD, USBINTR, USBMODE, USBSTS,
 };
 
-/// Access functions for the USB1 peripheral instance
-pub mod USB1 {
+/// Access functions for the USB peripheral instance
+pub mod USB {
     use super::ResetValues;
 
     #[cfg(not(feature = "nosync"))]
@@ -23,11 +23,11 @@ pub mod USB1 {
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
-        addr: 0x402e0000,
+        addr: 0x400e4000,
         _marker: ::core::marker::PhantomData,
     };
 
-    /// Reset values for each field in USB1
+    /// Reset values for each field in USB
     pub const reset: ResetValues = ResetValues {
         ID: 0xE4A1FA05,
         HWGENERAL: 0x00000035,
@@ -79,9 +79,9 @@ pub mod USB1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USB1_TAKEN: bool = false;
+    static mut USB_TAKEN: bool = false;
 
-    /// Safe access to USB1
+    /// Safe access to USB
     ///
     /// This function returns `Some(Instance)` if this instance is not
     /// currently taken, and `None` if it is. This ensures that if you
@@ -97,16 +97,16 @@ pub mod USB1 {
     #[inline]
     pub fn take() -> Option<Instance> {
         external_cortex_m::interrupt::free(|_| unsafe {
-            if USB1_TAKEN {
+            if USB_TAKEN {
                 None
             } else {
-                USB1_TAKEN = true;
+                USB_TAKEN = true;
                 Some(INSTANCE)
             }
         })
     }
 
-    /// Release exclusive access to USB1
+    /// Release exclusive access to USB
     ///
     /// This function allows you to return an `Instance` so that it
     /// is available to `take()` again. This function will panic if
@@ -116,15 +116,15 @@ pub mod USB1 {
     #[inline]
     pub fn release(inst: Instance) {
         external_cortex_m::interrupt::free(|_| unsafe {
-            if USB1_TAKEN && inst.addr == INSTANCE.addr {
-                USB1_TAKEN = false;
+            if USB_TAKEN && inst.addr == INSTANCE.addr {
+                USB_TAKEN = false;
             } else {
                 panic!("Released a peripheral which was not taken");
             }
         });
     }
 
-    /// Unsafely steal USB1
+    /// Unsafely steal USB
     ///
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
@@ -132,12 +132,12 @@ pub mod USB1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USB1_TAKEN = true;
+        USB_TAKEN = true;
         INSTANCE
     }
 }
 
-/// Raw pointer to USB1
+/// Raw pointer to USB
 ///
 /// Dereferencing this is unsafe because you are not ensured unique
 /// access to the peripheral, so you may encounter data races with
@@ -146,4 +146,4 @@ pub mod USB1 {
 ///
 /// This constant is provided for ease of use in unsafe code: you can
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const USB1: *const RegisterBlock = 0x402e0000 as *const _;
+pub const USB: *const RegisterBlock = 0x400e4000 as *const _;
