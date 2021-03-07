@@ -1623,11 +1623,10 @@ class Crate:
             lib_f.write(f'pub mod {fname};\n\n')
             for device in family.devices:
                 dname = device.name
-                arch = device.cpu.get_architecture().lower().replace("-", "")
                 if device.special:
                     cargo_f.write(f'{dname} = []\n')
                 else:
-                    cargo_f.write(f'{dname} = ["{arch}", {CHIP_DEPENDENCIES}]\n')
+                    cargo_f.write(f'{dname} = [{CHIP_DEPENDENCIES}]\n')
                 lib_f.write(f'#[cfg(feature="{dname}")]\n')
                 lib_f.write(f'pub use {fname}::{dname}::*;\n\n')
         if self.peripherals:
@@ -1864,23 +1863,16 @@ def main():
         devices = p.map(Device.from_svdfile, args.svdfiles)
 
     print("Collating families...")
-    cortex_family = Family("cortex_m")
-    crate.families.append(cortex_family)
     for device in devices:
-        # Special case the ARMv*-M SVDs
-        if device.name.startswith("armv"):
-            device.special = True
-            cortex_family.devices.append(device)
-        else:
-            device_family = device.name[:8].lower()
-            if device_family not in [f.name for f in crate.families]:
-                crate.families.append(Family(device_family))
-            family = [f for f in crate.families if f.name == device_family][0]
-            if device.name in [d.name for d in family.devices]:
-                print(f"Warning: {device.name} already exists in {family},"
-                      " skipping.")
-                continue
-            family.devices.append(device)
+        device_family = device.name[:8].lower()
+        if device_family not in [f.name for f in crate.families]:
+            crate.families.append(Family(device_family))
+        family = [f for f in crate.families if f.name == device_family][0]
+        if device.name in [d.name for d in family.devices]:
+            print(f"Warning: {device.name} already exists in {family},"
+                    " skipping.")
+            continue
+        family.devices.append(device)
 
     print("Running refactors...")
     for device in devices:

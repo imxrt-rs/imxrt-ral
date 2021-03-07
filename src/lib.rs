@@ -25,23 +25,6 @@ mod register;
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};
 pub use crate::register::{UnsafeWORegister, WORegister};
-#[cfg(any(
-    feature = "doc",
-    feature = "armv6m",
-    feature = "armv7em",
-    feature = "armv7m"
-))]
-pub mod cortex_m;
-
-#[cfg(feature = "armv6m")]
-pub use cortex_m::armv6m::*;
-
-#[cfg(feature = "armv7em")]
-pub use cortex_m::armv7em::*;
-
-#[cfg(feature = "armv7m")]
-pub use cortex_m::armv7m::*;
-
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
 
