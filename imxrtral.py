@@ -1188,7 +1188,6 @@ class Device(Node):
         self.cpu = cpu
         self.peripherals = []
         self.interrupts = []
-        self.special = False
 
     def to_dict(self):
         return {"name": self.name, "cpu": self.cpu.to_dict(),
@@ -1259,20 +1258,18 @@ class Device(Node):
         if dupnames:
             print(f"Warning [{self.name}]: duplicate peripherals: ", end='')
             print(dupnames)
-        if not self.special:
-            self.to_interrupt_file(familypath)
+        self.to_interrupt_file(familypath)
         mname = os.path.join(devicepath, "mod.rs")
         with open(mname, "w") as f:
             f.write(f"//! Register access layer for {self.name}\n\n")
             prio_bits = self.cpu.nvic_prio_bits
-            if not self.special:
-                f.write("/// Number of priority bits implemented by the NVIC")
-                f.write(f"\npub const NVIC_PRIO_BITS: u8 = {prio_bits};\n\n")
-                f.write("/// Interrupt-related magic for this device\n")
-                f.write("pub mod interrupts;\n")
-                f.write("pub use self::interrupts::Interrupt;\n")
-                f.write("pub use self::interrupts::Interrupt as interrupt;\n")
-                f.write("\n\n")
+            f.write("/// Number of priority bits implemented by the NVIC")
+            f.write(f"\npub const NVIC_PRIO_BITS: u8 = {prio_bits};\n\n")
+            f.write("/// Interrupt-related magic for this device\n")
+            f.write("pub mod interrupts;\n")
+            f.write("pub use self::interrupts::Interrupt;\n")
+            f.write("pub use self::interrupts::Interrupt as interrupt;\n")
+            f.write("\n\n")
             for peripheral in self.peripherals:
                 f.write(peripheral.to_parent_entry())
             f.write("\n\n")
@@ -1296,11 +1293,10 @@ class Device(Node):
             f.write("impl Peripherals {\n    pub fn steal() -> Self {\n")
             f.write("        Peripherals {}\n    }\n}")
         rustfmt(mname)
-        if not self.special:
-            dname = os.path.join(devicepath, "device.x")
-            with open(dname, "w") as f:
-                for interrupt in self.interrupts:
-                    f.write(f"PROVIDE({interrupt.name} = DefaultHandler);\n")
+        dname = os.path.join(devicepath, "device.x")
+        with open(dname, "w") as f:
+            for interrupt in self.interrupts:
+                f.write(f"PROVIDE({interrupt.name} = DefaultHandler);\n")
 
     @classmethod
     def from_svd(cls, svd, device_name):
@@ -1580,8 +1576,7 @@ class Crate:
         devices = []
         for family in self.families:
             for device in family.devices:
-                if not device.special:
-                    devices.append((family.name, device.name))
+                devices.append((family.name, device.name))
         clauses = " else ".join("""\
             if env::var_os("CARGO_FEATURE_{}").is_some() {{
                 "src/{}/{}/device.x"
@@ -1623,10 +1618,7 @@ class Crate:
             lib_f.write(f'pub mod {fname};\n\n')
             for device in family.devices:
                 dname = device.name
-                if device.special:
-                    cargo_f.write(f'{dname} = []\n')
-                else:
-                    cargo_f.write(f'{dname} = [{CHIP_DEPENDENCIES}]\n')
+                cargo_f.write(f'{dname} = [{CHIP_DEPENDENCIES}]\n')
                 lib_f.write(f'#[cfg(feature="{dname}")]\n')
                 lib_f.write(f'pub use {fname}::{dname}::*;\n\n')
         if self.peripherals:
