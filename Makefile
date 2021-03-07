@@ -15,31 +15,21 @@ ci: patch crate rustfmt
 DEVICE_YAMLS := $(foreach device, $(DEVICES), \
 	       $(wildcard devices/$(device)*.yaml))
 
-ARCH_YAMLS := $(wildcard cortex_m/*.yaml)
-
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 DEVICE_PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(DEVICE_YAMLS))
-ARCH_PATCHED_SVDS := $(patsubst cortex_m/%.yaml, cortex_m/%.svd.patched, $(ARCH_YAMLS))
 
 DEVICE_FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(DEVICE_YAMLS))
-ARCH_FORMATTED_SVDS := $(patsubst cortex_m/%.yaml, cortex_m/%.svd.formatted, $(ARCH_YAMLS))
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 	svd patch $<
 
-cortex_m/%.svd.patched: cortex_m/%.yaml cortex_m/%.svd
-	svd patch $<
-
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
 
-cortex_m/%.svd.formatted: cortex_m/%.svd.patched
-	xmllint $< --format -o $@
+patch: $(DEVICE_PATCHED_SVDS)
 
-patch: $(DEVICE_PATCHED_SVDS) $(ARCH_PATCHED_SVDS)
-
-format: $(DEVICE_FORMATTED_SVDS) $(ARCH_FORMATTED_SVDS)
+format: $(DEVICE_FORMATTED_SVDS)
 
 # Check vairous feature set combinations here for each SoC in the family
 define check_template
@@ -64,9 +54,7 @@ html: html/index.html
 
 clean-patch:
 	rm -f $(DEVICE_PATCHED_SVDS)
-	rm -f $(ARCH_PATCHED_SVDS)
 	rm -f $(DEVICE_FORMATTED_SVDS)
-	rm -f $(ARCH_FORMATTED_SVDS)
 
 clean-html:
 	rm -rf html
@@ -89,7 +77,7 @@ update-venv:
 	python3 scripts/makedeps.py $< > $@
 
 crate: patch
-	python3 imxrtral.py . svd/imxrt*.svd.patched cortex_m/armv*.svd.patched
+	python3 imxrtral.py . svd/imxrt*.svd.patched
 
 rustfmt:
 	cargo fmt
