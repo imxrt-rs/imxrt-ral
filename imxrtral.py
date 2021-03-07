@@ -75,11 +75,15 @@ features = ["doc"]
 no-default-features = true
 default-target = "thumbv7em-none-eabihf"
 
-[dependencies]
-# Change dependency versions in imxrtral.py, not here!
-bare-metal = "0.2.5"
-external_cortex_m = { package = "cortex-m", version = "0.6.2" }
-# TODO use imxrt-rt here in place cortex-m-rt = { version = "0.6.12", optional = true }
+# Change dependencies in imxrtral.py, not here!
+[dependencies.bare-metal]
+version = "0.2.5"
+optional = true
+
+[dependencies.external-cortex-m]
+package = "cortex-m"
+version = "0.6.2"
+optional = true
 
 [lib]
 bench = false
@@ -87,13 +91,13 @@ test = false
 
 [features]
 rt = []
-inline-asm = ["external_cortex_m/inline-asm"]
+inline-asm = ["external-cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
 doc = []
 """
-
+CHIP_DEPENDENCIES = '"bare-metal", "external-cortex-m"'
 
 BUILD_RS_TEMPLATE = """\
 use std::env;
@@ -1623,7 +1627,7 @@ class Crate:
                 if device.special:
                     cargo_f.write(f'{dname} = []\n')
                 else:
-                    cargo_f.write(f'{dname} = ["{arch}"]\n')
+                    cargo_f.write(f'{dname} = ["{arch}", {CHIP_DEPENDENCIES}]\n')
                 lib_f.write(f'#[cfg(feature="{dname}")]\n')
                 lib_f.write(f'pub use {fname}::{dname}::*;\n\n')
         if self.peripherals:
