@@ -2277,7 +2277,7 @@ pub mod SAI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SAI1_TAKEN {
                 None
             } else {
@@ -2296,7 +2296,7 @@ pub mod SAI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SAI1_TAKEN && inst.addr == INSTANCE.addr {
                 SAI1_TAKEN = false;
             } else {
@@ -2399,7 +2399,7 @@ pub mod SAI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SAI2_TAKEN {
                 None
             } else {
@@ -2418,7 +2418,7 @@ pub mod SAI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SAI2_TAKEN && inst.addr == INSTANCE.addr {
                 SAI2_TAKEN = false;
             } else {
@@ -2521,7 +2521,7 @@ pub mod SAI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SAI3_TAKEN {
                 None
             } else {
@@ -2540,7 +2540,7 @@ pub mod SAI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SAI3_TAKEN && inst.addr == INSTANCE.addr {
                 SAI3_TAKEN = false;
             } else {

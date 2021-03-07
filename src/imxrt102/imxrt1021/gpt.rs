@@ -826,7 +826,7 @@ pub mod GPT1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPT1_TAKEN {
                 None
             } else {
@@ -845,7 +845,7 @@ pub mod GPT1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPT1_TAKEN && inst.addr == INSTANCE.addr {
                 GPT1_TAKEN = false;
             } else {
@@ -926,7 +926,7 @@ pub mod GPT2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPT2_TAKEN {
                 None
             } else {
@@ -945,7 +945,7 @@ pub mod GPT2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPT2_TAKEN && inst.addr == INSTANCE.addr {
                 GPT2_TAKEN = false;
             } else {

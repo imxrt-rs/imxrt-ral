@@ -316,7 +316,7 @@ pub mod USBNC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USBNC_TAKEN {
                 None
             } else {
@@ -335,7 +335,7 @@ pub mod USBNC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USBNC_TAKEN && inst.addr == INSTANCE.addr {
                 USBNC_TAKEN = false;
             } else {

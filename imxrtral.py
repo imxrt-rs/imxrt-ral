@@ -80,8 +80,7 @@ default-target = "thumbv7em-none-eabihf"
 version = "0.2.5"
 optional = true
 
-[dependencies.external-cortex-m]
-package = "cortex-m"
+[dependencies.cortex-m]
 version = "0.6.2"
 optional = true
 
@@ -91,13 +90,13 @@ test = false
 
 [features]
 rt = []
-inline-asm = ["external-cortex-m/inline-asm"]
+inline-asm = ["cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
-doc = ["bare-metal", "external-cortex-m"]
+doc = ["bare-metal", "cortex-m"]
 """
-CHIP_DEPENDENCIES = '"bare-metal", "external-cortex-m"'
+CHIP_DEPENDENCIES = '"bare-metal", "cortex-m"'
 
 BUILD_RS_TEMPLATE = """\
 use std::env;
@@ -671,7 +670,7 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub fn take() -> Option<Instance> {{
-                external_cortex_m::interrupt::free(|_| unsafe {{
+                cortex_m::interrupt::free(|_| unsafe {{
                     if {self.name}_TAKEN {{
                         None
                     }} else {{
@@ -690,7 +689,7 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub fn release(inst: Instance) {{
-                external_cortex_m::interrupt::free(|_| unsafe {{
+                cortex_m::interrupt::free(|_| unsafe {{
                     if {self.name}_TAKEN && inst.addr == INSTANCE.addr {{
                         {self.name}_TAKEN = false;
                     }} else {{

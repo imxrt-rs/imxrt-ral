@@ -29,8 +29,7 @@ default-target = "thumbv7em-none-eabihf"
 version = "0.2.5"
 optional = true
 
-[dependencies.external-cortex-m]
-package = "cortex-m"
+[dependencies.cortex-m]
 version = "0.6.2"
 optional = true
 
@@ -40,16 +39,16 @@ test = false
 
 [features]
 rt = []
-inline-asm = ["external-cortex-m/inline-asm"]
+inline-asm = ["cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
-doc = ["bare-metal", "external-cortex-m"]
-imxrt1011 = ["bare-metal", "external-cortex-m"]
-imxrt1015 = ["bare-metal", "external-cortex-m"]
-imxrt1021 = ["bare-metal", "external-cortex-m"]
-imxrt1051 = ["bare-metal", "external-cortex-m"]
-imxrt1052 = ["bare-metal", "external-cortex-m"]
-imxrt1061 = ["bare-metal", "external-cortex-m"]
-imxrt1062 = ["bare-metal", "external-cortex-m"]
-imxrt1064 = ["bare-metal", "external-cortex-m"]
+doc = ["bare-metal", "cortex-m"]
+imxrt1011 = ["bare-metal", "cortex-m"]
+imxrt1015 = ["bare-metal", "cortex-m"]
+imxrt1021 = ["bare-metal", "cortex-m"]
+imxrt1051 = ["bare-metal", "cortex-m"]
+imxrt1052 = ["bare-metal", "cortex-m"]
+imxrt1061 = ["bare-metal", "cortex-m"]
+imxrt1062 = ["bare-metal", "cortex-m"]
+imxrt1064 = ["bare-metal", "cortex-m"]

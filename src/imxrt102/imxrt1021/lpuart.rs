@@ -2487,7 +2487,7 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART1_TAKEN {
                 None
             } else {
@@ -2506,7 +2506,7 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART1_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART1_TAKEN = false;
             } else {
@@ -2589,7 +2589,7 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART2_TAKEN {
                 None
             } else {
@@ -2608,7 +2608,7 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART2_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART2_TAKEN = false;
             } else {
@@ -2691,7 +2691,7 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART3_TAKEN {
                 None
             } else {
@@ -2710,7 +2710,7 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART3_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART3_TAKEN = false;
             } else {
@@ -2793,7 +2793,7 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART4_TAKEN {
                 None
             } else {
@@ -2812,7 +2812,7 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART4_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART4_TAKEN = false;
             } else {
@@ -2895,7 +2895,7 @@ pub mod LPUART5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART5_TAKEN {
                 None
             } else {
@@ -2914,7 +2914,7 @@ pub mod LPUART5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART5_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART5_TAKEN = false;
             } else {
@@ -2997,7 +2997,7 @@ pub mod LPUART6 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART6_TAKEN {
                 None
             } else {
@@ -3016,7 +3016,7 @@ pub mod LPUART6 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART6_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART6_TAKEN = false;
             } else {
@@ -3099,7 +3099,7 @@ pub mod LPUART7 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART7_TAKEN {
                 None
             } else {
@@ -3118,7 +3118,7 @@ pub mod LPUART7 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART7_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART7_TAKEN = false;
             } else {
@@ -3201,7 +3201,7 @@ pub mod LPUART8 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART8_TAKEN {
                 None
             } else {
@@ -3220,7 +3220,7 @@ pub mod LPUART8 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPUART8_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART8_TAKEN = false;
             } else {

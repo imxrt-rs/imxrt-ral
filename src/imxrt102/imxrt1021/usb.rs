@@ -3466,7 +3466,7 @@ pub mod USB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USB_TAKEN {
                 None
             } else {
@@ -3485,7 +3485,7 @@ pub mod USB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USB_TAKEN && inst.addr == INSTANCE.addr {
                 USB_TAKEN = false;
             } else {

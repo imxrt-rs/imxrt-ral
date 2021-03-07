@@ -86,7 +86,7 @@ pub mod CSU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if CSU_TAKEN {
                 None
             } else {
@@ -105,7 +105,7 @@ pub mod CSU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if CSU_TAKEN && inst.addr == INSTANCE.addr {
                 CSU_TAKEN = false;
             } else {

@@ -165,7 +165,7 @@ pub mod ENET {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if ENET_TAKEN {
                 None
             } else {
@@ -184,7 +184,7 @@ pub mod ENET {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if ENET_TAKEN && inst.addr == INSTANCE.addr {
                 ENET_TAKEN = false;
             } else {
@@ -359,7 +359,7 @@ pub mod ENET2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if ENET2_TAKEN {
                 None
             } else {
@@ -378,7 +378,7 @@ pub mod ENET2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if ENET2_TAKEN && inst.addr == INSTANCE.addr {
                 ENET2_TAKEN = false;
             } else {

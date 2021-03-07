@@ -57,7 +57,7 @@ pub mod AOI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if AOI1_TAKEN {
                 None
             } else {
@@ -76,7 +76,7 @@ pub mod AOI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if AOI1_TAKEN && inst.addr == INSTANCE.addr {
                 AOI1_TAKEN = false;
             } else {
@@ -155,7 +155,7 @@ pub mod AOI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if AOI2_TAKEN {
                 None
             } else {
@@ -174,7 +174,7 @@ pub mod AOI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if AOI2_TAKEN && inst.addr == INSTANCE.addr {
                 AOI2_TAKEN = false;
             } else {

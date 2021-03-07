@@ -93,7 +93,7 @@ pub mod USB_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USB_ANALOG_TAKEN {
                 None
             } else {
@@ -112,7 +112,7 @@ pub mod USB_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USB_ANALOG_TAKEN && inst.addr == INSTANCE.addr {
                 USB_ANALOG_TAKEN = false;
             } else {

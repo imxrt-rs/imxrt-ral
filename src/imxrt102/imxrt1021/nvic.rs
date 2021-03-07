@@ -3680,7 +3680,7 @@ pub mod NVIC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if NVIC_TAKEN {
                 None
             } else {
@@ -3699,7 +3699,7 @@ pub mod NVIC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if NVIC_TAKEN && inst.addr == INSTANCE.addr {
                 NVIC_TAKEN = false;
             } else {

@@ -1390,7 +1390,7 @@ pub mod SPDIF {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SPDIF_TAKEN {
                 None
             } else {
@@ -1409,7 +1409,7 @@ pub mod SPDIF {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if SPDIF_TAKEN && inst.addr == INSTANCE.addr {
                 SPDIF_TAKEN = false;
             } else {

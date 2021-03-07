@@ -2768,7 +2768,7 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C1_TAKEN {
                 None
             } else {
@@ -2787,7 +2787,7 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C1_TAKEN && inst.addr == INSTANCE.addr {
                 LPI2C1_TAKEN = false;
             } else {
@@ -2886,7 +2886,7 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C2_TAKEN {
                 None
             } else {
@@ -2905,7 +2905,7 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C2_TAKEN && inst.addr == INSTANCE.addr {
                 LPI2C2_TAKEN = false;
             } else {
@@ -3004,7 +3004,7 @@ pub mod LPI2C3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C3_TAKEN {
                 None
             } else {
@@ -3023,7 +3023,7 @@ pub mod LPI2C3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C3_TAKEN && inst.addr == INSTANCE.addr {
                 LPI2C3_TAKEN = false;
             } else {
@@ -3122,7 +3122,7 @@ pub mod LPI2C4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C4_TAKEN {
                 None
             } else {
@@ -3141,7 +3141,7 @@ pub mod LPI2C4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if LPI2C4_TAKEN && inst.addr == INSTANCE.addr {
                 LPI2C4_TAKEN = false;
             } else {

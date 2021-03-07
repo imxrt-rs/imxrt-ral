@@ -359,7 +359,7 @@ pub mod XBARB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if XBARB_TAKEN {
                 None
             } else {
@@ -378,7 +378,7 @@ pub mod XBARB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if XBARB_TAKEN && inst.addr == INSTANCE.addr {
                 XBARB_TAKEN = false;
             } else {
