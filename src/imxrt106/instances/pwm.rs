@@ -254,7 +254,7 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM1_TAKEN {
                 None
             } else {
@@ -273,7 +273,7 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM1_TAKEN && inst.addr == INSTANCE.addr {
                 PWM1_TAKEN = false;
             } else {
@@ -527,7 +527,7 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM2_TAKEN {
                 None
             } else {
@@ -546,7 +546,7 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM2_TAKEN && inst.addr == INSTANCE.addr {
                 PWM2_TAKEN = false;
             } else {
@@ -800,7 +800,7 @@ pub mod PWM3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM3_TAKEN {
                 None
             } else {
@@ -819,7 +819,7 @@ pub mod PWM3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM3_TAKEN && inst.addr == INSTANCE.addr {
                 PWM3_TAKEN = false;
             } else {
@@ -1073,7 +1073,7 @@ pub mod PWM4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM4_TAKEN {
                 None
             } else {
@@ -1092,7 +1092,7 @@ pub mod PWM4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if PWM4_TAKEN && inst.addr == INSTANCE.addr {
                 PWM4_TAKEN = false;
             } else {

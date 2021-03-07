@@ -49,7 +49,7 @@ pub mod USBNC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USBNC1_TAKEN {
                 None
             } else {
@@ -68,7 +68,7 @@ pub mod USBNC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USBNC1_TAKEN && inst.addr == INSTANCE.addr {
                 USBNC1_TAKEN = false;
             } else {
@@ -141,7 +141,7 @@ pub mod USBNC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USBNC2_TAKEN {
                 None
             } else {
@@ -160,7 +160,7 @@ pub mod USBNC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USBNC2_TAKEN && inst.addr == INSTANCE.addr {
                 USBNC2_TAKEN = false;
             } else {

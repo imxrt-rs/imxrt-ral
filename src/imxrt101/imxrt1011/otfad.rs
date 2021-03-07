@@ -1039,7 +1039,7 @@ pub mod OTFAD {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if OTFAD_TAKEN {
                 None
             } else {
@@ -1058,7 +1058,7 @@ pub mod OTFAD {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if OTFAD_TAKEN && inst.addr == INSTANCE.addr {
                 OTFAD_TAKEN = false;
             } else {

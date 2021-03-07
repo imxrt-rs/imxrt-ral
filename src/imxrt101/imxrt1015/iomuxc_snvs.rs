@@ -369,7 +369,7 @@ pub mod IOMUXC_SNVS {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if IOMUXC_SNVS_TAKEN {
                 None
             } else {
@@ -388,7 +388,7 @@ pub mod IOMUXC_SNVS {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if IOMUXC_SNVS_TAKEN && inst.addr == INSTANCE.addr {
                 IOMUXC_SNVS_TAKEN = false;
             } else {

@@ -4690,7 +4690,7 @@ pub mod USDHC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USDHC1_TAKEN {
                 None
             } else {
@@ -4709,7 +4709,7 @@ pub mod USDHC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USDHC1_TAKEN && inst.addr == INSTANCE.addr {
                 USDHC1_TAKEN = false;
             } else {
@@ -4809,7 +4809,7 @@ pub mod USDHC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USDHC2_TAKEN {
                 None
             } else {
@@ -4828,7 +4828,7 @@ pub mod USDHC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if USDHC2_TAKEN && inst.addr == INSTANCE.addr {
                 USDHC2_TAKEN = false;
             } else {

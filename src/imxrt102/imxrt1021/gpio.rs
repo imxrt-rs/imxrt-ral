@@ -734,7 +734,7 @@ pub mod GPIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO1_TAKEN {
                 None
             } else {
@@ -753,7 +753,7 @@ pub mod GPIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO1_TAKEN && inst.addr == INSTANCE.addr {
                 GPIO1_TAKEN = false;
             } else {
@@ -835,7 +835,7 @@ pub mod GPIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO2_TAKEN {
                 None
             } else {
@@ -854,7 +854,7 @@ pub mod GPIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO2_TAKEN && inst.addr == INSTANCE.addr {
                 GPIO2_TAKEN = false;
             } else {
@@ -936,7 +936,7 @@ pub mod GPIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO3_TAKEN {
                 None
             } else {
@@ -955,7 +955,7 @@ pub mod GPIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO3_TAKEN && inst.addr == INSTANCE.addr {
                 GPIO3_TAKEN = false;
             } else {
@@ -1037,7 +1037,7 @@ pub mod GPIO5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO5_TAKEN {
                 None
             } else {
@@ -1056,7 +1056,7 @@ pub mod GPIO5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if GPIO5_TAKEN && inst.addr == INSTANCE.addr {
                 GPIO5_TAKEN = false;
             } else {

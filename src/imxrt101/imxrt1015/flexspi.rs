@@ -3926,7 +3926,7 @@ pub mod FLEXSPI {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if FLEXSPI_TAKEN {
                 None
             } else {
@@ -3945,7 +3945,7 @@ pub mod FLEXSPI {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        external_cortex_m::interrupt::free(|_| unsafe {
+        cortex_m::interrupt::free(|_| unsafe {
             if FLEXSPI_TAKEN && inst.addr == INSTANCE.addr {
                 FLEXSPI_TAKEN = false;
             } else {
