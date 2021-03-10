@@ -20,6 +20,15 @@ jobs:
       - name: Check format for RAL
         run: cargo fmt --all -- --check
 
+  build-ral-core:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build imxrt-ral for core features
+      run: cargo build --verbose
+    - name: Test imxrt-ral for core features
+      run: cargo test --verbose --tests --lib
+
   build-ral:
     runs-on: ubuntu-latest
     strategy:
