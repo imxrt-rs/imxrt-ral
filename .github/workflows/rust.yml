@@ -29,6 +29,14 @@ jobs:
     - name: Test imxrt-ral for core features
       run: cargo test --verbose --tests --lib
 
+  # Ensure valid code for documentation generation
+  check-ral-doc:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build imxrt-ral documentation
+      run: cargo check --no-default-features --features doc --verbose
+
   build-ral:
     runs-on: ubuntu-latest
     strategy:
