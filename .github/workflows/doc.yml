@@ -1,0 +1,32 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  doc:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions-rs/toolchain@v1
+      name: Install toolchain
+      with:
+        target: thumbv7em-none-eabihf
+        override: true
+        toolchain: stable
+
+    - name: Generate docs
+      run: cargo rustdoc --target thumbv7em-none-eabihf --no-default-features --features doc
+
+    - name: Write redirect
+      run: echo "<meta http-equiv=\"refresh\" content=\"0;url=imxrt_ral\">" > target/thumbv7em-none-eabihf/doc/index.html
+
+    - name: Deploy to GitHub pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: target/thumbv7em-none-eabihf/doc
+        publish_branch: gh-pages
