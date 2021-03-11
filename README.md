@@ -9,6 +9,10 @@ A Rust register access layer (RAL), and SVD patches for NXP i.MX RT processors.
 [imxrt-hal-badge]: https://img.shields.io/crates/v/imxrt-ral
 [imxrt-hal-url]: https://crates.io/crates/imxrt-ral
 
+**[API Docs (main branch)][main-api-docs]**
+
+[main-api-docs]: https://imxrt-rs.github.io/imxrt-ral/
+
 ## Goals
 
 - Simple but useful register level access. It compiles quickly, and it's intuitive for existing embedded developers.
