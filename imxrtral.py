@@ -95,7 +95,7 @@ inline-asm = ["external-cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
-doc = []
+doc = ["bare-metal", "external-cortex-m"]
 """
 CHIP_DEPENDENCIES = '"bare-metal", "external-cortex-m"'
 
