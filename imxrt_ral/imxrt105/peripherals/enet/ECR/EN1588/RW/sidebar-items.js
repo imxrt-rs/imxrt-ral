@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["EN1588_0","0b0: Legacy FEC buffer descriptors and functions enabled."],["EN1588_1","0b1: Enhanced frame time-stamping functions enabled."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["CDATA","Data (result of an ADC conversion)"]]});

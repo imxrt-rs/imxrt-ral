@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["BOFFDONEINT_0","0b0: No such occurrence."],["BOFFDONEINT_1","0b1: FlexCAN module has completed Bus Off process."]]});

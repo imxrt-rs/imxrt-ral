@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TPIU","Raw pointer to TPIU"]],"mod":[["TPIU","Access functions for the TPIU peripheral instance"]]});

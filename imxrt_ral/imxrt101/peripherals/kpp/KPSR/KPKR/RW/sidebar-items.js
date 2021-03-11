@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["KPKR_0","0b0: No key release detected"],["KPKR_1","0b1: All keys have been released"]]});

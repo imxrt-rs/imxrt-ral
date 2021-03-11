@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["OCOTP","Raw pointer to OCOTP"]],"mod":[["OCOTP","Access functions for the OCOTP peripheral instance"]]});

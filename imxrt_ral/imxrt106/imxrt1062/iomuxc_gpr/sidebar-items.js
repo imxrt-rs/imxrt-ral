@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IOMUXC_GPR","Raw pointer to IOMUXC_GPR"]],"mod":[["IOMUXC_GPR","Access functions for the IOMUXC_GPR peripheral instance"]]});

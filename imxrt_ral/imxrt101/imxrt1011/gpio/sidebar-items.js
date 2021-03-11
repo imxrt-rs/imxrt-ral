@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["GPIO1","Raw pointer to GPIO1"],["GPIO2","Raw pointer to GPIO2"],["GPIO5","Raw pointer to GPIO5"]],"mod":[["GPIO1","Access functions for the GPIO1 peripheral instance"],["GPIO2","Access functions for the GPIO2 peripheral instance"],["GPIO5","Access functions for the GPIO5 peripheral instance"]]});

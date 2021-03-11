@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["MAJOR","MAJOR"],["MINOR","MINOR"],["STEP","STEP"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FEATURE_4","0b0000000000000100: Standard feature set supporting a 32-bit shift register."]]});

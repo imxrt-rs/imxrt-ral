@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MIB_IDLE_0","0b0: The MIB block is updating MIB counters."],["MIB_IDLE_1","0b1: The MIB block is not currently updating any MIB counters."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MBF_0","0b0: LPSPI is idle"],["MBF_1","0b1: LPSPI is busy"]]});

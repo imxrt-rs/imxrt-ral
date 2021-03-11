@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["AOI1","Raw pointer to AOI1"],["AOI2","Raw pointer to AOI2"]],"mod":[["AOI1","Access functions for the AOI1 peripheral instance"],["AOI2","Access functions for the AOI2 peripheral instance"]]});

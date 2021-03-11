@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["DBGEN","Debug Enable"],["DOZEN","Doze mode enable"],["MEN","Module Enable"],["RRF","Reset Receive FIFO"],["RST","Software Reset"],["RTF","Reset Transmit FIFO"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["PKR_MAX","Poker Maximum Limit."],["PKR_SQ","Poker Square Calculation Result."]]});

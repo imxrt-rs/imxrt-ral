@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in XBARB2"]],"fn":[["release","Release exclusive access to XBARB2"],["steal","Unsafely steal XBARB2"],["take","Safe access to XBARB2"]]});

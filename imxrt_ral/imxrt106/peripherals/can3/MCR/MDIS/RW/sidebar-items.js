@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MDIS_0","0b0: Enable the FlexCAN module."],["MDIS_1","0b1: Disable the FlexCAN module."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["NARDY_0","0b0: NAND device is not ready"],["NARDY_1","0b1: NAND device is ready"]]});

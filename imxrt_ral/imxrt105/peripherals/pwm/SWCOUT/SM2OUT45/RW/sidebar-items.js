@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SM2OUT45_0","0b0: A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM45."],["SM2OUT45_1","0b1: A logic 1 is supplied to the deadtime generator of submodule 2 instead of PWM45."]]});

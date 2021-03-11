@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ERFDA_0","0b0: No such occurrence"],["ERFDA_1","0b1: There is at least one message stored in Enhanced Rx FIFO"]]});

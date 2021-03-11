@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PMU","Raw pointer to PMU"]],"mod":[["PMU","Access functions for the PMU peripheral instance"]]});

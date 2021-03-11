@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["WFI_STALL_0","0b0000: Not supported"],["WFI_STALL_1","0b0001: Support for WFI stalling"]]});

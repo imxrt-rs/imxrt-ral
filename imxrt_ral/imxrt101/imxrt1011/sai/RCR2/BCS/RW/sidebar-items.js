@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["BCS_0","0b0: Use the normal bit clock source."],["BCS_1","0b1: Swap the bit clock source."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["PHYM","Transciever type"],["PHYW","Data width of the transciever connected to the controller core. PHYW bit reset value is"],["SM","Serial interface mode capability"]]});

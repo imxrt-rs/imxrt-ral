@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DCDC","Raw pointer to DCDC"]],"mod":[["DCDC","Access functions for the DCDC peripheral instance"]]});

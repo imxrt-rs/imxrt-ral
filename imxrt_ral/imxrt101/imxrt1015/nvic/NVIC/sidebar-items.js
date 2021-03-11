@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in NVIC"]],"fn":[["release","Release exclusive access to NVIC"],["steal","Unsafely steal NVIC"],["take","Safe access to NVIC"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SLEEPDEEP_0","0b0: sleep"],["SLEEPDEEP_1","0b1: deep sleep"]]});

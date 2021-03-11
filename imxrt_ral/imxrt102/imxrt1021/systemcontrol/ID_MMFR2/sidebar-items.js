@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["WFI_STALL","Indicates the support for Wait For Interrupt (WFI) stalling"]]});

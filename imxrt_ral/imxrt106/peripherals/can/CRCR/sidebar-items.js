@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["MBCRC","This field indicates the number of the Mailbox corresponding to the value in TXCRC field."],["TXCRC","This field indicates the CRC value of the last message transmitted"]]});

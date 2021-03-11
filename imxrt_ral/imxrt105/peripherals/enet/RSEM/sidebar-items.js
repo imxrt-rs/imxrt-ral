@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["RX_SECTION_EMPTY","Value Of The Receive FIFO Section Empty Threshold"],["STAT_SECTION_EMPTY","RX Status FIFO Section Empty Threshold"]]});

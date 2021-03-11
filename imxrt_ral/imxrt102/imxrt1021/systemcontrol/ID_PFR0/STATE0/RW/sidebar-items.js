@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["STATE0_0","0b0000: ARMv7-M unused"],["STATE0_1","0b0001: ARMv7-M unused"],["STATE0_2","0b0010: ARMv7-M unused"],["STATE0_3","0b0011: Support for Thumb encoding including Thumb-2 technology, with all basic 16-bit and 32-bit instructions."]]});

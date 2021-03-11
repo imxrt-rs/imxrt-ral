@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["PRI21","Priority of the INT_LPUART2 interrupt 21"]]});

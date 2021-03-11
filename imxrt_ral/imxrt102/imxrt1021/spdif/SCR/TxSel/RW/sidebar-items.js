@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TxSel_0","0b000: Off and output 0"],["TxSel_1","0b001: Feed-through SPDIFIN"],["TxSel_5","0b101: Tx Normal operation"]]});

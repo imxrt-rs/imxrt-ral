@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["REG2_BO_OFFSET_4","0b100: Brownout offset = 0.100V"],["REG2_BO_OFFSET_7","0b111: Brownout offset = 0.175V"]]});

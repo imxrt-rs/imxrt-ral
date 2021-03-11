@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ACT2ACT","ACT to ACT wait time"],["ITO","SDRAM Idle timeout"],["REF2REF","Refresh to Refresh wait time"],["SRRC","Self Refresh Recovery time"]]});

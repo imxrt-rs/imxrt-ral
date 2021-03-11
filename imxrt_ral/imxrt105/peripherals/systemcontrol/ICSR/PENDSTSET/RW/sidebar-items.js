@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PENDSTSET_0","0b0: write: no effect; read: SysTick exception is not pending"],["PENDSTSET_1","0b1: write: changes SysTick exception state to pending; read: SysTick exception is pending"]]});

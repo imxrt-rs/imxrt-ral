@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SV3_CFG_0","0b0: Security Violation 3 is a non-fatal violation"],["SV3_CFG_1","0b1: Security Violation 3 is a fatal violation"]]});

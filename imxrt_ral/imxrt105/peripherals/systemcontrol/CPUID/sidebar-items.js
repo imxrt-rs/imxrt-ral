@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ARCHITECTURE","ARCHITECTURE"],["IMPLEMENTER","Implementer code"],["PARTNO","Indicates part number"],["REVISION","Indicates patch release: 0x0 = Patch 0"],["VARIANT","Indicates processor revision: 0x2 = Revision 2"]]});

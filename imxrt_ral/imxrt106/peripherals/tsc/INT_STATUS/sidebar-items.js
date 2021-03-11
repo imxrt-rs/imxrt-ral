@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["DETECT","Detect Signal"],["IDLE_SW","Idle Software"],["MEASURE","Measure Signal"],["VALID","Valid Signal"]]});

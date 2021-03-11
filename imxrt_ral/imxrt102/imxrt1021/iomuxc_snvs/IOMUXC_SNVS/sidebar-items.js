@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in IOMUXC_SNVS"]],"fn":[["release","Release exclusive access to IOMUXC_SNVS"],["steal","Unsafely steal IOMUXC_SNVS"],["take","Safe access to IOMUXC_SNVS"]]});

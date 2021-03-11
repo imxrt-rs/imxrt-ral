@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["OUT_TRIG_EN_0","0b000000: PWM_OUT_TRIGx will not set when the counter value matches the VALx value."],["OUT_TRIG_EN_1","0b000001: PWM_OUT_TRIGx will set when the counter value matches the VALx value."]]});

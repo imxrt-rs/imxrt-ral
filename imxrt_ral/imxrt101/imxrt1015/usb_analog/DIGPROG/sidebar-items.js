@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["SILICON_REVISION","Chip silicon revision"]]});

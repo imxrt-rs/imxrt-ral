@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["WDOG1","Raw pointer to WDOG1"],["WDOG2","Raw pointer to WDOG2"]],"mod":[["WDOG1","Access functions for the WDOG1 peripheral instance"],["WDOG2","Access functions for the WDOG2 peripheral instance"]]});

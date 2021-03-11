@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["HRS20_0","0b0: A hardware service request for channel 20 is not present"],["HRS20_1","0b1: A hardware service request for channel 20 is present"]]});

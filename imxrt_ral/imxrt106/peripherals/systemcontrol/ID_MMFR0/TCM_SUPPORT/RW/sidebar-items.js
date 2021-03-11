@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TCM_SUPPORT_0","0b0000: No tightly coupled memories implemented."],["TCM_SUPPORT_1","0b0001: Tightly coupled memories implemented with IMPLEMENTATION DEFINED control."],["TCM_SUPPORT_2","0b0010: ARMv7-M unused"]]});

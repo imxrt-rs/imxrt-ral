@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ICEN_0","0b0: Disable Interrupt coalescing."],["ICEN_1","0b1: Enable Interrupt coalescing."]]});

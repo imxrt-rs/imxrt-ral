@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ERFCLR_0","0b0: No effect"],["ERFCLR_1","0b1: Clear Enhanced Rx FIFO content"]]});

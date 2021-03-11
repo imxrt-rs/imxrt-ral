@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["WKUP_SW_EN_0","0b0: Disable"],["WKUP_SW_EN_1","0b1: Enable"]]});

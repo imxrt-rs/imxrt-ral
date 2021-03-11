@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in DMA0"]],"fn":[["release","Release exclusive access to DMA0"],["steal","Unsafely steal DMA0"],["take","Safe access to DMA0"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["LEVEL_0","0b000: Level 1 cache."],["LEVEL_1","0b001: Level 2 cache."],["LEVEL_2","0b010: Level 3 cache."],["LEVEL_3","0b011: Level 4 cache."],["LEVEL_4","0b100: Level 5 cache."],["LEVEL_5","0b101: Level 6 cache."],["LEVEL_6","0b110: Level 7 cache."]]});

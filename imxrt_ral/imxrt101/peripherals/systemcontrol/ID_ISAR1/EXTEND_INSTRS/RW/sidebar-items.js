@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["EXTEND_INSTRS_0","0b0000: None supported, ARMv7-M unused"],["EXTEND_INSTRS_1","0b0001: Adds support for the SXTB, SXTH, UXTB, and UXTH instructions"],["EXTEND_INSTRS_2","0b0010: As for 1, and adds support for the SXTAB, SXTAB16, SXTAH, SXTB16, UXTAB, UXTAB16, UXTAH, and UXTB16 instructions"]]});

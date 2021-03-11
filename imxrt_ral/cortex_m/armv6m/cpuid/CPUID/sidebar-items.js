@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in CPUID"]],"fn":[["release","Release exclusive access to CPUID"],["steal","Unsafely steal CPUID"],["take","Safe access to CPUID"]]});

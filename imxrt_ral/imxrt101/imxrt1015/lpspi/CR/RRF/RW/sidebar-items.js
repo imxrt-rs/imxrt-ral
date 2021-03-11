@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["RRF_0","0b0: No effect"],["RRF_1","0b1: Receive FIFO is reset"]]});

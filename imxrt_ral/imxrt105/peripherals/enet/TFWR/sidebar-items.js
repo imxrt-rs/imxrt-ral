@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["STRFWD","Store And Forward Enable"],["TFWR","Transmit FIFO Write"]]});

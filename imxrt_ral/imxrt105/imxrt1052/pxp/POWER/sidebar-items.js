@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["CTRL","Power control for the PXP."],["ROT_MEM_LP_STATE","Select the low power state of the ROT memory."]]});

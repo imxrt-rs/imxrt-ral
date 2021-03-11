@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["DATSZ","Data Size in Byte"],["NAND_EXT_ADDR","NAND Extended Address"]]});

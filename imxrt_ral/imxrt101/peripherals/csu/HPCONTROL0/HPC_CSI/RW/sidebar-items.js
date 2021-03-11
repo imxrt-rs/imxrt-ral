@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["HPC_CSI_0","0b0: User mode for the corresponding master"],["HPC_CSI_1","0b1: Supervisor mode for the corresponding master"]]});

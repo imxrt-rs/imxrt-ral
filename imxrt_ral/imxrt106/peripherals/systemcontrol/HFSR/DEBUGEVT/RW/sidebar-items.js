@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DEBUGEVT_0","0b0: No Debug event has occurred."],["DEBUGEVT_1","0b1: Debug event has occurred. The Debug Fault Status Register has been updated."]]});

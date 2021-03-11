@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in USBPHY"]],"fn":[["release","Release exclusive access to USBPHY"],["steal","Unsafely steal USBPHY"],["take","Safe access to USBPHY"]]});

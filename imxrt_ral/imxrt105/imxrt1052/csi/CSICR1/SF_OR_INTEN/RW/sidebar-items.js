@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SF_OR_INTEN_0","0b0: STATFIFO overrun interrupt is disabled"],["SF_OR_INTEN_1","0b1: STATFIFO overrun interrupt is enabled"]]});

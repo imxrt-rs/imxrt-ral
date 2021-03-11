@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ENET","Raw pointer to ENET"],["ENET2","Raw pointer to ENET2"]],"mod":[["ENET","Access functions for the ENET peripheral instance"],["ENET2","Access functions for the ENET2 peripheral instance"]]});

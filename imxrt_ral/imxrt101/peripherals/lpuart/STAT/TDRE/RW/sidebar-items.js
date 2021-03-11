@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TDRE_0","0b0: Transmit data buffer full."],["TDRE_1","0b1: Transmit data buffer empty."]]});

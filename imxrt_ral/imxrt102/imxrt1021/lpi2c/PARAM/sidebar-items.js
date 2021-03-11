@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["MRXFIFO","Master Receive FIFO Size"],["MTXFIFO","Master Transmit FIFO Size"]]});

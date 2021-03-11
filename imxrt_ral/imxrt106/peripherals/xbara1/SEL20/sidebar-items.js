@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["SEL40","Input (XBARA_INn) to be muxed to XBARA_OUT40 (refer to Functional Description section for input/output assignment)"],["SEL41","Input (XBARA_INn) to be muxed to XBARA_OUT41 (refer to Functional Description section for input/output assignment)"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MEMFAULTACT_0","0b0: exception is not active"],["MEMFAULTACT_1","0b1: exception is active"]]});

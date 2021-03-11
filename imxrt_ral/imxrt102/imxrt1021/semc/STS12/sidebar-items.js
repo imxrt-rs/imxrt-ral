@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["NDADDR","This field indicating the last write address (AXI command) to NAND device (without base address in SEMC_BR4)."]]});

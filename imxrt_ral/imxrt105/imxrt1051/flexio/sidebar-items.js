@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FLEXIO1","Raw pointer to FLEXIO1"],["FLEXIO2","Raw pointer to FLEXIO2"]],"mod":[["FLEXIO1","Access functions for the FLEXIO1 peripheral instance"],["FLEXIO2","Access functions for the FLEXIO2 peripheral instance"]]});

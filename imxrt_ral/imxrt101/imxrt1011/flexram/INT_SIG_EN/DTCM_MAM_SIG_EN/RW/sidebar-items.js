@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DTCM_MAM_SIG_EN_0","0b0: Masked"],["DTCM_MAM_SIG_EN_1","0b1: Enabled"]]});

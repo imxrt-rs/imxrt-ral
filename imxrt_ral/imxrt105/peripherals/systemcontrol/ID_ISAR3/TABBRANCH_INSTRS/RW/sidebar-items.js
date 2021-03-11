@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TABBRANCH_INSTRS_0","0b0000: None supported, ARMv7-M unused."],["TABBRANCH_INSTRS_1","0b0001: Adds support for the TBB and TBH instructions."]]});

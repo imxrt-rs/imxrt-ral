@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CAN3","Raw pointer to CAN3"]],"mod":[["CAN3","Access functions for the CAN3 peripheral instance"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FLEXSPI","Raw pointer to FLEXSPI"],["FLEXSPI2","Raw pointer to FLEXSPI2"]],"mod":[["FLEXSPI","Access functions for the FLEXSPI peripheral instance"],["FLEXSPI2","Access functions for the FLEXSPI2 peripheral instance"]]});

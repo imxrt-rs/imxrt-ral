@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["HREN_0","0b0: Host request input is disabled"],["HREN_1","0b1: Host request input is enabled"]]});

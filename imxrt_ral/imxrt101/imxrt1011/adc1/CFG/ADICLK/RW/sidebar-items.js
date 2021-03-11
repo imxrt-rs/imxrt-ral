@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ADICLK_0","0b00: IPG clock"],["ADICLK_1","0b01: IPG clock divided by 2"],["ADICLK_2","0b10: Alternate clock (ALTCLK)"],["ADICLK_3","0b11: Asynchronous clock (ADACK)"]]});

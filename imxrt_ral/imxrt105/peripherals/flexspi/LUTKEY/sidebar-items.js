@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["KEY","The Key to lock or unlock LUT."]]});

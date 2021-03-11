@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CDTL_0","0b0: Card Detect Test Level is 0, no card inserted"],["CDTL_1","0b1: Card Detect Test Level is 1, card inserted"]]});

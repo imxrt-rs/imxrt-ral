@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in DMAMUX"]],"fn":[["release","Release exclusive access to DMAMUX"],["steal","Unsafely steal DMAMUX"],["take","Safe access to DMAMUX"]]});

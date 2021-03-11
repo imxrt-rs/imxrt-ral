@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ERQ10_0","0b0: The DMA request signal for the corresponding channel is disabled"],["ERQ10_1","0b1: The DMA request signal for the corresponding channel is enabled"]]});

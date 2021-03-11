@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["DISABLE","This bit is for SW disable registers"],["DROP_MEASURE","Drop Measure"],["START_MEASURE","Start Measure"],["START_SENSE","Start Sense"],["SW_RST","Soft Reset"]]});

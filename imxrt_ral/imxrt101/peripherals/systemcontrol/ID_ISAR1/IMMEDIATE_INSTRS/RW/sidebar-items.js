@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IMMEDIATE_INSTRS_0","0b0000: None supported, ARMv7-M unused"],["IMMEDIATE_INSTRS_1","0b0001: Adds support for the ADDW, MOVW, MOVT, and SUBW instructions"]]});

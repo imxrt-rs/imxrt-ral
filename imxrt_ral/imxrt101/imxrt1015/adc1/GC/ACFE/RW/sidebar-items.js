@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ACFE_0","0b0: Compare function disabled"],["ACFE_1","0b1: Compare function enabled"]]});

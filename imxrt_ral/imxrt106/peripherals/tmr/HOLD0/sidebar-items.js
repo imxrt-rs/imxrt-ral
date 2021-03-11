@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["HOLD","This read/write register stores the counter's values of specific channels whenever any of the four counters within a module is read"]]});

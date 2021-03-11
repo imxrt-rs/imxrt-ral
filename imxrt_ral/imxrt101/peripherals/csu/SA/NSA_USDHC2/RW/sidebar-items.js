@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["NSA_USDHC2_0","0b0: Secure access for the corresponding type-1 master"],["NSA_USDHC2_1","0b1: Non-secure access for the corresponding type-1 master"]]});

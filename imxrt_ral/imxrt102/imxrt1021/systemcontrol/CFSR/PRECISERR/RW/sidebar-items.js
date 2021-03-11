@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PRECISERR_0","0b0: no precise data bus error"],["PRECISERR_1","0b1: a data bus error has occurred, and the PC value stacked for the exception return points to the instruction that caused the fault"]]});

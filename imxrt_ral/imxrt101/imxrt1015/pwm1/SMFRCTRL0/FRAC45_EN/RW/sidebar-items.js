@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FRAC45_EN_0","0b0: Disable fractional cycle placement for PWM_B."],["FRAC45_EN_1","0b1: Enable fractional cycle placement for PWM_B."]]});

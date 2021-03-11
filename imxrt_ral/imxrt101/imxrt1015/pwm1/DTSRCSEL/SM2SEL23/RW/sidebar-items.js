@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SM2SEL23_0","0b00: Generated SM2PWM23 signal is used by the deadtime logic."],["SM2SEL23_1","0b01: Inverted generated SM2PWM23 signal is used by the deadtime logic."],["SM2SEL23_2","0b10: SWCOUT[SM2OUT23] is used by the deadtime logic."],["SM2SEL23_3","0b11: PWM2_EXTA signal is used by the deadtime logic."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PROGMODEL_0","0b0000: ARMv7-M unused"],["PROGMODEL_2","0b0010: Two-stack programmers' model supported"]]});

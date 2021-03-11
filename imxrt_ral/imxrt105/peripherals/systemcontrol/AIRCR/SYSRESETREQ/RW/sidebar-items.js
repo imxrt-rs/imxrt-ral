@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SYSRESETREQ_0","0b0: no system reset request"],["SYSRESETREQ_1","0b1: asserts a signal to the outer system that requests a reset"]]});

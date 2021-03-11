@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["DEBUGMODEL","Support for memory-mapped debug model for M profile processors"]]});

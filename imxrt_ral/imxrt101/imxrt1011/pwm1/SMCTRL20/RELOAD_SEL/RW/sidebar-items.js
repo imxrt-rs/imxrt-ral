@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["RELOAD_SEL_0","0b0: The local RELOAD signal is used to reload registers."],["RELOAD_SEL_1","0b1: The master RELOAD signal (from submodule 0) is used to reload registers. This setting should not be used in submodule 0 as it will force the RELOAD signal to logic 0."]]});

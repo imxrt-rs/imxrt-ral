@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SYSTICKACT_0","0b0: exception is not active"],["SYSTICKACT_1","0b1: exception is active"]]});

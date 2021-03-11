@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["NONBASETHRDENA_0","0b0: processor can enter Thread mode only when no exception is active"],["NONBASETHRDENA_1","0b1: processor can enter Thread mode from any level under the control of an EXC_RETURN value"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ACPR","Asynchronous Clock Prescaler Register"],["CSPSR","Current Parallel Port Size Register"],["LAR","Lock Access Register"],["LSR","Lock Status Register"],["SPPR","Selected Pin Protocol Register"],["SSPSR","Supported Parallel Port Sizes Register"],["TYPE","TPIU Type Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});

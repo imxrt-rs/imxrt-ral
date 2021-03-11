@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["RXFF_INTEN_0","0b0: RxFIFO full interrupt disable"],["RXFF_INTEN_1","0b1: RxFIFO full interrupt enable"]]});

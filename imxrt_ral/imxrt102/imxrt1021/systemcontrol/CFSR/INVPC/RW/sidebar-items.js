@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INVPC_0","0b0: no invalid PC load UsageFault"],["INVPC_1","0b1: the processor has attempted an illegal load of EXC_RETURN to the PC"]]});

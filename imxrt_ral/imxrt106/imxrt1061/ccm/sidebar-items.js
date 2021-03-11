@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CCM","Raw pointer to CCM"]],"mod":[["CCM","Access functions for the CCM peripheral instance"]]});

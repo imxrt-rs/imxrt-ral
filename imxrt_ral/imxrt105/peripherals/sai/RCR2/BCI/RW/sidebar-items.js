@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["BCI_0","0b0: No effect."],["BCI_1","0b1: Internal logic is clocked as if bit clock was externally generated."]]});

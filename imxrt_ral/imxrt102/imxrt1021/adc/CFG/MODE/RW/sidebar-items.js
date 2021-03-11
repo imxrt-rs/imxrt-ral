@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MODE_0","0b00: 8-bit conversion"],["MODE_1","0b01: 10-bit conversion"],["MODE_2","0b10: 12-bit conversion"]]});

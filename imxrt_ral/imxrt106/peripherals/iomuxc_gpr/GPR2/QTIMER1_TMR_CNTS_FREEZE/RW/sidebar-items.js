@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["QTIMER1_TMR_CNTS_FREEZE_0","0b0: timer counter work normally"],["QTIMER1_TMR_CNTS_FREEZE_1","0b1: reset counter and ouput flags"]]});

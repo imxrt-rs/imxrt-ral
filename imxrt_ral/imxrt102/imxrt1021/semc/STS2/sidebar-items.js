@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["NDWRPEND","This field indicating whether there is pending AXI command (write) to NAND device."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IF2_0","0b0: Capture event has not occurred."],["IF2_1","0b1: Capture event has occurred."]]});

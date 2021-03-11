@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in ADC1"]],"fn":[["release","Release exclusive access to ADC1"],["steal","Unsafely steal ADC1"],["take","Safe access to ADC1"]]});

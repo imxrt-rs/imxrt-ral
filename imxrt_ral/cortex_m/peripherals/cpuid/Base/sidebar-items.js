@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ARCHITECTURE","This field defines the architecture"],["IMPLEMENTER","This field defines the implementer"],["PARTNO","Implementation defined."],["REVISION","Implementation defined."],["VARIANT","Implementation defined"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PMIC_DELAY_SCALER_0","0b0: clock is not divided"],["PMIC_DELAY_SCALER_1","0b1: clock is divided /8"]]});

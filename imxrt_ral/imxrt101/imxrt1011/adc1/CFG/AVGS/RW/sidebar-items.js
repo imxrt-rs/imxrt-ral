@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["AVGS_0","0b00: 4 samples averaged"],["AVGS_1","0b01: 8 samples averaged"],["AVGS_2","0b10: 16 samples averaged"],["AVGS_3","0b11: 32 samples averaged"]]});

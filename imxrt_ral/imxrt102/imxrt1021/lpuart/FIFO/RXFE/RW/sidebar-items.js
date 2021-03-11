@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["RXFE_0","0b0: Receive FIFO is not enabled. Buffer is depth 1."],["RXFE_1","0b1: Receive FIFO is enabled. Buffer is depth indicted by RXFIFOSIZE."]]});

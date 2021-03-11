@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DISCRITAXIRUW_0","0b0: Normal operation. This is backwards compatible with r0."],["DISCRITAXIRUW_1","0b1: AXI reads to DEV/SO memory. Exclusive reads to Shareable memory are not initiated on the AXIM AR channel until all outstanding stores on AXI are complete."]]});

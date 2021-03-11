@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DCB","Raw pointer to DCB"]],"mod":[["DCB","Access functions for the DCB peripheral instance"]]});

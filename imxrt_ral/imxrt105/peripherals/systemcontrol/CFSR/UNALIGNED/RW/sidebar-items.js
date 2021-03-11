@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["UNALIGNED_0","0b0: no unaligned access fault, or unaligned access trapping not enabled"],["UNALIGNED_1","0b1: the processor has made an unaligned memory access"]]});

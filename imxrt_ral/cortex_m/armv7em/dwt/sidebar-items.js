@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DWT","Raw pointer to DWT"]],"mod":[["DWT","Access functions for the DWT peripheral instance"]]});

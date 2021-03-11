@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IC_0","0b0: L1 instruction cache disabled"],["IC_1","0b1: L1 instruction cache enabled"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SIWT_0","0b0: Normal Cacheable Shared locations are treated as being Non-cacheable. Default mode of operation for Shared memory."],["SIWT_1","0b1: Normal Cacheable shared locations are treated as Write-Through."]]});

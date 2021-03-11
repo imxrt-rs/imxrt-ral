@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["core0_dbg_rst_0","0b0: do not assert core0 debug reset"],["core0_dbg_rst_1","0b1: assert core0 debug reset"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["KPP","Raw pointer to KPP"]],"mod":[["KDDR","Keypad Data Direction Register"],["KPCR","Keypad Control Register"],["KPDR","Keypad Data Register"],["KPP","Access functions for the KPP peripheral instance"],["KPSR","Keypad Status Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});

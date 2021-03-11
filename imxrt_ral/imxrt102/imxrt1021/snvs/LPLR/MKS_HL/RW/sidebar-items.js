@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MKS_HL_0","0b0: Write access is allowed."],["MKS_HL_1","0b1: Write access is not allowed."]]});

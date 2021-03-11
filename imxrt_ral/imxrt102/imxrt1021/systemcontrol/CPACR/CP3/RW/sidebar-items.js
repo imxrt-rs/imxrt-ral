@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CP3_0","0b00: Access denied. Any attempted access generates a NOCP UsageFault."],["CP3_1","0b01: Privileged access only. An unprivileged access generates a NOCP UsageFault."],["CP3_3","0b11: Full access."]]});

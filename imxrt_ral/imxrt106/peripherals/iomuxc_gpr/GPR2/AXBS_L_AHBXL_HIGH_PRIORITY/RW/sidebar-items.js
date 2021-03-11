@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["AXBS_L_AHBXL_HIGH_PRIORITY_0","0b0: AXBS_L AHBXL master does not have high priority"],["AXBS_L_AHBXL_HIGH_PRIORITY_1","0b1: AXBS_P AHBXL master has high priority"]]});

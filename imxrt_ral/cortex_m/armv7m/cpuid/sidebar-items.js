@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CPUID","Raw pointer to CPUID"]],"mod":[["CPUID","Access functions for the CPUID peripheral instance"]]});

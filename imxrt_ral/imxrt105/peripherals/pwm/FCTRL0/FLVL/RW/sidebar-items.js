@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FLVL_0","0b0000: A logic 0 on the fault input indicates a fault condition."],["FLVL_1","0b0001: A logic 1 on the fault input indicates a fault condition."]]});

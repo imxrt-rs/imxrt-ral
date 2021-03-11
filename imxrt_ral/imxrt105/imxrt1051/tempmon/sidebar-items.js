@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TEMPMON","Raw pointer to TEMPMON"]],"mod":[["TEMPMON","Access functions for the TEMPMON peripheral instance"]]});

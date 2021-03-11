@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["NDNOPENDEN_0","0b0: Disable"],["NDNOPENDEN_1","0b1: Enable"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MEN_0","0b0: Module is disabled"],["MEN_1","0b1: Module is enabled"]]});

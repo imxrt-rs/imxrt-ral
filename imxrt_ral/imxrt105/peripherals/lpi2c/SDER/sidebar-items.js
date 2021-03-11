@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["AVDE","Address Valid DMA Enable"],["RDDE","Receive Data DMA Enable"],["TDDE","Transmit Data DMA Enable"]]});

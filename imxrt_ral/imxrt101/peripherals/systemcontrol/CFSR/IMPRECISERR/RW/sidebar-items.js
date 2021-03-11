@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IMPRECISERR_0","0b0: no imprecise data bus error"],["IMPRECISERR_1","0b1: a data bus error has occurred, but the return address in the stack frame is not related to the instruction that caused the error"]]});

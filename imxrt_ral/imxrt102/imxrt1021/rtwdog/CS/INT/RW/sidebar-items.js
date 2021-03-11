@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INT_0","0b0: Watchdog interrupts are disabled. Watchdog resets are not delayed."],["INT_1","0b1: Watchdog interrupts are enabled. Watchdog resets are delayed by 128 bus clocks from the interrupt vector fetch."]]});

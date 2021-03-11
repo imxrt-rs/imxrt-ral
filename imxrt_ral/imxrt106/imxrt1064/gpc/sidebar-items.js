@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["GPC","Raw pointer to GPC"]],"mod":[["GPC","Access functions for the GPC peripheral instance"]]});

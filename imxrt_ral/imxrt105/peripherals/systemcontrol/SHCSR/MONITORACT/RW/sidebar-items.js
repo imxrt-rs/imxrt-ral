@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MONITORACT_0","0b0: exception is not active"],["MONITORACT_1","0b1: exception is active"]]});

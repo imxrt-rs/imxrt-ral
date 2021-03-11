@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CPB","Raw pointer to CPB"]],"mod":[["CPB","Access functions for the CPB peripheral instance"]]});

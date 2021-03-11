@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["COMPAREL","COMPAREL"]]});

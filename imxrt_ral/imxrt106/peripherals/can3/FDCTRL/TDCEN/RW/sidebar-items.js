@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TDCEN_0","0b0: TDC is disabled"],["TDCEN_1","0b1: TDC is enabled"]]});

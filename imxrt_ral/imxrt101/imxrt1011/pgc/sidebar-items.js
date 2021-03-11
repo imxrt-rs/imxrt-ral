@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PGC","Raw pointer to PGC"]],"mod":[["PGC","Access functions for the PGC peripheral instance"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["BL","Burst Length"],["COL","Column address bit number"],["EDO","EDO mode enabled"],["PS","Port Size"]]});

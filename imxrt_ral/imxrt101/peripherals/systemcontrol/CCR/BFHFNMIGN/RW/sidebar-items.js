@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["BFHFNMIGN_0","0b0: data bus faults caused by load and store instructions cause a lock-up"],["BFHFNMIGN_1","0b1: handlers running at priority -1 and -2 ignore data bus faults caused by load and store instructions"]]});

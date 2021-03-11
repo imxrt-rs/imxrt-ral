@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["COUNT_RC_CUR","The current tuning value in use."],["COUNT_RC_TRG","The target count used to tune the RC OSC frequency"]]});

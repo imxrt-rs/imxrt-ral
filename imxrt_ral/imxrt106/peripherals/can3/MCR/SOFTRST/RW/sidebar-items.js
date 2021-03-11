@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SOFTRST_0","0b0: No reset request."],["SOFTRST_1","0b1: Resets the registers affected by soft reset."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PHCD_0","0b0: Enable PHY clock"],["PHCD_1","0b1: Disable PHY clock"]]});

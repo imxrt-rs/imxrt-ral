@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DISBTACREAD_0","0b0: Normal operation."],["DISBTACREAD_1","0b1: BTAC is not used and only static branch prediction can occur."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DIVBYZERO_0","0b0: no divide by zero fault, or divide by zero trapping not enabled"],["DIVBYZERO_1","0b1: the processor has executed an SDIV or UDIV instruction with a divisor of 0"]]});

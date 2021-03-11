@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["EMODE_0","0b00: Big Endian Mode"],["EMODE_1","0b01: Half Word Big Endian Mode"],["EMODE_2","0b10: Little Endian Mode"]]});

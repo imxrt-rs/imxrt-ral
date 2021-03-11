@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DIR_0","0b0: Count up."],["DIR_1","0b1: Count down."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["AXIMTYPE_0","0b00: OKAY."],["AXIMTYPE_1","0b01: EXOKAY."],["AXIMTYPE_2","0b10: SLVERR."],["AXIMTYPE_3","0b11: DECERR."]]});

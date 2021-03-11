@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["CAPTVAL3","CAPTVAL3"]]});

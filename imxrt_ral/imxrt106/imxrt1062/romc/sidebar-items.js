@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ROMC","Raw pointer to ROMC"]],"mod":[["ROMC","Access functions for the ROMC peripheral instance"]]});

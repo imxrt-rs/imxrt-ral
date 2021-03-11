@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["STAT","Static data from sensor"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["EXTERNAL_0","0b0: No external debug request debug event"],["EXTERNAL_1","0b1: External debug request debug event"]]});

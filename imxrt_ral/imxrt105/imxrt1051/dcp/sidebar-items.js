@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DCP","Raw pointer to DCP"]],"mod":[["DCP","Access functions for the DCP peripheral instance"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SOF_POL_0","0b0: SOF interrupt is generated on SOF falling edge"],["SOF_POL_1","0b1: SOF interrupt is generated on SOF rising edge"]]});

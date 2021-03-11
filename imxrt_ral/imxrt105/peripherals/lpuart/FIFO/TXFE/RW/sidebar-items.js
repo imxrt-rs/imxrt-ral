@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TXFE_0","0b0: Transmit FIFO is not enabled. Buffer is depth 1."],["TXFE_1","0b1: Transmit FIFO is enabled. Buffer is depth indicated by TXFIFOSIZE."]]});

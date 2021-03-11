@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["PGD","Power Glitch Detector Value"]]});

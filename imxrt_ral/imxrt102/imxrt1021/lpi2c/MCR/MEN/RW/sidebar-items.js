@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MEN_0","0b0: Master logic is disabled"],["MEN_1","0b1: Master logic is enabled"]]});

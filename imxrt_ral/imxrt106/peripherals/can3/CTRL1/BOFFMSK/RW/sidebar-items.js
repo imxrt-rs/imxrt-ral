@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["BOFFMSK_0","0b0: Bus Off interrupt disabled."],["BOFFMSK_1","0b1: Bus Off interrupt enabled."]]});

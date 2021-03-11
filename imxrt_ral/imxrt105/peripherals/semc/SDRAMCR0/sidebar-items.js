@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["BL","Burst Length"],["CL","CAS Latency"],["COL","Column address bit number"],["PS","Port Size"]]});

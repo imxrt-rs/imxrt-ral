@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["PRI36","Priority of the INT_CAN1 interrupt 36"]]});

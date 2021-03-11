@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IFTHEN_INSTRS_0","0b0000: None supported, ARMv7-M unused"],["IFTHEN_INSTRS_1","0b0001: Adds support for the IT instructions, and for the IT bits in the PSRs"]]});

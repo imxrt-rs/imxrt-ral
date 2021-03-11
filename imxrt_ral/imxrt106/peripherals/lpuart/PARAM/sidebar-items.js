@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["RXFIFO","Receive FIFO Size"],["TXFIFO","Transmit FIFO Size"]]});

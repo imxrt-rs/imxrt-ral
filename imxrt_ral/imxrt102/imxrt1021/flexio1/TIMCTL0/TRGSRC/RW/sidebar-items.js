@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TRGSRC_0","0b0: External trigger selected"],["TRGSRC_1","0b1: Internal trigger selected"]]});

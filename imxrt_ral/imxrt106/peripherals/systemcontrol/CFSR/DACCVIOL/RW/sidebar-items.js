@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DACCVIOL_0","0b0: no data access violation fault"],["DACCVIOL_1","0b1: the processor attempted a load or store at a location that does not permit the operation"]]});

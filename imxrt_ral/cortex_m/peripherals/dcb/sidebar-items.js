@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["DCRDR","Debug Core Register Data Register"],["DCRSR","Debug Core Register Selector Register"],["DEMCR","Debug Exception and Monitor Control Register"],["DHCSR","Debug Halting Control and Status Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});

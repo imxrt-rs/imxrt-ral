@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["IOMUXC_XBAR_DIR_SEL_19_0","0b0: XBAR_INOUT as input"],["IOMUXC_XBAR_DIR_SEL_19_1","0b1: XBAR_INOUT as output"]]});

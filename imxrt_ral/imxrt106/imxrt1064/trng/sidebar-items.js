@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TRNG","Raw pointer to TRNG"]],"mod":[["TRNG","Access functions for the TRNG peripheral instance"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TDCFAIL_0","0b0: Measured loop delay is in range."],["TDCFAIL_1","0b1: Measured loop delay is out of range."]]});

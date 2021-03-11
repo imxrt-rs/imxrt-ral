@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ROVIE_0","0b0: Rollover interrupt is disabled."],["ROVIE_1","0b1: Rollover interrupt enabled."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["RMII_10T_0","0b0: 100-Mbit/s operation."],["RMII_10T_1","0b1: 10-Mbit/s operation."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["COMP","This read/write register contains the upper (most significant) half of the position compare register"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["IMAGE","Received image data"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ERFDAIE","Enhanced Rx FIFO Data Available Interrupt Enable"],["ERFOVFIE","Enhanced Rx FIFO Overflow Interrupt Enable"],["ERFUFWIE","Enhanced Rx FIFO Underflow Interrupt Enable"],["ERFWMIIE","Enhanced Rx FIFO Watermark Indication Interrupt Enable"]]});

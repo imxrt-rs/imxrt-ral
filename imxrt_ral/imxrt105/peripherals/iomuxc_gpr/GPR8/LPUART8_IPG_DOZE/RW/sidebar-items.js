@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["LPUART8_IPG_DOZE_0","0b0: not in doze mode"],["LPUART8_IPG_DOZE_1","0b1: in doze mode"]]});

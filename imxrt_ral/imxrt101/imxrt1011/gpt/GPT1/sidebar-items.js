@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in GPT1"]],"fn":[["release","Release exclusive access to GPT1"],["steal","Unsafely steal GPT1"],["take","Safe access to GPT1"]]});

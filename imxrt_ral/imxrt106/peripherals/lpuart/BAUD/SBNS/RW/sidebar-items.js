@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["SBNS_0","0b0: One stop bit."],["SBNS_1","0b1: Two stop bits."]]});

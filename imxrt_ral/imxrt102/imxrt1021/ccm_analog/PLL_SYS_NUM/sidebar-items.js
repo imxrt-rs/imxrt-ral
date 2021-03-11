@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["A","30 bit numerator (A) of fractional loop divider (signed integer)."]]});

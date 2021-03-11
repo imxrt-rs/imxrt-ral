@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["XTALOSC24M","Raw pointer to XTALOSC24M"]],"mod":[["XTALOSC24M","Access functions for the XTALOSC24M peripheral instance"]]});

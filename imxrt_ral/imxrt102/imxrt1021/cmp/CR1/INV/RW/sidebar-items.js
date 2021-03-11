@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INV_0","0b0: Does not invert the comparator output."],["INV_1","0b1: Inverts the comparator output."]]});

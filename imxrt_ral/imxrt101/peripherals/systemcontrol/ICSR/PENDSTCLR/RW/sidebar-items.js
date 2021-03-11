@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["PENDSTCLR_0","0b0: no effect"],["PENDSTCLR_1","0b1: removes the pending state from the SysTick exception"]]});

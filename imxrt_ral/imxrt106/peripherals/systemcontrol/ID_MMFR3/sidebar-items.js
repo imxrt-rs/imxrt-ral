@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ID_MMFR3","Gives information about the implemented memory model and memory management support."]]});

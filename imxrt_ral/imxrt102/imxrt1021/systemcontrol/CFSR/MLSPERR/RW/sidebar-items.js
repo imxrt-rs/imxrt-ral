@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MLSPERR_0","0b0: No MemManage fault occurred during floating-point lazy state preservation"],["MLSPERR_1","0b1: A MemManage fault occurred during floating-point lazy state preservation"]]});

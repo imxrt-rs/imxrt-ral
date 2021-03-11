@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["VAL1","Value Register 1"]]});

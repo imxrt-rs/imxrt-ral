@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INTERMEDIATE_0","0b0: Not in intermedia"],["INTERMEDIATE_1","0b1: Intermedia"]]});

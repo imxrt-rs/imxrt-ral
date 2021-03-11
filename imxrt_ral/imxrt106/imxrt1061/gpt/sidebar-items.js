@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["GPT1","Raw pointer to GPT1"],["GPT2","Raw pointer to GPT2"]],"mod":[["GPT1","Access functions for the GPT1 peripheral instance"],["GPT2","Access functions for the GPT2 peripheral instance"]]});

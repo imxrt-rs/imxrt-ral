@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["VECTCLRACTIVE_0","0b0: No change"],["VECTCLRACTIVE_1","0b1: Clears all active state information for fixed and configurable exceptions"]]});

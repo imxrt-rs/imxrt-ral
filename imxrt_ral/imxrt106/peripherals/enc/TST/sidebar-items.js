@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["QDN","Quadrature Decoder Negative Signal"],["TCE","Test Counter Enable"],["TEN","Test Mode Enable"],["TEST_COUNT","These bits hold the number of quadrature advances to generate."],["TEST_PERIOD","These bits hold the period of quadrature phase in IPBus clock cycles."]]});

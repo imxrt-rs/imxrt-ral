@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ID","Configuration number"],["NID","Complement version of ID"],["REVISION","Revision number of the controller core."]]});

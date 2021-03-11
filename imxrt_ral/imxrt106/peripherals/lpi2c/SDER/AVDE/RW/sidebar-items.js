@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["AVDE_0","0b0: DMA request is disabled"],["AVDE_1","0b1: DMA request is enabled"]]});

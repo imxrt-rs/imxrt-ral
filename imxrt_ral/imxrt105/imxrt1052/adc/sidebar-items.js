@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ADC1","Raw pointer to ADC1"],["ADC2","Raw pointer to ADC2"]],"mod":[["ADC1","Access functions for the ADC1 peripheral instance"],["ADC2","Access functions for the ADC2 peripheral instance"]]});

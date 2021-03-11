@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INVSTATE_0","0b0: no invalid state UsageFault"],["INVSTATE_1","0b1: the processor has attempted to execute an instruction that makes illegal use of the EPSR"]]});

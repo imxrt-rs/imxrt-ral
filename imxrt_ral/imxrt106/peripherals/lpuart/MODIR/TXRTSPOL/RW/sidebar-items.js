@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TXRTSPOL_0","0b0: Transmitter RTS is active low."],["TXRTSPOL_1","0b1: Transmitter RTS is active high."]]});

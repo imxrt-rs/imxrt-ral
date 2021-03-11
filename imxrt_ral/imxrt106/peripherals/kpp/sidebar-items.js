@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["KDDR","Keypad Data Direction Register"],["KPCR","Keypad Control Register"],["KPDR","Keypad Data Register"],["KPSR","Keypad Status Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});

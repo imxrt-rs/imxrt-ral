@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CLOSED_CONFIG","0b1001: CLOSED Configuration"],["FAB_CONFIG","0b0000: FAB Configuration"],["OPEN_CONFIG","0b0001: OPEN Configuration"]]});

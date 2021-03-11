@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MULTIACCESSINT_INSTRS_0","0b0000: None supported. This means the LDM and STM instructions are not interruptible. ARMv7-M unused."],["MULTIACCESSINT_INSTRS_1","0b0001: LDM and STM instructions are restartable."],["MULTIACCESSINT_INSTRS_2","0b0010: LDM and STM instructions are continuable."]]});

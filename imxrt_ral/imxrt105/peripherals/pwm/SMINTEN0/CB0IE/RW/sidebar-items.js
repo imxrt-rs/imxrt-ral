@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CB0IE_0","0b0: Interrupt request disabled for STS[CFB0]."],["CB0IE_1","0b1: Interrupt request enabled for STS[CFB0]."]]});

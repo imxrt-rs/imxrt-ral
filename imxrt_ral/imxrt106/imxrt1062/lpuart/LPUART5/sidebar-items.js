@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["reset","Reset values for each field in LPUART5"]],"fn":[["release","Release exclusive access to LPUART5"],["steal","Unsafely steal LPUART5"],["take","Safe access to LPUART5"]]});

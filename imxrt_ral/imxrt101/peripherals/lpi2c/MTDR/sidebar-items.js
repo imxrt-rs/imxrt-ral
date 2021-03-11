@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["CMD","Command Data"],["DATA","Transmit Data"]]});

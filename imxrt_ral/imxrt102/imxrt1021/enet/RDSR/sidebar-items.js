@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["R_DES_START","Pointer to the beginning of the receive buffer descriptor queue."]]});

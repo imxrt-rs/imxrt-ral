@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ADCO_0","0b0: One conversion or one set of conversions if the hardware average function is enabled (AVGE=1) after initiating a conversion."],["ADCO_1","0b1: Continuous conversions or sets of conversions if the hardware average function is enabled (AVGE=1) after initiating a conversion."]]});

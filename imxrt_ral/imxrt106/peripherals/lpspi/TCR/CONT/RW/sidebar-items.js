@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CONT_0","0b0: Continuous transfer is disabled"],["CONT_1","0b1: Continuous transfer is enabled"]]});

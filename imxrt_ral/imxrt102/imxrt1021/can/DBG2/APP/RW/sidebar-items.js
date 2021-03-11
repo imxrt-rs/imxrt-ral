@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["APP_0","0b0: No matching process ongoing."],["APP_1","0b1: Matching process is in progress."]]});

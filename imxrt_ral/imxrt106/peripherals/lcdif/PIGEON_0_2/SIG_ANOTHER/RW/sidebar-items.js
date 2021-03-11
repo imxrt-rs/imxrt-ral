@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["CLEAR_USING_MASK","0b00000: Keep active until mask off"]]});

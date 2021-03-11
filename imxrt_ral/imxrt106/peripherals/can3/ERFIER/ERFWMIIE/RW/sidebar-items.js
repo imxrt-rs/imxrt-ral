@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ERFWMIIE_0","0b0: Enhanced Rx FIFO Watermark Interrupt is disabled"],["ERFWMIIE_1","0b1: Enhanced Rx FIFO Watermark Interrupt is enabled"]]});

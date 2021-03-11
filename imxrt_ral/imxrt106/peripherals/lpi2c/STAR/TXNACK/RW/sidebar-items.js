@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["TXNACK_0","0b0: Write a Transmit ACK for each received word"],["TXNACK_1","0b1: Write a Transmit NACK for each received word"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["USBNC1","Raw pointer to USBNC1"],["USBNC2","Raw pointer to USBNC2"]],"mod":[["USBNC1","Access functions for the USBNC1 peripheral instance"],["USBNC2","Access functions for the USBNC2 peripheral instance"]]});

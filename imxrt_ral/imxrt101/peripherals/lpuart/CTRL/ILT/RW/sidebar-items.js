@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ILT_0","0b0: Idle character bit count starts after start bit."],["ILT_1","0b1: Idle character bit count starts after stop bit."]]});

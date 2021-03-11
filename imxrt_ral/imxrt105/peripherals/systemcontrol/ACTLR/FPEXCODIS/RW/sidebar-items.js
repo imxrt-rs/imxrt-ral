@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FPEXCODIS_0","0b0: Normal operation."],["FPEXCODIS_1","0b1: FPU exception outputs are disabled."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ECCDIS","Enables ECC in the instruction and data cache."],["FORCEWT","Enables Force Write-Through in the data cache."],["SIWT","Shared cacheable-is-WT for data cache. Enables limited cache coherency usage."]]});

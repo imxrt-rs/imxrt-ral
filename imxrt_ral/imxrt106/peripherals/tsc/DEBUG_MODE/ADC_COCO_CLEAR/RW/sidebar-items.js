@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ADC_COCO_CLEAR_0","0b0: No ADC COCO clear"],["ADC_COCO_CLEAR_1","0b1: Set ADC COCO clear"]]});

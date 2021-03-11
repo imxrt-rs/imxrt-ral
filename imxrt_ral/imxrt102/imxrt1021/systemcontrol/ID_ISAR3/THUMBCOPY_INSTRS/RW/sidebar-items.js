@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["THUMBCOPY_INSTRS_0","0b0000: None supported, ARMv7-M unused."],["THUMBCOPY_INSTRS_1","0b0001: Adds support for encoding T1 of the MOV (register) instruction copying from a low register to a low register."]]});
