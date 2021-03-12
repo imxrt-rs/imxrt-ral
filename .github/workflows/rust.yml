@@ -53,11 +53,16 @@ jobs:
           - "imxrt1064"
           # Chip + other features
           #
-          # Only checking this once, assuming that code gen
-          # is consistent across all chips.
+          # A chip that's combined into a chip family...
+          - "imxrt1062,nosync"
           - "imxrt1062,rt"
           - "imxrt1062,rtic"
-          - "imxrt1062,rt,rtic"
+          - "imxrt1062,rt,rtic,nosync"
+          # A chip that's not combined into a family...
+          - "imxrt1021,nosync"
+          - "imxrt1021,rt"
+          - "imxrt1021,rtic"
+          - "imxrt1021,rt,rtic,nosync"
     steps:
     - uses: actions/checkout@v2
     - name: Build for (${{ matrix.feature }}) RAL
