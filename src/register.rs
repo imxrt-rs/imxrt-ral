@@ -11,6 +11,7 @@ use core::cell::UnsafeCell;
 ///
 /// Access to this register must be synchronised; if multiple threads (or the main thread and an
 /// interrupt service routine) are accessing it simultaneously you may encounter data races.
+#[repr(transparent)]
 pub struct RWRegister<T> {
     register: UnsafeCell<T>,
 }
@@ -40,6 +41,7 @@ impl<T: Copy> RWRegister<T> {
 ///
 /// Access to this register must be synchronised; if multiple threads (or the main thread and an
 /// interrupt service routine) are accessing it simultaneously you may encounter data races.
+#[repr(transparent)]
 pub struct UnsafeRWRegister<T> {
     register: UnsafeCell<T>,
 }
@@ -68,6 +70,7 @@ impl<T: Copy> UnsafeRWRegister<T> {
 ///
 /// Access to this register must be synchronised; if multiple threads (or the main thread and an
 /// interrupt service routine) are accessing it simultaneously you may encounter data races.
+#[repr(transparent)]
 pub struct RORegister<T> {
     register: UnsafeCell<T>,
 }
@@ -90,6 +93,7 @@ impl<T: Copy> RORegister<T> {
 ///
 /// Access to this register must be synchronised; if multiple threads (or the main thread and an
 /// interrupt service routine) are accessing it simultaneously you may encounter data races.
+#[repr(transparent)]
 pub struct UnsafeRORegister<T> {
     register: UnsafeCell<T>,
 }
@@ -112,6 +116,7 @@ impl<T: Copy> UnsafeRORegister<T> {
 ///
 /// Access to this register must be synchronised; if multiple threads (or the main thread and an
 /// interrupt service routine) are accessing it simultaneously you may encounter data races.
+#[repr(transparent)]
 pub struct WORegister<T> {
     register: UnsafeCell<T>,
 }
@@ -134,6 +139,7 @@ impl<T: Copy> WORegister<T> {
 ///
 /// Access to this register must be synchronised; if multiple threads (or the main thread and an
 /// interrupt service routine) are accessing it simultaneously you may encounter data races.
+#[repr(transparent)]
 pub struct UnsafeWORegister<T> {
     register: UnsafeCell<T>,
 }
