@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unreleased]
+
+Mark all registers as `#[repr(transparent)]`.
+
 ## [0.4.2] 2021-03-11
 
 This release may let you use `imxrt-ral` without including additional
