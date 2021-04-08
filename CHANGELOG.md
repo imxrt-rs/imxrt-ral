@@ -7,6 +7,10 @@
 register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
 This maintains consistency with the other chip variants.
 
+**BREAKING** This release removes the `cortex_m` module. If you need an API for
+Cortex-M registers, consider using the
+[`cortex-m`][https://crates.io/crates/cortex-m] crate.
+
 Mark all registers as `#[repr(transparent)]`.
 
 ## [0.4.2] 2021-03-11
