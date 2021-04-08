@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+This release removes the `cortex_m` module. If you need an API for Cortex-M
+registers, consider using the [`cortex-m`][https://crates.io/crates/cortex-m]
+crate.
+
 ## [0.4.2] 2021-03-11
 
 This release may let you use `imxrt-ral` without including additional
