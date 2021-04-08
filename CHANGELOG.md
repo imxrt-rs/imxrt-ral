@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+**BREAKING** Undo an SVD patch that renamed the USB module path for 1010,
+1015, and 1020 chips. `imxrt-ral` users on those systems may now find USB
+register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
+This maintains consistency with the other chip variants.
+
 ## [0.4.2] 2021-03-11
 
 This release may let you use `imxrt-ral` without including additional
