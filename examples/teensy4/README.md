@@ -28,7 +28,7 @@ From this directory, use `cargo objcopy` to build a release binary, and output
 a hex file:
 
 ```
-cargo objcopy --target thumbv7em-none-eabihf --release -- -O ihex main.hex
+cargo objcopy --target thumbv7em-none-eabihf --release --bin blink -- -O ihex blink.hex
 ```
 
 Flash the hex file to your Teensy 4!
