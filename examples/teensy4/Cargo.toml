@@ -17,7 +17,7 @@ features = ["imxrt1062", "rt"]
 # on features and requirements.
 [dependencies.cortex-m-rt]
 features = ["device"]
-version = "0.6.13"
+version = "0.7"
 
 # This is an extra dependency that helps us boot the Teensy 4.
 [dependencies.teensy4-fcb]
@@ -26,3 +26,23 @@ version = "0.3.0"
 # A simple panic handler built for the Teensy 4.
 [dependencies.teensy4-panic]
 version = "0.1"
+
+[dependencies.cortex-m-rtic]
+version = "1.0"
+
+[dependencies.cortex-m]
+version = "0.7"
+
+[[bin]]
+name = "blink"
+path = "blink.rs"
+
+[[bin]]
+name = "blink-nosync"
+path = "blink-nosync.rs"
+required-features = ["imxrt-ral/nosync"]
+
+[[bin]]
+name = "rtic-blink"
+path = "rtic-blink.rs"
+required-features = ["imxrt-ral/rtic"]
