@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in FPB"]],"fn":[["release","Release exclusive access to FPB"],["steal","Unsafely steal FPB"],["take","Safe access to FPB"]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in CPB"]],"fn":[["release","Release exclusive access to CPB"],["steal","Unsafely steal CPB"],["take","Safe access to CPB"]]});

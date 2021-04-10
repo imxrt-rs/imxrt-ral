@@ -781,9 +781,7 @@
 <span id="778">778</span>
 <span id="779">779</span>
 <span id="780">780</span>
-<span id="781">781</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">bare_metal</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rt&quot;</span>)]</span>
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
     <span class="kw">fn</span> <span class="ident">DMA0_DMA16</span>();
@@ -1558,11 +1556,12 @@
     <span class="doccomment">/// 157:</span>
     <span class="ident">GPIO6_7_8_9</span> <span class="op">=</span> <span class="number">157</span>,
 }
-<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">bare_metal</span>::<span class="ident">Nr</span> <span class="kw">for</span> <span class="ident">Interrupt</span> {
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">InterruptNumber</span> <span class="kw">for</span> <span class="ident">Interrupt</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">nr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u8</span> {
-        <span class="kw-2">*</span><span class="self">self</span> <span class="kw">as</span> <span class="ident">u8</span>
+    <span class="kw">fn</span> <span class="ident">number</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u16</span> {
+        <span class="self">self</span> <span class="kw">as</span> <span class="ident">u16</span>
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../../";window.currentCrate = "imxrt_ral";</script><script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script><script defer src="../../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral"></div>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script><script defer src="../../../../search-index.js"></script></body></html>

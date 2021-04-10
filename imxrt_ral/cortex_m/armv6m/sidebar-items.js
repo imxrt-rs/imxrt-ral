@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["cpuid","CPUID"],["dcb","Debug Control Block"],["dwt","Data Watchpoint and Trace Unit"],["syst","System Timer"]]});

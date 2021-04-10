@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["cpb","Cache and branch predictor maintenance operations"],["cpuid","CPUID"],["dcb","Debug Control Block"],["dwt","Data Watchpoint and Trace Unit"],["fpb","Flash Patch and Breakpoint Unit"],["itm","Instrumentation Trace Macrocell"],["syst","System Timer"],["tpiu","Trace Port Interface Unit"]]});

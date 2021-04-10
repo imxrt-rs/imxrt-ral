@@ -598,6 +598,12 @@
 <span id="595">595</span>
 <span id="596">596</span>
 <span id="597">597</span>
+<span id="598">598</span>
+<span id="599">599</span>
+<span id="600">600</span>
+<span id="601">601</span>
+<span id="602">602</span>
+<span id="603">603</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">cell</span>::<span class="ident">UnsafeCell</span>;
 
@@ -612,6 +618,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// Access to this register must be synchronised; if multiple threads (or the main thread and an</span>
 <span class="doccomment">/// interrupt service routine) are accessing it simultaneously you may encounter data races.</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">register</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
 }
@@ -641,6 +648,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// Access to this register must be synchronised; if multiple threads (or the main thread and an</span>
 <span class="doccomment">/// interrupt service routine) are accessing it simultaneously you may encounter data races.</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">UnsafeRWRegister</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">register</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
 }
@@ -669,6 +677,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// Access to this register must be synchronised; if multiple threads (or the main thread and an</span>
 <span class="doccomment">/// interrupt service routine) are accessing it simultaneously you may encounter data races.</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RORegister</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">register</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
 }
@@ -691,6 +700,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// Access to this register must be synchronised; if multiple threads (or the main thread and an</span>
 <span class="doccomment">/// interrupt service routine) are accessing it simultaneously you may encounter data races.</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">UnsafeRORegister</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">register</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
 }
@@ -713,6 +723,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// Access to this register must be synchronised; if multiple threads (or the main thread and an</span>
 <span class="doccomment">/// interrupt service routine) are accessing it simultaneously you may encounter data races.</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">WORegister</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">register</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
 }
@@ -735,6 +746,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// Access to this register must be synchronised; if multiple threads (or the main thread and an</span>
 <span class="doccomment">/// interrupt service routine) are accessing it simultaneously you may encounter data races.</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">UnsafeWORegister</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">register</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
 }
@@ -1197,4 +1209,5 @@
     }};
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "imxrt_ral";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="imxrt_ral"></div>
+    <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

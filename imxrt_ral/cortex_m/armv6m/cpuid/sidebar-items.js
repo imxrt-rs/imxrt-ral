@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["CPUID","Raw pointer to CPUID"]],"mod":[["Base","Provides identification information for the processor"],["CPUID","Access functions for the CPUID peripheral instance"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});

@@ -5745,7 +5745,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART1_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -5764,7 +5764,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART1_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART1_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -5847,7 +5847,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART2_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -5866,7 +5866,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART2_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART2_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -5949,7 +5949,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART3_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -5968,7 +5968,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART3_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART3_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -6051,7 +6051,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART4_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -6070,7 +6070,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART4_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART4_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -6153,7 +6153,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART5_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -6172,7 +6172,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART5_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART5_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -6255,7 +6255,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART6_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -6274,7 +6274,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART6_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART6_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -6357,7 +6357,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART7_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -6376,7 +6376,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART7_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART7_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -6459,7 +6459,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART8_TAKEN</span> {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
@@ -6478,7 +6478,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="ident">external_cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
+        <span class="ident">cortex_m</span>::<span class="ident">interrupt</span>::<span class="ident">free</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw">unsafe</span> {
             <span class="kw">if</span> <span class="ident">LPUART8_TAKEN</span> <span class="op">&amp;&amp;</span> <span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span> {
                 <span class="ident">LPUART8_TAKEN</span> <span class="op">=</span> <span class="bool-val">false</span>;
             } <span class="kw">else</span> {
@@ -6511,4 +6511,5 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART8</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x401a0000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../../";window.currentCrate = "imxrt_ral";</script><script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script><script defer src="../../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral"></div>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script><script defer src="../../../../search-index.js"></script></body></html>

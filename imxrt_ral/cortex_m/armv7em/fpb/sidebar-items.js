@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["FPB","Raw pointer to FPB"]],"mod":[["FPB","Access functions for the FPB peripheral instance"]]});

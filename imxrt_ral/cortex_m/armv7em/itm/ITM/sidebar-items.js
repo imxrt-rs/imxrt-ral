@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in ITM"]],"fn":[["release","Release exclusive access to ITM"],["steal","Unsafely steal ITM"],["take","Safe access to ITM"]]});

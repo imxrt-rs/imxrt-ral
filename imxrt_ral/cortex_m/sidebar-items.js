@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["armv6m","Register access layer for armv6m"],["armv7em","Register access layer for armv7em"],["armv7m","Register access layer for armv7m"],["peripherals","Peripherals shared by multiple devices"]]});

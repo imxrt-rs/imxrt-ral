@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["ARMv6M","0b1100: ARMv6-M"]]});
