@@ -447,4 +447,5 @@ impl ::core::ops::Deref for Instance {
     }
 }
 
+#[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
