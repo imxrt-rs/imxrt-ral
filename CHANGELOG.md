@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+**BREAKING** Peripherals that support multiple instances are now unique types.
+This affects APIs that accept instances. See the before and after below for
+more details. Also, consule the `imxrt_ral::usage` module's documentation
+for suggestions on using these unique instances.
+
+```rust
+use imxrt_ral::lpuart;
+
+// Before
+let _: lpuart::Instance = lpuart::LPUART4::take().unwrap();
+
+// After
+use typenum::U4;
+let _: lpuart::Instance<U4> = lpuart::LPUART4::take().unwrap();
+```
+
 **BREAKING** Undo an SVD patch that renamed the USB module path for 1010,
 1015, and 1020 chips. `imxrt-ral` users on those systems may now find USB
 register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
