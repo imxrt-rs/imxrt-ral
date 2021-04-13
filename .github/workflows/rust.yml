@@ -67,6 +67,22 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build for (${{ matrix.feature }}) RAL
       run: cargo build --verbose --features ${{ matrix.feature }}
+
+  # Run unit, documentation tests
+  #
+  # Docs and unit tests might not work for all features. For example,
+  # documentation might assume that the "nosync" feature isn't enabled.
+  test-ral:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        feature:
+          - "imxrt1021"
+          - "imxrt1062"
+          - "imxrt1062,rt,rtic"
+          - "imxrt1021,rt,rtic"
+    steps:
+    - uses: actions/checkout@v2
     - name: Run tests for (${{ matrix.feature }}) RAL
       run: cargo test --verbose --features ${{ matrix.feature }}
 
