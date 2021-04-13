@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+**BREAKING** Peripherals that support multiple instances are now unique types.
+This affects APIs that accept instances. See the before and after below for
+a summary. The usage documentation contains more examples.
+
+```rust
+use imxrt_ral::{ccm, lpuart};
+
+// Before
+let _: lpuart::Instance = lpuart::LPUART4::take().unwrap();
+let _: ccm::Instance = ccm::CCM::take().unwrap();
+
+// After
+let lpuart4: lpuart::Instance<4> = lpuart::LPUART4::take().unwrap();
+// Equivalent:
+let lpuart4: lpuart::LPUART4 = lpuart4;
+
+// Use peripheral names when naming singleton instances:
+let _: ccm::CCM = ccm::CCM::take().unwrap();
+```
+
 **BREAKING** Undo an SVD patch that renamed the USB module path for 1010,
 1015, and 1020 chips. `imxrt-ral` users on those systems may now find USB
 register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
