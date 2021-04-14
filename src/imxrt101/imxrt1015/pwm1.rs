@@ -5256,6 +5256,7 @@ impl ::core::ops::Deref for Instance {
     }
 }
 
+#[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
 
 /// Access functions for the PWM1 peripheral instance
