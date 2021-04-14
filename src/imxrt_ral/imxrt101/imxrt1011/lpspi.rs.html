@@ -1797,6 +1797,7 @@
 <span id="1794">1794</span>
 <span id="1795">1795</span>
 <span id="1796">1796</span>
+<span id="1797">1797</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -3379,6 +3380,7 @@
     }
 }
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
 <span class="doccomment">/// Access functions for the LPSPI1 peripheral instance</span>

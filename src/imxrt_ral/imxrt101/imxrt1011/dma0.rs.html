@@ -6257,6 +6257,7 @@
 <span id="6254">6254</span>
 <span id="6255">6255</span>
 <span id="6256">6256</span>
+<span id="6257">6257</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -12215,6 +12216,7 @@
     }
 }
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
 <span class="doccomment">/// Access functions for the DMA0 peripheral instance</span>

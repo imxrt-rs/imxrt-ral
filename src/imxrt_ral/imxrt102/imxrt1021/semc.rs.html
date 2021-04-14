@@ -3172,6 +3172,7 @@
 <span id="3169">3169</span>
 <span id="3170">3170</span>
 <span id="3171">3171</span>
+<span id="3172">3172</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -6198,6 +6199,7 @@
     }
 }
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
 <span class="doccomment">/// Access functions for the SEMC peripheral instance</span>

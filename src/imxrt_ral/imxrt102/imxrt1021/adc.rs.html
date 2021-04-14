@@ -1084,6 +1084,7 @@
 <span id="1081">1081</span>
 <span id="1082">1082</span>
 <span id="1083">1083</span>
+<span id="1084">1084</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -1941,6 +1942,7 @@
     }
 }
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
 <span class="doccomment">/// Access functions for the ADC1 peripheral instance</span>
