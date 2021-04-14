@@ -819,6 +819,7 @@ class PeripheralPrototype(Node):
             }
         }
 
+        #[cfg(not(feature="nosync"))]
         unsafe impl Send for Instance {}
 
         """

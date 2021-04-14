@@ -3472,6 +3472,7 @@ impl ::core::ops::Deref for Instance {
     }
 }
 
+#[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
 
 /// Access functions for the NVIC peripheral instance

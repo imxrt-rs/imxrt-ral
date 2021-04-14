@@ -4,6 +4,10 @@
 
 Mark all registers as `#[repr(transparent)]`.
 
+Fix builds with the `"nosync"` feature. Use the `"nosync"` feature to disable
+owned peripheral instance. You may only access registers behind the `unsafe`
+API, which directly manipulates global registers.
+
 ## [0.4.2] 2021-03-11
 
 This release may let you use `imxrt-ral` without including additional
