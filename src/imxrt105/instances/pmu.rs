@@ -28,6 +28,7 @@ pub mod PMU {
     const INSTANCE: Instance = Instance {
         addr: 0x400d8000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in PMU

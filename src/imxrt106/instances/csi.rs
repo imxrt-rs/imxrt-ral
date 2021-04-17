@@ -26,6 +26,7 @@ pub mod CSI {
     const INSTANCE: Instance = Instance {
         addr: 0x402bc000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in CSI

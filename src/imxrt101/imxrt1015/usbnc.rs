@@ -21,6 +21,7 @@ pub mod USBNC {
     const INSTANCE: Instance = Instance {
         addr: 0x402e0000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in USBNC

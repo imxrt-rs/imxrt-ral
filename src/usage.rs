@@ -214,3 +214,101 @@
 //!
 //! This approach loses some of the compile-time checks, but may be simpler
 //! for others to use.
+//!
+//! ## `Instance` vs `Instance<N>`
+//!
+//! Design to `Instance` types when you know that there's only one, single instance
+//! of that peripheral across all chips. This simplifies your driver types while still
+//! supporting all i.MX RT chips. The CCM peripheral is an example of a peripheral with
+//! one instance across all i.MX RT chips.
+//!
+//! ```no_run
+//! use imxrt_ral::ccm;
+//!
+//! // A truly single instance already has a default "N" type:
+//! fn new_ccm(_: &ccm::Instance) { /* ... */ }
+//!
+//! // Same as above, but more general (though the generality isn't
+//! // necessary, since there's only one CCM instance)
+//! fn new_ccm_explicit<N>(_: &ccm::Instance<N>) { /* ... */ }
+//!
+//! let ccm = ccm::CCM::take().unwrap();
+//! new_ccm(&ccm);
+//! new_ccm_explicit(&ccm);
+//! ```
+//!
+//! An `Instance` is actually an `Instance<N>` with a default type argument. So, you could
+//! always design to a generic `Instance` type to be explicit, but it's not necessary.
+//!
+//! When there's a chance for a peripheral to have multiple instances across
+//! different chips, favor `Instance<N>` for maximal reuse. Since all instances
+//! are generic, the same function should work no matter how many peripheral
+//! instances exist on your chip. For example, this same function works for 1021
+//! chips -- having only one USB instance -- and 1062 chips -- having two USB instances.
+//!
+//! ```no_run
+//! use imxrt_ral::usb;
+//!
+//! fn new_usb_driver<N>(_: usb::Instance<N>) { /* ... */ }
+//!
+//! #[cfg(feature = "imxrt1021")]
+//! new_usb_driver(usb::USB::take().unwrap());
+//!
+//! #[cfg(feature = "imxrt1062")]
+//! {
+//!     new_usb_driver(usb::USB1::take().unwrap());
+//!     new_usb_driver(usb::USB2::take().unwrap());
+//! }
+//! ```
+//!
+//! When compared to the USB implementation, you would *not* want to use
+//! the default USB `Instance`, since there are chips that have multiple
+//! USB instances:
+//!
+//! ```compile_fail
+//! use imxrt_ral::usb;
+//!
+//! fn new_usb_driver(_: usb::Instance) { /* ... */ }
+//!
+//! #[cfg(feature = "imxrt1062")]
+//! new_usb_driver(usb::USB1::take().unwrap()); // <-- Fails to compile! Instance<U1> != Instance
+//!
+//! #[cfg(feature = "imxrt1021")]
+//! new_usb_driver(usb::USB::take().unwrap()); // <-- Only works here
+//! # #[cfg(feature = "imxrt1021")]
+//! # compile_error!("Forced failure to meet test requirements");
+//! ```
+//!
+//! ## Disable strongly-typed instances
+//!
+//! If you don't want strongly-typed peripheral instances, enable the `nosync` feature.
+//! `nosync` disables all synchronised access functions, like `take()` and `release()`,
+//! as well as all the types associated with that API. `nosync` requires direct, unsafe
+//! access to peripherals. This is "C" mode, where you're responsible for maintaining
+//! synchronization. `nosync` is a negative feature; enabling the feature may cause other
+//! dependencies to break, especially if they rely on owning strongly-typed instances.
+//!
+//! ```
+//! use imxrt_ral::gpio;
+//! use core::sync::atomic::{AtomicBool, Ordering};
+//!
+//! struct GpioDriver {
+//!     gpio: &'static gpio::RegisterBlock,
+//! }
+//!
+//! impl GpioDriver {
+//!     /// Acquire the GPIO1 driver, if it exists
+//!     pub fn gpio1() -> Option<GpioDriver> {
+//!         static TAKEN: AtomicBool = AtomicBool::new(false);
+//!         if !TAKEN.swap(true, Ordering::SeqCst) {
+//!             // Safety: GPIO1 pointes to static memory
+//!             Some(unsafe { Self { gpio: &*gpio::GPIO1 } })
+//!         } else {
+//!             None
+//!         }
+//!     }
+//! }
+//!
+//! let gpio1 = GpioDriver::gpio1().unwrap();
+//! assert!(GpioDriver::gpio1().is_none());
+//! ```

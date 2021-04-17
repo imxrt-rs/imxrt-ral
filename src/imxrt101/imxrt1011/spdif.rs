@@ -23,6 +23,7 @@ pub mod SPDIF {
     const INSTANCE: Instance = Instance {
         addr: 0x401dc000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in SPDIF

@@ -23,6 +23,7 @@ pub mod KPP {
     const INSTANCE: Instance = Instance {
         addr: 0x401fc000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in KPP

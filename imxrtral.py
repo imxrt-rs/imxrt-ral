@@ -115,7 +115,10 @@ TYPENUM_EXPORT = """\
 pub mod consts {
     //! Type-level constants used throughout the API
 
-    pub use typenum::{Unsigned, U1, U2, U3, U4, U5, U6, U7, U8, U9};
+    pub use typenum::{Unsigned, U0, U1, U2, U3, U4, U5, U6, U7, U8, U9};
+
+    /// The instance ID for a peripheral with a single instance
+    pub type SingleInstance = U0;
 }
 """
 
@@ -647,14 +650,12 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             pub type Instance = super::Instance<U{number}>;
             """
-            inst_init = "_inst: ::core::marker::PhantomData,"
         else:
             import_typenum = ""
             typedef = """
             #[cfg(not(feature="nosync"))]
             use super::Instance;
             """
-            inst_init = ""
 
         return f"""
         /// Access functions for the {self.name} peripheral instance
@@ -670,7 +671,7 @@ class PeripheralInstance(Node):
             const INSTANCE: Instance = Instance {{
                 addr: 0x{self.addr:08x},
                 _marker: ::core::marker::PhantomData,
-                {inst_init}
+                _inst: ::core::marker::PhantomData,
             }};
 
             /// Reset values for each field in {self.name}
@@ -774,7 +775,6 @@ class PeripheralPrototype(Node):
         self.registers = []
         self.instances = []
         self.parent_device_names = []
-        self.emit_generic_instance = False
 
     def to_dict(self):
         return {"name": self.name, "desc": self.desc,
@@ -828,26 +828,15 @@ class PeripheralPrototype(Node):
 
     def to_rust_instance(self):
         """Creates an Instance struct for this peripheral."""
-        if self.emit_generic_instance:
-            inst = """pub struct Instance<N> {
-                pub(crate) addr: u32,
-                pub(crate) _marker: PhantomData<*const RegisterBlock>,
-                pub(crate) _inst: PhantomData<N>,
-            }"""
-            send = "unsafe impl<N: Send> Send for Instance<N> {}"
-            impl_deref = "impl<N> ::core::ops::Deref for Instance<N>"
-        else:
-            inst = """pub struct Instance {
-                pub(crate) addr: u32,
-                pub(crate) _marker: PhantomData<*const RegisterBlock>,
-            }"""
-            send = "unsafe impl Send for Instance {}"
-            impl_deref = "impl ::core::ops::Deref for Instance"
         return f"""
         #[cfg(not(feature="nosync"))]
-        {inst}
+        pub struct Instance<N = crate::consts::SingleInstance> {{
+            pub(crate) addr: u32,
+            pub(crate) _marker: PhantomData<*const RegisterBlock>,
+            pub(crate) _inst: PhantomData<N>,
+        }}
         #[cfg(not(feature="nosync"))]
-        {impl_deref} {{
+        impl<N> ::core::ops::Deref for Instance<N> {{
             type Target = RegisterBlock;
             #[inline(always)]
             fn deref(&self) -> &RegisterBlock {{
@@ -856,7 +845,7 @@ class PeripheralPrototype(Node):
         }}
 
         #[cfg(not(feature="nosync"))]
-        {send}
+        unsafe impl<N: Send> Send for Instance<N> {{}}
         """
 
     def to_rust_file(self, path):
@@ -960,7 +949,6 @@ class PeripheralPrototype(Node):
         at least 3 letters long.
         """
         self.instances += other.instances
-        self.emit_generic_instance = True
         for instance in self.instances:
             instance.generic_instance = True
         newname = common_name(self.name, other.name, parent.name)
@@ -1550,7 +1538,6 @@ class Family(Node):
             # Make a new PeripheralPrototype for the family, with no instances
             familyp = PeripheralPrototype(name, p.desc)
             familyp.registers = p.registers
-            familyp.emit_generic_instance = p.emit_generic_instance
             familyp.parent_device_names.append(device.name)
             self.peripherals.append(familyp)
             # Make a link for the primary member

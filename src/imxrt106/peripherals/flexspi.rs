@@ -3709,7 +3709,7 @@ pub struct ResetValues {
     pub LUT63: u32,
 }
 #[cfg(not(feature = "nosync"))]
-pub struct Instance<N> {
+pub struct Instance<N = crate::consts::SingleInstance> {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
     pub(crate) _inst: PhantomData<N>,

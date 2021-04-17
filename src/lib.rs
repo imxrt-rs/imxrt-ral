@@ -36,7 +36,10 @@ pub use crate::register::{UnsafeWORegister, WORegister};
 pub mod consts {
     //! Type-level constants used throughout the API
 
-    pub use typenum::{Unsigned, U1, U2, U3, U4, U5, U6, U7, U8, U9};
+    pub use typenum::{Unsigned, U0, U1, U2, U3, U4, U5, U6, U7, U8, U9};
+
+    /// The instance ID for a peripheral with a single instance
+    pub type SingleInstance = U0;
 }
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
