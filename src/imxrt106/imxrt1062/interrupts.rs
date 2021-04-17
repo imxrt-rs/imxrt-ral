@@ -725,6 +725,7 @@ pub enum Interrupt {
     /// 157:
     GPIO6_7_8_9 = 157,
 }
+#[cfg(target_arch = "arm")]
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline]
     fn number(self) -> u16 {

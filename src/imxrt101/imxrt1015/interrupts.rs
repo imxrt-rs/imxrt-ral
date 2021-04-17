@@ -515,6 +515,7 @@ pub enum Interrupt {
     /// 133:
     TMR1 = 133,
 }
+#[cfg(target_arch = "arm")]
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline]
     fn number(self) -> u16 {

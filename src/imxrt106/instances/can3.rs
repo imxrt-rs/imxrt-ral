@@ -654,7 +654,7 @@ pub mod CAN3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CAN3_TAKEN {
                 None
             } else {
@@ -673,7 +673,7 @@ pub mod CAN3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CAN3_TAKEN && inst.addr == INSTANCE.addr {
                 CAN3_TAKEN = false;
             } else {

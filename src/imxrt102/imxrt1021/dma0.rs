@@ -11286,7 +11286,7 @@ pub mod DMA0 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if DMA0_TAKEN {
                 None
             } else {
@@ -11305,7 +11305,7 @@ pub mod DMA0 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if DMA0_TAKEN && inst.addr == INSTANCE.addr {
                 DMA0_TAKEN = false;
             } else {

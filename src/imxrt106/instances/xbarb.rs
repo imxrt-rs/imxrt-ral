@@ -55,7 +55,7 @@ pub mod XBARB2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if XBARB2_TAKEN {
                 None
             } else {
@@ -74,7 +74,7 @@ pub mod XBARB2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if XBARB2_TAKEN && inst.addr == INSTANCE.addr {
                 XBARB2_TAKEN = false;
             } else {
@@ -153,7 +153,7 @@ pub mod XBARB3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if XBARB3_TAKEN {
                 None
             } else {
@@ -172,7 +172,7 @@ pub mod XBARB3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if XBARB3_TAKEN && inst.addr == INSTANCE.addr {
                 XBARB3_TAKEN = false;
             } else {

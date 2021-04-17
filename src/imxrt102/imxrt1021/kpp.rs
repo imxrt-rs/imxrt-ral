@@ -338,7 +338,7 @@ pub mod KPP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if KPP_TAKEN {
                 None
             } else {
@@ -357,7 +357,7 @@ pub mod KPP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if KPP_TAKEN && inst.addr == INSTANCE.addr {
                 KPP_TAKEN = false;
             } else {

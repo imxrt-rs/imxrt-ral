@@ -25,9 +25,12 @@ no-default-features = true
 default-target = "thumbv7em-none-eabihf"
 
 # Change dependencies in imxrtral.py, not here!
-[dependencies.cortex-m]
+[target.'cfg(target_arch = "arm")'.dependencies.cortex-m]
 version = "0.7.2"
 optional = true
+
+[target.'cfg(not(target_arch = "arm"))'.dependencies]
+once_cell = "1.7.2"
 
 [lib]
 bench = false

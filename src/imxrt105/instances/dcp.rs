@@ -125,7 +125,7 @@ pub mod DCP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if DCP_TAKEN {
                 None
             } else {
@@ -144,7 +144,7 @@ pub mod DCP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if DCP_TAKEN && inst.addr == INSTANCE.addr {
                 DCP_TAKEN = false;
             } else {

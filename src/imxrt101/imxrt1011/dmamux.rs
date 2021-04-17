@@ -345,7 +345,7 @@ pub mod DMAMUX {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if DMAMUX_TAKEN {
                 None
             } else {
@@ -364,7 +364,7 @@ pub mod DMAMUX {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if DMAMUX_TAKEN && inst.addr == INSTANCE.addr {
                 DMAMUX_TAKEN = false;
             } else {

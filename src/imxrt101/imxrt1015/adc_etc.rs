@@ -2057,7 +2057,7 @@ pub mod ADC_ETC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if ADC_ETC_TAKEN {
                 None
             } else {
@@ -2076,7 +2076,7 @@ pub mod ADC_ETC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if ADC_ETC_TAKEN && inst.addr == INSTANCE.addr {
                 ADC_ETC_TAKEN = false;
             } else {

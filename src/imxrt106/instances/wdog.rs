@@ -52,7 +52,7 @@ pub mod WDOG1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if WDOG1_TAKEN {
                 None
             } else {
@@ -71,7 +71,7 @@ pub mod WDOG1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if WDOG1_TAKEN && inst.addr == INSTANCE.addr {
                 WDOG1_TAKEN = false;
             } else {
@@ -147,7 +147,7 @@ pub mod WDOG2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if WDOG2_TAKEN {
                 None
             } else {
@@ -166,7 +166,7 @@ pub mod WDOG2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if WDOG2_TAKEN && inst.addr == INSTANCE.addr {
                 WDOG2_TAKEN = false;
             } else {

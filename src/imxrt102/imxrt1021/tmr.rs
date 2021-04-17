@@ -1621,7 +1621,7 @@ pub mod TMR1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if TMR1_TAKEN {
                 None
             } else {
@@ -1640,7 +1640,7 @@ pub mod TMR1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if TMR1_TAKEN && inst.addr == INSTANCE.addr {
                 TMR1_TAKEN = false;
             } else {
@@ -1764,7 +1764,7 @@ pub mod TMR2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if TMR2_TAKEN {
                 None
             } else {
@@ -1783,7 +1783,7 @@ pub mod TMR2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if TMR2_TAKEN && inst.addr == INSTANCE.addr {
                 TMR2_TAKEN = false;
             } else {

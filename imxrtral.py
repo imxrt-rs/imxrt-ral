@@ -33,10 +33,11 @@ CRATE_LIB_PREAMBLE = """\
 //! modules, but when built for a specific device, only that devices' constants
 //! will be available.
 
-#![no_std]
+#![cfg_attr(target_arch = "arm", no_std)]
 #![allow(clippy::all)]
 
 mod register;
+mod target;
 
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{WORegister, UnsafeWORegister};
@@ -72,9 +73,12 @@ no-default-features = true
 default-target = "thumbv7em-none-eabihf"
 
 # Change dependencies in imxrtral.py, not here!
-[dependencies.cortex-m]
+[target.'cfg(target_arch = "arm")'.dependencies.cortex-m]
 version = "0.7.2"
 optional = true
+
+[target.'cfg(not(target_arch = "arm"))'.dependencies]
+once_cell = "1.7.2"
 
 [lib]
 bench = false
@@ -662,7 +666,7 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub fn take() -> Option<Instance> {{
-                cortex_m::interrupt::free(|_| unsafe {{
+                crate::target::critical_section(|| unsafe {{
                     if {self.name}_TAKEN {{
                         None
                     }} else {{
@@ -681,7 +685,7 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub fn release(inst: Instance) {{
-                cortex_m::interrupt::free(|_| unsafe {{
+                crate::target::critical_section(|| unsafe {{
                     if {self.name}_TAKEN && inst.addr == INSTANCE.addr {{
                         {self.name}_TAKEN = false;
                     }} else {{
@@ -1231,6 +1235,7 @@ class Device(Node):
                 f.write(f"{interrupt.name} = {interrupt.value},\n")
             f.write("}\n")
             f.write("""\
+                #[cfg(target_arch = "arm")]
                 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
                     #[inline]
                     fn number(self) -> u16 {

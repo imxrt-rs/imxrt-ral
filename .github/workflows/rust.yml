@@ -65,14 +65,22 @@ jobs:
           - "imxrt1021,rt,rtic,nosync"
     steps:
     - uses: actions/checkout@v2
-    - name: Build for (${{ matrix.feature }}) RAL
-      run: cargo build --verbose --features ${{ matrix.feature }}
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: thumbv7em-none-eabihf
+        profile: minimal
+    - name: Build for ${{ matrix.feature }} RAL
+      uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --verbose --features ${{ matrix.feature }} --target thumbv7em-none-eabihf
 
-  # Run unit, documentation tests
+  # Run documentation tests
   #
-  # Docs and unit tests might not work for all features. For example,
+  # Doctests might not work for all features. For example,
   # documentation might assume that the "nosync" feature isn't enabled.
-  test-ral:
+  doctest-ral:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -83,8 +91,24 @@ jobs:
           - "imxrt1021,rt,rtic"
     steps:
     - uses: actions/checkout@v2
-    - name: Run tests for (${{ matrix.feature }}) RAL
-      run: cargo test --verbose --features ${{ matrix.feature }}
+    - name: Run doctests for (${{ matrix.feature }}) RAL
+      run: cargo test --doc --verbose --features ${{ matrix.feature }}
+
+  # Run unit, integration tests
+  test-ral:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        feature:
+          - "imxrt1011"
+          - "imxrt1021"
+          - "imxrt1062"
+          - "imxrt1062,nosync"
+          - "imxrt1062,rt,rtic"
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run unit, integration tests for ${{ matrix.feature }}
+      run: cargo test --tests --lib --verbose --features ${{ matrix.feature }}
 
   examples-teensy4:
     runs-on: ubuntu-latest

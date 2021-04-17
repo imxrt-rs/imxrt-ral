@@ -95,7 +95,7 @@ pub mod CCM_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CCM_ANALOG_TAKEN {
                 None
             } else {
@@ -114,7 +114,7 @@ pub mod CCM_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CCM_ANALOG_TAKEN && inst.addr == INSTANCE.addr {
                 CCM_ANALOG_TAKEN = false;
             } else {

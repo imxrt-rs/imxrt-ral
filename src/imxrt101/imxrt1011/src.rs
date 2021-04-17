@@ -668,7 +668,7 @@ pub mod SRC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if SRC_TAKEN {
                 None
             } else {
@@ -687,7 +687,7 @@ pub mod SRC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if SRC_TAKEN && inst.addr == INSTANCE.addr {
                 SRC_TAKEN = false;
             } else {

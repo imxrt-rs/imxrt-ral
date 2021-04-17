@@ -13,10 +13,11 @@
 //! modules, but when built for a specific device, only that devices' constants
 //! will be available.
 
-#![no_std]
+#![cfg_attr(target_arch = "arm", no_std)]
 #![allow(clippy::all)]
 
 mod register;
+mod target;
 
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};

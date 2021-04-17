@@ -3363,7 +3363,7 @@ pub mod SNVS {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if SNVS_TAKEN {
                 None
             } else {
@@ -3382,7 +3382,7 @@ pub mod SNVS {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if SNVS_TAKEN && inst.addr == INSTANCE.addr {
                 SNVS_TAKEN = false;
             } else {

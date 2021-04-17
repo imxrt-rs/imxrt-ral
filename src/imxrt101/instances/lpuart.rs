@@ -61,7 +61,7 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART1_TAKEN {
                 None
             } else {
@@ -80,7 +80,7 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART1_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART1_TAKEN = false;
             } else {
@@ -163,7 +163,7 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART2_TAKEN {
                 None
             } else {
@@ -182,7 +182,7 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART2_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART2_TAKEN = false;
             } else {
@@ -265,7 +265,7 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART3_TAKEN {
                 None
             } else {
@@ -284,7 +284,7 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART3_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART3_TAKEN = false;
             } else {
@@ -367,7 +367,7 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART4_TAKEN {
                 None
             } else {
@@ -386,7 +386,7 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPUART4_TAKEN && inst.addr == INSTANCE.addr {
                 LPUART4_TAKEN = false;
             } else {

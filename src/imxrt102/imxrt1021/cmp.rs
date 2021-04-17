@@ -598,7 +598,7 @@ pub mod CMP1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP1_TAKEN {
                 None
             } else {
@@ -617,7 +617,7 @@ pub mod CMP1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP1_TAKEN && inst.addr == INSTANCE.addr {
                 CMP1_TAKEN = false;
             } else {
@@ -694,7 +694,7 @@ pub mod CMP2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP2_TAKEN {
                 None
             } else {
@@ -713,7 +713,7 @@ pub mod CMP2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP2_TAKEN && inst.addr == INSTANCE.addr {
                 CMP2_TAKEN = false;
             } else {
@@ -790,7 +790,7 @@ pub mod CMP3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP3_TAKEN {
                 None
             } else {
@@ -809,7 +809,7 @@ pub mod CMP3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP3_TAKEN && inst.addr == INSTANCE.addr {
                 CMP3_TAKEN = false;
             } else {
@@ -886,7 +886,7 @@ pub mod CMP4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP4_TAKEN {
                 None
             } else {
@@ -905,7 +905,7 @@ pub mod CMP4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if CMP4_TAKEN && inst.addr == INSTANCE.addr {
                 CMP4_TAKEN = false;
             } else {

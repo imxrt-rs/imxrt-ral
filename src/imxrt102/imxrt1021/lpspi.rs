@@ -1637,7 +1637,7 @@ pub mod LPSPI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI1_TAKEN {
                 None
             } else {
@@ -1656,7 +1656,7 @@ pub mod LPSPI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI1_TAKEN && inst.addr == INSTANCE.addr {
                 LPSPI1_TAKEN = false;
             } else {
@@ -1744,7 +1744,7 @@ pub mod LPSPI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI2_TAKEN {
                 None
             } else {
@@ -1763,7 +1763,7 @@ pub mod LPSPI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI2_TAKEN && inst.addr == INSTANCE.addr {
                 LPSPI2_TAKEN = false;
             } else {
@@ -1851,7 +1851,7 @@ pub mod LPSPI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI3_TAKEN {
                 None
             } else {
@@ -1870,7 +1870,7 @@ pub mod LPSPI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI3_TAKEN && inst.addr == INSTANCE.addr {
                 LPSPI3_TAKEN = false;
             } else {
@@ -1958,7 +1958,7 @@ pub mod LPSPI4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI4_TAKEN {
                 None
             } else {
@@ -1977,7 +1977,7 @@ pub mod LPSPI4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPSPI4_TAKEN && inst.addr == INSTANCE.addr {
                 LPSPI4_TAKEN = false;
             } else {

@@ -608,6 +608,7 @@ pub enum Interrupt {
     /// 141:
     PWM2_FAULT = 141,
 }
+#[cfg(target_arch = "arm")]
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline]
     fn number(self) -> u16 {

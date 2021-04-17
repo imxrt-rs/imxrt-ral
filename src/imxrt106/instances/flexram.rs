@@ -51,7 +51,7 @@ pub mod FLEXRAM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if FLEXRAM_TAKEN {
                 None
             } else {
@@ -70,7 +70,7 @@ pub mod FLEXRAM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if FLEXRAM_TAKEN && inst.addr == INSTANCE.addr {
                 FLEXRAM_TAKEN = false;
             } else {

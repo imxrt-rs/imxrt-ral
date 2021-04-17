@@ -51,7 +51,7 @@ pub mod AIPSTZ1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if AIPSTZ1_TAKEN {
                 None
             } else {
@@ -70,7 +70,7 @@ pub mod AIPSTZ1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if AIPSTZ1_TAKEN && inst.addr == INSTANCE.addr {
                 AIPSTZ1_TAKEN = false;
             } else {
@@ -147,7 +147,7 @@ pub mod AIPSTZ2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if AIPSTZ2_TAKEN {
                 None
             } else {
@@ -166,7 +166,7 @@ pub mod AIPSTZ2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if AIPSTZ2_TAKEN && inst.addr == INSTANCE.addr {
                 AIPSTZ2_TAKEN = false;
             } else {

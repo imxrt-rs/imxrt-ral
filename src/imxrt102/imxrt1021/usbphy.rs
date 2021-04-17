@@ -1762,7 +1762,7 @@ pub mod USBPHY {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if USBPHY_TAKEN {
                 None
             } else {
@@ -1781,7 +1781,7 @@ pub mod USBPHY {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if USBPHY_TAKEN && inst.addr == INSTANCE.addr {
                 USBPHY_TAKEN = false;
             } else {

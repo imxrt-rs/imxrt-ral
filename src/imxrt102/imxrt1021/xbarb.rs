@@ -360,7 +360,7 @@ pub mod XBARB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if XBARB_TAKEN {
                 None
             } else {
@@ -379,7 +379,7 @@ pub mod XBARB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if XBARB_TAKEN && inst.addr == INSTANCE.addr {
                 XBARB_TAKEN = false;
             } else {

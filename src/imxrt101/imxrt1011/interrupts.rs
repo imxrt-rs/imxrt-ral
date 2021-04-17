@@ -357,6 +357,7 @@ pub enum Interrupt {
     /// 79:
     ADC_ETC_ERROR_IRQ = 79,
 }
+#[cfg(target_arch = "arm")]
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline]
     fn number(self) -> u16 {

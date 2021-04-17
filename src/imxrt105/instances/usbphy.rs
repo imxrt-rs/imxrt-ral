@@ -78,7 +78,7 @@ pub mod USBPHY1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if USBPHY1_TAKEN {
                 None
             } else {
@@ -97,7 +97,7 @@ pub mod USBPHY1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if USBPHY1_TAKEN && inst.addr == INSTANCE.addr {
                 USBPHY1_TAKEN = false;
             } else {
@@ -195,7 +195,7 @@ pub mod USBPHY2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if USBPHY2_TAKEN {
                 None
             } else {
@@ -214,7 +214,7 @@ pub mod USBPHY2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if USBPHY2_TAKEN && inst.addr == INSTANCE.addr {
                 USBPHY2_TAKEN = false;
             } else {

@@ -2312,7 +2312,7 @@ pub mod FLEXIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if FLEXIO1_TAKEN {
                 None
             } else {
@@ -2331,7 +2331,7 @@ pub mod FLEXIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if FLEXIO1_TAKEN && inst.addr == INSTANCE.addr {
                 FLEXIO1_TAKEN = false;
             } else {

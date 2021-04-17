@@ -76,7 +76,7 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPI2C1_TAKEN {
                 None
             } else {
@@ -95,7 +95,7 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPI2C1_TAKEN && inst.addr == INSTANCE.addr {
                 LPI2C1_TAKEN = false;
             } else {
@@ -194,7 +194,7 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPI2C2_TAKEN {
                 None
             } else {
@@ -213,7 +213,7 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        cortex_m::interrupt::free(|_| unsafe {
+        crate::target::critical_section(|| unsafe {
             if LPI2C2_TAKEN && inst.addr == INSTANCE.addr {
                 LPI2C2_TAKEN = false;
             } else {
