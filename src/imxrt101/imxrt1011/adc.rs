@@ -861,8 +861,8 @@ impl<N> ::core::ops::Deref for Instance<N> {
 #[cfg(not(feature = "nosync"))]
 unsafe impl<N: Send> Send for Instance<N> {}
 
-/// Access functions for the ADC1 peripheral instance
-pub mod ADC1 {
+/// Access functions for the ADC peripheral instance
+pub mod ADC {
     use super::ResetValues;
 
     #[cfg(not(feature = "nosync"))]
@@ -878,7 +878,7 @@ pub mod ADC1 {
         _inst: ::core::marker::PhantomData,
     };
 
-    /// Reset values for each field in ADC1
+    /// Reset values for each field in ADC
     pub const reset: ResetValues = ResetValues {
         HC0: 0x0000001F,
         HC1: 0x0000001F,
@@ -909,9 +909,9 @@ pub mod ADC1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static ADC1_TAKEN: AtomicBool = AtomicBool::new(false);
+    static ADC_TAKEN: AtomicBool = AtomicBool::new(false);
 
-    /// Safe access to ADC1
+    /// Safe access to ADC
     ///
     /// This function returns `Some(Instance)` if this instance is not
     /// currently taken, and `None` if it is. This ensures that if you
@@ -926,7 +926,7 @@ pub mod ADC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        let taken = ADC1_TAKEN.swap(true, Ordering::SeqCst);
+        let taken = ADC_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
@@ -934,7 +934,7 @@ pub mod ADC1 {
         }
     }
 
-    /// Release exclusive access to ADC1
+    /// Release exclusive access to ADC
     ///
     /// This function allows you to return an `Instance` so that it
     /// is available to `take()` again. This function will panic if
@@ -945,11 +945,11 @@ pub mod ADC1 {
     pub fn release(inst: Instance) {
         assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
 
-        let taken = ADC1_TAKEN.swap(false, Ordering::SeqCst);
+        let taken = ADC_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
 
-    /// Unsafely steal ADC1
+    /// Unsafely steal ADC
     ///
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
@@ -957,12 +957,12 @@ pub mod ADC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        ADC1_TAKEN.store(true, Ordering::SeqCst);
+        ADC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
 
-/// Raw pointer to ADC1
+/// Raw pointer to ADC
 ///
 /// Dereferencing this is unsafe because you are not ensured unique
 /// access to the peripheral, so you may encounter data races with
@@ -971,4 +971,4 @@ pub mod ADC1 {
 ///
 /// This constant is provided for ease of use in unsafe code: you can
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const ADC1: *const RegisterBlock = 0x400c4000 as *const _;
+pub const ADC: *const RegisterBlock = 0x400c4000 as *const _;
