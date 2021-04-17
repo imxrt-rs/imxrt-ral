@@ -23,7 +23,7 @@ pub mod iomuxc_snvs;
 pub use super::instances::ewm;
 pub mod wdog;
 pub use super::instances::rtwdog;
-pub mod adc1;
+pub mod adc;
 pub mod trng;
 pub use super::instances::ccm_analog;
 pub use super::instances::snvs;
@@ -76,7 +76,7 @@ pub struct Peripherals {
     pub WDOG1: wdog::Instance,
     pub WDOG2: wdog::Instance,
     pub RTWDOG: rtwdog::Instance,
-    pub ADC1: adc1::Instance,
+    pub ADC: adc::Instance,
     pub TRNG: trng::Instance,
     pub SNVS: snvs::Instance,
     pub CCM_ANALOG: ccm_analog::Instance,
@@ -144,7 +144,7 @@ impl Peripherals {
             WDOG1: wdog::WDOG1::steal(),
             WDOG2: wdog::WDOG2::steal(),
             RTWDOG: rtwdog::RTWDOG::steal(),
-            ADC1: adc1::ADC1::steal(),
+            ADC: adc::ADC::steal(),
             TRNG: trng::TRNG::steal(),
             SNVS: snvs::SNVS::steal(),
             CCM_ANALOG: ccm_analog::CCM_ANALOG::steal(),
