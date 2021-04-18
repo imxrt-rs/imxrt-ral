@@ -55,8 +55,6 @@ pub use super::instances::gpt;
 pub mod iomuxc;
 pub mod ocotp;
 pub use super::instances::kpp;
-pub use super::instances::systemcontrol;
-pub mod nvic;
 
 #[cfg(all(feature = "rtic", not(feature = "nosync")))]
 #[allow(non_snake_case)]
@@ -119,8 +117,6 @@ pub struct Peripherals {
     pub OCOTP: ocotp::Instance,
     pub IOMUXC: iomuxc::Instance,
     pub KPP: kpp::Instance,
-    pub SystemControl: systemcontrol::Instance,
-    pub NVIC: nvic::Instance,
 }
 
 #[cfg(all(feature = "rtic", feature = "nosync"))]
@@ -189,8 +185,6 @@ impl Peripherals {
             OCOTP: ocotp::OCOTP::steal(),
             IOMUXC: iomuxc::IOMUXC::steal(),
             KPP: kpp::KPP::steal(),
-            SystemControl: systemcontrol::SystemControl::steal(),
-            NVIC: nvic::NVIC::steal(),
         }
     }
 }

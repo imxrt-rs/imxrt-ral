@@ -17,9 +17,6 @@ extern "C" {
     fn DMA14_DMA30();
     fn DMA15_DMA31();
     fn DMA_ERROR();
-    fn CTI0_ERROR();
-    fn CTI1_ERROR();
-    fn CORE();
     fn LPUART1();
     fn LPUART2();
     fn LPUART3();
@@ -49,9 +46,7 @@ extern "C" {
     fn CSU();
     fn DCP();
     fn DCP_VMI();
-    fn Reserved68();
     fn TRNG();
-    fn SJC();
     fn BEE();
     fn SAI1();
     fn SAI2();
@@ -59,7 +54,6 @@ extern "C" {
     fn SAI3_TX();
     fn SPDIF();
     fn PMU_EVENT();
-    fn Reserved78();
     fn TEMP_LOW_HIGH();
     fn TEMP_PANIC();
     fn USB_PHY1();
@@ -67,8 +61,6 @@ extern "C" {
     fn ADC1();
     fn ADC2();
     fn DCDC();
-    fn Reserved86();
-    fn Reserved87();
     fn GPIO1_INT0();
     fn GPIO1_INT1();
     fn GPIO1_INT2();
@@ -96,7 +88,6 @@ extern "C" {
     fn CCM_2();
     fn GPC();
     fn SRC();
-    fn Reserved115();
     fn GPT1();
     fn GPT2();
     fn PWM1_0();
@@ -124,8 +115,6 @@ extern "C" {
     fn ACMP2();
     fn ACMP3();
     fn ACMP4();
-    fn Reserved143();
-    fn Reserved144();
     fn ENC1();
     fn ENC2();
     fn ENC3();
@@ -152,7 +141,6 @@ extern "C" {
     fn ENET2();
     fn ENET2_1588_Timer();
     fn CAN3();
-    fn Reserved171();
     fn FLEXIO3();
     fn GPIO6_7_8_9();
 }
@@ -219,13 +207,9 @@ pub static __INTERRUPTS: [Vector; 158] = [
     Vector {
         _handler: DMA_ERROR,
     },
-    Vector {
-        _handler: CTI0_ERROR,
-    },
-    Vector {
-        _handler: CTI1_ERROR,
-    },
-    Vector { _handler: CORE },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: LPUART1 },
     Vector { _handler: LPUART2 },
     Vector { _handler: LPUART3 },
@@ -264,11 +248,9 @@ pub static __INTERRUPTS: [Vector; 158] = [
     Vector { _handler: CSU },
     Vector { _handler: DCP },
     Vector { _handler: DCP_VMI },
-    Vector {
-        _handler: Reserved68,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: TRNG },
-    Vector { _handler: SJC },
+    Vector { _reserved: 0 },
     Vector { _handler: BEE },
     Vector { _handler: SAI1 },
     Vector { _handler: SAI2 },
@@ -278,9 +260,7 @@ pub static __INTERRUPTS: [Vector; 158] = [
     Vector {
         _handler: PMU_EVENT,
     },
-    Vector {
-        _handler: Reserved78,
-    },
+    Vector { _reserved: 0 },
     Vector {
         _handler: TEMP_LOW_HIGH,
     },
@@ -292,12 +272,8 @@ pub static __INTERRUPTS: [Vector; 158] = [
     Vector { _handler: ADC1 },
     Vector { _handler: ADC2 },
     Vector { _handler: DCDC },
-    Vector {
-        _handler: Reserved86,
-    },
-    Vector {
-        _handler: Reserved87,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector {
         _handler: GPIO1_INT0,
     },
@@ -361,9 +337,7 @@ pub static __INTERRUPTS: [Vector; 158] = [
     Vector { _handler: CCM_2 },
     Vector { _handler: GPC },
     Vector { _handler: SRC },
-    Vector {
-        _handler: Reserved115,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: GPT1 },
     Vector { _handler: GPT2 },
     Vector { _handler: PWM1_0 },
@@ -407,12 +381,8 @@ pub static __INTERRUPTS: [Vector; 158] = [
     Vector { _handler: ACMP2 },
     Vector { _handler: ACMP3 },
     Vector { _handler: ACMP4 },
-    Vector {
-        _handler: Reserved143,
-    },
-    Vector {
-        _handler: Reserved144,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: ENC1 },
     Vector { _handler: ENC2 },
     Vector { _handler: ENC3 },
@@ -447,9 +417,7 @@ pub static __INTERRUPTS: [Vector; 158] = [
         _handler: ENET2_1588_Timer,
     },
     Vector { _handler: CAN3 },
-    Vector {
-        _handler: Reserved171,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: FLEXIO3 },
     Vector {
         _handler: GPIO6_7_8_9,
@@ -495,12 +463,6 @@ pub enum Interrupt {
     DMA15_DMA31 = 15,
     /// 16:
     DMA_ERROR = 16,
-    /// 17:
-    CTI0_ERROR = 17,
-    /// 18:
-    CTI1_ERROR = 18,
-    /// 19:
-    CORE = 19,
     /// 20:
     LPUART1 = 20,
     /// 21:
@@ -543,7 +505,7 @@ pub enum Interrupt {
     KPP = 39,
     /// 40:
     TSC_DIG = 40,
-    /// 41:
+    /// 41: GPR (aka "GPC") interrupt request
     GPR_IRQ = 41,
     /// 45:
     WDOG2 = 45,
@@ -559,12 +521,8 @@ pub enum Interrupt {
     DCP = 50,
     /// 51:
     DCP_VMI = 51,
-    /// 52:
-    Reserved68 = 52,
     /// 53:
     TRNG = 53,
-    /// 54:
-    SJC = 54,
     /// 55:
     BEE = 55,
     /// 56:
@@ -579,8 +537,6 @@ pub enum Interrupt {
     SPDIF = 60,
     /// 61:
     PMU_EVENT = 61,
-    /// 62:
-    Reserved78 = 62,
     /// 63:
     TEMP_LOW_HIGH = 63,
     /// 64:
@@ -595,10 +551,6 @@ pub enum Interrupt {
     ADC2 = 68,
     /// 69:
     DCDC = 69,
-    /// 70:
-    Reserved86 = 70,
-    /// 71:
-    Reserved87 = 71,
     /// 72:
     GPIO1_INT0 = 72,
     /// 73:
@@ -653,8 +605,6 @@ pub enum Interrupt {
     GPC = 97,
     /// 98:
     SRC = 98,
-    /// 99:
-    Reserved115 = 99,
     /// 100:
     GPT1 = 100,
     /// 101:
@@ -709,10 +659,6 @@ pub enum Interrupt {
     ACMP3 = 125,
     /// 126:
     ACMP4 = 126,
-    /// 127:
-    Reserved143 = 127,
-    /// 128:
-    Reserved144 = 128,
     /// 129:
     ENC1 = 129,
     /// 130:
@@ -765,8 +711,6 @@ pub enum Interrupt {
     ENET2_1588_Timer = 153,
     /// 154:
     CAN3 = 154,
-    /// 155:
-    Reserved171 = 155,
     /// 156:
     FLEXIO3 = 156,
     /// 157:

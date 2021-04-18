@@ -58,8 +58,6 @@ pub mod usb;
 pub mod usbnc;
 pub mod xbara;
 pub mod xbarb;
-pub use super::instances::systemcontrol;
-pub mod nvic;
 
 #[cfg(all(feature = "rtic", not(feature = "nosync")))]
 #[allow(non_snake_case)]
@@ -129,8 +127,6 @@ pub struct Peripherals {
     pub BEE: bee::Instance,
     pub LPI2C1: lpi2c::Instance,
     pub LPI2C2: lpi2c::Instance,
-    pub SystemControl: systemcontrol::Instance,
-    pub NVIC: nvic::Instance,
 }
 
 #[cfg(all(feature = "rtic", feature = "nosync"))]
@@ -206,8 +202,6 @@ impl Peripherals {
             BEE: bee::BEE::steal(),
             LPI2C1: lpi2c::LPI2C1::steal(),
             LPI2C2: lpi2c::LPI2C2::steal(),
-            SystemControl: systemcontrol::SystemControl::steal(),
-            NVIC: nvic::NVIC::steal(),
         }
     }
 }

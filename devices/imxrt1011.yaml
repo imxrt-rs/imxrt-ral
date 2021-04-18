@@ -6,3 +6,10 @@ _include:
   - "common_patches/usb.yaml"
   - "common_patches/dma0/tcd_cluster.yaml"
 
+# See common_patches/xbara.yaml for similar
+# corrections for all other chips
+XBARA:
+  _add:
+    _interrupts:
+      XBAR1_IRQ_0_1_2_3:
+        value: 62

@@ -17,9 +17,6 @@ extern "C" {
     fn DMA14_DMA30();
     fn DMA15_DMA31();
     fn DMA_ERROR();
-    fn CTI0_ERROR();
-    fn CTI1_ERROR();
-    fn CORE();
     fn LPUART1();
     fn LPUART2();
     fn LPUART3();
@@ -30,11 +27,7 @@ extern "C" {
     fn LPSPI2();
     fn FLEXRAM();
     fn KPP();
-    fn Reserved56();
     fn GPR_IRQ();
-    fn Reserved58();
-    fn Reserved59();
-    fn Reserved60();
     fn WDOG2();
     fn SNVS_HP_WRAPPER();
     fn SNVS_HP_WRAPPER_TZ();
@@ -42,7 +35,6 @@ extern "C" {
     fn CSU();
     fn DCP();
     fn DCP_VMI();
-    fn Reserved68();
     fn TRNG();
     fn BEE();
     fn SAI1();
@@ -51,15 +43,11 @@ extern "C" {
     fn SAI3_TX();
     fn SPDIF();
     fn PMU();
-    fn Reserved78();
     fn TEMP_LOW_HIGH();
     fn TEMP_PANIC();
     fn USB_PHY();
-    fn Reserved82();
     fn ADC1();
     fn DCDC();
-    fn Reserved86();
-    fn Reserved87();
     fn GPIO1_INT0();
     fn GPIO1_INT1();
     fn GPIO1_INT2();
@@ -74,12 +62,9 @@ extern "C" {
     fn GPIO2_Combined_16_31();
     fn GPIO3_Combined_0_15();
     fn GPIO3_Combined_16_31();
-    fn Reserved102();
-    fn Reserved103();
     fn GPIO5_Combined_0_15();
     fn GPIO5_Combined_16_31();
     fn FLEXIO1();
-    fn Reserved107();
     fn WDOG1();
     fn RTWDOG();
     fn EWM();
@@ -87,7 +72,6 @@ extern "C" {
     fn CCM_2();
     fn GPC();
     fn SRC();
-    fn Reserved115();
     fn GPT1();
     fn GPT2();
     fn PWM1_0();
@@ -95,9 +79,7 @@ extern "C" {
     fn PWM1_2();
     fn PWM1_3();
     fn PWM1_FAULT();
-    fn Reserved123();
     fn FLEXSPI();
-    fn Reserved128();
     fn USB_OTG1();
     fn XBAR1_IRQ_0_1();
     fn XBAR1_IRQ_2_3();
@@ -106,11 +88,7 @@ extern "C" {
     fn ADC_ETC_IRQ2();
     fn ADC_ETC_ERROR_IRQ();
     fn PIT();
-    fn Reserved143();
-    fn Reserved144();
     fn ENC1();
-    fn Reserved147();
-    fn Reserved148();
     fn TMR1();
 }
 
@@ -176,13 +154,9 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector {
         _handler: DMA_ERROR,
     },
-    Vector {
-        _handler: CTI0_ERROR,
-    },
-    Vector {
-        _handler: CTI1_ERROR,
-    },
-    Vector { _handler: CORE },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: LPUART1 },
     Vector { _handler: LPUART2 },
     Vector { _handler: LPUART3 },
@@ -203,19 +177,11 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector { _reserved: 0 },
     Vector { _handler: FLEXRAM },
     Vector { _handler: KPP },
-    Vector {
-        _handler: Reserved56,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: GPR_IRQ },
-    Vector {
-        _handler: Reserved58,
-    },
-    Vector {
-        _handler: Reserved59,
-    },
-    Vector {
-        _handler: Reserved60,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: WDOG2 },
     Vector {
         _handler: SNVS_HP_WRAPPER,
@@ -229,9 +195,7 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector { _handler: CSU },
     Vector { _handler: DCP },
     Vector { _handler: DCP_VMI },
-    Vector {
-        _handler: Reserved68,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: TRNG },
     Vector { _reserved: 0 },
     Vector { _handler: BEE },
@@ -241,9 +205,7 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector { _handler: SAI3_TX },
     Vector { _handler: SPDIF },
     Vector { _handler: PMU },
-    Vector {
-        _handler: Reserved78,
-    },
+    Vector { _reserved: 0 },
     Vector {
         _handler: TEMP_LOW_HIGH,
     },
@@ -251,18 +213,12 @@ pub static __INTERRUPTS: [Vector; 134] = [
         _handler: TEMP_PANIC,
     },
     Vector { _handler: USB_PHY },
-    Vector {
-        _handler: Reserved82,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: ADC1 },
     Vector { _reserved: 0 },
     Vector { _handler: DCDC },
-    Vector {
-        _handler: Reserved86,
-    },
-    Vector {
-        _handler: Reserved87,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector {
         _handler: GPIO1_INT0,
     },
@@ -305,12 +261,8 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector {
         _handler: GPIO3_Combined_16_31,
     },
-    Vector {
-        _handler: Reserved102,
-    },
-    Vector {
-        _handler: Reserved103,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector {
         _handler: GPIO5_Combined_0_15,
     },
@@ -318,9 +270,7 @@ pub static __INTERRUPTS: [Vector; 134] = [
         _handler: GPIO5_Combined_16_31,
     },
     Vector { _handler: FLEXIO1 },
-    Vector {
-        _handler: Reserved107,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: WDOG1 },
     Vector { _handler: RTWDOG },
     Vector { _handler: EWM },
@@ -328,9 +278,7 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector { _handler: CCM_2 },
     Vector { _handler: GPC },
     Vector { _handler: SRC },
-    Vector {
-        _handler: Reserved115,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: GPT1 },
     Vector { _handler: GPT2 },
     Vector { _handler: PWM1_0 },
@@ -340,16 +288,12 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector {
         _handler: PWM1_FAULT,
     },
-    Vector {
-        _handler: Reserved123,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: FLEXSPI },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
-    Vector {
-        _handler: Reserved128,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: USB_OTG1 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
@@ -376,20 +320,12 @@ pub static __INTERRUPTS: [Vector; 134] = [
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
-    Vector {
-        _handler: Reserved143,
-    },
-    Vector {
-        _handler: Reserved144,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: ENC1 },
     Vector { _reserved: 0 },
-    Vector {
-        _handler: Reserved147,
-    },
-    Vector {
-        _handler: Reserved148,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: TMR1 },
 ];
 
@@ -432,12 +368,6 @@ pub enum Interrupt {
     DMA15_DMA31 = 15,
     /// 16:
     DMA_ERROR = 16,
-    /// 17:
-    CTI0_ERROR = 17,
-    /// 18:
-    CTI1_ERROR = 18,
-    /// 19:
-    CORE = 19,
     /// 20:
     LPUART1 = 20,
     /// 21:
@@ -458,16 +388,8 @@ pub enum Interrupt {
     FLEXRAM = 38,
     /// 39:
     KPP = 39,
-    /// 40:
-    Reserved56 = 40,
-    /// 41:
+    /// 41: GPR (aka "GPC") interrupt request
     GPR_IRQ = 41,
-    /// 42:
-    Reserved58 = 42,
-    /// 43:
-    Reserved59 = 43,
-    /// 44:
-    Reserved60 = 44,
     /// 45:
     WDOG2 = 45,
     /// 46:
@@ -482,8 +404,6 @@ pub enum Interrupt {
     DCP = 50,
     /// 51:
     DCP_VMI = 51,
-    /// 52:
-    Reserved68 = 52,
     /// 53:
     TRNG = 53,
     /// 55:
@@ -500,24 +420,16 @@ pub enum Interrupt {
     SPDIF = 60,
     /// 61:
     PMU = 61,
-    /// 62:
-    Reserved78 = 62,
     /// 63:
     TEMP_LOW_HIGH = 63,
     /// 64:
     TEMP_PANIC = 64,
     /// 65:
     USB_PHY = 65,
-    /// 66:
-    Reserved82 = 66,
     /// 67:
     ADC1 = 67,
     /// 69:
     DCDC = 69,
-    /// 70:
-    Reserved86 = 70,
-    /// 71:
-    Reserved87 = 71,
     /// 72:
     GPIO1_INT0 = 72,
     /// 73:
@@ -546,18 +458,12 @@ pub enum Interrupt {
     GPIO3_Combined_0_15 = 84,
     /// 85:
     GPIO3_Combined_16_31 = 85,
-    /// 86:
-    Reserved102 = 86,
-    /// 87:
-    Reserved103 = 87,
     /// 88:
     GPIO5_Combined_0_15 = 88,
     /// 89:
     GPIO5_Combined_16_31 = 89,
     /// 90:
     FLEXIO1 = 90,
-    /// 91:
-    Reserved107 = 91,
     /// 92:
     WDOG1 = 92,
     /// 93:
@@ -572,8 +478,6 @@ pub enum Interrupt {
     GPC = 97,
     /// 98:
     SRC = 98,
-    /// 99:
-    Reserved115 = 99,
     /// 100:
     GPT1 = 100,
     /// 101:
@@ -588,12 +492,8 @@ pub enum Interrupt {
     PWM1_3 = 105,
     /// 106:
     PWM1_FAULT = 106,
-    /// 107:
-    Reserved123 = 107,
     /// 108:
     FLEXSPI = 108,
-    /// 112:
-    Reserved128 = 112,
     /// 113:
     USB_OTG1 = 113,
     /// 116:
@@ -610,16 +510,8 @@ pub enum Interrupt {
     ADC_ETC_ERROR_IRQ = 121,
     /// 122:
     PIT = 122,
-    /// 127:
-    Reserved143 = 127,
-    /// 128:
-    Reserved144 = 128,
     /// 129:
     ENC1 = 129,
-    /// 131:
-    Reserved147 = 131,
-    /// 132:
-    Reserved148 = 132,
     /// 133:
     TMR1 = 133,
 }

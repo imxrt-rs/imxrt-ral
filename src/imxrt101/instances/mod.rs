@@ -42,6 +42,3 @@ pub mod gpt;
 
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod kpp;
-
-#[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
-pub mod systemcontrol;

@@ -58,12 +58,10 @@ pub use super::instances::enc;
 pub use super::instances::enet;
 pub use super::instances::lpi2c;
 pub use super::instances::lpspi;
-pub use super::instances::nvic;
 pub use super::instances::pwm;
 pub use super::instances::sai;
 pub use super::instances::semc;
 pub use super::instances::spdif;
-pub use super::instances::systemcontrol;
 pub use super::instances::usb;
 pub use super::instances::usbnc;
 pub use super::instances::usdhc;
@@ -177,8 +175,6 @@ pub struct Peripherals {
     pub LPI2C2: lpi2c::Instance,
     pub LPI2C3: lpi2c::Instance,
     pub LPI2C4: lpi2c::Instance,
-    pub SystemControl: systemcontrol::Instance,
-    pub NVIC: nvic::Instance,
 }
 
 #[cfg(all(feature = "rtic", feature = "nosync"))]
@@ -293,8 +289,6 @@ impl Peripherals {
             LPI2C2: lpi2c::LPI2C2::steal(),
             LPI2C3: lpi2c::LPI2C3::steal(),
             LPI2C4: lpi2c::LPI2C4::steal(),
-            SystemControl: systemcontrol::SystemControl::steal(),
-            NVIC: nvic::NVIC::steal(),
         }
     }
 }

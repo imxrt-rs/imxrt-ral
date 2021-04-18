@@ -1,2 +1,9 @@
 _include:
   - "common_patches/dedup_security_config_enum.yaml"
+  - "common_patches/iomuxc_gpr.yaml"
+
+# Remove CM7 NVIC and SCB, which are broken out
+# as i.MX RT peripherals
+_delete:
+  - NVIC
+  - SystemControl

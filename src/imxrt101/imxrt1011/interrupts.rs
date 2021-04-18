@@ -17,9 +17,6 @@ extern "C" {
     fn DMA14();
     fn DMA15();
     fn DMA_ERROR();
-    fn CTI0_ERROR();
-    fn CTI1_ERROR();
-    fn CORE();
     fn LPUART1();
     fn LPUART2();
     fn LPUART3();
@@ -52,10 +49,7 @@ extern "C" {
     fn CSU();
     fn DCP();
     fn DCP_VMI();
-    fn Reserved68();
     fn TRNG();
-    fn Reserved70();
-    fn Reserved71();
     fn SAI1();
     fn RTWDOG();
     fn SAI3_RX();
@@ -112,13 +106,9 @@ pub static __INTERRUPTS: [Vector; 80] = [
     Vector {
         _handler: DMA_ERROR,
     },
-    Vector {
-        _handler: CTI0_ERROR,
-    },
-    Vector {
-        _handler: CTI1_ERROR,
-    },
-    Vector { _handler: CORE },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: LPUART1 },
     Vector { _handler: LPUART2 },
     Vector { _handler: LPUART3 },
@@ -159,16 +149,10 @@ pub static __INTERRUPTS: [Vector; 80] = [
     Vector { _handler: CSU },
     Vector { _handler: DCP },
     Vector { _handler: DCP_VMI },
-    Vector {
-        _handler: Reserved68,
-    },
+    Vector { _reserved: 0 },
     Vector { _handler: TRNG },
-    Vector {
-        _handler: Reserved70,
-    },
-    Vector {
-        _handler: Reserved71,
-    },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _handler: SAI1 },
     Vector { _handler: RTWDOG },
     Vector { _handler: SAI3_RX },
@@ -258,12 +242,6 @@ pub enum Interrupt {
     DMA15 = 15,
     /// 16:
     DMA_ERROR = 16,
-    /// 17:
-    CTI0_ERROR = 17,
-    /// 18:
-    CTI1_ERROR = 18,
-    /// 19:
-    CORE = 19,
     /// 20:
     LPUART1 = 20,
     /// 21:
@@ -306,7 +284,7 @@ pub enum Interrupt {
     KPP = 39,
     /// 40:
     SRC = 40,
-    /// 41:
+    /// 41: GPR (aka "GPC") interrupt request
     GPR_IRQ = 41,
     /// 42:
     CCM_1 = 42,
@@ -328,14 +306,8 @@ pub enum Interrupt {
     DCP = 50,
     /// 51:
     DCP_VMI = 51,
-    /// 52:
-    Reserved68 = 52,
     /// 53:
     TRNG = 53,
-    /// 54:
-    Reserved70 = 54,
-    /// 55:
-    Reserved71 = 55,
     /// 56:
     SAI1 = 56,
     /// 57:

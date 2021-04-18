@@ -1,0 +1,12 @@
+# Associate the GPR interrupt with the IOMUXC_GPR
+# peripheral. It was previously provided by the
+# NVIC peripheral definition.
+IOMUXC_GPR:
+  _add:
+    _interrupts:
+      # Note: this is denoted as "GPC" in the 1060 reference
+      # manual. We prefer the "GPR" name, following the
+      # peripheral name and what's listed in NVIC.
+      GPR_IRQ:
+        description: GPR (aka "GPC") interrupt request
+        value: 41

@@ -1,0 +1,12 @@
+# Associate XBAR interrupts with the two crossbars
+# These previously provided by the NVIC peripheral definition.
+#
+# Applies to all SVDs, except the 1011. See the 1011 patches for
+# a similar correction.
+"XBARA*":
+  _add:
+    _interrupts:
+      XBAR1_IRQ_0_1:
+        value: 116
+      XBAR1_IRQ_2_3:
+        value: 117

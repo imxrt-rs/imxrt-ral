@@ -165,9 +165,3 @@ pub mod bee;
 
 #[cfg(any(feature = "doc", feature = "imxrt1051", feature = "imxrt1052"))]
 pub mod lpi2c;
-
-#[cfg(any(feature = "doc", feature = "imxrt1051", feature = "imxrt1052"))]
-pub mod systemcontrol;
-
-#[cfg(any(feature = "doc", feature = "imxrt1051", feature = "imxrt1052"))]
-pub mod nvic;

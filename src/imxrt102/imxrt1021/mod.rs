@@ -39,7 +39,6 @@ pub mod kpp;
 pub mod lpi2c;
 pub mod lpspi;
 pub mod lpuart;
-pub mod nvic;
 pub mod ocotp;
 pub mod pgc;
 pub mod pit;
@@ -52,7 +51,6 @@ pub mod semc;
 pub mod snvs;
 pub mod spdif;
 pub mod src;
-pub mod systemcontrol;
 pub mod tempmon;
 pub mod tmr;
 pub mod trng;
@@ -156,8 +154,6 @@ pub struct Peripherals {
     pub LPI2C2: lpi2c::Instance,
     pub LPI2C3: lpi2c::Instance,
     pub LPI2C4: lpi2c::Instance,
-    pub SystemControl: systemcontrol::Instance,
-    pub NVIC: nvic::Instance,
 }
 
 #[cfg(all(feature = "rtic", feature = "nosync"))]
@@ -255,8 +251,6 @@ impl Peripherals {
             LPI2C2: lpi2c::LPI2C2::steal(),
             LPI2C3: lpi2c::LPI2C3::steal(),
             LPI2C4: lpi2c::LPI2C4::steal(),
-            SystemControl: systemcontrol::SystemControl::steal(),
-            NVIC: nvic::NVIC::steal(),
         }
     }
 }

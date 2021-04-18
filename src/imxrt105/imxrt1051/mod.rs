@@ -39,7 +39,6 @@ pub use super::instances::kpp;
 pub use super::instances::lpi2c;
 pub use super::instances::lpspi;
 pub use super::instances::lpuart;
-pub use super::instances::nvic;
 pub use super::instances::ocotp;
 pub use super::instances::pgc;
 pub use super::instances::pit;
@@ -52,7 +51,6 @@ pub use super::instances::semc;
 pub use super::instances::snvs;
 pub use super::instances::spdif;
 pub use super::instances::src;
-pub use super::instances::systemcontrol;
 pub use super::instances::tempmon;
 pub use super::instances::tmr;
 pub use super::instances::trng;
@@ -171,8 +169,6 @@ pub struct Peripherals {
     pub LPI2C2: lpi2c::Instance,
     pub LPI2C3: lpi2c::Instance,
     pub LPI2C4: lpi2c::Instance,
-    pub SystemControl: systemcontrol::Instance,
-    pub NVIC: nvic::Instance,
 }
 
 #[cfg(all(feature = "rtic", feature = "nosync"))]
@@ -284,8 +280,6 @@ impl Peripherals {
             LPI2C2: lpi2c::LPI2C2::steal(),
             LPI2C3: lpi2c::LPI2C3::steal(),
             LPI2C4: lpi2c::LPI2C4::steal(),
-            SystemControl: systemcontrol::SystemControl::steal(),
-            NVIC: nvic::NVIC::steal(),
         }
     }
 }
