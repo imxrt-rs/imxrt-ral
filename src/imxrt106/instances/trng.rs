@@ -27,6 +27,10 @@ pub mod TRNG {
     const INSTANCE: Instance = Instance {
         addr: 0x400cc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::TRNG],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in TRNG
@@ -134,6 +138,16 @@ pub mod TRNG {
         TRNG_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with TRNG
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TRNG];
+
+    /// The interrupts associated with TRNG
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to TRNG

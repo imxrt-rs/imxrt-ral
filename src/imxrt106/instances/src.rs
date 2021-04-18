@@ -24,6 +24,10 @@ pub mod SRC {
     const INSTANCE: Instance = Instance {
         addr: 0x400f8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::SRC],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SRC
@@ -99,6 +103,16 @@ pub mod SRC {
         SRC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SRC
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SRC];
+
+    /// The interrupts associated with SRC
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SRC

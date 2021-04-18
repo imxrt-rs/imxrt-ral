@@ -28,6 +28,10 @@ pub mod SEMC {
     const INSTANCE: Instance = Instance {
         addr: 0x402f0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::SEMC],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SEMC
@@ -144,6 +148,16 @@ pub mod SEMC {
         SEMC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SEMC
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SEMC];
+
+    /// The interrupts associated with SEMC
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SEMC

@@ -2195,6 +2195,7 @@ pub struct ResetValues {
 pub struct Instance {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
 impl ::core::ops::Deref for Instance {
@@ -2207,6 +2208,20 @@ impl ::core::ops::Deref for Instance {
 
 #[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
+
+#[cfg(not(feature = "nosync"))]
+impl Instance {
+    /// Return the interrupt signals associated with this
+    /// peripheral instance
+    ///
+    /// Collection may be empty if there is no interrupt signal
+    /// associated with the peripheral. There's no guarantee for
+    /// interrupt signal ordering in the collection.
+    #[inline(always)]
+    pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+        self.intrs
+    }
+}
 
 /// Access functions for the SAI1 peripheral instance
 pub mod SAI1 {
@@ -2221,6 +2236,10 @@ pub mod SAI1 {
     const INSTANCE: Instance = Instance {
         addr: 0x40384000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::SAI1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SAI1
@@ -2314,6 +2333,16 @@ pub mod SAI1 {
         SAI1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SAI1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SAI1];
+
+    /// The interrupts associated with SAI1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SAI1
@@ -2340,6 +2369,10 @@ pub mod SAI2 {
     const INSTANCE: Instance = Instance {
         addr: 0x40388000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::SAI2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SAI2
@@ -2433,6 +2466,16 @@ pub mod SAI2 {
         SAI2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SAI2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SAI2];
+
+    /// The interrupts associated with SAI2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SAI2
@@ -2459,6 +2502,10 @@ pub mod SAI3 {
     const INSTANCE: Instance = Instance {
         addr: 0x4038c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::SAI3_RX, crate::interrupt::SAI3_TX],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SAI3
@@ -2552,6 +2599,17 @@ pub mod SAI3 {
         SAI3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SAI3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] =
+        [crate::interrupt::SAI3_RX, crate::interrupt::SAI3_TX];
+
+    /// The interrupts associated with SAI3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SAI3

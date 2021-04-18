@@ -41,6 +41,23 @@ mod register;
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{WORegister, UnsafeWORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};
+
+#[cfg(feature = "doc")]
+/// Interrupt sources
+///
+/// This enum is empty when generating documentation.
+/// To see the specific interrupts for your chip, see
+/// the `Interrupt` type in your chip-specific module, like
+///
+/// - [`imxrt101::imxrt1011::Interrupt`](imxrt101::imxrt1011::Interrupt)
+/// - [`imxrt106::imxrt1062::Interrupt`](imxrt106::imxrt1062::Interrupt)
+/// - etc
+///
+/// `Interrupt` resolves to those values when building the RAL for
+/// your chip.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Interrupt {}
+
 """
 
 
@@ -609,10 +626,11 @@ class PeripheralInstance(Node):
     Has a name and base address.
     Belongs to a parent PeripheralPrototype.
     """
-    def __init__(self, name, addr, reset_values):
+    def __init__(self, name, addr, reset_values, intrs):
         self.name = name
         self.addr = addr
         self.reset_values = reset_values
+        self.intrs = intrs
 
     def to_dict(self):
         return {"name": self.name, "addr": self.addr,
@@ -622,6 +640,13 @@ class PeripheralInstance(Node):
         registers = {r.offset: r.name for r in registers}
         resets = ", ".join(
             f"{registers[k]}: 0x{v:08X}" for k, v in self.reset_values.items())
+        if self.intrs:
+            variants = [f"crate::interrupt::{intr}" for intr in self.intrs]
+            intrs = f"[{', '.join(variants)}]"
+            num_intrs = len(self.intrs)
+        else:
+            intrs = "[]"
+            num_intrs = 0
         return f"""
         /// Access functions for the {self.name} peripheral instance
         pub mod {self.name} {{
@@ -636,6 +661,10 @@ class PeripheralInstance(Node):
             const INSTANCE: Instance = Instance {{
                 addr: 0x{self.addr:08x},
                 _marker: ::core::marker::PhantomData,
+                #[cfg(not(feature = "doc"))]
+                intrs: &{intrs},
+                #[cfg(feature = "doc")]
+                intrs: &[],
             }};
 
             /// Reset values for each field in {self.name}
@@ -698,6 +727,16 @@ class PeripheralInstance(Node):
                 {self.name}_TAKEN.store(true, Ordering::SeqCst);
                 INSTANCE
             }}
+
+            /// The interrupts associated with {self.name}
+            #[cfg(not(feature = "doc"))]
+            pub const INTERRUPTS: [crate::Interrupt; {num_intrs}] = {intrs};
+
+            /// The interrupts associated with {self.name}
+            ///
+            /// Note: the values are invalid for a documentation build.
+            #[cfg(feature = "doc")]
+            pub const INTERRUPTS: [crate::Interrupt; 0] = [];
         }}
 
         /// Raw pointer to {self.name}
@@ -797,6 +836,7 @@ class PeripheralPrototype(Node):
         pub struct Instance {
             pub(crate) addr: u32,
             pub(crate) _marker: PhantomData<*const RegisterBlock>,
+            pub(crate) intrs: &'static [crate::Interrupt],
         }
         #[cfg(not(feature="nosync"))]
         impl ::core::ops::Deref for Instance {
@@ -810,6 +850,19 @@ class PeripheralPrototype(Node):
         #[cfg(not(feature="nosync"))]
         unsafe impl Send for Instance {}
 
+        #[cfg(not(feature = "nosync"))]
+        impl Instance {
+            /// Return the interrupt signals associated with this
+            /// peripheral instance
+            ///
+            /// Collection may be empty if there is no interrupt signal
+            /// associated with the peripheral. There's no guarantee for
+            /// interrupt signal ordering in the collection.
+            #[inline(always)]
+            pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+                self.intrs
+            }
+        }
         """
 
     def to_rust_file(self, path):
@@ -872,6 +925,7 @@ class PeripheralPrototype(Node):
         name = get_string(node, 'name')
         addr = get_int(node, 'baseAddress')
         desc = get_string(node, 'description')
+        intrs = get_interrupts(node)
         registers = node.find('registers')
         if 'derivedFrom' in node.attrib:
             df = node.attrib['derivedFrom']
@@ -898,7 +952,7 @@ class PeripheralPrototype(Node):
                         reg = Register.from_svd(svd, dimr, ctx)
                         peripheral.registers.append(reg)
         resets = {r.offset: r.reset_value for r in peripheral.registers}
-        peripheral.instances.append(PeripheralInstance(name, addr, resets))
+        peripheral.instances.append(PeripheralInstance(name, addr, resets, intrs))
         return peripheral
 
     def consume(self, other, parent):
@@ -1219,7 +1273,7 @@ class Device(Node):
 
                 /// Available interrupts for this device
                 #[repr(u8)]
-                #[derive(Clone,Copy)]
+                #[derive(Clone, Copy, PartialEq, Eq, Debug)]
                 #[allow(non_camel_case_types)]
                 pub enum Interrupt {{""")
             for interrupt in self.interrupts:
@@ -1653,6 +1707,13 @@ def get_string(node, tag, default=None):
     if text == default:
         return text
     return " ".join(text.split())
+
+
+def get_interrupts(node):
+    """Returns the interrupt signal name(s) associated with the
+    peripheral
+    """
+    return [intr.find("name").text for intr in node.findall("interrupt")]
 
 
 def expand_dim(node):

@@ -26,6 +26,10 @@ pub mod USBPHY {
     const INSTANCE: Instance = Instance {
         addr: 0x400d9000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::USB_PHY],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USBPHY
@@ -114,6 +118,16 @@ pub mod USBPHY {
         USBPHY_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USBPHY
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USB_PHY];
+
+    /// The interrupts associated with USBPHY
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USBPHY

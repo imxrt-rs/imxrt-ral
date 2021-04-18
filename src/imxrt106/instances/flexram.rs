@@ -22,6 +22,10 @@ pub mod FLEXRAM {
     const INSTANCE: Instance = Instance {
         addr: 0x400b0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::FLEXRAM],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in FLEXRAM
@@ -87,6 +91,16 @@ pub mod FLEXRAM {
         FLEXRAM_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with FLEXRAM
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXRAM];
+
+    /// The interrupts associated with FLEXRAM
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to FLEXRAM

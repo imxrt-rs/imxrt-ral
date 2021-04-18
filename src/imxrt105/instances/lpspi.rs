@@ -24,6 +24,10 @@ pub mod LPSPI1 {
     const INSTANCE: Instance = Instance {
         addr: 0x40394000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPSPI1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI1
@@ -102,6 +106,16 @@ pub mod LPSPI1 {
         LPSPI1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPSPI1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPSPI1];
+
+    /// The interrupts associated with LPSPI1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPSPI1
@@ -128,6 +142,10 @@ pub mod LPSPI2 {
     const INSTANCE: Instance = Instance {
         addr: 0x40398000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPSPI2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI2
@@ -206,6 +224,16 @@ pub mod LPSPI2 {
         LPSPI2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPSPI2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPSPI2];
+
+    /// The interrupts associated with LPSPI2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPSPI2
@@ -232,6 +260,10 @@ pub mod LPSPI3 {
     const INSTANCE: Instance = Instance {
         addr: 0x4039c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPSPI3],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI3
@@ -310,6 +342,16 @@ pub mod LPSPI3 {
         LPSPI3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPSPI3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPSPI3];
+
+    /// The interrupts associated with LPSPI3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPSPI3
@@ -336,6 +378,10 @@ pub mod LPSPI4 {
     const INSTANCE: Instance = Instance {
         addr: 0x403a0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPSPI4],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI4
@@ -414,6 +460,16 @@ pub mod LPSPI4 {
         LPSPI4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPSPI4
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPSPI4];
+
+    /// The interrupts associated with LPSPI4
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPSPI4

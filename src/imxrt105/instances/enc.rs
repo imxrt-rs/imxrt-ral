@@ -25,6 +25,10 @@ pub mod ENC1 {
     const INSTANCE: Instance = Instance {
         addr: 0x403c8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::ENC1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ENC1
@@ -106,6 +110,16 @@ pub mod ENC1 {
         ENC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ENC1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC1];
+
+    /// The interrupts associated with ENC1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ENC1
@@ -132,6 +146,10 @@ pub mod ENC2 {
     const INSTANCE: Instance = Instance {
         addr: 0x403cc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::ENC2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ENC2
@@ -213,6 +231,16 @@ pub mod ENC2 {
         ENC2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ENC2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC2];
+
+    /// The interrupts associated with ENC2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ENC2
@@ -239,6 +267,10 @@ pub mod ENC3 {
     const INSTANCE: Instance = Instance {
         addr: 0x403d0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::ENC3],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ENC3
@@ -320,6 +352,16 @@ pub mod ENC3 {
         ENC3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ENC3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC3];
+
+    /// The interrupts associated with ENC3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ENC3
@@ -346,6 +388,10 @@ pub mod ENC4 {
     const INSTANCE: Instance = Instance {
         addr: 0x403d4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::ENC4],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ENC4
@@ -427,6 +473,16 @@ pub mod ENC4 {
         ENC4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ENC4
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC4];
+
+    /// The interrupts associated with ENC4
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ENC4

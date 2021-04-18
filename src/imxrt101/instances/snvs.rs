@@ -28,6 +28,14 @@ pub mod SNVS {
     const INSTANCE: Instance = Instance {
         addr: 0x400d4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::SNVS_HP_WRAPPER,
+            crate::interrupt::SNVS_HP_WRAPPER_TZ,
+            crate::interrupt::SNVS_LP_WRAPPER,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SNVS
@@ -133,6 +141,20 @@ pub mod SNVS {
         SNVS_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SNVS
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 3] = [
+        crate::interrupt::SNVS_HP_WRAPPER,
+        crate::interrupt::SNVS_HP_WRAPPER_TZ,
+        crate::interrupt::SNVS_LP_WRAPPER,
+    ];
+
+    /// The interrupts associated with SNVS
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SNVS

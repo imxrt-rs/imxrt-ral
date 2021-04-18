@@ -22,6 +22,13 @@ pub mod GPIO1 {
     const INSTANCE: Instance = Instance {
         addr: 0x401b8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::GPIO1_Combined_0_15,
+            crate::interrupt::GPIO1_Combined_16_31,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO1
@@ -94,6 +101,19 @@ pub mod GPIO1 {
         GPIO1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] = [
+        crate::interrupt::GPIO1_Combined_0_15,
+        crate::interrupt::GPIO1_Combined_16_31,
+    ];
+
+    /// The interrupts associated with GPIO1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO1
@@ -120,6 +140,10 @@ pub mod GPIO2 {
     const INSTANCE: Instance = Instance {
         addr: 0x42000000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::GPIO2_Combined_0_15],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO2
@@ -192,6 +216,16 @@ pub mod GPIO2 {
         GPIO2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO2_Combined_0_15];
+
+    /// The interrupts associated with GPIO2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO2
@@ -218,6 +252,10 @@ pub mod GPIO5 {
     const INSTANCE: Instance = Instance {
         addr: 0x400c0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::GPIO5_Combined_0_15],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO5
@@ -290,6 +328,16 @@ pub mod GPIO5 {
         GPIO5_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO5
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO5_Combined_0_15];
+
+    /// The interrupts associated with GPIO5
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO5

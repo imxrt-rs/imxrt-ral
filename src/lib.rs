@@ -21,6 +21,23 @@ mod register;
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};
 pub use crate::register::{UnsafeWORegister, WORegister};
+
+#[cfg(feature = "doc")]
+/// Interrupt sources
+///
+/// This enum is empty when generating documentation.
+/// To see the specific interrupts for your chip, see
+/// the `Interrupt` type in your chip-specific module, like
+///
+/// - [`imxrt101::imxrt1011::Interrupt`](imxrt101::imxrt1011::Interrupt)
+/// - [`imxrt106::imxrt1062::Interrupt`](imxrt106::imxrt1062::Interrupt)
+/// - etc
+///
+/// `Interrupt` resolves to those values when building the RAL for
+/// your chip.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Interrupt {}
+
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
 

@@ -26,6 +26,10 @@ pub mod IOMUXC_SNVS {
     const INSTANCE: Instance = Instance {
         addr: 0x400a8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in IOMUXC_SNVS
@@ -96,6 +100,16 @@ pub mod IOMUXC_SNVS {
         IOMUXC_SNVS_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with IOMUXC_SNVS
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with IOMUXC_SNVS
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to IOMUXC_SNVS

@@ -1517,6 +1517,7 @@ pub struct ResetValues {
 pub struct Instance {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
 impl ::core::ops::Deref for Instance {
@@ -1529,6 +1530,20 @@ impl ::core::ops::Deref for Instance {
 
 #[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
+
+#[cfg(not(feature = "nosync"))]
+impl Instance {
+    /// Return the interrupt signals associated with this
+    /// peripheral instance
+    ///
+    /// Collection may be empty if there is no interrupt signal
+    /// associated with the peripheral. There's no guarantee for
+    /// interrupt signal ordering in the collection.
+    #[inline(always)]
+    pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+        self.intrs
+    }
+}
 
 /// Access functions for the TMR1 peripheral instance
 pub mod TMR1 {
@@ -1543,6 +1558,10 @@ pub mod TMR1 {
     const INSTANCE: Instance = Instance {
         addr: 0x401dc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::TMR1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in TMR1
@@ -1657,6 +1676,16 @@ pub mod TMR1 {
         TMR1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with TMR1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR1];
+
+    /// The interrupts associated with TMR1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to TMR1
@@ -1683,6 +1712,10 @@ pub mod TMR2 {
     const INSTANCE: Instance = Instance {
         addr: 0x401e0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::TMR2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in TMR2
@@ -1797,6 +1830,16 @@ pub mod TMR2 {
         TMR2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with TMR2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR2];
+
+    /// The interrupts associated with TMR2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to TMR2

@@ -3268,6 +3268,7 @@ pub struct ResetValues {
 pub struct Instance {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
 impl ::core::ops::Deref for Instance {
@@ -3280,6 +3281,20 @@ impl ::core::ops::Deref for Instance {
 
 #[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
+
+#[cfg(not(feature = "nosync"))]
+impl Instance {
+    /// Return the interrupt signals associated with this
+    /// peripheral instance
+    ///
+    /// Collection may be empty if there is no interrupt signal
+    /// associated with the peripheral. There's no guarantee for
+    /// interrupt signal ordering in the collection.
+    #[inline(always)]
+    pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+        self.intrs
+    }
+}
 
 /// Access functions for the SNVS peripheral instance
 pub mod SNVS {
@@ -3294,6 +3309,14 @@ pub mod SNVS {
     const INSTANCE: Instance = Instance {
         addr: 0x400d4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::SNVS_HP_WRAPPER,
+            crate::interrupt::SNVS_HP_WRAPPER_TZ,
+            crate::interrupt::SNVS_LP_WRAPPER,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in SNVS
@@ -3399,6 +3422,20 @@ pub mod SNVS {
         SNVS_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with SNVS
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 3] = [
+        crate::interrupt::SNVS_HP_WRAPPER,
+        crate::interrupt::SNVS_HP_WRAPPER_TZ,
+        crate::interrupt::SNVS_LP_WRAPPER,
+    ];
+
+    /// The interrupts associated with SNVS
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to SNVS

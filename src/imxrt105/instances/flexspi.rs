@@ -37,6 +37,10 @@ pub mod FLEXSPI {
     const INSTANCE: Instance = Instance {
         addr: 0x402a8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::FLEXSPI],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in FLEXSPI
@@ -264,6 +268,16 @@ pub mod FLEXSPI {
         FLEXSPI_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with FLEXSPI
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXSPI];
+
+    /// The interrupts associated with FLEXSPI
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to FLEXSPI

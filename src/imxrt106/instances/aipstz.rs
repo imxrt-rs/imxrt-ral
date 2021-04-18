@@ -22,6 +22,10 @@ pub mod AIPSTZ1 {
     const INSTANCE: Instance = Instance {
         addr: 0x4007c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in AIPSTZ1
@@ -89,6 +93,16 @@ pub mod AIPSTZ1 {
         AIPSTZ1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with AIPSTZ1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with AIPSTZ1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to AIPSTZ1
@@ -115,6 +129,10 @@ pub mod AIPSTZ2 {
     const INSTANCE: Instance = Instance {
         addr: 0x4017c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in AIPSTZ2
@@ -182,6 +200,16 @@ pub mod AIPSTZ2 {
         AIPSTZ2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with AIPSTZ2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with AIPSTZ2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to AIPSTZ2
@@ -208,6 +236,10 @@ pub mod AIPSTZ3 {
     const INSTANCE: Instance = Instance {
         addr: 0x4027c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in AIPSTZ3
@@ -275,6 +307,16 @@ pub mod AIPSTZ3 {
         AIPSTZ3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with AIPSTZ3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with AIPSTZ3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to AIPSTZ3
@@ -301,6 +343,10 @@ pub mod AIPSTZ4 {
     const INSTANCE: Instance = Instance {
         addr: 0x4037c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in AIPSTZ4
@@ -368,6 +414,16 @@ pub mod AIPSTZ4 {
         AIPSTZ4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with AIPSTZ4
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with AIPSTZ4
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to AIPSTZ4

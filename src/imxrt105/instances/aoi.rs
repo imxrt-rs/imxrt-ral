@@ -24,6 +24,10 @@ pub mod AOI1 {
     const INSTANCE: Instance = Instance {
         addr: 0x403b4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in AOI1
@@ -93,6 +97,16 @@ pub mod AOI1 {
         AOI1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with AOI1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with AOI1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to AOI1
@@ -119,6 +133,10 @@ pub mod AOI2 {
     const INSTANCE: Instance = Instance {
         addr: 0x403b8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in AOI2
@@ -188,6 +206,16 @@ pub mod AOI2 {
         AOI2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with AOI2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with AOI2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to AOI2

@@ -38,6 +38,10 @@ pub mod FLEXIO1 {
     const INSTANCE: Instance = Instance {
         addr: 0x401ac000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::FLEXIO1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in FLEXIO1
@@ -207,6 +211,16 @@ pub mod FLEXIO1 {
         FLEXIO1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with FLEXIO1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXIO1];
+
+    /// The interrupts associated with FLEXIO1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to FLEXIO1

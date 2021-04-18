@@ -5246,6 +5246,7 @@ pub struct ResetValues {
 pub struct Instance {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
 impl ::core::ops::Deref for Instance {
@@ -5258,6 +5259,20 @@ impl ::core::ops::Deref for Instance {
 
 #[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
+
+#[cfg(not(feature = "nosync"))]
+impl Instance {
+    /// Return the interrupt signals associated with this
+    /// peripheral instance
+    ///
+    /// Collection may be empty if there is no interrupt signal
+    /// associated with the peripheral. There's no guarantee for
+    /// interrupt signal ordering in the collection.
+    #[inline(always)]
+    pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+        self.intrs
+    }
+}
 
 /// Access functions for the PWM1 peripheral instance
 pub mod PWM1 {
@@ -5272,6 +5287,16 @@ pub mod PWM1 {
     const INSTANCE: Instance = Instance {
         addr: 0x403dc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::PWM1_0,
+            crate::interrupt::PWM1_1,
+            crate::interrupt::PWM1_2,
+            crate::interrupt::PWM1_3,
+            crate::interrupt::PWM1_FAULT,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in PWM1
@@ -5516,6 +5541,22 @@ pub mod PWM1 {
         PWM1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with PWM1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 5] = [
+        crate::interrupt::PWM1_0,
+        crate::interrupt::PWM1_1,
+        crate::interrupt::PWM1_2,
+        crate::interrupt::PWM1_3,
+        crate::interrupt::PWM1_FAULT,
+    ];
+
+    /// The interrupts associated with PWM1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to PWM1
