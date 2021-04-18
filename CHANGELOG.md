@@ -7,9 +7,10 @@
 register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
 This maintains consistency with the other chip variants.
 
-**BREAKING** This release removes the `cortex_m` module. If you need an API for
-Cortex-M registers, consider using the
-[`cortex-m`][https://crates.io/crates/cortex-m] crate.
+**BREAKING** This release removes the `cortex_m` module.  Additionally, this
+release removes the NVIC and SystemControl peripherals, which were available
+under chip-specific modules. If you need an API for Cortex-M registers,
+consider using the [`cortex-m`][https://crates.io/crates/cortex-m] crate.
 
 **BREAKING** The RAL depends on `cortex-m`, version `0.7`. All `Interrupt`
 enumerations now implement `cortex_m::interrupt::InterruptNumber`, instead
