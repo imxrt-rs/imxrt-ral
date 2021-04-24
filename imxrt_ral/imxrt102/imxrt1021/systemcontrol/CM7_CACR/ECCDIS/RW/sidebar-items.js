@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["ECCDIS_0","0b0: Enables ECC in the instruction and data cache."],["ECCDIS_1","0b1: Disables ECC in the instruction and data cache."]]});

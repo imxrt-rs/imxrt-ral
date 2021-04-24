@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["VECTRESET_0","0b0: No change"],["VECTRESET_1","0b1: Causes a local system reset"]]});

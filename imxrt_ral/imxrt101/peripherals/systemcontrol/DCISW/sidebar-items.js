@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["DCISW","D-cache invalidate by set-way"]]});

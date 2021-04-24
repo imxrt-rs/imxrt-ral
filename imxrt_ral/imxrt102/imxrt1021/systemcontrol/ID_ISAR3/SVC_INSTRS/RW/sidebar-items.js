@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["SVC_INSTRS_0","0b0000: None supported, ARMv7-M unused."],["SVC_INSTRS_1","0b0001: Adds support for the SVC instruction."]]});

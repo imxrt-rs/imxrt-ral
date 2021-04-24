@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["WT_0","0b0: Feature not supported"],["WT_1","0b1: Feature supported"]]});

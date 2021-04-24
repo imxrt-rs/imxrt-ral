@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["NVIC","Raw pointer to NVIC"]],"mod":[["NVIC","Access functions for the NVIC peripheral instance"]]});

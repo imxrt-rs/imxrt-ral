@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["DISBTACALLOC_0","0b0: Normal operation."],["DISBTACALLOC_1","0b1: No new entries are allocated in Branch Target Address Cache (BTAC), but existing entries can be updated."]]});

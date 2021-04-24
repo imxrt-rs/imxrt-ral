@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["ID_MMFR1","Gives information about the implemented memory model and memory management support."]]});

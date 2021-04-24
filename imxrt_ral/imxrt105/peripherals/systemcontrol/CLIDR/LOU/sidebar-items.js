@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["mask","Mask (3 bits: 0b111 << 27)"],["offset","Offset (27 bits)"]],"mod":[["R","Read-only values (empty)"],["RW","Read-write values"],["W","Write-only values (empty)"]]});

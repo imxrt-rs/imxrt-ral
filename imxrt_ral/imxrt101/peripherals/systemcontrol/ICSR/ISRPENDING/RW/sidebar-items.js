@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["ISRPENDING_0","0b0: No external interrupt pending."],["ISRPENDING_1","0b1: External interrupt pending."]]});

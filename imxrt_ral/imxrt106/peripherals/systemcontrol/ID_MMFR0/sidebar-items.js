@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["AUXILIARY_REGISTERS","Indicates the support for Auxiliary registers"],["OUTERMOST_SHAREABILITY","Indicates the outermost shareability domain implemented"],["PMSASUPPORT","Indicates support for a PMSA"],["SHAREABILITY_LEVELS","Indicates the number of shareability levels implemented"],["TCM_SUPPORT","Indicates the support for Tightly Coupled Memory"]]});

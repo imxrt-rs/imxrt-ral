@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["UNALIGN_TRP_0","0b0: do not trap unaligned halfword and word accesses"],["UNALIGN_TRP_1","0b1: trap unaligned halfword and word accesses"]]});

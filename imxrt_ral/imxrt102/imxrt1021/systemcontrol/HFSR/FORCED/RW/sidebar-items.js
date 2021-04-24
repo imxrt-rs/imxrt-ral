@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["FORCED_0","0b0: no forced HardFault"],["FORCED_1","0b1: forced HardFault"]]});

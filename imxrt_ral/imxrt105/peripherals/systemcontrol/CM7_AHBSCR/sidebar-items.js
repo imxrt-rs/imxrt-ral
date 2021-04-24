@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["CTL","AHBS prioritization control."],["INITCOUNT","Fairness counter initialization value."],["TPRI","Threshold execution priority for AHBS traffic demotion."]]});

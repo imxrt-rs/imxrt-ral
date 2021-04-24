@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["EN_0","0b0: AHBP disabled. When disabled all accesses are made to the AXIM interface."],["EN_1","0b1: AHBP enabled."]]});

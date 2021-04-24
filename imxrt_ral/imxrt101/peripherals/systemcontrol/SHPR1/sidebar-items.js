@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["PRI_4","Priority of system handler 4, MemManage"],["PRI_5","Priority of system handler 5, BusFault"],["PRI_6","Priority of system handler 6, UsageFault"]]});

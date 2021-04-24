@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["IND","Instruction not data bit"],["LEVEL","Cache level of required cache"]]});

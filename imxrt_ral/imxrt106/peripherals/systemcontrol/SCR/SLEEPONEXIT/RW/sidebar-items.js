@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["SLEEPONEXIT_0","0b0: o not sleep when returning to Thread mode"],["SLEEPONEXIT_1","0b1: enter sleep, or deep sleep, on return from an ISR"]]});

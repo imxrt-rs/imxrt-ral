@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["MEMFAULTENA_0","0b0: disable the exception"],["MEMFAULTENA_1","0b1: enable the exception"]]});

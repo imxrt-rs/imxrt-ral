@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["AUXILIARY_REGISTERS_0","0b0000: Not supported"],["AUXILIARY_REGISTERS_1","0b0001: Support for Auxiliary Control Register only."],["AUXILIARY_REGISTERS_2","0b0010: ARMv7-M unused"]]});

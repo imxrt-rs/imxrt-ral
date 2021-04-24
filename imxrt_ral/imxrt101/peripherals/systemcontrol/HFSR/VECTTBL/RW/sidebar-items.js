@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["VECTTBL_0","0b0: no BusFault on vector table read"],["VECTTBL_1","0b1: BusFault on vector table read"]]});

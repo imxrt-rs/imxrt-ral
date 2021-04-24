@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["DEBUG_INSTRS_0","0b0000: None supported, ARMv7-M unused"],["DEBUG_INSTRS_1","0b0001: Adds support for the BKPT instruction"]]});

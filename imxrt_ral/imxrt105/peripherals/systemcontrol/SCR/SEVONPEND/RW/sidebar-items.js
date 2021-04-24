@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["SEVONPEND_0","0b0: only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded"],["SEVONPEND_1","0b1: enabled events and all interrupts, including disabled interrupts, can wakeup the processor"]]});

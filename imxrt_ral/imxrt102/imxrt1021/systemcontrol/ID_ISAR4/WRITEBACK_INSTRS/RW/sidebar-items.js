@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["WRITEBACK_INSTRS_0","0b0000: Basic support. Only the LDM, STM, PUSH, and POP instructions support writeback addressing modes. ARMv7-M unused."],["WRITEBACK_INSTRS_1","0b0001: Adds support for all of the writeback addressing modes defined in the ARMv7-M architecture."]]});

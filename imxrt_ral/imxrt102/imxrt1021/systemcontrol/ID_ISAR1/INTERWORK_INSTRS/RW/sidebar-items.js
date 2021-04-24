@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERWORK_INSTRS_0","0b0000: None supported, ARMv7-M unused"],["INTERWORK_INSTRS_1","0b0001: Adds support for the BX instruction, and the T bit in the PSR"],["INTERWORK_INSTRS_2","0b0010: As for 1, and adds support for the BLX instruction, and PC loads have BX-like behavior"],["INTERWORK_INSTRS_3","0b0011: ARMv7-M unused"]]});

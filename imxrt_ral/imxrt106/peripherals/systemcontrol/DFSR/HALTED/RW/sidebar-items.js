@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["HALTED_0","0b0: No active halt request debug event"],["HALTED_1","0b1: Halt request debug event active"]]});

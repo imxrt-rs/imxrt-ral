@@ -734,62 +734,6 @@
 <span id="731">731</span>
 <span id="732">732</span>
 <span id="733">733</span>
-<span id="734">734</span>
-<span id="735">735</span>
-<span id="736">736</span>
-<span id="737">737</span>
-<span id="738">738</span>
-<span id="739">739</span>
-<span id="740">740</span>
-<span id="741">741</span>
-<span id="742">742</span>
-<span id="743">743</span>
-<span id="744">744</span>
-<span id="745">745</span>
-<span id="746">746</span>
-<span id="747">747</span>
-<span id="748">748</span>
-<span id="749">749</span>
-<span id="750">750</span>
-<span id="751">751</span>
-<span id="752">752</span>
-<span id="753">753</span>
-<span id="754">754</span>
-<span id="755">755</span>
-<span id="756">756</span>
-<span id="757">757</span>
-<span id="758">758</span>
-<span id="759">759</span>
-<span id="760">760</span>
-<span id="761">761</span>
-<span id="762">762</span>
-<span id="763">763</span>
-<span id="764">764</span>
-<span id="765">765</span>
-<span id="766">766</span>
-<span id="767">767</span>
-<span id="768">768</span>
-<span id="769">769</span>
-<span id="770">770</span>
-<span id="771">771</span>
-<span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rt&quot;</span>)]</span>
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
@@ -810,9 +754,6 @@
     <span class="kw">fn</span> <span class="ident">DMA14_DMA30</span>();
     <span class="kw">fn</span> <span class="ident">DMA15_DMA31</span>();
     <span class="kw">fn</span> <span class="ident">DMA_ERROR</span>();
-    <span class="kw">fn</span> <span class="ident">CTI0_ERROR</span>();
-    <span class="kw">fn</span> <span class="ident">CTI1_ERROR</span>();
-    <span class="kw">fn</span> <span class="ident">CORE</span>();
     <span class="kw">fn</span> <span class="ident">LPUART1</span>();
     <span class="kw">fn</span> <span class="ident">LPUART2</span>();
     <span class="kw">fn</span> <span class="ident">LPUART3</span>();
@@ -845,9 +786,7 @@
     <span class="kw">fn</span> <span class="ident">CSU</span>();
     <span class="kw">fn</span> <span class="ident">DCP</span>();
     <span class="kw">fn</span> <span class="ident">DCP_VMI</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved68</span>();
     <span class="kw">fn</span> <span class="ident">TRNG</span>();
-    <span class="kw">fn</span> <span class="ident">SJC</span>();
     <span class="kw">fn</span> <span class="ident">BEE</span>();
     <span class="kw">fn</span> <span class="ident">SAI1</span>();
     <span class="kw">fn</span> <span class="ident">SAI2</span>();
@@ -855,7 +794,6 @@
     <span class="kw">fn</span> <span class="ident">SAI3_TX</span>();
     <span class="kw">fn</span> <span class="ident">SPDIF</span>();
     <span class="kw">fn</span> <span class="ident">PMU_EVENT</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved78</span>();
     <span class="kw">fn</span> <span class="ident">TEMP_LOW_HIGH</span>();
     <span class="kw">fn</span> <span class="ident">TEMP_PANIC</span>();
     <span class="kw">fn</span> <span class="ident">USB_PHY1</span>();
@@ -863,8 +801,6 @@
     <span class="kw">fn</span> <span class="ident">ADC1</span>();
     <span class="kw">fn</span> <span class="ident">ADC2</span>();
     <span class="kw">fn</span> <span class="ident">DCDC</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved86</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved87</span>();
     <span class="kw">fn</span> <span class="ident">GPIO1_INT0</span>();
     <span class="kw">fn</span> <span class="ident">GPIO1_INT1</span>();
     <span class="kw">fn</span> <span class="ident">GPIO1_INT2</span>();
@@ -892,7 +828,6 @@
     <span class="kw">fn</span> <span class="ident">CCM_2</span>();
     <span class="kw">fn</span> <span class="ident">GPC</span>();
     <span class="kw">fn</span> <span class="ident">SRC</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved115</span>();
     <span class="kw">fn</span> <span class="ident">GPT1</span>();
     <span class="kw">fn</span> <span class="ident">GPT2</span>();
     <span class="kw">fn</span> <span class="ident">PWM1_0</span>();
@@ -920,8 +855,6 @@
     <span class="kw">fn</span> <span class="ident">ACMP2</span>();
     <span class="kw">fn</span> <span class="ident">ACMP3</span>();
     <span class="kw">fn</span> <span class="ident">ACMP4</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved143</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved144</span>();
     <span class="kw">fn</span> <span class="ident">ENC1</span>();
     <span class="kw">fn</span> <span class="ident">ENC2</span>();
     <span class="kw">fn</span> <span class="ident">ENC3</span>();
@@ -948,7 +881,6 @@
     <span class="kw">fn</span> <span class="ident">ENET2</span>();
     <span class="kw">fn</span> <span class="ident">ENET2_1588_Timer</span>();
     <span class="kw">fn</span> <span class="ident">CAN3</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved171</span>();
     <span class="kw">fn</span> <span class="ident">FLEXIO3</span>();
     <span class="kw">fn</span> <span class="ident">GPIO6_7_8_9</span>();
 }
@@ -1015,13 +947,9 @@
     <span class="ident">Vector</span> {
         <span class="ident">_handler</span>: <span class="ident">DMA_ERROR</span>,
     },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">CTI0_ERROR</span>,
-    },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">CTI1_ERROR</span>,
-    },
-    <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">CORE</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">LPUART1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">LPUART2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">LPUART3</span> },
@@ -1060,11 +988,9 @@
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">CSU</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">DCP</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">DCP_VMI</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved68</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">TRNG</span> },
-    <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">SJC</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">BEE</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">SAI1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">SAI2</span> },
@@ -1074,9 +1000,7 @@
     <span class="ident">Vector</span> {
         <span class="ident">_handler</span>: <span class="ident">PMU_EVENT</span>,
     },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved78</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> {
         <span class="ident">_handler</span>: <span class="ident">TEMP_LOW_HIGH</span>,
     },
@@ -1088,12 +1012,8 @@
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ADC1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ADC2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">DCDC</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved86</span>,
-    },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved87</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> {
         <span class="ident">_handler</span>: <span class="ident">GPIO1_INT0</span>,
     },
@@ -1157,9 +1077,7 @@
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">CCM_2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">GPC</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">SRC</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved115</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">GPT1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">GPT2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">PWM1_0</span> },
@@ -1203,12 +1121,8 @@
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ACMP2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ACMP3</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ACMP4</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved143</span>,
-    },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved144</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ENC1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ENC2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">ENC3</span> },
@@ -1243,9 +1157,7 @@
         <span class="ident">_handler</span>: <span class="ident">ENET2_1588_Timer</span>,
     },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">CAN3</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved171</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">FLEXIO3</span> },
     <span class="ident">Vector</span> {
         <span class="ident">_handler</span>: <span class="ident">GPIO6_7_8_9</span>,
@@ -1291,12 +1203,6 @@
     <span class="ident">DMA15_DMA31</span> <span class="op">=</span> <span class="number">15</span>,
     <span class="doccomment">/// 16:</span>
     <span class="ident">DMA_ERROR</span> <span class="op">=</span> <span class="number">16</span>,
-    <span class="doccomment">/// 17:</span>
-    <span class="ident">CTI0_ERROR</span> <span class="op">=</span> <span class="number">17</span>,
-    <span class="doccomment">/// 18:</span>
-    <span class="ident">CTI1_ERROR</span> <span class="op">=</span> <span class="number">18</span>,
-    <span class="doccomment">/// 19:</span>
-    <span class="ident">CORE</span> <span class="op">=</span> <span class="number">19</span>,
     <span class="doccomment">/// 20:</span>
     <span class="ident">LPUART1</span> <span class="op">=</span> <span class="number">20</span>,
     <span class="doccomment">/// 21:</span>
@@ -1339,7 +1245,7 @@
     <span class="ident">KPP</span> <span class="op">=</span> <span class="number">39</span>,
     <span class="doccomment">/// 40:</span>
     <span class="ident">TSC_DIG</span> <span class="op">=</span> <span class="number">40</span>,
-    <span class="doccomment">/// 41:</span>
+    <span class="doccomment">/// 41: GPR (aka &quot;GPC&quot;) interrupt request</span>
     <span class="ident">GPR_IRQ</span> <span class="op">=</span> <span class="number">41</span>,
     <span class="doccomment">/// 42:</span>
     <span class="ident">LCDIF</span> <span class="op">=</span> <span class="number">42</span>,
@@ -1361,12 +1267,8 @@
     <span class="ident">DCP</span> <span class="op">=</span> <span class="number">50</span>,
     <span class="doccomment">/// 51:</span>
     <span class="ident">DCP_VMI</span> <span class="op">=</span> <span class="number">51</span>,
-    <span class="doccomment">/// 52:</span>
-    <span class="ident">Reserved68</span> <span class="op">=</span> <span class="number">52</span>,
     <span class="doccomment">/// 53:</span>
     <span class="ident">TRNG</span> <span class="op">=</span> <span class="number">53</span>,
-    <span class="doccomment">/// 54:</span>
-    <span class="ident">SJC</span> <span class="op">=</span> <span class="number">54</span>,
     <span class="doccomment">/// 55:</span>
     <span class="ident">BEE</span> <span class="op">=</span> <span class="number">55</span>,
     <span class="doccomment">/// 56:</span>
@@ -1381,8 +1283,6 @@
     <span class="ident">SPDIF</span> <span class="op">=</span> <span class="number">60</span>,
     <span class="doccomment">/// 61:</span>
     <span class="ident">PMU_EVENT</span> <span class="op">=</span> <span class="number">61</span>,
-    <span class="doccomment">/// 62:</span>
-    <span class="ident">Reserved78</span> <span class="op">=</span> <span class="number">62</span>,
     <span class="doccomment">/// 63:</span>
     <span class="ident">TEMP_LOW_HIGH</span> <span class="op">=</span> <span class="number">63</span>,
     <span class="doccomment">/// 64:</span>
@@ -1397,10 +1297,6 @@
     <span class="ident">ADC2</span> <span class="op">=</span> <span class="number">68</span>,
     <span class="doccomment">/// 69:</span>
     <span class="ident">DCDC</span> <span class="op">=</span> <span class="number">69</span>,
-    <span class="doccomment">/// 70:</span>
-    <span class="ident">Reserved86</span> <span class="op">=</span> <span class="number">70</span>,
-    <span class="doccomment">/// 71:</span>
-    <span class="ident">Reserved87</span> <span class="op">=</span> <span class="number">71</span>,
     <span class="doccomment">/// 72:</span>
     <span class="ident">GPIO1_INT0</span> <span class="op">=</span> <span class="number">72</span>,
     <span class="doccomment">/// 73:</span>
@@ -1455,8 +1351,6 @@
     <span class="ident">GPC</span> <span class="op">=</span> <span class="number">97</span>,
     <span class="doccomment">/// 98:</span>
     <span class="ident">SRC</span> <span class="op">=</span> <span class="number">98</span>,
-    <span class="doccomment">/// 99:</span>
-    <span class="ident">Reserved115</span> <span class="op">=</span> <span class="number">99</span>,
     <span class="doccomment">/// 100:</span>
     <span class="ident">GPT1</span> <span class="op">=</span> <span class="number">100</span>,
     <span class="doccomment">/// 101:</span>
@@ -1511,10 +1405,6 @@
     <span class="ident">ACMP3</span> <span class="op">=</span> <span class="number">125</span>,
     <span class="doccomment">/// 126:</span>
     <span class="ident">ACMP4</span> <span class="op">=</span> <span class="number">126</span>,
-    <span class="doccomment">/// 127:</span>
-    <span class="ident">Reserved143</span> <span class="op">=</span> <span class="number">127</span>,
-    <span class="doccomment">/// 128:</span>
-    <span class="ident">Reserved144</span> <span class="op">=</span> <span class="number">128</span>,
     <span class="doccomment">/// 129:</span>
     <span class="ident">ENC1</span> <span class="op">=</span> <span class="number">129</span>,
     <span class="doccomment">/// 130:</span>
@@ -1567,8 +1457,6 @@
     <span class="ident">ENET2_1588_Timer</span> <span class="op">=</span> <span class="number">153</span>,
     <span class="doccomment">/// 154:</span>
     <span class="ident">CAN3</span> <span class="op">=</span> <span class="number">154</span>,
-    <span class="doccomment">/// 155:</span>
-    <span class="ident">Reserved171</span> <span class="op">=</span> <span class="number">155</span>,
     <span class="doccomment">/// 156:</span>
     <span class="ident">FLEXIO3</span> <span class="op">=</span> <span class="number">156</span>,
     <span class="doccomment">/// 157:</span>

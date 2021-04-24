@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["BARRIER_INSTRS_0","0b0000: None supported, ARMv7-M unused."],["BARRIER_INSTRS_1","0b0001: Adds support for the DMB, DSB, and ISB barrier instructions."]]});

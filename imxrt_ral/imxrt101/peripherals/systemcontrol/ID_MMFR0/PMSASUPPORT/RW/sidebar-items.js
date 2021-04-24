@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["PMSASUPPORT_0","0b0000: Not supported"],["PMSASUPPORT_1","0b0001: ARMv7-M unused"],["PMSASUPPORT_2","0b0010: ARMv7-M unused"],["PMSASUPPORT_3","0b0011: PMSAv7, providing support for a base region and subregions."]]});

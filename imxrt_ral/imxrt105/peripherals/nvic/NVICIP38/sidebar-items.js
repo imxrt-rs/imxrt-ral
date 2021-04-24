@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["PRI38","Priority of the INT_FLEXRAM interrupt 38"]]});

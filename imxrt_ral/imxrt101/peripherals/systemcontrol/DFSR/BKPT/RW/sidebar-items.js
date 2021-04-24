@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["BKPT_0","0b0: No current breakpoint debug event"],["BKPT_1","0b1: At least one current breakpoint debug event"]]});

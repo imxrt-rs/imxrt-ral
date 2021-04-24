@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["NMIPENDSET_0","0b0: write: no effect; read: NMI exception is not pending"],["NMIPENDSET_1","0b1: write: changes NMI exception state to pending; read: NMI exception is pending"]]});

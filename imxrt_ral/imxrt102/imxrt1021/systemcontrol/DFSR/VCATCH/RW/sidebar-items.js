@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["VCATCH_0","0b0: No Vector catch triggered"],["VCATCH_1","0b1: Vector catch triggered"]]});

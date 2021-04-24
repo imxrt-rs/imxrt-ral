@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["CP0_0","0b00: Access denied. Any attempted access generates a NOCP UsageFault."],["CP0_1","0b01: Privileged access only. An unprivileged access generates a NOCP UsageFault."],["CP0_3","0b11: Full access."]]});

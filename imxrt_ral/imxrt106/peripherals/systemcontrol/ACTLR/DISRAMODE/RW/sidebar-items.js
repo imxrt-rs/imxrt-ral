@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["DISRAMODE_0","0b0: Normal operation."],["DISRAMODE_1","0b1: Dynamic disabled."]]});

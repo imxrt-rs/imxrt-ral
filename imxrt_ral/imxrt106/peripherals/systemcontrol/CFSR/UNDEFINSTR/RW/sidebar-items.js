@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["UNDEFINSTR_0","0b0: no undefined instruction UsageFault"],["UNDEFINSTR_1","0b1: the processor has attempted to execute an undefined instruction"]]});

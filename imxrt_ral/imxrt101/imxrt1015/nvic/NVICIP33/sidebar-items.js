@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["PRI33","Priority of the INT_LPSPI2 interrupt 33"]]});

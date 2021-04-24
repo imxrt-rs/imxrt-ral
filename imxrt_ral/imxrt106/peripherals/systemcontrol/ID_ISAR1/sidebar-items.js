@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["EXTEND_INSTRS","Indicates the supported Extend instructions"],["IFTHEN_INSTRS","Indicates the supported IfThen instructions"],["IMMEDIATE_INSTRS","Indicates the support for data-processing instructions with long immediate"],["INTERWORK_INSTRS","Indicates the supported Interworking instructions"]]});

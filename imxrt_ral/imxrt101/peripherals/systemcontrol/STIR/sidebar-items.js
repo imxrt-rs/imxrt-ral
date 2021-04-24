@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["INTID","Indicates the interrupt to be triggered"]]});

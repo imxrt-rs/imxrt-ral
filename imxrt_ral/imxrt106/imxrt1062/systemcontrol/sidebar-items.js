@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["SystemControl","Raw pointer to SystemControl"]],"mod":[["SystemControl","Access functions for the SystemControl peripheral instance"]]});

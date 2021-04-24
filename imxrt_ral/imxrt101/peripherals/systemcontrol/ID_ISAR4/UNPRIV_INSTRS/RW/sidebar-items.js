@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["UNPRIV_INSTRS_0","0b0000: None supported, ARMv7-M unused."],["UNPRIV_INSTRS_1","0b0001: Adds support for the LDRBT, LDRT, STRBT, and STRT instructions."],["UNPRIV_INSTRS_2","0b0010: As for 1, and adds support for the LDRHT, LDRSBT, LDRSHT, and STRHT instructions."]]});

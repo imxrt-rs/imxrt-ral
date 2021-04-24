@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["PENDSVSET_0","0b0: write: no effect; read: PendSV exception is not pending"],["PENDSVSET_1","0b1: write: changes PendSV exception state to pending; read: PendSV exception is pending"]]});

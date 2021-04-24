@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["DISISSCH1_0","0b00000: Normal operation."],["DISISSCH1_1","0b00001: Nothing can be dual-issued when this instruction type is in channel 1."]]});

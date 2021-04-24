@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["PRI39","Priority of the INT_KPP interrupt 39"]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["FORMAT_4","0b100: ARMv7 format."]]});

@@ -264,12 +264,6 @@
 <span id="261">261</span>
 <span id="262">262</span>
 <span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Register access layer for imxrt1021</span>
 
@@ -312,7 +306,6 @@
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lpi2c</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lpspi</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lpuart</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">nvic</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ocotp</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pgc</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pit</span>;
@@ -325,7 +318,6 @@
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">snvs</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">spdif</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">src</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">systemcontrol</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">tempmon</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">tmr</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">trng</span>;
@@ -429,8 +421,6 @@
     <span class="kw">pub</span> <span class="ident">LPI2C2</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
     <span class="kw">pub</span> <span class="ident">LPI2C3</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
     <span class="kw">pub</span> <span class="ident">LPI2C4</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SystemControl</span>: <span class="ident">systemcontrol</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">NVIC</span>: <span class="ident">nvic</span>::<span class="ident">Instance</span>,
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
@@ -528,8 +518,6 @@
             <span class="ident">LPI2C2</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C2</span>::<span class="ident">steal</span>(),
             <span class="ident">LPI2C3</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C3</span>::<span class="ident">steal</span>(),
             <span class="ident">LPI2C4</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C4</span>::<span class="ident">steal</span>(),
-            <span class="ident">SystemControl</span>: <span class="ident">systemcontrol</span>::<span class="ident">SystemControl</span>::<span class="ident">steal</span>(),
-            <span class="ident">NVIC</span>: <span class="ident">nvic</span>::<span class="ident">NVIC</span>::<span class="ident">steal</span>(),
         }
     }
 }

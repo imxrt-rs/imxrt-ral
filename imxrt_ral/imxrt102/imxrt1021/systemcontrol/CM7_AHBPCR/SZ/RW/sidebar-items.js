@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["SZ_0","0b000: 0MB. AHBP disabled."],["SZ_1","0b001: 64MB."],["SZ_2","0b010: 128MB."],["SZ_3","0b011: 256MB."],["SZ_4","0b100: 512MB."]]});

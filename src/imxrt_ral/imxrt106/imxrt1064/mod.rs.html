@@ -319,12 +319,6 @@
 <span id="316">316</span>
 <span id="317">317</span>
 <span id="318">318</span>
-<span id="319">319</span>
-<span id="320">320</span>
-<span id="321">321</span>
-<span id="322">322</span>
-<span id="323">323</span>
-<span id="324">324</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Register access layer for imxrt1064</span>
 
@@ -386,13 +380,11 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">lcdif</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">lpi2c</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">lpspi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">nvic</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">pwm</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">pxp</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">sai</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">semc</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">spdif</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">systemcontrol</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usb</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usbnc</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usdhc</span>;
@@ -514,8 +506,6 @@
     <span class="kw">pub</span> <span class="ident">LPI2C2</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
     <span class="kw">pub</span> <span class="ident">LPI2C3</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
     <span class="kw">pub</span> <span class="ident">LPI2C4</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SystemControl</span>: <span class="ident">systemcontrol</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">NVIC</span>: <span class="ident">nvic</span>::<span class="ident">Instance</span>,
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
@@ -638,8 +628,6 @@
             <span class="ident">LPI2C2</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C2</span>::<span class="ident">steal</span>(),
             <span class="ident">LPI2C3</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C3</span>::<span class="ident">steal</span>(),
             <span class="ident">LPI2C4</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C4</span>::<span class="ident">steal</span>(),
-            <span class="ident">SystemControl</span>: <span class="ident">systemcontrol</span>::<span class="ident">SystemControl</span>::<span class="ident">steal</span>(),
-            <span class="ident">NVIC</span>: <span class="ident">nvic</span>::<span class="ident">NVIC</span>::<span class="ident">steal</span>(),
         }
     }
 }

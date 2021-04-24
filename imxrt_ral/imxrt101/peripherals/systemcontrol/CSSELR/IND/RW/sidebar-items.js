@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["IND_0","0b0: Data or unified cache."],["IND_1","0b1: Instruction cache."]]});

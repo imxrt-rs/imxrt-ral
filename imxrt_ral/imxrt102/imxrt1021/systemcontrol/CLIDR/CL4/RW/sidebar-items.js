@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["CL4_0","0b000: No cache"],["CL4_1","0b001: Instruction cache only"],["CL4_2","0b010: Data cache only"],["CL4_3","0b011: Separate instruction and data caches"],["CL4_4","0b100: Unified cache"]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["DIVIDE_INSTRS_0","0b0000: None supported, ARMv7-M unused"],["DIVIDE_INSTRS_1","0b0001: Adds support for the SDIV and UDIV instructions"]]});

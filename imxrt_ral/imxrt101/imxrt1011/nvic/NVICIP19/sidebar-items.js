@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["PRI19","Priority of the INT_CORE interrupt 19"]]});

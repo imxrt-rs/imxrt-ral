@@ -366,34 +366,6 @@
 <span id="363">363</span>
 <span id="364">364</span>
 <span id="365">365</span>
-<span id="366">366</span>
-<span id="367">367</span>
-<span id="368">368</span>
-<span id="369">369</span>
-<span id="370">370</span>
-<span id="371">371</span>
-<span id="372">372</span>
-<span id="373">373</span>
-<span id="374">374</span>
-<span id="375">375</span>
-<span id="376">376</span>
-<span id="377">377</span>
-<span id="378">378</span>
-<span id="379">379</span>
-<span id="380">380</span>
-<span id="381">381</span>
-<span id="382">382</span>
-<span id="383">383</span>
-<span id="384">384</span>
-<span id="385">385</span>
-<span id="386">386</span>
-<span id="387">387</span>
-<span id="388">388</span>
-<span id="389">389</span>
-<span id="390">390</span>
-<span id="391">391</span>
-<span id="392">392</span>
-<span id="393">393</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rt&quot;</span>)]</span>
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
@@ -414,9 +386,6 @@
     <span class="kw">fn</span> <span class="ident">DMA14</span>();
     <span class="kw">fn</span> <span class="ident">DMA15</span>();
     <span class="kw">fn</span> <span class="ident">DMA_ERROR</span>();
-    <span class="kw">fn</span> <span class="ident">CTI0_ERROR</span>();
-    <span class="kw">fn</span> <span class="ident">CTI1_ERROR</span>();
-    <span class="kw">fn</span> <span class="ident">CORE</span>();
     <span class="kw">fn</span> <span class="ident">LPUART1</span>();
     <span class="kw">fn</span> <span class="ident">LPUART2</span>();
     <span class="kw">fn</span> <span class="ident">LPUART3</span>();
@@ -449,10 +418,7 @@
     <span class="kw">fn</span> <span class="ident">CSU</span>();
     <span class="kw">fn</span> <span class="ident">DCP</span>();
     <span class="kw">fn</span> <span class="ident">DCP_VMI</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved68</span>();
     <span class="kw">fn</span> <span class="ident">TRNG</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved70</span>();
-    <span class="kw">fn</span> <span class="ident">Reserved71</span>();
     <span class="kw">fn</span> <span class="ident">SAI1</span>();
     <span class="kw">fn</span> <span class="ident">RTWDOG</span>();
     <span class="kw">fn</span> <span class="ident">SAI3_RX</span>();
@@ -509,13 +475,9 @@
     <span class="ident">Vector</span> {
         <span class="ident">_handler</span>: <span class="ident">DMA_ERROR</span>,
     },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">CTI0_ERROR</span>,
-    },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">CTI1_ERROR</span>,
-    },
-    <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">CORE</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">LPUART1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">LPUART2</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">LPUART3</span> },
@@ -556,16 +518,10 @@
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">CSU</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">DCP</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">DCP_VMI</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved68</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">TRNG</span> },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved70</span>,
-    },
-    <span class="ident">Vector</span> {
-        <span class="ident">_handler</span>: <span class="ident">Reserved71</span>,
-    },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
+    <span class="ident">Vector</span> { <span class="ident">_reserved</span>: <span class="number">0</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">SAI1</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">RTWDOG</span> },
     <span class="ident">Vector</span> { <span class="ident">_handler</span>: <span class="ident">SAI3_RX</span> },
@@ -655,12 +611,6 @@
     <span class="ident">DMA15</span> <span class="op">=</span> <span class="number">15</span>,
     <span class="doccomment">/// 16:</span>
     <span class="ident">DMA_ERROR</span> <span class="op">=</span> <span class="number">16</span>,
-    <span class="doccomment">/// 17:</span>
-    <span class="ident">CTI0_ERROR</span> <span class="op">=</span> <span class="number">17</span>,
-    <span class="doccomment">/// 18:</span>
-    <span class="ident">CTI1_ERROR</span> <span class="op">=</span> <span class="number">18</span>,
-    <span class="doccomment">/// 19:</span>
-    <span class="ident">CORE</span> <span class="op">=</span> <span class="number">19</span>,
     <span class="doccomment">/// 20:</span>
     <span class="ident">LPUART1</span> <span class="op">=</span> <span class="number">20</span>,
     <span class="doccomment">/// 21:</span>
@@ -703,7 +653,7 @@
     <span class="ident">KPP</span> <span class="op">=</span> <span class="number">39</span>,
     <span class="doccomment">/// 40:</span>
     <span class="ident">SRC</span> <span class="op">=</span> <span class="number">40</span>,
-    <span class="doccomment">/// 41:</span>
+    <span class="doccomment">/// 41: GPR (aka &quot;GPC&quot;) interrupt request</span>
     <span class="ident">GPR_IRQ</span> <span class="op">=</span> <span class="number">41</span>,
     <span class="doccomment">/// 42:</span>
     <span class="ident">CCM_1</span> <span class="op">=</span> <span class="number">42</span>,
@@ -725,14 +675,8 @@
     <span class="ident">DCP</span> <span class="op">=</span> <span class="number">50</span>,
     <span class="doccomment">/// 51:</span>
     <span class="ident">DCP_VMI</span> <span class="op">=</span> <span class="number">51</span>,
-    <span class="doccomment">/// 52:</span>
-    <span class="ident">Reserved68</span> <span class="op">=</span> <span class="number">52</span>,
     <span class="doccomment">/// 53:</span>
     <span class="ident">TRNG</span> <span class="op">=</span> <span class="number">53</span>,
-    <span class="doccomment">/// 54:</span>
-    <span class="ident">Reserved70</span> <span class="op">=</span> <span class="number">54</span>,
-    <span class="doccomment">/// 55:</span>
-    <span class="ident">Reserved71</span> <span class="op">=</span> <span class="number">55</span>,
     <span class="doccomment">/// 56:</span>
     <span class="ident">SAI1</span> <span class="op">=</span> <span class="number">56</span>,
     <span class="doccomment">/// 57:</span>

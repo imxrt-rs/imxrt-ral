@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["PENDSVCLR_0","0b0: no effect"],["PENDSVCLR_1","0b1: removes the pending state from the PendSV exception"]]});
