@@ -12,6 +12,8 @@ pub use crate::imxrt105::peripherals::flexram::{INT_SIG_EN, INT_STATUS, INT_STAT
 /// Access functions for the FLEXRAM peripheral instance
 pub mod FLEXRAM {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -34,7 +36,7 @@ pub mod FLEXRAM {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut FLEXRAM_TAKEN: bool = false;
+    static FLEXRAM_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to FLEXRAM
     ///
@@ -51,14 +53,12 @@ pub mod FLEXRAM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if FLEXRAM_TAKEN {
-                None
-            } else {
-                FLEXRAM_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = FLEXRAM_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to FLEXRAM
@@ -70,13 +70,10 @@ pub mod FLEXRAM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if FLEXRAM_TAKEN && inst.addr == INSTANCE.addr {
-                FLEXRAM_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = FLEXRAM_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal FLEXRAM
@@ -87,7 +84,7 @@ pub mod FLEXRAM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        FLEXRAM_TAKEN = true;
+        FLEXRAM_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

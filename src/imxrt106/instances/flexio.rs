@@ -21,6 +21,8 @@ pub use crate::imxrt106::peripherals::flexio::{
 /// Access functions for the FLEXIO1 peripheral instance
 pub mod FLEXIO1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -99,7 +101,7 @@ pub mod FLEXIO1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut FLEXIO1_TAKEN: bool = false;
+    static FLEXIO1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to FLEXIO1
     ///
@@ -116,14 +118,12 @@ pub mod FLEXIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if FLEXIO1_TAKEN {
-                None
-            } else {
-                FLEXIO1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = FLEXIO1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to FLEXIO1
@@ -135,13 +135,10 @@ pub mod FLEXIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if FLEXIO1_TAKEN && inst.addr == INSTANCE.addr {
-                FLEXIO1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = FLEXIO1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal FLEXIO1
@@ -152,7 +149,7 @@ pub mod FLEXIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        FLEXIO1_TAKEN = true;
+        FLEXIO1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -171,6 +168,8 @@ pub const FLEXIO1: *const RegisterBlock = 0x401ac000 as *const _;
 /// Access functions for the FLEXIO2 peripheral instance
 pub mod FLEXIO2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -249,7 +248,7 @@ pub mod FLEXIO2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut FLEXIO2_TAKEN: bool = false;
+    static FLEXIO2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to FLEXIO2
     ///
@@ -266,14 +265,12 @@ pub mod FLEXIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if FLEXIO2_TAKEN {
-                None
-            } else {
-                FLEXIO2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = FLEXIO2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to FLEXIO2
@@ -285,13 +282,10 @@ pub mod FLEXIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if FLEXIO2_TAKEN && inst.addr == INSTANCE.addr {
-                FLEXIO2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = FLEXIO2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal FLEXIO2
@@ -302,7 +296,7 @@ pub mod FLEXIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        FLEXIO2_TAKEN = true;
+        FLEXIO2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -321,6 +315,8 @@ pub const FLEXIO2: *const RegisterBlock = 0x401b0000 as *const _;
 /// Access functions for the FLEXIO3 peripheral instance
 pub mod FLEXIO3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -399,7 +395,7 @@ pub mod FLEXIO3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut FLEXIO3_TAKEN: bool = false;
+    static FLEXIO3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to FLEXIO3
     ///
@@ -416,14 +412,12 @@ pub mod FLEXIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if FLEXIO3_TAKEN {
-                None
-            } else {
-                FLEXIO3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = FLEXIO3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to FLEXIO3
@@ -435,13 +429,10 @@ pub mod FLEXIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if FLEXIO3_TAKEN && inst.addr == INSTANCE.addr {
-                FLEXIO3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = FLEXIO3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal FLEXIO3
@@ -452,7 +443,7 @@ pub mod FLEXIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        FLEXIO3_TAKEN = true;
+        FLEXIO3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

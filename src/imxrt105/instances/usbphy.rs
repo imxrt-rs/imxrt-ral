@@ -16,6 +16,8 @@ pub use crate::imxrt105::peripherals::usbphy::{
 /// Access functions for the USBPHY1 peripheral instance
 pub mod USBPHY1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -61,7 +63,7 @@ pub mod USBPHY1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USBPHY1_TAKEN: bool = false;
+    static USBPHY1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBPHY1
     ///
@@ -78,14 +80,12 @@ pub mod USBPHY1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USBPHY1_TAKEN {
-                None
-            } else {
-                USBPHY1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USBPHY1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USBPHY1
@@ -97,13 +97,10 @@ pub mod USBPHY1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USBPHY1_TAKEN && inst.addr == INSTANCE.addr {
-                USBPHY1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USBPHY1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USBPHY1
@@ -114,7 +111,7 @@ pub mod USBPHY1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USBPHY1_TAKEN = true;
+        USBPHY1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -133,6 +130,8 @@ pub const USBPHY1: *const RegisterBlock = 0x400d9000 as *const _;
 /// Access functions for the USBPHY2 peripheral instance
 pub mod USBPHY2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -178,7 +177,7 @@ pub mod USBPHY2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USBPHY2_TAKEN: bool = false;
+    static USBPHY2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBPHY2
     ///
@@ -195,14 +194,12 @@ pub mod USBPHY2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USBPHY2_TAKEN {
-                None
-            } else {
-                USBPHY2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USBPHY2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USBPHY2
@@ -214,13 +211,10 @@ pub mod USBPHY2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USBPHY2_TAKEN && inst.addr == INSTANCE.addr {
-                USBPHY2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USBPHY2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USBPHY2
@@ -231,7 +225,7 @@ pub mod USBPHY2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USBPHY2_TAKEN = true;
+        USBPHY2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

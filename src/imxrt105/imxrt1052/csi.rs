@@ -1940,6 +1940,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the CSI peripheral instance
 pub mod CSI {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1973,7 +1975,7 @@ pub mod CSI {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CSI_TAKEN: bool = false;
+    static CSI_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CSI
     ///
@@ -1990,14 +1992,12 @@ pub mod CSI {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CSI_TAKEN {
-                None
-            } else {
-                CSI_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CSI_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CSI
@@ -2009,13 +2009,10 @@ pub mod CSI {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CSI_TAKEN && inst.addr == INSTANCE.addr {
-                CSI_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CSI_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CSI
@@ -2026,7 +2023,7 @@ pub mod CSI {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CSI_TAKEN = true;
+        CSI_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

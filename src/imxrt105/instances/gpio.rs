@@ -14,6 +14,8 @@ pub use crate::imxrt105::peripherals::gpio::{
 /// Access functions for the GPIO1 peripheral instance
 pub mod GPIO1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -43,7 +45,7 @@ pub mod GPIO1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPIO1_TAKEN: bool = false;
+    static GPIO1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPIO1
     ///
@@ -60,14 +62,12 @@ pub mod GPIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPIO1_TAKEN {
-                None
-            } else {
-                GPIO1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPIO1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPIO1
@@ -79,13 +79,10 @@ pub mod GPIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPIO1_TAKEN && inst.addr == INSTANCE.addr {
-                GPIO1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPIO1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPIO1
@@ -96,7 +93,7 @@ pub mod GPIO1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPIO1_TAKEN = true;
+        GPIO1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -115,6 +112,8 @@ pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 /// Access functions for the GPIO2 peripheral instance
 pub mod GPIO2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -144,7 +143,7 @@ pub mod GPIO2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPIO2_TAKEN: bool = false;
+    static GPIO2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPIO2
     ///
@@ -161,14 +160,12 @@ pub mod GPIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPIO2_TAKEN {
-                None
-            } else {
-                GPIO2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPIO2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPIO2
@@ -180,13 +177,10 @@ pub mod GPIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPIO2_TAKEN && inst.addr == INSTANCE.addr {
-                GPIO2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPIO2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPIO2
@@ -197,7 +191,7 @@ pub mod GPIO2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPIO2_TAKEN = true;
+        GPIO2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -216,6 +210,8 @@ pub const GPIO2: *const RegisterBlock = 0x401bc000 as *const _;
 /// Access functions for the GPIO3 peripheral instance
 pub mod GPIO3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -245,7 +241,7 @@ pub mod GPIO3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPIO3_TAKEN: bool = false;
+    static GPIO3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPIO3
     ///
@@ -262,14 +258,12 @@ pub mod GPIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPIO3_TAKEN {
-                None
-            } else {
-                GPIO3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPIO3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPIO3
@@ -281,13 +275,10 @@ pub mod GPIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPIO3_TAKEN && inst.addr == INSTANCE.addr {
-                GPIO3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPIO3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPIO3
@@ -298,7 +289,7 @@ pub mod GPIO3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPIO3_TAKEN = true;
+        GPIO3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -317,6 +308,8 @@ pub const GPIO3: *const RegisterBlock = 0x401c0000 as *const _;
 /// Access functions for the GPIO4 peripheral instance
 pub mod GPIO4 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -346,7 +339,7 @@ pub mod GPIO4 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPIO4_TAKEN: bool = false;
+    static GPIO4_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPIO4
     ///
@@ -363,14 +356,12 @@ pub mod GPIO4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPIO4_TAKEN {
-                None
-            } else {
-                GPIO4_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPIO4_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPIO4
@@ -382,13 +373,10 @@ pub mod GPIO4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPIO4_TAKEN && inst.addr == INSTANCE.addr {
-                GPIO4_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPIO4_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPIO4
@@ -399,7 +387,7 @@ pub mod GPIO4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPIO4_TAKEN = true;
+        GPIO4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -418,6 +406,8 @@ pub const GPIO4: *const RegisterBlock = 0x401c4000 as *const _;
 /// Access functions for the GPIO5 peripheral instance
 pub mod GPIO5 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -447,7 +437,7 @@ pub mod GPIO5 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPIO5_TAKEN: bool = false;
+    static GPIO5_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPIO5
     ///
@@ -464,14 +454,12 @@ pub mod GPIO5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPIO5_TAKEN {
-                None
-            } else {
-                GPIO5_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPIO5_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPIO5
@@ -483,13 +471,10 @@ pub mod GPIO5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPIO5_TAKEN && inst.addr == INSTANCE.addr {
-                GPIO5_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPIO5_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPIO5
@@ -500,7 +485,7 @@ pub mod GPIO5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPIO5_TAKEN = true;
+        GPIO5_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

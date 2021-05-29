@@ -2511,6 +2511,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the CSU peripheral instance
 pub mod CSU {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -2564,7 +2566,7 @@ pub mod CSU {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CSU_TAKEN: bool = false;
+    static CSU_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CSU
     ///
@@ -2581,14 +2583,12 @@ pub mod CSU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CSU_TAKEN {
-                None
-            } else {
-                CSU_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CSU_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CSU
@@ -2600,13 +2600,10 @@ pub mod CSU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CSU_TAKEN && inst.addr == INSTANCE.addr {
-                CSU_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CSU_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CSU
@@ -2617,7 +2614,7 @@ pub mod CSU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CSU_TAKEN = true;
+        CSU_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

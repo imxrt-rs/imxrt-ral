@@ -15,6 +15,8 @@ pub use crate::imxrt105::peripherals::tempmon::{
 /// Access functions for the TEMPMON peripheral instance
 pub mod TEMPMON {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -45,7 +47,7 @@ pub mod TEMPMON {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut TEMPMON_TAKEN: bool = false;
+    static TEMPMON_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to TEMPMON
     ///
@@ -62,14 +64,12 @@ pub mod TEMPMON {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if TEMPMON_TAKEN {
-                None
-            } else {
-                TEMPMON_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = TEMPMON_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to TEMPMON
@@ -81,13 +81,10 @@ pub mod TEMPMON {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if TEMPMON_TAKEN && inst.addr == INSTANCE.addr {
-                TEMPMON_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = TEMPMON_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal TEMPMON
@@ -98,7 +95,7 @@ pub mod TEMPMON {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        TEMPMON_TAKEN = true;
+        TEMPMON_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

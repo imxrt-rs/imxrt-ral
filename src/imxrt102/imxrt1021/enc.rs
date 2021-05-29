@@ -1153,6 +1153,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the ENC1 peripheral instance
 pub mod ENC1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1191,7 +1193,7 @@ pub mod ENC1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut ENC1_TAKEN: bool = false;
+    static ENC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to ENC1
     ///
@@ -1208,14 +1210,12 @@ pub mod ENC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if ENC1_TAKEN {
-                None
-            } else {
-                ENC1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = ENC1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to ENC1
@@ -1227,13 +1227,10 @@ pub mod ENC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if ENC1_TAKEN && inst.addr == INSTANCE.addr {
-                ENC1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = ENC1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal ENC1
@@ -1244,7 +1241,7 @@ pub mod ENC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        ENC1_TAKEN = true;
+        ENC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -1263,6 +1260,8 @@ pub const ENC1: *const RegisterBlock = 0x403c8000 as *const _;
 /// Access functions for the ENC2 peripheral instance
 pub mod ENC2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1301,7 +1300,7 @@ pub mod ENC2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut ENC2_TAKEN: bool = false;
+    static ENC2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to ENC2
     ///
@@ -1318,14 +1317,12 @@ pub mod ENC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if ENC2_TAKEN {
-                None
-            } else {
-                ENC2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = ENC2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to ENC2
@@ -1337,13 +1334,10 @@ pub mod ENC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if ENC2_TAKEN && inst.addr == INSTANCE.addr {
-                ENC2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = ENC2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal ENC2
@@ -1354,7 +1348,7 @@ pub mod ENC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        ENC2_TAKEN = true;
+        ENC2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

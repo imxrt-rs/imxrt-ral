@@ -10,6 +10,8 @@ pub use crate::imxrt101::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR
 /// Access functions for the AIPSTZ1 peripheral instance
 pub mod AIPSTZ1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -34,7 +36,7 @@ pub mod AIPSTZ1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut AIPSTZ1_TAKEN: bool = false;
+    static AIPSTZ1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to AIPSTZ1
     ///
@@ -51,14 +53,12 @@ pub mod AIPSTZ1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if AIPSTZ1_TAKEN {
-                None
-            } else {
-                AIPSTZ1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = AIPSTZ1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to AIPSTZ1
@@ -70,13 +70,10 @@ pub mod AIPSTZ1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if AIPSTZ1_TAKEN && inst.addr == INSTANCE.addr {
-                AIPSTZ1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = AIPSTZ1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal AIPSTZ1
@@ -87,7 +84,7 @@ pub mod AIPSTZ1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        AIPSTZ1_TAKEN = true;
+        AIPSTZ1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -106,6 +103,8 @@ pub const AIPSTZ1: *const RegisterBlock = 0x4007c000 as *const _;
 /// Access functions for the AIPSTZ2 peripheral instance
 pub mod AIPSTZ2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -130,7 +129,7 @@ pub mod AIPSTZ2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut AIPSTZ2_TAKEN: bool = false;
+    static AIPSTZ2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to AIPSTZ2
     ///
@@ -147,14 +146,12 @@ pub mod AIPSTZ2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if AIPSTZ2_TAKEN {
-                None
-            } else {
-                AIPSTZ2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = AIPSTZ2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to AIPSTZ2
@@ -166,13 +163,10 @@ pub mod AIPSTZ2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if AIPSTZ2_TAKEN && inst.addr == INSTANCE.addr {
-                AIPSTZ2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = AIPSTZ2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal AIPSTZ2
@@ -183,7 +177,7 @@ pub mod AIPSTZ2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        AIPSTZ2_TAKEN = true;
+        AIPSTZ2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

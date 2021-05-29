@@ -782,6 +782,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the GPT1 peripheral instance
 pub mod GPT1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -810,7 +812,7 @@ pub mod GPT1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPT1_TAKEN: bool = false;
+    static GPT1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPT1
     ///
@@ -827,14 +829,12 @@ pub mod GPT1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPT1_TAKEN {
-                None
-            } else {
-                GPT1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPT1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPT1
@@ -846,13 +846,10 @@ pub mod GPT1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPT1_TAKEN && inst.addr == INSTANCE.addr {
-                GPT1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPT1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPT1
@@ -863,7 +860,7 @@ pub mod GPT1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPT1_TAKEN = true;
+        GPT1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -882,6 +879,8 @@ pub const GPT1: *const RegisterBlock = 0x401ec000 as *const _;
 /// Access functions for the GPT2 peripheral instance
 pub mod GPT2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -910,7 +909,7 @@ pub mod GPT2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPT2_TAKEN: bool = false;
+    static GPT2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPT2
     ///
@@ -927,14 +926,12 @@ pub mod GPT2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPT2_TAKEN {
-                None
-            } else {
-                GPT2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPT2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPT2
@@ -946,13 +943,10 @@ pub mod GPT2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPT2_TAKEN && inst.addr == INSTANCE.addr {
-                GPT2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPT2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPT2
@@ -963,7 +957,7 @@ pub mod GPT2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPT2_TAKEN = true;
+        GPT2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

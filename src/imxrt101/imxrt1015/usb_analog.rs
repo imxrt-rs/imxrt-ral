@@ -566,6 +566,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the USB_ANALOG peripheral instance
 pub mod USB_ANALOG {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -603,7 +605,7 @@ pub mod USB_ANALOG {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USB_ANALOG_TAKEN: bool = false;
+    static USB_ANALOG_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USB_ANALOG
     ///
@@ -620,14 +622,12 @@ pub mod USB_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USB_ANALOG_TAKEN {
-                None
-            } else {
-                USB_ANALOG_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USB_ANALOG_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USB_ANALOG
@@ -639,13 +639,10 @@ pub mod USB_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USB_ANALOG_TAKEN && inst.addr == INSTANCE.addr {
-                USB_ANALOG_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USB_ANALOG_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USB_ANALOG
@@ -656,7 +653,7 @@ pub mod USB_ANALOG {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USB_ANALOG_TAKEN = true;
+        USB_ANALOG_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

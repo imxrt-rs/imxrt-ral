@@ -62,7 +62,7 @@ fn double_release() {
 
 // Test permanently takes I2C1. Do not use I2C1 elsewhere in this test suite.
 #[test]
-#[should_panic(expected = "Released a peripheral which was not taken")]
+#[should_panic(expected = "Released the wrong instance")]
 fn release_wrong_instance() {
     let i2c1 = imxrt_ral::lpi2c::LPI2C1::take().unwrap();
     imxrt_ral::lpi2c::LPI2C2::release(i2c1);

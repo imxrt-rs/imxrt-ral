@@ -10,6 +10,8 @@ pub use crate::imxrt101::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0
 /// Access functions for the USBNC peripheral instance
 pub mod USBNC {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -30,7 +32,7 @@ pub mod USBNC {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USBNC_TAKEN: bool = false;
+    static USBNC_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBNC
     ///
@@ -47,14 +49,12 @@ pub mod USBNC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USBNC_TAKEN {
-                None
-            } else {
-                USBNC_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USBNC_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USBNC
@@ -66,13 +66,10 @@ pub mod USBNC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USBNC_TAKEN && inst.addr == INSTANCE.addr {
-                USBNC_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USBNC_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USBNC
@@ -83,7 +80,7 @@ pub mod USBNC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USBNC_TAKEN = true;
+        USBNC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

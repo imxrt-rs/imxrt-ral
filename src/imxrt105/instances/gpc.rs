@@ -14,6 +14,8 @@ pub use crate::imxrt105::peripherals::gpc::{
 /// Access functions for the GPC peripheral instance
 pub mod GPC {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -43,7 +45,7 @@ pub mod GPC {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut GPC_TAKEN: bool = false;
+    static GPC_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to GPC
     ///
@@ -60,14 +62,12 @@ pub mod GPC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if GPC_TAKEN {
-                None
-            } else {
-                GPC_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = GPC_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to GPC
@@ -79,13 +79,10 @@ pub mod GPC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if GPC_TAKEN && inst.addr == INSTANCE.addr {
-                GPC_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = GPC_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal GPC
@@ -96,7 +93,7 @@ pub mod GPC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        GPC_TAKEN = true;
+        GPC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

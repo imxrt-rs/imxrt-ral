@@ -17,7 +17,6 @@
 #![allow(clippy::all)]
 
 mod register;
-mod target;
 
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};

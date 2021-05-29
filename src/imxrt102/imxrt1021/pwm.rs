@@ -5262,6 +5262,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the PWM1 peripheral instance
 pub mod PWM1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -5463,7 +5465,7 @@ pub mod PWM1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PWM1_TAKEN: bool = false;
+    static PWM1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PWM1
     ///
@@ -5480,14 +5482,12 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PWM1_TAKEN {
-                None
-            } else {
-                PWM1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PWM1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PWM1
@@ -5499,13 +5499,10 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PWM1_TAKEN && inst.addr == INSTANCE.addr {
-                PWM1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PWM1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PWM1
@@ -5516,7 +5513,7 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM1_TAKEN = true;
+        PWM1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -5535,6 +5532,8 @@ pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 /// Access functions for the PWM2 peripheral instance
 pub mod PWM2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -5736,7 +5735,7 @@ pub mod PWM2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PWM2_TAKEN: bool = false;
+    static PWM2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PWM2
     ///
@@ -5753,14 +5752,12 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PWM2_TAKEN {
-                None
-            } else {
-                PWM2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PWM2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PWM2
@@ -5772,13 +5769,10 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PWM2_TAKEN && inst.addr == INSTANCE.addr {
-                PWM2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PWM2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PWM2
@@ -5789,7 +5783,7 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM2_TAKEN = true;
+        PWM2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

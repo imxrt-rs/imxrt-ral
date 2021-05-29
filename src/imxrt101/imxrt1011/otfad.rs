@@ -971,6 +971,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the OTFAD peripheral instance
 pub mod OTFAD {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1023,7 +1025,7 @@ pub mod OTFAD {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut OTFAD_TAKEN: bool = false;
+    static OTFAD_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to OTFAD
     ///
@@ -1040,14 +1042,12 @@ pub mod OTFAD {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if OTFAD_TAKEN {
-                None
-            } else {
-                OTFAD_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = OTFAD_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to OTFAD
@@ -1059,13 +1059,10 @@ pub mod OTFAD {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if OTFAD_TAKEN && inst.addr == INSTANCE.addr {
-                OTFAD_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = OTFAD_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal OTFAD
@@ -1076,7 +1073,7 @@ pub mod OTFAD {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        OTFAD_TAKEN = true;
+        OTFAD_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

@@ -14,6 +14,8 @@ pub use crate::imxrt106::peripherals::lpspi::{
 /// Access functions for the LPSPI1 peripheral instance
 pub mod LPSPI1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -49,7 +51,7 @@ pub mod LPSPI1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPSPI1_TAKEN: bool = false;
+    static LPSPI1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPSPI1
     ///
@@ -66,14 +68,12 @@ pub mod LPSPI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI1_TAKEN {
-                None
-            } else {
-                LPSPI1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPSPI1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPSPI1
@@ -85,13 +85,10 @@ pub mod LPSPI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI1_TAKEN && inst.addr == INSTANCE.addr {
-                LPSPI1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPSPI1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPSPI1
@@ -102,7 +99,7 @@ pub mod LPSPI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPSPI1_TAKEN = true;
+        LPSPI1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -121,6 +118,8 @@ pub const LPSPI1: *const RegisterBlock = 0x40394000 as *const _;
 /// Access functions for the LPSPI2 peripheral instance
 pub mod LPSPI2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -156,7 +155,7 @@ pub mod LPSPI2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPSPI2_TAKEN: bool = false;
+    static LPSPI2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPSPI2
     ///
@@ -173,14 +172,12 @@ pub mod LPSPI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI2_TAKEN {
-                None
-            } else {
-                LPSPI2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPSPI2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPSPI2
@@ -192,13 +189,10 @@ pub mod LPSPI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI2_TAKEN && inst.addr == INSTANCE.addr {
-                LPSPI2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPSPI2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPSPI2
@@ -209,7 +203,7 @@ pub mod LPSPI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPSPI2_TAKEN = true;
+        LPSPI2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -228,6 +222,8 @@ pub const LPSPI2: *const RegisterBlock = 0x40398000 as *const _;
 /// Access functions for the LPSPI3 peripheral instance
 pub mod LPSPI3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -263,7 +259,7 @@ pub mod LPSPI3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPSPI3_TAKEN: bool = false;
+    static LPSPI3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPSPI3
     ///
@@ -280,14 +276,12 @@ pub mod LPSPI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI3_TAKEN {
-                None
-            } else {
-                LPSPI3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPSPI3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPSPI3
@@ -299,13 +293,10 @@ pub mod LPSPI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI3_TAKEN && inst.addr == INSTANCE.addr {
-                LPSPI3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPSPI3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPSPI3
@@ -316,7 +307,7 @@ pub mod LPSPI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPSPI3_TAKEN = true;
+        LPSPI3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -335,6 +326,8 @@ pub const LPSPI3: *const RegisterBlock = 0x4039c000 as *const _;
 /// Access functions for the LPSPI4 peripheral instance
 pub mod LPSPI4 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -370,7 +363,7 @@ pub mod LPSPI4 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPSPI4_TAKEN: bool = false;
+    static LPSPI4_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPSPI4
     ///
@@ -387,14 +380,12 @@ pub mod LPSPI4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI4_TAKEN {
-                None
-            } else {
-                LPSPI4_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPSPI4_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPSPI4
@@ -406,13 +397,10 @@ pub mod LPSPI4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPSPI4_TAKEN && inst.addr == INSTANCE.addr {
-                LPSPI4_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPSPI4_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPSPI4
@@ -423,7 +411,7 @@ pub mod LPSPI4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPSPI4_TAKEN = true;
+        LPSPI4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

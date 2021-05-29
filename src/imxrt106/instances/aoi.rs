@@ -14,6 +14,8 @@ pub use crate::imxrt106::peripherals::aoi::{
 /// Access functions for the AOI1 peripheral instance
 pub mod AOI1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -40,7 +42,7 @@ pub mod AOI1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut AOI1_TAKEN: bool = false;
+    static AOI1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to AOI1
     ///
@@ -57,14 +59,12 @@ pub mod AOI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if AOI1_TAKEN {
-                None
-            } else {
-                AOI1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = AOI1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to AOI1
@@ -76,13 +76,10 @@ pub mod AOI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if AOI1_TAKEN && inst.addr == INSTANCE.addr {
-                AOI1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = AOI1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal AOI1
@@ -93,7 +90,7 @@ pub mod AOI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        AOI1_TAKEN = true;
+        AOI1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -112,6 +109,8 @@ pub const AOI1: *const RegisterBlock = 0x403b4000 as *const _;
 /// Access functions for the AOI2 peripheral instance
 pub mod AOI2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -138,7 +137,7 @@ pub mod AOI2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut AOI2_TAKEN: bool = false;
+    static AOI2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to AOI2
     ///
@@ -155,14 +154,12 @@ pub mod AOI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if AOI2_TAKEN {
-                None
-            } else {
-                AOI2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = AOI2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to AOI2
@@ -174,13 +171,10 @@ pub mod AOI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if AOI2_TAKEN && inst.addr == INSTANCE.addr {
-                AOI2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = AOI2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal AOI2
@@ -191,7 +185,7 @@ pub mod AOI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        AOI2_TAKEN = true;
+        AOI2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

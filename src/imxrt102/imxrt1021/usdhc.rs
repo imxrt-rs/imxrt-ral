@@ -4627,6 +4627,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the USDHC1 peripheral instance
 pub mod USDHC1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -4674,7 +4676,7 @@ pub mod USDHC1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USDHC1_TAKEN: bool = false;
+    static USDHC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USDHC1
     ///
@@ -4691,14 +4693,12 @@ pub mod USDHC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USDHC1_TAKEN {
-                None
-            } else {
-                USDHC1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USDHC1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USDHC1
@@ -4710,13 +4710,10 @@ pub mod USDHC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USDHC1_TAKEN && inst.addr == INSTANCE.addr {
-                USDHC1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USDHC1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USDHC1
@@ -4727,7 +4724,7 @@ pub mod USDHC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USDHC1_TAKEN = true;
+        USDHC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -4746,6 +4743,8 @@ pub const USDHC1: *const RegisterBlock = 0x402c0000 as *const _;
 /// Access functions for the USDHC2 peripheral instance
 pub mod USDHC2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -4793,7 +4792,7 @@ pub mod USDHC2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USDHC2_TAKEN: bool = false;
+    static USDHC2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USDHC2
     ///
@@ -4810,14 +4809,12 @@ pub mod USDHC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USDHC2_TAKEN {
-                None
-            } else {
-                USDHC2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USDHC2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USDHC2
@@ -4829,13 +4826,10 @@ pub mod USDHC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USDHC2_TAKEN && inst.addr == INSTANCE.addr {
-                USDHC2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USDHC2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USDHC2
@@ -4846,7 +4840,7 @@ pub mod USDHC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USDHC2_TAKEN = true;
+        USDHC2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

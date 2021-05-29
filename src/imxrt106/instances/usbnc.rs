@@ -12,6 +12,8 @@ pub use crate::imxrt106::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0
 /// Access functions for the USBNC1 peripheral instance
 pub mod USBNC1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -32,7 +34,7 @@ pub mod USBNC1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USBNC1_TAKEN: bool = false;
+    static USBNC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBNC1
     ///
@@ -49,14 +51,12 @@ pub mod USBNC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USBNC1_TAKEN {
-                None
-            } else {
-                USBNC1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USBNC1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USBNC1
@@ -68,13 +68,10 @@ pub mod USBNC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USBNC1_TAKEN && inst.addr == INSTANCE.addr {
-                USBNC1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USBNC1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USBNC1
@@ -85,7 +82,7 @@ pub mod USBNC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USBNC1_TAKEN = true;
+        USBNC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -104,6 +101,8 @@ pub const USBNC1: *const RegisterBlock = 0x402e0000 as *const _;
 /// Access functions for the USBNC2 peripheral instance
 pub mod USBNC2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -124,7 +123,7 @@ pub mod USBNC2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USBNC2_TAKEN: bool = false;
+    static USBNC2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBNC2
     ///
@@ -141,14 +140,12 @@ pub mod USBNC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USBNC2_TAKEN {
-                None
-            } else {
-                USBNC2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USBNC2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USBNC2
@@ -160,13 +157,10 @@ pub mod USBNC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USBNC2_TAKEN && inst.addr == INSTANCE.addr {
-                USBNC2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USBNC2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USBNC2
@@ -177,7 +171,7 @@ pub mod USBNC2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USBNC2_TAKEN = true;
+        USBNC2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

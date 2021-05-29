@@ -147,6 +147,8 @@ pub use crate::imxrt105::peripherals::iomuxc::{
 /// Access functions for the IOMUXC peripheral instance
 pub mod IOMUXC {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -567,7 +569,7 @@ pub mod IOMUXC {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut IOMUXC_TAKEN: bool = false;
+    static IOMUXC_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to IOMUXC
     ///
@@ -584,14 +586,12 @@ pub mod IOMUXC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if IOMUXC_TAKEN {
-                None
-            } else {
-                IOMUXC_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = IOMUXC_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to IOMUXC
@@ -603,13 +603,10 @@ pub mod IOMUXC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if IOMUXC_TAKEN && inst.addr == INSTANCE.addr {
-                IOMUXC_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = IOMUXC_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal IOMUXC
@@ -620,7 +617,7 @@ pub mod IOMUXC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        IOMUXC_TAKEN = true;
+        IOMUXC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

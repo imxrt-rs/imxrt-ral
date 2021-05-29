@@ -37,7 +37,6 @@ CRATE_LIB_PREAMBLE = """\
 #![allow(clippy::all)]
 
 mod register;
-mod target;
 
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{WORegister, UnsafeWORegister};
@@ -76,9 +75,6 @@ default-target = "thumbv7em-none-eabihf"
 [target.'cfg(target_arch = "arm")'.dependencies.cortex-m]
 version = "0.7.2"
 optional = true
-
-[target.'cfg(not(target_arch = "arm"))'.dependencies]
-once_cell = "1.7.2"
 
 [lib]
 bench = false
@@ -630,6 +626,8 @@ class PeripheralInstance(Node):
         /// Access functions for the {self.name} peripheral instance
         pub mod {self.name} {{
             use super::ResetValues;
+            #[cfg(not(feature="nosync"))]
+            use core::sync::atomic::{{AtomicBool, Ordering}};
 
             #[cfg(not(feature="nosync"))]
             use super::Instance;
@@ -649,7 +647,7 @@ class PeripheralInstance(Node):
             #[allow(renamed_and_removed_lints)]
             #[allow(private_no_mangle_statics)]
             #[no_mangle]
-            static mut {self.name}_TAKEN: bool = false;
+            static {self.name}_TAKEN: AtomicBool = AtomicBool::new(false);
 
             /// Safe access to {self.name}
             ///
@@ -666,14 +664,12 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub fn take() -> Option<Instance> {{
-                crate::target::critical_section(|| unsafe {{
-                    if {self.name}_TAKEN {{
-                        None
-                    }} else {{
-                        {self.name}_TAKEN = true;
-                        Some(INSTANCE)
-                    }}
-                }})
+                let taken = {self.name}_TAKEN.swap(true, Ordering::SeqCst);
+                if taken {{
+                    None
+                }} else {{
+                    Some(INSTANCE)
+                }}
             }}
 
             /// Release exclusive access to {self.name}
@@ -685,13 +681,10 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub fn release(inst: Instance) {{
-                crate::target::critical_section(|| unsafe {{
-                    if {self.name}_TAKEN && inst.addr == INSTANCE.addr {{
-                        {self.name}_TAKEN = false;
-                    }} else {{
-                        panic!("Released a peripheral which was not taken");
-                    }}
-                }});
+                assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+                let taken = {self.name}_TAKEN.swap(false, Ordering::SeqCst);
+                assert!(taken, "Released a peripheral which was not taken");
             }}
 
             /// Unsafely steal {self.name}
@@ -702,7 +695,7 @@ class PeripheralInstance(Node):
             #[cfg(not(feature="nosync"))]
             #[inline]
             pub unsafe fn steal() -> Instance {{
-                {self.name}_TAKEN = true;
+                {self.name}_TAKEN.store(true, Ordering::SeqCst);
                 INSTANCE
             }}
         }}

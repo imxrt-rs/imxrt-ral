@@ -12,6 +12,8 @@ pub use crate::imxrt106::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5
 /// Access functions for the XBARB2 peripheral instance
 pub mod XBARB2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -38,7 +40,7 @@ pub mod XBARB2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut XBARB2_TAKEN: bool = false;
+    static XBARB2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to XBARB2
     ///
@@ -55,14 +57,12 @@ pub mod XBARB2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if XBARB2_TAKEN {
-                None
-            } else {
-                XBARB2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = XBARB2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to XBARB2
@@ -74,13 +74,10 @@ pub mod XBARB2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if XBARB2_TAKEN && inst.addr == INSTANCE.addr {
-                XBARB2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = XBARB2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal XBARB2
@@ -91,7 +88,7 @@ pub mod XBARB2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        XBARB2_TAKEN = true;
+        XBARB2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -110,6 +107,8 @@ pub const XBARB2: *const RegisterBlock = 0x403c0000 as *const _;
 /// Access functions for the XBARB3 peripheral instance
 pub mod XBARB3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -136,7 +135,7 @@ pub mod XBARB3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut XBARB3_TAKEN: bool = false;
+    static XBARB3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to XBARB3
     ///
@@ -153,14 +152,12 @@ pub mod XBARB3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if XBARB3_TAKEN {
-                None
-            } else {
-                XBARB3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = XBARB3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to XBARB3
@@ -172,13 +169,10 @@ pub mod XBARB3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if XBARB3_TAKEN && inst.addr == INSTANCE.addr {
-                XBARB3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = XBARB3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal XBARB3
@@ -189,7 +183,7 @@ pub mod XBARB3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        XBARB3_TAKEN = true;
+        XBARB3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

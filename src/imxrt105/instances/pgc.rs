@@ -14,6 +14,8 @@ pub use crate::imxrt105::peripherals::pgc::{
 /// Access functions for the PGC peripheral instance
 pub mod PGC {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -40,7 +42,7 @@ pub mod PGC {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PGC_TAKEN: bool = false;
+    static PGC_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PGC
     ///
@@ -57,14 +59,12 @@ pub mod PGC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PGC_TAKEN {
-                None
-            } else {
-                PGC_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PGC_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PGC
@@ -76,13 +76,10 @@ pub mod PGC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PGC_TAKEN && inst.addr == INSTANCE.addr {
-                PGC_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PGC_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PGC
@@ -93,7 +90,7 @@ pub mod PGC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PGC_TAKEN = true;
+        PGC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

@@ -21,6 +21,8 @@ pub use crate::imxrt106::peripherals::can::{
 /// Access functions for the CAN1 peripheral instance
 pub mod CAN1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -123,7 +125,7 @@ pub mod CAN1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CAN1_TAKEN: bool = false;
+    static CAN1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CAN1
     ///
@@ -140,14 +142,12 @@ pub mod CAN1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CAN1_TAKEN {
-                None
-            } else {
-                CAN1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CAN1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CAN1
@@ -159,13 +159,10 @@ pub mod CAN1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CAN1_TAKEN && inst.addr == INSTANCE.addr {
-                CAN1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CAN1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CAN1
@@ -176,7 +173,7 @@ pub mod CAN1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CAN1_TAKEN = true;
+        CAN1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -195,6 +192,8 @@ pub const CAN1: *const RegisterBlock = 0x401d0000 as *const _;
 /// Access functions for the CAN2 peripheral instance
 pub mod CAN2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -297,7 +296,7 @@ pub mod CAN2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CAN2_TAKEN: bool = false;
+    static CAN2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CAN2
     ///
@@ -314,14 +313,12 @@ pub mod CAN2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CAN2_TAKEN {
-                None
-            } else {
-                CAN2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CAN2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CAN2
@@ -333,13 +330,10 @@ pub mod CAN2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CAN2_TAKEN && inst.addr == INSTANCE.addr {
-                CAN2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CAN2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CAN2
@@ -350,7 +344,7 @@ pub mod CAN2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CAN2_TAKEN = true;
+        CAN2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

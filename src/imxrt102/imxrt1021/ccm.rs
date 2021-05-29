@@ -4163,6 +4163,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the CCM peripheral instance
 pub mod CCM {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -4209,7 +4211,7 @@ pub mod CCM {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CCM_TAKEN: bool = false;
+    static CCM_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CCM
     ///
@@ -4226,14 +4228,12 @@ pub mod CCM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CCM_TAKEN {
-                None
-            } else {
-                CCM_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CCM_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CCM
@@ -4245,13 +4245,10 @@ pub mod CCM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CCM_TAKEN && inst.addr == INSTANCE.addr {
-                CCM_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CCM_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CCM
@@ -4262,7 +4259,7 @@ pub mod CCM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CCM_TAKEN = true;
+        CCM_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

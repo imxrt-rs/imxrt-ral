@@ -17,6 +17,8 @@ pub use crate::imxrt101::peripherals::xtalosc24m::{
 /// Access functions for the XTALOSC24M peripheral instance
 pub mod XTALOSC24M {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -55,7 +57,7 @@ pub mod XTALOSC24M {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut XTALOSC24M_TAKEN: bool = false;
+    static XTALOSC24M_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to XTALOSC24M
     ///
@@ -72,14 +74,12 @@ pub mod XTALOSC24M {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if XTALOSC24M_TAKEN {
-                None
-            } else {
-                XTALOSC24M_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = XTALOSC24M_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to XTALOSC24M
@@ -91,13 +91,10 @@ pub mod XTALOSC24M {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if XTALOSC24M_TAKEN && inst.addr == INSTANCE.addr {
-                XTALOSC24M_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = XTALOSC24M_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal XTALOSC24M
@@ -108,7 +105,7 @@ pub mod XTALOSC24M {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        XTALOSC24M_TAKEN = true;
+        XTALOSC24M_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

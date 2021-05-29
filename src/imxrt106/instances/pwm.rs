@@ -36,6 +36,8 @@ pub use crate::imxrt106::peripherals::pwm::{
 /// Access functions for the PWM1 peripheral instance
 pub mod PWM1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -237,7 +239,7 @@ pub mod PWM1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PWM1_TAKEN: bool = false;
+    static PWM1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PWM1
     ///
@@ -254,14 +256,12 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PWM1_TAKEN {
-                None
-            } else {
-                PWM1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PWM1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PWM1
@@ -273,13 +273,10 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PWM1_TAKEN && inst.addr == INSTANCE.addr {
-                PWM1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PWM1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PWM1
@@ -290,7 +287,7 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM1_TAKEN = true;
+        PWM1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -309,6 +306,8 @@ pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 /// Access functions for the PWM2 peripheral instance
 pub mod PWM2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -510,7 +509,7 @@ pub mod PWM2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PWM2_TAKEN: bool = false;
+    static PWM2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PWM2
     ///
@@ -527,14 +526,12 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PWM2_TAKEN {
-                None
-            } else {
-                PWM2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PWM2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PWM2
@@ -546,13 +543,10 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PWM2_TAKEN && inst.addr == INSTANCE.addr {
-                PWM2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PWM2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PWM2
@@ -563,7 +557,7 @@ pub mod PWM2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM2_TAKEN = true;
+        PWM2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -582,6 +576,8 @@ pub const PWM2: *const RegisterBlock = 0x403e0000 as *const _;
 /// Access functions for the PWM3 peripheral instance
 pub mod PWM3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -783,7 +779,7 @@ pub mod PWM3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PWM3_TAKEN: bool = false;
+    static PWM3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PWM3
     ///
@@ -800,14 +796,12 @@ pub mod PWM3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PWM3_TAKEN {
-                None
-            } else {
-                PWM3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PWM3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PWM3
@@ -819,13 +813,10 @@ pub mod PWM3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PWM3_TAKEN && inst.addr == INSTANCE.addr {
-                PWM3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PWM3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PWM3
@@ -836,7 +827,7 @@ pub mod PWM3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM3_TAKEN = true;
+        PWM3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -855,6 +846,8 @@ pub const PWM3: *const RegisterBlock = 0x403e4000 as *const _;
 /// Access functions for the PWM4 peripheral instance
 pub mod PWM4 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1056,7 +1049,7 @@ pub mod PWM4 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PWM4_TAKEN: bool = false;
+    static PWM4_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PWM4
     ///
@@ -1073,14 +1066,12 @@ pub mod PWM4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PWM4_TAKEN {
-                None
-            } else {
-                PWM4_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PWM4_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PWM4
@@ -1092,13 +1083,10 @@ pub mod PWM4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PWM4_TAKEN && inst.addr == INSTANCE.addr {
-                PWM4_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PWM4_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PWM4
@@ -1109,7 +1097,7 @@ pub mod PWM4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM4_TAKEN = true;
+        PWM4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

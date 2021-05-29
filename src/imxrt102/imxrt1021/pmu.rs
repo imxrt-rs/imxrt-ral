@@ -1917,6 +1917,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the PMU peripheral instance
 pub mod PMU {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1963,7 +1965,7 @@ pub mod PMU {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PMU_TAKEN: bool = false;
+    static PMU_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PMU
     ///
@@ -1980,14 +1982,12 @@ pub mod PMU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PMU_TAKEN {
-                None
-            } else {
-                PMU_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PMU_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PMU
@@ -1999,13 +1999,10 @@ pub mod PMU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PMU_TAKEN && inst.addr == INSTANCE.addr {
-                PMU_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PMU_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PMU
@@ -2016,7 +2013,7 @@ pub mod PMU {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PMU_TAKEN = true;
+        PMU_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

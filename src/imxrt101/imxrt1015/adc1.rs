@@ -860,6 +860,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the ADC1 peripheral instance
 pub mod ADC1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -901,7 +903,7 @@ pub mod ADC1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut ADC1_TAKEN: bool = false;
+    static ADC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to ADC1
     ///
@@ -918,14 +920,12 @@ pub mod ADC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if ADC1_TAKEN {
-                None
-            } else {
-                ADC1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = ADC1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to ADC1
@@ -937,13 +937,10 @@ pub mod ADC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if ADC1_TAKEN && inst.addr == INSTANCE.addr {
-                ADC1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = ADC1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal ADC1
@@ -954,7 +951,7 @@ pub mod ADC1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        ADC1_TAKEN = true;
+        ADC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

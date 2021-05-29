@@ -17,6 +17,8 @@ pub use crate::imxrt101::peripherals::usb::{
 /// Access functions for the USB peripheral instance
 pub mod USB {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -79,7 +81,7 @@ pub mod USB {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut USB_TAKEN: bool = false;
+    static USB_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USB
     ///
@@ -96,14 +98,12 @@ pub mod USB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if USB_TAKEN {
-                None
-            } else {
-                USB_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = USB_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to USB
@@ -115,13 +115,10 @@ pub mod USB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if USB_TAKEN && inst.addr == INSTANCE.addr {
-                USB_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = USB_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal USB
@@ -132,7 +129,7 @@ pub mod USB {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        USB_TAKEN = true;
+        USB_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

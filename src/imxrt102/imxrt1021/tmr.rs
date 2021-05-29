@@ -1533,6 +1533,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the TMR1 peripheral instance
 pub mod TMR1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1604,7 +1606,7 @@ pub mod TMR1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut TMR1_TAKEN: bool = false;
+    static TMR1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to TMR1
     ///
@@ -1621,14 +1623,12 @@ pub mod TMR1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if TMR1_TAKEN {
-                None
-            } else {
-                TMR1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = TMR1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to TMR1
@@ -1640,13 +1640,10 @@ pub mod TMR1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if TMR1_TAKEN && inst.addr == INSTANCE.addr {
-                TMR1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = TMR1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal TMR1
@@ -1657,7 +1654,7 @@ pub mod TMR1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        TMR1_TAKEN = true;
+        TMR1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -1676,6 +1673,8 @@ pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 /// Access functions for the TMR2 peripheral instance
 pub mod TMR2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -1747,7 +1746,7 @@ pub mod TMR2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut TMR2_TAKEN: bool = false;
+    static TMR2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to TMR2
     ///
@@ -1764,14 +1763,12 @@ pub mod TMR2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if TMR2_TAKEN {
-                None
-            } else {
-                TMR2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = TMR2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to TMR2
@@ -1783,13 +1780,10 @@ pub mod TMR2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if TMR2_TAKEN && inst.addr == INSTANCE.addr {
-                TMR2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = TMR2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal TMR2
@@ -1800,7 +1794,7 @@ pub mod TMR2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        TMR2_TAKEN = true;
+        TMR2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

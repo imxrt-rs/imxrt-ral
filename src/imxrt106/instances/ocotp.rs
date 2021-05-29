@@ -21,6 +21,8 @@ pub use crate::imxrt106::peripherals::ocotp::{
 /// Access functions for the OCOTP peripheral instance
 pub mod OCOTP {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -120,7 +122,7 @@ pub mod OCOTP {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut OCOTP_TAKEN: bool = false;
+    static OCOTP_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to OCOTP
     ///
@@ -137,14 +139,12 @@ pub mod OCOTP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if OCOTP_TAKEN {
-                None
-            } else {
-                OCOTP_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = OCOTP_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to OCOTP
@@ -156,13 +156,10 @@ pub mod OCOTP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if OCOTP_TAKEN && inst.addr == INSTANCE.addr {
-                OCOTP_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = OCOTP_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal OCOTP
@@ -173,7 +170,7 @@ pub mod OCOTP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        OCOTP_TAKEN = true;
+        OCOTP_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

@@ -30,6 +30,8 @@ pub use crate::imxrt105::peripherals::adc_etc::{
 /// Access functions for the ADC_ETC peripheral instance
 pub mod ADC_ETC {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -132,7 +134,7 @@ pub mod ADC_ETC {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut ADC_ETC_TAKEN: bool = false;
+    static ADC_ETC_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to ADC_ETC
     ///
@@ -149,14 +151,12 @@ pub mod ADC_ETC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if ADC_ETC_TAKEN {
-                None
-            } else {
-                ADC_ETC_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = ADC_ETC_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to ADC_ETC
@@ -168,13 +168,10 @@ pub mod ADC_ETC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if ADC_ETC_TAKEN && inst.addr == INSTANCE.addr {
-                ADC_ETC_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = ADC_ETC_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal ADC_ETC
@@ -185,7 +182,7 @@ pub mod ADC_ETC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        ADC_ETC_TAKEN = true;
+        ADC_ETC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

@@ -13,6 +13,8 @@ pub use crate::imxrt101::peripherals::lpi2c::{
 /// Access functions for the LPI2C1 peripheral instance
 pub mod LPI2C1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -59,7 +61,7 @@ pub mod LPI2C1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPI2C1_TAKEN: bool = false;
+    static LPI2C1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPI2C1
     ///
@@ -76,14 +78,12 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPI2C1_TAKEN {
-                None
-            } else {
-                LPI2C1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPI2C1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPI2C1
@@ -95,13 +95,10 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPI2C1_TAKEN && inst.addr == INSTANCE.addr {
-                LPI2C1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPI2C1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPI2C1
@@ -112,7 +109,7 @@ pub mod LPI2C1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPI2C1_TAKEN = true;
+        LPI2C1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -131,6 +128,8 @@ pub const LPI2C1: *const RegisterBlock = 0x401a4000 as *const _;
 /// Access functions for the LPI2C2 peripheral instance
 pub mod LPI2C2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -177,7 +176,7 @@ pub mod LPI2C2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPI2C2_TAKEN: bool = false;
+    static LPI2C2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPI2C2
     ///
@@ -194,14 +193,12 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPI2C2_TAKEN {
-                None
-            } else {
-                LPI2C2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPI2C2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPI2C2
@@ -213,13 +210,10 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPI2C2_TAKEN && inst.addr == INSTANCE.addr {
-                LPI2C2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPI2C2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPI2C2
@@ -230,7 +224,7 @@ pub mod LPI2C2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPI2C2_TAKEN = true;
+        LPI2C2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

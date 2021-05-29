@@ -17,6 +17,8 @@ pub use crate::imxrt105::peripherals::romc::{
 /// Access functions for the ROMC peripheral instance
 pub mod ROMC {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -63,7 +65,7 @@ pub mod ROMC {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut ROMC_TAKEN: bool = false;
+    static ROMC_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to ROMC
     ///
@@ -80,14 +82,12 @@ pub mod ROMC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if ROMC_TAKEN {
-                None
-            } else {
-                ROMC_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = ROMC_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to ROMC
@@ -99,13 +99,10 @@ pub mod ROMC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if ROMC_TAKEN && inst.addr == INSTANCE.addr {
-                ROMC_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = ROMC_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal ROMC
@@ -116,7 +113,7 @@ pub mod ROMC {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        ROMC_TAKEN = true;
+        ROMC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

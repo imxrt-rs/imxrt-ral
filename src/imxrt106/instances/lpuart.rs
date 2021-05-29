@@ -14,6 +14,8 @@ pub use crate::imxrt106::peripherals::lpuart::{
 /// Access functions for the LPUART1 peripheral instance
 pub mod LPUART1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -44,7 +46,7 @@ pub mod LPUART1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART1_TAKEN: bool = false;
+    static LPUART1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART1
     ///
@@ -61,14 +63,12 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART1_TAKEN {
-                None
-            } else {
-                LPUART1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART1
@@ -80,13 +80,10 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART1_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART1
@@ -97,7 +94,7 @@ pub mod LPUART1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART1_TAKEN = true;
+        LPUART1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -116,6 +113,8 @@ pub const LPUART1: *const RegisterBlock = 0x40184000 as *const _;
 /// Access functions for the LPUART2 peripheral instance
 pub mod LPUART2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -146,7 +145,7 @@ pub mod LPUART2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART2_TAKEN: bool = false;
+    static LPUART2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART2
     ///
@@ -163,14 +162,12 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART2_TAKEN {
-                None
-            } else {
-                LPUART2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART2
@@ -182,13 +179,10 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART2_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART2
@@ -199,7 +193,7 @@ pub mod LPUART2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART2_TAKEN = true;
+        LPUART2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -218,6 +212,8 @@ pub const LPUART2: *const RegisterBlock = 0x40188000 as *const _;
 /// Access functions for the LPUART3 peripheral instance
 pub mod LPUART3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -248,7 +244,7 @@ pub mod LPUART3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART3_TAKEN: bool = false;
+    static LPUART3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART3
     ///
@@ -265,14 +261,12 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART3_TAKEN {
-                None
-            } else {
-                LPUART3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART3
@@ -284,13 +278,10 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART3_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART3
@@ -301,7 +292,7 @@ pub mod LPUART3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART3_TAKEN = true;
+        LPUART3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -320,6 +311,8 @@ pub const LPUART3: *const RegisterBlock = 0x4018c000 as *const _;
 /// Access functions for the LPUART4 peripheral instance
 pub mod LPUART4 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -350,7 +343,7 @@ pub mod LPUART4 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART4_TAKEN: bool = false;
+    static LPUART4_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART4
     ///
@@ -367,14 +360,12 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART4_TAKEN {
-                None
-            } else {
-                LPUART4_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART4_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART4
@@ -386,13 +377,10 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART4_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART4_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART4_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART4
@@ -403,7 +391,7 @@ pub mod LPUART4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART4_TAKEN = true;
+        LPUART4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -422,6 +410,8 @@ pub const LPUART4: *const RegisterBlock = 0x40190000 as *const _;
 /// Access functions for the LPUART5 peripheral instance
 pub mod LPUART5 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -452,7 +442,7 @@ pub mod LPUART5 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART5_TAKEN: bool = false;
+    static LPUART5_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART5
     ///
@@ -469,14 +459,12 @@ pub mod LPUART5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART5_TAKEN {
-                None
-            } else {
-                LPUART5_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART5_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART5
@@ -488,13 +476,10 @@ pub mod LPUART5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART5_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART5_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART5_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART5
@@ -505,7 +490,7 @@ pub mod LPUART5 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART5_TAKEN = true;
+        LPUART5_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -524,6 +509,8 @@ pub const LPUART5: *const RegisterBlock = 0x40194000 as *const _;
 /// Access functions for the LPUART6 peripheral instance
 pub mod LPUART6 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -554,7 +541,7 @@ pub mod LPUART6 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART6_TAKEN: bool = false;
+    static LPUART6_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART6
     ///
@@ -571,14 +558,12 @@ pub mod LPUART6 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART6_TAKEN {
-                None
-            } else {
-                LPUART6_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART6_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART6
@@ -590,13 +575,10 @@ pub mod LPUART6 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART6_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART6_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART6_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART6
@@ -607,7 +589,7 @@ pub mod LPUART6 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART6_TAKEN = true;
+        LPUART6_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -626,6 +608,8 @@ pub const LPUART6: *const RegisterBlock = 0x40198000 as *const _;
 /// Access functions for the LPUART7 peripheral instance
 pub mod LPUART7 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -656,7 +640,7 @@ pub mod LPUART7 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART7_TAKEN: bool = false;
+    static LPUART7_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART7
     ///
@@ -673,14 +657,12 @@ pub mod LPUART7 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART7_TAKEN {
-                None
-            } else {
-                LPUART7_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART7_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART7
@@ -692,13 +674,10 @@ pub mod LPUART7 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART7_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART7_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART7_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART7
@@ -709,7 +688,7 @@ pub mod LPUART7 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART7_TAKEN = true;
+        LPUART7_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -728,6 +707,8 @@ pub const LPUART7: *const RegisterBlock = 0x4019c000 as *const _;
 /// Access functions for the LPUART8 peripheral instance
 pub mod LPUART8 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -758,7 +739,7 @@ pub mod LPUART8 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut LPUART8_TAKEN: bool = false;
+    static LPUART8_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to LPUART8
     ///
@@ -775,14 +756,12 @@ pub mod LPUART8 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if LPUART8_TAKEN {
-                None
-            } else {
-                LPUART8_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = LPUART8_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to LPUART8
@@ -794,13 +773,10 @@ pub mod LPUART8 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if LPUART8_TAKEN && inst.addr == INSTANCE.addr {
-                LPUART8_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = LPUART8_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal LPUART8
@@ -811,7 +787,7 @@ pub mod LPUART8 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        LPUART8_TAKEN = true;
+        LPUART8_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

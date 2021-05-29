@@ -19,6 +19,8 @@ pub use crate::imxrt106::peripherals::pxp::{
 /// Access functions for the PXP peripheral instance
 pub mod PXP {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -81,7 +83,7 @@ pub mod PXP {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut PXP_TAKEN: bool = false;
+    static PXP_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to PXP
     ///
@@ -98,14 +100,12 @@ pub mod PXP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if PXP_TAKEN {
-                None
-            } else {
-                PXP_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = PXP_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to PXP
@@ -117,13 +117,10 @@ pub mod PXP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if PXP_TAKEN && inst.addr == INSTANCE.addr {
-                PXP_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = PXP_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal PXP
@@ -134,7 +131,7 @@ pub mod PXP {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PXP_TAKEN = true;
+        PXP_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

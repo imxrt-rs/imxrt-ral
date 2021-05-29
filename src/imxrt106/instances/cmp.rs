@@ -12,6 +12,8 @@ pub use crate::imxrt106::peripherals::cmp::{CR0, CR1, DACCR, FPR, MUXCR, SCR};
 /// Access functions for the CMP1 peripheral instance
 pub mod CMP1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -36,7 +38,7 @@ pub mod CMP1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CMP1_TAKEN: bool = false;
+    static CMP1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP1
     ///
@@ -53,14 +55,12 @@ pub mod CMP1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CMP1_TAKEN {
-                None
-            } else {
-                CMP1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CMP1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CMP1
@@ -72,13 +72,10 @@ pub mod CMP1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CMP1_TAKEN && inst.addr == INSTANCE.addr {
-                CMP1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CMP1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CMP1
@@ -89,7 +86,7 @@ pub mod CMP1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CMP1_TAKEN = true;
+        CMP1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -108,6 +105,8 @@ pub const CMP1: *const RegisterBlock = 0x40094000 as *const _;
 /// Access functions for the CMP2 peripheral instance
 pub mod CMP2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -132,7 +131,7 @@ pub mod CMP2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CMP2_TAKEN: bool = false;
+    static CMP2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP2
     ///
@@ -149,14 +148,12 @@ pub mod CMP2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CMP2_TAKEN {
-                None
-            } else {
-                CMP2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CMP2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CMP2
@@ -168,13 +165,10 @@ pub mod CMP2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CMP2_TAKEN && inst.addr == INSTANCE.addr {
-                CMP2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CMP2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CMP2
@@ -185,7 +179,7 @@ pub mod CMP2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CMP2_TAKEN = true;
+        CMP2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -204,6 +198,8 @@ pub const CMP2: *const RegisterBlock = 0x40094008 as *const _;
 /// Access functions for the CMP3 peripheral instance
 pub mod CMP3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -228,7 +224,7 @@ pub mod CMP3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CMP3_TAKEN: bool = false;
+    static CMP3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP3
     ///
@@ -245,14 +241,12 @@ pub mod CMP3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CMP3_TAKEN {
-                None
-            } else {
-                CMP3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CMP3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CMP3
@@ -264,13 +258,10 @@ pub mod CMP3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CMP3_TAKEN && inst.addr == INSTANCE.addr {
-                CMP3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CMP3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CMP3
@@ -281,7 +272,7 @@ pub mod CMP3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CMP3_TAKEN = true;
+        CMP3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -300,6 +291,8 @@ pub const CMP3: *const RegisterBlock = 0x40094010 as *const _;
 /// Access functions for the CMP4 peripheral instance
 pub mod CMP4 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -324,7 +317,7 @@ pub mod CMP4 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut CMP4_TAKEN: bool = false;
+    static CMP4_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP4
     ///
@@ -341,14 +334,12 @@ pub mod CMP4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if CMP4_TAKEN {
-                None
-            } else {
-                CMP4_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = CMP4_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to CMP4
@@ -360,13 +351,10 @@ pub mod CMP4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if CMP4_TAKEN && inst.addr == INSTANCE.addr {
-                CMP4_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = CMP4_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal CMP4
@@ -377,7 +365,7 @@ pub mod CMP4 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        CMP4_TAKEN = true;
+        CMP4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

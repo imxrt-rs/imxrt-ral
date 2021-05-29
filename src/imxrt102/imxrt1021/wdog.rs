@@ -441,6 +441,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the WDOG1 peripheral instance
 pub mod WDOG1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -464,7 +466,7 @@ pub mod WDOG1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut WDOG1_TAKEN: bool = false;
+    static WDOG1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to WDOG1
     ///
@@ -481,14 +483,12 @@ pub mod WDOG1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if WDOG1_TAKEN {
-                None
-            } else {
-                WDOG1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = WDOG1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to WDOG1
@@ -500,13 +500,10 @@ pub mod WDOG1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if WDOG1_TAKEN && inst.addr == INSTANCE.addr {
-                WDOG1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = WDOG1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal WDOG1
@@ -517,7 +514,7 @@ pub mod WDOG1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        WDOG1_TAKEN = true;
+        WDOG1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -536,6 +533,8 @@ pub const WDOG1: *const RegisterBlock = 0x400b8000 as *const _;
 /// Access functions for the WDOG2 peripheral instance
 pub mod WDOG2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -559,7 +558,7 @@ pub mod WDOG2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut WDOG2_TAKEN: bool = false;
+    static WDOG2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to WDOG2
     ///
@@ -576,14 +575,12 @@ pub mod WDOG2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if WDOG2_TAKEN {
-                None
-            } else {
-                WDOG2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = WDOG2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to WDOG2
@@ -595,13 +592,10 @@ pub mod WDOG2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if WDOG2_TAKEN && inst.addr == INSTANCE.addr {
-                WDOG2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = WDOG2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal WDOG2
@@ -612,7 +606,7 @@ pub mod WDOG2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        WDOG2_TAKEN = true;
+        WDOG2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

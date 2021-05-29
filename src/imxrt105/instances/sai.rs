@@ -15,6 +15,8 @@ pub use crate::imxrt105::peripherals::sai::{
 /// Access functions for the SAI1 peripheral instance
 pub mod SAI1 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -65,7 +67,7 @@ pub mod SAI1 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut SAI1_TAKEN: bool = false;
+    static SAI1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to SAI1
     ///
@@ -82,14 +84,12 @@ pub mod SAI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if SAI1_TAKEN {
-                None
-            } else {
-                SAI1_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = SAI1_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to SAI1
@@ -101,13 +101,10 @@ pub mod SAI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if SAI1_TAKEN && inst.addr == INSTANCE.addr {
-                SAI1_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = SAI1_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal SAI1
@@ -118,7 +115,7 @@ pub mod SAI1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        SAI1_TAKEN = true;
+        SAI1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -137,6 +134,8 @@ pub const SAI1: *const RegisterBlock = 0x40384000 as *const _;
 /// Access functions for the SAI2 peripheral instance
 pub mod SAI2 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -187,7 +186,7 @@ pub mod SAI2 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut SAI2_TAKEN: bool = false;
+    static SAI2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to SAI2
     ///
@@ -204,14 +203,12 @@ pub mod SAI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if SAI2_TAKEN {
-                None
-            } else {
-                SAI2_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = SAI2_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to SAI2
@@ -223,13 +220,10 @@ pub mod SAI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if SAI2_TAKEN && inst.addr == INSTANCE.addr {
-                SAI2_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = SAI2_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal SAI2
@@ -240,7 +234,7 @@ pub mod SAI2 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        SAI2_TAKEN = true;
+        SAI2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
@@ -259,6 +253,8 @@ pub const SAI2: *const RegisterBlock = 0x40388000 as *const _;
 /// Access functions for the SAI3 peripheral instance
 pub mod SAI3 {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -309,7 +305,7 @@ pub mod SAI3 {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut SAI3_TAKEN: bool = false;
+    static SAI3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to SAI3
     ///
@@ -326,14 +322,12 @@ pub mod SAI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if SAI3_TAKEN {
-                None
-            } else {
-                SAI3_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = SAI3_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to SAI3
@@ -345,13 +339,10 @@ pub mod SAI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if SAI3_TAKEN && inst.addr == INSTANCE.addr {
-                SAI3_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = SAI3_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal SAI3
@@ -362,7 +353,7 @@ pub mod SAI3 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        SAI3_TAKEN = true;
+        SAI3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }

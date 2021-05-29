@@ -203,6 +203,8 @@ unsafe impl Send for Instance {}
 /// Access functions for the EWM peripheral instance
 pub mod EWM {
     use super::ResetValues;
+    #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
@@ -227,7 +229,7 @@ pub mod EWM {
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static mut EWM_TAKEN: bool = false;
+    static EWM_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to EWM
     ///
@@ -244,14 +246,12 @@ pub mod EWM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        crate::target::critical_section(|| unsafe {
-            if EWM_TAKEN {
-                None
-            } else {
-                EWM_TAKEN = true;
-                Some(INSTANCE)
-            }
-        })
+        let taken = EWM_TAKEN.swap(true, Ordering::SeqCst);
+        if taken {
+            None
+        } else {
+            Some(INSTANCE)
+        }
     }
 
     /// Release exclusive access to EWM
@@ -263,13 +263,10 @@ pub mod EWM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn release(inst: Instance) {
-        crate::target::critical_section(|| unsafe {
-            if EWM_TAKEN && inst.addr == INSTANCE.addr {
-                EWM_TAKEN = false;
-            } else {
-                panic!("Released a peripheral which was not taken");
-            }
-        });
+        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+
+        let taken = EWM_TAKEN.swap(false, Ordering::SeqCst);
+        assert!(taken, "Released a peripheral which was not taken");
     }
 
     /// Unsafely steal EWM
@@ -280,7 +277,7 @@ pub mod EWM {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        EWM_TAKEN = true;
+        EWM_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 }
