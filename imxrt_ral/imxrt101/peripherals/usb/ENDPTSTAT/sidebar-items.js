@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ERBR","Endpoint Receive Buffer Ready -- Read Only"],["ETBR","Endpoint Transmit Buffer Ready -- Read Only"]]});
+initSidebarItems({"mod":[["ERBR","Endpoint Receive Buffer Ready – Read Only"],["ETBR","Endpoint Transmit Buffer Ready – Read Only"]]});

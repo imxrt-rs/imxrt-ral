@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["L_CSI_0","0b0: No lock-the adjacent (next lower) bit can be written by the software."],["L_CSI_1","0b1: Lock-the adjacent (next lower) bit can't be written by the software."]]});
+initSidebarItems({"constant":[["L_CSI_0","0b0: No lock-the adjacent (next lower) bit can be written by the software."],["L_CSI_1","0b1: Lock-the adjacent (next lower) bit can’t be written by the software."]]});
