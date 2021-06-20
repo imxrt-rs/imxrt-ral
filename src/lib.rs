@@ -17,10 +17,30 @@
 #![allow(clippy::all)]
 
 mod register;
+pub mod usage;
 
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};
 pub use crate::register::{UnsafeWORegister, WORegister};
+#[cfg(any(
+    feature = "doc",
+    feature = "imxrt1011",
+    feature = "imxrt1015",
+    feature = "imxrt1021",
+    feature = "imxrt1051",
+    feature = "imxrt1052",
+    feature = "imxrt1061",
+    feature = "imxrt1062",
+    feature = "imxrt1064"
+))]
+pub mod consts {
+    //! Type-level constants used throughout the API
+
+    pub use typenum::{Unsigned, U0, U1, U2, U3, U4, U5, U6, U7, U8, U9};
+
+    /// The instance ID for a peripheral with a single instance
+    pub type SingleInstance = U0;
+}
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
 

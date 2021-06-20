@@ -16,16 +16,18 @@ pub use crate::imxrt101::peripherals::xbara::{
 /// Access functions for the XBARA peripheral instance
 pub mod XBARA {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
 
     #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
+
+    #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
         addr: 0x40098000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in XBARA

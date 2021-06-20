@@ -28,7 +28,7 @@ mod app {
 
     #[resources]
     struct Resources {
-        gpio2: ral::gpio::Instance,
+        gpio2: ral::gpio::Instance<ral::consts::U2>,
         pit: ral::pit::Instance,
     }
 

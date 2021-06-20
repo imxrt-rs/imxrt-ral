@@ -12,16 +12,18 @@ pub use crate::imxrt105::peripherals::flexram::{INT_SIG_EN, INT_STATUS, INT_STAT
 /// Access functions for the FLEXRAM peripheral instance
 pub mod FLEXRAM {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
 
     #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
+
+    #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
         addr: 0x400b0000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in FLEXRAM

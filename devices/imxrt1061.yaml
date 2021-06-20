@@ -6,3 +6,4 @@ _include:
   - "common_patches/usb1.yaml"
   - "common_patches/dma0/tcd_cluster.yaml"
   - "common_patches/xbara.yaml"
+  - "common_patches/instance_renames.yaml"

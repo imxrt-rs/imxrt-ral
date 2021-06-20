@@ -26,16 +26,18 @@ pub use crate::imxrt105::peripherals::enet::{
 /// Access functions for the ENET peripheral instance
 pub mod ENET {
     use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
 
     #[cfg(not(feature = "nosync"))]
     use super::Instance;
 
     #[cfg(not(feature = "nosync"))]
+    use core::sync::atomic::{AtomicBool, Ordering};
+
+    #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
         addr: 0x402d8000,
         _marker: ::core::marker::PhantomData,
+        _inst: ::core::marker::PhantomData,
     };
 
     /// Reset values for each field in ENET

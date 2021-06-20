@@ -1,0 +1,15 @@
+# Some peripherals have multiple instances. But, the name of the first
+# instance doesn't include a number. This patch includes that number.
+# We derive the number by subtracting 1 from the next numbered instance.
+
+_modify:
+  _peripherals:
+    ENET:
+      name: ENET1
+
+    FLEXSPI:
+      name: FLEXSPI1
+
+_derive:
+  ENET2: ENET1
+  FLEXSPI2: FLEXSPI1

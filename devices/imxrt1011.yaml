@@ -13,3 +13,14 @@ XBARA:
     _interrupts:
       XBAR1_IRQ_0_1_2_3:
         value: 62
+
+# Rename ADC1 => ADC to keep module names consistent
+# across chips:
+#
+# // Before
+# use imxrt_ral::adc1;
+# // After
+# use imxrt_ral::adc;
+_modify:
+  ADC1:
+    name: ADC

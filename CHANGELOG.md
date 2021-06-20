@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+**BREAKING** Peripherals that support multiple instances are now unique types.
+This affects APIs that accept instances. See the before and after below for
+more details. Also, consule the `imxrt_ral::usage` module's documentation
+for suggestions on using these unique instances.
+
+```rust
+use imxrt_ral::lpuart;
+
+// Before
+let _: lpuart::Instance = lpuart::LPUART4::take().unwrap();
+
+// After
+use typenum::U4;
+let _: lpuart::Instance<U4> = lpuart::LPUART4::take().unwrap();
+```
+
 **BREAKING** Undo an SVD patch that renamed the USB module path for 1010,
 1015, and 1020 chips. `imxrt-ral` users on those systems may now find USB
 register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
@@ -15,6 +31,13 @@ consider using the [`cortex-m`][https://crates.io/crates/cortex-m] crate.
 **BREAKING** The RAL depends on `cortex-m`, version `0.7`. All `Interrupt`
 enumerations now implement `cortex_m::interrupt::InterruptNumber`, instead
 of `bare_metal::Nr`.
+
+**BREAKING** The following symbols have been renamed:
+
+- (1011, 1015) The `adc1` module is now `adc`. Rename applies to the peripheral
+  instance, too: `ADC1` is now `ADC`.
+- (all 1050, 1060 chips) `ENET` is `ENET1`, and `FLEXSPI` is `FLEXSPI1`. The
+  instances that end with '2' are unchanged.
 
 Mark all registers as `#[repr(transparent)]`.
 

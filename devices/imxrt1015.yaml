@@ -8,3 +8,8 @@ _include:
   - "common_patches/lpuart_ridmae.yaml"
   - "common_patches/pit.yaml"
   - "common_patches/xbara.yaml"
+
+# See rational in imxrt1011.yaml
+_modify:
+  ADC1:
+    name: ADC

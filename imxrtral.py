@@ -37,6 +37,7 @@ CRATE_LIB_PREAMBLE = """\
 #![allow(clippy::all)]
 
 mod register;
+pub mod usage;
 
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{WORegister, UnsafeWORegister};
@@ -76,6 +77,10 @@ default-target = "thumbv7em-none-eabihf"
 version = "0.7.2"
 optional = true
 
+[dependencies.typenum]
+version = "1.12.0"
+optional = true
+
 [lib]
 bench = false
 test = false
@@ -86,9 +91,9 @@ inline-asm = ["cortex-m/inline-asm"]
 rtic = []
 default = []
 nosync = []
-doc = ["cortex-m"]
+doc = ["cortex-m", "typenum"]
 """
-CHIP_DEPENDENCIES = '"cortex-m"'
+CHIP_DEPENDENCIES = '"cortex-m", "typenum"'
 
 BUILD_RS_TEMPLATE = """\
 use std::env;
@@ -106,6 +111,16 @@ fn main() {{
 }}
 """
 
+TYPENUM_EXPORT = """\
+pub mod consts {
+    //! Type-level constants used throughout the API
+
+    pub use typenum::{Unsigned, U0, U1, U2, U3, U4, U5, U6, U7, U8, U9};
+
+    /// The instance ID for a peripheral with a single instance
+    pub type SingleInstance = U0;
+}
+"""
 
 UNSAFE_REGISTERS = [
     # DMA peripheral and memory address registers
@@ -606,6 +621,9 @@ class PeripheralInstance(Node):
     peripherals there is a single PeripheralPrototype containing
     a single PeripheralInstance.
 
+    PeripheralInstances may have numbers, like the '5' in 'LPUART5.'
+    Numbers are optional.
+
     Has a name and base address.
     Belongs to a parent PeripheralPrototype.
     """
@@ -613,6 +631,7 @@ class PeripheralInstance(Node):
         self.name = name
         self.addr = addr
         self.reset_values = reset_values
+        self.generic_instance = False
 
     def to_dict(self):
         return {"name": self.name, "addr": self.addr,
@@ -622,20 +641,37 @@ class PeripheralInstance(Node):
         registers = {r.offset: r.name for r in registers}
         resets = ", ".join(
             f"{registers[k]}: 0x{v:08X}" for k, v in self.reset_values.items())
+
+        number = instance_number(self.name)
+
+        if self.generic_instance and number is not None:
+            import_typenum = "use typenum::*;"
+            typedef = f"""
+            #[cfg(not(feature="nosync"))]
+            pub type Instance = super::Instance<U{number}>;
+            """
+        else:
+            import_typenum = ""
+            typedef = """
+            #[cfg(not(feature="nosync"))]
+            use super::Instance;
+            """
+
         return f"""
         /// Access functions for the {self.name} peripheral instance
         pub mod {self.name} {{
             use super::ResetValues;
-            #[cfg(not(feature="nosync"))]
-            use core::sync::atomic::{{AtomicBool, Ordering}};
+            {import_typenum}
+            {typedef}
 
             #[cfg(not(feature="nosync"))]
-            use super::Instance;
+            use core::sync::atomic::{{AtomicBool, Ordering}};
 
             #[cfg(not(feature="nosync"))]
             const INSTANCE: Instance = Instance {{
                 addr: 0x{self.addr:08x},
                 _marker: ::core::marker::PhantomData,
+                _inst: ::core::marker::PhantomData,
             }};
 
             /// Reset values for each field in {self.name}
@@ -792,24 +828,24 @@ class PeripheralPrototype(Node):
 
     def to_rust_instance(self):
         """Creates an Instance struct for this peripheral."""
-        return """
+        return f"""
         #[cfg(not(feature="nosync"))]
-        pub struct Instance {
+        pub struct Instance<N = crate::consts::SingleInstance> {{
             pub(crate) addr: u32,
             pub(crate) _marker: PhantomData<*const RegisterBlock>,
-        }
+            pub(crate) _inst: PhantomData<N>,
+        }}
         #[cfg(not(feature="nosync"))]
-        impl ::core::ops::Deref for Instance {
+        impl<N> ::core::ops::Deref for Instance<N> {{
             type Target = RegisterBlock;
             #[inline(always)]
-            fn deref(&self) -> &RegisterBlock {
-                unsafe { &*(self.addr as *const _) }
-            }
-        }
+            fn deref(&self) -> &RegisterBlock {{
+                unsafe {{ &*(self.addr as *const _) }}
+            }}
+        }}
 
         #[cfg(not(feature="nosync"))]
-        unsafe impl Send for Instance {}
-
+        unsafe impl<N: Send> Send for Instance<N> {{}}
         """
 
     def to_rust_file(self, path):
@@ -856,7 +892,12 @@ class PeripheralPrototype(Node):
     def to_struct_entry(self):
         lines = []
         for instance in self.instances:
-            lines.append(f"pub {instance.name}: {self.name}::Instance,")
+            if instance.generic_instance:
+                number = instance_number(instance.name)
+                assert number
+                lines.append(f"pub {instance.name}: {self.name}::Instance<U{number}>,")
+            else:
+                lines.append(f"pub {instance.name}: {self.name}::Instance,")
         return "\n".join(lines)
 
     def to_struct_steal(self):
@@ -877,7 +918,7 @@ class PeripheralPrototype(Node):
             df = node.attrib['derivedFrom']
             df_node = svd.find(f".//peripheral[name='{df}']")
             if df_node is None:
-                raise ValueError("Can't find derivedFrom[{df}]")
+                raise ValueError(f"Can't find derivedFrom[{df}] when processing {name}")
             desc = get_string(df_node, 'description', default=desc)
             addr = get_int(node, 'baseAddress', addr)
             registers = df_node.find('registers')
@@ -908,6 +949,8 @@ class PeripheralPrototype(Node):
         at least 3 letters long.
         """
         self.instances += other.instances
+        for instance in self.instances:
+            instance.generic_instance = True
         newname = common_name(self.name, other.name, parent.name)
         if newname != self.name:
             if newname not in [p.name for p in parent.peripherals]:
@@ -1021,8 +1064,14 @@ class PeripheralPrototypeLink(Node):
         if usename is None:
             usename = self.name
         lines = []
+
         for instance in self.instances:
-            lines.append(f"pub {instance.name}: {usename}::Instance,")
+            if instance.generic_instance:
+                number = instance_number(instance.name)
+                assert number
+                lines.append(f"pub {instance.name}: {usename}::Instance<U{number}>,")
+            else:
+                lines.append(f"pub {instance.name}: {usename}::Instance,")
         return "\n".join(lines)
 
     def to_struct_steal(self, usename=None):
@@ -1091,6 +1140,10 @@ class PeripheralSharedInstanceLink(Node):
     @property
     def desc(self):
         return self.prototype.desc
+
+    @property
+    def instances(self):
+        return self.prototype.instances
 
     def refactor_common_register_fields(self):
         pass
@@ -1259,6 +1312,15 @@ class Device(Node):
             f.write("pub use self::interrupts::Interrupt;\n")
             f.write("pub use self::interrupts::Interrupt as interrupt;\n")
             f.write("\n\n")
+
+            generic_instance = any(
+                inst.generic_instance
+                for periph in self.peripherals
+                for inst in periph.instances
+            )
+            if generic_instance:
+                f.write("#[cfg(all(feature=\"rtic\", not(feature=\"nosync\")))]")
+                f.write("\nuse typenum::*;\n")
             for peripheral in self.peripherals:
                 f.write(peripheral.to_parent_entry())
             f.write("\n\n")
@@ -1591,6 +1653,15 @@ class Crate:
         lib_f = open(os.path.join(srcpath, "lib.rs"), "w")
         lib_f.write(CRATE_LIB_PREAMBLE)
 
+        devices = [
+            device
+            for family in self.families
+            for device in family.devices
+        ]
+        features = [f'feature="{dev.name}"' for dev in devices]
+        lib_f.write(f'#[cfg(any(feature="doc", {", ".join(features)}))]\n')
+        lib_f.write(TYPENUM_EXPORT)
+
         cargo_f = open(os.path.join(path, "Cargo.toml"), "w")
         cargo_f.write(CRATE_CARGO_TOML_PREAMBLE)
 
@@ -1826,6 +1897,24 @@ def common_name(a, b, ctx=""):
         else:
             print(f"Warning [{ctx}]: {a}->{ap} and {b}->{bp} failed")
             return a
+
+
+def instance_number(instance_name):
+    """Extracts the instance number from a peripheral instance name. Returns
+    the instance number as an int, or None if there is no number in the instance
+    name.
+
+    Only extracts the numbers from the end of the instance name.
+
+    >>> instance_number("LPUART5")
+    5
+    >>> instance_number("DMA")
+    >>> instance_number("ABC123DEF456")
+    456
+    """
+    groups = itertools.groupby(instance_name, str.isdigit)
+    number_groups = ["".join(numbers) for are_digits, numbers in groups if are_digits]
+    return int(number_groups[-1]) if number_groups else None
 
 
 def parse_args():
