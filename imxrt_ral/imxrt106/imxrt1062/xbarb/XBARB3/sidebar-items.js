@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in XBARB3"]],"fn":[["release","Release exclusive access to XBARB3"],["steal","Unsafely steal XBARB3"],["take","Safe access to XBARB3"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with XBARB3"],["reset","Reset values for each field in XBARB3"]],"fn":[["release","Release exclusive access to XBARB3"],["steal","Unsafely steal XBARB3"],["take","Safe access to XBARB3"]]});

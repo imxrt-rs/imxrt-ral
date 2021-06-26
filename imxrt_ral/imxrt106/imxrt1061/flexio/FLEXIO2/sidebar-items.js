@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in FLEXIO2"]],"fn":[["release","Release exclusive access to FLEXIO2"],["steal","Unsafely steal FLEXIO2"],["take","Safe access to FLEXIO2"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with FLEXIO2"],["reset","Reset values for each field in FLEXIO2"]],"fn":[["release","Release exclusive access to FLEXIO2"],["steal","Unsafely steal FLEXIO2"],["take","Safe access to FLEXIO2"]]});

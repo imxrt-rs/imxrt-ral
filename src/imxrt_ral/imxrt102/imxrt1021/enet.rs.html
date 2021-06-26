@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt102/imxrt1021/enet.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>enet.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
@@ -3574,6 +3574,36 @@
 <span id="3571">3571</span>
 <span id="3572">3572</span>
 <span id="3573">3573</span>
+<span id="3574">3574</span>
+<span id="3575">3575</span>
+<span id="3576">3576</span>
+<span id="3577">3577</span>
+<span id="3578">3578</span>
+<span id="3579">3579</span>
+<span id="3580">3580</span>
+<span id="3581">3581</span>
+<span id="3582">3582</span>
+<span id="3583">3583</span>
+<span id="3584">3584</span>
+<span id="3585">3585</span>
+<span id="3586">3586</span>
+<span id="3587">3587</span>
+<span id="3588">3588</span>
+<span id="3589">3589</span>
+<span id="3590">3590</span>
+<span id="3591">3591</span>
+<span id="3592">3592</span>
+<span id="3593">3593</span>
+<span id="3594">3594</span>
+<span id="3595">3595</span>
+<span id="3596">3596</span>
+<span id="3597">3597</span>
+<span id="3598">3598</span>
+<span id="3599">3599</span>
+<span id="3600">3600</span>
+<span id="3601">3601</span>
+<span id="3602">3602</span>
+<span id="3603">3603</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -3581,7 +3611,7 @@
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">RORegister</span>, <span class="ident">RWRegister</span>};
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>;
+<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
 <span class="doccomment">/// Interrupt Event Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">EIR</span> {
@@ -5048,10 +5078,10 @@
 
 <span class="doccomment">/// Receive Interrupt Coalescing Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RXIC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TXIC</span>::<span class="ident">ICCS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TXIC</span>::<span class="ident">ICEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TXIC</span>::<span class="ident">ICFT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TXIC</span>::<span class="ident">ICTT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TXIC::ICCS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TXIC::ICEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TXIC::ICFT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TXIC::ICTT</span>;
 }
 
 <span class="doccomment">/// Descriptor Individual Upper Address Register</span>
@@ -5610,77 +5640,77 @@
 
 <span class="doccomment">/// Tx Broadcast Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_BC_PKT</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Multicast Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_MC_PKT</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Packets with CRC/Align Error Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_CRC_ALIGN</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Packets Less Than Bytes and Good CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_UNDERSIZE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Packets GT MAX_FL bytes and Good CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_OVERSIZE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Packets Less Than 64 Bytes and Bad CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_FRAG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Packets Greater Than MAX_FL bytes and Bad CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_JAB</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Collision Count Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_COL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx 64-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P64</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx 65- to 127-byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P65TO127</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx 128- to 255-byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P128TO255</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx 256- to 511-byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P256TO511</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx 512- to 1023-byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P512TO1023</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx 1024- to 2047-byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P1024TO2047</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Packets Greater Than 2048 Bytes Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_T_P_GTE2048</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">RMON_T_PACKETS</span>::<span class="ident">TXPKTS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RMON_T_PACKETS::TXPKTS</span>;
 }
 
 <span class="doccomment">/// Tx Octets Statistic Register</span>
@@ -5724,47 +5754,47 @@
 
 <span class="doccomment">/// Frames Transmitted with Single Collision Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_1COL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Transmitted with Multiple Collisions Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_MCOL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Transmitted after Deferral Delay Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_DEF</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Transmitted with Late Collision Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_LCOL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Transmitted with Excessive Collisions Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_EXCOL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Transmitted with Tx FIFO Underrun Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_MACERR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Transmitted with Carrier Sense Error Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_CSERR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Reserved Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_SQE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Flow Control Pause Frames Transmitted Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_T_FDXFC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Octet Count for Frames Transmitted w/o Error Statistic Register</span>
@@ -5787,42 +5817,42 @@
 
 <span class="doccomment">/// Rx Packet Count Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_PACKETS</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Broadcast Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_BC_PKT</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Multicast Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_MC_PKT</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Packets with CRC/Align Error Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_CRC_ALIGN</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Packets with Less Than 64 Bytes and Good CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_UNDERSIZE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Packets Greater Than MAX_FL and Good CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_OVERSIZE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Packets Less Than 64 Bytes and Bad CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_FRAG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Packets Greater Than MAX_FL Bytes and Bad CRC Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_JAB</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Reserved Statistic Register</span>
@@ -5830,77 +5860,77 @@
 
 <span class="doccomment">/// Rx 64-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P64</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx 65- to 127-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P65TO127</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx 128- to 255-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P128TO255</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx 256- to 511-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P256TO511</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx 512- to 1023-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P512TO1023</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx 1024- to 2047-Byte Packets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P1024TO2047</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Packets Greater than 2048 Bytes Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_P_GTE2048</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Rx Octets Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RMON_R_OCTETS</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_OCTETS_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_OCTETS_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames not Counted Correctly Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_DROP</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Received OK Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_FRAME_OK</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Received with CRC Error Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_CRC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Frames Received with Alignment Error Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_ALIGN</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Receive FIFO Overflow Count Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_MACERR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Flow Control Pause Frames Received Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_FDXFC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_FRAME_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_FRAME_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Octet Count for Frames Received without Error Statistic Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">IEEE_R_OCTETS_OK</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">IEEE_T_OCTETS_OK</span>::<span class="ident">COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::IEEE_T_OCTETS_OK::COUNT</span>;
 }
 
 <span class="doccomment">/// Adjustable Timer Control Register</span>
@@ -6428,29 +6458,29 @@
 
 <span class="doccomment">/// Timer Control Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TCSR1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TDRE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TMODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TPWC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TDRE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TMODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TPWC</span>;
 }
 
 <span class="doccomment">/// Timer Control Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TCSR2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TDRE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TMODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TPWC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TDRE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TMODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TPWC</span>;
 }
 
 <span class="doccomment">/// Timer Control Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TCSR3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TDRE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TMODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCSR0</span>::<span class="ident">TPWC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TDRE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TMODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCSR0::TPWC</span>;
 }
 
 <span class="doccomment">/// Timer Compare Capture Register</span>
@@ -6473,17 +6503,17 @@
 
 <span class="doccomment">/// Timer Compare Capture Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TCCR1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCCR0</span>::<span class="ident">TCC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCCR0::TCC</span>;
 }
 
 <span class="doccomment">/// Timer Compare Capture Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TCCR2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCCR0</span>::<span class="ident">TCC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCCR0::TCC</span>;
 }
 
 <span class="doccomment">/// Timer Compare Capture Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TCCR3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TCCR0</span>::<span class="ident">TCC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TCCR0::TCC</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -6945,9 +6975,10 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> ::<span class="ident">core</span>::<span class="ident">ops</span>::<span class="ident">Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -6958,19 +6989,37 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">Instance</span> {
+    <span class="doccomment">/// Return the interrupt signals associated with this</span>
+    <span class="doccomment">/// peripheral instance</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Collection may be empty if there is no interrupt signal</span>
+    <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
+    <span class="doccomment">/// interrupt signal ordering in the collection.</span>
+    <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+        <span class="self">self</span>.<span class="ident">intrs</span>
+    }
+}
+
 <span class="doccomment">/// Access functions for the ENET peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ENET</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ResetValues</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">sync</span>::<span class="ident">atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
+    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Instance</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
         <span class="ident">addr</span>: <span class="number">0x402d8000</span>,
-        <span class="ident">_marker</span>: ::<span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>,
+        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="kw">crate</span><span class="ident">::interrupt::ENET</span>, <span class="kw">crate</span><span class="ident">::interrupt::ENET_1588_Timer</span>],
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in ENET</span>
@@ -7085,7 +7134,7 @@
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
     <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">ENET_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool</span>::<span class="ident">new</span>(<span class="bool-val">false</span>);
+    <span class="kw">static</span> <span class="ident">ENET_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
     <span class="doccomment">/// Safe access to ENET</span>
     <span class="doccomment">///</span>
@@ -7102,7 +7151,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">ENET_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">ENET_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
@@ -7119,10 +7168,10 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">ENET_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">ENET_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
+        <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
 
     <span class="doccomment">/// Unsafely steal ENET</span>
@@ -7133,9 +7182,20 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
-        <span class="ident">ENET_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="ident">ENET_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
+
+    <span class="doccomment">/// The interrupts associated with ENET</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">2</span>] <span class="op">=</span>
+        [<span class="kw">crate</span><span class="ident">::interrupt::ENET</span>, <span class="kw">crate</span><span class="ident">::interrupt::ENET_1588_Timer</span>];
+
+    <span class="doccomment">/// The interrupts associated with ENET</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to ENET</span>
@@ -7149,5 +7209,5 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENET</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x402d8000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-js="../../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
     <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

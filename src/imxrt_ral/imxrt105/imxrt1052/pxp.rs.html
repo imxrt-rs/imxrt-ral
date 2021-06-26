@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt105/imxrt1052/pxp.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pxp.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
@@ -2265,14 +2265,43 @@
 <span id="2262">2262</span>
 <span id="2263">2263</span>
 <span id="2264">2264</span>
+<span id="2265">2265</span>
+<span id="2266">2266</span>
+<span id="2267">2267</span>
+<span id="2268">2268</span>
+<span id="2269">2269</span>
+<span id="2270">2270</span>
+<span id="2271">2271</span>
+<span id="2272">2272</span>
+<span id="2273">2273</span>
+<span id="2274">2274</span>
+<span id="2275">2275</span>
+<span id="2276">2276</span>
+<span id="2277">2277</span>
+<span id="2278">2278</span>
+<span id="2279">2279</span>
+<span id="2280">2280</span>
+<span id="2281">2281</span>
+<span id="2282">2282</span>
+<span id="2283">2283</span>
+<span id="2284">2284</span>
+<span id="2285">2285</span>
+<span id="2286">2286</span>
+<span id="2287">2287</span>
+<span id="2288">2288</span>
+<span id="2289">2289</span>
+<span id="2290">2290</span>
+<span id="2291">2291</span>
+<span id="2292">2292</span>
+<span id="2293">2293</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! PXP v2.0 Register Reference Index</span>
 
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">RWRegister</span>;
+<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::RWRegister</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>;
+<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
 <span class="doccomment">/// Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL</span> {
@@ -2524,62 +2553,62 @@
 
 <span class="doccomment">/// Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">BLOCK_SIZE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ENABLE_LCD_HANDSHAKE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">EN_REPEAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">HFLIP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">IRQ_ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">NEXT_IRQ_ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ROTATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ROT_POS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">SFTRST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">VFLIP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::BLOCK_SIZE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE_LCD_HANDSHAKE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::EN_REPEAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::HFLIP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::IRQ_ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::NEXT_IRQ_ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ROTATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ROT_POS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SFTRST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::VFLIP</span>;
 }
 
 <span class="doccomment">/// Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">BLOCK_SIZE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ENABLE_LCD_HANDSHAKE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">EN_REPEAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">HFLIP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">IRQ_ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">NEXT_IRQ_ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ROTATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ROT_POS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">SFTRST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">VFLIP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::BLOCK_SIZE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE_LCD_HANDSHAKE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::EN_REPEAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::HFLIP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::IRQ_ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::NEXT_IRQ_ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ROTATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ROT_POS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SFTRST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::VFLIP</span>;
 }
 
 <span class="doccomment">/// Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">BLOCK_SIZE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ENABLE_LCD_HANDSHAKE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">EN_REPEAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">HFLIP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">IRQ_ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">NEXT_IRQ_ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ROTATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">ROT_POS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">RSVD4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">SFTRST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">CTRL</span>::<span class="ident">VFLIP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::BLOCK_SIZE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE_LCD_HANDSHAKE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::EN_REPEAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::HFLIP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::IRQ_ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::NEXT_IRQ_ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ROTATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ROT_POS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RSVD4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SFTRST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::VFLIP</span>;
 }
 
 <span class="doccomment">/// Status Register</span>
@@ -2714,41 +2743,41 @@
 
 <span class="doccomment">/// Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">STAT_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_ERROR_ID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_READ_ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_WRITE_ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">BLOCKX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">BLOCKY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">LUT_DMA_LOAD_DONE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">NEXT_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">RSVD2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_ERROR_ID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_READ_ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_WRITE_ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::BLOCKX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::BLOCKY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::LUT_DMA_LOAD_DONE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::NEXT_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::RSVD2</span>;
 }
 
 <span class="doccomment">/// Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">STAT_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_ERROR_ID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_READ_ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_WRITE_ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">BLOCKX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">BLOCKY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">LUT_DMA_LOAD_DONE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">NEXT_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">RSVD2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_ERROR_ID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_READ_ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_WRITE_ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::BLOCKX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::BLOCKY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::LUT_DMA_LOAD_DONE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::NEXT_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::RSVD2</span>;
 }
 
 <span class="doccomment">/// Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">STAT_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_ERROR_ID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_READ_ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">AXI_WRITE_ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">BLOCKX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">BLOCKY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">LUT_DMA_LOAD_DONE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">NEXT_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">STAT</span>::<span class="ident">RSVD2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_ERROR_ID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_READ_ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::AXI_WRITE_ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::BLOCKX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::BLOCKY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::LUT_DMA_LOAD_DONE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::NEXT_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::STAT::RSVD2</span>;
 }
 
 <span class="doccomment">/// Output Buffer Control Register</span>
@@ -2906,32 +2935,32 @@
 
 <span class="doccomment">/// Output Buffer Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_CTRL_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">ALPHA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">ALPHA_OUTPUT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">INTERLACED_OUTPUT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::ALPHA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::ALPHA_OUTPUT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::INTERLACED_OUTPUT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::RSVD1</span>;
 }
 
 <span class="doccomment">/// Output Buffer Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_CTRL_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">ALPHA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">ALPHA_OUTPUT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">INTERLACED_OUTPUT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::ALPHA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::ALPHA_OUTPUT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::INTERLACED_OUTPUT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::RSVD1</span>;
 }
 
 <span class="doccomment">/// Output Buffer Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_CTRL_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">ALPHA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">ALPHA_OUTPUT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">INTERLACED_OUTPUT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_CTRL</span>::<span class="ident">RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::ALPHA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::ALPHA_OUTPUT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::INTERLACED_OUTPUT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_CTRL::RSVD1</span>;
 }
 
 <span class="doccomment">/// Output Frame Buffer Pointer</span>
@@ -2954,7 +2983,7 @@
 
 <span class="doccomment">/// Output Frame Buffer Pointer #2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_BUF2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_BUF</span>::<span class="ident">ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// Output Buffer Pitch</span>
@@ -3051,34 +3080,34 @@
 
 <span class="doccomment">/// Processed Surface Upper Left Coordinate</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_PS_ULC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">X</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">Y</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::Y</span>;
 }
 
 <span class="doccomment">/// Processed Surface Lower Right Coordinate</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_PS_LRC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">X</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">Y</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::Y</span>;
 }
 
 <span class="doccomment">/// Alpha Surface Upper Left Coordinate</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_AS_ULC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">X</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">Y</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::Y</span>;
 }
 
 <span class="doccomment">/// Alpha Surface Lower Right Coordinate</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUT_AS_LRC</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">X</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_LRC</span>::<span class="ident">Y</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_LRC::Y</span>;
 }
 
 <span class="doccomment">/// Processed Surface (PS) Control Register</span>
@@ -3243,53 +3272,53 @@
 
 <span class="doccomment">/// Processed Surface (PS) Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_CTRL_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">DECX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">DECY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">WB_SWAP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::DECX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::DECY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::WB_SWAP</span>;
 }
 
 <span class="doccomment">/// Processed Surface (PS) Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_CTRL_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">DECX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">DECY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">WB_SWAP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::DECX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::DECY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::WB_SWAP</span>;
 }
 
 <span class="doccomment">/// Processed Surface (PS) Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_CTRL_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">DECX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">DECY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CTRL</span>::<span class="ident">WB_SWAP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::DECX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::DECY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CTRL::WB_SWAP</span>;
 }
 
 <span class="doccomment">/// PS Input Buffer Address</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_BUF</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_BUF</span>::<span class="ident">ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// PS U/Cb or 2 Plane UV Input Buffer Address</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_UBUF</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_BUF</span>::<span class="ident">ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// PS V/Cr Input Buffer Address</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_VBUF</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_BUF</span>::<span class="ident">ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// Processed Surface Pitch</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_PITCH</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_PITCH</span>::<span class="ident">PITCH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_PITCH</span>::<span class="ident">RSVD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_PITCH::PITCH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_PITCH::RSVD</span>;
 }
 
 <span class="doccomment">/// PS Background Color</span>
@@ -3478,8 +3507,8 @@
 
 <span class="doccomment">/// PS Color Key High</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PS_CLRKEYHIGH</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CLRKEYLOW</span>::<span class="ident">PIXEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CLRKEYLOW</span>::<span class="ident">RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CLRKEYLOW::PIXEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CLRKEYLOW::RSVD1</span>;
 }
 
 <span class="doccomment">/// Alpha Surface Control</span>
@@ -3672,25 +3701,25 @@
 
 <span class="doccomment">/// Alpha Surface Buffer Pointer</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AS_BUF</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_BUF</span>::<span class="ident">ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// Alpha Surface Pitch</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AS_PITCH</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_PITCH</span>::<span class="ident">PITCH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">OUT_PITCH</span>::<span class="ident">RSVD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_PITCH::PITCH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OUT_PITCH::RSVD</span>;
 }
 
 <span class="doccomment">/// Overlay Color Key Low</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AS_CLRKEYLOW</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CLRKEYLOW</span>::<span class="ident">PIXEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CLRKEYLOW</span>::<span class="ident">RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CLRKEYLOW::PIXEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CLRKEYLOW::RSVD1</span>;
 }
 
 <span class="doccomment">/// Overlay Color Key High</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AS_CLRKEYHIGH</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CLRKEYLOW</span>::<span class="ident">PIXEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">PS_CLRKEYLOW</span>::<span class="ident">RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CLRKEYLOW::PIXEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PS_CLRKEYLOW::RSVD1</span>;
 }
 
 <span class="doccomment">/// Color Space Conversion Coefficient Register 0</span>
@@ -4387,9 +4416,10 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> ::<span class="ident">core</span>::<span class="ident">ops</span>::<span class="ident">Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -4400,19 +4430,37 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">Instance</span> {
+    <span class="doccomment">/// Return the interrupt signals associated with this</span>
+    <span class="doccomment">/// peripheral instance</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Collection may be empty if there is no interrupt signal</span>
+    <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
+    <span class="doccomment">/// interrupt signal ordering in the collection.</span>
+    <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+        <span class="self">self</span>.<span class="ident">intrs</span>
+    }
+}
+
 <span class="doccomment">/// Access functions for the PXP peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PXP</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ResetValues</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">sync</span>::<span class="ident">atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
+    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Instance</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
         <span class="ident">addr</span>: <span class="number">0x402b4000</span>,
-        <span class="ident">_marker</span>: ::<span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>,
+        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="kw">crate</span><span class="ident">::interrupt::PXP</span>],
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in PXP</span>
@@ -4467,7 +4515,7 @@
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
     <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">PXP_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool</span>::<span class="ident">new</span>(<span class="bool-val">false</span>);
+    <span class="kw">static</span> <span class="ident">PXP_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
     <span class="doccomment">/// Safe access to PXP</span>
     <span class="doccomment">///</span>
@@ -4484,7 +4532,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PXP_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PXP_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
@@ -4501,10 +4549,10 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PXP_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PXP_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
+        <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
 
     <span class="doccomment">/// Unsafely steal PXP</span>
@@ -4515,9 +4563,19 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
-        <span class="ident">PXP_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="ident">PXP_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
+
+    <span class="doccomment">/// The interrupts associated with PXP</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="kw">crate</span><span class="ident">::interrupt::PXP</span>];
+
+    <span class="doccomment">/// The interrupts associated with PXP</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to PXP</span>
@@ -4531,5 +4589,5 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PXP</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x402b4000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-js="../../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
     <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

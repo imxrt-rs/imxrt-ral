@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in USDHC2"]],"fn":[["release","Release exclusive access to USDHC2"],["steal","Unsafely steal USDHC2"],["take","Safe access to USDHC2"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with USDHC2"],["reset","Reset values for each field in USDHC2"]],"fn":[["release","Release exclusive access to USDHC2"],["steal","Unsafely steal USDHC2"],["take","Safe access to USDHC2"]]});

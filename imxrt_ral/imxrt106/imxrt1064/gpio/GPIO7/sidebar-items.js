@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in GPIO7"]],"fn":[["release","Release exclusive access to GPIO7"],["steal","Unsafely steal GPIO7"],["take","Safe access to GPIO7"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with GPIO7"],["reset","Reset values for each field in GPIO7"]],"fn":[["release","Release exclusive access to GPIO7"],["steal","Unsafely steal GPIO7"],["take","Safe access to GPIO7"]]});

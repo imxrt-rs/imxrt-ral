@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in BEE"]],"fn":[["release","Release exclusive access to BEE"],["steal","Unsafely steal BEE"],["take","Safe access to BEE"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with BEE"],["reset","Reset values for each field in BEE"]],"fn":[["release","Release exclusive access to BEE"],["steal","Unsafely steal BEE"],["take","Safe access to BEE"]]});

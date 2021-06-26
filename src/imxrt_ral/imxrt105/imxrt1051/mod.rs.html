@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt105/imxrt1051/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -301,170 +301,170 @@
 
 <span class="doccomment">/// Interrupt-related magic for this device</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">interrupts</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">interrupts</span>::<span class="ident">Interrupt</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">interrupts</span>::<span class="ident">Interrupt</span> <span class="kw">as</span> <span class="ident">interrupt</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::interrupts::Interrupt</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::interrupts::Interrupt</span> <span class="kw">as</span> <span class="ident">interrupt</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">adc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">adc_etc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">aipstz</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">aoi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">bee</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">can</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">ccm</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">ccm_analog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">cmp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">csu</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">dcdc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">dcp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">dma0</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">dmamux</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">enc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">enet</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">ewm</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">flexio</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">flexram</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">flexspi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">gpc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">gpio</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">gpt</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">iomuxc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">iomuxc_gpr</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">iomuxc_snvs</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">iomuxc_snvs_gpr</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">kpp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">lpi2c</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">lpspi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">lpuart</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">ocotp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">pgc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">pit</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">pmu</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">pwm</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">romc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">rtwdog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">sai</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">semc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">snvs</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">spdif</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">src</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">tempmon</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">tmr</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">trng</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">tsc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usb</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usb_analog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usbnc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usbphy</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">usdhc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">wdog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">xbara1</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">xbarb</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">instances</span>::<span class="ident">xtalosc24m</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::adc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::adc_etc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::aipstz</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::aoi</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::bee</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::can</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ccm</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ccm_analog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::cmp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::csu</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dcdc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dcp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dma0</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dmamux</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::enc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::enet</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ewm</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::flexio</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::flexram</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::flexspi</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::gpc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::gpio</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::gpt</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc_gpr</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc_snvs</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc_snvs_gpr</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::kpp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::lpi2c</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::lpspi</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::lpuart</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ocotp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pgc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pit</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pmu</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pwm</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::romc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::rtwdog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::sai</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::semc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::snvs</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::spdif</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::src</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::tempmon</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::tmr</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::trng</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::tsc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usb</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usb_analog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usbnc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usbphy</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usdhc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::wdog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::xbara1</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::xbarb</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::xtalosc24m</span>;
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>)))]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_snake_case</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Peripherals</span> {
-    <span class="kw">pub</span> <span class="ident">AIPSTZ1</span>: <span class="ident">aipstz</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">AIPSTZ2</span>: <span class="ident">aipstz</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">AIPSTZ3</span>: <span class="ident">aipstz</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">AIPSTZ4</span>: <span class="ident">aipstz</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">DCDC</span>: <span class="ident">dcdc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PIT</span>: <span class="ident">pit</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CMP1</span>: <span class="ident">cmp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CMP2</span>: <span class="ident">cmp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CMP3</span>: <span class="ident">cmp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CMP4</span>: <span class="ident">cmp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">IOMUXC_SNVS_GPR</span>: <span class="ident">iomuxc_snvs_gpr</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">IOMUXC_SNVS</span>: <span class="ident">iomuxc_snvs</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">IOMUXC_GPR</span>: <span class="ident">iomuxc_gpr</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">FLEXRAM</span>: <span class="ident">flexram</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">EWM</span>: <span class="ident">ewm</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">WDOG1</span>: <span class="ident">wdog</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">WDOG2</span>: <span class="ident">wdog</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">RTWDOG</span>: <span class="ident">rtwdog</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ADC1</span>: <span class="ident">adc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ADC2</span>: <span class="ident">adc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TRNG</span>: <span class="ident">trng</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SNVS</span>: <span class="ident">snvs</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CCM_ANALOG</span>: <span class="ident">ccm_analog</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PMU</span>: <span class="ident">pmu</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TEMPMON</span>: <span class="ident">tempmon</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USB_ANALOG</span>: <span class="ident">usb_analog</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">XTALOSC24M</span>: <span class="ident">xtalosc24m</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USBPHY1</span>: <span class="ident">usbphy</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USBPHY2</span>: <span class="ident">usbphy</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CSU</span>: <span class="ident">csu</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TSC</span>: <span class="ident">tsc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">DMA0</span>: <span class="ident">dma0</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">DMAMUX</span>: <span class="ident">dmamux</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPC</span>: <span class="ident">gpc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PGC</span>: <span class="ident">pgc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SRC</span>: <span class="ident">src</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CCM</span>: <span class="ident">ccm</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ROMC</span>: <span class="ident">romc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART1</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART2</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART3</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART4</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART5</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART6</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART7</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPUART8</span>: <span class="ident">lpuart</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">FLEXIO1</span>: <span class="ident">flexio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">FLEXIO2</span>: <span class="ident">flexio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPIO1</span>: <span class="ident">gpio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPIO5</span>: <span class="ident">gpio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPIO2</span>: <span class="ident">gpio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPIO3</span>: <span class="ident">gpio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPIO4</span>: <span class="ident">gpio</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CAN1</span>: <span class="ident">can</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">CAN2</span>: <span class="ident">can</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TMR1</span>: <span class="ident">tmr</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TMR2</span>: <span class="ident">tmr</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TMR3</span>: <span class="ident">tmr</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">TMR4</span>: <span class="ident">tmr</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPT1</span>: <span class="ident">gpt</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">GPT2</span>: <span class="ident">gpt</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">OCOTP</span>: <span class="ident">ocotp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">IOMUXC</span>: <span class="ident">iomuxc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">KPP</span>: <span class="ident">kpp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">FLEXSPI</span>: <span class="ident">flexspi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USDHC1</span>: <span class="ident">usdhc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USDHC2</span>: <span class="ident">usdhc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ENET</span>: <span class="ident">enet</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USB1</span>: <span class="ident">usb</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USB2</span>: <span class="ident">usb</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USBNC1</span>: <span class="ident">usbnc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">USBNC2</span>: <span class="ident">usbnc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SEMC</span>: <span class="ident">semc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">DCP</span>: <span class="ident">dcp</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SPDIF</span>: <span class="ident">spdif</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SAI1</span>: <span class="ident">sai</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SAI2</span>: <span class="ident">sai</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">SAI3</span>: <span class="ident">sai</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPSPI1</span>: <span class="ident">lpspi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPSPI2</span>: <span class="ident">lpspi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPSPI3</span>: <span class="ident">lpspi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPSPI4</span>: <span class="ident">lpspi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ADC_ETC</span>: <span class="ident">adc_etc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">AOI1</span>: <span class="ident">aoi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">AOI2</span>: <span class="ident">aoi</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">XBARA1</span>: <span class="ident">xbara1</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">XBARB2</span>: <span class="ident">xbarb</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">XBARB3</span>: <span class="ident">xbarb</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ENC1</span>: <span class="ident">enc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ENC2</span>: <span class="ident">enc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ENC3</span>: <span class="ident">enc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ENC4</span>: <span class="ident">enc</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PWM1</span>: <span class="ident">pwm</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PWM2</span>: <span class="ident">pwm</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PWM3</span>: <span class="ident">pwm</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PWM4</span>: <span class="ident">pwm</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">BEE</span>: <span class="ident">bee</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPI2C1</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPI2C2</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPI2C3</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
-    <span class="kw">pub</span> <span class="ident">LPI2C4</span>: <span class="ident">lpi2c</span>::<span class="ident">Instance</span>,
+    <span class="kw">pub</span> <span class="ident">AIPSTZ1</span>: <span class="ident">aipstz::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">AIPSTZ2</span>: <span class="ident">aipstz::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">AIPSTZ3</span>: <span class="ident">aipstz::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">AIPSTZ4</span>: <span class="ident">aipstz::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">DCDC</span>: <span class="ident">dcdc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PIT</span>: <span class="ident">pit::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CMP1</span>: <span class="ident">cmp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CMP2</span>: <span class="ident">cmp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CMP3</span>: <span class="ident">cmp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CMP4</span>: <span class="ident">cmp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">IOMUXC_SNVS_GPR</span>: <span class="ident">iomuxc_snvs_gpr::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">IOMUXC_SNVS</span>: <span class="ident">iomuxc_snvs::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">IOMUXC_GPR</span>: <span class="ident">iomuxc_gpr::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">FLEXRAM</span>: <span class="ident">flexram::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">EWM</span>: <span class="ident">ewm::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">WDOG1</span>: <span class="ident">wdog::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">WDOG2</span>: <span class="ident">wdog::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">RTWDOG</span>: <span class="ident">rtwdog::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ADC1</span>: <span class="ident">adc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ADC2</span>: <span class="ident">adc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TRNG</span>: <span class="ident">trng::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SNVS</span>: <span class="ident">snvs::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CCM_ANALOG</span>: <span class="ident">ccm_analog::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PMU</span>: <span class="ident">pmu::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TEMPMON</span>: <span class="ident">tempmon::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USB_ANALOG</span>: <span class="ident">usb_analog::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">XTALOSC24M</span>: <span class="ident">xtalosc24m::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USBPHY1</span>: <span class="ident">usbphy::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USBPHY2</span>: <span class="ident">usbphy::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CSU</span>: <span class="ident">csu::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TSC</span>: <span class="ident">tsc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">DMA0</span>: <span class="ident">dma0::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">DMAMUX</span>: <span class="ident">dmamux::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPC</span>: <span class="ident">gpc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PGC</span>: <span class="ident">pgc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SRC</span>: <span class="ident">src::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CCM</span>: <span class="ident">ccm::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ROMC</span>: <span class="ident">romc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART1</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART2</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART3</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART4</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART5</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART6</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART7</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPUART8</span>: <span class="ident">lpuart::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">FLEXIO1</span>: <span class="ident">flexio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">FLEXIO2</span>: <span class="ident">flexio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPIO1</span>: <span class="ident">gpio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPIO5</span>: <span class="ident">gpio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPIO2</span>: <span class="ident">gpio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPIO3</span>: <span class="ident">gpio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPIO4</span>: <span class="ident">gpio::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CAN1</span>: <span class="ident">can::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">CAN2</span>: <span class="ident">can::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TMR1</span>: <span class="ident">tmr::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TMR2</span>: <span class="ident">tmr::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TMR3</span>: <span class="ident">tmr::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">TMR4</span>: <span class="ident">tmr::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPT1</span>: <span class="ident">gpt::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">GPT2</span>: <span class="ident">gpt::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">OCOTP</span>: <span class="ident">ocotp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">IOMUXC</span>: <span class="ident">iomuxc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">KPP</span>: <span class="ident">kpp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">FLEXSPI</span>: <span class="ident">flexspi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USDHC1</span>: <span class="ident">usdhc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USDHC2</span>: <span class="ident">usdhc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ENET</span>: <span class="ident">enet::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USB1</span>: <span class="ident">usb::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USB2</span>: <span class="ident">usb::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USBNC1</span>: <span class="ident">usbnc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">USBNC2</span>: <span class="ident">usbnc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SEMC</span>: <span class="ident">semc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">DCP</span>: <span class="ident">dcp::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SPDIF</span>: <span class="ident">spdif::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SAI1</span>: <span class="ident">sai::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SAI2</span>: <span class="ident">sai::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">SAI3</span>: <span class="ident">sai::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPSPI1</span>: <span class="ident">lpspi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPSPI2</span>: <span class="ident">lpspi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPSPI3</span>: <span class="ident">lpspi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPSPI4</span>: <span class="ident">lpspi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ADC_ETC</span>: <span class="ident">adc_etc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">AOI1</span>: <span class="ident">aoi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">AOI2</span>: <span class="ident">aoi::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">XBARA1</span>: <span class="ident">xbara1::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">XBARB2</span>: <span class="ident">xbarb::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">XBARB3</span>: <span class="ident">xbarb::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ENC1</span>: <span class="ident">enc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ENC2</span>: <span class="ident">enc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ENC3</span>: <span class="ident">enc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ENC4</span>: <span class="ident">enc::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PWM1</span>: <span class="ident">pwm::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PWM2</span>: <span class="ident">pwm::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PWM3</span>: <span class="ident">pwm::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PWM4</span>: <span class="ident">pwm::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">BEE</span>: <span class="ident">bee::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPI2C1</span>: <span class="ident">lpi2c::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPI2C2</span>: <span class="ident">lpi2c::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPI2C3</span>: <span class="ident">lpi2c::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">LPI2C4</span>: <span class="ident">lpi2c::Instance</span>,
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
@@ -475,107 +475,107 @@
 <span class="kw">impl</span> <span class="ident">Peripherals</span> {
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="ident">Peripherals</span> {
-            <span class="ident">AIPSTZ1</span>: <span class="ident">aipstz</span>::<span class="ident">AIPSTZ1</span>::<span class="ident">steal</span>(),
-            <span class="ident">AIPSTZ2</span>: <span class="ident">aipstz</span>::<span class="ident">AIPSTZ2</span>::<span class="ident">steal</span>(),
-            <span class="ident">AIPSTZ3</span>: <span class="ident">aipstz</span>::<span class="ident">AIPSTZ3</span>::<span class="ident">steal</span>(),
-            <span class="ident">AIPSTZ4</span>: <span class="ident">aipstz</span>::<span class="ident">AIPSTZ4</span>::<span class="ident">steal</span>(),
-            <span class="ident">DCDC</span>: <span class="ident">dcdc</span>::<span class="ident">DCDC</span>::<span class="ident">steal</span>(),
-            <span class="ident">PIT</span>: <span class="ident">pit</span>::<span class="ident">PIT</span>::<span class="ident">steal</span>(),
-            <span class="ident">CMP1</span>: <span class="ident">cmp</span>::<span class="ident">CMP1</span>::<span class="ident">steal</span>(),
-            <span class="ident">CMP2</span>: <span class="ident">cmp</span>::<span class="ident">CMP2</span>::<span class="ident">steal</span>(),
-            <span class="ident">CMP3</span>: <span class="ident">cmp</span>::<span class="ident">CMP3</span>::<span class="ident">steal</span>(),
-            <span class="ident">CMP4</span>: <span class="ident">cmp</span>::<span class="ident">CMP4</span>::<span class="ident">steal</span>(),
-            <span class="ident">IOMUXC_SNVS_GPR</span>: <span class="ident">iomuxc_snvs_gpr</span>::<span class="ident">IOMUXC_SNVS_GPR</span>::<span class="ident">steal</span>(),
-            <span class="ident">IOMUXC_SNVS</span>: <span class="ident">iomuxc_snvs</span>::<span class="ident">IOMUXC_SNVS</span>::<span class="ident">steal</span>(),
-            <span class="ident">IOMUXC_GPR</span>: <span class="ident">iomuxc_gpr</span>::<span class="ident">IOMUXC_GPR</span>::<span class="ident">steal</span>(),
-            <span class="ident">FLEXRAM</span>: <span class="ident">flexram</span>::<span class="ident">FLEXRAM</span>::<span class="ident">steal</span>(),
-            <span class="ident">EWM</span>: <span class="ident">ewm</span>::<span class="ident">EWM</span>::<span class="ident">steal</span>(),
-            <span class="ident">WDOG1</span>: <span class="ident">wdog</span>::<span class="ident">WDOG1</span>::<span class="ident">steal</span>(),
-            <span class="ident">WDOG2</span>: <span class="ident">wdog</span>::<span class="ident">WDOG2</span>::<span class="ident">steal</span>(),
-            <span class="ident">RTWDOG</span>: <span class="ident">rtwdog</span>::<span class="ident">RTWDOG</span>::<span class="ident">steal</span>(),
-            <span class="ident">ADC1</span>: <span class="ident">adc</span>::<span class="ident">ADC1</span>::<span class="ident">steal</span>(),
-            <span class="ident">ADC2</span>: <span class="ident">adc</span>::<span class="ident">ADC2</span>::<span class="ident">steal</span>(),
-            <span class="ident">TRNG</span>: <span class="ident">trng</span>::<span class="ident">TRNG</span>::<span class="ident">steal</span>(),
-            <span class="ident">SNVS</span>: <span class="ident">snvs</span>::<span class="ident">SNVS</span>::<span class="ident">steal</span>(),
-            <span class="ident">CCM_ANALOG</span>: <span class="ident">ccm_analog</span>::<span class="ident">CCM_ANALOG</span>::<span class="ident">steal</span>(),
-            <span class="ident">PMU</span>: <span class="ident">pmu</span>::<span class="ident">PMU</span>::<span class="ident">steal</span>(),
-            <span class="ident">TEMPMON</span>: <span class="ident">tempmon</span>::<span class="ident">TEMPMON</span>::<span class="ident">steal</span>(),
-            <span class="ident">USB_ANALOG</span>: <span class="ident">usb_analog</span>::<span class="ident">USB_ANALOG</span>::<span class="ident">steal</span>(),
-            <span class="ident">XTALOSC24M</span>: <span class="ident">xtalosc24m</span>::<span class="ident">XTALOSC24M</span>::<span class="ident">steal</span>(),
-            <span class="ident">USBPHY1</span>: <span class="ident">usbphy</span>::<span class="ident">USBPHY1</span>::<span class="ident">steal</span>(),
-            <span class="ident">USBPHY2</span>: <span class="ident">usbphy</span>::<span class="ident">USBPHY2</span>::<span class="ident">steal</span>(),
-            <span class="ident">CSU</span>: <span class="ident">csu</span>::<span class="ident">CSU</span>::<span class="ident">steal</span>(),
-            <span class="ident">TSC</span>: <span class="ident">tsc</span>::<span class="ident">TSC</span>::<span class="ident">steal</span>(),
-            <span class="ident">DMA0</span>: <span class="ident">dma0</span>::<span class="ident">DMA0</span>::<span class="ident">steal</span>(),
-            <span class="ident">DMAMUX</span>: <span class="ident">dmamux</span>::<span class="ident">DMAMUX</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPC</span>: <span class="ident">gpc</span>::<span class="ident">GPC</span>::<span class="ident">steal</span>(),
-            <span class="ident">PGC</span>: <span class="ident">pgc</span>::<span class="ident">PGC</span>::<span class="ident">steal</span>(),
-            <span class="ident">SRC</span>: <span class="ident">src</span>::<span class="ident">SRC</span>::<span class="ident">steal</span>(),
-            <span class="ident">CCM</span>: <span class="ident">ccm</span>::<span class="ident">CCM</span>::<span class="ident">steal</span>(),
-            <span class="ident">ROMC</span>: <span class="ident">romc</span>::<span class="ident">ROMC</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART1</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART1</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART2</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART2</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART3</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART3</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART4</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART4</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART5</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART5</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART6</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART6</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART7</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART7</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPUART8</span>: <span class="ident">lpuart</span>::<span class="ident">LPUART8</span>::<span class="ident">steal</span>(),
-            <span class="ident">FLEXIO1</span>: <span class="ident">flexio</span>::<span class="ident">FLEXIO1</span>::<span class="ident">steal</span>(),
-            <span class="ident">FLEXIO2</span>: <span class="ident">flexio</span>::<span class="ident">FLEXIO2</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPIO1</span>: <span class="ident">gpio</span>::<span class="ident">GPIO1</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPIO5</span>: <span class="ident">gpio</span>::<span class="ident">GPIO5</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPIO2</span>: <span class="ident">gpio</span>::<span class="ident">GPIO2</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPIO3</span>: <span class="ident">gpio</span>::<span class="ident">GPIO3</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPIO4</span>: <span class="ident">gpio</span>::<span class="ident">GPIO4</span>::<span class="ident">steal</span>(),
-            <span class="ident">CAN1</span>: <span class="ident">can</span>::<span class="ident">CAN1</span>::<span class="ident">steal</span>(),
-            <span class="ident">CAN2</span>: <span class="ident">can</span>::<span class="ident">CAN2</span>::<span class="ident">steal</span>(),
-            <span class="ident">TMR1</span>: <span class="ident">tmr</span>::<span class="ident">TMR1</span>::<span class="ident">steal</span>(),
-            <span class="ident">TMR2</span>: <span class="ident">tmr</span>::<span class="ident">TMR2</span>::<span class="ident">steal</span>(),
-            <span class="ident">TMR3</span>: <span class="ident">tmr</span>::<span class="ident">TMR3</span>::<span class="ident">steal</span>(),
-            <span class="ident">TMR4</span>: <span class="ident">tmr</span>::<span class="ident">TMR4</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPT1</span>: <span class="ident">gpt</span>::<span class="ident">GPT1</span>::<span class="ident">steal</span>(),
-            <span class="ident">GPT2</span>: <span class="ident">gpt</span>::<span class="ident">GPT2</span>::<span class="ident">steal</span>(),
-            <span class="ident">OCOTP</span>: <span class="ident">ocotp</span>::<span class="ident">OCOTP</span>::<span class="ident">steal</span>(),
-            <span class="ident">IOMUXC</span>: <span class="ident">iomuxc</span>::<span class="ident">IOMUXC</span>::<span class="ident">steal</span>(),
-            <span class="ident">KPP</span>: <span class="ident">kpp</span>::<span class="ident">KPP</span>::<span class="ident">steal</span>(),
-            <span class="ident">FLEXSPI</span>: <span class="ident">flexspi</span>::<span class="ident">FLEXSPI</span>::<span class="ident">steal</span>(),
-            <span class="ident">USDHC1</span>: <span class="ident">usdhc</span>::<span class="ident">USDHC1</span>::<span class="ident">steal</span>(),
-            <span class="ident">USDHC2</span>: <span class="ident">usdhc</span>::<span class="ident">USDHC2</span>::<span class="ident">steal</span>(),
-            <span class="ident">ENET</span>: <span class="ident">enet</span>::<span class="ident">ENET</span>::<span class="ident">steal</span>(),
-            <span class="ident">USB1</span>: <span class="ident">usb</span>::<span class="ident">USB1</span>::<span class="ident">steal</span>(),
-            <span class="ident">USB2</span>: <span class="ident">usb</span>::<span class="ident">USB2</span>::<span class="ident">steal</span>(),
-            <span class="ident">USBNC1</span>: <span class="ident">usbnc</span>::<span class="ident">USBNC1</span>::<span class="ident">steal</span>(),
-            <span class="ident">USBNC2</span>: <span class="ident">usbnc</span>::<span class="ident">USBNC2</span>::<span class="ident">steal</span>(),
-            <span class="ident">SEMC</span>: <span class="ident">semc</span>::<span class="ident">SEMC</span>::<span class="ident">steal</span>(),
-            <span class="ident">DCP</span>: <span class="ident">dcp</span>::<span class="ident">DCP</span>::<span class="ident">steal</span>(),
-            <span class="ident">SPDIF</span>: <span class="ident">spdif</span>::<span class="ident">SPDIF</span>::<span class="ident">steal</span>(),
-            <span class="ident">SAI1</span>: <span class="ident">sai</span>::<span class="ident">SAI1</span>::<span class="ident">steal</span>(),
-            <span class="ident">SAI2</span>: <span class="ident">sai</span>::<span class="ident">SAI2</span>::<span class="ident">steal</span>(),
-            <span class="ident">SAI3</span>: <span class="ident">sai</span>::<span class="ident">SAI3</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPSPI1</span>: <span class="ident">lpspi</span>::<span class="ident">LPSPI1</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPSPI2</span>: <span class="ident">lpspi</span>::<span class="ident">LPSPI2</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPSPI3</span>: <span class="ident">lpspi</span>::<span class="ident">LPSPI3</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPSPI4</span>: <span class="ident">lpspi</span>::<span class="ident">LPSPI4</span>::<span class="ident">steal</span>(),
-            <span class="ident">ADC_ETC</span>: <span class="ident">adc_etc</span>::<span class="ident">ADC_ETC</span>::<span class="ident">steal</span>(),
-            <span class="ident">AOI1</span>: <span class="ident">aoi</span>::<span class="ident">AOI1</span>::<span class="ident">steal</span>(),
-            <span class="ident">AOI2</span>: <span class="ident">aoi</span>::<span class="ident">AOI2</span>::<span class="ident">steal</span>(),
-            <span class="ident">XBARA1</span>: <span class="ident">xbara1</span>::<span class="ident">XBARA1</span>::<span class="ident">steal</span>(),
-            <span class="ident">XBARB2</span>: <span class="ident">xbarb</span>::<span class="ident">XBARB2</span>::<span class="ident">steal</span>(),
-            <span class="ident">XBARB3</span>: <span class="ident">xbarb</span>::<span class="ident">XBARB3</span>::<span class="ident">steal</span>(),
-            <span class="ident">ENC1</span>: <span class="ident">enc</span>::<span class="ident">ENC1</span>::<span class="ident">steal</span>(),
-            <span class="ident">ENC2</span>: <span class="ident">enc</span>::<span class="ident">ENC2</span>::<span class="ident">steal</span>(),
-            <span class="ident">ENC3</span>: <span class="ident">enc</span>::<span class="ident">ENC3</span>::<span class="ident">steal</span>(),
-            <span class="ident">ENC4</span>: <span class="ident">enc</span>::<span class="ident">ENC4</span>::<span class="ident">steal</span>(),
-            <span class="ident">PWM1</span>: <span class="ident">pwm</span>::<span class="ident">PWM1</span>::<span class="ident">steal</span>(),
-            <span class="ident">PWM2</span>: <span class="ident">pwm</span>::<span class="ident">PWM2</span>::<span class="ident">steal</span>(),
-            <span class="ident">PWM3</span>: <span class="ident">pwm</span>::<span class="ident">PWM3</span>::<span class="ident">steal</span>(),
-            <span class="ident">PWM4</span>: <span class="ident">pwm</span>::<span class="ident">PWM4</span>::<span class="ident">steal</span>(),
-            <span class="ident">BEE</span>: <span class="ident">bee</span>::<span class="ident">BEE</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPI2C1</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C1</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPI2C2</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C2</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPI2C3</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C3</span>::<span class="ident">steal</span>(),
-            <span class="ident">LPI2C4</span>: <span class="ident">lpi2c</span>::<span class="ident">LPI2C4</span>::<span class="ident">steal</span>(),
+            <span class="ident">AIPSTZ1</span>: <span class="ident">aipstz::AIPSTZ1::steal</span>(),
+            <span class="ident">AIPSTZ2</span>: <span class="ident">aipstz::AIPSTZ2::steal</span>(),
+            <span class="ident">AIPSTZ3</span>: <span class="ident">aipstz::AIPSTZ3::steal</span>(),
+            <span class="ident">AIPSTZ4</span>: <span class="ident">aipstz::AIPSTZ4::steal</span>(),
+            <span class="ident">DCDC</span>: <span class="ident">dcdc::DCDC::steal</span>(),
+            <span class="ident">PIT</span>: <span class="ident">pit::PIT::steal</span>(),
+            <span class="ident">CMP1</span>: <span class="ident">cmp::CMP1::steal</span>(),
+            <span class="ident">CMP2</span>: <span class="ident">cmp::CMP2::steal</span>(),
+            <span class="ident">CMP3</span>: <span class="ident">cmp::CMP3::steal</span>(),
+            <span class="ident">CMP4</span>: <span class="ident">cmp::CMP4::steal</span>(),
+            <span class="ident">IOMUXC_SNVS_GPR</span>: <span class="ident">iomuxc_snvs_gpr::IOMUXC_SNVS_GPR::steal</span>(),
+            <span class="ident">IOMUXC_SNVS</span>: <span class="ident">iomuxc_snvs::IOMUXC_SNVS::steal</span>(),
+            <span class="ident">IOMUXC_GPR</span>: <span class="ident">iomuxc_gpr::IOMUXC_GPR::steal</span>(),
+            <span class="ident">FLEXRAM</span>: <span class="ident">flexram::FLEXRAM::steal</span>(),
+            <span class="ident">EWM</span>: <span class="ident">ewm::EWM::steal</span>(),
+            <span class="ident">WDOG1</span>: <span class="ident">wdog::WDOG1::steal</span>(),
+            <span class="ident">WDOG2</span>: <span class="ident">wdog::WDOG2::steal</span>(),
+            <span class="ident">RTWDOG</span>: <span class="ident">rtwdog::RTWDOG::steal</span>(),
+            <span class="ident">ADC1</span>: <span class="ident">adc::ADC1::steal</span>(),
+            <span class="ident">ADC2</span>: <span class="ident">adc::ADC2::steal</span>(),
+            <span class="ident">TRNG</span>: <span class="ident">trng::TRNG::steal</span>(),
+            <span class="ident">SNVS</span>: <span class="ident">snvs::SNVS::steal</span>(),
+            <span class="ident">CCM_ANALOG</span>: <span class="ident">ccm_analog::CCM_ANALOG::steal</span>(),
+            <span class="ident">PMU</span>: <span class="ident">pmu::PMU::steal</span>(),
+            <span class="ident">TEMPMON</span>: <span class="ident">tempmon::TEMPMON::steal</span>(),
+            <span class="ident">USB_ANALOG</span>: <span class="ident">usb_analog::USB_ANALOG::steal</span>(),
+            <span class="ident">XTALOSC24M</span>: <span class="ident">xtalosc24m::XTALOSC24M::steal</span>(),
+            <span class="ident">USBPHY1</span>: <span class="ident">usbphy::USBPHY1::steal</span>(),
+            <span class="ident">USBPHY2</span>: <span class="ident">usbphy::USBPHY2::steal</span>(),
+            <span class="ident">CSU</span>: <span class="ident">csu::CSU::steal</span>(),
+            <span class="ident">TSC</span>: <span class="ident">tsc::TSC::steal</span>(),
+            <span class="ident">DMA0</span>: <span class="ident">dma0::DMA0::steal</span>(),
+            <span class="ident">DMAMUX</span>: <span class="ident">dmamux::DMAMUX::steal</span>(),
+            <span class="ident">GPC</span>: <span class="ident">gpc::GPC::steal</span>(),
+            <span class="ident">PGC</span>: <span class="ident">pgc::PGC::steal</span>(),
+            <span class="ident">SRC</span>: <span class="ident">src::SRC::steal</span>(),
+            <span class="ident">CCM</span>: <span class="ident">ccm::CCM::steal</span>(),
+            <span class="ident">ROMC</span>: <span class="ident">romc::ROMC::steal</span>(),
+            <span class="ident">LPUART1</span>: <span class="ident">lpuart::LPUART1::steal</span>(),
+            <span class="ident">LPUART2</span>: <span class="ident">lpuart::LPUART2::steal</span>(),
+            <span class="ident">LPUART3</span>: <span class="ident">lpuart::LPUART3::steal</span>(),
+            <span class="ident">LPUART4</span>: <span class="ident">lpuart::LPUART4::steal</span>(),
+            <span class="ident">LPUART5</span>: <span class="ident">lpuart::LPUART5::steal</span>(),
+            <span class="ident">LPUART6</span>: <span class="ident">lpuart::LPUART6::steal</span>(),
+            <span class="ident">LPUART7</span>: <span class="ident">lpuart::LPUART7::steal</span>(),
+            <span class="ident">LPUART8</span>: <span class="ident">lpuart::LPUART8::steal</span>(),
+            <span class="ident">FLEXIO1</span>: <span class="ident">flexio::FLEXIO1::steal</span>(),
+            <span class="ident">FLEXIO2</span>: <span class="ident">flexio::FLEXIO2::steal</span>(),
+            <span class="ident">GPIO1</span>: <span class="ident">gpio::GPIO1::steal</span>(),
+            <span class="ident">GPIO5</span>: <span class="ident">gpio::GPIO5::steal</span>(),
+            <span class="ident">GPIO2</span>: <span class="ident">gpio::GPIO2::steal</span>(),
+            <span class="ident">GPIO3</span>: <span class="ident">gpio::GPIO3::steal</span>(),
+            <span class="ident">GPIO4</span>: <span class="ident">gpio::GPIO4::steal</span>(),
+            <span class="ident">CAN1</span>: <span class="ident">can::CAN1::steal</span>(),
+            <span class="ident">CAN2</span>: <span class="ident">can::CAN2::steal</span>(),
+            <span class="ident">TMR1</span>: <span class="ident">tmr::TMR1::steal</span>(),
+            <span class="ident">TMR2</span>: <span class="ident">tmr::TMR2::steal</span>(),
+            <span class="ident">TMR3</span>: <span class="ident">tmr::TMR3::steal</span>(),
+            <span class="ident">TMR4</span>: <span class="ident">tmr::TMR4::steal</span>(),
+            <span class="ident">GPT1</span>: <span class="ident">gpt::GPT1::steal</span>(),
+            <span class="ident">GPT2</span>: <span class="ident">gpt::GPT2::steal</span>(),
+            <span class="ident">OCOTP</span>: <span class="ident">ocotp::OCOTP::steal</span>(),
+            <span class="ident">IOMUXC</span>: <span class="ident">iomuxc::IOMUXC::steal</span>(),
+            <span class="ident">KPP</span>: <span class="ident">kpp::KPP::steal</span>(),
+            <span class="ident">FLEXSPI</span>: <span class="ident">flexspi::FLEXSPI::steal</span>(),
+            <span class="ident">USDHC1</span>: <span class="ident">usdhc::USDHC1::steal</span>(),
+            <span class="ident">USDHC2</span>: <span class="ident">usdhc::USDHC2::steal</span>(),
+            <span class="ident">ENET</span>: <span class="ident">enet::ENET::steal</span>(),
+            <span class="ident">USB1</span>: <span class="ident">usb::USB1::steal</span>(),
+            <span class="ident">USB2</span>: <span class="ident">usb::USB2::steal</span>(),
+            <span class="ident">USBNC1</span>: <span class="ident">usbnc::USBNC1::steal</span>(),
+            <span class="ident">USBNC2</span>: <span class="ident">usbnc::USBNC2::steal</span>(),
+            <span class="ident">SEMC</span>: <span class="ident">semc::SEMC::steal</span>(),
+            <span class="ident">DCP</span>: <span class="ident">dcp::DCP::steal</span>(),
+            <span class="ident">SPDIF</span>: <span class="ident">spdif::SPDIF::steal</span>(),
+            <span class="ident">SAI1</span>: <span class="ident">sai::SAI1::steal</span>(),
+            <span class="ident">SAI2</span>: <span class="ident">sai::SAI2::steal</span>(),
+            <span class="ident">SAI3</span>: <span class="ident">sai::SAI3::steal</span>(),
+            <span class="ident">LPSPI1</span>: <span class="ident">lpspi::LPSPI1::steal</span>(),
+            <span class="ident">LPSPI2</span>: <span class="ident">lpspi::LPSPI2::steal</span>(),
+            <span class="ident">LPSPI3</span>: <span class="ident">lpspi::LPSPI3::steal</span>(),
+            <span class="ident">LPSPI4</span>: <span class="ident">lpspi::LPSPI4::steal</span>(),
+            <span class="ident">ADC_ETC</span>: <span class="ident">adc_etc::ADC_ETC::steal</span>(),
+            <span class="ident">AOI1</span>: <span class="ident">aoi::AOI1::steal</span>(),
+            <span class="ident">AOI2</span>: <span class="ident">aoi::AOI2::steal</span>(),
+            <span class="ident">XBARA1</span>: <span class="ident">xbara1::XBARA1::steal</span>(),
+            <span class="ident">XBARB2</span>: <span class="ident">xbarb::XBARB2::steal</span>(),
+            <span class="ident">XBARB3</span>: <span class="ident">xbarb::XBARB3::steal</span>(),
+            <span class="ident">ENC1</span>: <span class="ident">enc::ENC1::steal</span>(),
+            <span class="ident">ENC2</span>: <span class="ident">enc::ENC2::steal</span>(),
+            <span class="ident">ENC3</span>: <span class="ident">enc::ENC3::steal</span>(),
+            <span class="ident">ENC4</span>: <span class="ident">enc::ENC4::steal</span>(),
+            <span class="ident">PWM1</span>: <span class="ident">pwm::PWM1::steal</span>(),
+            <span class="ident">PWM2</span>: <span class="ident">pwm::PWM2::steal</span>(),
+            <span class="ident">PWM3</span>: <span class="ident">pwm::PWM3::steal</span>(),
+            <span class="ident">PWM4</span>: <span class="ident">pwm::PWM4::steal</span>(),
+            <span class="ident">BEE</span>: <span class="ident">bee::BEE::steal</span>(),
+            <span class="ident">LPI2C1</span>: <span class="ident">lpi2c::LPI2C1::steal</span>(),
+            <span class="ident">LPI2C2</span>: <span class="ident">lpi2c::LPI2C2::steal</span>(),
+            <span class="ident">LPI2C3</span>: <span class="ident">lpi2c::LPI2C3::steal</span>(),
+            <span class="ident">LPI2C4</span>: <span class="ident">lpi2c::LPI2C4::steal</span>(),
         }
     }
 }
@@ -587,5 +587,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-js="../../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
     <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in AOI"]],"fn":[["release","Release exclusive access to AOI"],["steal","Unsafely steal AOI"],["take","Safe access to AOI"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with AOI"],["reset","Reset values for each field in AOI"]],"fn":[["release","Release exclusive access to AOI"],["steal","Unsafely steal AOI"],["take","Safe access to AOI"]]});

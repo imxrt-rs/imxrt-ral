@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in ENC1"]],"fn":[["release","Release exclusive access to ENC1"],["steal","Unsafely steal ENC1"],["take","Safe access to ENC1"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with ENC1"],["reset","Reset values for each field in ENC1"]],"fn":[["release","Release exclusive access to ENC1"],["steal","Unsafely steal ENC1"],["take","Safe access to ENC1"]]});

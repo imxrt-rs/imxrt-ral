@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in IOMUXC"]],"fn":[["release","Release exclusive access to IOMUXC"],["steal","Unsafely steal IOMUXC"],["take","Safe access to IOMUXC"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with IOMUXC"],["reset","Reset values for each field in IOMUXC"]],"fn":[["release","Release exclusive access to IOMUXC"],["steal","Unsafely steal IOMUXC"],["take","Safe access to IOMUXC"]]});

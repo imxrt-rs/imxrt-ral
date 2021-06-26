@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in LPUART1"]],"fn":[["release","Release exclusive access to LPUART1"],["steal","Unsafely steal LPUART1"],["take","Safe access to LPUART1"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with LPUART1"],["reset","Reset values for each field in LPUART1"]],"fn":[["release","Release exclusive access to LPUART1"],["steal","Unsafely steal LPUART1"],["take","Safe access to LPUART1"]]});

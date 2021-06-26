@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in GPC"]],"fn":[["release","Release exclusive access to GPC"],["steal","Unsafely steal GPC"],["take","Safe access to GPC"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with GPC"],["reset","Reset values for each field in GPC"]],"fn":[["release","Release exclusive access to GPC"],["steal","Unsafely steal GPC"],["take","Safe access to GPC"]]});

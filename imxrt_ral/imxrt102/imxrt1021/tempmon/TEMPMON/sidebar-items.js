@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in TEMPMON"]],"fn":[["release","Release exclusive access to TEMPMON"],["steal","Unsafely steal TEMPMON"],["take","Safe access to TEMPMON"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with TEMPMON"],["reset","Reset values for each field in TEMPMON"]],"fn":[["release","Release exclusive access to TEMPMON"],["steal","Unsafely steal TEMPMON"],["take","Safe access to TEMPMON"]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in CMP2"]],"fn":[["release","Release exclusive access to CMP2"],["steal","Unsafely steal CMP2"],["take","Safe access to CMP2"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CMP2"],["reset","Reset values for each field in CMP2"]],"fn":[["release","Release exclusive access to CMP2"],["steal","Unsafely steal CMP2"],["take","Safe access to CMP2"]]});

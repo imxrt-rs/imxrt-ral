@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt102/imxrt1021/pwm.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pwm.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
@@ -5801,6 +5801,73 @@
 <span id="5798">5798</span>
 <span id="5799">5799</span>
 <span id="5800">5800</span>
+<span id="5801">5801</span>
+<span id="5802">5802</span>
+<span id="5803">5803</span>
+<span id="5804">5804</span>
+<span id="5805">5805</span>
+<span id="5806">5806</span>
+<span id="5807">5807</span>
+<span id="5808">5808</span>
+<span id="5809">5809</span>
+<span id="5810">5810</span>
+<span id="5811">5811</span>
+<span id="5812">5812</span>
+<span id="5813">5813</span>
+<span id="5814">5814</span>
+<span id="5815">5815</span>
+<span id="5816">5816</span>
+<span id="5817">5817</span>
+<span id="5818">5818</span>
+<span id="5819">5819</span>
+<span id="5820">5820</span>
+<span id="5821">5821</span>
+<span id="5822">5822</span>
+<span id="5823">5823</span>
+<span id="5824">5824</span>
+<span id="5825">5825</span>
+<span id="5826">5826</span>
+<span id="5827">5827</span>
+<span id="5828">5828</span>
+<span id="5829">5829</span>
+<span id="5830">5830</span>
+<span id="5831">5831</span>
+<span id="5832">5832</span>
+<span id="5833">5833</span>
+<span id="5834">5834</span>
+<span id="5835">5835</span>
+<span id="5836">5836</span>
+<span id="5837">5837</span>
+<span id="5838">5838</span>
+<span id="5839">5839</span>
+<span id="5840">5840</span>
+<span id="5841">5841</span>
+<span id="5842">5842</span>
+<span id="5843">5843</span>
+<span id="5844">5844</span>
+<span id="5845">5845</span>
+<span id="5846">5846</span>
+<span id="5847">5847</span>
+<span id="5848">5848</span>
+<span id="5849">5849</span>
+<span id="5850">5850</span>
+<span id="5851">5851</span>
+<span id="5852">5852</span>
+<span id="5853">5853</span>
+<span id="5854">5854</span>
+<span id="5855">5855</span>
+<span id="5856">5856</span>
+<span id="5857">5857</span>
+<span id="5858">5858</span>
+<span id="5859">5859</span>
+<span id="5860">5860</span>
+<span id="5861">5861</span>
+<span id="5862">5862</span>
+<span id="5863">5863</span>
+<span id="5864">5864</span>
+<span id="5865">5865</span>
+<span id="5866">5866</span>
+<span id="5867">5867</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -5808,7 +5875,7 @@
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">RORegister</span>, <span class="ident">RWRegister</span>};
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>;
+<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
 <span class="doccomment">/// Output Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OUTEN</span> {
@@ -9379,920 +9446,920 @@
 
 <span class="doccomment">/// Counter Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCNT1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCNT0</span>::<span class="ident">CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCNT0::CNT</span>;
 }
 
 <span class="doccomment">/// Initial Count Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMINIT1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINIT0</span>::<span class="ident">INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINIT0::INIT</span>;
 }
 
 <span class="doccomment">/// Control 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCTRL21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">CLK_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">DBGEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FORCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FORCE_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FRCEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">INDEP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">INIT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWM23_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWM45_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWMX_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">RELOAD_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">WAITEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::CLK_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::DBGEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FORCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FORCE_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FRCEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::INDEP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::INIT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWM23_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWM45_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWMX_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::RELOAD_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::WAITEN</span>;
 }
 
 <span class="doccomment">/// Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCTRL1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">COMPMODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DBLEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DBLX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">FULL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">HALF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">LDFQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">LDMOD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">PRSC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">SPLIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::COMPMODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DBLEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DBLX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::FULL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::HALF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::LDFQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::LDMOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::PRSC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::SPLIT</span>;
 }
 
 <span class="doccomment">/// Value Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL01</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL00</span>::<span class="ident">VAL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL00::VAL0</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL10</span>::<span class="ident">FRACVAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL10::FRACVAL1</span>;
 }
 
 <span class="doccomment">/// Value Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL10</span>::<span class="ident">VAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL10::VAL1</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL20</span>::<span class="ident">FRACVAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL20::FRACVAL2</span>;
 }
 
 <span class="doccomment">/// Value Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL20</span>::<span class="ident">VAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL20::VAL2</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 3</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL30</span>::<span class="ident">FRACVAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL30::FRACVAL3</span>;
 }
 
 <span class="doccomment">/// Value Register 3</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL30</span>::<span class="ident">VAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL30::VAL3</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 4</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL41</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL40</span>::<span class="ident">FRACVAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL40::FRACVAL4</span>;
 }
 
 <span class="doccomment">/// Value Register 4</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL41</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL40</span>::<span class="ident">VAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL40::VAL4</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 5</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL51</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL50</span>::<span class="ident">FRACVAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL50::FRACVAL5</span>;
 }
 
 <span class="doccomment">/// Value Register 5</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL51</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL50</span>::<span class="ident">VAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL50::VAL5</span>;
 }
 
 <span class="doccomment">/// Fractional Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRCTRL1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC1_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC23_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC45_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC_PU</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC1_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC23_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC45_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC_PU</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::TEST</span>;
 }
 
 <span class="doccomment">/// Output Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMOCTRL1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMAFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMA_IN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMBFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMB_IN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMXFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMX_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMAFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMA_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMBFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMB_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMXFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMX_IN</span>;
 }
 
 <span class="doccomment">/// Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMSTS1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFA1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFB0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFB1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFX0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFX1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CMPF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">REF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">RF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">RUF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFB0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFB1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFX0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFX1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CMPF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::REF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::RF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::RUF</span>;
 }
 
 <span class="doccomment">/// Interrupt Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMINTEN1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CA0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CA1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CB0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CB1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CMPIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CX0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CX1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">REIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">RIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CA0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CA1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CB0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CB1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CMPIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CX0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CX1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::REIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::RIE</span>;
 }
 
 <span class="doccomment">/// DMA Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDMAEN1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CA0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CA1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CAPTDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CB0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CB1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CX0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CX1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">FAND</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">VALDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CA0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CA1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CAPTDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CB0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CB1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CX0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CX1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::FAND</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::VALDE</span>;
 }
 
 <span class="doccomment">/// Output Trigger Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMTCTRL1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">OUT_TRIG_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">PWAOT0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">PWBOT1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">TRGFRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::OUT_TRIG_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::PWAOT0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::PWBOT1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::TRGFRQ</span>;
 }
 
 <span class="doccomment">/// Fault Disable Mapping Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDISMAP01</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0A</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0B</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0X</span>;
 }
 
 <span class="doccomment">/// Fault Disable Mapping Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDISMAP11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1A</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1B</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1X</span>;
 }
 
 <span class="doccomment">/// Deadtime Count Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDTCNT01</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDTCNT00</span>::<span class="ident">DTCNT0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDTCNT00::DTCNT0</span>;
 }
 
 <span class="doccomment">/// Deadtime Count Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDTCNT11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDTCNT10</span>::<span class="ident">DTCNT1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDTCNT10::DTCNT1</span>;
 }
 
 <span class="doccomment">/// Capture Control A Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLA1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">ARMA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CA0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CA1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CFAWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGA1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGCNTA_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">INP_SELA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">ONESHOTA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::ARMA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CA0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CA1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CFAWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGCNTA_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::INP_SELA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::ONESHOTA</span>;
 }
 
 <span class="doccomment">/// Capture Compare A Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPA1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPA0</span>::<span class="ident">EDGCMPA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPA0</span>::<span class="ident">EDGCNTA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPA0::EDGCMPA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPA0::EDGCNTA</span>;
 }
 
 <span class="doccomment">/// Capture Control B Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLB1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">ARMB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CB0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CB1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CFBWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGB0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGB1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGCNTB_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">INP_SELB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">ONESHOTB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::ARMB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CB0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CB1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CFBWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGB0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGB1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGCNTB_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::INP_SELB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::ONESHOTB</span>;
 }
 
 <span class="doccomment">/// Capture Compare B Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPB1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPB0</span>::<span class="ident">EDGCMPB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPB0</span>::<span class="ident">EDGCNTB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPB0::EDGCMPB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPB0::EDGCNTB</span>;
 }
 
 <span class="doccomment">/// Capture Control X Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLX1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">ARMX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CFXWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CX0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CX1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGCNTX_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGX0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGX1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">INP_SELX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">ONESHOTX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::ARMX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CFXWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CX0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CX1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGCNTX_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGX0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGX1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::INP_SELX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::ONESHOTX</span>;
 }
 
 <span class="doccomment">/// Capture Compare X Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPX1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPX0</span>::<span class="ident">EDGCMPX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPX0</span>::<span class="ident">EDGCNTX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPX0::EDGCMPX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPX0::EDGCNTX</span>;
 }
 
 <span class="doccomment">/// Capture Value 0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL01</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL00</span>::<span class="ident">CAPTVAL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL00::CAPTVAL0</span>;
 }
 
 <span class="doccomment">/// Capture Value 0 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL0CYC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL0CYC0</span>::<span class="ident">CVAL0CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL0CYC0::CVAL0CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL10</span>::<span class="ident">CAPTVAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL10::CAPTVAL1</span>;
 }
 
 <span class="doccomment">/// Capture Value 1 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL1CYC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL1CYC0</span>::<span class="ident">CVAL1CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL1CYC0::CVAL1CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL20</span>::<span class="ident">CAPTVAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL20::CAPTVAL2</span>;
 }
 
 <span class="doccomment">/// Capture Value 2 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL2CYC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL2CYC0</span>::<span class="ident">CVAL2CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL2CYC0::CVAL2CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 3 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL30</span>::<span class="ident">CAPTVAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL30::CAPTVAL3</span>;
 }
 
 <span class="doccomment">/// Capture Value 3 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL3CYC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL3CYC0</span>::<span class="ident">CVAL3CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL3CYC0::CVAL3CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 4 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL41</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL40</span>::<span class="ident">CAPTVAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL40::CAPTVAL4</span>;
 }
 
 <span class="doccomment">/// Capture Value 4 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL4CYC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL4CYC0</span>::<span class="ident">CVAL4CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL4CYC0::CVAL4CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 5 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL51</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL50</span>::<span class="ident">CAPTVAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL50::CAPTVAL5</span>;
 }
 
 <span class="doccomment">/// Capture Value 5 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL5CYC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL5CYC0</span>::<span class="ident">CVAL5CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL5CYC0::CVAL5CYC</span>;
 }
 
 <span class="doccomment">/// Counter Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCNT2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCNT0</span>::<span class="ident">CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCNT0::CNT</span>;
 }
 
 <span class="doccomment">/// Initial Count Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMINIT2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINIT0</span>::<span class="ident">INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINIT0::INIT</span>;
 }
 
 <span class="doccomment">/// Control 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCTRL22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">CLK_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">DBGEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FORCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FORCE_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FRCEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">INDEP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">INIT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWM23_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWM45_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWMX_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">RELOAD_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">WAITEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::CLK_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::DBGEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FORCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FORCE_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FRCEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::INDEP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::INIT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWM23_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWM45_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWMX_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::RELOAD_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::WAITEN</span>;
 }
 
 <span class="doccomment">/// Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCTRL2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">COMPMODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DBLEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DBLX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">FULL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">HALF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">LDFQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">LDMOD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">PRSC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">SPLIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::COMPMODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DBLEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DBLX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::FULL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::HALF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::LDFQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::LDMOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::PRSC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::SPLIT</span>;
 }
 
 <span class="doccomment">/// Value Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL02</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL00</span>::<span class="ident">VAL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL00::VAL0</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL10</span>::<span class="ident">FRACVAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL10::FRACVAL1</span>;
 }
 
 <span class="doccomment">/// Value Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL10</span>::<span class="ident">VAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL10::VAL1</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL20</span>::<span class="ident">FRACVAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL20::FRACVAL2</span>;
 }
 
 <span class="doccomment">/// Value Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL20</span>::<span class="ident">VAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL20::VAL2</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 3</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL32</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL30</span>::<span class="ident">FRACVAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL30::FRACVAL3</span>;
 }
 
 <span class="doccomment">/// Value Register 3</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL32</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL30</span>::<span class="ident">VAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL30::VAL3</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 4</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL42</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL40</span>::<span class="ident">FRACVAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL40::FRACVAL4</span>;
 }
 
 <span class="doccomment">/// Value Register 4</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL42</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL40</span>::<span class="ident">VAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL40::VAL4</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 5</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL52</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL50</span>::<span class="ident">FRACVAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL50::FRACVAL5</span>;
 }
 
 <span class="doccomment">/// Value Register 5</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL52</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL50</span>::<span class="ident">VAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL50::VAL5</span>;
 }
 
 <span class="doccomment">/// Fractional Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRCTRL2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC1_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC23_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC45_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC_PU</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC1_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC23_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC45_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC_PU</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::TEST</span>;
 }
 
 <span class="doccomment">/// Output Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMOCTRL2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMAFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMA_IN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMBFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMB_IN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMXFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMX_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMAFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMA_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMBFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMB_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMXFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMX_IN</span>;
 }
 
 <span class="doccomment">/// Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMSTS2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFA1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFB0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFB1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFX0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFX1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CMPF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">REF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">RF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">RUF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFB0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFB1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFX0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFX1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CMPF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::REF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::RF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::RUF</span>;
 }
 
 <span class="doccomment">/// Interrupt Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMINTEN2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CA0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CA1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CB0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CB1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CMPIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CX0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CX1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">REIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">RIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CA0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CA1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CB0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CB1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CMPIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CX0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CX1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::REIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::RIE</span>;
 }
 
 <span class="doccomment">/// DMA Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDMAEN2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CA0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CA1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CAPTDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CB0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CB1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CX0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CX1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">FAND</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">VALDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CA0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CA1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CAPTDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CB0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CB1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CX0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CX1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::FAND</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::VALDE</span>;
 }
 
 <span class="doccomment">/// Output Trigger Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMTCTRL2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">OUT_TRIG_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">PWAOT0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">PWBOT1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">TRGFRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::OUT_TRIG_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::PWAOT0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::PWBOT1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::TRGFRQ</span>;
 }
 
 <span class="doccomment">/// Fault Disable Mapping Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDISMAP02</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0A</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0B</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0X</span>;
 }
 
 <span class="doccomment">/// Fault Disable Mapping Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDISMAP12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1A</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1B</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1X</span>;
 }
 
 <span class="doccomment">/// Deadtime Count Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDTCNT02</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDTCNT00</span>::<span class="ident">DTCNT0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDTCNT00::DTCNT0</span>;
 }
 
 <span class="doccomment">/// Deadtime Count Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDTCNT12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDTCNT10</span>::<span class="ident">DTCNT1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDTCNT10::DTCNT1</span>;
 }
 
 <span class="doccomment">/// Capture Control A Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLA2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">ARMA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CA0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CA1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CFAWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGA1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGCNTA_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">INP_SELA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">ONESHOTA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::ARMA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CA0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CA1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CFAWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGCNTA_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::INP_SELA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::ONESHOTA</span>;
 }
 
 <span class="doccomment">/// Capture Compare A Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPA2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPA0</span>::<span class="ident">EDGCMPA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPA0</span>::<span class="ident">EDGCNTA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPA0::EDGCMPA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPA0::EDGCNTA</span>;
 }
 
 <span class="doccomment">/// Capture Control B Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLB2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">ARMB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CB0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CB1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CFBWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGB0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGB1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGCNTB_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">INP_SELB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">ONESHOTB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::ARMB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CB0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CB1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CFBWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGB0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGB1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGCNTB_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::INP_SELB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::ONESHOTB</span>;
 }
 
 <span class="doccomment">/// Capture Compare B Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPB2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPB0</span>::<span class="ident">EDGCMPB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPB0</span>::<span class="ident">EDGCNTB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPB0::EDGCMPB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPB0::EDGCNTB</span>;
 }
 
 <span class="doccomment">/// Capture Control X Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLX2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">ARMX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CFXWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CX0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CX1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGCNTX_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGX0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGX1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">INP_SELX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">ONESHOTX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::ARMX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CFXWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CX0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CX1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGCNTX_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGX0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGX1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::INP_SELX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::ONESHOTX</span>;
 }
 
 <span class="doccomment">/// Capture Compare X Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPX2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPX0</span>::<span class="ident">EDGCMPX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPX0</span>::<span class="ident">EDGCNTX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPX0::EDGCMPX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPX0::EDGCNTX</span>;
 }
 
 <span class="doccomment">/// Capture Value 0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL02</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL00</span>::<span class="ident">CAPTVAL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL00::CAPTVAL0</span>;
 }
 
 <span class="doccomment">/// Capture Value 0 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL0CYC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL0CYC0</span>::<span class="ident">CVAL0CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL0CYC0::CVAL0CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL10</span>::<span class="ident">CAPTVAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL10::CAPTVAL1</span>;
 }
 
 <span class="doccomment">/// Capture Value 1 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL1CYC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL1CYC0</span>::<span class="ident">CVAL1CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL1CYC0::CVAL1CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL20</span>::<span class="ident">CAPTVAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL20::CAPTVAL2</span>;
 }
 
 <span class="doccomment">/// Capture Value 2 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL2CYC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL2CYC0</span>::<span class="ident">CVAL2CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL2CYC0::CVAL2CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 3 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL32</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL30</span>::<span class="ident">CAPTVAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL30::CAPTVAL3</span>;
 }
 
 <span class="doccomment">/// Capture Value 3 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL3CYC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL3CYC0</span>::<span class="ident">CVAL3CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL3CYC0::CVAL3CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 4 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL42</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL40</span>::<span class="ident">CAPTVAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL40::CAPTVAL4</span>;
 }
 
 <span class="doccomment">/// Capture Value 4 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL4CYC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL4CYC0</span>::<span class="ident">CVAL4CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL4CYC0::CVAL4CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 5 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL52</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL50</span>::<span class="ident">CAPTVAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL50::CAPTVAL5</span>;
 }
 
 <span class="doccomment">/// Capture Value 5 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL5CYC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL5CYC0</span>::<span class="ident">CVAL5CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL5CYC0::CVAL5CYC</span>;
 }
 
 <span class="doccomment">/// Counter Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCNT3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCNT0</span>::<span class="ident">CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCNT0::CNT</span>;
 }
 
 <span class="doccomment">/// Initial Count Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMINIT3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINIT0</span>::<span class="ident">INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINIT0::INIT</span>;
 }
 
 <span class="doccomment">/// Control 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCTRL23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">CLK_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">DBGEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FORCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FORCE_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">FRCEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">INDEP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">INIT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWM23_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWM45_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">PWMX_INIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">RELOAD_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL20</span>::<span class="ident">WAITEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::CLK_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::DBGEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FORCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FORCE_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::FRCEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::INDEP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::INIT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWM23_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWM45_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::PWMX_INIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::RELOAD_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL20::WAITEN</span>;
 }
 
 <span class="doccomment">/// Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCTRL3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">COMPMODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DBLEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DBLX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">DT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">FULL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">HALF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">LDFQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">LDMOD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">PRSC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCTRL0</span>::<span class="ident">SPLIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::COMPMODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DBLEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DBLX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::DT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::FULL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::HALF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::LDFQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::LDMOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::PRSC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCTRL0::SPLIT</span>;
 }
 
 <span class="doccomment">/// Value Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL03</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL00</span>::<span class="ident">VAL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL00::VAL0</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL10</span>::<span class="ident">FRACVAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL10::FRACVAL1</span>;
 }
 
 <span class="doccomment">/// Value Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL10</span>::<span class="ident">VAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL10::VAL1</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL20</span>::<span class="ident">FRACVAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL20::FRACVAL2</span>;
 }
 
 <span class="doccomment">/// Value Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL20</span>::<span class="ident">VAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL20::VAL2</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 3</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL33</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL30</span>::<span class="ident">FRACVAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL30::FRACVAL3</span>;
 }
 
 <span class="doccomment">/// Value Register 3</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL33</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL30</span>::<span class="ident">VAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL30::VAL3</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 4</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL43</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL40</span>::<span class="ident">FRACVAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL40::FRACVAL4</span>;
 }
 
 <span class="doccomment">/// Value Register 4</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL43</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL40</span>::<span class="ident">VAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL40::VAL4</span>;
 }
 
 <span class="doccomment">/// Fractional Value Register 5</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRACVAL53</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRACVAL50</span>::<span class="ident">FRACVAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRACVAL50::FRACVAL5</span>;
 }
 
 <span class="doccomment">/// Value Register 5</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMVAL53</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMVAL50</span>::<span class="ident">VAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMVAL50::VAL5</span>;
 }
 
 <span class="doccomment">/// Fractional Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMFRCTRL3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC1_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC23_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC45_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">FRAC_PU</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMFRCTRL0</span>::<span class="ident">TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC1_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC23_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC45_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::FRAC_PU</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMFRCTRL0::TEST</span>;
 }
 
 <span class="doccomment">/// Output Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMOCTRL3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">POLX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMAFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMA_IN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMBFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMB_IN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMXFS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMOCTRL0</span>::<span class="ident">PWMX_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::POLX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMAFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMA_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMBFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMB_IN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMXFS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMOCTRL0::PWMX_IN</span>;
 }
 
 <span class="doccomment">/// Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMSTS3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFA1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFB0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFB1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFX0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CFX1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">CMPF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">REF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">RF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMSTS0</span>::<span class="ident">RUF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFB0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFB1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFX0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CFX1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::CMPF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::REF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::RF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMSTS0::RUF</span>;
 }
 
 <span class="doccomment">/// Interrupt Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMINTEN3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CA0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CA1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CB0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CB1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CMPIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CX0IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">CX1IE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">REIE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMINTEN0</span>::<span class="ident">RIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CA0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CA1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CB0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CB1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CMPIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CX0IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::CX1IE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::REIE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMINTEN0::RIE</span>;
 }
 
 <span class="doccomment">/// DMA Enable Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDMAEN3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CA0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CA1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CAPTDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CB0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CB1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CX0DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">CX1DE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">FAND</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDMAEN0</span>::<span class="ident">VALDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CA0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CA1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CAPTDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CB0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CB1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CX0DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::CX1DE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::FAND</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDMAEN0::VALDE</span>;
 }
 
 <span class="doccomment">/// Output Trigger Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMTCTRL3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">OUT_TRIG_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">PWAOT0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">PWBOT1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMTCTRL0</span>::<span class="ident">TRGFRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::OUT_TRIG_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::PWAOT0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::PWBOT1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMTCTRL0::TRGFRQ</span>;
 }
 
 <span class="doccomment">/// Fault Disable Mapping Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDISMAP03</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0A</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0B</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP00</span>::<span class="ident">DIS0X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP00::DIS0X</span>;
 }
 
 <span class="doccomment">/// Fault Disable Mapping Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDISMAP13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1A</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1B</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDISMAP10</span>::<span class="ident">DIS1X</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDISMAP10::DIS1X</span>;
 }
 
 <span class="doccomment">/// Deadtime Count Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDTCNT03</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDTCNT00</span>::<span class="ident">DTCNT0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDTCNT00::DTCNT0</span>;
 }
 
 <span class="doccomment">/// Deadtime Count Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMDTCNT13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMDTCNT10</span>::<span class="ident">DTCNT1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMDTCNT10::DTCNT1</span>;
 }
 
 <span class="doccomment">/// Capture Control A Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLA3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">ARMA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CA0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CA1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">CFAWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGA1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">EDGCNTA_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">INP_SELA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLA0</span>::<span class="ident">ONESHOTA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::ARMA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CA0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CA1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::CFAWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::EDGCNTA_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::INP_SELA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLA0::ONESHOTA</span>;
 }
 
 <span class="doccomment">/// Capture Compare A Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPA3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPA0</span>::<span class="ident">EDGCMPA</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPA0</span>::<span class="ident">EDGCNTA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPA0::EDGCMPA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPA0::EDGCNTA</span>;
 }
 
 <span class="doccomment">/// Capture Control B Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLB3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">ARMB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CB0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CB1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">CFBWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGB0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGB1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">EDGCNTB_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">INP_SELB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLB0</span>::<span class="ident">ONESHOTB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::ARMB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CB0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CB1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::CFBWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGB0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGB1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::EDGCNTB_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::INP_SELB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLB0::ONESHOTB</span>;
 }
 
 <span class="doccomment">/// Capture Compare B Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPB3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPB0</span>::<span class="ident">EDGCMPB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPB0</span>::<span class="ident">EDGCNTB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPB0::EDGCMPB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPB0::EDGCNTB</span>;
 }
 
 <span class="doccomment">/// Capture Control X Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCTRLX3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">ARMX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CFXWM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CX0CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">CX1CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGCNTX_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGX0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">EDGX1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">INP_SELX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCTRLX0</span>::<span class="ident">ONESHOTX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::ARMX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CFXWM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CX0CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::CX1CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGCNTX_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGX0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::EDGX1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::INP_SELX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCTRLX0::ONESHOTX</span>;
 }
 
 <span class="doccomment">/// Capture Compare X Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCAPTCOMPX3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPX0</span>::<span class="ident">EDGCMPX</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCAPTCOMPX0</span>::<span class="ident">EDGCNTX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPX0::EDGCMPX</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCAPTCOMPX0::EDGCNTX</span>;
 }
 
 <span class="doccomment">/// Capture Value 0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL03</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL00</span>::<span class="ident">CAPTVAL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL00::CAPTVAL0</span>;
 }
 
 <span class="doccomment">/// Capture Value 0 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL0CYC3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL0CYC0</span>::<span class="ident">CVAL0CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL0CYC0::CVAL0CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL10</span>::<span class="ident">CAPTVAL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL10::CAPTVAL1</span>;
 }
 
 <span class="doccomment">/// Capture Value 1 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL1CYC3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL1CYC0</span>::<span class="ident">CVAL1CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL1CYC0::CVAL1CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL20</span>::<span class="ident">CAPTVAL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL20::CAPTVAL2</span>;
 }
 
 <span class="doccomment">/// Capture Value 2 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL2CYC3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL2CYC0</span>::<span class="ident">CVAL2CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL2CYC0::CVAL2CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 3 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL33</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL30</span>::<span class="ident">CAPTVAL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL30::CAPTVAL3</span>;
 }
 
 <span class="doccomment">/// Capture Value 3 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL3CYC3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL3CYC0</span>::<span class="ident">CVAL3CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL3CYC0::CVAL3CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 4 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL43</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL40</span>::<span class="ident">CAPTVAL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL40::CAPTVAL4</span>;
 }
 
 <span class="doccomment">/// Capture Value 4 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL4CYC3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL4CYC0</span>::<span class="ident">CVAL4CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL4CYC0::CVAL4CYC</span>;
 }
 
 <span class="doccomment">/// Capture Value 5 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL53</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL50</span>::<span class="ident">CAPTVAL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL50::CAPTVAL5</span>;
 }
 
 <span class="doccomment">/// Capture Value 5 Cycle Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SMCVAL5CYC3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">SMCVAL5CYC0</span>::<span class="ident">CVAL5CYC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SMCVAL5CYC0::CVAL5CYC</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -11050,9 +11117,10 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> ::<span class="ident">core</span>::<span class="ident">ops</span>::<span class="ident">Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -11063,19 +11131,43 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">Instance</span> {
+    <span class="doccomment">/// Return the interrupt signals associated with this</span>
+    <span class="doccomment">/// peripheral instance</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Collection may be empty if there is no interrupt signal</span>
+    <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
+    <span class="doccomment">/// interrupt signal ordering in the collection.</span>
+    <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+        <span class="self">self</span>.<span class="ident">intrs</span>
+    }
+}
+
 <span class="doccomment">/// Access functions for the PWM1 peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PWM1</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ResetValues</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">sync</span>::<span class="ident">atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
+    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Instance</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
         <span class="ident">addr</span>: <span class="number">0x403dc000</span>,
-        <span class="ident">_marker</span>: ::<span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>,
+        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM1_0</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM1_1</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM1_2</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM1_3</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM1_FAULT</span>,
+        ],
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in PWM1</span>
@@ -11269,7 +11361,7 @@
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
     <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">PWM1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool</span>::<span class="ident">new</span>(<span class="bool-val">false</span>);
+    <span class="kw">static</span> <span class="ident">PWM1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
     <span class="doccomment">/// Safe access to PWM1</span>
     <span class="doccomment">///</span>
@@ -11286,7 +11378,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
@@ -11303,10 +11395,10 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
+        <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
 
     <span class="doccomment">/// Unsafely steal PWM1</span>
@@ -11317,9 +11409,25 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
-        <span class="ident">PWM1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="ident">PWM1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
+
+    <span class="doccomment">/// The interrupts associated with PWM1</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">5</span>] <span class="op">=</span> [
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM1_0</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM1_1</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM1_2</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM1_3</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM1_FAULT</span>,
+    ];
+
+    <span class="doccomment">/// The interrupts associated with PWM1</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to PWM1</span>
@@ -11335,17 +11443,27 @@
 
 <span class="doccomment">/// Access functions for the PWM2 peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PWM2</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ResetValues</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">sync</span>::<span class="ident">atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
+    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Instance</span>;
+    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
         <span class="ident">addr</span>: <span class="number">0x403e0000</span>,
-        <span class="ident">_marker</span>: ::<span class="ident">core</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>,
+        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM2_0</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM2_1</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM2_2</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM2_3</span>,
+            <span class="kw">crate</span><span class="ident">::interrupt::PWM2_FAULT</span>,
+        ],
+        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in PWM2</span>
@@ -11539,7 +11657,7 @@
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
     <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">PWM2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool</span>::<span class="ident">new</span>(<span class="bool-val">false</span>);
+    <span class="kw">static</span> <span class="ident">PWM2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
     <span class="doccomment">/// Safe access to PWM2</span>
     <span class="doccomment">///</span>
@@ -11556,7 +11674,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
@@ -11573,10 +11691,10 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
-        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
+        <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">PWM2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
+        <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
 
     <span class="doccomment">/// Unsafely steal PWM2</span>
@@ -11587,9 +11705,25 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
-        <span class="ident">PWM2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>);
+        <span class="ident">PWM2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
+
+    <span class="doccomment">/// The interrupts associated with PWM2</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">5</span>] <span class="op">=</span> [
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM2_0</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM2_1</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM2_2</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM2_3</span>,
+        <span class="kw">crate</span><span class="ident">::interrupt::PWM2_FAULT</span>,
+    ];
+
+    <span class="doccomment">/// The interrupts associated with PWM2</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to PWM2</span>
@@ -11603,5 +11737,5 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PWM2</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x403e0000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-js="../../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
     <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

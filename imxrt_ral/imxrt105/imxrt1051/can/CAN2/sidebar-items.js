@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in CAN2"]],"fn":[["release","Release exclusive access to CAN2"],["steal","Unsafely steal CAN2"],["take","Safe access to CAN2"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CAN2"],["reset","Reset values for each field in CAN2"]],"fn":[["release","Release exclusive access to CAN2"],["steal","Unsafely steal CAN2"],["take","Safe access to CAN2"]]});

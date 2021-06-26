@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["reset","Reset values for each field in FLEXRAM"]],"fn":[["release","Release exclusive access to FLEXRAM"],["steal","Unsafely steal FLEXRAM"],["take","Safe access to FLEXRAM"]]});
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with FLEXRAM"],["reset","Reset values for each field in FLEXRAM"]],"fn":[["release","Release exclusive access to FLEXRAM"],["steal","Unsafely steal FLEXRAM"],["take","Safe access to FLEXRAM"]]});
