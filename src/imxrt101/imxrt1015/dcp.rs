@@ -30,6 +30,10 @@ pub mod DCP {
     const INSTANCE: Instance = Instance {
         addr: 0x402fc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::DCP, crate::interrupt::DCP_VMI],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in DCP
@@ -159,6 +163,17 @@ pub mod DCP {
         DCP_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with DCP
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] =
+        [crate::interrupt::DCP, crate::interrupt::DCP_VMI];
+
+    /// The interrupts associated with DCP
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to DCP

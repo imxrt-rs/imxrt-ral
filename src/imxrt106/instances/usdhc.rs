@@ -27,6 +27,10 @@ pub mod USDHC1 {
     const INSTANCE: Instance = Instance {
         addr: 0x402c0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::USDHC1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USDHC1
@@ -117,6 +121,16 @@ pub mod USDHC1 {
         USDHC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USDHC1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USDHC1];
+
+    /// The interrupts associated with USDHC1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USDHC1
@@ -143,6 +157,10 @@ pub mod USDHC2 {
     const INSTANCE: Instance = Instance {
         addr: 0x402c4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::USDHC2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USDHC2
@@ -233,6 +251,16 @@ pub mod USDHC2 {
         USDHC2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USDHC2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USDHC2];
+
+    /// The interrupts associated with USDHC2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USDHC2

@@ -27,6 +27,10 @@ pub mod ROMC {
     const INSTANCE: Instance = Instance {
         addr: 0x40180000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ROMC
@@ -116,6 +120,16 @@ pub mod ROMC {
         ROMC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ROMC
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with ROMC
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ROMC

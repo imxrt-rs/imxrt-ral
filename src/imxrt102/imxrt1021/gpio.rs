@@ -673,6 +673,7 @@ pub struct ResetValues {
 pub struct Instance {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
 impl ::core::ops::Deref for Instance {
@@ -685,6 +686,20 @@ impl ::core::ops::Deref for Instance {
 
 #[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
+
+#[cfg(not(feature = "nosync"))]
+impl Instance {
+    /// Return the interrupt signals associated with this
+    /// peripheral instance
+    ///
+    /// Collection may be empty if there is no interrupt signal
+    /// associated with the peripheral. There's no guarantee for
+    /// interrupt signal ordering in the collection.
+    #[inline(always)]
+    pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+        self.intrs
+    }
+}
 
 /// Access functions for the GPIO1 peripheral instance
 pub mod GPIO1 {
@@ -699,6 +714,21 @@ pub mod GPIO1 {
     const INSTANCE: Instance = Instance {
         addr: 0x401b8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::GPIO1_INT0,
+            crate::interrupt::GPIO1_INT1,
+            crate::interrupt::GPIO1_INT2,
+            crate::interrupt::GPIO1_INT3,
+            crate::interrupt::GPIO1_INT4,
+            crate::interrupt::GPIO1_INT5,
+            crate::interrupt::GPIO1_INT6,
+            crate::interrupt::GPIO1_INT7,
+            crate::interrupt::GPIO1_Combined_0_15,
+            crate::interrupt::GPIO1_Combined_16_31,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO1
@@ -771,6 +801,27 @@ pub mod GPIO1 {
         GPIO1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 10] = [
+        crate::interrupt::GPIO1_INT0,
+        crate::interrupt::GPIO1_INT1,
+        crate::interrupt::GPIO1_INT2,
+        crate::interrupt::GPIO1_INT3,
+        crate::interrupt::GPIO1_INT4,
+        crate::interrupt::GPIO1_INT5,
+        crate::interrupt::GPIO1_INT6,
+        crate::interrupt::GPIO1_INT7,
+        crate::interrupt::GPIO1_Combined_0_15,
+        crate::interrupt::GPIO1_Combined_16_31,
+    ];
+
+    /// The interrupts associated with GPIO1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO1
@@ -797,6 +848,13 @@ pub mod GPIO2 {
     const INSTANCE: Instance = Instance {
         addr: 0x401bc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::GPIO2_Combined_0_15,
+            crate::interrupt::GPIO2_Combined_16_31,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO2
@@ -869,6 +927,19 @@ pub mod GPIO2 {
         GPIO2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] = [
+        crate::interrupt::GPIO2_Combined_0_15,
+        crate::interrupt::GPIO2_Combined_16_31,
+    ];
+
+    /// The interrupts associated with GPIO2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO2
@@ -895,6 +966,13 @@ pub mod GPIO3 {
     const INSTANCE: Instance = Instance {
         addr: 0x401c0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::GPIO3_Combined_0_15,
+            crate::interrupt::GPIO3_Combined_16_31,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO3
@@ -967,6 +1045,19 @@ pub mod GPIO3 {
         GPIO3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] = [
+        crate::interrupt::GPIO3_Combined_0_15,
+        crate::interrupt::GPIO3_Combined_16_31,
+    ];
+
+    /// The interrupts associated with GPIO3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO3
@@ -993,6 +1084,13 @@ pub mod GPIO5 {
     const INSTANCE: Instance = Instance {
         addr: 0x400c0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::GPIO5_Combined_0_15,
+            crate::interrupt::GPIO5_Combined_16_31,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in GPIO5
@@ -1065,6 +1163,19 @@ pub mod GPIO5 {
         GPIO5_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with GPIO5
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] = [
+        crate::interrupt::GPIO5_Combined_0_15,
+        crate::interrupt::GPIO5_Combined_16_31,
+    ];
+
+    /// The interrupts associated with GPIO5
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to GPIO5

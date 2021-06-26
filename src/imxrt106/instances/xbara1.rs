@@ -28,6 +28,13 @@ pub mod XBARA1 {
     const INSTANCE: Instance = Instance {
         addr: 0x403bc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::XBAR1_IRQ_0_1,
+            crate::interrupt::XBAR1_IRQ_2_3,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in XBARA1
@@ -157,6 +164,19 @@ pub mod XBARA1 {
         XBARA1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with XBARA1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] = [
+        crate::interrupt::XBAR1_IRQ_0_1,
+        crate::interrupt::XBAR1_IRQ_2_3,
+    ];
+
+    /// The interrupts associated with XBARA1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to XBARA1

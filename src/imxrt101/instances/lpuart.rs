@@ -24,6 +24,10 @@ pub mod LPUART1 {
     const INSTANCE: Instance = Instance {
         addr: 0x40184000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPUART1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPUART1
@@ -97,6 +101,16 @@ pub mod LPUART1 {
         LPUART1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPUART1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART1];
+
+    /// The interrupts associated with LPUART1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPUART1
@@ -123,6 +137,10 @@ pub mod LPUART2 {
     const INSTANCE: Instance = Instance {
         addr: 0x40188000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPUART2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPUART2
@@ -196,6 +214,16 @@ pub mod LPUART2 {
         LPUART2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPUART2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART2];
+
+    /// The interrupts associated with LPUART2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPUART2
@@ -222,6 +250,10 @@ pub mod LPUART3 {
     const INSTANCE: Instance = Instance {
         addr: 0x4018c000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPUART3],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPUART3
@@ -295,6 +327,16 @@ pub mod LPUART3 {
         LPUART3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPUART3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART3];
+
+    /// The interrupts associated with LPUART3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPUART3
@@ -321,6 +363,10 @@ pub mod LPUART4 {
     const INSTANCE: Instance = Instance {
         addr: 0x40190000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LPUART4],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LPUART4
@@ -394,6 +440,16 @@ pub mod LPUART4 {
         LPUART4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LPUART4
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART4];
+
+    /// The interrupts associated with LPUART4
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LPUART4

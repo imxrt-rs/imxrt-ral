@@ -25,6 +25,13 @@ pub mod TEMPMON {
     const INSTANCE: Instance = Instance {
         addr: 0x400d8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::TEMP_LOW_HIGH,
+            crate::interrupt::TEMP_PANIC,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in TEMPMON
@@ -98,6 +105,19 @@ pub mod TEMPMON {
         TEMPMON_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with TEMPMON
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] = [
+        crate::interrupt::TEMP_LOW_HIGH,
+        crate::interrupt::TEMP_PANIC,
+    ];
+
+    /// The interrupts associated with TEMPMON
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to TEMPMON

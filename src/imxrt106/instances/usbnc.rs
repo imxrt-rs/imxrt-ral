@@ -22,6 +22,10 @@ pub mod USBNC1 {
     const INSTANCE: Instance = Instance {
         addr: 0x402e0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USBNC1
@@ -85,6 +89,16 @@ pub mod USBNC1 {
         USBNC1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USBNC1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with USBNC1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USBNC1
@@ -111,6 +125,10 @@ pub mod USBNC2 {
     const INSTANCE: Instance = Instance {
         addr: 0x402e0004,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USBNC2
@@ -174,6 +192,16 @@ pub mod USBNC2 {
         USBNC2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USBNC2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with USBNC2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USBNC2

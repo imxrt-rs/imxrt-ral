@@ -27,6 +27,10 @@ pub mod XTALOSC24M {
     const INSTANCE: Instance = Instance {
         addr: 0x400d8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in XTALOSC24M
@@ -108,6 +112,16 @@ pub mod XTALOSC24M {
         XTALOSC24M_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with XTALOSC24M
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
+
+    /// The interrupts associated with XTALOSC24M
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to XTALOSC24M

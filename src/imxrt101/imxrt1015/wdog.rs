@@ -20,6 +20,10 @@ pub mod WDOG1 {
     const INSTANCE: Instance = Instance {
         addr: 0x400b8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::WDOG1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in WDOG1
@@ -86,6 +90,16 @@ pub mod WDOG1 {
         WDOG1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with WDOG1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::WDOG1];
+
+    /// The interrupts associated with WDOG1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to WDOG1
@@ -112,6 +126,10 @@ pub mod WDOG2 {
     const INSTANCE: Instance = Instance {
         addr: 0x400d0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::WDOG2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in WDOG2
@@ -178,6 +196,16 @@ pub mod WDOG2 {
         WDOG2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with WDOG2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::WDOG2];
+
+    /// The interrupts associated with WDOG2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to WDOG2

@@ -26,6 +26,10 @@ pub mod CCM {
     const INSTANCE: Instance = Instance {
         addr: 0x400fc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::CCM_1, crate::interrupt::CCM_2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in CCM
@@ -115,6 +119,17 @@ pub mod CCM {
         CCM_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with CCM
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] =
+        [crate::interrupt::CCM_1, crate::interrupt::CCM_2];
+
+    /// The interrupts associated with CCM
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to CCM

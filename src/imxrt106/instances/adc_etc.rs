@@ -40,6 +40,15 @@ pub mod ADC_ETC {
     const INSTANCE: Instance = Instance {
         addr: 0x403b0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::ADC_ETC_IRQ0,
+            crate::interrupt::ADC_ETC_IRQ1,
+            crate::interrupt::ADC_ETC_IRQ2,
+            crate::interrupt::ADC_ETC_ERROR_IRQ,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ADC_ETC
@@ -185,6 +194,21 @@ pub mod ADC_ETC {
         ADC_ETC_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ADC_ETC
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 4] = [
+        crate::interrupt::ADC_ETC_IRQ0,
+        crate::interrupt::ADC_ETC_IRQ1,
+        crate::interrupt::ADC_ETC_IRQ2,
+        crate::interrupt::ADC_ETC_ERROR_IRQ,
+    ];
+
+    /// The interrupts associated with ADC_ETC
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ADC_ETC

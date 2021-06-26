@@ -370,7 +370,7 @@ pub static __INTERRUPTS: [Vector; 142] = [
 
 /// Available interrupts for this device
 #[repr(u8)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 #[allow(non_camel_case_types)]
 pub enum Interrupt {
     /// 0:

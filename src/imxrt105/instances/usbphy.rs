@@ -26,6 +26,10 @@ pub mod USBPHY1 {
     const INSTANCE: Instance = Instance {
         addr: 0x400d9000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::USB_PHY1],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USBPHY1
@@ -114,6 +118,16 @@ pub mod USBPHY1 {
         USBPHY1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USBPHY1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USB_PHY1];
+
+    /// The interrupts associated with USBPHY1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USBPHY1
@@ -140,6 +154,10 @@ pub mod USBPHY2 {
     const INSTANCE: Instance = Instance {
         addr: 0x400da000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::USB_PHY2],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in USBPHY2
@@ -228,6 +246,16 @@ pub mod USBPHY2 {
         USBPHY2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with USBPHY2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USB_PHY2];
+
+    /// The interrupts associated with USBPHY2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to USBPHY2

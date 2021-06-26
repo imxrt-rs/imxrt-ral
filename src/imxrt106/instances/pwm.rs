@@ -46,6 +46,16 @@ pub mod PWM1 {
     const INSTANCE: Instance = Instance {
         addr: 0x403dc000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::PWM1_0,
+            crate::interrupt::PWM1_1,
+            crate::interrupt::PWM1_2,
+            crate::interrupt::PWM1_3,
+            crate::interrupt::PWM1_FAULT,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in PWM1
@@ -290,6 +300,22 @@ pub mod PWM1 {
         PWM1_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with PWM1
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 5] = [
+        crate::interrupt::PWM1_0,
+        crate::interrupt::PWM1_1,
+        crate::interrupt::PWM1_2,
+        crate::interrupt::PWM1_3,
+        crate::interrupt::PWM1_FAULT,
+    ];
+
+    /// The interrupts associated with PWM1
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to PWM1
@@ -316,6 +342,16 @@ pub mod PWM2 {
     const INSTANCE: Instance = Instance {
         addr: 0x403e0000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::PWM2_0,
+            crate::interrupt::PWM2_1,
+            crate::interrupt::PWM2_2,
+            crate::interrupt::PWM2_3,
+            crate::interrupt::PWM2_FAULT,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in PWM2
@@ -560,6 +596,22 @@ pub mod PWM2 {
         PWM2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with PWM2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 5] = [
+        crate::interrupt::PWM2_0,
+        crate::interrupt::PWM2_1,
+        crate::interrupt::PWM2_2,
+        crate::interrupt::PWM2_3,
+        crate::interrupt::PWM2_FAULT,
+    ];
+
+    /// The interrupts associated with PWM2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to PWM2
@@ -586,6 +638,16 @@ pub mod PWM3 {
     const INSTANCE: Instance = Instance {
         addr: 0x403e4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::PWM3_0,
+            crate::interrupt::PWM3_1,
+            crate::interrupt::PWM3_2,
+            crate::interrupt::PWM3_3,
+            crate::interrupt::PWM3_FAULT,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in PWM3
@@ -830,6 +892,22 @@ pub mod PWM3 {
         PWM3_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with PWM3
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 5] = [
+        crate::interrupt::PWM3_0,
+        crate::interrupt::PWM3_1,
+        crate::interrupt::PWM3_2,
+        crate::interrupt::PWM3_3,
+        crate::interrupt::PWM3_FAULT,
+    ];
+
+    /// The interrupts associated with PWM3
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to PWM3
@@ -856,6 +934,16 @@ pub mod PWM4 {
     const INSTANCE: Instance = Instance {
         addr: 0x403e8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::PWM4_0,
+            crate::interrupt::PWM4_1,
+            crate::interrupt::PWM4_2,
+            crate::interrupt::PWM4_3,
+            crate::interrupt::PWM4_FAULT,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in PWM4
@@ -1100,6 +1188,22 @@ pub mod PWM4 {
         PWM4_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with PWM4
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 5] = [
+        crate::interrupt::PWM4_0,
+        crate::interrupt::PWM4_1,
+        crate::interrupt::PWM4_2,
+        crate::interrupt::PWM4_3,
+        crate::interrupt::PWM4_FAULT,
+    ];
+
+    /// The interrupts associated with PWM4
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to PWM4

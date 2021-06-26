@@ -34,6 +34,10 @@ pub mod LCDIF {
     const INSTANCE: Instance = Instance {
         addr: 0x402b8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::LCDIF],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in LCDIF
@@ -174,6 +178,16 @@ pub mod LCDIF {
         LCDIF_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with LCDIF
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LCDIF];
+
+    /// The interrupts associated with LCDIF
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to LCDIF

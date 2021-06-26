@@ -36,6 +36,10 @@ pub mod ENET {
     const INSTANCE: Instance = Instance {
         addr: 0x402d8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::ENET, crate::interrupt::ENET_1588_Timer],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ENET
@@ -201,6 +205,17 @@ pub mod ENET {
         ENET_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ENET
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] =
+        [crate::interrupt::ENET, crate::interrupt::ENET_1588_Timer];
+
+    /// The interrupts associated with ENET
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ENET
@@ -227,6 +242,10 @@ pub mod ENET2 {
     const INSTANCE: Instance = Instance {
         addr: 0x402d4000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[crate::interrupt::ENET2, crate::interrupt::ENET2_1588_Timer],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in ENET2
@@ -392,6 +411,17 @@ pub mod ENET2 {
         ENET2_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with ENET2
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 2] =
+        [crate::interrupt::ENET2, crate::interrupt::ENET2_1588_Timer];
+
+    /// The interrupts associated with ENET2
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to ENET2

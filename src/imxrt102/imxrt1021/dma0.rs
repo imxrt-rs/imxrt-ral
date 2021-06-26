@@ -10803,6 +10803,7 @@ pub struct ResetValues {
 pub struct Instance {
     pub(crate) addr: u32,
     pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
 impl ::core::ops::Deref for Instance {
@@ -10815,6 +10816,20 @@ impl ::core::ops::Deref for Instance {
 
 #[cfg(not(feature = "nosync"))]
 unsafe impl Send for Instance {}
+
+#[cfg(not(feature = "nosync"))]
+impl Instance {
+    /// Return the interrupt signals associated with this
+    /// peripheral instance
+    ///
+    /// Collection may be empty if there is no interrupt signal
+    /// associated with the peripheral. There's no guarantee for
+    /// interrupt signal ordering in the collection.
+    #[inline(always)]
+    pub const fn interrupts<'a>(&'a self) -> &'a [crate::Interrupt] {
+        self.intrs
+    }
+}
 
 /// Access functions for the DMA0 peripheral instance
 pub mod DMA0 {
@@ -10829,6 +10844,28 @@ pub mod DMA0 {
     const INSTANCE: Instance = Instance {
         addr: 0x400e8000,
         _marker: ::core::marker::PhantomData,
+        #[cfg(not(feature = "doc"))]
+        intrs: &[
+            crate::interrupt::DMA0_DMA16,
+            crate::interrupt::DMA1_DMA17,
+            crate::interrupt::DMA2_DMA18,
+            crate::interrupt::DMA3_DMA19,
+            crate::interrupt::DMA4_DMA20,
+            crate::interrupt::DMA5_DMA21,
+            crate::interrupt::DMA6_DMA22,
+            crate::interrupt::DMA7_DMA23,
+            crate::interrupt::DMA8_DMA24,
+            crate::interrupt::DMA9_DMA25,
+            crate::interrupt::DMA10_DMA26,
+            crate::interrupt::DMA11_DMA27,
+            crate::interrupt::DMA12_DMA28,
+            crate::interrupt::DMA13_DMA29,
+            crate::interrupt::DMA14_DMA30,
+            crate::interrupt::DMA15_DMA31,
+            crate::interrupt::DMA_ERROR,
+        ],
+        #[cfg(feature = "doc")]
+        intrs: &[],
     };
 
     /// Reset values for each field in DMA0
@@ -11322,6 +11359,34 @@ pub mod DMA0 {
         DMA0_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
+
+    /// The interrupts associated with DMA0
+    #[cfg(not(feature = "doc"))]
+    pub const INTERRUPTS: [crate::Interrupt; 17] = [
+        crate::interrupt::DMA0_DMA16,
+        crate::interrupt::DMA1_DMA17,
+        crate::interrupt::DMA2_DMA18,
+        crate::interrupt::DMA3_DMA19,
+        crate::interrupt::DMA4_DMA20,
+        crate::interrupt::DMA5_DMA21,
+        crate::interrupt::DMA6_DMA22,
+        crate::interrupt::DMA7_DMA23,
+        crate::interrupt::DMA8_DMA24,
+        crate::interrupt::DMA9_DMA25,
+        crate::interrupt::DMA10_DMA26,
+        crate::interrupt::DMA11_DMA27,
+        crate::interrupt::DMA12_DMA28,
+        crate::interrupt::DMA13_DMA29,
+        crate::interrupt::DMA14_DMA30,
+        crate::interrupt::DMA15_DMA31,
+        crate::interrupt::DMA_ERROR,
+    ];
+
+    /// The interrupts associated with DMA0
+    ///
+    /// Note: the values are invalid for a documentation build.
+    #[cfg(feature = "doc")]
+    pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
 /// Raw pointer to DMA0
