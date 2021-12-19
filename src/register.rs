@@ -584,20 +584,18 @@ macro_rules! read_reg {
 /// `GPIO1` they are not the same thing.
 #[macro_export]
 macro_rules! reset_reg {
-    ( $periph:path, $instance:expr, $instancemod:path, $reg:ident, $( $field:ident ),+ ) => {{
+    ( $periph:path, $instance:expr, $instancety:ty, $reg:ident, $( $field:ident ),+ ) => {{
         #[allow(unused_imports)]
         use $periph::{*};
-        use $periph::{$instancemod::{reset}};
         #[allow(unused_imports)]
         (*$instance).$reg.write({
             let resetmask: u32 = $({ use $periph::{$reg::$field::mask}; mask }) | *;
-            ((*$instance).$reg.read() & !resetmask) | (reset.$reg & resetmask)
+            ((*$instance).$reg.read() & !resetmask) | (<$instancety>::reset.$reg & resetmask)
         });
     }};
-    ( $periph:path, $instance:expr, $instancemod:path, $reg:ident ) => {{
+    ( $periph:path, $instance:expr, $instancety:ty, $reg:ident ) => {{
         #[allow(unused_imports)]
         use $periph::{*};
-        use $periph::{$instancemod::{reset}};
-        (*$instance).$reg.write(reset.$reg);
+        (*$instance).$reg.write(<$instancety>::reset.$reg);
     }};
 }
