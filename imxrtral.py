@@ -16,8 +16,9 @@ import multiprocessing
 import xml.etree.ElementTree as ET
 from fnmatch import fnmatch
 
+SOLE_INSTANCE = 0
 
-CRATE_LIB_PREAMBLE = """\
+CRATE_LIB_PREAMBLE = f"""\
 // Copyright 2020 Tom Burdick
 // See LICENSE-APACHE and LICENSE-MIT for license details.
 
@@ -38,9 +39,9 @@ CRATE_LIB_PREAMBLE = """\
 
 mod register;
 
-pub use crate::register::{RORegister, UnsafeRORegister};
-pub use crate::register::{WORegister, UnsafeWORegister};
-pub use crate::register::{RWRegister, UnsafeRWRegister};
+pub use crate::register::{{RORegister, UnsafeRORegister}};
+pub use crate::register::{{WORegister, UnsafeWORegister}};
+pub use crate::register::{{RWRegister, UnsafeRWRegister}};
 
 #[cfg(feature = "doc")]
 /// Interrupt sources
@@ -56,8 +57,14 @@ pub use crate::register::{RWRegister, UnsafeRWRegister};
 /// `Interrupt` resolves to those values when building the RAL for
 /// your chip.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Interrupt {}
+pub enum Interrupt {{}}
 
+/// The constant for a peripheral with just one instance.
+///
+/// The CCM peripheral is an example of a "sole instance." On the other
+/// hand, no LPUART peripheral will have this constant, since there are
+/// multiple instances.
+pub const SOLE_INSTANCE: u8 = {SOLE_INSTANCE};
 """
 
 
@@ -623,6 +630,10 @@ class PeripheralInstance(Node):
     peripherals there is a single PeripheralPrototype containing
     a single PeripheralInstance.
 
+    A PeripheralInstance may have numbers, like the '5' in 'LPUART5.'
+    If an instance does not have a number (it's the "sole instance"),
+    then the number is SOLE_INSTANCE.
+
     Has a name and base address.
     Belongs to a parent PeripheralPrototype.
     """
@@ -631,10 +642,23 @@ class PeripheralInstance(Node):
         self.addr = addr
         self.reset_values = reset_values
         self.intrs = intrs
+        self.generic_instance = False
 
     def to_dict(self):
         return {"name": self.name, "addr": self.addr,
                 "reset_values": self.reset_values}
+
+    def instance_number(self):
+        """
+        If this is a generic instance, returns the instance number. Otherwise,
+        returns SOLE_INSTANCE.
+        """
+        if self.generic_instance:
+            inst_n = instance_number(self.name)
+            assert(inst_n is not None)
+            return inst_n
+        else:
+            return SOLE_INSTANCE
 
     def to_rust(self, registers):
         registers = {r.offset: r.name for r in registers}
@@ -647,20 +671,24 @@ class PeripheralInstance(Node):
         else:
             intrs = "[]"
             num_intrs = 0
+
+        number = self.instance_number()
         return f"""
+        /// The {self.name} peripheral instance.
+        #[cfg(not(feature="nosync"))]
+        pub type {self.name} = Instance<{number}>;
+
+        #[cfg(not(feature="nosync"))]
+        #[allow(renamed_and_removed_lints)]
+        #[allow(private_no_mangle_statics)]
+        #[no_mangle]
+        static {self.name}_TAKEN: AtomicBool = AtomicBool::new(false);
+
         /// Access functions for the {self.name} peripheral instance
-        pub mod {self.name} {{
-            use super::ResetValues;
-            #[cfg(not(feature="nosync"))]
-            use core::sync::atomic::{{AtomicBool, Ordering}};
-
-            #[cfg(not(feature="nosync"))]
-            use super::Instance;
-
-            #[cfg(not(feature="nosync"))]
-            const INSTANCE: Instance = Instance {{
+        #[cfg(not(feature="nosync"))]
+        impl {self.name} {{
+            const INSTANCE: Self = Self {{
                 addr: 0x{self.addr:08x},
-                _marker: ::core::marker::PhantomData,
                 #[cfg(not(feature = "doc"))]
                 intrs: &{intrs},
                 #[cfg(feature = "doc")]
@@ -671,12 +699,6 @@ class PeripheralInstance(Node):
             pub const reset: ResetValues = ResetValues {{
                 {resets}
             }};
-
-            #[cfg(not(feature="nosync"))]
-            #[allow(renamed_and_removed_lints)]
-            #[allow(private_no_mangle_statics)]
-            #[no_mangle]
-            static {self.name}_TAKEN: AtomicBool = AtomicBool::new(false);
 
             /// Safe access to {self.name}
             ///
@@ -690,14 +712,13 @@ class PeripheralInstance(Node):
             ///
             /// `Instance` itself dereferences to a `RegisterBlock`, which
             /// provides access to the peripheral's registers.
-            #[cfg(not(feature="nosync"))]
             #[inline]
-            pub fn take() -> Option<Instance> {{
+            pub fn take() -> Option<Self> {{
                 let taken = {self.name}_TAKEN.swap(true, Ordering::SeqCst);
                 if taken {{
                     None
                 }} else {{
-                    Some(INSTANCE)
+                    Some(Self::INSTANCE)
                 }}
             }}
 
@@ -707,10 +728,9 @@ class PeripheralInstance(Node):
             /// is available to `take()` again. This function will panic if
             /// you return a different `Instance` or if this instance is not
             /// already taken.
-            #[cfg(not(feature="nosync"))]
             #[inline]
-            pub fn release(inst: Instance) {{
-                assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+            pub fn release(inst: Self) {{
+                assert!(inst.addr == Self::INSTANCE.addr, "Released the wrong instance");
 
                 let taken = {self.name}_TAKEN.swap(false, Ordering::SeqCst);
                 assert!(taken, "Released a peripheral which was not taken");
@@ -721,11 +741,10 @@ class PeripheralInstance(Node):
             /// This function is similar to take() but forcibly takes the
             /// Instance, marking it as taken irregardless of its previous
             /// state.
-            #[cfg(not(feature="nosync"))]
             #[inline]
-            pub unsafe fn steal() -> Instance {{
+            pub unsafe fn steal() -> Self {{
                 {self.name}_TAKEN.store(true, Ordering::SeqCst);
-                INSTANCE
+                Self::INSTANCE
             }}
 
             /// The interrupts associated with {self.name}
@@ -833,13 +852,12 @@ class PeripheralPrototype(Node):
         """Creates an Instance struct for this peripheral."""
         return """
         #[cfg(not(feature="nosync"))]
-        pub struct Instance {
+        pub struct Instance<const N: u8> {
             pub(crate) addr: u32,
-            pub(crate) _marker: PhantomData<*const RegisterBlock>,
             pub(crate) intrs: &'static [crate::Interrupt],
         }
         #[cfg(not(feature="nosync"))]
-        impl ::core::ops::Deref for Instance {
+        impl<const N: u8> ::core::ops::Deref for Instance<N> {
             type Target = RegisterBlock;
             #[inline(always)]
             fn deref(&self) -> &RegisterBlock {
@@ -848,10 +866,10 @@ class PeripheralPrototype(Node):
         }
 
         #[cfg(not(feature="nosync"))]
-        unsafe impl Send for Instance {}
+        unsafe impl<const N: u8> Send for Instance<N> {}
 
         #[cfg(not(feature = "nosync"))]
-        impl Instance {
+        impl<const N: u8> Instance<N> {
             /// Return the interrupt signals associated with this
             /// peripheral instance
             ///
@@ -880,22 +898,27 @@ class PeripheralPrototype(Node):
             desc += "\n//!\n"
             desc += "//! Used by: " + ', '.join(
                 sorted(set(self.parent_device_names)))
-        preamble = "\n".join([
+        preamble = [
             "#![allow(non_snake_case, non_upper_case_globals)]",
             "#![allow(non_camel_case_types)]",
             f"//! {desc}",
             "",
-            "#[cfg(not(feature=\"nosync\"))]",
-            "use core::marker::PhantomData;",
             f"use crate::{{{regtypes}}};",
             "",
-        ])
+        ]
+        if self.instances:
+            preamble.extend([
+                "#[cfg(not(feature=\"nosync\"))]",
+                "use core::sync::atomic::{AtomicBool, Ordering};"
+            ])
+        preamble_str = "\n".join(preamble)
+
         modules = "\n".join(r.to_rust_mod() for r in self.registers)
         instances = "\n".join(i.to_rust(self.registers)
                               for i in sorted(self.instances))
         fname = os.path.join(path, f"{self.name}.rs")
         with open(fname, "w") as f:
-            f.write(preamble)
+            f.write(preamble_str)
             f.write(modules)
             f.write(self.to_rust_register_block())
             f.write(self.to_rust_reset_values())
@@ -909,7 +932,8 @@ class PeripheralPrototype(Node):
     def to_struct_entry(self):
         lines = []
         for instance in self.instances:
-            lines.append(f"pub {instance.name}: {self.name}::Instance,")
+            number = instance.instance_number()
+            lines.append(f"pub {instance.name}: {self.name}::Instance<{number}>,")
         return "\n".join(lines)
 
     def to_struct_steal(self):
@@ -962,6 +986,8 @@ class PeripheralPrototype(Node):
         at least 3 letters long.
         """
         self.instances += other.instances
+        for instance in self.instances:
+            instance.generic_instance = True
         newname = common_name(self.name, other.name, parent.name)
         if newname != self.name:
             if newname not in [p.name for p in parent.peripherals]:
@@ -1046,7 +1072,7 @@ class PeripheralPrototypeLink(Node):
             desc += "\n//!\n"
             desc += "//! Used by: " + ', '.join(
                 sorted(set(self.parent_device_names)))
-        preamble = "\n".join([
+        preamble = [
             "#![allow(non_snake_case, non_upper_case_globals)]",
             "#![allow(non_camel_case_types)]",
             f"//! {desc}",
@@ -1055,14 +1081,20 @@ class PeripheralPrototypeLink(Node):
             "#[cfg(not(feature = \"nosync\"))]",
             f"pub use crate::{self.path}::{{Instance}};",
             "",
-        ])
+        ]
+        if self.instances:
+            preamble.extend([
+                "#[cfg(not(feature = \"nosync\"))]",
+                "use core::sync::atomic::{AtomicBool, Ordering};"
+            ])
+        preamble_str = "\n".join(preamble)
         registers = ", ".join(m.name for m in self.prototype.registers)
         registers = f"pub use crate::{self.path}::{{{registers}}};\n"
         instances = "\n".join(i.to_rust(self.registers)
                               for i in sorted(self.instances))
         fname = os.path.join(path, f"{self.name}.rs")
         with open(fname, "w") as f:
-            f.write(preamble)
+            f.write(preamble_str)
             f.write(registers)
             f.write("\n")
             f.write(instances)
@@ -1076,7 +1108,8 @@ class PeripheralPrototypeLink(Node):
             usename = self.name
         lines = []
         for instance in self.instances:
-            lines.append(f"pub {instance.name}: {usename}::Instance,")
+            number = instance.instance_number()
+            lines.append(f"pub {instance.name}: {usename}::Instance<{number}>,")
         return "\n".join(lines)
 
     def to_struct_steal(self, usename=None):
@@ -1715,6 +1748,22 @@ def get_interrupts(node):
     """
     return [intr.find("name").text for intr in node.findall("interrupt")]
 
+def instance_number(instance_name):
+    """Extracts the instance number from a peripheral instance name. Returns
+    the instance number as an int, or None if there is no number in the instance
+    name.
+
+    Only extracts the numbers from the end of the instance name.
+
+    >>> instance_number("LPUART5")
+    5
+    >>> instance_number("DMA")
+    >>> instance_number("ABC123DEF456")
+    456
+    """
+    groups = itertools.groupby(instance_name, str.isdigit)
+    number_groups = ["".join(numbers) for are_digits, numbers in groups if are_digits]
+    return int(number_groups[-1]) if number_groups else None
 
 def expand_dim(node):
     """

@@ -7,26 +7,31 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::trng::Instance;
 pub use crate::imxrt106::peripherals::trng::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::trng::{
     ENT0, ENT1, ENT10, ENT11, ENT12, ENT13, ENT14, ENT15, ENT2, ENT3, ENT4, ENT5, ENT6, ENT7, ENT8,
     ENT9, FRQ, FRQMIN, INT_CTRL, INT_MASK, INT_STATUS, MCTL, PKR, PKRCNT10, PKRCNT32, PKRCNT54,
     PKRCNT76, PKRCNT98, PKRCNTBA, PKRCNTDC, PKRCNTFE, PKRRNG, SBLIM, SCM, SCMISC, SCR1, SCR2, SCR3,
     SCR4, SCR5, SCR6P, SDCTL, SEC_CFG, STATUS, VID1, VID2,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The TRNG peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type TRNG = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static TRNG_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the TRNG peripheral instance
-pub mod TRNG {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl TRNG {
+    const INSTANCE: Self = Self {
         addr: 0x400cc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TRNG],
         #[cfg(feature = "doc")]
@@ -83,12 +88,6 @@ pub mod TRNG {
         VID2: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static TRNG_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to TRNG
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -101,14 +100,13 @@ pub mod TRNG {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = TRNG_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -118,10 +116,12 @@ pub mod TRNG {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = TRNG_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -132,11 +132,10 @@ pub mod TRNG {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         TRNG_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with TRNG

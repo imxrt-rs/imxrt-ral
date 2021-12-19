@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::flexio1::Instance;
 pub use crate::imxrt101::peripherals::flexio1::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::flexio1::{
     CTRL, PARAM, PIN, SHIFTBUF0, SHIFTBUF1, SHIFTBUF2, SHIFTBUF3, SHIFTBUF4, SHIFTBUF5, SHIFTBUF6,
     SHIFTBUF7, SHIFTBUFBBS0, SHIFTBUFBBS1, SHIFTBUFBBS2, SHIFTBUFBBS3, SHIFTBUFBBS4, SHIFTBUFBBS5,
@@ -24,20 +25,24 @@ pub use crate::imxrt101::peripherals::flexio1::{
     TIMCMP6, TIMCMP7, TIMCTL0, TIMCTL1, TIMCTL2, TIMCTL3, TIMCTL4, TIMCTL5, TIMCTL6, TIMCTL7,
     TIMIEN, TIMSTAT, VERID,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The FLEXIO1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type FLEXIO1 = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static FLEXIO1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the FLEXIO1 peripheral instance
-pub mod FLEXIO1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl FLEXIO1 {
+    const INSTANCE: Self = Self {
         addr: 0x401ac000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXIO1],
         #[cfg(feature = "doc")]
@@ -156,12 +161,6 @@ pub mod FLEXIO1 {
         SHIFTBUFNIS7: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static FLEXIO1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to FLEXIO1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -174,14 +173,13 @@ pub mod FLEXIO1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = FLEXIO1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -191,10 +189,12 @@ pub mod FLEXIO1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = FLEXIO1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -205,11 +205,10 @@ pub mod FLEXIO1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         FLEXIO1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with FLEXIO1

@@ -7,21 +7,26 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::gpt::Instance;
 pub use crate::imxrt106::peripherals::gpt::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::gpt::{CNT, CR, ICR1, ICR2, IR, OCR1, OCR2, OCR3, PR, SR};
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The GPT1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type GPT1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPT1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the GPT1 peripheral instance
-pub mod GPT1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPT1 {
+    const INSTANCE: Self = Self {
         addr: 0x401ec000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPT1],
         #[cfg(feature = "doc")]
@@ -42,12 +47,6 @@ pub mod GPT1 {
         CNT: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPT1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPT1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -60,14 +59,13 @@ pub mod GPT1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPT1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -77,10 +75,12 @@ pub mod GPT1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = GPT1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -91,11 +91,10 @@ pub mod GPT1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPT1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with GPT1
@@ -120,19 +119,21 @@ pub mod GPT1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPT1: *const RegisterBlock = 0x401ec000 as *const _;
 
+/// The GPT2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type GPT2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPT2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPT2 peripheral instance
-pub mod GPT2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPT2 {
+    const INSTANCE: Self = Self {
         addr: 0x401f0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPT2],
         #[cfg(feature = "doc")]
@@ -153,12 +154,6 @@ pub mod GPT2 {
         CNT: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPT2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPT2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -171,14 +166,13 @@ pub mod GPT2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPT2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -188,10 +182,12 @@ pub mod GPT2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = GPT2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -202,11 +198,10 @@ pub mod GPT2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPT2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with GPT2

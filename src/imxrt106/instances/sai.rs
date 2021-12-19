@@ -7,24 +7,29 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::sai::Instance;
 pub use crate::imxrt106::peripherals::sai::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::sai::{
     PARAM, RCR1, RCR2, RCR3, RCR4, RCR5, RCSR, RDR0, RDR1, RDR2, RDR3, RFR0, RFR1, RFR2, RFR3, RMR,
     TCR1, TCR2, TCR3, TCR4, TCR5, TCSR, TDR0, TDR1, TDR2, TDR3, TFR0, TFR1, TFR2, TFR3, TMR, VERID,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The SAI1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type SAI1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static SAI1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the SAI1 peripheral instance
-pub mod SAI1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl SAI1 {
+    const INSTANCE: Self = Self {
         addr: 0x40384000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI1],
         #[cfg(feature = "doc")]
@@ -67,12 +72,6 @@ pub mod SAI1 {
         RMR: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static SAI1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to SAI1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -85,14 +84,13 @@ pub mod SAI1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = SAI1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -102,10 +100,12 @@ pub mod SAI1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = SAI1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -116,11 +116,10 @@ pub mod SAI1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         SAI1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with SAI1
@@ -145,19 +144,21 @@ pub mod SAI1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const SAI1: *const RegisterBlock = 0x40384000 as *const _;
 
+/// The SAI2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type SAI2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static SAI2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the SAI2 peripheral instance
-pub mod SAI2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl SAI2 {
+    const INSTANCE: Self = Self {
         addr: 0x40388000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI2],
         #[cfg(feature = "doc")]
@@ -200,12 +201,6 @@ pub mod SAI2 {
         RMR: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static SAI2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to SAI2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -218,14 +213,13 @@ pub mod SAI2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = SAI2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -235,10 +229,12 @@ pub mod SAI2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = SAI2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -249,11 +245,10 @@ pub mod SAI2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         SAI2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with SAI2
@@ -278,19 +273,21 @@ pub mod SAI2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const SAI2: *const RegisterBlock = 0x40388000 as *const _;
 
+/// The SAI3 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type SAI3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static SAI3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the SAI3 peripheral instance
-pub mod SAI3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl SAI3 {
+    const INSTANCE: Self = Self {
         addr: 0x4038c000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI3_RX, crate::interrupt::SAI3_TX],
         #[cfg(feature = "doc")]
@@ -333,12 +330,6 @@ pub mod SAI3 {
         RMR: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static SAI3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to SAI3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -351,14 +342,13 @@ pub mod SAI3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = SAI3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -368,10 +358,12 @@ pub mod SAI3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = SAI3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -382,11 +374,10 @@ pub mod SAI3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         SAI3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with SAI3

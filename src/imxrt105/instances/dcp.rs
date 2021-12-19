@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::dcp::Instance;
 pub use crate::imxrt105::peripherals::dcp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::dcp::{
     CAPABILITY0, CAPABILITY1, CH0CMDPTR, CH0OPTS, CH0OPTS_CLR, CH0OPTS_SET, CH0OPTS_TOG, CH0SEMA,
     CH0STAT, CH0STAT_CLR, CH0STAT_SET, CH0STAT_TOG, CH1CMDPTR, CH1OPTS, CH1OPTS_CLR, CH1OPTS_SET,
@@ -18,20 +19,24 @@ pub use crate::imxrt105::peripherals::dcp::{
     PACKET1, PACKET2, PACKET3, PACKET4, PACKET5, PACKET6, PAGETABLE, STAT, STAT_CLR, STAT_SET,
     STAT_TOG, VERSION,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The DCP peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type DCP = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static DCP_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the DCP peripheral instance
-pub mod DCP {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl DCP {
+    const INSTANCE: Self = Self {
         addr: 0x402fc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::DCP, crate::interrupt::DCP_VMI],
         #[cfg(feature = "doc")]
@@ -110,12 +115,6 @@ pub mod DCP {
         VERSION: 0x02010000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static DCP_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to DCP
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -128,14 +127,13 @@ pub mod DCP {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = DCP_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -145,10 +143,12 @@ pub mod DCP {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = DCP_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -159,11 +159,10 @@ pub mod DCP {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         DCP_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with DCP

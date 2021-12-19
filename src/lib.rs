@@ -38,6 +38,12 @@ pub use crate::register::{UnsafeWORegister, WORegister};
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Interrupt {}
 
+/// The constant for a peripheral with just one instance.
+///
+/// The CCM peripheral is an example of a "sole instance." On the other
+/// hand, no LPUART peripheral will have this constant, since there are
+/// multiple instances.
+pub const SOLE_INSTANCE: u8 = 0;
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
 

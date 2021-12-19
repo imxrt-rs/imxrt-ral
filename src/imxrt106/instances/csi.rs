@@ -7,24 +7,29 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::csi::Instance;
 pub use crate::imxrt106::peripherals::csi::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::csi::{
     CSICR1, CSICR18, CSICR19, CSICR2, CSICR3, CSIDMASA_FB1, CSIDMASA_FB2, CSIDMASA_STATFIFO,
     CSIDMATS_STATFIFO, CSIFBUF_PARA, CSIIMAG_PARA, CSIRFIFO, CSIRXCNT, CSISR, CSISTATFIFO,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The CSI peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CSI = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CSI_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the CSI peripheral instance
-pub mod CSI {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CSI {
+    const INSTANCE: Self = Self {
         addr: 0x402bc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CSI],
         #[cfg(feature = "doc")]
@@ -50,12 +55,6 @@ pub mod CSI {
         CSICR19: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CSI_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CSI
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -68,14 +67,13 @@ pub mod CSI {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CSI_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -85,10 +83,12 @@ pub mod CSI {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CSI_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -99,11 +99,10 @@ pub mod CSI {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CSI_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CSI

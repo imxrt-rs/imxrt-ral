@@ -5,8 +5,6 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 use crate::{RORegister, RWRegister};
-#[cfg(not(feature = "nosync"))]
-use core::marker::PhantomData;
 
 /// CCM Control Register
 pub mod CCR {
@@ -4589,13 +4587,12 @@ pub struct ResetValues {
     pub CMEOR: u32,
 }
 #[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<const N: u8> {
     pub(crate) addr: u32,
-    pub(crate) _marker: PhantomData<*const RegisterBlock>,
     pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -4604,10 +4601,10 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<const N: u8> Send for Instance<N> {}
 
 #[cfg(not(feature = "nosync"))]
-impl Instance {
+impl<const N: u8> Instance<N> {
     /// Return the interrupt signals associated with this
     /// peripheral instance
     ///

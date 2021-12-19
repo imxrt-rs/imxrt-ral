@@ -7,24 +7,29 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::enc::Instance;
 pub use crate::imxrt105::peripherals::enc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::enc::{
     CTRL, CTRL2, FILT, IMR, LCOMP, LINIT, LMOD, LPOS, LPOSH, POSD, POSDH, REV, REVH, TST, UCOMP,
     UINIT, UMOD, UPOS, UPOSH, WTR,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The ENC1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type ENC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ENC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the ENC1 peripheral instance
-pub mod ENC1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ENC1 {
+    const INSTANCE: Self = Self {
         addr: 0x403c8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENC1],
         #[cfg(feature = "doc")]
@@ -55,12 +60,6 @@ pub mod ENC1 {
         LCOMP: 0x0000FFFF,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ENC1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ENC1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -73,14 +72,13 @@ pub mod ENC1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ENC1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -90,10 +88,12 @@ pub mod ENC1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = ENC1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -104,11 +104,10 @@ pub mod ENC1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ENC1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with ENC1
@@ -133,19 +132,21 @@ pub mod ENC1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const ENC1: *const RegisterBlock = 0x403c8000 as *const _;
 
+/// The ENC2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type ENC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ENC2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the ENC2 peripheral instance
-pub mod ENC2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ENC2 {
+    const INSTANCE: Self = Self {
         addr: 0x403cc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENC2],
         #[cfg(feature = "doc")]
@@ -176,12 +177,6 @@ pub mod ENC2 {
         LCOMP: 0x0000FFFF,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ENC2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ENC2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -194,14 +189,13 @@ pub mod ENC2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ENC2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -211,10 +205,12 @@ pub mod ENC2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = ENC2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -225,11 +221,10 @@ pub mod ENC2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ENC2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with ENC2
@@ -254,19 +249,21 @@ pub mod ENC2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const ENC2: *const RegisterBlock = 0x403cc000 as *const _;
 
+/// The ENC3 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type ENC3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ENC3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the ENC3 peripheral instance
-pub mod ENC3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ENC3 {
+    const INSTANCE: Self = Self {
         addr: 0x403d0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENC3],
         #[cfg(feature = "doc")]
@@ -297,12 +294,6 @@ pub mod ENC3 {
         LCOMP: 0x0000FFFF,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ENC3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ENC3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -315,14 +306,13 @@ pub mod ENC3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ENC3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -332,10 +322,12 @@ pub mod ENC3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = ENC3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -346,11 +338,10 @@ pub mod ENC3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ENC3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with ENC3
@@ -375,19 +366,21 @@ pub mod ENC3 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const ENC3: *const RegisterBlock = 0x403d0000 as *const _;
 
+/// The ENC4 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type ENC4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ENC4_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the ENC4 peripheral instance
-pub mod ENC4 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ENC4 {
+    const INSTANCE: Self = Self {
         addr: 0x403d4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENC4],
         #[cfg(feature = "doc")]
@@ -418,12 +411,6 @@ pub mod ENC4 {
         LCOMP: 0x0000FFFF,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ENC4_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ENC4
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -436,14 +423,13 @@ pub mod ENC4 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ENC4_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -453,10 +439,12 @@ pub mod ENC4 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = ENC4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -467,11 +455,10 @@ pub mod ENC4 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ENC4_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with ENC4

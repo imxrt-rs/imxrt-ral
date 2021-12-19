@@ -3,9 +3,9 @@
 //! Crossbar Switch
 
 use crate::RWRegister;
-#[cfg(not(feature = "nosync"))]
-use core::marker::PhantomData;
 
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
 /// Crossbar A Select Register 0
 pub mod SEL0 {
 
@@ -2762,13 +2762,12 @@ pub struct ResetValues {
     pub CTRL1: u16,
 }
 #[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<const N: u8> {
     pub(crate) addr: u32,
-    pub(crate) _marker: PhantomData<*const RegisterBlock>,
     pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -2777,10 +2776,10 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<const N: u8> Send for Instance<N> {}
 
 #[cfg(not(feature = "nosync"))]
-impl Instance {
+impl<const N: u8> Instance<N> {
     /// Return the interrupt signals associated with this
     /// peripheral instance
     ///
@@ -2793,19 +2792,21 @@ impl Instance {
     }
 }
 
+/// The XBARA peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type XBARA = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static XBARA_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the XBARA peripheral instance
-pub mod XBARA {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl XBARA {
+    const INSTANCE: Self = Self {
         addr: 0x403bc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::XBAR1_IRQ_0_1,
@@ -2887,12 +2888,6 @@ pub mod XBARA {
         CTRL1: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static XBARA_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to XBARA
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -2905,14 +2900,13 @@ pub mod XBARA {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = XBARA_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -2922,10 +2916,12 @@ pub mod XBARA {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = XBARA_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -2936,11 +2932,10 @@ pub mod XBARA {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         XBARA_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with XBARA

@@ -7,26 +7,31 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::pmu::Instance;
 pub use crate::imxrt106::peripherals::pmu::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::pmu::{
     MISC0, MISC0_CLR, MISC0_SET, MISC0_TOG, MISC1, MISC1_CLR, MISC1_SET, MISC1_TOG, MISC2,
     MISC2_CLR, MISC2_SET, MISC2_TOG, REG_1P1, REG_1P1_CLR, REG_1P1_SET, REG_1P1_TOG, REG_2P5,
     REG_2P5_CLR, REG_2P5_SET, REG_2P5_TOG, REG_3P0, REG_3P0_CLR, REG_3P0_SET, REG_3P0_TOG,
     REG_CORE, REG_CORE_CLR, REG_CORE_SET, REG_CORE_TOG,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The PMU peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type PMU = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static PMU_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the PMU peripheral instance
-pub mod PMU {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl PMU {
+    const INSTANCE: Self = Self {
         addr: 0x400d8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::PMU_EVENT],
         #[cfg(feature = "doc")]
@@ -65,12 +70,6 @@ pub mod PMU {
         MISC2_TOG: 0x00272727,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static PMU_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to PMU
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -83,14 +82,13 @@ pub mod PMU {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = PMU_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -100,10 +98,12 @@ pub mod PMU {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = PMU_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -114,11 +114,10 @@ pub mod PMU {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         PMU_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with PMU

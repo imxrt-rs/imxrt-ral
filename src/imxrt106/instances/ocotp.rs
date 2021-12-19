@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::ocotp::Instance;
 pub use crate::imxrt106::peripherals::ocotp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::ocotp::{
     ANA0, ANA1, ANA2, CFG0, CFG1, CFG2, CFG3, CFG4, CFG5, CFG6, CRC_ADDR, CRC_VALUE, CTRL,
     CTRL_CLR, CTRL_SET, CTRL_TOG, DATA, GP1, GP2, GP30, GP31, GP32, GP33, GP40, GP41, GP42, GP43,
@@ -17,20 +18,24 @@ pub use crate::imxrt106::peripherals::ocotp::{
     SRK7, SRK_REVOKE, SW_GP1, SW_GP20, SW_GP21, SW_GP22, SW_GP23, SW_STICKY, TIMING, TIMING2,
     VERSION,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The OCOTP peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type OCOTP = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static OCOTP_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the OCOTP peripheral instance
-pub mod OCOTP {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl OCOTP {
+    const INSTANCE: Self = Self {
         addr: 0x401f4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[],
         #[cfg(feature = "doc")]
@@ -122,12 +127,6 @@ pub mod OCOTP {
         GP43: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static OCOTP_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to OCOTP
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -140,14 +139,13 @@ pub mod OCOTP {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = OCOTP_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -157,10 +155,12 @@ pub mod OCOTP {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = OCOTP_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -171,11 +171,10 @@ pub mod OCOTP {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         OCOTP_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with OCOTP

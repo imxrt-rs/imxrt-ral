@@ -7,25 +7,30 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::ccm::Instance;
 pub use crate::imxrt105::peripherals::ccm::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::ccm::{
     CACRR, CBCDR, CBCMR, CCGR0, CCGR1, CCGR2, CCGR3, CCGR4, CCGR5, CCGR6, CCOSR, CCR, CCSR, CDCDR,
     CDHIPR, CGPR, CIMR, CISR, CLPCR, CMEOR, CS1CDR, CS2CDR, CSCDR1, CSCDR2, CSCDR3, CSCMR1, CSCMR2,
     CSR,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The CCM peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CCM = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CCM_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the CCM peripheral instance
-pub mod CCM {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CCM {
+    const INSTANCE: Self = Self {
         addr: 0x400fc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CCM_1, crate::interrupt::CCM_2],
         #[cfg(feature = "doc")]
@@ -64,12 +69,6 @@ pub mod CCM {
         CMEOR: 0xFFFFFFFF,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CCM_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CCM
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -82,14 +81,13 @@ pub mod CCM {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CCM_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -99,10 +97,12 @@ pub mod CCM {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CCM_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -113,11 +113,10 @@ pub mod CCM {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CCM_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CCM

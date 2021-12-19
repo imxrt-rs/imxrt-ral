@@ -3,9 +3,9 @@
 //! USB
 
 use crate::{RORegister, RWRegister};
-#[cfg(not(feature = "nosync"))]
-use core::marker::PhantomData;
 
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
 /// Identification register
 pub mod ID {
 
@@ -3369,13 +3369,12 @@ pub struct ResetValues {
     pub ENDPTCTRL7: u32,
 }
 #[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<const N: u8> {
     pub(crate) addr: u32,
-    pub(crate) _marker: PhantomData<*const RegisterBlock>,
     pub(crate) intrs: &'static [crate::Interrupt],
 }
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -3384,10 +3383,10 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<const N: u8> Send for Instance<N> {}
 
 #[cfg(not(feature = "nosync"))]
-impl Instance {
+impl<const N: u8> Instance<N> {
     /// Return the interrupt signals associated with this
     /// peripheral instance
     ///
@@ -3400,19 +3399,21 @@ impl Instance {
     }
 }
 
+/// The USB peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type USB = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USB_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the USB peripheral instance
-pub mod USB {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USB {
+    const INSTANCE: Self = Self {
         addr: 0x402e0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_OTG1],
         #[cfg(feature = "doc")]
@@ -3467,12 +3468,6 @@ pub mod USB {
         ENDPTCTRL7: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USB_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to USB
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -3485,14 +3480,13 @@ pub mod USB {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USB_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -3502,10 +3496,12 @@ pub mod USB {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = USB_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -3516,11 +3512,10 @@ pub mod USB {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USB_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with USB

@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::ccm_analog::Instance;
 pub use crate::imxrt106::peripherals::ccm_analog::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::ccm_analog::{
     MISC0, MISC0_CLR, MISC0_SET, MISC0_TOG, MISC1, MISC1_CLR, MISC1_SET, MISC1_TOG, MISC2,
     MISC2_CLR, MISC2_SET, MISC2_TOG, PFD_480, PFD_480_CLR, PFD_480_SET, PFD_480_TOG, PFD_528,
@@ -17,20 +18,24 @@ pub use crate::imxrt106::peripherals::ccm_analog::{
     PLL_USB1_TOG, PLL_USB2, PLL_USB2_CLR, PLL_USB2_SET, PLL_USB2_TOG, PLL_VIDEO, PLL_VIDEO_CLR,
     PLL_VIDEO_DENOM, PLL_VIDEO_NUM, PLL_VIDEO_SET, PLL_VIDEO_TOG,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The CCM_ANALOG peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CCM_ANALOG = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CCM_ANALOG_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the CCM_ANALOG peripheral instance
-pub mod CCM_ANALOG {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CCM_ANALOG {
+    const INSTANCE: Self = Self {
         addr: 0x400d8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[],
         #[cfg(feature = "doc")]
@@ -96,12 +101,6 @@ pub mod CCM_ANALOG {
         MISC2_TOG: 0x00272727,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CCM_ANALOG_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CCM_ANALOG
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -114,14 +113,13 @@ pub mod CCM_ANALOG {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CCM_ANALOG_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -131,10 +129,12 @@ pub mod CCM_ANALOG {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CCM_ANALOG_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -145,11 +145,10 @@ pub mod CCM_ANALOG {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CCM_ANALOG_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CCM_ANALOG

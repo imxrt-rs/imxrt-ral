@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::xbara1::Instance;
 pub use crate::imxrt106::peripherals::xbara1::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::xbara1::{
     CTRL0, CTRL1, SEL0, SEL1, SEL10, SEL11, SEL12, SEL13, SEL14, SEL15, SEL16, SEL17, SEL18, SEL19,
     SEL2, SEL20, SEL21, SEL22, SEL23, SEL24, SEL25, SEL26, SEL27, SEL28, SEL29, SEL3, SEL30, SEL31,
@@ -14,20 +15,24 @@ pub use crate::imxrt106::peripherals::xbara1::{
     SEL44, SEL45, SEL46, SEL47, SEL48, SEL49, SEL5, SEL50, SEL51, SEL52, SEL53, SEL54, SEL55,
     SEL56, SEL57, SEL58, SEL59, SEL6, SEL60, SEL61, SEL62, SEL63, SEL64, SEL65, SEL7, SEL8, SEL9,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The XBARA1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type XBARA1 = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static XBARA1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the XBARA1 peripheral instance
-pub mod XBARA1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl XBARA1 {
+    const INSTANCE: Self = Self {
         addr: 0x403bc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::XBAR1_IRQ_0_1,
@@ -109,12 +114,6 @@ pub mod XBARA1 {
         CTRL1: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static XBARA1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to XBARA1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -127,14 +126,13 @@ pub mod XBARA1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = XBARA1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -144,10 +142,12 @@ pub mod XBARA1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = XBARA1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -158,11 +158,10 @@ pub mod XBARA1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         XBARA1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with XBARA1

@@ -5,23 +5,28 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::spdif::Instance;
 pub use crate::imxrt101::peripherals::spdif::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::spdif::{
     SCR, SI, SIE, SRCD, SRCSH, SRCSL, SRFM, SRL, SRPC, SRQ, SRR, SRU, STC, STCSCH, STCSCL, STL, STR,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The SPDIF peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type SPDIF = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static SPDIF_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the SPDIF peripheral instance
-pub mod SPDIF {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl SPDIF {
+    const INSTANCE: Self = Self {
         addr: 0x401dc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SPDIF],
         #[cfg(feature = "doc")]
@@ -49,12 +54,6 @@ pub mod SPDIF {
         STC: 0x00020F00,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static SPDIF_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to SPDIF
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -67,14 +66,13 @@ pub mod SPDIF {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = SPDIF_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -84,10 +82,12 @@ pub mod SPDIF {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = SPDIF_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -98,11 +98,10 @@ pub mod SPDIF {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         SPDIF_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with SPDIF

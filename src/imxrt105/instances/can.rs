@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::can::Instance;
 pub use crate::imxrt105::peripherals::can::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::can::{
     CRCR, CS0, CS1, CS10, CS11, CS12, CS13, CS14, CS15, CS16, CS17, CS18, CS19, CS2, CS20, CS21,
     CS22, CS23, CS24, CS25, CS26, CS27, CS28, CS29, CS3, CS30, CS31, CS32, CS33, CS34, CS35, CS36,
@@ -38,20 +39,24 @@ pub use crate::imxrt105::peripherals::can::{
     WORD152, WORD153, WORD154, WORD155, WORD156, WORD157, WORD158, WORD159, WORD16, WORD160,
     WORD161, WORD162, WORD163, WORD17, WORD18, WORD19,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The CAN1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CAN1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CAN1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the CAN1 peripheral instance
-pub mod CAN1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CAN1 {
+    const INSTANCE: Self = Self {
         addr: 0x401d0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN1],
         #[cfg(feature = "doc")]
@@ -402,12 +407,6 @@ pub mod CAN1 {
         GFWR: 0x0000007F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CAN1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CAN1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -420,14 +419,13 @@ pub mod CAN1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CAN1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -437,10 +435,12 @@ pub mod CAN1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CAN1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -451,11 +451,10 @@ pub mod CAN1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CAN1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CAN1
@@ -480,19 +479,21 @@ pub mod CAN1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const CAN1: *const RegisterBlock = 0x401d0000 as *const _;
 
+/// The CAN2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CAN2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CAN2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CAN2 peripheral instance
-pub mod CAN2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CAN2 {
+    const INSTANCE: Self = Self {
         addr: 0x401d4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN2],
         #[cfg(feature = "doc")]
@@ -843,12 +844,6 @@ pub mod CAN2 {
         GFWR: 0x0000007F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CAN2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CAN2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -861,14 +856,13 @@ pub mod CAN2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CAN2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -878,10 +872,12 @@ pub mod CAN2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CAN2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -892,11 +888,10 @@ pub mod CAN2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CAN2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CAN2

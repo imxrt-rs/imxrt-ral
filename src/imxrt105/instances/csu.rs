@@ -7,25 +7,30 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::csu::Instance;
 pub use crate::imxrt105::peripherals::csu::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::csu::{
     CSL0, CSL1, CSL10, CSL11, CSL12, CSL13, CSL14, CSL15, CSL16, CSL17, CSL18, CSL19, CSL2, CSL20,
     CSL21, CSL22, CSL23, CSL24, CSL25, CSL26, CSL27, CSL28, CSL29, CSL3, CSL30, CSL31, CSL4, CSL5,
     CSL6, CSL7, CSL8, CSL9, HP0, HPCONTROL0, SA,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The CSU peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CSU = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CSU_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the CSU peripheral instance
-pub mod CSU {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CSU {
+    const INSTANCE: Self = Self {
         addr: 0x400dc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CSU],
         #[cfg(feature = "doc")]
@@ -71,12 +76,6 @@ pub mod CSU {
         HPCONTROL0: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CSU_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CSU
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -89,14 +88,13 @@ pub mod CSU {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CSU_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -106,10 +104,12 @@ pub mod CSU {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CSU_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -120,11 +120,10 @@ pub mod CSU {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CSU_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CSU

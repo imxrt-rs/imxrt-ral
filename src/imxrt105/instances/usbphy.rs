@@ -7,25 +7,30 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::usbphy::Instance;
 pub use crate::imxrt105::peripherals::usbphy::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::usbphy::{
     CTRL, CTRL_CLR, CTRL_SET, CTRL_TOG, DEBUG, DEBUG0_STATUS, DEBUG1, DEBUG1_CLR, DEBUG1_SET,
     DEBUG1_TOG, DEBUG_CLR, DEBUG_SET, DEBUG_TOG, PWD, PWD_CLR, PWD_SET, PWD_TOG, RX, RX_CLR,
     RX_SET, RX_TOG, STATUS, TX, TX_CLR, TX_SET, TX_TOG, VERSION,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The USBPHY1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type USBPHY1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USBPHY1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the USBPHY1 peripheral instance
-pub mod USBPHY1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USBPHY1 {
+    const INSTANCE: Self = Self {
         addr: 0x400d9000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_PHY1],
         #[cfg(feature = "doc")]
@@ -63,12 +68,6 @@ pub mod USBPHY1 {
         VERSION: 0x04030000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USBPHY1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to USBPHY1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -81,14 +80,13 @@ pub mod USBPHY1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USBPHY1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -98,10 +96,12 @@ pub mod USBPHY1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = USBPHY1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -112,11 +112,10 @@ pub mod USBPHY1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USBPHY1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with USBPHY1
@@ -141,19 +140,21 @@ pub mod USBPHY1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const USBPHY1: *const RegisterBlock = 0x400d9000 as *const _;
 
+/// The USBPHY2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type USBPHY2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USBPHY2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the USBPHY2 peripheral instance
-pub mod USBPHY2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USBPHY2 {
+    const INSTANCE: Self = Self {
         addr: 0x400da000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_PHY2],
         #[cfg(feature = "doc")]
@@ -191,12 +192,6 @@ pub mod USBPHY2 {
         VERSION: 0x04030000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USBPHY2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to USBPHY2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -209,14 +204,13 @@ pub mod USBPHY2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USBPHY2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -226,10 +220,12 @@ pub mod USBPHY2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = USBPHY2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -240,11 +236,10 @@ pub mod USBPHY2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USBPHY2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with USBPHY2

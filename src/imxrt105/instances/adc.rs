@@ -7,24 +7,29 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::adc::Instance;
 pub use crate::imxrt105::peripherals::adc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::adc::{
     CAL, CFG, CV, GC, GS, HC0, HC1, HC2, HC3, HC4, HC5, HC6, HC7, HS, OFS, R0, R1, R2, R3, R4, R5,
     R6, R7,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The ADC1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type ADC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ADC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the ADC1 peripheral instance
-pub mod ADC1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ADC1 {
+    const INSTANCE: Self = Self {
         addr: 0x400c4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ADC1],
         #[cfg(feature = "doc")]
@@ -58,12 +63,6 @@ pub mod ADC1 {
         CAL: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ADC1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ADC1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -76,14 +75,13 @@ pub mod ADC1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ADC1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -93,10 +91,12 @@ pub mod ADC1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = ADC1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -107,11 +107,10 @@ pub mod ADC1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ADC1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with ADC1
@@ -136,19 +135,21 @@ pub mod ADC1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const ADC1: *const RegisterBlock = 0x400c4000 as *const _;
 
+/// The ADC2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type ADC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ADC2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the ADC2 peripheral instance
-pub mod ADC2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ADC2 {
+    const INSTANCE: Self = Self {
         addr: 0x400c8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ADC2],
         #[cfg(feature = "doc")]
@@ -182,12 +183,6 @@ pub mod ADC2 {
         CAL: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ADC2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ADC2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -200,14 +195,13 @@ pub mod ADC2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ADC2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -217,10 +211,12 @@ pub mod ADC2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = ADC2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -231,11 +227,10 @@ pub mod ADC2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ADC2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with ADC2

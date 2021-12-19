@@ -5,21 +5,26 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::aipstz::Instance;
 pub use crate::imxrt101::peripherals::aipstz::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR3, OPACR4};
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The AIPSTZ1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type AIPSTZ1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static AIPSTZ1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the AIPSTZ1 peripheral instance
-pub mod AIPSTZ1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl AIPSTZ1 {
+    const INSTANCE: Self = Self {
         addr: 0x4007c000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[],
         #[cfg(feature = "doc")]
@@ -36,12 +41,6 @@ pub mod AIPSTZ1 {
         OPACR4: 0x44444444,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static AIPSTZ1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to AIPSTZ1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -54,14 +53,13 @@ pub mod AIPSTZ1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = AIPSTZ1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -71,10 +69,12 @@ pub mod AIPSTZ1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = AIPSTZ1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -85,11 +85,10 @@ pub mod AIPSTZ1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         AIPSTZ1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with AIPSTZ1
@@ -114,19 +113,21 @@ pub mod AIPSTZ1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const AIPSTZ1: *const RegisterBlock = 0x4007c000 as *const _;
 
+/// The AIPSTZ2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type AIPSTZ2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static AIPSTZ2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the AIPSTZ2 peripheral instance
-pub mod AIPSTZ2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl AIPSTZ2 {
+    const INSTANCE: Self = Self {
         addr: 0x4017c000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[],
         #[cfg(feature = "doc")]
@@ -143,12 +144,6 @@ pub mod AIPSTZ2 {
         OPACR4: 0x44444444,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static AIPSTZ2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to AIPSTZ2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -161,14 +156,13 @@ pub mod AIPSTZ2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = AIPSTZ2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -178,10 +172,12 @@ pub mod AIPSTZ2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = AIPSTZ2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -192,11 +188,10 @@ pub mod AIPSTZ2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         AIPSTZ2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with AIPSTZ2

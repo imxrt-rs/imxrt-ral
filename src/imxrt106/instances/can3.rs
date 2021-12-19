@@ -7,6 +7,7 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::can3::Instance;
 pub use crate::imxrt106::peripherals::can3::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::can3::{
     CBT, CRCR, CS0, CS1, CS10, CS11, CS12, CS13, CS14, CS15, CS16, CS17, CS18, CS19, CS2, CS20,
     CS21, CS22, CS23, CS24, CS25, CS26, CS27, CS28, CS29, CS3, CS30, CS31, CS32, CS33, CS34, CS35,
@@ -75,20 +76,24 @@ pub use crate::imxrt106::peripherals::can3::{
     RXIMR54, RXIMR55, RXIMR56, RXIMR57, RXIMR58, RXIMR59, RXIMR6, RXIMR60, RXIMR61, RXIMR62,
     RXIMR63, RXIMR7, RXIMR8, RXIMR9, RXMGMASK, TIMER,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The CAN3 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type CAN3 = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CAN3_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the CAN3 peripheral instance
-pub mod CAN3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CAN3 {
+    const INSTANCE: Self = Self {
         addr: 0x401d8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN3],
         #[cfg(feature = "doc")]
@@ -639,12 +644,6 @@ pub mod CAN3 {
         ERFFEL127: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CAN3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CAN3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -657,14 +656,13 @@ pub mod CAN3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CAN3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -674,10 +672,12 @@ pub mod CAN3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = CAN3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -688,11 +688,10 @@ pub mod CAN3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CAN3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with CAN3

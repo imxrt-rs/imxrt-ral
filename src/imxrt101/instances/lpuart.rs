@@ -7,23 +7,28 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::lpuart::Instance;
 pub use crate::imxrt101::peripherals::lpuart::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::lpuart::{
     BAUD, CTRL, DATA, FIFO, GLOBAL, MATCH, MODIR, PARAM, PINCFG, STAT, VERID, WATER,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The LPUART1 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type LPUART1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static LPUART1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the LPUART1 peripheral instance
-pub mod LPUART1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl LPUART1 {
+    const INSTANCE: Self = Self {
         addr: 0x40184000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART1],
         #[cfg(feature = "doc")]
@@ -46,12 +51,6 @@ pub mod LPUART1 {
         WATER: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to LPUART1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -64,14 +63,13 @@ pub mod LPUART1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = LPUART1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -81,10 +79,12 @@ pub mod LPUART1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = LPUART1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -95,11 +95,10 @@ pub mod LPUART1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         LPUART1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with LPUART1
@@ -124,19 +123,21 @@ pub mod LPUART1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const LPUART1: *const RegisterBlock = 0x40184000 as *const _;
 
+/// The LPUART2 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type LPUART2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static LPUART2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the LPUART2 peripheral instance
-pub mod LPUART2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl LPUART2 {
+    const INSTANCE: Self = Self {
         addr: 0x40188000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART2],
         #[cfg(feature = "doc")]
@@ -159,12 +160,6 @@ pub mod LPUART2 {
         WATER: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to LPUART2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -177,14 +172,13 @@ pub mod LPUART2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = LPUART2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -194,10 +188,12 @@ pub mod LPUART2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = LPUART2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -208,11 +204,10 @@ pub mod LPUART2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         LPUART2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with LPUART2
@@ -237,19 +232,21 @@ pub mod LPUART2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const LPUART2: *const RegisterBlock = 0x40188000 as *const _;
 
+/// The LPUART3 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type LPUART3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static LPUART3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the LPUART3 peripheral instance
-pub mod LPUART3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl LPUART3 {
+    const INSTANCE: Self = Self {
         addr: 0x4018c000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART3],
         #[cfg(feature = "doc")]
@@ -272,12 +269,6 @@ pub mod LPUART3 {
         WATER: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to LPUART3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -290,14 +281,13 @@ pub mod LPUART3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = LPUART3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -307,10 +297,12 @@ pub mod LPUART3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = LPUART3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -321,11 +313,10 @@ pub mod LPUART3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         LPUART3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with LPUART3
@@ -350,19 +341,21 @@ pub mod LPUART3 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const LPUART3: *const RegisterBlock = 0x4018c000 as *const _;
 
+/// The LPUART4 peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type LPUART4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static LPUART4_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the LPUART4 peripheral instance
-pub mod LPUART4 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl LPUART4 {
+    const INSTANCE: Self = Self {
         addr: 0x40190000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART4],
         #[cfg(feature = "doc")]
@@ -385,12 +378,6 @@ pub mod LPUART4 {
         WATER: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static LPUART4_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to LPUART4
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -403,14 +390,13 @@ pub mod LPUART4 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = LPUART4_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -420,10 +406,12 @@ pub mod LPUART4 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = LPUART4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -434,11 +422,10 @@ pub mod LPUART4 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         LPUART4_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with LPUART4

@@ -7,26 +7,31 @@
 #[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::xtalosc24m::Instance;
 pub use crate::imxrt101::peripherals::xtalosc24m::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::xtalosc24m::{
     LOWPWR_CTRL, LOWPWR_CTRL_CLR, LOWPWR_CTRL_SET, LOWPWR_CTRL_TOG, MISC0, MISC0_CLR, MISC0_SET,
     MISC0_TOG, OSC_CONFIG0, OSC_CONFIG0_CLR, OSC_CONFIG0_SET, OSC_CONFIG0_TOG, OSC_CONFIG1,
     OSC_CONFIG1_CLR, OSC_CONFIG1_SET, OSC_CONFIG1_TOG, OSC_CONFIG2, OSC_CONFIG2_CLR,
     OSC_CONFIG2_SET, OSC_CONFIG2_TOG,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The XTALOSC24M peripheral instance.
+#[cfg(not(feature = "nosync"))]
+pub type XTALOSC24M = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static XTALOSC24M_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the XTALOSC24M peripheral instance
-pub mod XTALOSC24M {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl XTALOSC24M {
+    const INSTANCE: Self = Self {
         addr: 0x400d8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[],
         #[cfg(feature = "doc")]
@@ -57,12 +62,6 @@ pub mod XTALOSC24M {
         OSC_CONFIG2_TOG: 0x000102E2,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static XTALOSC24M_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to XTALOSC24M
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -75,14 +74,13 @@ pub mod XTALOSC24M {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = XTALOSC24M_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -92,10 +90,12 @@ pub mod XTALOSC24M {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
+    pub fn release(inst: Self) {
+        assert!(
+            inst.addr == Self::INSTANCE.addr,
+            "Released the wrong instance"
+        );
 
         let taken = XTALOSC24M_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
@@ -106,11 +106,10 @@ pub mod XTALOSC24M {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         XTALOSC24M_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
 
     /// The interrupts associated with XTALOSC24M
