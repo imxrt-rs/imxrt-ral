@@ -5,9 +5,10 @@
 //! Used by: imxrt1011, imxrt1015
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::usbphy::Instance;
+use crate::imxrt101::peripherals::usbphy::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::usbphy::{Instance, Valid};
 pub use crate::imxrt101::peripherals::usbphy::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::usbphy::{
     CTRL, CTRL_CLR, CTRL_SET, CTRL_TOG, DEBUG, DEBUG0_STATUS, DEBUG1, DEBUG1_CLR, DEBUG1_SET,
     DEBUG1_TOG, DEBUG_CLR, DEBUG_SET, DEBUG_TOG, PWD, PWD_CLR, PWD_SET, PWD_TOG, RX, RX_CLR,
@@ -19,6 +20,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USBPHY peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USBPHY = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USBPHY {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USBPHY {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

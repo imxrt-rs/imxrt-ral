@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::ccm_analog::Instance;
+use crate::imxrt106::peripherals::ccm_analog::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::ccm_analog::{Instance, Valid};
 pub use crate::imxrt106::peripherals::ccm_analog::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::ccm_analog::{
     MISC0, MISC0_CLR, MISC0_SET, MISC0_TOG, MISC1, MISC1_CLR, MISC1_SET, MISC1_TOG, MISC2,
     MISC2_CLR, MISC2_SET, MISC2_TOG, PFD_480, PFD_480_CLR, PFD_480_SET, PFD_480_TOG, PFD_528,
@@ -24,6 +25,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The CCM_ANALOG peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CCM_ANALOG = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CCM_ANALOG {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CCM_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

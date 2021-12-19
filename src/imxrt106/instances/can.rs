@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::can::Instance;
+use crate::imxrt106::peripherals::can::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::can::{Instance, Valid};
 pub use crate::imxrt106::peripherals::can::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::can::{
     CRCR, CTRL1, CTRL2, DBG1, DBG2, ECR, ESR1, ESR2, GFWR, IFLAG1, IFLAG2, IMASK1, IMASK2, MCR,
     RX14MASK, RX15MASK, RXFGMASK, RXFIR, RXIMR0, RXIMR1, RXIMR10, RXIMR11, RXIMR12, RXIMR13,
@@ -24,6 +25,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The CAN1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CAN1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CAN1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CAN1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -200,6 +206,11 @@ pub const CAN1: *const RegisterBlock = 0x401d0000 as *const _;
 /// The CAN2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CAN2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CAN2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CAN2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

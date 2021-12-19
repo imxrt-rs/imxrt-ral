@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::dma0::Instance;
+use crate::imxrt105::peripherals::dma0::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::dma0::{Instance, Valid};
 pub use crate::imxrt105::peripherals::dma0::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::dma0::{
     CDNE, CEEI, CERQ, CERR, CINT, CR, DCHPRI0, DCHPRI1, DCHPRI10, DCHPRI11, DCHPRI12, DCHPRI13,
     DCHPRI14, DCHPRI15, DCHPRI16, DCHPRI17, DCHPRI18, DCHPRI19, DCHPRI2, DCHPRI20, DCHPRI21,
@@ -78,6 +79,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The DMA0 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type DMA0 = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for DMA0 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for DMA0 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::gpio::Instance;
+use crate::imxrt105::peripherals::gpio::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::gpio::{Instance, Valid};
 pub use crate::imxrt105::peripherals::gpio::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::gpio::{
     DR, DR_CLEAR, DR_SET, DR_TOGGLE, EDGE_SEL, GDIR, ICR1, ICR2, IMR, ISR, PSR,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The GPIO1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -144,6 +150,11 @@ pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 pub type GPIO2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -251,6 +262,11 @@ pub const GPIO2: *const RegisterBlock = 0x401bc000 as *const _;
 /// The GPIO3 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -362,6 +378,11 @@ pub const GPIO3: *const RegisterBlock = 0x401c0000 as *const _;
 pub type GPIO4 = Instance<4>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO4 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -469,6 +490,11 @@ pub const GPIO4: *const RegisterBlock = 0x401c4000 as *const _;
 /// The GPIO5 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO5 = Instance<5>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO5 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

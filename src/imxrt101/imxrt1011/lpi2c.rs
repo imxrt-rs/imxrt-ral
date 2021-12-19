@@ -3,9 +3,10 @@
 //! LPI2C
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::lpi2c::Instance;
+use crate::imxrt101::peripherals::lpi2c::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::lpi2c::{Instance, Valid};
 pub use crate::imxrt101::peripherals::lpi2c::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::lpi2c::{
     MCCR0, MCCR1, MCFGR0, MCFGR1, MCFGR2, MCFGR3, MCR, MDER, MDMR, MFCR, MFSR, MIER, MRDR, MSR,
     MTDR, PARAM, SAMR, SASR, SCFGR1, SCFGR2, SCR, SDER, SIER, SRDR, SSR, STAR, STDR, VERID,
@@ -16,6 +17,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The LPI2C1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPI2C1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -136,6 +142,11 @@ pub const LPI2C1: *const RegisterBlock = 0x401a4000 as *const _;
 /// The LPI2C2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPI2C2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

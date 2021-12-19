@@ -3,9 +3,10 @@
 //! GPIO
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::gpio::Instance;
+use crate::imxrt101::peripherals::gpio::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::gpio::{Instance, Valid};
 pub use crate::imxrt101::peripherals::gpio::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::gpio::{
     DR, DR_CLEAR, DR_SET, DR_TOGGLE, EDGE_SEL, GDIR, ICR1, ICR2, IMR, ISR, PSR,
 };
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The GPIO1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -126,6 +132,11 @@ pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 pub type GPIO2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -227,6 +238,11 @@ pub const GPIO2: *const RegisterBlock = 0x42000000 as *const _;
 /// The GPIO5 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO5 = Instance<5>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO5 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

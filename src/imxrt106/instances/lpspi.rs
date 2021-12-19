@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::lpspi::Instance;
+use crate::imxrt106::peripherals::lpspi::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::lpspi::{Instance, Valid};
 pub use crate::imxrt106::peripherals::lpspi::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::lpspi::{
     CCR, CFGR0, CFGR1, CR, DER, DMR0, DMR1, FCR, FSR, IER, PARAM, RDR, RSR, SR, TCR, TDR, VERID,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The LPSPI1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPSPI1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPSPI1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPSPI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -128,6 +134,11 @@ pub const LPSPI1: *const RegisterBlock = 0x40394000 as *const _;
 pub type LPSPI2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPSPI2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPSPI2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -237,6 +248,11 @@ pub const LPSPI2: *const RegisterBlock = 0x40398000 as *const _;
 pub type LPSPI3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPSPI3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPSPI3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -344,6 +360,11 @@ pub const LPSPI3: *const RegisterBlock = 0x4039c000 as *const _;
 /// The LPSPI4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPSPI4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPSPI4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPSPI4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

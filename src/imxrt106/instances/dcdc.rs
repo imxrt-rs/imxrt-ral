@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::dcdc::Instance;
+use crate::imxrt106::peripherals::dcdc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::dcdc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::dcdc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::dcdc::{REG0, REG1, REG2, REG3};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The DCDC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type DCDC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for DCDC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for DCDC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

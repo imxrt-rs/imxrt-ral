@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::flexspi::Instance;
+use crate::imxrt105::peripherals::flexspi::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::flexspi::{Instance, Valid};
 pub use crate::imxrt105::peripherals::flexspi::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::flexspi::{
     AHBCR, AHBRXBUF0CR0, AHBRXBUF1CR0, AHBRXBUF2CR0, AHBRXBUF3CR0, AHBSPNDSTS, DLLCRA, DLLCRB,
     FLSHA1CR0, FLSHA2CR0, FLSHB1CR0, FLSHB2CR0, FLSHCR1A1, FLSHCR1A2, FLSHCR1B1, FLSHCR1B2,
@@ -30,6 +31,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The FLEXSPI peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type FLEXSPI = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for FLEXSPI {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for FLEXSPI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

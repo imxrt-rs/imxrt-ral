@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::enet::Instance;
+use crate::imxrt106::peripherals::enet::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::enet::{Instance, Valid};
 pub use crate::imxrt106::peripherals::enet::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::enet::{
     ATCOR, ATCR, ATINC, ATOFF, ATPER, ATSTMP, ATVR, ECR, EIMR, EIR, FTRL, GALR, GAUR, IALR, IAUR,
     IEEE_R_ALIGN, IEEE_R_CRC, IEEE_R_DROP, IEEE_R_FDXFC, IEEE_R_FRAME_OK, IEEE_R_MACERR,
@@ -29,6 +30,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The ENET1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ENET1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ENET1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ENET1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -226,6 +232,11 @@ pub const ENET1: *const RegisterBlock = 0x402d8000 as *const _;
 /// The ENET2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ENET2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ENET2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ENET2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

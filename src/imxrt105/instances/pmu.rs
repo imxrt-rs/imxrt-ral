@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::pmu::Instance;
+use crate::imxrt105::peripherals::pmu::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::pmu::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pmu::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::pmu::{
     MISC0, MISC0_CLR, MISC0_SET, MISC0_TOG, MISC1, MISC1_CLR, MISC1_SET, MISC1_TOG, MISC2,
     MISC2_CLR, MISC2_SET, MISC2_TOG, REG_1P1, REG_1P1_CLR, REG_1P1_SET, REG_1P1_TOG, REG_2P5,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The PMU peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PMU = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PMU {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PMU {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

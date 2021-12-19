@@ -5,9 +5,10 @@
 //! Used by: imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::csi::Instance;
+use crate::imxrt106::peripherals::csi::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::csi::{Instance, Valid};
 pub use crate::imxrt106::peripherals::csi::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::csi::{
     CSICR1, CSICR18, CSICR19, CSICR2, CSICR3, CSIDMASA_FB1, CSIDMASA_FB2, CSIDMASA_STATFIFO,
     CSIDMATS_STATFIFO, CSIFBUF_PARA, CSIIMAG_PARA, CSIRFIFO, CSIRXCNT, CSISR, CSISTATFIFO,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The CSI peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CSI = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CSI {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CSI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

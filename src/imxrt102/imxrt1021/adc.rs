@@ -871,9 +871,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The ADC1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ADC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ADC1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ADC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -989,6 +1001,11 @@ pub const ADC1: *const RegisterBlock = 0x400c4000 as *const _;
 /// The ADC2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ADC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ADC2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ADC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

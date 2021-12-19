@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::romc::Instance;
+use crate::imxrt106::peripherals::romc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::romc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::romc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::romc::{
     ROMPATCH0A, ROMPATCH0D, ROMPATCH10A, ROMPATCH11A, ROMPATCH12A, ROMPATCH13A, ROMPATCH14A,
     ROMPATCH15A, ROMPATCH1A, ROMPATCH1D, ROMPATCH2A, ROMPATCH2D, ROMPATCH3A, ROMPATCH3D,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The ROMC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ROMC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ROMC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ROMC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

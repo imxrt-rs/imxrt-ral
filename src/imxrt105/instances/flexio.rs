@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::flexio::Instance;
+use crate::imxrt105::peripherals::flexio::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::flexio::{Instance, Valid};
 pub use crate::imxrt105::peripherals::flexio::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::flexio::{
     CTRL, PARAM, PIN, SHIFTBUF0, SHIFTBUF1, SHIFTBUF2, SHIFTBUF3, SHIFTBUFBBS0, SHIFTBUFBBS1,
     SHIFTBUFBBS2, SHIFTBUFBBS3, SHIFTBUFBIS0, SHIFTBUFBIS1, SHIFTBUFBIS2, SHIFTBUFBIS3,
@@ -24,6 +25,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The FLEXIO1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type FLEXIO1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for FLEXIO1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for FLEXIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -176,6 +182,11 @@ pub const FLEXIO1: *const RegisterBlock = 0x401ac000 as *const _;
 /// The FLEXIO2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type FLEXIO2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for FLEXIO2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for FLEXIO2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

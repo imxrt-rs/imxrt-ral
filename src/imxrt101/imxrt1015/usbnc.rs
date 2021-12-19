@@ -3,9 +3,10 @@
 //! USB
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::usbnc::Instance;
+use crate::imxrt101::peripherals::usbnc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::usbnc::{Instance, Valid};
 pub use crate::imxrt101::peripherals::usbnc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -13,6 +14,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USBNC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USBNC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USBNC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USBNC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

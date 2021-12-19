@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::ewm::Instance;
+use crate::imxrt106::peripherals::ewm::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::ewm::{Instance, Valid};
 pub use crate::imxrt106::peripherals::ewm::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::ewm::{CLKCTRL, CLKPRESCALER, CMPH, CMPL, CTRL, SERV};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The EWM peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type EWM = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for EWM {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for EWM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

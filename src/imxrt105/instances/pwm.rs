@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::pwm::Instance;
+use crate::imxrt105::peripherals::pwm::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::pwm::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pwm::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::pwm::{
     DTSRCSEL, FCTRL0, FCTRL20, FFILT0, FSTS0, FTST0, MASK, MCTRL, MCTRL2, OUTEN, SMCAPTCOMPA0,
     SMCAPTCOMPA1, SMCAPTCOMPA2, SMCAPTCOMPA3, SMCAPTCOMPB0, SMCAPTCOMPB1, SMCAPTCOMPB2,
@@ -39,6 +40,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The PWM1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PWM1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PWM1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PWM1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -328,6 +334,11 @@ pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 pub type PWM2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for PWM2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PWM2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -615,6 +626,11 @@ pub const PWM2: *const RegisterBlock = 0x403e0000 as *const _;
 pub type PWM3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for PWM3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PWM3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -900,6 +916,11 @@ pub const PWM3: *const RegisterBlock = 0x403e4000 as *const _;
 /// The PWM4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PWM4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PWM4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PWM4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

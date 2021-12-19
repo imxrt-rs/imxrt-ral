@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::iomuxc::Instance;
+use crate::imxrt106::peripherals::iomuxc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::iomuxc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::iomuxc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::iomuxc::{
     ANATOP_USB_OTG1_ID_SELECT_INPUT, ANATOP_USB_OTG2_ID_SELECT_INPUT,
     CANFD_IPP_IND_CANRX_SELECT_INPUT, CCM_PMIC_READY_SELECT_INPUT, CSI_DATA02_SELECT_INPUT,
@@ -182,6 +183,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The IOMUXC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type IOMUXC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for IOMUXC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for IOMUXC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

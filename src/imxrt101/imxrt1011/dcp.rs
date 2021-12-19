@@ -3,9 +3,10 @@
 //! DCP register reference index
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::dcp::Instance;
+use crate::imxrt101::peripherals::dcp::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::dcp::{Instance, Valid};
 pub use crate::imxrt101::peripherals::dcp::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::dcp::{
     CAPABILITY0, CAPABILITY1, CH0CMDPTR, CH0OPTS, CH0OPTS_CLR, CH0OPTS_SET, CH0OPTS_TOG, CH0SEMA,
     CH0STAT, CH0STAT_CLR, CH0STAT_SET, CH0STAT_TOG, CH1CMDPTR, CH1OPTS, CH1OPTS_CLR, CH1OPTS_SET,
@@ -23,6 +24,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The DCP peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type DCP = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for DCP {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for DCP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

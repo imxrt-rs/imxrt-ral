@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::semc::Instance;
+use crate::imxrt105::peripherals::semc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::semc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::semc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::semc::{
     BMCR0, BMCR1, BR0, BR1, BR2, BR3, BR4, BR5, BR6, BR7, BR8, DBICR0, DBICR1, INTEN, INTR, IOCR,
     IPCMD, IPCR0, IPCR1, IPCR2, IPRXDAT, IPTXDAT, MCR, NANDCR0, NANDCR1, NANDCR2, NANDCR3, NORCR0,
@@ -21,6 +22,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The SEMC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SEMC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SEMC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SEMC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

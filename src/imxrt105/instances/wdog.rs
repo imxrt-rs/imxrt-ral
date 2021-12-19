@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::wdog::Instance;
+use crate::imxrt105::peripherals::wdog::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::wdog::{Instance, Valid};
 pub use crate::imxrt105::peripherals::wdog::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::wdog::{WCR, WICR, WMCR, WRSR, WSR};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The WDOG1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type WDOG1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for WDOG1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for WDOG1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -112,6 +118,11 @@ pub const WDOG1: *const RegisterBlock = 0x400b8000 as *const _;
 /// The WDOG2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type WDOG2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for WDOG2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for WDOG2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

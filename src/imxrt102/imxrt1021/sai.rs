@@ -2222,9 +2222,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The SAI1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SAI1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SAI1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SAI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2351,6 +2363,11 @@ pub const SAI1: *const RegisterBlock = 0x40384000 as *const _;
 pub type SAI2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for SAI2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SAI2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -2473,6 +2490,11 @@ pub const SAI2: *const RegisterBlock = 0x40388000 as *const _;
 /// The SAI3 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SAI3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SAI3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SAI3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

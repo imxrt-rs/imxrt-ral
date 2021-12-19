@@ -1596,9 +1596,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The LPSPI1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPSPI1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPSPI1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPSPI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1708,6 +1720,11 @@ pub const LPSPI1: *const RegisterBlock = 0x40194000 as *const _;
 /// The LPSPI2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPSPI2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPSPI2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPSPI2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::xbara1::Instance;
+use crate::imxrt106::peripherals::xbara1::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::xbara1::{Instance, Valid};
 pub use crate::imxrt106::peripherals::xbara1::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::xbara1::{
     CTRL0, CTRL1, SEL0, SEL1, SEL10, SEL11, SEL12, SEL13, SEL14, SEL15, SEL16, SEL17, SEL18, SEL19,
     SEL2, SEL20, SEL21, SEL22, SEL23, SEL24, SEL25, SEL26, SEL27, SEL28, SEL29, SEL3, SEL30, SEL31,
@@ -21,6 +22,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The XBARA1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type XBARA1 = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for XBARA1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for XBARA1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

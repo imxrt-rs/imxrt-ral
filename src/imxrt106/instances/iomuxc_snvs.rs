@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::iomuxc_snvs::Instance;
+use crate::imxrt106::peripherals::iomuxc_snvs::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::iomuxc_snvs::{Instance, Valid};
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{
     SW_MUX_CTL_PAD_PMIC_ON_REQ, SW_MUX_CTL_PAD_PMIC_STBY_REQ, SW_MUX_CTL_PAD_WAKEUP,
     SW_PAD_CTL_PAD_ONOFF, SW_PAD_CTL_PAD_PMIC_ON_REQ, SW_PAD_CTL_PAD_PMIC_STBY_REQ,
@@ -19,6 +20,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The IOMUXC_SNVS peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type IOMUXC_SNVS = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for IOMUXC_SNVS {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for IOMUXC_SNVS {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

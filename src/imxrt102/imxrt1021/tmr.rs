@@ -1544,9 +1544,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The TMR1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TMR1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TMR1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TMR1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1692,6 +1704,11 @@ pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 /// The TMR2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TMR2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TMR2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TMR2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -870,3 +870,10 @@ impl<const N: u8> Instance<N> {
         self.intrs
     }
 }
+
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}

@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::usdhc::Instance;
+use crate::imxrt105::peripherals::usdhc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::usdhc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::usdhc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::usdhc::{
     ADMA_ERR_STATUS, ADMA_SYS_ADDR, AUTOCMD12_ERR_STATUS, BLK_ATT, CLK_TUNE_CTRL_STATUS, CMD_ARG,
     CMD_RSP0, CMD_RSP1, CMD_RSP2, CMD_RSP3, CMD_XFR_TYP, DATA_BUFF_ACC_PORT, DLL_CTRL, DLL_STATUS,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USDHC1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USDHC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USDHC1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USDHC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -141,6 +147,11 @@ pub const USDHC1: *const RegisterBlock = 0x402c0000 as *const _;
 /// The USDHC2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USDHC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USDHC2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USDHC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

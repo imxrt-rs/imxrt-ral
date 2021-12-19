@@ -700,9 +700,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The GPIO1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -830,6 +842,11 @@ pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 pub type GPIO2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -939,6 +956,11 @@ pub const GPIO2: *const RegisterBlock = 0x401bc000 as *const _;
 pub type GPIO3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -1046,6 +1068,11 @@ pub const GPIO3: *const RegisterBlock = 0x401c0000 as *const _;
 /// The GPIO5 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPIO5 = Instance<5>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPIO5 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPIO5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

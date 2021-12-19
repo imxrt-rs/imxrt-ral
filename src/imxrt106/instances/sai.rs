@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::sai::Instance;
+use crate::imxrt106::peripherals::sai::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::sai::{Instance, Valid};
 pub use crate::imxrt106::peripherals::sai::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::sai::{
     PARAM, RCR1, RCR2, RCR3, RCR4, RCR5, RCSR, RDR0, RDR1, RDR2, RDR3, RFR0, RFR1, RFR2, RFR3, RMR,
     TCR1, TCR2, TCR3, TCR4, TCR5, TCSR, TDR0, TDR1, TDR2, TDR3, TFR0, TFR1, TFR2, TFR3, TMR, VERID,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The SAI1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SAI1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SAI1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SAI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -144,6 +150,11 @@ pub const SAI1: *const RegisterBlock = 0x40384000 as *const _;
 pub type SAI2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for SAI2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SAI2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -266,6 +277,11 @@ pub const SAI2: *const RegisterBlock = 0x40388000 as *const _;
 /// The SAI3 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SAI3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SAI3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SAI3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

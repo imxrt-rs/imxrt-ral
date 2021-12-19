@@ -5,9 +5,10 @@
 //! Used by: imxrt1011, imxrt1015
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::flexio1::Instance;
+use crate::imxrt101::peripherals::flexio1::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::flexio1::{Instance, Valid};
 pub use crate::imxrt101::peripherals::flexio1::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::flexio1::{
     CTRL, PARAM, PIN, SHIFTBUF0, SHIFTBUF1, SHIFTBUF2, SHIFTBUF3, SHIFTBUF4, SHIFTBUF5, SHIFTBUF6,
     SHIFTBUF7, SHIFTBUFBBS0, SHIFTBUFBBS1, SHIFTBUFBBS2, SHIFTBUFBBS3, SHIFTBUFBBS4, SHIFTBUFBBS5,
@@ -31,6 +32,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The FLEXIO1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type FLEXIO1 = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for FLEXIO1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for FLEXIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

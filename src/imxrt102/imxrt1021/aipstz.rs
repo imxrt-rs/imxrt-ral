@@ -645,9 +645,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The AIPSTZ1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AIPSTZ1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AIPSTZ1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AIPSTZ1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -748,6 +760,11 @@ pub const AIPSTZ1: *const RegisterBlock = 0x4007c000 as *const _;
 pub type AIPSTZ2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for AIPSTZ2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AIPSTZ2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -846,6 +863,11 @@ pub const AIPSTZ2: *const RegisterBlock = 0x4017c000 as *const _;
 pub type AIPSTZ3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for AIPSTZ3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AIPSTZ3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -942,6 +964,11 @@ pub const AIPSTZ3: *const RegisterBlock = 0x4027c000 as *const _;
 /// The AIPSTZ4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AIPSTZ4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AIPSTZ4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AIPSTZ4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

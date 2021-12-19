@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::tempmon::Instance;
+use crate::imxrt105::peripherals::tempmon::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::tempmon::{Instance, Valid};
 pub use crate::imxrt105::peripherals::tempmon::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::tempmon::{
     TEMPSENSE0, TEMPSENSE0_CLR, TEMPSENSE0_SET, TEMPSENSE0_TOG, TEMPSENSE1, TEMPSENSE1_CLR,
     TEMPSENSE1_SET, TEMPSENSE1_TOG, TEMPSENSE2, TEMPSENSE2_CLR, TEMPSENSE2_SET, TEMPSENSE2_TOG,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The TEMPMON peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TEMPMON = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TEMPMON {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TEMPMON {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

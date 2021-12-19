@@ -5,9 +5,10 @@
 //! Used by: imxrt1011, imxrt1015
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::iomuxc_snvs_gpr::Instance;
+use crate::imxrt101::peripherals::iomuxc_snvs_gpr::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::iomuxc_snvs_gpr::{Instance, Valid};
 pub use crate::imxrt101::peripherals::iomuxc_snvs_gpr::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::iomuxc_snvs_gpr::{GPR0, GPR1, GPR2, GPR3};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The IOMUXC_SNVS_GPR peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type IOMUXC_SNVS_GPR = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for IOMUXC_SNVS_GPR {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for IOMUXC_SNVS_GPR {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

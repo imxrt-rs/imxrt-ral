@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::gpc::Instance;
+use crate::imxrt106::peripherals::gpc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::gpc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::gpc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::gpc::{
     CNTR, IMR1, IMR2, IMR3, IMR4, IMR5, ISR1, ISR2, ISR3, ISR4, ISR5,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The GPC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

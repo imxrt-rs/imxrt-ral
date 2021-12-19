@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::src::Instance;
+use crate::imxrt105::peripherals::src::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::src::{Instance, Valid};
 pub use crate::imxrt105::peripherals::src::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::src::{
     GPR1, GPR10, GPR2, GPR3, GPR4, GPR5, GPR6, GPR7, GPR8, GPR9, SBMR1, SBMR2, SCR, SRSR,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The SRC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SRC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SRC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SRC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

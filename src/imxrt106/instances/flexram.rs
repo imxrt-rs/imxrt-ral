@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::flexram::Instance;
+use crate::imxrt106::peripherals::flexram::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::flexram::{Instance, Valid};
 pub use crate::imxrt106::peripherals::flexram::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::flexram::{INT_SIG_EN, INT_STATUS, INT_STAT_EN, TCM_CTRL};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The FLEXRAM peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type FLEXRAM = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for FLEXRAM {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for FLEXRAM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

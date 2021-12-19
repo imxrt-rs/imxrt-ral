@@ -568,9 +568,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The CMP1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CMP1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CMP1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CMP1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -671,6 +683,11 @@ pub const CMP1: *const RegisterBlock = 0x40094000 as *const _;
 pub type CMP2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for CMP2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CMP2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -769,6 +786,11 @@ pub const CMP2: *const RegisterBlock = 0x40094008 as *const _;
 pub type CMP3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for CMP3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CMP3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -865,6 +887,11 @@ pub const CMP3: *const RegisterBlock = 0x40094010 as *const _;
 /// The CMP4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CMP4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CMP4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CMP4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

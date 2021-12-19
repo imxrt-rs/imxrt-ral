@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::adc_etc::Instance;
+use crate::imxrt105::peripherals::adc_etc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::adc_etc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::adc_etc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::adc_etc::{
     CTRL, DMA_CTRL, DONE0_1_IRQ, DONE2_ERR_IRQ, TRIG0_CHAIN_1_0, TRIG0_CHAIN_3_2, TRIG0_CHAIN_5_4,
     TRIG0_CHAIN_7_6, TRIG0_COUNTER, TRIG0_CTRL, TRIG0_RESULT_1_0, TRIG0_RESULT_3_2,
@@ -33,6 +34,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The ADC_ETC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ADC_ETC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ADC_ETC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ADC_ETC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

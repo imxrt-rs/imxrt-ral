@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::tsc::Instance;
+use crate::imxrt106::peripherals::tsc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::tsc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::tsc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::tsc::{
     BASIC_SETTING, DEBUG_MODE, DEBUG_MODE2, FLOW_CONTROL, INT_EN, INT_SIG_EN, INT_STATUS,
     MEASEURE_VALUE, PRE_CHARGE_TIME,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The TSC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TSC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TSC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TSC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

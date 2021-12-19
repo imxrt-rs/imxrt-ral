@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::lpi2c::Instance;
+use crate::imxrt105::peripherals::lpi2c::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::lpi2c::{Instance, Valid};
 pub use crate::imxrt105::peripherals::lpi2c::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::lpi2c::{
     MCCR0, MCCR1, MCFGR0, MCFGR1, MCFGR2, MCFGR3, MCR, MDER, MDMR, MFCR, MFSR, MIER, MRDR, MSR,
     MTDR, PARAM, SAMR, SASR, SCFGR1, SCFGR2, SCR, SDER, SIER, SRDR, SSR, STAR, STDR, VERID,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The LPI2C1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPI2C1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -140,6 +146,11 @@ pub const LPI2C1: *const RegisterBlock = 0x403f0000 as *const _;
 pub type LPI2C2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -260,6 +271,11 @@ pub const LPI2C2: *const RegisterBlock = 0x403f4000 as *const _;
 pub type LPI2C3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -378,6 +394,11 @@ pub const LPI2C3: *const RegisterBlock = 0x403f8000 as *const _;
 /// The LPI2C4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPI2C4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

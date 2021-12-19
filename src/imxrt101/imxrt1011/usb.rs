@@ -3,9 +3,10 @@
 //! USB
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::usb::Instance;
+use crate::imxrt101::peripherals::usb::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::usb::{Instance, Valid};
 pub use crate::imxrt101::peripherals::usb::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::usb::{
     ASYNCLISTADDR, BURSTSIZE, CAPLENGTH, CONFIGFLAG, DCCPARAMS, DCIVERSION, DEVICEADDR,
     ENDPTCOMPLETE, ENDPTCTRL0, ENDPTCTRL1, ENDPTCTRL2, ENDPTCTRL3, ENDPTCTRL4, ENDPTCTRL5,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USB peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USB = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USB {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USB {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

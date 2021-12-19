@@ -1228,9 +1228,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The OCOTP peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type OCOTP = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for OCOTP {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for OCOTP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

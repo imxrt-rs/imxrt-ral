@@ -3,9 +3,10 @@
 //! SPDIF
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::spdif::Instance;
+use crate::imxrt101::peripherals::spdif::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::spdif::{Instance, Valid};
 pub use crate::imxrt101::peripherals::spdif::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::spdif::{
     SCR, SI, SIE, SRCD, SRCSH, SRCSL, SRFM, SRL, SRPC, SRQ, SRR, SRU, STC, STCSCH, STCSCL, STL, STR,
 };
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The SPDIF peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SPDIF = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SPDIF {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SPDIF {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

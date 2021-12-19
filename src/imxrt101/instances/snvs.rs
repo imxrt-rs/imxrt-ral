@@ -5,9 +5,9 @@
 //! Used by: imxrt1011, imxrt1015
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::snvs::Instance;
-pub use crate::imxrt101::peripherals::snvs::{RegisterBlock, ResetValues};
-
+use crate::imxrt101::peripherals::snvs::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::snvs::{Instance, Valid};
 pub use crate::imxrt101::peripherals::snvs::{
     LPGPR0_legacy_alias, LPGPR_alias0, LPGPR_alias1, LPGPR_alias2, LPGPR_alias3, HPCOMR, HPCR,
     HPHACIVR, HPHACR, HPLR, HPRTCLR, HPRTCMR, HPSICR, HPSR, HPSVCR, HPSVSR, HPTALR, HPTAMR,
@@ -15,12 +15,18 @@ pub use crate::imxrt101::peripherals::snvs::{
     LPSR, LPSRTCLR, LPSRTCMR, LPSVCR, LPTAR, LPTDCR, LPZMKR0, LPZMKR1, LPZMKR2, LPZMKR3, LPZMKR4,
     LPZMKR5, LPZMKR6, LPZMKR7,
 };
+pub use crate::imxrt101::peripherals::snvs::{RegisterBlock, ResetValues};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SNVS peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type SNVS = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for SNVS {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for SNVS {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

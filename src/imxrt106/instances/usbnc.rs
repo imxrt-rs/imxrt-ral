@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::usbnc::Instance;
+use crate::imxrt106::peripherals::usbnc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::usbnc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::usbnc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USBNC1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USBNC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USBNC1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USBNC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -109,6 +115,11 @@ pub const USBNC1: *const RegisterBlock = 0x402e0000 as *const _;
 /// The USBNC2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USBNC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USBNC2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USBNC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

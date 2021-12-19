@@ -5,9 +5,10 @@
 //! Used by: imxrt1011, imxrt1015
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::kpp::Instance;
+use crate::imxrt101::peripherals::kpp::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::kpp::{Instance, Valid};
 pub use crate::imxrt101::peripherals::kpp::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::kpp::{KDDR, KPCR, KPDR, KPSR};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The KPP peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type KPP = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for KPP {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for KPP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

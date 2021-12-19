@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::usbphy::Instance;
+use crate::imxrt106::peripherals::usbphy::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::usbphy::{Instance, Valid};
 pub use crate::imxrt106::peripherals::usbphy::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::usbphy::{
     CTRL, CTRL_CLR, CTRL_SET, CTRL_TOG, DEBUG, DEBUG0_STATUS, DEBUG1, DEBUG1_CLR, DEBUG1_SET,
     DEBUG1_TOG, DEBUG_CLR, DEBUG_SET, DEBUG_TOG, PWD, PWD_CLR, PWD_SET, PWD_TOG, RX, RX_CLR,
@@ -19,6 +20,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USBPHY1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USBPHY1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USBPHY1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USBPHY1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -138,6 +144,11 @@ pub const USBPHY1: *const RegisterBlock = 0x400d9000 as *const _;
 /// The USBPHY2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USBPHY2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USBPHY2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USBPHY2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

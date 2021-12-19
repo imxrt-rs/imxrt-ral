@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::adc::Instance;
+use crate::imxrt106::peripherals::adc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::adc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::adc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::adc::{
     CAL, CFG, CV, GC, GS, HC0, HC1, HC2, HC3, HC4, HC5, HC6, HC7, HS, OFS, R0, R1, R2, R3, R4, R5,
     R6, R7,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The ADC1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ADC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ADC1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ADC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -133,6 +139,11 @@ pub const ADC1: *const RegisterBlock = 0x400c4000 as *const _;
 /// The ADC2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ADC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ADC2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ADC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::bee::Instance;
+use crate::imxrt105::peripherals::bee::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::bee::{Instance, Valid};
 pub use crate::imxrt105::peripherals::bee::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::bee::{
     ADDR_OFFSET0, ADDR_OFFSET1, AES_KEY0_W0, AES_KEY0_W1, AES_KEY0_W2, AES_KEY0_W3, CTRL,
     CTR_NONCE0_W0, CTR_NONCE0_W1, CTR_NONCE0_W2, CTR_NONCE0_W3, CTR_NONCE1_W0, CTR_NONCE1_W1,
@@ -19,6 +20,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The BEE peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type BEE = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for BEE {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for BEE {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

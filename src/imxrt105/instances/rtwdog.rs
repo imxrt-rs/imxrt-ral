@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::rtwdog::Instance;
+use crate::imxrt105::peripherals::rtwdog::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::rtwdog::{Instance, Valid};
 pub use crate::imxrt105::peripherals::rtwdog::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::rtwdog::{CNT, CS, TOVAL, WIN};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The RTWDOG peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type RTWDOG = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for RTWDOG {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for RTWDOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -3,9 +3,10 @@
 //! AND/OR/INVERT module
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::aoi::Instance;
+use crate::imxrt101::peripherals::aoi::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::aoi::{Instance, Valid};
 pub use crate::imxrt101::peripherals::aoi::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::aoi::{
     BFCRT010, BFCRT011, BFCRT012, BFCRT013, BFCRT230, BFCRT231, BFCRT232, BFCRT233,
 };
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The AOI peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AOI = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AOI {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AOI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

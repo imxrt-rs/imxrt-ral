@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::aoi::Instance;
+use crate::imxrt106::peripherals::aoi::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::aoi::{Instance, Valid};
 pub use crate::imxrt106::peripherals::aoi::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::aoi::{
     BFCRT010, BFCRT011, BFCRT012, BFCRT013, BFCRT230, BFCRT231, BFCRT232, BFCRT233,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The AOI1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AOI1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AOI1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AOI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -117,6 +123,11 @@ pub const AOI1: *const RegisterBlock = 0x403b4000 as *const _;
 /// The AOI2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AOI2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AOI2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AOI2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

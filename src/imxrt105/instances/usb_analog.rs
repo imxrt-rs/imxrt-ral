@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::usb_analog::Instance;
+use crate::imxrt105::peripherals::usb_analog::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::usb_analog::{Instance, Valid};
 pub use crate::imxrt105::peripherals::usb_analog::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::usb_analog::{
     DIGPROG, USB1_CHRG_DETECT, USB1_CHRG_DETECT_CLR, USB1_CHRG_DETECT_SET, USB1_CHRG_DETECT_STAT,
     USB1_CHRG_DETECT_TOG, USB1_LOOPBACK, USB1_LOOPBACK_CLR, USB1_LOOPBACK_SET, USB1_LOOPBACK_TOG,
@@ -24,6 +25,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USB_ANALOG peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USB_ANALOG = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USB_ANALOG {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USB_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -5,9 +5,10 @@
 //! Used by: imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::pxp::Instance;
+use crate::imxrt106::peripherals::pxp::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::pxp::{Instance, Valid};
 pub use crate::imxrt106::peripherals::pxp::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::pxp::{
     AS_BUF, AS_CLRKEYHIGH, AS_CLRKEYLOW, AS_CTRL, AS_PITCH, CSC1_COEF0, CSC1_COEF1, CSC1_COEF2,
     CTRL, CTRL_CLR, CTRL_SET, CTRL_TOG, NEXT, OUT_AS_LRC, OUT_AS_ULC, OUT_BUF, OUT_BUF2, OUT_CTRL,
@@ -22,6 +23,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The PXP peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PXP = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PXP {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PXP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::tmr::Instance;
+use crate::imxrt106::peripherals::tmr::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::tmr::{Instance, Valid};
 pub use crate::imxrt106::peripherals::tmr::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::tmr::{
     CAPT0, CAPT1, CAPT2, CAPT3, CMPLD10, CMPLD11, CMPLD12, CMPLD13, CMPLD20, CMPLD21, CMPLD22,
     CMPLD23, CNTR0, CNTR1, CNTR2, CNTR3, COMP10, COMP11, COMP12, COMP13, COMP20, COMP21, COMP22,
@@ -21,6 +22,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The TMR1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TMR1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TMR1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TMR1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -168,6 +174,11 @@ pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 pub type TMR2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for TMR2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TMR2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -313,6 +324,11 @@ pub const TMR2: *const RegisterBlock = 0x401e0000 as *const _;
 pub type TMR3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for TMR3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TMR3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -456,6 +472,11 @@ pub const TMR3: *const RegisterBlock = 0x401e4000 as *const _;
 /// The TMR4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TMR4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TMR4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TMR4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

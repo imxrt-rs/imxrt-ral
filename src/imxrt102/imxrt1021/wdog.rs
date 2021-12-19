@@ -452,9 +452,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The WDOG1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type WDOG1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for WDOG1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for WDOG1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -552,6 +564,11 @@ pub const WDOG1: *const RegisterBlock = 0x400b8000 as *const _;
 /// The WDOG2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type WDOG2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for WDOG2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for WDOG2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

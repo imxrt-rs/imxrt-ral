@@ -2452,9 +2452,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The LPUART1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPUART1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2561,6 +2573,11 @@ pub const LPUART1: *const RegisterBlock = 0x40184000 as *const _;
 pub type LPUART2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -2663,6 +2680,11 @@ pub const LPUART2: *const RegisterBlock = 0x40188000 as *const _;
 /// The LPUART3 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPUART3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2769,6 +2791,11 @@ pub const LPUART3: *const RegisterBlock = 0x4018c000 as *const _;
 pub type LPUART4 = Instance<4>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART4 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -2871,6 +2898,11 @@ pub const LPUART4: *const RegisterBlock = 0x40190000 as *const _;
 /// The LPUART5 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPUART5 = Instance<5>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART5 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2977,6 +3009,11 @@ pub const LPUART5: *const RegisterBlock = 0x40194000 as *const _;
 pub type LPUART6 = Instance<6>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART6 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART6 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -3081,6 +3118,11 @@ pub const LPUART6: *const RegisterBlock = 0x40198000 as *const _;
 pub type LPUART7 = Instance<7>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART7 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART7 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -3183,6 +3225,11 @@ pub const LPUART7: *const RegisterBlock = 0x4019c000 as *const _;
 /// The LPUART8 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPUART8 = Instance<8>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART8 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART8 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

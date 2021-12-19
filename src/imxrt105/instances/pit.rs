@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::pit::Instance;
+use crate::imxrt105::peripherals::pit::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::pit::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pit::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::pit::{
     CVAL0, CVAL1, CVAL2, CVAL3, LDVAL0, LDVAL1, LDVAL2, LDVAL3, LTMR64H, LTMR64L, MCR, TCTRL0,
     TCTRL1, TCTRL2, TCTRL3, TFLG0, TFLG1, TFLG2, TFLG3,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The PIT peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PIT = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PIT {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PIT {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

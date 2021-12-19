@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::xtalosc24m::Instance;
+use crate::imxrt106::peripherals::xtalosc24m::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::xtalosc24m::{Instance, Valid};
 pub use crate::imxrt106::peripherals::xtalosc24m::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::xtalosc24m::{
     LOWPWR_CTRL, LOWPWR_CTRL_CLR, LOWPWR_CTRL_SET, LOWPWR_CTRL_TOG, MISC0, MISC0_CLR, MISC0_SET,
     MISC0_TOG, OSC_CONFIG0, OSC_CONFIG0_CLR, OSC_CONFIG0_SET, OSC_CONFIG0_TOG, OSC_CONFIG1,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The XTALOSC24M peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type XTALOSC24M = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for XTALOSC24M {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for XTALOSC24M {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

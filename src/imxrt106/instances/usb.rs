@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::usb::Instance;
+use crate::imxrt106::peripherals::usb::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::usb::{Instance, Valid};
 pub use crate::imxrt106::peripherals::usb::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::usb::{
     ASYNCLISTADDR, BURSTSIZE, CAPLENGTH, CONFIGFLAG, DCCPARAMS, DCIVERSION, DEVICEADDR,
     ENDPTCOMPLETE, ENDPTCTRL0, ENDPTCTRL1, ENDPTCTRL2, ENDPTCTRL3, ENDPTCTRL4, ENDPTCTRL5,
@@ -22,6 +23,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The USB1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USB1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USB1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USB1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -158,6 +164,11 @@ pub const USB1: *const RegisterBlock = 0x402e0000 as *const _;
 /// The USB2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USB2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USB2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USB2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

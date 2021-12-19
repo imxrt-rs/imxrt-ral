@@ -5273,9 +5273,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The PWM1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PWM1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PWM1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PWM1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -5563,6 +5575,11 @@ pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 /// The PWM2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PWM2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PWM2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PWM2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

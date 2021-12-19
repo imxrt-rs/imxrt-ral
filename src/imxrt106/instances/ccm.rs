@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::ccm::Instance;
+use crate::imxrt106::peripherals::ccm::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::ccm::{Instance, Valid};
 pub use crate::imxrt106::peripherals::ccm::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::ccm::{
     CACRR, CBCDR, CBCMR, CCGR0, CCGR1, CCGR2, CCGR3, CCGR4, CCGR5, CCGR6, CCGR7, CCOSR, CCR, CCSR,
     CDCDR, CDHIPR, CGPR, CIMR, CISR, CLPCR, CMEOR, CS1CDR, CS2CDR, CSCDR1, CSCDR2, CSCDR3, CSCMR1,
@@ -19,6 +20,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The CCM peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type CCM = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for CCM {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for CCM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

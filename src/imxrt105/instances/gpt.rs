@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::gpt::Instance;
+use crate::imxrt105::peripherals::gpt::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::gpt::{Instance, Valid};
 pub use crate::imxrt105::peripherals::gpt::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::gpt::{CNT, CR, ICR1, ICR2, IR, OCR1, OCR2, OCR3, PR, SR};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The GPT1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPT1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPT1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPT1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -117,6 +123,11 @@ pub const GPT1: *const RegisterBlock = 0x401ec000 as *const _;
 /// The GPT2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type GPT2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for GPT2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for GPT2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

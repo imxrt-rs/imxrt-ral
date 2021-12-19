@@ -4638,9 +4638,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The USDHC1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USDHC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USDHC1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USDHC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -4762,6 +4774,11 @@ pub const USDHC1: *const RegisterBlock = 0x402c0000 as *const _;
 /// The USDHC2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type USDHC2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for USDHC2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for USDHC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

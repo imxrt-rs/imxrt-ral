@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::enc::Instance;
+use crate::imxrt106::peripherals::enc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::enc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::enc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::enc::{
     CTRL, CTRL2, FILT, IMR, LCOMP, LINIT, LMOD, LPOS, LPOSH, POSD, POSDH, REV, REVH, TST, UCOMP,
     UINIT, UMOD, UPOS, UPOSH, WTR,
@@ -18,6 +19,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The ENC1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ENC1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ENC1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ENC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -132,6 +138,11 @@ pub const ENC1: *const RegisterBlock = 0x403c8000 as *const _;
 pub type ENC2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for ENC2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ENC2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -244,6 +255,11 @@ pub const ENC2: *const RegisterBlock = 0x403cc000 as *const _;
 pub type ENC3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for ENC3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ENC3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -354,6 +370,11 @@ pub const ENC3: *const RegisterBlock = 0x403d0000 as *const _;
 /// The ENC4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type ENC4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for ENC4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for ENC4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

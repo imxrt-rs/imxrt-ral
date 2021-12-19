@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::pgc::Instance;
+use crate::imxrt105::peripherals::pgc::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::pgc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pgc::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::pgc::{
     CPU_CTRL, CPU_PDNSCR, CPU_PUPSCR, CPU_SR, MEGA_CTRL, MEGA_PDNSCR, MEGA_PUPSCR, MEGA_SR,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The PGC peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type PGC = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for PGC {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for PGC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -2717,9 +2717,21 @@ impl<const N: u8> Instance<N> {
     }
 }
 
+pub(crate) mod private {
+    pub trait Sealed {}
+}
+
+/// Describes a valid `Const<N>` for this peripheral instance.
+pub trait Valid: private::Sealed {}
+
 /// The LPI2C1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPI2C1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2842,6 +2854,11 @@ pub const LPI2C1: *const RegisterBlock = 0x403f0000 as *const _;
 pub type LPI2C2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -2962,6 +2979,11 @@ pub const LPI2C2: *const RegisterBlock = 0x403f4000 as *const _;
 pub type LPI2C3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -3080,6 +3102,11 @@ pub const LPI2C3: *const RegisterBlock = 0x403f8000 as *const _;
 /// The LPI2C4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPI2C4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPI2C4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPI2C4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

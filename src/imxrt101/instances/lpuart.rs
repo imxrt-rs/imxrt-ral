@@ -5,9 +5,10 @@
 //! Used by: imxrt1011, imxrt1015
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::lpuart::Instance;
+use crate::imxrt101::peripherals::lpuart::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::lpuart::{Instance, Valid};
 pub use crate::imxrt101::peripherals::lpuart::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::lpuart::{
     BAUD, CTRL, DATA, FIFO, GLOBAL, MATCH, MODIR, PARAM, PINCFG, STAT, VERID, WATER,
 };
@@ -17,6 +18,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The LPUART1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPUART1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -123,6 +129,11 @@ pub const LPUART1: *const RegisterBlock = 0x40184000 as *const _;
 pub type LPUART2 = Instance<2>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART2 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -227,6 +238,11 @@ pub const LPUART2: *const RegisterBlock = 0x40188000 as *const _;
 pub type LPUART3 = Instance<3>;
 
 #[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART3 {}
+
+#[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -329,6 +345,11 @@ pub const LPUART3: *const RegisterBlock = 0x4018c000 as *const _;
 /// The LPUART4 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LPUART4 = Instance<4>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LPUART4 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LPUART4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

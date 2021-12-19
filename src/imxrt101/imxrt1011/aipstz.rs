@@ -3,9 +3,10 @@
 //! AIPSTZ Control Registers
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt101::peripherals::aipstz::Instance;
+use crate::imxrt101::peripherals::aipstz::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt101::peripherals::aipstz::{Instance, Valid};
 pub use crate::imxrt101::peripherals::aipstz::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt101::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR3, OPACR4};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -13,6 +14,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The AIPSTZ1 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AIPSTZ1 = Instance<1>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AIPSTZ1 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AIPSTZ1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -111,6 +117,11 @@ pub const AIPSTZ1: *const RegisterBlock = 0x4007c000 as *const _;
 /// The AIPSTZ2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type AIPSTZ2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for AIPSTZ2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for AIPSTZ2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

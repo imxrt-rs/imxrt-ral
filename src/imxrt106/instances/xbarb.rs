@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::xbarb::Instance;
+use crate::imxrt106::peripherals::xbarb::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::xbarb::{Instance, Valid};
 pub use crate::imxrt106::peripherals::xbarb::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5, SEL6, SEL7};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -15,6 +16,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The XBARB2 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type XBARB2 = Instance<2>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for XBARB2 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for XBARB2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -115,6 +121,11 @@ pub const XBARB2: *const RegisterBlock = 0x403c0000 as *const _;
 /// The XBARB3 peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type XBARB3 = Instance<3>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for XBARB3 {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for XBARB3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

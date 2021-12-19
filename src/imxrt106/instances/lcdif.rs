@@ -5,9 +5,10 @@
 //! Used by: imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::lcdif::Instance;
+use crate::imxrt106::peripherals::lcdif::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::lcdif::{Instance, Valid};
 pub use crate::imxrt106::peripherals::lcdif::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::lcdif::{
     BM_ERROR_STAT, CRC_STAT, CTRL, CTRL1, CTRL1_CLR, CTRL1_SET, CTRL1_TOG, CTRL2, CTRL2_CLR,
     CTRL2_SET, CTRL2_TOG, CTRL_CLR, CTRL_SET, CTRL_TOG, CUR_BUF, LUT0_ADDR, LUT0_DATA, LUT1_ADDR,
@@ -27,6 +28,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The LCDIF peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type LCDIF = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for LCDIF {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for LCDIF {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

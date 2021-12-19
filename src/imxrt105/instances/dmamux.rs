@@ -5,9 +5,10 @@
 //! Used by: imxrt1051, imxrt1052
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt105::peripherals::dmamux::Instance;
+use crate::imxrt105::peripherals::dmamux::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt105::peripherals::dmamux::{Instance, Valid};
 pub use crate::imxrt105::peripherals::dmamux::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt105::peripherals::dmamux::{
     CHCFG0, CHCFG1, CHCFG10, CHCFG11, CHCFG12, CHCFG13, CHCFG14, CHCFG15, CHCFG16, CHCFG17,
     CHCFG18, CHCFG19, CHCFG2, CHCFG20, CHCFG21, CHCFG22, CHCFG23, CHCFG24, CHCFG25, CHCFG26,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The DMAMUX peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type DMAMUX = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for DMAMUX {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for DMAMUX {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

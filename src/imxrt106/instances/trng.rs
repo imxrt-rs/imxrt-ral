@@ -5,9 +5,10 @@
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
 #[cfg(not(feature = "nosync"))]
-pub use crate::imxrt106::peripherals::trng::Instance;
+use crate::imxrt106::peripherals::trng::private;
+#[cfg(not(feature = "nosync"))]
+pub use crate::imxrt106::peripherals::trng::{Instance, Valid};
 pub use crate::imxrt106::peripherals::trng::{RegisterBlock, ResetValues};
-
 pub use crate::imxrt106::peripherals::trng::{
     ENT0, ENT1, ENT10, ENT11, ENT12, ENT13, ENT14, ENT15, ENT2, ENT3, ENT4, ENT5, ENT6, ENT7, ENT8,
     ENT9, FRQ, FRQMIN, INT_CTRL, INT_MASK, INT_STATUS, MCTL, PKR, PKRCNT10, PKRCNT32, PKRCNT54,
@@ -20,6 +21,11 @@ use core::sync::atomic::{AtomicBool, Ordering};
 /// The TRNG peripheral instance.
 #[cfg(not(feature = "nosync"))]
 pub type TRNG = Instance<0>;
+
+#[cfg(not(feature = "nosync"))]
+impl private::Sealed for TRNG {}
+#[cfg(not(feature = "nosync"))]
+impl Valid for TRNG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

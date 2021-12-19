@@ -679,6 +679,11 @@ class PeripheralInstance(Node):
         pub type {self.name} = Instance<{number}>;
 
         #[cfg(not(feature="nosync"))]
+        impl private::Sealed for {self.name} {{}}
+        #[cfg(not(feature="nosync"))]
+        impl Valid for {self.name} {{}}
+
+        #[cfg(not(feature="nosync"))]
         #[allow(renamed_and_removed_lints)]
         #[allow(private_no_mangle_statics)]
         #[no_mangle]
@@ -879,6 +884,13 @@ class PeripheralPrototype(Node):
                 self.intrs
             }
         }
+
+        pub(crate) mod private {
+            pub trait Sealed {}
+        }
+
+        /// Describes a valid `Const<N>` for this peripheral instance.
+        pub trait Valid : private::Sealed {}
         """
 
     def to_rust_file(self, path):
@@ -1077,7 +1089,9 @@ class PeripheralPrototypeLink(Node):
             "",
             f"pub use crate::{self.path}::{{RegisterBlock, ResetValues}};",
             "#[cfg(not(feature = \"nosync\"))]",
-            f"pub use crate::{self.path}::{{Instance}};",
+            f"pub use crate::{self.path}::{{Instance, Valid}};",
+            "#[cfg(not(feature = \"nosync\"))]",
+            f"use crate::{self.path}::private;"
             "",
         ]
         if self.instances:
