@@ -12,7 +12,7 @@
 //! In the generated documentation, all devices are visible inside their family
 //! modules, but when built for a specific device, only that devices' constants
 //! will be available.
-
+#![doc = include_str!("../usage.md")]
 #![cfg_attr(target_arch = "arm", no_std)]
 #![allow(clippy::all)]
 
