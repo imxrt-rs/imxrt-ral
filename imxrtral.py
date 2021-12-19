@@ -39,6 +39,7 @@ CRATE_LIB_PREAMBLE = f"""\
 
 mod register;
 
+pub use crate::register::{{read_reg, write_reg, modify_reg}};
 pub use crate::register::{{RORegister, UnsafeRORegister}};
 pub use crate::register::{{WORegister, UnsafeWORegister}};
 pub use crate::register::{{RWRegister, UnsafeRWRegister}};
@@ -99,6 +100,9 @@ default-target = "thumbv7em-none-eabihf"
 [target.'cfg(target_arch = "arm")'.dependencies.cortex-m]
 version = "0.7.2"
 optional = true
+
+[dependencies.ral-registers]
+version = "0.1"
 
 [lib]
 bench = false
