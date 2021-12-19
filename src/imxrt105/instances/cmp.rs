@@ -72,12 +72,7 @@ impl CMP1 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = CMP1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -175,12 +170,7 @@ impl CMP2 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = CMP2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -278,12 +268,7 @@ impl CMP3 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = CMP3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -381,12 +366,7 @@ impl CMP4 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = CMP4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }

@@ -2518,12 +2518,7 @@ impl LPUART1 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -2627,12 +2622,7 @@ impl LPUART2 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -2736,12 +2726,7 @@ impl LPUART3 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -2845,12 +2830,7 @@ impl LPUART4 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -2954,12 +2934,7 @@ impl LPUART5 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART5_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -3063,12 +3038,7 @@ impl LPUART6 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART6_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -3172,12 +3142,7 @@ impl LPUART7 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART7_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -3281,12 +3246,7 @@ impl LPUART8 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPUART8_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }

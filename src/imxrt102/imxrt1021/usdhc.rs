@@ -4721,12 +4721,7 @@ impl USDHC1 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = USDHC1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -4847,12 +4842,7 @@ impl USDHC2 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = USDHC2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }

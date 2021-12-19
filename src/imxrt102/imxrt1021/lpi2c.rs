@@ -2799,12 +2799,7 @@ impl LPI2C1 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPI2C1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -2924,12 +2919,7 @@ impl LPI2C2 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPI2C2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -3049,12 +3039,7 @@ impl LPI2C3 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPI2C3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -3174,12 +3159,7 @@ impl LPI2C4 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = LPI2C4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }

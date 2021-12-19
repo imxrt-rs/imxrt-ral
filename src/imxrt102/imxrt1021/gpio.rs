@@ -776,12 +776,7 @@ impl GPIO1 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = GPIO1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -898,12 +893,7 @@ impl GPIO2 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = GPIO2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -1012,12 +1002,7 @@ impl GPIO3 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = GPIO3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -1126,12 +1111,7 @@ impl GPIO5 {
     /// you return a different `Instance` or if this instance is not
     /// already taken.
     #[inline]
-    pub fn release(inst: Self) {
-        assert!(
-            inst.addr == Self::INSTANCE.addr,
-            "Released the wrong instance"
-        );
-
+    pub fn release(_: Self) {
         let taken = GPIO5_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
