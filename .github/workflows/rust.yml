@@ -125,6 +125,11 @@ jobs:
         with:
           command: build
           args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --bin blink
+      - name: Build examples/teensy4 - blink-nosync
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --features imxrt-ral/nosync --bin blink-nosync
       - name: Build examples/teensy4 - rtic-blink
         uses: actions-rs/cargo@v1
         with:
