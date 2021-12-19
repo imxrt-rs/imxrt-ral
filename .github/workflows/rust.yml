@@ -120,11 +120,16 @@ jobs:
           target: thumbv7em-none-eabihf
           override: true
           profile: minimal
-      - name: Build examples/teensy4
+      - name: Build examples/teensy4 - blink
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf
+          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --bin blink
+      - name: Build examples/teensy4 - rtic-blink
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --features imxrt-ral/rtic --bin rtic-blink
 
   check-imxrtral:
     runs-on: ubuntu-latest

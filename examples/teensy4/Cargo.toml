@@ -11,7 +11,7 @@ publish = false  # This is an example package
 # - Enable the 'rt' feature when you're building the application
 [dependencies.imxrt-ral]
 path = "../.."
-features = ["imxrt1062", "rt", "rtic"]
+features = ["imxrt1062", "rt"]
 
 # The cortex-m-rt crate provides the runtime; see its docs for information
 # on features and requirements.
@@ -28,7 +28,7 @@ version = "0.3.0"
 version = "0.1"
 
 [dependencies.cortex-m-rtic]
-version = "0.6.0-alpha.2"
+version = "0.6.0-alpha.4"
 
 [dependencies.cortex-m]
 version = "0.7"
@@ -40,3 +40,4 @@ path = "blink.rs"
 [[bin]]
 name = "rtic-blink"
 path = "rtic-blink.rs"
+required-features = ["imxrt-ral/rtic"]

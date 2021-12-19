@@ -26,14 +26,17 @@ mod app {
     /// for the timer.
     const PIT_PERIOD_US: u32 = 1_000_000;
 
-    #[resources]
-    struct Resources {
+    #[local]
+    struct Local {
         gpio2: ral::gpio::Instance,
         pit: ral::pit::Instance,
     }
 
+    #[shared]
+    struct Shared {}
+
     #[init]
-    fn init(cx: init::Context) -> (init::LateResources, init::Monotonics) {
+    fn init(cx: init::Context) -> (Shared, Local, init::Monotonics) {
         let iomuxc = cx.device.IOMUXC;
         // Set the GPIO pad to a GPIO function (ALT 5)
         ral::write_reg!(ral::iomuxc, iomuxc, SW_MUX_CTL_PAD_GPIO_B0_03, 5);
@@ -79,21 +82,18 @@ mod app {
         ral::modify_reg!(ral::pit, pit, TCTRL0, TEN: 1);
 
         ral::write_reg!(ral::gpio, gpio2, DR_SET, LED);
-        (init::LateResources { gpio2, pit }, init::Monotonics())
+        (Shared {}, Local { gpio2, pit }, init::Monotonics())
     }
 
-    #[task(binds = PIT, resources = [gpio2, pit])]
+    #[task(binds = PIT, local = [gpio2, pit])]
     fn pit(cx: pit::Context) {
-        
-        let pit = cx.resources.pit;
-        let gpio2 = cx.resources.gpio2;
+        let pit = cx.local.pit;
+        let gpio2 = cx.local.gpio2;
 
-        (pit, gpio2).lock(|pit, gpio2| {
-            if ral::read_reg!(ral::pit, pit, TFLG0, TIF == 1) {
-                ral::write_reg!(ral::pit, pit, TFLG0, TIF: 1);
-                ral::write_reg!(ral::gpio, gpio2, DR_TOGGLE, LED);
-            }
-        });
+        if ral::read_reg!(ral::pit, pit, TFLG0, TIF == 1) {
+            ral::write_reg!(ral::pit, pit, TFLG0, TIF: 1);
+            ral::write_reg!(ral::gpio, gpio2, DR_TOGGLE, LED);
+        }
 
         cortex_m::asm::dsb();
     }
