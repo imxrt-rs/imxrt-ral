@@ -5055,11 +5055,13 @@ pub struct ResetValues {
     pub USB_OTG_OC_SELECT_INPUT: u32,
     pub XEV_GLUE_RXEV_SELECT_INPUT: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -5090,11 +5092,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The IOMUXC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type IOMUXC = Instance<0>;
 
 /// The IOMUXC peripheral instance.
@@ -5105,15 +5107,13 @@ pub type IOMUXC = Instance<0>;
 /// ```rust
 /// pub type IOMUXC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct IOMUXC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for IOMUXC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for IOMUXC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -5312,7 +5312,9 @@ impl IOMUXC {
         IOMUXC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl IOMUXC {
     /// The interrupts associated with IOMUXC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

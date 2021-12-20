@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::pmu::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::pmu::{Instance, Valid};
 pub use crate::imxrt106::peripherals::pmu::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::pmu::{
@@ -19,7 +17,7 @@ pub use crate::imxrt106::peripherals::pmu::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The PMU peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PMU = Instance<0>;
 
 /// The PMU peripheral instance.
@@ -30,15 +28,13 @@ pub type PMU = Instance<0>;
 /// ```rust
 /// pub type PMU = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PMU {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PMU {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PMU {}
 
 #[cfg(not(feature = "nosync"))]
@@ -132,7 +128,9 @@ impl PMU {
         PMU_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PMU {
     /// The interrupts associated with PMU
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::PMU_EVENT];

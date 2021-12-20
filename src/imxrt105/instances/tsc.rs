@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::tsc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::tsc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::tsc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::tsc::{
@@ -17,7 +15,7 @@ pub use crate::imxrt105::peripherals::tsc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The TSC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TSC = Instance<0>;
 
 /// The TSC peripheral instance.
@@ -28,15 +26,13 @@ pub type TSC = Instance<0>;
 /// ```rust
 /// pub type TSC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TSC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TSC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TSC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -111,7 +107,9 @@ impl TSC {
         TSC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TSC {
     /// The interrupts associated with TSC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TSC_DIG];

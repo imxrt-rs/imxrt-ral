@@ -3368,11 +3368,13 @@ pub struct ResetValues {
     pub ENDPTCTRL6: u32,
     pub ENDPTCTRL7: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -3403,11 +3405,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The USB peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type USB = Instance<0>;
 
 /// The USB peripheral instance.
@@ -3418,15 +3420,13 @@ pub type USB = Instance<0>;
 /// ```rust
 /// pub type USB = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct USB {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for USB {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3536,7 +3536,9 @@ impl USB {
         USB_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl USB {
     /// The interrupts associated with USB
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USB_OTG1];

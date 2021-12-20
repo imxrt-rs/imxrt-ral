@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::cmp::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::cmp::{Instance, Valid};
 pub use crate::imxrt105::peripherals::cmp::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::cmp::{CR0, CR1, DACCR, FPR, MUXCR, SCR};
@@ -14,7 +12,7 @@ pub use crate::imxrt105::peripherals::cmp::{CR0, CR1, DACCR, FPR, MUXCR, SCR};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The CMP1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CMP1 = Instance<1>;
 
 /// The CMP1 peripheral instance.
@@ -25,15 +23,13 @@ pub type CMP1 = Instance<1>;
 /// ```rust
 /// pub type CMP1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CMP1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CMP1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -105,7 +101,9 @@ impl CMP1 {
         CMP1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CMP1 {
     /// The interrupts associated with CMP1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP1];
@@ -129,7 +127,7 @@ impl CMP1 {
 pub const CMP1: *const RegisterBlock = 0x40094000 as *const _;
 
 /// The CMP2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CMP2 = Instance<2>;
 
 /// The CMP2 peripheral instance.
@@ -140,15 +138,13 @@ pub type CMP2 = Instance<2>;
 /// ```rust
 /// pub type CMP2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CMP2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CMP2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -220,7 +216,9 @@ impl CMP2 {
         CMP2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CMP2 {
     /// The interrupts associated with CMP2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP2];
@@ -244,7 +242,7 @@ impl CMP2 {
 pub const CMP2: *const RegisterBlock = 0x40094008 as *const _;
 
 /// The CMP3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CMP3 = Instance<3>;
 
 /// The CMP3 peripheral instance.
@@ -255,15 +253,13 @@ pub type CMP3 = Instance<3>;
 /// ```rust
 /// pub type CMP3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CMP3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CMP3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -335,7 +331,9 @@ impl CMP3 {
         CMP3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CMP3 {
     /// The interrupts associated with CMP3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP3];
@@ -359,7 +357,7 @@ impl CMP3 {
 pub const CMP3: *const RegisterBlock = 0x40094010 as *const _;
 
 /// The CMP4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CMP4 = Instance<4>;
 
 /// The CMP4 peripheral instance.
@@ -370,15 +368,13 @@ pub type CMP4 = Instance<4>;
 /// ```rust
 /// pub type CMP4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CMP4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CMP4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -450,7 +446,9 @@ impl CMP4 {
         CMP4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CMP4 {
     /// The interrupts associated with CMP4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP4];

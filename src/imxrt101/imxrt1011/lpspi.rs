@@ -1565,11 +1565,13 @@ pub struct ResetValues {
     pub RSR: u32,
     pub RDR: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -1600,11 +1602,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The LPSPI1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPSPI1 = Instance<1>;
 
 /// The LPSPI1 peripheral instance.
@@ -1615,15 +1617,13 @@ pub type LPSPI1 = Instance<1>;
 /// ```rust
 /// pub type LPSPI1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPSPI1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPSPI1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPSPI1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -1706,7 +1706,9 @@ impl LPSPI1 {
         LPSPI1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPSPI1 {
     /// The interrupts associated with LPSPI1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPSPI1];
@@ -1730,7 +1732,7 @@ impl LPSPI1 {
 pub const LPSPI1: *const RegisterBlock = 0x40194000 as *const _;
 
 /// The LPSPI2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPSPI2 = Instance<2>;
 
 /// The LPSPI2 peripheral instance.
@@ -1741,15 +1743,13 @@ pub type LPSPI2 = Instance<2>;
 /// ```rust
 /// pub type LPSPI2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPSPI2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPSPI2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPSPI2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -1832,7 +1832,9 @@ impl LPSPI2 {
         LPSPI2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPSPI2 {
     /// The interrupts associated with LPSPI2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPSPI2];

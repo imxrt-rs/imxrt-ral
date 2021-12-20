@@ -181,11 +181,13 @@ pub struct ResetValues {
     pub CPU_PDNSCR: u32,
     pub CPU_SR: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -216,11 +218,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The PGC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PGC = Instance<0>;
 
 /// The PGC peripheral instance.
@@ -231,15 +233,13 @@ pub type PGC = Instance<0>;
 /// ```rust
 /// pub type PGC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PGC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PGC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PGC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -313,7 +313,9 @@ impl PGC {
         PGC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PGC {
     /// The interrupts associated with PGC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

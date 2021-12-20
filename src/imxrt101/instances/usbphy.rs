@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::usbphy::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::usbphy::{Instance, Valid};
 pub use crate::imxrt101::peripherals::usbphy::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::usbphy::{
@@ -18,7 +16,7 @@ pub use crate::imxrt101::peripherals::usbphy::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USBPHY peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type USBPHY = Instance<0>;
 
 /// The USBPHY peripheral instance.
@@ -29,15 +27,13 @@ pub type USBPHY = Instance<0>;
 /// ```rust
 /// pub type USBPHY = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct USBPHY {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBPHY {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for USBPHY {}
 
 #[cfg(not(feature = "nosync"))]
@@ -130,7 +126,9 @@ impl USBPHY {
         USBPHY_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl USBPHY {
     /// The interrupts associated with USBPHY
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USB_PHY];

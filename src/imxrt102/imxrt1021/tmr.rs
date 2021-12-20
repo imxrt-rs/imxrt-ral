@@ -1513,11 +1513,13 @@ pub struct ResetValues {
     pub FILT3: u16,
     pub DMA3: u16,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -1548,11 +1550,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The TMR1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TMR1 = Instance<1>;
 
 /// The TMR1 peripheral instance.
@@ -1563,15 +1565,13 @@ pub type TMR1 = Instance<1>;
 /// ```rust
 /// pub type TMR1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TMR1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TMR1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -1690,7 +1690,9 @@ impl TMR1 {
         TMR1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TMR1 {
     /// The interrupts associated with TMR1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR1];
@@ -1714,7 +1716,7 @@ impl TMR1 {
 pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 
 /// The TMR2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TMR2 = Instance<2>;
 
 /// The TMR2 peripheral instance.
@@ -1725,15 +1727,13 @@ pub type TMR2 = Instance<2>;
 /// ```rust
 /// pub type TMR2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TMR2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TMR2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -1852,7 +1852,9 @@ impl TMR2 {
         TMR2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TMR2 {
     /// The interrupts associated with TMR2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR2];

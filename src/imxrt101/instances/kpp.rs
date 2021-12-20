@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::kpp::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::kpp::{Instance, Valid};
 pub use crate::imxrt101::peripherals::kpp::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::kpp::{KDDR, KPCR, KPDR, KPSR};
@@ -14,7 +12,7 @@ pub use crate::imxrt101::peripherals::kpp::{KDDR, KPCR, KPDR, KPSR};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The KPP peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type KPP = Instance<0>;
 
 /// The KPP peripheral instance.
@@ -25,15 +23,13 @@ pub type KPP = Instance<0>;
 /// ```rust
 /// pub type KPP = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct KPP {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for KPP {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for KPP {}
 
 #[cfg(not(feature = "nosync"))]
@@ -103,7 +99,9 @@ impl KPP {
         KPP_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl KPP {
     /// The interrupts associated with KPP
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::KPP];

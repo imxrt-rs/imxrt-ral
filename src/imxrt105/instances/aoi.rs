@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::aoi::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::aoi::{Instance, Valid};
 pub use crate::imxrt105::peripherals::aoi::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::aoi::{
@@ -16,7 +14,7 @@ pub use crate::imxrt105::peripherals::aoi::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The AOI1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type AOI1 = Instance<1>;
 
 /// The AOI1 peripheral instance.
@@ -27,15 +25,13 @@ pub type AOI1 = Instance<1>;
 /// ```rust
 /// pub type AOI1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct AOI1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for AOI1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for AOI1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -109,7 +105,9 @@ impl AOI1 {
         AOI1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl AOI1 {
     /// The interrupts associated with AOI1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
@@ -133,7 +131,7 @@ impl AOI1 {
 pub const AOI1: *const RegisterBlock = 0x403b4000 as *const _;
 
 /// The AOI2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type AOI2 = Instance<2>;
 
 /// The AOI2 peripheral instance.
@@ -144,15 +142,13 @@ pub type AOI2 = Instance<2>;
 /// ```rust
 /// pub type AOI2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct AOI2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for AOI2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for AOI2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -226,7 +222,9 @@ impl AOI2 {
         AOI2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl AOI2 {
     /// The interrupts associated with AOI2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

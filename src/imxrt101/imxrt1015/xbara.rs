@@ -2,9 +2,7 @@
 #![allow(non_camel_case_types)]
 //! Crossbar Switch
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::xbara::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::xbara::{Instance, Valid};
 pub use crate::imxrt101::peripherals::xbara::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::xbara::{
@@ -18,7 +16,7 @@ pub use crate::imxrt101::peripherals::xbara::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The XBARA peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type XBARA = Instance<0>;
 
 /// The XBARA peripheral instance.
@@ -29,15 +27,13 @@ pub type XBARA = Instance<0>;
 /// ```rust
 /// pub type XBARA = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct XBARA {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for XBARA {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for XBARA {}
 
 #[cfg(not(feature = "nosync"))]
@@ -174,7 +170,9 @@ impl XBARA {
         XBARA_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl XBARA {
     /// The interrupts associated with XBARA
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [

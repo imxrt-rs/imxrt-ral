@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::gpc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::gpc::{Instance, Valid};
 pub use crate::imxrt106::peripherals::gpc::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::gpc::{
@@ -16,7 +14,7 @@ pub use crate::imxrt106::peripherals::gpc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The GPC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPC = Instance<0>;
 
 /// The GPC peripheral instance.
@@ -27,15 +25,13 @@ pub type GPC = Instance<0>;
 /// ```rust
 /// pub type GPC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -112,7 +108,9 @@ impl GPC {
         GPC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPC {
     /// The interrupts associated with GPC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPC];

@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::pit::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::pit::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pit::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::pit::{
@@ -17,7 +15,7 @@ pub use crate::imxrt105::peripherals::pit::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The PIT peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PIT = Instance<0>;
 
 /// The PIT peripheral instance.
@@ -28,15 +26,13 @@ pub type PIT = Instance<0>;
 /// ```rust
 /// pub type PIT = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PIT {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PIT {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PIT {}
 
 #[cfg(not(feature = "nosync"))]
@@ -121,7 +117,9 @@ impl PIT {
         PIT_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PIT {
     /// The interrupts associated with PIT
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::PIT];

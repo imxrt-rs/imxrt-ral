@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::usbnc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::usbnc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::usbnc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0};
@@ -14,7 +12,7 @@ pub use crate::imxrt105::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USBNC1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type USBNC1 = Instance<1>;
 
 /// The USBNC1 peripheral instance.
@@ -25,15 +23,13 @@ pub type USBNC1 = Instance<1>;
 /// ```rust
 /// pub type USBNC1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct USBNC1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBNC1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for USBNC1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -101,7 +97,9 @@ impl USBNC1 {
         USBNC1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl USBNC1 {
     /// The interrupts associated with USBNC1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
@@ -125,7 +123,7 @@ impl USBNC1 {
 pub const USBNC1: *const RegisterBlock = 0x402e0000 as *const _;
 
 /// The USBNC2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type USBNC2 = Instance<2>;
 
 /// The USBNC2 peripheral instance.
@@ -136,15 +134,13 @@ pub type USBNC2 = Instance<2>;
 /// ```rust
 /// pub type USBNC2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct USBNC2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBNC2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for USBNC2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -212,7 +208,9 @@ impl USBNC2 {
         USBNC2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl USBNC2 {
     /// The interrupts associated with USBNC2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

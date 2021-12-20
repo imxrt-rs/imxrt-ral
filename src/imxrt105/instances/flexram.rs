@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::flexram::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::flexram::{Instance, Valid};
 pub use crate::imxrt105::peripherals::flexram::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::flexram::{INT_SIG_EN, INT_STATUS, INT_STAT_EN, TCM_CTRL};
@@ -14,7 +12,7 @@ pub use crate::imxrt105::peripherals::flexram::{INT_SIG_EN, INT_STATUS, INT_STAT
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The FLEXRAM peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type FLEXRAM = Instance<0>;
 
 /// The FLEXRAM peripheral instance.
@@ -25,15 +23,13 @@ pub type FLEXRAM = Instance<0>;
 /// ```rust
 /// pub type FLEXRAM = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct FLEXRAM {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXRAM {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for FLEXRAM {}
 
 #[cfg(not(feature = "nosync"))]
@@ -103,7 +99,9 @@ impl FLEXRAM {
         FLEXRAM_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl FLEXRAM {
     /// The interrupts associated with FLEXRAM
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXRAM];

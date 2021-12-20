@@ -2,9 +2,7 @@
 #![allow(non_camel_case_types)]
 //! AIPSTZ Control Registers
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::aipstz::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::aipstz::{Instance, Valid};
 pub use crate::imxrt101::peripherals::aipstz::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR3, OPACR4};
@@ -12,7 +10,7 @@ pub use crate::imxrt101::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The AIPSTZ1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type AIPSTZ1 = Instance<1>;
 
 /// The AIPSTZ1 peripheral instance.
@@ -23,15 +21,13 @@ pub type AIPSTZ1 = Instance<1>;
 /// ```rust
 /// pub type AIPSTZ1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct AIPSTZ1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for AIPSTZ1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for AIPSTZ1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -103,7 +99,9 @@ impl AIPSTZ1 {
         AIPSTZ1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl AIPSTZ1 {
     /// The interrupts associated with AIPSTZ1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
@@ -127,7 +125,7 @@ impl AIPSTZ1 {
 pub const AIPSTZ1: *const RegisterBlock = 0x4007c000 as *const _;
 
 /// The AIPSTZ2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type AIPSTZ2 = Instance<2>;
 
 /// The AIPSTZ2 peripheral instance.
@@ -138,15 +136,13 @@ pub type AIPSTZ2 = Instance<2>;
 /// ```rust
 /// pub type AIPSTZ2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct AIPSTZ2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for AIPSTZ2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for AIPSTZ2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -218,7 +214,9 @@ impl AIPSTZ2 {
         AIPSTZ2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl AIPSTZ2 {
     /// The interrupts associated with AIPSTZ2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

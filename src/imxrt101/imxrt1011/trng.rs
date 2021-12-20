@@ -2042,11 +2042,13 @@ pub struct ResetValues {
     pub VID1: u32,
     pub VID2: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -2077,11 +2079,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The TRNG peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TRNG = Instance<0>;
 
 /// The TRNG peripheral instance.
@@ -2092,15 +2094,13 @@ pub type TRNG = Instance<0>;
 /// ```rust
 /// pub type TRNG = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TRNG {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TRNG {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TRNG {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2212,7 +2212,9 @@ impl TRNG {
         TRNG_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TRNG {
     /// The interrupts associated with TRNG
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TRNG];

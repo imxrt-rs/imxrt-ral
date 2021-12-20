@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::xbarb::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::xbarb::{Instance, Valid};
 pub use crate::imxrt105::peripherals::xbarb::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5, SEL6, SEL7};
@@ -14,7 +12,7 @@ pub use crate::imxrt105::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The XBARB2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type XBARB2 = Instance<2>;
 
 /// The XBARB2 peripheral instance.
@@ -25,15 +23,13 @@ pub type XBARB2 = Instance<2>;
 /// ```rust
 /// pub type XBARB2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct XBARB2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for XBARB2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for XBARB2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -107,7 +103,9 @@ impl XBARB2 {
         XBARB2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl XBARB2 {
     /// The interrupts associated with XBARB2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
@@ -131,7 +129,7 @@ impl XBARB2 {
 pub const XBARB2: *const RegisterBlock = 0x403c0000 as *const _;
 
 /// The XBARB3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type XBARB3 = Instance<3>;
 
 /// The XBARB3 peripheral instance.
@@ -142,15 +140,13 @@ pub type XBARB3 = Instance<3>;
 /// ```rust
 /// pub type XBARB3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct XBARB3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for XBARB3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for XBARB3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -224,7 +220,9 @@ impl XBARB3 {
         XBARB3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl XBARB3 {
     /// The interrupts associated with XBARB3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

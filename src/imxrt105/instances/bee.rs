@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::bee::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::bee::{Instance, Valid};
 pub use crate::imxrt105::peripherals::bee::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::bee::{
@@ -18,7 +16,7 @@ pub use crate::imxrt105::peripherals::bee::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The BEE peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type BEE = Instance<0>;
 
 /// The BEE peripheral instance.
@@ -29,15 +27,13 @@ pub type BEE = Instance<0>;
 /// ```rust
 /// pub type BEE = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct BEE {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for BEE {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for BEE {}
 
 #[cfg(not(feature = "nosync"))]
@@ -121,7 +117,9 @@ impl BEE {
         BEE_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl BEE {
     /// The interrupts associated with BEE
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::BEE];

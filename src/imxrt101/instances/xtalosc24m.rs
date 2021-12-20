@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::xtalosc24m::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::xtalosc24m::{Instance, Valid};
 pub use crate::imxrt101::peripherals::xtalosc24m::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::xtalosc24m::{
@@ -19,7 +17,7 @@ pub use crate::imxrt101::peripherals::xtalosc24m::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The XTALOSC24M peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type XTALOSC24M = Instance<0>;
 
 /// The XTALOSC24M peripheral instance.
@@ -30,15 +28,13 @@ pub type XTALOSC24M = Instance<0>;
 /// ```rust
 /// pub type XTALOSC24M = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct XTALOSC24M {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for XTALOSC24M {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for XTALOSC24M {}
 
 #[cfg(not(feature = "nosync"))]
@@ -124,7 +120,9 @@ impl XTALOSC24M {
         XTALOSC24M_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl XTALOSC24M {
     /// The interrupts associated with XTALOSC24M
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

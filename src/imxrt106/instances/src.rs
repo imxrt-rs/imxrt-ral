@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::src::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::src::{Instance, Valid};
 pub use crate::imxrt106::peripherals::src::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::src::{
@@ -16,7 +14,7 @@ pub use crate::imxrt106::peripherals::src::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SRC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type SRC = Instance<0>;
 
 /// The SRC peripheral instance.
@@ -27,15 +25,13 @@ pub type SRC = Instance<0>;
 /// ```rust
 /// pub type SRC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct SRC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for SRC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for SRC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -115,7 +111,9 @@ impl SRC {
         SRC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl SRC {
     /// The interrupts associated with SRC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SRC];

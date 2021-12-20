@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::ewm::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::ewm::{Instance, Valid};
 pub use crate::imxrt101::peripherals::ewm::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::ewm::{CLKCTRL, CLKPRESCALER, CMPH, CMPL, CTRL, SERV};
@@ -14,7 +12,7 @@ pub use crate::imxrt101::peripherals::ewm::{CLKCTRL, CLKPRESCALER, CMPH, CMPL, C
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The EWM peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type EWM = Instance<0>;
 
 /// The EWM peripheral instance.
@@ -25,15 +23,13 @@ pub type EWM = Instance<0>;
 /// ```rust
 /// pub type EWM = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct EWM {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for EWM {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for EWM {}
 
 #[cfg(not(feature = "nosync"))]
@@ -105,7 +101,9 @@ impl EWM {
         EWM_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl EWM {
     /// The interrupts associated with EWM
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::EWM];

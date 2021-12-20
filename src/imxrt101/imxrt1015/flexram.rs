@@ -288,11 +288,13 @@ pub struct ResetValues {
     pub INT_STAT_EN: u32,
     pub INT_SIG_EN: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -323,11 +325,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The FLEXRAM peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type FLEXRAM = Instance<0>;
 
 /// The FLEXRAM peripheral instance.
@@ -338,15 +340,13 @@ pub type FLEXRAM = Instance<0>;
 /// ```rust
 /// pub type FLEXRAM = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct FLEXRAM {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXRAM {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for FLEXRAM {}
 
 #[cfg(not(feature = "nosync"))]
@@ -416,7 +416,9 @@ impl FLEXRAM {
         FLEXRAM_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl FLEXRAM {
     /// The interrupts associated with FLEXRAM
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXRAM];

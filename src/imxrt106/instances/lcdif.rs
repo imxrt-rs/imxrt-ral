@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::lcdif::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::lcdif::{Instance, Valid};
 pub use crate::imxrt106::peripherals::lcdif::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::lcdif::{
@@ -26,7 +24,7 @@ pub use crate::imxrt106::peripherals::lcdif::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The LCDIF peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LCDIF = Instance<0>;
 
 /// The LCDIF peripheral instance.
@@ -37,15 +35,13 @@ pub type LCDIF = Instance<0>;
 /// ```rust
 /// pub type LCDIF = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LCDIF {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LCDIF {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LCDIF {}
 
 #[cfg(not(feature = "nosync"))]
@@ -190,7 +186,9 @@ impl LCDIF {
         LCDIF_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LCDIF {
     /// The interrupts associated with LCDIF
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LCDIF];

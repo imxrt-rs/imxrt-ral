@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::dma0::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::dma0::{Instance, Valid};
 pub use crate::imxrt105::peripherals::dma0::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::dma0::{
@@ -77,7 +75,7 @@ pub use crate::imxrt105::peripherals::dma0::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The DMA0 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type DMA0 = Instance<0>;
 
 /// The DMA0 peripheral instance.
@@ -88,15 +86,13 @@ pub type DMA0 = Instance<0>;
 /// ```rust
 /// pub type DMA0 = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct DMA0 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for DMA0 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for DMA0 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -580,7 +576,9 @@ impl DMA0 {
         DMA0_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl DMA0 {
     /// The interrupts associated with DMA0
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 17] = [

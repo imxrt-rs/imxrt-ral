@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::usb_analog::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::usb_analog::{Instance, Valid};
 pub use crate::imxrt106::peripherals::usb_analog::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::usb_analog::{
@@ -23,7 +21,7 @@ pub use crate::imxrt106::peripherals::usb_analog::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USB_ANALOG peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type USB_ANALOG = Instance<0>;
 
 /// The USB_ANALOG peripheral instance.
@@ -34,15 +32,13 @@ pub type USB_ANALOG = Instance<0>;
 /// ```rust
 /// pub type USB_ANALOG = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct USB_ANALOG {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB_ANALOG {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for USB_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
@@ -145,7 +141,9 @@ impl USB_ANALOG {
         USB_ANALOG_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl USB_ANALOG {
     /// The interrupts associated with USB_ANALOG
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

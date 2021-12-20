@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::gpt::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::gpt::{Instance, Valid};
 pub use crate::imxrt105::peripherals::gpt::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::gpt::{CNT, CR, ICR1, ICR2, IR, OCR1, OCR2, OCR3, PR, SR};
@@ -14,7 +12,7 @@ pub use crate::imxrt105::peripherals::gpt::{CNT, CR, ICR1, ICR2, IR, OCR1, OCR2,
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The GPT1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPT1 = Instance<1>;
 
 /// The GPT1 peripheral instance.
@@ -25,15 +23,13 @@ pub type GPT1 = Instance<1>;
 /// ```rust
 /// pub type GPT1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPT1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPT1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPT1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -109,7 +105,9 @@ impl GPT1 {
         GPT1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPT1 {
     /// The interrupts associated with GPT1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPT1];
@@ -133,7 +131,7 @@ impl GPT1 {
 pub const GPT1: *const RegisterBlock = 0x401ec000 as *const _;
 
 /// The GPT2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPT2 = Instance<2>;
 
 /// The GPT2 peripheral instance.
@@ -144,15 +142,13 @@ pub type GPT2 = Instance<2>;
 /// ```rust
 /// pub type GPT2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPT2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPT2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPT2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -228,7 +224,9 @@ impl GPT2 {
         GPT2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPT2 {
     /// The interrupts associated with GPT2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPT2];

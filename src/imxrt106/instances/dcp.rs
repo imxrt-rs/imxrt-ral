@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::dcp::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::dcp::{Instance, Valid};
 pub use crate::imxrt106::peripherals::dcp::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::dcp::{
@@ -24,7 +22,7 @@ pub use crate::imxrt106::peripherals::dcp::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The DCP peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type DCP = Instance<0>;
 
 /// The DCP peripheral instance.
@@ -35,15 +33,13 @@ pub type DCP = Instance<0>;
 /// ```rust
 /// pub type DCP = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct DCP {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for DCP {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for DCP {}
 
 #[cfg(not(feature = "nosync"))]
@@ -177,7 +173,9 @@ impl DCP {
         DCP_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl DCP {
     /// The interrupts associated with DCP
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] =

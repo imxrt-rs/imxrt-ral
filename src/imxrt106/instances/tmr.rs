@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::tmr::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::tmr::{Instance, Valid};
 pub use crate::imxrt106::peripherals::tmr::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::tmr::{
@@ -20,7 +18,7 @@ pub use crate::imxrt106::peripherals::tmr::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The TMR1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TMR1 = Instance<1>;
 
 /// The TMR1 peripheral instance.
@@ -31,15 +29,13 @@ pub type TMR1 = Instance<1>;
 /// ```rust
 /// pub type TMR1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TMR1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TMR1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -158,7 +154,9 @@ impl TMR1 {
         TMR1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TMR1 {
     /// The interrupts associated with TMR1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR1];
@@ -182,7 +180,7 @@ impl TMR1 {
 pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 
 /// The TMR2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TMR2 = Instance<2>;
 
 /// The TMR2 peripheral instance.
@@ -193,15 +191,13 @@ pub type TMR2 = Instance<2>;
 /// ```rust
 /// pub type TMR2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TMR2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TMR2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -320,7 +316,9 @@ impl TMR2 {
         TMR2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TMR2 {
     /// The interrupts associated with TMR2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR2];
@@ -344,7 +342,7 @@ impl TMR2 {
 pub const TMR2: *const RegisterBlock = 0x401e0000 as *const _;
 
 /// The TMR3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TMR3 = Instance<3>;
 
 /// The TMR3 peripheral instance.
@@ -355,15 +353,13 @@ pub type TMR3 = Instance<3>;
 /// ```rust
 /// pub type TMR3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TMR3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TMR3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -482,7 +478,9 @@ impl TMR3 {
         TMR3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TMR3 {
     /// The interrupts associated with TMR3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR3];
@@ -506,7 +504,7 @@ impl TMR3 {
 pub const TMR3: *const RegisterBlock = 0x401e4000 as *const _;
 
 /// The TMR4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TMR4 = Instance<4>;
 
 /// The TMR4 peripheral instance.
@@ -517,15 +515,13 @@ pub type TMR4 = Instance<4>;
 /// ```rust
 /// pub type TMR4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TMR4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TMR4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -644,7 +640,9 @@ impl TMR4 {
         TMR4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TMR4 {
     /// The interrupts associated with TMR4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR4];

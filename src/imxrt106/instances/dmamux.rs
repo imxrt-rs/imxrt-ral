@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::dmamux::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::dmamux::{Instance, Valid};
 pub use crate::imxrt106::peripherals::dmamux::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::dmamux::{
@@ -19,7 +17,7 @@ pub use crate::imxrt106::peripherals::dmamux::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The DMAMUX peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type DMAMUX = Instance<0>;
 
 /// The DMAMUX peripheral instance.
@@ -30,15 +28,13 @@ pub type DMAMUX = Instance<0>;
 /// ```rust
 /// pub type DMAMUX = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct DMAMUX {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for DMAMUX {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for DMAMUX {}
 
 #[cfg(not(feature = "nosync"))]
@@ -136,7 +132,9 @@ impl DMAMUX {
         DMAMUX_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl DMAMUX {
     /// The interrupts associated with DMAMUX
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

@@ -5242,11 +5242,13 @@ pub struct ResetValues {
     pub FTST0: u16,
     pub FCTRL20: u16,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -5277,11 +5279,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The PWM1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PWM1 = Instance<1>;
 
 /// The PWM1 peripheral instance.
@@ -5292,15 +5294,13 @@ pub type PWM1 = Instance<1>;
 /// ```rust
 /// pub type PWM1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PWM1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PWM1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -5555,7 +5555,9 @@ impl PWM1 {
         PWM1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PWM1 {
     /// The interrupts associated with PWM1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -5585,7 +5587,7 @@ impl PWM1 {
 pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 
 /// The PWM2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PWM2 = Instance<2>;
 
 /// The PWM2 peripheral instance.
@@ -5596,15 +5598,13 @@ pub type PWM2 = Instance<2>;
 /// ```rust
 /// pub type PWM2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PWM2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PWM2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -5859,7 +5859,9 @@ impl PWM2 {
         PWM2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PWM2 {
     /// The interrupts associated with PWM2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [

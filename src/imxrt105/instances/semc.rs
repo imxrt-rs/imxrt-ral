@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::semc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::semc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::semc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::semc::{
@@ -20,7 +18,7 @@ pub use crate::imxrt105::peripherals::semc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SEMC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type SEMC = Instance<0>;
 
 /// The SEMC peripheral instance.
@@ -31,15 +29,13 @@ pub type SEMC = Instance<0>;
 /// ```rust
 /// pub type SEMC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct SEMC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for SEMC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for SEMC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -160,7 +156,9 @@ impl SEMC {
         SEMC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl SEMC {
     /// The interrupts associated with SEMC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SEMC];

@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::adc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::adc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::adc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::adc::{
@@ -17,7 +15,7 @@ pub use crate::imxrt105::peripherals::adc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The ADC1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ADC1 = Instance<1>;
 
 /// The ADC1 peripheral instance.
@@ -28,15 +26,13 @@ pub type ADC1 = Instance<1>;
 /// ```rust
 /// pub type ADC1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ADC1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ADC1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ADC1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -125,7 +121,9 @@ impl ADC1 {
         ADC1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ADC1 {
     /// The interrupts associated with ADC1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ADC1];
@@ -149,7 +147,7 @@ impl ADC1 {
 pub const ADC1: *const RegisterBlock = 0x400c4000 as *const _;
 
 /// The ADC2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ADC2 = Instance<2>;
 
 /// The ADC2 peripheral instance.
@@ -160,15 +158,13 @@ pub type ADC2 = Instance<2>;
 /// ```rust
 /// pub type ADC2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ADC2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ADC2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ADC2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -257,7 +253,9 @@ impl ADC2 {
         ADC2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ADC2 {
     /// The interrupts associated with ADC2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ADC2];

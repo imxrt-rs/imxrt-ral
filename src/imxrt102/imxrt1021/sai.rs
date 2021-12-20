@@ -2191,11 +2191,13 @@ pub struct ResetValues {
     pub RFR3: u32,
     pub RMR: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -2226,11 +2228,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The SAI1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type SAI1 = Instance<1>;
 
 /// The SAI1 peripheral instance.
@@ -2241,15 +2243,13 @@ pub type SAI1 = Instance<1>;
 /// ```rust
 /// pub type SAI1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct SAI1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for SAI1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2347,7 +2347,9 @@ impl SAI1 {
         SAI1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl SAI1 {
     /// The interrupts associated with SAI1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SAI1];
@@ -2371,7 +2373,7 @@ impl SAI1 {
 pub const SAI1: *const RegisterBlock = 0x40384000 as *const _;
 
 /// The SAI2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type SAI2 = Instance<2>;
 
 /// The SAI2 peripheral instance.
@@ -2382,15 +2384,13 @@ pub type SAI2 = Instance<2>;
 /// ```rust
 /// pub type SAI2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct SAI2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for SAI2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2488,7 +2488,9 @@ impl SAI2 {
         SAI2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl SAI2 {
     /// The interrupts associated with SAI2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SAI2];
@@ -2512,7 +2514,7 @@ impl SAI2 {
 pub const SAI2: *const RegisterBlock = 0x40388000 as *const _;
 
 /// The SAI3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type SAI3 = Instance<3>;
 
 /// The SAI3 peripheral instance.
@@ -2523,15 +2525,13 @@ pub type SAI3 = Instance<3>;
 /// ```rust
 /// pub type SAI3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct SAI3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for SAI3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2629,7 +2629,9 @@ impl SAI3 {
         SAI3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl SAI3 {
     /// The interrupts associated with SAI3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] =

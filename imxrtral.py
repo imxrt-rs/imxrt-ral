@@ -680,7 +680,7 @@ class PeripheralInstance(Node):
         typedef = f"pub type {self.name} = Instance<{number}>;"
         return f"""
         /// The {self.name} peripheral instance.
-        #[cfg(all(not(feature="nosync"), not(feature="doc")))]
+        #[cfg(not(feature="doc"))]
         {typedef}
 
         /// The {self.name} peripheral instance.
@@ -691,15 +691,13 @@ class PeripheralInstance(Node):
         /// ```rust
         /// {typedef}
         /// ```
-        #[cfg(all(not(feature="nosync"), feature="doc"))]
+        #[cfg(feature="doc")]
         pub struct {self.name} {{
             #[allow(unused)] // Only for documentation generation.
             addr: u32,
         }}
 
-        #[cfg(not(feature="nosync"))]
         impl private::Sealed for {self.name} {{}}
-        #[cfg(not(feature="nosync"))]
         impl Valid for {self.name} {{}}
 
         #[cfg(not(feature="nosync"))]
@@ -766,7 +764,9 @@ class PeripheralInstance(Node):
                 {self.name}_TAKEN.store(true, Ordering::SeqCst);
                 Self::INSTANCE
             }}
+        }}
 
+        impl {self.name} {{
             /// The interrupts associated with {self.name}
             #[cfg(not(feature = "doc"))]
             pub const INTERRUPTS: [crate::Interrupt; {num_intrs}] = {intrs};
@@ -871,11 +871,13 @@ class PeripheralPrototype(Node):
     def to_rust_instance(self):
         """Creates an Instance struct for this peripheral."""
         return """
-        #[cfg(not(feature="nosync"))]
         pub struct Instance<const N: u8> {
+            #[cfg_attr(feature = "nosync", allow(unused))]
             pub(crate) addr: u32,
+            #[cfg_attr(feature = "nosync", allow(unused))]
             pub(crate) intrs: &'static [crate::Interrupt],
         }
+
         #[cfg(not(feature="nosync"))]
         impl<const N: u8> ::core::ops::Deref for Instance<N> {
             type Target = RegisterBlock;
@@ -906,7 +908,7 @@ class PeripheralPrototype(Node):
             pub trait Sealed {}
         }
 
-        /// Describes a valid `Const<N>` for this peripheral instance.
+        /// Describes a valid `Instance<N>` for this peripheral.
         pub trait Valid : private::Sealed {}
         """
 
@@ -1105,9 +1107,7 @@ class PeripheralPrototypeLink(Node):
             f"//! {desc}",
             "",
             f"pub use crate::{self.path}::{{RegisterBlock, ResetValues}};",
-            "#[cfg(not(feature = \"nosync\"))]",
             f"pub use crate::{self.path}::{{Instance, Valid}};",
-            "#[cfg(not(feature = \"nosync\"))]",
             f"use crate::{self.path}::private;"
             "",
         ]

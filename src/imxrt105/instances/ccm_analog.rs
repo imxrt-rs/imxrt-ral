@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::ccm_analog::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::ccm_analog::{Instance, Valid};
 pub use crate::imxrt105::peripherals::ccm_analog::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::ccm_analog::{
@@ -23,7 +21,7 @@ pub use crate::imxrt105::peripherals::ccm_analog::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The CCM_ANALOG peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CCM_ANALOG = Instance<0>;
 
 /// The CCM_ANALOG peripheral instance.
@@ -34,15 +32,13 @@ pub type CCM_ANALOG = Instance<0>;
 /// ```rust
 /// pub type CCM_ANALOG = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CCM_ANALOG {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CCM_ANALOG {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CCM_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
@@ -163,7 +159,9 @@ impl CCM_ANALOG {
         CCM_ANALOG_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CCM_ANALOG {
     /// The interrupts associated with CCM_ANALOG
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

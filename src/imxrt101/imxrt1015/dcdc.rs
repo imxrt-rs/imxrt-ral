@@ -2,9 +2,7 @@
 #![allow(non_camel_case_types)]
 //! DCDC
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::dcdc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::dcdc::{Instance, Valid};
 pub use crate::imxrt101::peripherals::dcdc::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::dcdc::{REG0, REG1, REG2, REG3};
@@ -12,7 +10,7 @@ pub use crate::imxrt101::peripherals::dcdc::{REG0, REG1, REG2, REG3};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The DCDC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type DCDC = Instance<0>;
 
 /// The DCDC peripheral instance.
@@ -23,15 +21,13 @@ pub type DCDC = Instance<0>;
 /// ```rust
 /// pub type DCDC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct DCDC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for DCDC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for DCDC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -101,7 +97,9 @@ impl DCDC {
         DCDC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl DCDC {
     /// The interrupts associated with DCDC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::DCDC];

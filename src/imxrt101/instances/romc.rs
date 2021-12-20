@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::romc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::romc::{Instance, Valid};
 pub use crate::imxrt101::peripherals::romc::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::romc::{
@@ -19,7 +17,7 @@ pub use crate::imxrt101::peripherals::romc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The ROMC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ROMC = Instance<0>;
 
 /// The ROMC peripheral instance.
@@ -30,15 +28,13 @@ pub type ROMC = Instance<0>;
 /// ```rust
 /// pub type ROMC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ROMC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ROMC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ROMC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -132,7 +128,9 @@ impl ROMC {
         ROMC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ROMC {
     /// The interrupts associated with ROMC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

@@ -2421,11 +2421,13 @@ pub struct ResetValues {
     pub FIFO: u32,
     pub WATER: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -2456,11 +2458,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The LPUART1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART1 = Instance<1>;
 
 /// The LPUART1 peripheral instance.
@@ -2471,15 +2473,13 @@ pub type LPUART1 = Instance<1>;
 /// ```rust
 /// pub type LPUART1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2557,7 +2557,9 @@ impl LPUART1 {
         LPUART1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART1 {
     /// The interrupts associated with LPUART1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART1];
@@ -2581,7 +2583,7 @@ impl LPUART1 {
 pub const LPUART1: *const RegisterBlock = 0x40184000 as *const _;
 
 /// The LPUART2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART2 = Instance<2>;
 
 /// The LPUART2 peripheral instance.
@@ -2592,15 +2594,13 @@ pub type LPUART2 = Instance<2>;
 /// ```rust
 /// pub type LPUART2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2678,7 +2678,9 @@ impl LPUART2 {
         LPUART2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART2 {
     /// The interrupts associated with LPUART2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART2];
@@ -2702,7 +2704,7 @@ impl LPUART2 {
 pub const LPUART2: *const RegisterBlock = 0x40188000 as *const _;
 
 /// The LPUART3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART3 = Instance<3>;
 
 /// The LPUART3 peripheral instance.
@@ -2713,15 +2715,13 @@ pub type LPUART3 = Instance<3>;
 /// ```rust
 /// pub type LPUART3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2799,7 +2799,9 @@ impl LPUART3 {
         LPUART3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART3 {
     /// The interrupts associated with LPUART3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART3];
@@ -2823,7 +2825,7 @@ impl LPUART3 {
 pub const LPUART3: *const RegisterBlock = 0x4018c000 as *const _;
 
 /// The LPUART4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART4 = Instance<4>;
 
 /// The LPUART4 peripheral instance.
@@ -2834,15 +2836,13 @@ pub type LPUART4 = Instance<4>;
 /// ```rust
 /// pub type LPUART4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2920,7 +2920,9 @@ impl LPUART4 {
         LPUART4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART4 {
     /// The interrupts associated with LPUART4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART4];
@@ -2944,7 +2946,7 @@ impl LPUART4 {
 pub const LPUART4: *const RegisterBlock = 0x40190000 as *const _;
 
 /// The LPUART5 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART5 = Instance<5>;
 
 /// The LPUART5 peripheral instance.
@@ -2955,15 +2957,13 @@ pub type LPUART5 = Instance<5>;
 /// ```rust
 /// pub type LPUART5 = Instance<5>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART5 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART5 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART5 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3041,7 +3041,9 @@ impl LPUART5 {
         LPUART5_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART5 {
     /// The interrupts associated with LPUART5
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART5];
@@ -3065,7 +3067,7 @@ impl LPUART5 {
 pub const LPUART5: *const RegisterBlock = 0x40194000 as *const _;
 
 /// The LPUART6 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART6 = Instance<6>;
 
 /// The LPUART6 peripheral instance.
@@ -3076,15 +3078,13 @@ pub type LPUART6 = Instance<6>;
 /// ```rust
 /// pub type LPUART6 = Instance<6>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART6 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART6 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART6 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3162,7 +3162,9 @@ impl LPUART6 {
         LPUART6_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART6 {
     /// The interrupts associated with LPUART6
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART6];
@@ -3186,7 +3188,7 @@ impl LPUART6 {
 pub const LPUART6: *const RegisterBlock = 0x40198000 as *const _;
 
 /// The LPUART7 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART7 = Instance<7>;
 
 /// The LPUART7 peripheral instance.
@@ -3197,15 +3199,13 @@ pub type LPUART7 = Instance<7>;
 /// ```rust
 /// pub type LPUART7 = Instance<7>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART7 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART7 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART7 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3283,7 +3283,9 @@ impl LPUART7 {
         LPUART7_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART7 {
     /// The interrupts associated with LPUART7
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART7];
@@ -3307,7 +3309,7 @@ impl LPUART7 {
 pub const LPUART7: *const RegisterBlock = 0x4019c000 as *const _;
 
 /// The LPUART8 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPUART8 = Instance<8>;
 
 /// The LPUART8 peripheral instance.
@@ -3318,15 +3320,13 @@ pub type LPUART8 = Instance<8>;
 /// ```rust
 /// pub type LPUART8 = Instance<8>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPUART8 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART8 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPUART8 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3404,7 +3404,9 @@ impl LPUART8 {
         LPUART8_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPUART8 {
     /// The interrupts associated with LPUART8
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPUART8];

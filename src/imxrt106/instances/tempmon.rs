@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::tempmon::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::tempmon::{Instance, Valid};
 pub use crate::imxrt106::peripherals::tempmon::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::tempmon::{
@@ -17,7 +15,7 @@ pub use crate::imxrt106::peripherals::tempmon::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The TEMPMON peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TEMPMON = Instance<0>;
 
 /// The TEMPMON peripheral instance.
@@ -28,15 +26,13 @@ pub type TEMPMON = Instance<0>;
 /// ```rust
 /// pub type TEMPMON = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TEMPMON {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TEMPMON {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TEMPMON {}
 
 #[cfg(not(feature = "nosync"))]
@@ -117,7 +113,9 @@ impl TEMPMON {
         TEMPMON_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TEMPMON {
     /// The interrupts associated with TEMPMON
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [

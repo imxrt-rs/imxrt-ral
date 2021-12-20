@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::can3::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::can3::{Instance, Valid};
 pub use crate::imxrt106::peripherals::can3::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::can3::{
@@ -81,7 +79,7 @@ pub use crate::imxrt106::peripherals::can3::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The CAN3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CAN3 = Instance<0>;
 
 /// The CAN3 peripheral instance.
@@ -92,15 +90,13 @@ pub type CAN3 = Instance<0>;
 /// ```rust
 /// pub type CAN3 = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CAN3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CAN3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CAN3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -706,7 +702,9 @@ impl CAN3 {
         CAN3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CAN3 {
     /// The interrupts associated with CAN3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::CAN3];

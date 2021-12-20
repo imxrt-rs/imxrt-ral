@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::pwm::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::pwm::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pwm::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::pwm::{
@@ -38,7 +36,7 @@ pub use crate::imxrt105::peripherals::pwm::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The PWM1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PWM1 = Instance<1>;
 
 /// The PWM1 peripheral instance.
@@ -49,15 +47,13 @@ pub type PWM1 = Instance<1>;
 /// ```rust
 /// pub type PWM1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PWM1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PWM1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -312,7 +308,9 @@ impl PWM1 {
         PWM1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PWM1 {
     /// The interrupts associated with PWM1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -342,7 +340,7 @@ impl PWM1 {
 pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 
 /// The PWM2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PWM2 = Instance<2>;
 
 /// The PWM2 peripheral instance.
@@ -353,15 +351,13 @@ pub type PWM2 = Instance<2>;
 /// ```rust
 /// pub type PWM2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PWM2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PWM2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -616,7 +612,9 @@ impl PWM2 {
         PWM2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PWM2 {
     /// The interrupts associated with PWM2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -646,7 +644,7 @@ impl PWM2 {
 pub const PWM2: *const RegisterBlock = 0x403e0000 as *const _;
 
 /// The PWM3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PWM3 = Instance<3>;
 
 /// The PWM3 peripheral instance.
@@ -657,15 +655,13 @@ pub type PWM3 = Instance<3>;
 /// ```rust
 /// pub type PWM3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PWM3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PWM3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -920,7 +916,9 @@ impl PWM3 {
         PWM3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PWM3 {
     /// The interrupts associated with PWM3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -950,7 +948,7 @@ impl PWM3 {
 pub const PWM3: *const RegisterBlock = 0x403e4000 as *const _;
 
 /// The PWM4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PWM4 = Instance<4>;
 
 /// The PWM4 peripheral instance.
@@ -961,15 +959,13 @@ pub type PWM4 = Instance<4>;
 /// ```rust
 /// pub type PWM4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PWM4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PWM4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -1224,7 +1220,9 @@ impl PWM4 {
         PWM4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PWM4 {
     /// The interrupts associated with PWM4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [

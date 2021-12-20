@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::iomuxc_snvs_gpr::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::iomuxc_snvs_gpr::{Instance, Valid};
 pub use crate::imxrt105::peripherals::iomuxc_snvs_gpr::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::iomuxc_snvs_gpr::{GPR0, GPR1, GPR2, GPR3};
@@ -14,7 +12,7 @@ pub use crate::imxrt105::peripherals::iomuxc_snvs_gpr::{GPR0, GPR1, GPR2, GPR3};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The IOMUXC_SNVS_GPR peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type IOMUXC_SNVS_GPR = Instance<0>;
 
 /// The IOMUXC_SNVS_GPR peripheral instance.
@@ -25,15 +23,13 @@ pub type IOMUXC_SNVS_GPR = Instance<0>;
 /// ```rust
 /// pub type IOMUXC_SNVS_GPR = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct IOMUXC_SNVS_GPR {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for IOMUXC_SNVS_GPR {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for IOMUXC_SNVS_GPR {}
 
 #[cfg(not(feature = "nosync"))]
@@ -103,7 +99,9 @@ impl IOMUXC_SNVS_GPR {
         IOMUXC_SNVS_GPR_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl IOMUXC_SNVS_GPR {
     /// The interrupts associated with IOMUXC_SNVS_GPR
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

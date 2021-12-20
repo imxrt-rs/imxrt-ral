@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::iomuxc_gpr::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::iomuxc_gpr::{Instance, Valid};
 pub use crate::imxrt105::peripherals::iomuxc_gpr::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::iomuxc_gpr::{
@@ -17,7 +15,7 @@ pub use crate::imxrt105::peripherals::iomuxc_gpr::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The IOMUXC_GPR peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type IOMUXC_GPR = Instance<0>;
 
 /// The IOMUXC_GPR peripheral instance.
@@ -28,15 +26,13 @@ pub type IOMUXC_GPR = Instance<0>;
 /// ```rust
 /// pub type IOMUXC_GPR = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct IOMUXC_GPR {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for IOMUXC_GPR {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for IOMUXC_GPR {}
 
 #[cfg(not(feature = "nosync"))]
@@ -128,7 +124,9 @@ impl IOMUXC_GPR {
         IOMUXC_GPR_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl IOMUXC_GPR {
     /// The interrupts associated with IOMUXC_GPR
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPR_IRQ];

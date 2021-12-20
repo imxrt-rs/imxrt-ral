@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::snvs::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::snvs::{Instance, Valid};
 pub use crate::imxrt105::peripherals::snvs::{
     LPGPR0_legacy_alias, LPGPR_alias0, LPGPR_alias1, LPGPR_alias2, LPGPR_alias3, HPCOMR, HPCR,
@@ -20,7 +18,7 @@ pub use crate::imxrt105::peripherals::snvs::{RegisterBlock, ResetValues};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SNVS peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type SNVS = Instance<0>;
 
 /// The SNVS peripheral instance.
@@ -31,15 +29,13 @@ pub type SNVS = Instance<0>;
 /// ```rust
 /// pub type SNVS = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct SNVS {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for SNVS {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for SNVS {}
 
 #[cfg(not(feature = "nosync"))]
@@ -157,7 +153,9 @@ impl SNVS {
         SNVS_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl SNVS {
     /// The interrupts associated with SNVS
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 3] = [

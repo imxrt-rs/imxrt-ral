@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::trng::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::trng::{Instance, Valid};
 pub use crate::imxrt106::peripherals::trng::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::trng::{
@@ -19,7 +17,7 @@ pub use crate::imxrt106::peripherals::trng::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The TRNG peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type TRNG = Instance<0>;
 
 /// The TRNG peripheral instance.
@@ -30,15 +28,13 @@ pub type TRNG = Instance<0>;
 /// ```rust
 /// pub type TRNG = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct TRNG {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for TRNG {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for TRNG {}
 
 #[cfg(not(feature = "nosync"))]
@@ -150,7 +146,9 @@ impl TRNG {
         TRNG_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl TRNG {
     /// The interrupts associated with TRNG
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TRNG];

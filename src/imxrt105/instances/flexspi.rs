@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::flexspi::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::flexspi::{Instance, Valid};
 pub use crate::imxrt105::peripherals::flexspi::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::flexspi::{
@@ -29,7 +27,7 @@ pub use crate::imxrt105::peripherals::flexspi::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The FLEXSPI peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type FLEXSPI = Instance<0>;
 
 /// The FLEXSPI peripheral instance.
@@ -40,15 +38,13 @@ pub type FLEXSPI = Instance<0>;
 /// ```rust
 /// pub type FLEXSPI = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct FLEXSPI {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXSPI {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for FLEXSPI {}
 
 #[cfg(not(feature = "nosync"))]
@@ -280,7 +276,9 @@ impl FLEXSPI {
         FLEXSPI_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl FLEXSPI {
     /// The interrupts associated with FLEXSPI
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXSPI];

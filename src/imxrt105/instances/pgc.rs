@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::pgc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::pgc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::pgc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::pgc::{
@@ -16,7 +14,7 @@ pub use crate::imxrt105::peripherals::pgc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The PGC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type PGC = Instance<0>;
 
 /// The PGC peripheral instance.
@@ -27,15 +25,13 @@ pub type PGC = Instance<0>;
 /// ```rust
 /// pub type PGC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct PGC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for PGC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for PGC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -109,7 +105,9 @@ impl PGC {
         PGC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl PGC {
     /// The interrupts associated with PGC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

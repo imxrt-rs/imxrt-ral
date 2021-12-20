@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::csu::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::csu::{Instance, Valid};
 pub use crate::imxrt105::peripherals::csu::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::csu::{
@@ -18,7 +16,7 @@ pub use crate::imxrt105::peripherals::csu::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The CSU peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CSU = Instance<0>;
 
 /// The CSU peripheral instance.
@@ -29,15 +27,13 @@ pub type CSU = Instance<0>;
 /// ```rust
 /// pub type CSU = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CSU {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CSU {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CSU {}
 
 #[cfg(not(feature = "nosync"))]
@@ -138,7 +134,9 @@ impl CSU {
         CSU_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CSU {
     /// The interrupts associated with CSU
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::CSU];

@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::iomuxc_snvs::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{Instance, Valid};
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{
@@ -18,7 +16,7 @@ pub use crate::imxrt106::peripherals::iomuxc_snvs::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The IOMUXC_SNVS peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type IOMUXC_SNVS = Instance<0>;
 
 /// The IOMUXC_SNVS peripheral instance.
@@ -29,15 +27,13 @@ pub type IOMUXC_SNVS = Instance<0>;
 /// ```rust
 /// pub type IOMUXC_SNVS = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct IOMUXC_SNVS {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for IOMUXC_SNVS {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for IOMUXC_SNVS {}
 
 #[cfg(not(feature = "nosync"))]
@@ -112,7 +108,9 @@ impl IOMUXC_SNVS {
         IOMUXC_SNVS_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl IOMUXC_SNVS {
     /// The interrupts associated with IOMUXC_SNVS
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::enc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::enc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::enc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::enc::{
@@ -17,7 +15,7 @@ pub use crate::imxrt105::peripherals::enc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The ENC1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ENC1 = Instance<1>;
 
 /// The ENC1 peripheral instance.
@@ -28,15 +26,13 @@ pub type ENC1 = Instance<1>;
 /// ```rust
 /// pub type ENC1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ENC1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ENC1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ENC1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -122,7 +118,9 @@ impl ENC1 {
         ENC1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ENC1 {
     /// The interrupts associated with ENC1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC1];
@@ -146,7 +144,7 @@ impl ENC1 {
 pub const ENC1: *const RegisterBlock = 0x403c8000 as *const _;
 
 /// The ENC2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ENC2 = Instance<2>;
 
 /// The ENC2 peripheral instance.
@@ -157,15 +155,13 @@ pub type ENC2 = Instance<2>;
 /// ```rust
 /// pub type ENC2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ENC2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ENC2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ENC2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -251,7 +247,9 @@ impl ENC2 {
         ENC2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ENC2 {
     /// The interrupts associated with ENC2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC2];
@@ -275,7 +273,7 @@ impl ENC2 {
 pub const ENC2: *const RegisterBlock = 0x403cc000 as *const _;
 
 /// The ENC3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ENC3 = Instance<3>;
 
 /// The ENC3 peripheral instance.
@@ -286,15 +284,13 @@ pub type ENC3 = Instance<3>;
 /// ```rust
 /// pub type ENC3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ENC3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ENC3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ENC3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -380,7 +376,9 @@ impl ENC3 {
         ENC3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ENC3 {
     /// The interrupts associated with ENC3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC3];
@@ -404,7 +402,7 @@ impl ENC3 {
 pub const ENC3: *const RegisterBlock = 0x403d0000 as *const _;
 
 /// The ENC4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ENC4 = Instance<4>;
 
 /// The ENC4 peripheral instance.
@@ -415,15 +413,13 @@ pub type ENC4 = Instance<4>;
 /// ```rust
 /// pub type ENC4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ENC4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ENC4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ENC4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -509,7 +505,9 @@ impl ENC4 {
         ENC4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ENC4 {
     /// The interrupts associated with ENC4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ENC4];

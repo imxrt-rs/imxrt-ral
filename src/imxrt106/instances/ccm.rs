@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::ccm::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::ccm::{Instance, Valid};
 pub use crate::imxrt106::peripherals::ccm::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::ccm::{
@@ -18,7 +16,7 @@ pub use crate::imxrt106::peripherals::ccm::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The CCM peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CCM = Instance<0>;
 
 /// The CCM peripheral instance.
@@ -29,15 +27,13 @@ pub type CCM = Instance<0>;
 /// ```rust
 /// pub type CCM = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CCM {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CCM {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CCM {}
 
 #[cfg(not(feature = "nosync"))]
@@ -132,7 +128,9 @@ impl CCM {
         CCM_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CCM {
     /// The interrupts associated with CCM
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] =

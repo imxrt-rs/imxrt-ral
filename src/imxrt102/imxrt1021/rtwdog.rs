@@ -431,11 +431,13 @@ pub struct ResetValues {
     pub TOVAL: u32,
     pub WIN: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -466,11 +468,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The RTWDOG peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type RTWDOG = Instance<0>;
 
 /// The RTWDOG peripheral instance.
@@ -481,15 +483,13 @@ pub type RTWDOG = Instance<0>;
 /// ```rust
 /// pub type RTWDOG = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct RTWDOG {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for RTWDOG {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for RTWDOG {}
 
 #[cfg(not(feature = "nosync"))]
@@ -559,7 +559,9 @@ impl RTWDOG {
         RTWDOG_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl RTWDOG {
     /// The interrupts associated with RTWDOG
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::RTWDOG];

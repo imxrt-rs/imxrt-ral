@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::can::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::can::{Instance, Valid};
 pub use crate::imxrt105::peripherals::can::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::can::{
@@ -44,7 +42,7 @@ pub use crate::imxrt105::peripherals::can::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The CAN1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CAN1 = Instance<1>;
 
 /// The CAN1 peripheral instance.
@@ -55,15 +53,13 @@ pub type CAN1 = Instance<1>;
 /// ```rust
 /// pub type CAN1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CAN1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CAN1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CAN1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -469,7 +465,9 @@ impl CAN1 {
         CAN1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CAN1 {
     /// The interrupts associated with CAN1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::CAN1];
@@ -493,7 +491,7 @@ impl CAN1 {
 pub const CAN1: *const RegisterBlock = 0x401d0000 as *const _;
 
 /// The CAN2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type CAN2 = Instance<2>;
 
 /// The CAN2 peripheral instance.
@@ -504,15 +502,13 @@ pub type CAN2 = Instance<2>;
 /// ```rust
 /// pub type CAN2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct CAN2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for CAN2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for CAN2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -918,7 +914,9 @@ impl CAN2 {
         CAN2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl CAN2 {
     /// The interrupts associated with CAN2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::CAN2];

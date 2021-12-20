@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt105::peripherals::adc_etc::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::adc_etc::{Instance, Valid};
 pub use crate::imxrt105::peripherals::adc_etc::{RegisterBlock, ResetValues};
 pub use crate::imxrt105::peripherals::adc_etc::{
@@ -32,7 +30,7 @@ pub use crate::imxrt105::peripherals::adc_etc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The ADC_ETC peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type ADC_ETC = Instance<0>;
 
 /// The ADC_ETC peripheral instance.
@@ -43,15 +41,13 @@ pub type ADC_ETC = Instance<0>;
 /// ```rust
 /// pub type ADC_ETC = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct ADC_ETC {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for ADC_ETC {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for ADC_ETC {}
 
 #[cfg(not(feature = "nosync"))]
@@ -206,7 +202,9 @@ impl ADC_ETC {
         ADC_ETC_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl ADC_ETC {
     /// The interrupts associated with ADC_ETC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 4] = [

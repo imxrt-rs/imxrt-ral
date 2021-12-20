@@ -2,9 +2,7 @@
 #![allow(non_camel_case_types)]
 //! WDOG
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::wdog::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::wdog::{Instance, Valid};
 pub use crate::imxrt101::peripherals::wdog::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::wdog::{WCR, WICR, WMCR, WRSR, WSR};
@@ -12,7 +10,7 @@ pub use crate::imxrt101::peripherals::wdog::{WCR, WICR, WMCR, WRSR, WSR};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The WDOG1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type WDOG1 = Instance<1>;
 
 /// The WDOG1 peripheral instance.
@@ -23,15 +21,13 @@ pub type WDOG1 = Instance<1>;
 /// ```rust
 /// pub type WDOG1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct WDOG1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for WDOG1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for WDOG1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -102,7 +98,9 @@ impl WDOG1 {
         WDOG1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl WDOG1 {
     /// The interrupts associated with WDOG1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::WDOG1];
@@ -126,7 +124,7 @@ impl WDOG1 {
 pub const WDOG1: *const RegisterBlock = 0x400b8000 as *const _;
 
 /// The WDOG2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type WDOG2 = Instance<2>;
 
 /// The WDOG2 peripheral instance.
@@ -137,15 +135,13 @@ pub type WDOG2 = Instance<2>;
 /// ```rust
 /// pub type WDOG2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct WDOG2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for WDOG2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for WDOG2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -216,7 +212,9 @@ impl WDOG2 {
         WDOG2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl WDOG2 {
     /// The interrupts associated with WDOG2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::WDOG2];

@@ -2686,11 +2686,13 @@ pub struct ResetValues {
     pub STDR: u32,
     pub SRDR: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -2721,11 +2723,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The LPI2C1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPI2C1 = Instance<1>;
 
 /// The LPI2C1 peripheral instance.
@@ -2736,15 +2738,13 @@ pub type LPI2C1 = Instance<1>;
 /// ```rust
 /// pub type LPI2C1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPI2C1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPI2C1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPI2C1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2838,7 +2838,9 @@ impl LPI2C1 {
         LPI2C1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPI2C1 {
     /// The interrupts associated with LPI2C1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPI2C1];
@@ -2862,7 +2864,7 @@ impl LPI2C1 {
 pub const LPI2C1: *const RegisterBlock = 0x403f0000 as *const _;
 
 /// The LPI2C2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPI2C2 = Instance<2>;
 
 /// The LPI2C2 peripheral instance.
@@ -2873,15 +2875,13 @@ pub type LPI2C2 = Instance<2>;
 /// ```rust
 /// pub type LPI2C2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPI2C2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPI2C2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPI2C2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2975,7 +2975,9 @@ impl LPI2C2 {
         LPI2C2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPI2C2 {
     /// The interrupts associated with LPI2C2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPI2C2];
@@ -2999,7 +3001,7 @@ impl LPI2C2 {
 pub const LPI2C2: *const RegisterBlock = 0x403f4000 as *const _;
 
 /// The LPI2C3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPI2C3 = Instance<3>;
 
 /// The LPI2C3 peripheral instance.
@@ -3010,15 +3012,13 @@ pub type LPI2C3 = Instance<3>;
 /// ```rust
 /// pub type LPI2C3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPI2C3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPI2C3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPI2C3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3112,7 +3112,9 @@ impl LPI2C3 {
         LPI2C3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPI2C3 {
     /// The interrupts associated with LPI2C3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPI2C3];
@@ -3136,7 +3138,7 @@ impl LPI2C3 {
 pub const LPI2C3: *const RegisterBlock = 0x403f8000 as *const _;
 
 /// The LPI2C4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LPI2C4 = Instance<4>;
 
 /// The LPI2C4 peripheral instance.
@@ -3147,15 +3149,13 @@ pub type LPI2C4 = Instance<4>;
 /// ```rust
 /// pub type LPI2C4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LPI2C4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPI2C4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LPI2C4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -3249,7 +3249,9 @@ impl LPI2C4 {
         LPI2C4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LPI2C4 {
     /// The interrupts associated with LPI2C4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LPI2C4];

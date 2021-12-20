@@ -2,9 +2,7 @@
 #![allow(non_camel_case_types)]
 //! AND/OR/INVERT module
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::aoi::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::aoi::{Instance, Valid};
 pub use crate::imxrt101::peripherals::aoi::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::aoi::{
@@ -14,7 +12,7 @@ pub use crate::imxrt101::peripherals::aoi::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The AOI peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type AOI = Instance<0>;
 
 /// The AOI peripheral instance.
@@ -25,15 +23,13 @@ pub type AOI = Instance<0>;
 /// ```rust
 /// pub type AOI = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct AOI {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for AOI {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for AOI {}
 
 #[cfg(not(feature = "nosync"))]
@@ -107,7 +103,9 @@ impl AOI {
         AOI_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl AOI {
     /// The interrupts associated with AOI
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

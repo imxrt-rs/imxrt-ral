@@ -2505,11 +2505,13 @@ pub struct ResetValues {
     pub LUT1_ADDR: u32,
     pub LUT1_DATA: u32,
 }
-#[cfg(not(feature = "nosync"))]
 pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
 impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
@@ -2540,11 +2542,11 @@ pub(crate) mod private {
     pub trait Sealed {}
 }
 
-/// Describes a valid `Const<N>` for this peripheral instance.
+/// Describes a valid `Instance<N>` for this peripheral.
 pub trait Valid: private::Sealed {}
 
 /// The LCDIF peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type LCDIF = Instance<0>;
 
 /// The LCDIF peripheral instance.
@@ -2555,15 +2557,13 @@ pub type LCDIF = Instance<0>;
 /// ```rust
 /// pub type LCDIF = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct LCDIF {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for LCDIF {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for LCDIF {}
 
 #[cfg(not(feature = "nosync"))]
@@ -2709,7 +2709,9 @@ impl LCDIF {
         LCDIF_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl LCDIF {
     /// The interrupts associated with LCDIF
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::LCDIF];

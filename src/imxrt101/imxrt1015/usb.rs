@@ -2,9 +2,7 @@
 #![allow(non_camel_case_types)]
 //! USB
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt101::peripherals::usb::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::usb::{Instance, Valid};
 pub use crate::imxrt101::peripherals::usb::{RegisterBlock, ResetValues};
 pub use crate::imxrt101::peripherals::usb::{
@@ -19,7 +17,7 @@ pub use crate::imxrt101::peripherals::usb::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USB peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type USB = Instance<0>;
 
 /// The USB peripheral instance.
@@ -30,15 +28,13 @@ pub type USB = Instance<0>;
 /// ```rust
 /// pub type USB = Instance<0>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct USB {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for USB {}
 
 #[cfg(not(feature = "nosync"))]
@@ -148,7 +144,9 @@ impl USB {
         USB_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl USB {
     /// The interrupts associated with USB
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USB_OTG1];

@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::gpio::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::gpio::{Instance, Valid};
 pub use crate::imxrt106::peripherals::gpio::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::gpio::{
@@ -16,7 +14,7 @@ pub use crate::imxrt106::peripherals::gpio::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The GPIO1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO1 = Instance<1>;
 
 /// The GPIO1 peripheral instance.
@@ -27,15 +25,13 @@ pub type GPIO1 = Instance<1>;
 /// ```rust
 /// pub type GPIO1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -123,7 +119,9 @@ impl GPIO1 {
         GPIO1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO1 {
     /// The interrupts associated with GPIO1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 10] = [
@@ -158,7 +156,7 @@ impl GPIO1 {
 pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 
 /// The GPIO2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO2 = Instance<2>;
 
 /// The GPIO2 peripheral instance.
@@ -169,15 +167,13 @@ pub type GPIO2 = Instance<2>;
 /// ```rust
 /// pub type GPIO2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -257,7 +253,9 @@ impl GPIO2 {
         GPIO2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO2 {
     /// The interrupts associated with GPIO2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -284,7 +282,7 @@ impl GPIO2 {
 pub const GPIO2: *const RegisterBlock = 0x401bc000 as *const _;
 
 /// The GPIO3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO3 = Instance<3>;
 
 /// The GPIO3 peripheral instance.
@@ -295,15 +293,13 @@ pub type GPIO3 = Instance<3>;
 /// ```rust
 /// pub type GPIO3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -383,7 +379,9 @@ impl GPIO3 {
         GPIO3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO3 {
     /// The interrupts associated with GPIO3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -410,7 +408,7 @@ impl GPIO3 {
 pub const GPIO3: *const RegisterBlock = 0x401c0000 as *const _;
 
 /// The GPIO4 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO4 = Instance<4>;
 
 /// The GPIO4 peripheral instance.
@@ -421,15 +419,13 @@ pub type GPIO4 = Instance<4>;
 /// ```rust
 /// pub type GPIO4 = Instance<4>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO4 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO4 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO4 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -509,7 +505,9 @@ impl GPIO4 {
         GPIO4_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO4 {
     /// The interrupts associated with GPIO4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -536,7 +534,7 @@ impl GPIO4 {
 pub const GPIO4: *const RegisterBlock = 0x401c4000 as *const _;
 
 /// The GPIO5 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO5 = Instance<5>;
 
 /// The GPIO5 peripheral instance.
@@ -547,15 +545,13 @@ pub type GPIO5 = Instance<5>;
 /// ```rust
 /// pub type GPIO5 = Instance<5>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO5 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO5 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO5 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -635,7 +631,9 @@ impl GPIO5 {
         GPIO5_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO5 {
     /// The interrupts associated with GPIO5
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -662,7 +660,7 @@ impl GPIO5 {
 pub const GPIO5: *const RegisterBlock = 0x400c0000 as *const _;
 
 /// The GPIO6 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO6 = Instance<6>;
 
 /// The GPIO6 peripheral instance.
@@ -673,15 +671,13 @@ pub type GPIO6 = Instance<6>;
 /// ```rust
 /// pub type GPIO6 = Instance<6>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO6 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO6 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO6 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -758,7 +754,9 @@ impl GPIO6 {
         GPIO6_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO6 {
     /// The interrupts associated with GPIO6
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];
@@ -782,7 +780,7 @@ impl GPIO6 {
 pub const GPIO6: *const RegisterBlock = 0x42000000 as *const _;
 
 /// The GPIO7 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO7 = Instance<7>;
 
 /// The GPIO7 peripheral instance.
@@ -793,15 +791,13 @@ pub type GPIO7 = Instance<7>;
 /// ```rust
 /// pub type GPIO7 = Instance<7>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO7 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO7 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO7 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -878,7 +874,9 @@ impl GPIO7 {
         GPIO7_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO7 {
     /// The interrupts associated with GPIO7
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];
@@ -902,7 +900,7 @@ impl GPIO7 {
 pub const GPIO7: *const RegisterBlock = 0x42004000 as *const _;
 
 /// The GPIO8 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO8 = Instance<8>;
 
 /// The GPIO8 peripheral instance.
@@ -913,15 +911,13 @@ pub type GPIO8 = Instance<8>;
 /// ```rust
 /// pub type GPIO8 = Instance<8>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO8 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO8 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO8 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -998,7 +994,9 @@ impl GPIO8 {
         GPIO8_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO8 {
     /// The interrupts associated with GPIO8
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];
@@ -1022,7 +1020,7 @@ impl GPIO8 {
 pub const GPIO8: *const RegisterBlock = 0x42008000 as *const _;
 
 /// The GPIO9 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type GPIO9 = Instance<9>;
 
 /// The GPIO9 peripheral instance.
@@ -1033,15 +1031,13 @@ pub type GPIO9 = Instance<9>;
 /// ```rust
 /// pub type GPIO9 = Instance<9>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct GPIO9 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO9 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for GPIO9 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -1118,7 +1114,9 @@ impl GPIO9 {
         GPIO9_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl GPIO9 {
     /// The interrupts associated with GPIO9
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];

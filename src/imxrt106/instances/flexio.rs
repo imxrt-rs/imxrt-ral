@@ -4,9 +4,7 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 use crate::imxrt106::peripherals::flexio::private;
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::flexio::{Instance, Valid};
 pub use crate::imxrt106::peripherals::flexio::{RegisterBlock, ResetValues};
 pub use crate::imxrt106::peripherals::flexio::{
@@ -23,7 +21,7 @@ pub use crate::imxrt106::peripherals::flexio::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The FLEXIO1 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type FLEXIO1 = Instance<1>;
 
 /// The FLEXIO1 peripheral instance.
@@ -34,15 +32,13 @@ pub type FLEXIO1 = Instance<1>;
 /// ```rust
 /// pub type FLEXIO1 = Instance<1>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct FLEXIO1 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXIO1 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for FLEXIO1 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -168,7 +164,9 @@ impl FLEXIO1 {
         FLEXIO1_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl FLEXIO1 {
     /// The interrupts associated with FLEXIO1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXIO1];
@@ -192,7 +190,7 @@ impl FLEXIO1 {
 pub const FLEXIO1: *const RegisterBlock = 0x401ac000 as *const _;
 
 /// The FLEXIO2 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type FLEXIO2 = Instance<2>;
 
 /// The FLEXIO2 peripheral instance.
@@ -203,15 +201,13 @@ pub type FLEXIO2 = Instance<2>;
 /// ```rust
 /// pub type FLEXIO2 = Instance<2>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct FLEXIO2 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXIO2 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for FLEXIO2 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -337,7 +333,9 @@ impl FLEXIO2 {
         FLEXIO2_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl FLEXIO2 {
     /// The interrupts associated with FLEXIO2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXIO2];
@@ -361,7 +359,7 @@ impl FLEXIO2 {
 pub const FLEXIO2: *const RegisterBlock = 0x401b0000 as *const _;
 
 /// The FLEXIO3 peripheral instance.
-#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
+#[cfg(not(feature = "doc"))]
 pub type FLEXIO3 = Instance<3>;
 
 /// The FLEXIO3 peripheral instance.
@@ -372,15 +370,13 @@ pub type FLEXIO3 = Instance<3>;
 /// ```rust
 /// pub type FLEXIO3 = Instance<3>;
 /// ```
-#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+#[cfg(feature = "doc")]
 pub struct FLEXIO3 {
     #[allow(unused)] // Only for documentation generation.
     addr: u32,
 }
 
-#[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXIO3 {}
-#[cfg(not(feature = "nosync"))]
 impl Valid for FLEXIO3 {}
 
 #[cfg(not(feature = "nosync"))]
@@ -506,7 +502,9 @@ impl FLEXIO3 {
         FLEXIO3_TAKEN.store(true, Ordering::SeqCst);
         Self::INSTANCE
     }
+}
 
+impl FLEXIO3 {
     /// The interrupts associated with FLEXIO3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXIO3];
