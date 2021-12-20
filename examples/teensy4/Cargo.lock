@@ -187,6 +187,7 @@ name = "imxrt-ral"
 version = "0.5.0"
 dependencies = [
  "cortex-m",
+ "ral-registers",
 ]
 
 [[package]]
@@ -294,6 +295,12 @@ name = "r0"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2a38df5b15c8d5c7e8654189744d8e396bddc18ad48041a500ce52d6948941f"
+
+[[package]]
+name = "ral-registers"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "23fbb1e476fdea72a01ca04d80001ff176e95dad6cd8b731d1778d8ff02cd776"
 
 [[package]]
 name = "regex"
