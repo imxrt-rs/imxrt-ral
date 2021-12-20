@@ -32,8 +32,22 @@ pub use crate::imxrt105::peripherals::adc_etc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The ADC_ETC peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type ADC_ETC = Instance<0>;
+
+/// The ADC_ETC peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type ADC_ETC = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct ADC_ETC {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for ADC_ETC {}
@@ -58,8 +72,6 @@ impl ADC_ETC {
             crate::interrupt::ADC_ETC_IRQ2,
             crate::interrupt::ADC_ETC_ERROR_IRQ,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in ADC_ETC

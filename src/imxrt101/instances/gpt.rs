@@ -14,8 +14,22 @@ pub use crate::imxrt101::peripherals::gpt::{CNT, CR, ICR1, ICR2, IR, OCR1, OCR2,
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The GPT1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPT1 = Instance<1>;
+
+/// The GPT1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPT1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPT1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPT1 {}
@@ -35,8 +49,6 @@ impl GPT1 {
         addr: 0x401ec000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPT1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPT1
@@ -121,8 +133,22 @@ impl GPT1 {
 pub const GPT1: *const RegisterBlock = 0x401ec000 as *const _;
 
 /// The GPT2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPT2 = Instance<2>;
+
+/// The GPT2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPT2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPT2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPT2 {}
@@ -142,8 +168,6 @@ impl GPT2 {
         addr: 0x401f0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPT2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPT2

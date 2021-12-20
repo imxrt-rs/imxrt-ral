@@ -318,8 +318,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The KPP peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type KPP = Instance<0>;
+
+/// The KPP peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type KPP = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct KPP {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for KPP {}
@@ -339,8 +353,6 @@ impl KPP {
         addr: 0x401fc000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::KPP],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in KPP

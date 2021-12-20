@@ -1552,8 +1552,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The TMR1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TMR1 = Instance<1>;
+
+/// The TMR1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TMR1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR1 {}
@@ -1573,8 +1587,6 @@ impl TMR1 {
         addr: 0x401dc000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR1
@@ -1702,8 +1714,22 @@ impl TMR1 {
 pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 
 /// The TMR2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TMR2 = Instance<2>;
+
+/// The TMR2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TMR2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR2 {}
@@ -1723,8 +1749,6 @@ impl TMR2 {
         addr: 0x401e0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR2

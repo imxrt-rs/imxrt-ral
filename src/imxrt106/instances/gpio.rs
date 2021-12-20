@@ -16,8 +16,22 @@ pub use crate::imxrt106::peripherals::gpio::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The GPIO1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO1 = Instance<1>;
+
+/// The GPIO1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO1 {}
@@ -48,8 +62,6 @@ impl GPIO1 {
             crate::interrupt::GPIO1_Combined_0_15,
             crate::interrupt::GPIO1_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO1
@@ -146,8 +158,22 @@ impl GPIO1 {
 pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 
 /// The GPIO2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO2 = Instance<2>;
+
+/// The GPIO2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO2 {}
@@ -170,8 +196,6 @@ impl GPIO2 {
             crate::interrupt::GPIO2_Combined_0_15,
             crate::interrupt::GPIO2_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO2
@@ -260,8 +284,22 @@ impl GPIO2 {
 pub const GPIO2: *const RegisterBlock = 0x401bc000 as *const _;
 
 /// The GPIO3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO3 = Instance<3>;
+
+/// The GPIO3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO3 {}
@@ -284,8 +322,6 @@ impl GPIO3 {
             crate::interrupt::GPIO3_Combined_0_15,
             crate::interrupt::GPIO3_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO3
@@ -374,8 +410,22 @@ impl GPIO3 {
 pub const GPIO3: *const RegisterBlock = 0x401c0000 as *const _;
 
 /// The GPIO4 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO4 = Instance<4>;
+
+/// The GPIO4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO4 = Instance<4>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO4 {}
@@ -398,8 +448,6 @@ impl GPIO4 {
             crate::interrupt::GPIO4_Combined_0_15,
             crate::interrupt::GPIO4_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO4
@@ -488,8 +536,22 @@ impl GPIO4 {
 pub const GPIO4: *const RegisterBlock = 0x401c4000 as *const _;
 
 /// The GPIO5 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO5 = Instance<5>;
+
+/// The GPIO5 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO5 = Instance<5>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO5 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO5 {}
@@ -512,8 +574,6 @@ impl GPIO5 {
             crate::interrupt::GPIO5_Combined_0_15,
             crate::interrupt::GPIO5_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO5
@@ -602,8 +662,22 @@ impl GPIO5 {
 pub const GPIO5: *const RegisterBlock = 0x400c0000 as *const _;
 
 /// The GPIO6 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO6 = Instance<6>;
+
+/// The GPIO6 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO6 = Instance<6>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO6 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO6 {}
@@ -623,8 +697,6 @@ impl GPIO6 {
         addr: 0x42000000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO6
@@ -710,8 +782,22 @@ impl GPIO6 {
 pub const GPIO6: *const RegisterBlock = 0x42000000 as *const _;
 
 /// The GPIO7 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO7 = Instance<7>;
+
+/// The GPIO7 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO7 = Instance<7>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO7 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO7 {}
@@ -731,8 +817,6 @@ impl GPIO7 {
         addr: 0x42004000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO7
@@ -818,8 +902,22 @@ impl GPIO7 {
 pub const GPIO7: *const RegisterBlock = 0x42004000 as *const _;
 
 /// The GPIO8 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO8 = Instance<8>;
+
+/// The GPIO8 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO8 = Instance<8>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO8 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO8 {}
@@ -839,8 +937,6 @@ impl GPIO8 {
         addr: 0x42008000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO8
@@ -926,8 +1022,22 @@ impl GPIO8 {
 pub const GPIO8: *const RegisterBlock = 0x42008000 as *const _;
 
 /// The GPIO9 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPIO9 = Instance<9>;
+
+/// The GPIO9 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO9 = Instance<9>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPIO9 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPIO9 {}
@@ -947,8 +1057,6 @@ impl GPIO9 {
         addr: 0x4200c000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO9

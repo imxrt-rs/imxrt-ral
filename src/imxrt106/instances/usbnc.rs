@@ -14,8 +14,22 @@ pub use crate::imxrt106::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USBNC1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USBNC1 = Instance<1>;
+
+/// The USBNC1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USBNC1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USBNC1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBNC1 {}
@@ -34,8 +48,6 @@ impl USBNC1 {
     const INSTANCE: Self = Self {
         addr: 0x402e0000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -113,8 +125,22 @@ impl USBNC1 {
 pub const USBNC1: *const RegisterBlock = 0x402e0000 as *const _;
 
 /// The USBNC2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USBNC2 = Instance<2>;
+
+/// The USBNC2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USBNC2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USBNC2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBNC2 {}
@@ -133,8 +159,6 @@ impl USBNC2 {
     const INSTANCE: Self = Self {
         addr: 0x402e0004,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

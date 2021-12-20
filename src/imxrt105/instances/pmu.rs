@@ -19,8 +19,22 @@ pub use crate::imxrt105::peripherals::pmu::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The PMU peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type PMU = Instance<0>;
+
+/// The PMU peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PMU = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct PMU {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for PMU {}
@@ -40,8 +54,6 @@ impl PMU {
         addr: 0x400d8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::PMU_EVENT],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PMU

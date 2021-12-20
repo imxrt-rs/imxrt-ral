@@ -5281,8 +5281,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The PWM1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type PWM1 = Instance<1>;
+
+/// The PWM1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PWM1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct PWM1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM1 {}
@@ -5308,8 +5322,6 @@ impl PWM1 {
             crate::interrupt::PWM1_3,
             crate::interrupt::PWM1_FAULT,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PWM1
@@ -5573,8 +5585,22 @@ impl PWM1 {
 pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 
 /// The PWM2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type PWM2 = Instance<2>;
+
+/// The PWM2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PWM2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct PWM2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for PWM2 {}
@@ -5600,8 +5626,6 @@ impl PWM2 {
             crate::interrupt::PWM2_3,
             crate::interrupt::PWM2_FAULT,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PWM2

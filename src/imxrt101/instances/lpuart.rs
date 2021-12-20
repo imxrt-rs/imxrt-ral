@@ -16,8 +16,22 @@ pub use crate::imxrt101::peripherals::lpuart::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The LPUART1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPUART1 = Instance<1>;
+
+/// The LPUART1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPUART1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPUART1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART1 {}
@@ -37,8 +51,6 @@ impl LPUART1 {
         addr: 0x40184000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPUART1
@@ -125,8 +137,22 @@ impl LPUART1 {
 pub const LPUART1: *const RegisterBlock = 0x40184000 as *const _;
 
 /// The LPUART2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPUART2 = Instance<2>;
+
+/// The LPUART2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPUART2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPUART2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART2 {}
@@ -146,8 +172,6 @@ impl LPUART2 {
         addr: 0x40188000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPUART2
@@ -234,8 +258,22 @@ impl LPUART2 {
 pub const LPUART2: *const RegisterBlock = 0x40188000 as *const _;
 
 /// The LPUART3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPUART3 = Instance<3>;
+
+/// The LPUART3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPUART3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPUART3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART3 {}
@@ -255,8 +293,6 @@ impl LPUART3 {
         addr: 0x4018c000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART3],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPUART3
@@ -343,8 +379,22 @@ impl LPUART3 {
 pub const LPUART3: *const RegisterBlock = 0x4018c000 as *const _;
 
 /// The LPUART4 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPUART4 = Instance<4>;
+
+/// The LPUART4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPUART4 = Instance<4>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPUART4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPUART4 {}
@@ -364,8 +414,6 @@ impl LPUART4 {
         addr: 0x40190000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPUART4],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPUART4

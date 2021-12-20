@@ -18,8 +18,22 @@ pub use crate::imxrt105::peripherals::usbphy::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USBPHY1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USBPHY1 = Instance<1>;
+
+/// The USBPHY1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USBPHY1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USBPHY1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBPHY1 {}
@@ -39,8 +53,6 @@ impl USBPHY1 {
         addr: 0x400d9000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_PHY1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USBPHY1
@@ -142,8 +154,22 @@ impl USBPHY1 {
 pub const USBPHY1: *const RegisterBlock = 0x400d9000 as *const _;
 
 /// The USBPHY2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USBPHY2 = Instance<2>;
+
+/// The USBPHY2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USBPHY2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USBPHY2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USBPHY2 {}
@@ -163,8 +189,6 @@ impl USBPHY2 {
         addr: 0x400da000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_PHY2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USBPHY2

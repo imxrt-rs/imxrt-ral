@@ -77,8 +77,22 @@ pub use crate::imxrt106::peripherals::dma0::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The DMA0 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type DMA0 = Instance<0>;
+
+/// The DMA0 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type DMA0 = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct DMA0 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for DMA0 {}
@@ -116,8 +130,6 @@ impl DMA0 {
             crate::interrupt::DMA15_DMA31,
             crate::interrupt::DMA_ERROR,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in DMA0

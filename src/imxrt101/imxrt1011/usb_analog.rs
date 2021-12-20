@@ -585,8 +585,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The USB_ANALOG peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USB_ANALOG = Instance<0>;
+
+/// The USB_ANALOG peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USB_ANALOG = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USB_ANALOG {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB_ANALOG {}
@@ -605,8 +619,6 @@ impl USB_ANALOG {
     const INSTANCE: Self = Self {
         addr: 0x400d8000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

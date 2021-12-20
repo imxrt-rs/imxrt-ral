@@ -15,8 +15,22 @@ pub use crate::imxrt101::peripherals::lpi2c::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The LPI2C1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPI2C1 = Instance<1>;
+
+/// The LPI2C1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPI2C1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPI2C1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPI2C1 {}
@@ -36,8 +50,6 @@ impl LPI2C1 {
         addr: 0x401a4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPI2C1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPI2C1
@@ -140,8 +152,22 @@ impl LPI2C1 {
 pub const LPI2C1: *const RegisterBlock = 0x401a4000 as *const _;
 
 /// The LPI2C2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPI2C2 = Instance<2>;
+
+/// The LPI2C2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPI2C2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPI2C2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPI2C2 {}
@@ -161,8 +187,6 @@ impl LPI2C2 {
         addr: 0x401a8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPI2C2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPI2C2

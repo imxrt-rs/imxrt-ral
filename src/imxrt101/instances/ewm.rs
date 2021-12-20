@@ -14,8 +14,22 @@ pub use crate::imxrt101::peripherals::ewm::{CLKCTRL, CLKPRESCALER, CMPH, CMPL, C
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The EWM peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type EWM = Instance<0>;
+
+/// The EWM peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type EWM = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct EWM {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for EWM {}
@@ -35,8 +49,6 @@ impl EWM {
         addr: 0x400b4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::EWM],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in EWM

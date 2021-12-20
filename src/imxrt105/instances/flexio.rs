@@ -23,8 +23,22 @@ pub use crate::imxrt105::peripherals::flexio::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The FLEXIO1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type FLEXIO1 = Instance<1>;
+
+/// The FLEXIO1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type FLEXIO1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct FLEXIO1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXIO1 {}
@@ -44,8 +58,6 @@ impl FLEXIO1 {
         addr: 0x401ac000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXIO1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in FLEXIO1
@@ -180,8 +192,22 @@ impl FLEXIO1 {
 pub const FLEXIO1: *const RegisterBlock = 0x401ac000 as *const _;
 
 /// The FLEXIO2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type FLEXIO2 = Instance<2>;
+
+/// The FLEXIO2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type FLEXIO2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct FLEXIO2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for FLEXIO2 {}
@@ -201,8 +227,6 @@ impl FLEXIO2 {
         addr: 0x401b0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXIO2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in FLEXIO2

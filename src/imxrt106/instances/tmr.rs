@@ -20,8 +20,22 @@ pub use crate::imxrt106::peripherals::tmr::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The TMR1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TMR1 = Instance<1>;
+
+/// The TMR1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TMR1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR1 {}
@@ -41,8 +55,6 @@ impl TMR1 {
         addr: 0x401dc000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR1
@@ -170,8 +182,22 @@ impl TMR1 {
 pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 
 /// The TMR2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TMR2 = Instance<2>;
+
+/// The TMR2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TMR2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR2 {}
@@ -191,8 +217,6 @@ impl TMR2 {
         addr: 0x401e0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR2
@@ -320,8 +344,22 @@ impl TMR2 {
 pub const TMR2: *const RegisterBlock = 0x401e0000 as *const _;
 
 /// The TMR3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TMR3 = Instance<3>;
+
+/// The TMR3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TMR3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR3 {}
@@ -341,8 +379,6 @@ impl TMR3 {
         addr: 0x401e4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR3],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR3
@@ -470,8 +506,22 @@ impl TMR3 {
 pub const TMR3: *const RegisterBlock = 0x401e4000 as *const _;
 
 /// The TMR4 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TMR4 = Instance<4>;
+
+/// The TMR4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR4 = Instance<4>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TMR4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TMR4 {}
@@ -491,8 +541,6 @@ impl TMR4 {
         addr: 0x401e8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR4],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR4

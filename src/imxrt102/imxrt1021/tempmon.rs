@@ -305,8 +305,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The TEMPMON peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type TEMPMON = Instance<0>;
+
+/// The TEMPMON peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TEMPMON = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct TEMPMON {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for TEMPMON {}
@@ -329,8 +343,6 @@ impl TEMPMON {
             crate::interrupt::TEMP_LOW_HIGH,
             crate::interrupt::TEMP_PANIC,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TEMPMON

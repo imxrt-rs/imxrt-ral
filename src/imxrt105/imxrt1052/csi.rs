@@ -1959,8 +1959,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The CSI peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CSI = Instance<0>;
+
+/// The CSI peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CSI = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CSI {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CSI {}
@@ -1980,8 +1994,6 @@ impl CSI {
         addr: 0x402bc000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CSI],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CSI

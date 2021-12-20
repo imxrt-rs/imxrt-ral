@@ -17,8 +17,22 @@ pub use crate::imxrt106::peripherals::sai::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SAI1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SAI1 = Instance<1>;
+
+/// The SAI1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SAI1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SAI1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI1 {}
@@ -38,8 +52,6 @@ impl SAI1 {
         addr: 0x40384000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SAI1
@@ -146,8 +158,22 @@ impl SAI1 {
 pub const SAI1: *const RegisterBlock = 0x40384000 as *const _;
 
 /// The SAI2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SAI2 = Instance<2>;
+
+/// The SAI2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SAI2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SAI2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI2 {}
@@ -167,8 +193,6 @@ impl SAI2 {
         addr: 0x40388000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SAI2
@@ -275,8 +299,22 @@ impl SAI2 {
 pub const SAI2: *const RegisterBlock = 0x40388000 as *const _;
 
 /// The SAI3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SAI3 = Instance<3>;
+
+/// The SAI3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SAI3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SAI3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI3 {}
@@ -296,8 +334,6 @@ impl SAI3 {
         addr: 0x4038c000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI3_RX, crate::interrupt::SAI3_TX],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SAI3

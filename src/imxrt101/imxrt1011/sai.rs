@@ -2150,8 +2150,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The SAI1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SAI1 = Instance<1>;
+
+/// The SAI1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SAI1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SAI1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI1 {}
@@ -2171,8 +2185,6 @@ impl SAI1 {
         addr: 0x401e0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SAI1
@@ -2271,8 +2283,22 @@ impl SAI1 {
 pub const SAI1: *const RegisterBlock = 0x401e0000 as *const _;
 
 /// The SAI3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SAI3 = Instance<3>;
+
+/// The SAI3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SAI3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SAI3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SAI3 {}
@@ -2292,8 +2318,6 @@ impl SAI3 {
         addr: 0x401e8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SAI3_RX, crate::interrupt::SAI3_TX],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SAI3

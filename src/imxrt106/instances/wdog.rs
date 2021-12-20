@@ -14,8 +14,22 @@ pub use crate::imxrt106::peripherals::wdog::{WCR, WICR, WMCR, WRSR, WSR};
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The WDOG1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type WDOG1 = Instance<1>;
+
+/// The WDOG1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type WDOG1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct WDOG1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for WDOG1 {}
@@ -35,8 +49,6 @@ impl WDOG1 {
         addr: 0x400b8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::WDOG1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in WDOG1
@@ -116,8 +128,22 @@ impl WDOG1 {
 pub const WDOG1: *const RegisterBlock = 0x400b8000 as *const _;
 
 /// The WDOG2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type WDOG2 = Instance<2>;
+
+/// The WDOG2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type WDOG2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct WDOG2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for WDOG2 {}
@@ -137,8 +163,6 @@ impl WDOG2 {
         addr: 0x400d0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::WDOG2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in WDOG2

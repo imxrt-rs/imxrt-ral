@@ -18,8 +18,22 @@ pub use crate::imxrt101::peripherals::xbara::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The XBARA peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type XBARA = Instance<0>;
+
+/// The XBARA peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type XBARA = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct XBARA {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for XBARA {}
@@ -42,8 +56,6 @@ impl XBARA {
             crate::interrupt::XBAR1_IRQ_0_1,
             crate::interrupt::XBAR1_IRQ_2_3,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in XBARA

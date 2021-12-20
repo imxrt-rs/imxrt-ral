@@ -17,8 +17,22 @@ pub use crate::imxrt105::peripherals::pit::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The PIT peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type PIT = Instance<0>;
+
+/// The PIT peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PIT = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct PIT {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for PIT {}
@@ -38,8 +52,6 @@ impl PIT {
         addr: 0x40084000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::PIT],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PIT

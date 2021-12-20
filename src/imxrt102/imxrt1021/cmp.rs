@@ -576,8 +576,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The CMP1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CMP1 = Instance<1>;
+
+/// The CMP1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CMP1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP1 {}
@@ -597,8 +611,6 @@ impl CMP1 {
         addr: 0x40094000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP1
@@ -679,8 +691,22 @@ impl CMP1 {
 pub const CMP1: *const RegisterBlock = 0x40094000 as *const _;
 
 /// The CMP2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CMP2 = Instance<2>;
+
+/// The CMP2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CMP2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP2 {}
@@ -700,8 +726,6 @@ impl CMP2 {
         addr: 0x40094008,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP2
@@ -782,8 +806,22 @@ impl CMP2 {
 pub const CMP2: *const RegisterBlock = 0x40094008 as *const _;
 
 /// The CMP3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CMP3 = Instance<3>;
+
+/// The CMP3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CMP3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP3 {}
@@ -803,8 +841,6 @@ impl CMP3 {
         addr: 0x40094010,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP3],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP3
@@ -885,8 +921,22 @@ impl CMP3 {
 pub const CMP3: *const RegisterBlock = 0x40094010 as *const _;
 
 /// The CMP4 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CMP4 = Instance<4>;
+
+/// The CMP4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP4 = Instance<4>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CMP4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CMP4 {}
@@ -906,8 +956,6 @@ impl CMP4 {
         addr: 0x40094018,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP4],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP4

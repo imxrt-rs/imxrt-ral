@@ -18,8 +18,22 @@ pub use crate::imxrt106::peripherals::bee::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The BEE peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type BEE = Instance<0>;
+
+/// The BEE peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type BEE = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct BEE {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for BEE {}
@@ -39,8 +53,6 @@ impl BEE {
         addr: 0x403ec000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::BEE],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in BEE

@@ -5848,8 +5848,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The CAN1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CAN1 = Instance<1>;
+
+/// The CAN1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CAN1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CAN1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CAN1 {}
@@ -5869,8 +5883,6 @@ impl CAN1 {
         addr: 0x401d0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CAN1
@@ -6285,8 +6297,22 @@ impl CAN1 {
 pub const CAN1: *const RegisterBlock = 0x401d0000 as *const _;
 
 /// The CAN2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CAN2 = Instance<2>;
+
+/// The CAN2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CAN2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CAN2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CAN2 {}
@@ -6306,8 +6332,6 @@ impl CAN2 {
         addr: 0x401d4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CAN2

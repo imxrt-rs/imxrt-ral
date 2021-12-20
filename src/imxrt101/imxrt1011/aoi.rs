@@ -14,8 +14,22 @@ pub use crate::imxrt101::peripherals::aoi::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The AOI peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type AOI = Instance<0>;
+
+/// The AOI peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type AOI = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct AOI {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for AOI {}
@@ -34,8 +48,6 @@ impl AOI {
     const INSTANCE: Self = Self {
         addr: 0x40094000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

@@ -14,8 +14,22 @@ pub use crate::imxrt105::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The XBARB2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type XBARB2 = Instance<2>;
+
+/// The XBARB2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type XBARB2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct XBARB2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for XBARB2 {}
@@ -34,8 +48,6 @@ impl XBARB2 {
     const INSTANCE: Self = Self {
         addr: 0x403c0000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -119,8 +131,22 @@ impl XBARB2 {
 pub const XBARB2: *const RegisterBlock = 0x403c0000 as *const _;
 
 /// The XBARB3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type XBARB3 = Instance<3>;
+
+/// The XBARB3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type XBARB3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct XBARB3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for XBARB3 {}
@@ -139,8 +165,6 @@ impl XBARB3 {
     const INSTANCE: Self = Self {
         addr: 0x403c4000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

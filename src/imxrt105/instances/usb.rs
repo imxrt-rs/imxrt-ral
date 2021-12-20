@@ -21,8 +21,22 @@ pub use crate::imxrt105::peripherals::usb::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USB1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USB1 = Instance<1>;
+
+/// The USB1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USB1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USB1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB1 {}
@@ -42,8 +56,6 @@ impl USB1 {
         addr: 0x402e0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_OTG1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USB1
@@ -162,8 +174,22 @@ impl USB1 {
 pub const USB1: *const RegisterBlock = 0x402e0000 as *const _;
 
 /// The USB2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USB2 = Instance<2>;
+
+/// The USB2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USB2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USB2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB2 {}
@@ -183,8 +209,6 @@ impl USB2 {
         addr: 0x402e0200,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_OTG2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USB2

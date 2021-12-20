@@ -16,8 +16,22 @@ pub use crate::imxrt105::peripherals::spdif::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SPDIF peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SPDIF = Instance<0>;
+
+/// The SPDIF peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SPDIF = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SPDIF {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SPDIF {}
@@ -37,8 +51,6 @@ impl SPDIF {
         addr: 0x40380000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SPDIF],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SPDIF

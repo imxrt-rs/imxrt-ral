@@ -1172,8 +1172,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The ENC1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type ENC1 = Instance<1>;
+
+/// The ENC1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type ENC1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct ENC1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for ENC1 {}
@@ -1193,8 +1207,6 @@ impl ENC1 {
         addr: 0x403c8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENC1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in ENC1
@@ -1289,8 +1301,22 @@ impl ENC1 {
 pub const ENC1: *const RegisterBlock = 0x403c8000 as *const _;
 
 /// The ENC2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type ENC2 = Instance<2>;
+
+/// The ENC2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type ENC2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct ENC2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for ENC2 {}
@@ -1310,8 +1336,6 @@ impl ENC2 {
         addr: 0x403cc000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENC2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in ENC2

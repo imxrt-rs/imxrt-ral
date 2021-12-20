@@ -16,8 +16,22 @@ pub use crate::imxrt106::peripherals::gpc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The GPC peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type GPC = Instance<0>;
+
+/// The GPC peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPC = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct GPC {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for GPC {}
@@ -37,8 +51,6 @@ impl GPC {
         addr: 0x400f4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPC],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPC

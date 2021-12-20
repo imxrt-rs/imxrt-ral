@@ -879,8 +879,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The ADC1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type ADC1 = Instance<1>;
+
+/// The ADC1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type ADC1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct ADC1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for ADC1 {}
@@ -900,8 +914,6 @@ impl ADC1 {
         addr: 0x400c4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ADC1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in ADC1
@@ -999,8 +1011,22 @@ impl ADC1 {
 pub const ADC1: *const RegisterBlock = 0x400c4000 as *const _;
 
 /// The ADC2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type ADC2 = Instance<2>;
+
+/// The ADC2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type ADC2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct ADC2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for ADC2 {}
@@ -1020,8 +1046,6 @@ impl ADC2 {
         addr: 0x400c8000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ADC2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in ADC2

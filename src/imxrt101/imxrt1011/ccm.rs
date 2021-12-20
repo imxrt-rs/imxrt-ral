@@ -3379,8 +3379,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The CCM peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type CCM = Instance<0>;
+
+/// The CCM peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CCM = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct CCM {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for CCM {}
@@ -3400,8 +3414,6 @@ impl CCM {
         addr: 0x400fc000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CCM_1, crate::interrupt::CCM_2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CCM

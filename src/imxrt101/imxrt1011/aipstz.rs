@@ -12,8 +12,22 @@ pub use crate::imxrt101::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The AIPSTZ1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type AIPSTZ1 = Instance<1>;
+
+/// The AIPSTZ1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type AIPSTZ1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct AIPSTZ1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for AIPSTZ1 {}
@@ -32,8 +46,6 @@ impl AIPSTZ1 {
     const INSTANCE: Self = Self {
         addr: 0x4007c000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -115,8 +127,22 @@ impl AIPSTZ1 {
 pub const AIPSTZ1: *const RegisterBlock = 0x4007c000 as *const _;
 
 /// The AIPSTZ2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type AIPSTZ2 = Instance<2>;
+
+/// The AIPSTZ2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type AIPSTZ2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct AIPSTZ2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for AIPSTZ2 {}
@@ -135,8 +161,6 @@ impl AIPSTZ2 {
     const INSTANCE: Self = Self {
         addr: 0x4017c000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

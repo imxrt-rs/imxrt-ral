@@ -16,8 +16,22 @@ pub use crate::imxrt106::peripherals::aoi::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The AOI1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type AOI1 = Instance<1>;
+
+/// The AOI1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type AOI1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct AOI1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for AOI1 {}
@@ -36,8 +50,6 @@ impl AOI1 {
     const INSTANCE: Self = Self {
         addr: 0x403b4000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -121,8 +133,22 @@ impl AOI1 {
 pub const AOI1: *const RegisterBlock = 0x403b4000 as *const _;
 
 /// The AOI2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type AOI2 = Instance<2>;
+
+/// The AOI2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type AOI2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct AOI2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for AOI2 {}
@@ -141,8 +167,6 @@ impl AOI2 {
     const INSTANCE: Self = Self {
         addr: 0x403b8000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

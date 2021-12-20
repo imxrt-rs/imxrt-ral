@@ -677,10 +677,25 @@ class PeripheralInstance(Node):
             num_intrs = 0
 
         number = self.instance_number()
+        typedef = f"pub type {self.name} = Instance<{number}>;"
         return f"""
         /// The {self.name} peripheral instance.
-        #[cfg(not(feature="nosync"))]
-        pub type {self.name} = Instance<{number}>;
+        #[cfg(all(not(feature="nosync"), not(feature="doc")))]
+        {typedef}
+
+        /// The {self.name} peripheral instance.
+        ///
+        /// This is a new type only for documentation purposes. When
+        /// compiling for a target, this is defined as
+        ///
+        /// ```rust
+        /// {typedef}
+        /// ```
+        #[cfg(all(not(feature="nosync"), feature="doc"))]
+        pub struct {self.name} {{
+            #[allow(unused)] // Only for documentation generation.
+            addr: u32,
+        }}
 
         #[cfg(not(feature="nosync"))]
         impl private::Sealed for {self.name} {{}}
@@ -700,8 +715,6 @@ class PeripheralInstance(Node):
                 addr: 0x{self.addr:08x},
                 #[cfg(not(feature = "doc"))]
                 intrs: &{intrs},
-                #[cfg(feature = "doc")]
-                intrs: &[],
             }};
 
             /// Reset values for each field in {self.name}

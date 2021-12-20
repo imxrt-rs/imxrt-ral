@@ -1604,8 +1604,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The LPSPI1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPSPI1 = Instance<1>;
+
+/// The LPSPI1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPSPI1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPSPI1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPSPI1 {}
@@ -1625,8 +1639,6 @@ impl LPSPI1 {
         addr: 0x40394000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPSPI1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI1
@@ -1718,8 +1730,22 @@ impl LPSPI1 {
 pub const LPSPI1: *const RegisterBlock = 0x40394000 as *const _;
 
 /// The LPSPI2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPSPI2 = Instance<2>;
+
+/// The LPSPI2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPSPI2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPSPI2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPSPI2 {}
@@ -1739,8 +1765,6 @@ impl LPSPI2 {
         addr: 0x40398000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPSPI2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI2
@@ -1832,8 +1856,22 @@ impl LPSPI2 {
 pub const LPSPI2: *const RegisterBlock = 0x40398000 as *const _;
 
 /// The LPSPI3 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPSPI3 = Instance<3>;
+
+/// The LPSPI3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPSPI3 = Instance<3>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPSPI3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPSPI3 {}
@@ -1853,8 +1891,6 @@ impl LPSPI3 {
         addr: 0x4039c000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPSPI3],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI3
@@ -1946,8 +1982,22 @@ impl LPSPI3 {
 pub const LPSPI3: *const RegisterBlock = 0x4039c000 as *const _;
 
 /// The LPSPI4 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type LPSPI4 = Instance<4>;
+
+/// The LPSPI4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type LPSPI4 = Instance<4>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct LPSPI4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for LPSPI4 {}
@@ -1967,8 +2017,6 @@ impl LPSPI4 {
         addr: 0x403a0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::LPSPI4],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in LPSPI4

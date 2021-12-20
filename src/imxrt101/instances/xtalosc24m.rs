@@ -19,8 +19,22 @@ pub use crate::imxrt101::peripherals::xtalosc24m::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The XTALOSC24M peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type XTALOSC24M = Instance<0>;
+
+/// The XTALOSC24M peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type XTALOSC24M = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct XTALOSC24M {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for XTALOSC24M {}
@@ -39,8 +53,6 @@ impl XTALOSC24M {
     const INSTANCE: Self = Self {
         addr: 0x400d8000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

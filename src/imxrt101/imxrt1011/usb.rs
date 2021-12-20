@@ -19,8 +19,22 @@ pub use crate::imxrt101::peripherals::usb::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USB peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USB = Instance<0>;
+
+/// The USB peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USB = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USB {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USB {}
@@ -40,8 +54,6 @@ impl USB {
         addr: 0x400e4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USB_OTG1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USB

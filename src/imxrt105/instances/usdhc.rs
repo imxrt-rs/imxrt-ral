@@ -19,8 +19,22 @@ pub use crate::imxrt105::peripherals::usdhc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The USDHC1 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USDHC1 = Instance<1>;
+
+/// The USDHC1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USDHC1 = Instance<1>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USDHC1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USDHC1 {}
@@ -40,8 +54,6 @@ impl USDHC1 {
         addr: 0x402c0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USDHC1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USDHC1
@@ -145,8 +157,22 @@ impl USDHC1 {
 pub const USDHC1: *const RegisterBlock = 0x402c0000 as *const _;
 
 /// The USDHC2 peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type USDHC2 = Instance<2>;
+
+/// The USDHC2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USDHC2 = Instance<2>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct USDHC2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for USDHC2 {}
@@ -166,8 +192,6 @@ impl USDHC2 {
         addr: 0x402c4000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USDHC2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USDHC2

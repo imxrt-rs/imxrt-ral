@@ -5094,8 +5094,22 @@ pub(crate) mod private {
 pub trait Valid: private::Sealed {}
 
 /// The IOMUXC peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type IOMUXC = Instance<0>;
+
+/// The IOMUXC peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type IOMUXC = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct IOMUXC {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for IOMUXC {}
@@ -5114,8 +5128,6 @@ impl IOMUXC {
     const INSTANCE: Self = Self {
         addr: 0x401f8000,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 

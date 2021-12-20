@@ -20,8 +20,22 @@ pub use crate::imxrt106::peripherals::semc::{
 use core::sync::atomic::{AtomicBool, Ordering};
 
 /// The SEMC peripheral instance.
-#[cfg(not(feature = "nosync"))]
+#[cfg(all(not(feature = "nosync"), not(feature = "doc")))]
 pub type SEMC = Instance<0>;
+
+/// The SEMC peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SEMC = Instance<0>;
+/// ```
+#[cfg(all(not(feature = "nosync"), feature = "doc"))]
+pub struct SEMC {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
 
 #[cfg(not(feature = "nosync"))]
 impl private::Sealed for SEMC {}
@@ -41,8 +55,6 @@ impl SEMC {
         addr: 0x402f0000,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SEMC],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SEMC
