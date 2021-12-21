@@ -2,7 +2,7 @@ _svd: "../svd/imxrt1015.svd"
 
 _include: 
   - "common.yaml"
-  - "common_patches/pwm1/submodule_cluster.yaml"
+  - "common_patches/pwm1/submodule_cluster_1015.yaml"
   - "common_patches/usb.yaml"
   - "common_patches/dma0/tcd_cluster.yaml"
   - "common_patches/lpuart_ridmae.yaml"
@@ -13,3 +13,5 @@ _include:
 _modify:
   ADC1:
     name: ADC
+  PWM1:
+    name: PWM

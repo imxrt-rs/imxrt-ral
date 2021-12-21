@@ -21,6 +21,10 @@ XBARA:
 # use imxrt_ral::adc1;
 # // After
 # use imxrt_ral::adc;
+#
+# Same for PWM.
 _modify:
   ADC1:
     name: ADC
+  PWM1:
+    name: PWM
