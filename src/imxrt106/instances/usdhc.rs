@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::usdhc::private;
-pub use crate::imxrt106::peripherals::usdhc::{Instance, Valid};
+pub use crate::imxrt106::peripherals::usdhc::Instance;
 pub use crate::imxrt106::peripherals::usdhc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::usdhc::{
     ADMA_ERR_STATUS, ADMA_SYS_ADDR, AUTOCMD12_ERR_STATUS, BLK_ATT, CLK_TUNE_CTRL_STATUS, CMD_ARG,
     CMD_RSP0, CMD_RSP1, CMD_RSP2, CMD_RSP3, CMD_XFR_TYP, DATA_BUFF_ACC_PORT, DLL_CTRL, DLL_STATUS,
@@ -34,8 +34,8 @@ pub struct USDHC1 {
     addr: u32,
 }
 
-impl private::Sealed for USDHC1 {}
-impl Valid for USDHC1 {}
+impl crate::private::Sealed for USDHC1 {}
+impl crate::Valid for USDHC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -172,8 +172,8 @@ pub struct USDHC2 {
     addr: u32,
 }
 
-impl private::Sealed for USDHC2 {}
-impl Valid for USDHC2 {}
+impl crate::private::Sealed for USDHC2 {}
+impl crate::Valid for USDHC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::gpc::private;
-pub use crate::imxrt105::peripherals::gpc::{Instance, Valid};
+pub use crate::imxrt105::peripherals::gpc::Instance;
 pub use crate::imxrt105::peripherals::gpc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::gpc::{
     CNTR, IMR1, IMR2, IMR3, IMR4, IMR5, ISR1, ISR2, ISR3, ISR4, ISR5,
 };
@@ -31,8 +31,8 @@ pub struct GPC {
     addr: u32,
 }
 
-impl private::Sealed for GPC {}
-impl Valid for GPC {}
+impl crate::private::Sealed for GPC {}
+impl crate::Valid for GPC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

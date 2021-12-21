@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::iomuxc::private;
-pub use crate::imxrt105::peripherals::iomuxc::{Instance, Valid};
+pub use crate::imxrt105::peripherals::iomuxc::Instance;
 pub use crate::imxrt105::peripherals::iomuxc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::iomuxc::{
     ANATOP_USB_OTG1_ID_SELECT_INPUT, ANATOP_USB_OTG2_ID_SELECT_INPUT, CCM_PMIC_READY_SELECT_INPUT,
     CSI_DATA02_SELECT_INPUT, CSI_DATA03_SELECT_INPUT, CSI_DATA04_SELECT_INPUT,
@@ -164,8 +164,8 @@ pub struct IOMUXC {
     addr: u32,
 }
 
-impl private::Sealed for IOMUXC {}
-impl Valid for IOMUXC {}
+impl crate::private::Sealed for IOMUXC {}
+impl crate::Valid for IOMUXC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

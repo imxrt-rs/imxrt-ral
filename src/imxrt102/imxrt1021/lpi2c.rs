@@ -2719,13 +2719,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The LPI2C1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type LPI2C1 = Instance<1>;
@@ -2744,8 +2737,8 @@ pub struct LPI2C1 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C1 {}
-impl Valid for LPI2C1 {}
+impl crate::private::Sealed for LPI2C1 {}
+impl crate::Valid for LPI2C1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2881,8 +2874,8 @@ pub struct LPI2C2 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C2 {}
-impl Valid for LPI2C2 {}
+impl crate::private::Sealed for LPI2C2 {}
+impl crate::Valid for LPI2C2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -3018,8 +3011,8 @@ pub struct LPI2C3 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C3 {}
-impl Valid for LPI2C3 {}
+impl crate::private::Sealed for LPI2C3 {}
+impl crate::Valid for LPI2C3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -3155,8 +3148,8 @@ pub struct LPI2C4 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C4 {}
-impl Valid for LPI2C4 {}
+impl crate::private::Sealed for LPI2C4 {}
+impl crate::Valid for LPI2C4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

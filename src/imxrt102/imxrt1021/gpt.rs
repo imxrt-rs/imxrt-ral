@@ -795,13 +795,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The GPT1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type GPT1 = Instance<1>;
@@ -820,8 +813,8 @@ pub struct GPT1 {
     addr: u32,
 }
 
-impl private::Sealed for GPT1 {}
-impl Valid for GPT1 {}
+impl crate::private::Sealed for GPT1 {}
+impl crate::Valid for GPT1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -939,8 +932,8 @@ pub struct GPT2 {
     addr: u32,
 }
 
-impl private::Sealed for GPT2 {}
-impl Valid for GPT2 {}
+impl crate::private::Sealed for GPT2 {}
+impl crate::Valid for GPT2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

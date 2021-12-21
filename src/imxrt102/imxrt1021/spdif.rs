@@ -1352,13 +1352,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The SPDIF peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type SPDIF = Instance<0>;
@@ -1377,8 +1370,8 @@ pub struct SPDIF {
     addr: u32,
 }
 
-impl private::Sealed for SPDIF {}
-impl Valid for SPDIF {}
+impl crate::private::Sealed for SPDIF {}
+impl crate::Valid for SPDIF {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

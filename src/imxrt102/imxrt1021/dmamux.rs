@@ -499,13 +499,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The DMAMUX peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type DMAMUX = Instance<0>;
@@ -524,8 +517,8 @@ pub struct DMAMUX {
     addr: u32,
 }
 
-impl private::Sealed for DMAMUX {}
-impl Valid for DMAMUX {}
+impl crate::private::Sealed for DMAMUX {}
+impl crate::Valid for DMAMUX {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

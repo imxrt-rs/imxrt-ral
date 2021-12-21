@@ -45,6 +45,13 @@ pub enum Interrupt {}
 /// hand, no LPUART peripheral will have this constant, since there are
 /// multiple instances.
 pub const SOLE_INSTANCE: u8 = 0;
+
+mod private {
+    pub trait Sealed {}
+}
+
+/// Implemented on all `Instance<N>` when `N` is a valid instance number.
+pub trait Valid: private::Sealed {}
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
 

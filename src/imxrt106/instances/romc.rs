@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::romc::private;
-pub use crate::imxrt106::peripherals::romc::{Instance, Valid};
+pub use crate::imxrt106::peripherals::romc::Instance;
 pub use crate::imxrt106::peripherals::romc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::romc::{
     ROMPATCH0A, ROMPATCH0D, ROMPATCH10A, ROMPATCH11A, ROMPATCH12A, ROMPATCH13A, ROMPATCH14A,
     ROMPATCH15A, ROMPATCH1A, ROMPATCH1D, ROMPATCH2A, ROMPATCH2D, ROMPATCH3A, ROMPATCH3D,
@@ -34,8 +34,8 @@ pub struct ROMC {
     addr: u32,
 }
 
-impl private::Sealed for ROMC {}
-impl Valid for ROMC {}
+impl crate::private::Sealed for ROMC {}
+impl crate::Valid for ROMC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

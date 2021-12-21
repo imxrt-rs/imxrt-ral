@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::pmu::private;
-pub use crate::imxrt105::peripherals::pmu::{Instance, Valid};
+pub use crate::imxrt105::peripherals::pmu::Instance;
 pub use crate::imxrt105::peripherals::pmu::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::pmu::{
     MISC0, MISC0_CLR, MISC0_SET, MISC0_TOG, MISC1, MISC1_CLR, MISC1_SET, MISC1_TOG, MISC2,
     MISC2_CLR, MISC2_SET, MISC2_TOG, REG_1P1, REG_1P1_CLR, REG_1P1_SET, REG_1P1_TOG, REG_2P5,
@@ -34,8 +34,8 @@ pub struct PMU {
     addr: u32,
 }
 
-impl private::Sealed for PMU {}
-impl Valid for PMU {}
+impl crate::private::Sealed for PMU {}
+impl crate::Valid for PMU {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

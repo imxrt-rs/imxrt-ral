@@ -2,9 +2,9 @@
 #![allow(non_camel_case_types)]
 //! SPDIF
 
-use crate::imxrt101::peripherals::spdif::private;
-pub use crate::imxrt101::peripherals::spdif::{Instance, Valid};
+pub use crate::imxrt101::peripherals::spdif::Instance;
 pub use crate::imxrt101::peripherals::spdif::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::spdif::{
     SCR, SI, SIE, SRCD, SRCSH, SRCSL, SRFM, SRL, SRPC, SRQ, SRR, SRU, STC, STCSCH, STCSCL, STL, STR,
 };
@@ -29,8 +29,8 @@ pub struct SPDIF {
     addr: u32,
 }
 
-impl private::Sealed for SPDIF {}
-impl Valid for SPDIF {}
+impl crate::private::Sealed for SPDIF {}
+impl crate::Valid for SPDIF {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

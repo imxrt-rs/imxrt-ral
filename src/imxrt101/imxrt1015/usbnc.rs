@@ -2,9 +2,9 @@
 #![allow(non_camel_case_types)]
 //! USB
 
-use crate::imxrt101::peripherals::usbnc::private;
-pub use crate::imxrt101::peripherals::usbnc::{Instance, Valid};
+pub use crate::imxrt101::peripherals::usbnc::Instance;
 pub use crate::imxrt101::peripherals::usbnc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -27,8 +27,8 @@ pub struct USBNC {
     addr: u32,
 }
 
-impl private::Sealed for USBNC {}
-impl Valid for USBNC {}
+impl crate::private::Sealed for USBNC {}
+impl crate::Valid for USBNC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

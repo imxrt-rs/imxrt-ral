@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::tempmon::private;
-pub use crate::imxrt106::peripherals::tempmon::{Instance, Valid};
+pub use crate::imxrt106::peripherals::tempmon::Instance;
 pub use crate::imxrt106::peripherals::tempmon::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::tempmon::{
     TEMPSENSE0, TEMPSENSE0_CLR, TEMPSENSE0_SET, TEMPSENSE0_TOG, TEMPSENSE1, TEMPSENSE1_CLR,
     TEMPSENSE1_SET, TEMPSENSE1_TOG, TEMPSENSE2, TEMPSENSE2_CLR, TEMPSENSE2_SET, TEMPSENSE2_TOG,
@@ -32,8 +32,8 @@ pub struct TEMPMON {
     addr: u32,
 }
 
-impl private::Sealed for TEMPMON {}
-impl Valid for TEMPMON {}
+impl crate::private::Sealed for TEMPMON {}
+impl crate::Valid for TEMPMON {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

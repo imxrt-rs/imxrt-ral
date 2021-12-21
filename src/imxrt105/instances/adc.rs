@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::adc::private;
-pub use crate::imxrt105::peripherals::adc::{Instance, Valid};
+pub use crate::imxrt105::peripherals::adc::Instance;
 pub use crate::imxrt105::peripherals::adc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::adc::{
     CAL, CFG, CV, GC, GS, HC0, HC1, HC2, HC3, HC4, HC5, HC6, HC7, HS, OFS, R0, R1, R2, R3, R4, R5,
     R6, R7,
@@ -32,8 +32,8 @@ pub struct ADC1 {
     addr: u32,
 }
 
-impl private::Sealed for ADC1 {}
-impl Valid for ADC1 {}
+impl crate::private::Sealed for ADC1 {}
+impl crate::Valid for ADC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -164,8 +164,8 @@ pub struct ADC2 {
     addr: u32,
 }
 
-impl private::Sealed for ADC2 {}
-impl Valid for ADC2 {}
+impl crate::private::Sealed for ADC2 {}
+impl crate::Valid for ADC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

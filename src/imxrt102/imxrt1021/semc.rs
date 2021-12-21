@@ -3042,13 +3042,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The SEMC peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type SEMC = Instance<0>;
@@ -3067,8 +3060,8 @@ pub struct SEMC {
     addr: u32,
 }
 
-impl private::Sealed for SEMC {}
-impl Valid for SEMC {}
+impl crate::private::Sealed for SEMC {}
+impl crate::Valid for SEMC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

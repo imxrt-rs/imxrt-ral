@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::semc::private;
-pub use crate::imxrt106::peripherals::semc::{Instance, Valid};
+pub use crate::imxrt106::peripherals::semc::Instance;
 pub use crate::imxrt106::peripherals::semc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::semc::{
     BMCR0, BMCR1, BR0, BR1, BR2, BR3, BR4, BR5, BR6, BR7, BR8, DBICR0, DBICR1, DLLCR, INTEN, INTR,
     IOCR, IPCMD, IPCR0, IPCR1, IPCR2, IPRXDAT, IPTXDAT, MCR, NANDCR0, NANDCR1, NANDCR2, NANDCR3,
@@ -35,8 +35,8 @@ pub struct SEMC {
     addr: u32,
 }
 
-impl private::Sealed for SEMC {}
-impl Valid for SEMC {}
+impl crate::private::Sealed for SEMC {}
+impl crate::Valid for SEMC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

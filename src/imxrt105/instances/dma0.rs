@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::dma0::private;
-pub use crate::imxrt105::peripherals::dma0::{Instance, Valid};
+pub use crate::imxrt105::peripherals::dma0::Instance;
 pub use crate::imxrt105::peripherals::dma0::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::dma0::{
     CDNE, CEEI, CERQ, CERR, CINT, CR, DCHPRI0, DCHPRI1, DCHPRI10, DCHPRI11, DCHPRI12, DCHPRI13,
     DCHPRI14, DCHPRI15, DCHPRI16, DCHPRI17, DCHPRI18, DCHPRI19, DCHPRI2, DCHPRI20, DCHPRI21,
@@ -92,8 +92,8 @@ pub struct DMA0 {
     addr: u32,
 }
 
-impl private::Sealed for DMA0 {}
-impl Valid for DMA0 {}
+impl crate::private::Sealed for DMA0 {}
+impl crate::Valid for DMA0 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

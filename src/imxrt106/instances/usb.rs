@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::usb::private;
-pub use crate::imxrt106::peripherals::usb::{Instance, Valid};
+pub use crate::imxrt106::peripherals::usb::Instance;
 pub use crate::imxrt106::peripherals::usb::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::usb::{
     ASYNCLISTADDR, BURSTSIZE, CAPLENGTH, CONFIGFLAG, DCCPARAMS, DCIVERSION, DEVICEADDR,
     ENDPTCOMPLETE, ENDPTCTRL0, ENDPTCTRL1, ENDPTCTRL2, ENDPTCTRL3, ENDPTCTRL4, ENDPTCTRL5,
@@ -36,8 +36,8 @@ pub struct USB1 {
     addr: u32,
 }
 
-impl private::Sealed for USB1 {}
-impl Valid for USB1 {}
+impl crate::private::Sealed for USB1 {}
+impl crate::Valid for USB1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -189,8 +189,8 @@ pub struct USB2 {
     addr: u32,
 }
 
-impl private::Sealed for USB2 {}
-impl Valid for USB2 {}
+impl crate::private::Sealed for USB2 {}
+impl crate::Valid for USB2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

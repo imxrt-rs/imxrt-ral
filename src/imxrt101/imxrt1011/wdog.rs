@@ -2,9 +2,9 @@
 #![allow(non_camel_case_types)]
 //! WDOG
 
-use crate::imxrt101::peripherals::wdog::private;
-pub use crate::imxrt101::peripherals::wdog::{Instance, Valid};
+pub use crate::imxrt101::peripherals::wdog::Instance;
 pub use crate::imxrt101::peripherals::wdog::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::wdog::{WCR, WICR, WMCR, WRSR, WSR};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -27,8 +27,8 @@ pub struct WDOG1 {
     addr: u32,
 }
 
-impl private::Sealed for WDOG1 {}
-impl Valid for WDOG1 {}
+impl crate::private::Sealed for WDOG1 {}
+impl crate::Valid for WDOG1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -141,8 +141,8 @@ pub struct WDOG2 {
     addr: u32,
 }
 
-impl private::Sealed for WDOG2 {}
-impl Valid for WDOG2 {}
+impl crate::private::Sealed for WDOG2 {}
+impl crate::Valid for WDOG2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

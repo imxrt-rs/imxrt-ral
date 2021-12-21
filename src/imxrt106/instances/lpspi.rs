@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::lpspi::private;
-pub use crate::imxrt106::peripherals::lpspi::{Instance, Valid};
+pub use crate::imxrt106::peripherals::lpspi::Instance;
 pub use crate::imxrt106::peripherals::lpspi::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::lpspi::{
     CCR, CFGR0, CFGR1, CR, DER, DMR0, DMR1, FCR, FSR, IER, PARAM, RDR, RSR, SR, TCR, TDR, VERID,
 };
@@ -31,8 +31,8 @@ pub struct LPSPI1 {
     addr: u32,
 }
 
-impl private::Sealed for LPSPI1 {}
-impl Valid for LPSPI1 {}
+impl crate::private::Sealed for LPSPI1 {}
+impl crate::Valid for LPSPI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -157,8 +157,8 @@ pub struct LPSPI2 {
     addr: u32,
 }
 
-impl private::Sealed for LPSPI2 {}
-impl Valid for LPSPI2 {}
+impl crate::private::Sealed for LPSPI2 {}
+impl crate::Valid for LPSPI2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -283,8 +283,8 @@ pub struct LPSPI3 {
     addr: u32,
 }
 
-impl private::Sealed for LPSPI3 {}
-impl Valid for LPSPI3 {}
+impl crate::private::Sealed for LPSPI3 {}
+impl crate::Valid for LPSPI3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -409,8 +409,8 @@ pub struct LPSPI4 {
     addr: u32,
 }
 
-impl private::Sealed for LPSPI4 {}
-impl Valid for LPSPI4 {}
+impl crate::private::Sealed for LPSPI4 {}
+impl crate::Valid for LPSPI4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

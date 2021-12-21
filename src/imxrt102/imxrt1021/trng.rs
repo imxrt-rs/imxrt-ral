@@ -2075,13 +2075,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The TRNG peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type TRNG = Instance<0>;
@@ -2100,8 +2093,8 @@ pub struct TRNG {
     addr: u32,
 }
 
-impl private::Sealed for TRNG {}
-impl Valid for TRNG {}
+impl crate::private::Sealed for TRNG {}
+impl crate::Valid for TRNG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::usbnc::private;
-pub use crate::imxrt106::peripherals::usbnc::{Instance, Valid};
+pub use crate::imxrt106::peripherals::usbnc::Instance;
 pub use crate::imxrt106::peripherals::usbnc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct USBNC1 {
     addr: u32,
 }
 
-impl private::Sealed for USBNC1 {}
-impl Valid for USBNC1 {}
+impl crate::private::Sealed for USBNC1 {}
+impl crate::Valid for USBNC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -140,8 +140,8 @@ pub struct USBNC2 {
     addr: u32,
 }
 
-impl private::Sealed for USBNC2 {}
-impl Valid for USBNC2 {}
+impl crate::private::Sealed for USBNC2 {}
+impl crate::Valid for USBNC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

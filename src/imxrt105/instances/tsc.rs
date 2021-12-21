@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::tsc::private;
-pub use crate::imxrt105::peripherals::tsc::{Instance, Valid};
+pub use crate::imxrt105::peripherals::tsc::Instance;
 pub use crate::imxrt105::peripherals::tsc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::tsc::{
     BASIC_SETTING, DEBUG_MODE, DEBUG_MODE2, FLOW_CONTROL, INT_EN, INT_SIG_EN, INT_STATUS,
     MEASEURE_VALUE, PRE_CHARGE_TIME,
@@ -32,8 +32,8 @@ pub struct TSC {
     addr: u32,
 }
 
-impl private::Sealed for TSC {}
-impl Valid for TSC {}
+impl crate::private::Sealed for TSC {}
+impl crate::Valid for TSC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::tmr::private;
-pub use crate::imxrt105::peripherals::tmr::{Instance, Valid};
+pub use crate::imxrt105::peripherals::tmr::Instance;
 pub use crate::imxrt105::peripherals::tmr::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::tmr::{
     CAPT0, CAPT1, CAPT2, CAPT3, CMPLD10, CMPLD11, CMPLD12, CMPLD13, CMPLD20, CMPLD21, CMPLD22,
     CMPLD23, CNTR0, CNTR1, CNTR2, CNTR3, COMP10, COMP11, COMP12, COMP13, COMP20, COMP21, COMP22,
@@ -35,8 +35,8 @@ pub struct TMR1 {
     addr: u32,
 }
 
-impl private::Sealed for TMR1 {}
-impl Valid for TMR1 {}
+impl crate::private::Sealed for TMR1 {}
+impl crate::Valid for TMR1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -197,8 +197,8 @@ pub struct TMR2 {
     addr: u32,
 }
 
-impl private::Sealed for TMR2 {}
-impl Valid for TMR2 {}
+impl crate::private::Sealed for TMR2 {}
+impl crate::Valid for TMR2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -359,8 +359,8 @@ pub struct TMR3 {
     addr: u32,
 }
 
-impl private::Sealed for TMR3 {}
-impl Valid for TMR3 {}
+impl crate::private::Sealed for TMR3 {}
+impl crate::Valid for TMR3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -521,8 +521,8 @@ pub struct TMR4 {
     addr: u32,
 }
 
-impl private::Sealed for TMR4 {}
-impl Valid for TMR4 {}
+impl crate::private::Sealed for TMR4 {}
+impl crate::Valid for TMR4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

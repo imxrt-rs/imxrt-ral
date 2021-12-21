@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::gpio::private;
-pub use crate::imxrt106::peripherals::gpio::{Instance, Valid};
+pub use crate::imxrt106::peripherals::gpio::Instance;
 pub use crate::imxrt106::peripherals::gpio::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::gpio::{
     DR, DR_CLEAR, DR_SET, DR_TOGGLE, EDGE_SEL, GDIR, ICR1, ICR2, IMR, ISR, PSR,
 };
@@ -31,8 +31,8 @@ pub struct GPIO1 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO1 {}
-impl Valid for GPIO1 {}
+impl crate::private::Sealed for GPIO1 {}
+impl crate::Valid for GPIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -173,8 +173,8 @@ pub struct GPIO2 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO2 {}
-impl Valid for GPIO2 {}
+impl crate::private::Sealed for GPIO2 {}
+impl crate::Valid for GPIO2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -299,8 +299,8 @@ pub struct GPIO3 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO3 {}
-impl Valid for GPIO3 {}
+impl crate::private::Sealed for GPIO3 {}
+impl crate::Valid for GPIO3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -425,8 +425,8 @@ pub struct GPIO4 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO4 {}
-impl Valid for GPIO4 {}
+impl crate::private::Sealed for GPIO4 {}
+impl crate::Valid for GPIO4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -551,8 +551,8 @@ pub struct GPIO5 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO5 {}
-impl Valid for GPIO5 {}
+impl crate::private::Sealed for GPIO5 {}
+impl crate::Valid for GPIO5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -677,8 +677,8 @@ pub struct GPIO6 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO6 {}
-impl Valid for GPIO6 {}
+impl crate::private::Sealed for GPIO6 {}
+impl crate::Valid for GPIO6 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -797,8 +797,8 @@ pub struct GPIO7 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO7 {}
-impl Valid for GPIO7 {}
+impl crate::private::Sealed for GPIO7 {}
+impl crate::Valid for GPIO7 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -917,8 +917,8 @@ pub struct GPIO8 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO8 {}
-impl Valid for GPIO8 {}
+impl crate::private::Sealed for GPIO8 {}
+impl crate::Valid for GPIO8 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1037,8 +1037,8 @@ pub struct GPIO9 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO9 {}
-impl Valid for GPIO9 {}
+impl crate::private::Sealed for GPIO9 {}
+impl crate::Valid for GPIO9 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

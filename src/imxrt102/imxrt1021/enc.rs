@@ -1166,13 +1166,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The ENC1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type ENC1 = Instance<1>;
@@ -1191,8 +1184,8 @@ pub struct ENC1 {
     addr: u32,
 }
 
-impl private::Sealed for ENC1 {}
-impl Valid for ENC1 {}
+impl crate::private::Sealed for ENC1 {}
+impl crate::Valid for ENC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1320,8 +1313,8 @@ pub struct ENC2 {
     addr: u32,
 }
 
-impl private::Sealed for ENC2 {}
-impl Valid for ENC2 {}
+impl crate::private::Sealed for ENC2 {}
+impl crate::Valid for ENC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

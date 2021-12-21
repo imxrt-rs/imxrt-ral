@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::pwm::private;
-pub use crate::imxrt105::peripherals::pwm::{Instance, Valid};
+pub use crate::imxrt105::peripherals::pwm::Instance;
 pub use crate::imxrt105::peripherals::pwm::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::pwm::{
     DTSRCSEL, FCTRL0, FCTRL20, FFILT0, FSTS0, FTST0, MASK, MCTRL, MCTRL2, OUTEN, SMCAPTCOMPA0,
     SMCAPTCOMPA1, SMCAPTCOMPA2, SMCAPTCOMPA3, SMCAPTCOMPB0, SMCAPTCOMPB1, SMCAPTCOMPB2,
@@ -53,8 +53,8 @@ pub struct PWM1 {
     addr: u32,
 }
 
-impl private::Sealed for PWM1 {}
-impl Valid for PWM1 {}
+impl crate::private::Sealed for PWM1 {}
+impl crate::Valid for PWM1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -357,8 +357,8 @@ pub struct PWM2 {
     addr: u32,
 }
 
-impl private::Sealed for PWM2 {}
-impl Valid for PWM2 {}
+impl crate::private::Sealed for PWM2 {}
+impl crate::Valid for PWM2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -661,8 +661,8 @@ pub struct PWM3 {
     addr: u32,
 }
 
-impl private::Sealed for PWM3 {}
-impl Valid for PWM3 {}
+impl crate::private::Sealed for PWM3 {}
+impl crate::Valid for PWM3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -965,8 +965,8 @@ pub struct PWM4 {
     addr: u32,
 }
 
-impl private::Sealed for PWM4 {}
-impl Valid for PWM4 {}
+impl crate::private::Sealed for PWM4 {}
+impl crate::Valid for PWM4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

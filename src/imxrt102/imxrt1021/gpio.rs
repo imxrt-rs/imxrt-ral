@@ -702,13 +702,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The GPIO1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type GPIO1 = Instance<1>;
@@ -727,8 +720,8 @@ pub struct GPIO1 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO1 {}
-impl Valid for GPIO1 {}
+impl crate::private::Sealed for GPIO1 {}
+impl crate::Valid for GPIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -869,8 +862,8 @@ pub struct GPIO2 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO2 {}
-impl Valid for GPIO2 {}
+impl crate::private::Sealed for GPIO2 {}
+impl crate::Valid for GPIO2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -995,8 +988,8 @@ pub struct GPIO3 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO3 {}
-impl Valid for GPIO3 {}
+impl crate::private::Sealed for GPIO3 {}
+impl crate::Valid for GPIO3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1121,8 +1114,8 @@ pub struct GPIO5 {
     addr: u32,
 }
 
-impl private::Sealed for GPIO5 {}
-impl Valid for GPIO5 {}
+impl crate::private::Sealed for GPIO5 {}
+impl crate::Valid for GPIO5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

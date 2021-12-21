@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::pgc::private;
-pub use crate::imxrt106::peripherals::pgc::{Instance, Valid};
+pub use crate::imxrt106::peripherals::pgc::Instance;
 pub use crate::imxrt106::peripherals::pgc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::pgc::{
     CPU_CTRL, CPU_PDNSCR, CPU_PUPSCR, CPU_SR, MEGA_CTRL, MEGA_PDNSCR, MEGA_PUPSCR, MEGA_SR,
 };
@@ -31,8 +31,8 @@ pub struct PGC {
     addr: u32,
 }
 
-impl private::Sealed for PGC {}
-impl Valid for PGC {}
+impl crate::private::Sealed for PGC {}
+impl crate::Valid for PGC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

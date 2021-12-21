@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::xbarb::private;
-pub use crate::imxrt105::peripherals::xbarb::{Instance, Valid};
+pub use crate::imxrt105::peripherals::xbarb::Instance;
 pub use crate::imxrt105::peripherals::xbarb::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5, SEL6, SEL7};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct XBARB2 {
     addr: u32,
 }
 
-impl private::Sealed for XBARB2 {}
-impl Valid for XBARB2 {}
+impl crate::private::Sealed for XBARB2 {}
+impl crate::Valid for XBARB2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -146,8 +146,8 @@ pub struct XBARB3 {
     addr: u32,
 }
 
-impl private::Sealed for XBARB3 {}
-impl Valid for XBARB3 {}
+impl crate::private::Sealed for XBARB3 {}
+impl crate::Valid for XBARB3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

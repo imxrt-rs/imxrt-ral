@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::iomuxc_snvs_gpr::private;
-pub use crate::imxrt106::peripherals::iomuxc_snvs_gpr::{Instance, Valid};
+pub use crate::imxrt106::peripherals::iomuxc_snvs_gpr::Instance;
 pub use crate::imxrt106::peripherals::iomuxc_snvs_gpr::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::iomuxc_snvs_gpr::{GPR0, GPR1, GPR2, GPR3};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct IOMUXC_SNVS_GPR {
     addr: u32,
 }
 
-impl private::Sealed for IOMUXC_SNVS_GPR {}
-impl Valid for IOMUXC_SNVS_GPR {}
+impl crate::private::Sealed for IOMUXC_SNVS_GPR {}
+impl crate::Valid for IOMUXC_SNVS_GPR {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

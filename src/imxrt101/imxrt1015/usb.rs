@@ -2,9 +2,9 @@
 #![allow(non_camel_case_types)]
 //! USB
 
-use crate::imxrt101::peripherals::usb::private;
-pub use crate::imxrt101::peripherals::usb::{Instance, Valid};
+pub use crate::imxrt101::peripherals::usb::Instance;
 pub use crate::imxrt101::peripherals::usb::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::usb::{
     ASYNCLISTADDR, BURSTSIZE, CAPLENGTH, CONFIGFLAG, DCCPARAMS, DCIVERSION, DEVICEADDR,
     ENDPTCOMPLETE, ENDPTCTRL0, ENDPTCTRL1, ENDPTCTRL2, ENDPTCTRL3, ENDPTCTRL4, ENDPTCTRL5,
@@ -34,8 +34,8 @@ pub struct USB {
     addr: u32,
 }
 
-impl private::Sealed for USB {}
-impl Valid for USB {}
+impl crate::private::Sealed for USB {}
+impl crate::Valid for USB {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

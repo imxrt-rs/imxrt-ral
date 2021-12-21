@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::iomuxc_gpr::private;
-pub use crate::imxrt106::peripherals::iomuxc_gpr::{Instance, Valid};
+pub use crate::imxrt106::peripherals::iomuxc_gpr::Instance;
 pub use crate::imxrt106::peripherals::iomuxc_gpr::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::iomuxc_gpr::{
     GPR0, GPR1, GPR10, GPR11, GPR12, GPR13, GPR14, GPR15, GPR16, GPR17, GPR18, GPR19, GPR2, GPR20,
     GPR21, GPR22, GPR23, GPR24, GPR25, GPR26, GPR27, GPR28, GPR29, GPR3, GPR30, GPR31, GPR32,
@@ -33,8 +33,8 @@ pub struct IOMUXC_GPR {
     addr: u32,
 }
 
-impl private::Sealed for IOMUXC_GPR {}
-impl Valid for IOMUXC_GPR {}
+impl crate::private::Sealed for IOMUXC_GPR {}
+impl crate::Valid for IOMUXC_GPR {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::can::private;
-pub use crate::imxrt106::peripherals::can::{Instance, Valid};
+pub use crate::imxrt106::peripherals::can::Instance;
 pub use crate::imxrt106::peripherals::can::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::can::{
     CRCR, CTRL1, CTRL2, DBG1, DBG2, ECR, ESR1, ESR2, GFWR, IFLAG1, IFLAG2, IMASK1, IMASK2, MCR,
     RX14MASK, RX15MASK, RXFGMASK, RXFIR, RXIMR0, RXIMR1, RXIMR10, RXIMR11, RXIMR12, RXIMR13,
@@ -38,8 +38,8 @@ pub struct CAN1 {
     addr: u32,
 }
 
-impl private::Sealed for CAN1 {}
-impl Valid for CAN1 {}
+impl crate::private::Sealed for CAN1 {}
+impl crate::Valid for CAN1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -231,8 +231,8 @@ pub struct CAN2 {
     addr: u32,
 }
 
-impl private::Sealed for CAN2 {}
-impl Valid for CAN2 {}
+impl crate::private::Sealed for CAN2 {}
+impl crate::Valid for CAN2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

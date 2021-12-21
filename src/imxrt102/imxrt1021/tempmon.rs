@@ -299,13 +299,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The TEMPMON peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type TEMPMON = Instance<0>;
@@ -324,8 +317,8 @@ pub struct TEMPMON {
     addr: u32,
 }
 
-impl private::Sealed for TEMPMON {}
-impl Valid for TEMPMON {}
+impl crate::private::Sealed for TEMPMON {}
+impl crate::Valid for TEMPMON {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

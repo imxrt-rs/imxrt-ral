@@ -647,13 +647,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The AIPSTZ1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type AIPSTZ1 = Instance<1>;
@@ -672,8 +665,8 @@ pub struct AIPSTZ1 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ1 {}
-impl Valid for AIPSTZ1 {}
+impl crate::private::Sealed for AIPSTZ1 {}
+impl crate::Valid for AIPSTZ1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -787,8 +780,8 @@ pub struct AIPSTZ2 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ2 {}
-impl Valid for AIPSTZ2 {}
+impl crate::private::Sealed for AIPSTZ2 {}
+impl crate::Valid for AIPSTZ2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -902,8 +895,8 @@ pub struct AIPSTZ3 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ3 {}
-impl Valid for AIPSTZ3 {}
+impl crate::private::Sealed for AIPSTZ3 {}
+impl crate::Valid for AIPSTZ3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1017,8 +1010,8 @@ pub struct AIPSTZ4 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ4 {}
-impl Valid for AIPSTZ4 {}
+impl crate::private::Sealed for AIPSTZ4 {}
+impl crate::Valid for AIPSTZ4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

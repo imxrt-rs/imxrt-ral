@@ -2,9 +2,9 @@
 #![allow(non_camel_case_types)]
 //! Crossbar Switch
 
-use crate::imxrt101::peripherals::xbara::private;
-pub use crate::imxrt101::peripherals::xbara::{Instance, Valid};
+pub use crate::imxrt101::peripherals::xbara::Instance;
 pub use crate::imxrt101::peripherals::xbara::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::xbara::{
     CTRL0, CTRL1, SEL0, SEL1, SEL10, SEL11, SEL12, SEL13, SEL14, SEL15, SEL16, SEL17, SEL18, SEL19,
     SEL2, SEL20, SEL21, SEL22, SEL23, SEL24, SEL25, SEL26, SEL27, SEL28, SEL29, SEL3, SEL30, SEL31,
@@ -33,8 +33,8 @@ pub struct XBARA {
     addr: u32,
 }
 
-impl private::Sealed for XBARA {}
-impl Valid for XBARA {}
+impl crate::private::Sealed for XBARA {}
+impl crate::Valid for XBARA {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

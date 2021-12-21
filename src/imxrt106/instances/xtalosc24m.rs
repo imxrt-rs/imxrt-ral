@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::xtalosc24m::private;
-pub use crate::imxrt106::peripherals::xtalosc24m::{Instance, Valid};
+pub use crate::imxrt106::peripherals::xtalosc24m::Instance;
 pub use crate::imxrt106::peripherals::xtalosc24m::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::xtalosc24m::{
     LOWPWR_CTRL, LOWPWR_CTRL_CLR, LOWPWR_CTRL_SET, LOWPWR_CTRL_TOG, MISC0, MISC0_CLR, MISC0_SET,
     MISC0_TOG, OSC_CONFIG0, OSC_CONFIG0_CLR, OSC_CONFIG0_SET, OSC_CONFIG0_TOG, OSC_CONFIG1,
@@ -34,8 +34,8 @@ pub struct XTALOSC24M {
     addr: u32,
 }
 
-impl private::Sealed for XTALOSC24M {}
-impl Valid for XTALOSC24M {}
+impl crate::private::Sealed for XTALOSC24M {}
+impl crate::Valid for XTALOSC24M {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::trng::private;
-pub use crate::imxrt105::peripherals::trng::{Instance, Valid};
+pub use crate::imxrt105::peripherals::trng::Instance;
 pub use crate::imxrt105::peripherals::trng::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::trng::{
     ENT0, ENT1, ENT10, ENT11, ENT12, ENT13, ENT14, ENT15, ENT2, ENT3, ENT4, ENT5, ENT6, ENT7, ENT8,
     ENT9, FRQ, FRQMIN, INT_CTRL, INT_MASK, INT_STATUS, MCTL, PKR, PKRCNT10, PKRCNT32, PKRCNT54,
@@ -34,8 +34,8 @@ pub struct TRNG {
     addr: u32,
 }
 
-impl private::Sealed for TRNG {}
-impl Valid for TRNG {}
+impl crate::private::Sealed for TRNG {}
+impl crate::Valid for TRNG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::lcdif::private;
-pub use crate::imxrt106::peripherals::lcdif::{Instance, Valid};
+pub use crate::imxrt106::peripherals::lcdif::Instance;
 pub use crate::imxrt106::peripherals::lcdif::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::lcdif::{
     BM_ERROR_STAT, CRC_STAT, CTRL, CTRL1, CTRL1_CLR, CTRL1_SET, CTRL1_TOG, CTRL2, CTRL2_CLR,
     CTRL2_SET, CTRL2_TOG, CTRL_CLR, CTRL_SET, CTRL_TOG, CUR_BUF, LUT0_ADDR, LUT0_DATA, LUT1_ADDR,
@@ -41,8 +41,8 @@ pub struct LCDIF {
     addr: u32,
 }
 
-impl private::Sealed for LCDIF {}
-impl Valid for LCDIF {}
+impl crate::private::Sealed for LCDIF {}
+impl crate::Valid for LCDIF {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

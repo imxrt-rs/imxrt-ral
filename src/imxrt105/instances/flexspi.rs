@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::flexspi::private;
-pub use crate::imxrt105::peripherals::flexspi::{Instance, Valid};
+pub use crate::imxrt105::peripherals::flexspi::Instance;
 pub use crate::imxrt105::peripherals::flexspi::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::flexspi::{
     AHBCR, AHBRXBUF0CR0, AHBRXBUF1CR0, AHBRXBUF2CR0, AHBRXBUF3CR0, AHBSPNDSTS, DLLCRA, DLLCRB,
     FLSHA1CR0, FLSHA2CR0, FLSHB1CR0, FLSHB2CR0, FLSHCR1A1, FLSHCR1A2, FLSHCR1B1, FLSHCR1B2,
@@ -44,8 +44,8 @@ pub struct FLEXSPI {
     addr: u32,
 }
 
-impl private::Sealed for FLEXSPI {}
-impl Valid for FLEXSPI {}
+impl crate::private::Sealed for FLEXSPI {}
+impl crate::Valid for FLEXSPI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

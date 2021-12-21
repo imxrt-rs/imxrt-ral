@@ -4176,13 +4176,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The CCM peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type CCM = Instance<0>;
@@ -4201,8 +4194,8 @@ pub struct CCM {
     addr: u32,
 }
 
-impl private::Sealed for CCM {}
-impl Valid for CCM {}
+impl crate::private::Sealed for CCM {}
+impl crate::Valid for CCM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

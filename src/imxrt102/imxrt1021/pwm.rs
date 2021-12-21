@@ -5275,13 +5275,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The PWM1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type PWM1 = Instance<1>;
@@ -5300,8 +5293,8 @@ pub struct PWM1 {
     addr: u32,
 }
 
-impl private::Sealed for PWM1 {}
-impl Valid for PWM1 {}
+impl crate::private::Sealed for PWM1 {}
+impl crate::Valid for PWM1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -5604,8 +5597,8 @@ pub struct PWM2 {
     addr: u32,
 }
 
-impl private::Sealed for PWM2 {}
-impl Valid for PWM2 {}
+impl crate::private::Sealed for PWM2 {}
+impl crate::Valid for PWM2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

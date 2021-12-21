@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-use crate::imxrt101::peripherals::ccm_analog::private;
-pub use crate::imxrt101::peripherals::ccm_analog::{Instance, Valid};
+pub use crate::imxrt101::peripherals::ccm_analog::Instance;
 pub use crate::imxrt101::peripherals::ccm_analog::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::ccm_analog::{
     MISC0, MISC0_CLR, MISC0_SET, MISC0_TOG, MISC1, MISC1_CLR, MISC1_SET, MISC1_TOG, MISC2,
     MISC2_CLR, MISC2_SET, MISC2_TOG, PFD_480, PFD_480_CLR, PFD_480_SET, PFD_480_TOG, PFD_528,
@@ -36,8 +36,8 @@ pub struct CCM_ANALOG {
     addr: u32,
 }
 
-impl private::Sealed for CCM_ANALOG {}
-impl Valid for CCM_ANALOG {}
+impl crate::private::Sealed for CCM_ANALOG {}
+impl crate::Valid for CCM_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

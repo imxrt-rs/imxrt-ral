@@ -1074,13 +1074,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The XTALOSC24M peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type XTALOSC24M = Instance<0>;
@@ -1099,8 +1092,8 @@ pub struct XTALOSC24M {
     addr: u32,
 }
 
-impl private::Sealed for XTALOSC24M {}
-impl Valid for XTALOSC24M {}
+impl crate::private::Sealed for XTALOSC24M {}
+impl crate::Valid for XTALOSC24M {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

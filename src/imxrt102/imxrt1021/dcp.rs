@@ -2411,13 +2411,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The DCP peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type DCP = Instance<0>;
@@ -2436,8 +2429,8 @@ pub struct DCP {
     addr: u32,
 }
 
-impl private::Sealed for DCP {}
-impl Valid for DCP {}
+impl crate::private::Sealed for DCP {}
+impl crate::Valid for DCP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

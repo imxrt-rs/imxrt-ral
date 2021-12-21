@@ -1953,13 +1953,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The CSI peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type CSI = Instance<0>;
@@ -1978,8 +1971,8 @@ pub struct CSI {
     addr: u32,
 }
 
-impl private::Sealed for CSI {}
-impl Valid for CSI {}
+impl crate::private::Sealed for CSI {}
+impl crate::Valid for CSI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

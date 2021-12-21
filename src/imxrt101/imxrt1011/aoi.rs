@@ -2,9 +2,9 @@
 #![allow(non_camel_case_types)]
 //! AND/OR/INVERT module
 
-use crate::imxrt101::peripherals::aoi::private;
-pub use crate::imxrt101::peripherals::aoi::{Instance, Valid};
+pub use crate::imxrt101::peripherals::aoi::Instance;
 pub use crate::imxrt101::peripherals::aoi::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::aoi::{
     BFCRT010, BFCRT011, BFCRT012, BFCRT013, BFCRT230, BFCRT231, BFCRT232, BFCRT233,
 };
@@ -29,8 +29,8 @@ pub struct AOI {
     addr: u32,
 }
 
-impl private::Sealed for AOI {}
-impl Valid for AOI {}
+impl crate::private::Sealed for AOI {}
+impl crate::Valid for AOI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

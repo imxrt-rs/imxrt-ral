@@ -3297,13 +3297,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The SNVS peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type SNVS = Instance<0>;
@@ -3322,8 +3315,8 @@ pub struct SNVS {
     addr: u32,
 }
 
-impl private::Sealed for SNVS {}
-impl Valid for SNVS {}
+impl crate::private::Sealed for SNVS {}
+impl crate::Valid for SNVS {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

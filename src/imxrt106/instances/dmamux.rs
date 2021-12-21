@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::dmamux::private;
-pub use crate::imxrt106::peripherals::dmamux::{Instance, Valid};
+pub use crate::imxrt106::peripherals::dmamux::Instance;
 pub use crate::imxrt106::peripherals::dmamux::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::dmamux::{
     CHCFG0, CHCFG1, CHCFG10, CHCFG11, CHCFG12, CHCFG13, CHCFG14, CHCFG15, CHCFG16, CHCFG17,
     CHCFG18, CHCFG19, CHCFG2, CHCFG20, CHCFG21, CHCFG22, CHCFG23, CHCFG24, CHCFG25, CHCFG26,
@@ -34,8 +34,8 @@ pub struct DMAMUX {
     addr: u32,
 }
 
-impl private::Sealed for DMAMUX {}
-impl Valid for DMAMUX {}
+impl crate::private::Sealed for DMAMUX {}
+impl crate::Valid for DMAMUX {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

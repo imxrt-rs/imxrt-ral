@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-use crate::imxrt101::peripherals::flexio1::private;
-pub use crate::imxrt101::peripherals::flexio1::{Instance, Valid};
+pub use crate::imxrt101::peripherals::flexio1::Instance;
 pub use crate::imxrt101::peripherals::flexio1::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::flexio1::{
     CTRL, PARAM, PIN, SHIFTBUF0, SHIFTBUF1, SHIFTBUF2, SHIFTBUF3, SHIFTBUF4, SHIFTBUF5, SHIFTBUF6,
     SHIFTBUF7, SHIFTBUFBBS0, SHIFTBUFBBS1, SHIFTBUFBBS2, SHIFTBUFBBS3, SHIFTBUFBBS4, SHIFTBUFBBS5,
@@ -45,8 +45,8 @@ pub struct FLEXIO1 {
     addr: u32,
 }
 
-impl private::Sealed for FLEXIO1 {}
-impl Valid for FLEXIO1 {}
+impl crate::private::Sealed for FLEXIO1 {}
+impl crate::Valid for FLEXIO1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

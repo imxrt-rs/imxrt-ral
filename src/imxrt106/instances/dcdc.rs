@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::dcdc::private;
-pub use crate::imxrt106::peripherals::dcdc::{Instance, Valid};
+pub use crate::imxrt106::peripherals::dcdc::Instance;
 pub use crate::imxrt106::peripherals::dcdc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::dcdc::{REG0, REG1, REG2, REG3};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct DCDC {
     addr: u32,
 }
 
-impl private::Sealed for DCDC {}
-impl Valid for DCDC {}
+impl crate::private::Sealed for DCDC {}
+impl crate::Valid for DCDC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

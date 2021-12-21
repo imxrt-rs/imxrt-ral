@@ -2538,13 +2538,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The LCDIF peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type LCDIF = Instance<0>;
@@ -2563,8 +2556,8 @@ pub struct LCDIF {
     addr: u32,
 }
 
-impl private::Sealed for LCDIF {}
-impl Valid for LCDIF {}
+impl crate::private::Sealed for LCDIF {}
+impl crate::Valid for LCDIF {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

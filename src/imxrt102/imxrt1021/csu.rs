@@ -2524,13 +2524,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The CSU peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type CSU = Instance<0>;
@@ -2549,8 +2542,8 @@ pub struct CSU {
     addr: u32,
 }
 
-impl private::Sealed for CSU {}
-impl Valid for CSU {}
+impl crate::private::Sealed for CSU {}
+impl crate::Valid for CSU {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

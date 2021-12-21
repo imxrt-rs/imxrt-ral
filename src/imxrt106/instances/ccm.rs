@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::ccm::private;
-pub use crate::imxrt106::peripherals::ccm::{Instance, Valid};
+pub use crate::imxrt106::peripherals::ccm::Instance;
 pub use crate::imxrt106::peripherals::ccm::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::ccm::{
     CACRR, CBCDR, CBCMR, CCGR0, CCGR1, CCGR2, CCGR3, CCGR4, CCGR5, CCGR6, CCGR7, CCOSR, CCR, CCSR,
     CDCDR, CDHIPR, CGPR, CIMR, CISR, CLPCR, CMEOR, CS1CDR, CS2CDR, CSCDR1, CSCDR2, CSCDR3, CSCMR1,
@@ -33,8 +33,8 @@ pub struct CCM {
     addr: u32,
 }
 
-impl private::Sealed for CCM {}
-impl Valid for CCM {}
+impl crate::private::Sealed for CCM {}
+impl crate::Valid for CCM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

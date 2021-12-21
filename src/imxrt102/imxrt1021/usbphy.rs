@@ -1713,13 +1713,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The USBPHY peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type USBPHY = Instance<0>;
@@ -1738,8 +1731,8 @@ pub struct USBPHY {
     addr: u32,
 }
 
-impl private::Sealed for USBPHY {}
-impl Valid for USBPHY {}
+impl crate::private::Sealed for USBPHY {}
+impl crate::Valid for USBPHY {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

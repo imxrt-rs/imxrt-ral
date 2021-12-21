@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::rtwdog::private;
-pub use crate::imxrt105::peripherals::rtwdog::{Instance, Valid};
+pub use crate::imxrt105::peripherals::rtwdog::Instance;
 pub use crate::imxrt105::peripherals::rtwdog::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::rtwdog::{CNT, CS, TOVAL, WIN};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct RTWDOG {
     addr: u32,
 }
 
-impl private::Sealed for RTWDOG {}
-impl Valid for RTWDOG {}
+impl crate::private::Sealed for RTWDOG {}
+impl crate::Valid for RTWDOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

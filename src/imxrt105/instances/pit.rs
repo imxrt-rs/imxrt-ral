@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::pit::private;
-pub use crate::imxrt105::peripherals::pit::{Instance, Valid};
+pub use crate::imxrt105::peripherals::pit::Instance;
 pub use crate::imxrt105::peripherals::pit::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::pit::{
     CVAL0, CVAL1, CVAL2, CVAL3, LDVAL0, LDVAL1, LDVAL2, LDVAL3, LTMR64H, LTMR64L, MCR, TCTRL0,
     TCTRL1, TCTRL2, TCTRL3, TFLG0, TFLG1, TFLG2, TFLG3,
@@ -32,8 +32,8 @@ pub struct PIT {
     addr: u32,
 }
 
-impl private::Sealed for PIT {}
-impl Valid for PIT {}
+impl crate::private::Sealed for PIT {}
+impl crate::Valid for PIT {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

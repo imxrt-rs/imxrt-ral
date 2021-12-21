@@ -3883,13 +3883,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The FLEXSPI peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type FLEXSPI = Instance<0>;
@@ -3908,8 +3901,8 @@ pub struct FLEXSPI {
     addr: u32,
 }
 
-impl private::Sealed for FLEXSPI {}
-impl Valid for FLEXSPI {}
+impl crate::private::Sealed for FLEXSPI {}
+impl crate::Valid for FLEXSPI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

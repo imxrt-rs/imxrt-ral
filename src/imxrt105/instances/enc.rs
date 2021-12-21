@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::enc::private;
-pub use crate::imxrt105::peripherals::enc::{Instance, Valid};
+pub use crate::imxrt105::peripherals::enc::Instance;
 pub use crate::imxrt105::peripherals::enc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::enc::{
     CTRL, CTRL2, FILT, IMR, LCOMP, LINIT, LMOD, LPOS, LPOSH, POSD, POSDH, REV, REVH, TST, UCOMP,
     UINIT, UMOD, UPOS, UPOSH, WTR,
@@ -32,8 +32,8 @@ pub struct ENC1 {
     addr: u32,
 }
 
-impl private::Sealed for ENC1 {}
-impl Valid for ENC1 {}
+impl crate::private::Sealed for ENC1 {}
+impl crate::Valid for ENC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -161,8 +161,8 @@ pub struct ENC2 {
     addr: u32,
 }
 
-impl private::Sealed for ENC2 {}
-impl Valid for ENC2 {}
+impl crate::private::Sealed for ENC2 {}
+impl crate::Valid for ENC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -290,8 +290,8 @@ pub struct ENC3 {
     addr: u32,
 }
 
-impl private::Sealed for ENC3 {}
-impl Valid for ENC3 {}
+impl crate::private::Sealed for ENC3 {}
+impl crate::Valid for ENC3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -419,8 +419,8 @@ pub struct ENC4 {
     addr: u32,
 }
 
-impl private::Sealed for ENC4 {}
-impl Valid for ENC4 {}
+impl crate::private::Sealed for ENC4 {}
+impl crate::Valid for ENC4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

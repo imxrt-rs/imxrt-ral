@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-use crate::imxrt101::peripherals::ewm::private;
-pub use crate::imxrt101::peripherals::ewm::{Instance, Valid};
+pub use crate::imxrt101::peripherals::ewm::Instance;
 pub use crate::imxrt101::peripherals::ewm::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::ewm::{CLKCTRL, CLKPRESCALER, CMPH, CMPL, CTRL, SERV};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct EWM {
     addr: u32,
 }
 
-impl private::Sealed for EWM {}
-impl Valid for EWM {}
+impl crate::private::Sealed for EWM {}
+impl crate::Valid for EWM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

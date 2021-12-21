@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-use crate::imxrt101::peripherals::gpt::private;
-pub use crate::imxrt101::peripherals::gpt::{Instance, Valid};
+pub use crate::imxrt101::peripherals::gpt::Instance;
 pub use crate::imxrt101::peripherals::gpt::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::gpt::{CNT, CR, ICR1, ICR2, IR, OCR1, OCR2, OCR3, PR, SR};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct GPT1 {
     addr: u32,
 }
 
-impl private::Sealed for GPT1 {}
-impl Valid for GPT1 {}
+impl crate::private::Sealed for GPT1 {}
+impl crate::Valid for GPT1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -148,8 +148,8 @@ pub struct GPT2 {
     addr: u32,
 }
 
-impl private::Sealed for GPT2 {}
-impl Valid for GPT2 {}
+impl crate::private::Sealed for GPT2 {}
+impl crate::Valid for GPT2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

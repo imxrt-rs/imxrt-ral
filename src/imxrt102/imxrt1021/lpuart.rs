@@ -2454,13 +2454,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The LPUART1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type LPUART1 = Instance<1>;
@@ -2479,8 +2472,8 @@ pub struct LPUART1 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART1 {}
-impl Valid for LPUART1 {}
+impl crate::private::Sealed for LPUART1 {}
+impl crate::Valid for LPUART1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2600,8 +2593,8 @@ pub struct LPUART2 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART2 {}
-impl Valid for LPUART2 {}
+impl crate::private::Sealed for LPUART2 {}
+impl crate::Valid for LPUART2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2721,8 +2714,8 @@ pub struct LPUART3 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART3 {}
-impl Valid for LPUART3 {}
+impl crate::private::Sealed for LPUART3 {}
+impl crate::Valid for LPUART3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2842,8 +2835,8 @@ pub struct LPUART4 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART4 {}
-impl Valid for LPUART4 {}
+impl crate::private::Sealed for LPUART4 {}
+impl crate::Valid for LPUART4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -2963,8 +2956,8 @@ pub struct LPUART5 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART5 {}
-impl Valid for LPUART5 {}
+impl crate::private::Sealed for LPUART5 {}
+impl crate::Valid for LPUART5 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -3084,8 +3077,8 @@ pub struct LPUART6 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART6 {}
-impl Valid for LPUART6 {}
+impl crate::private::Sealed for LPUART6 {}
+impl crate::Valid for LPUART6 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -3205,8 +3198,8 @@ pub struct LPUART7 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART7 {}
-impl Valid for LPUART7 {}
+impl crate::private::Sealed for LPUART7 {}
+impl crate::Valid for LPUART7 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -3326,8 +3319,8 @@ pub struct LPUART8 {
     addr: u32,
 }
 
-impl private::Sealed for LPUART8 {}
-impl Valid for LPUART8 {}
+impl crate::private::Sealed for LPUART8 {}
+impl crate::Valid for LPUART8 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

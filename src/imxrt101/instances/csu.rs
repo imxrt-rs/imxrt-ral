@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-use crate::imxrt101::peripherals::csu::private;
-pub use crate::imxrt101::peripherals::csu::{Instance, Valid};
+pub use crate::imxrt101::peripherals::csu::Instance;
 pub use crate::imxrt101::peripherals::csu::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::csu::{
     CSL0, CSL1, CSL10, CSL11, CSL12, CSL13, CSL14, CSL15, CSL16, CSL17, CSL18, CSL19, CSL2, CSL20,
     CSL21, CSL22, CSL23, CSL24, CSL25, CSL26, CSL27, CSL28, CSL29, CSL3, CSL30, CSL31, CSL4, CSL5,
@@ -33,8 +33,8 @@ pub struct CSU {
     addr: u32,
 }
 
-impl private::Sealed for CSU {}
-impl Valid for CSU {}
+impl crate::private::Sealed for CSU {}
+impl crate::Valid for CSU {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::lpi2c::private;
-pub use crate::imxrt106::peripherals::lpi2c::{Instance, Valid};
+pub use crate::imxrt106::peripherals::lpi2c::Instance;
 pub use crate::imxrt106::peripherals::lpi2c::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::lpi2c::{
     MCCR0, MCCR1, MCFGR0, MCFGR1, MCFGR2, MCFGR3, MCR, MDER, MDMR, MFCR, MFSR, MIER, MRDR, MSR,
     MTDR, PARAM, SAMR, SASR, SCFGR1, SCFGR2, SCR, SDER, SIER, SRDR, SSR, STAR, STDR, VERID,
@@ -32,8 +32,8 @@ pub struct LPI2C1 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C1 {}
-impl Valid for LPI2C1 {}
+impl crate::private::Sealed for LPI2C1 {}
+impl crate::Valid for LPI2C1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -169,8 +169,8 @@ pub struct LPI2C2 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C2 {}
-impl Valid for LPI2C2 {}
+impl crate::private::Sealed for LPI2C2 {}
+impl crate::Valid for LPI2C2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -306,8 +306,8 @@ pub struct LPI2C3 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C3 {}
-impl Valid for LPI2C3 {}
+impl crate::private::Sealed for LPI2C3 {}
+impl crate::Valid for LPI2C3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -443,8 +443,8 @@ pub struct LPI2C4 {
     addr: u32,
 }
 
-impl private::Sealed for LPI2C4 {}
-impl Valid for LPI2C4 {}
+impl crate::private::Sealed for LPI2C4 {}
+impl crate::Valid for LPI2C4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

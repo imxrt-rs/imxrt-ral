@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::sai::private;
-pub use crate::imxrt106::peripherals::sai::{Instance, Valid};
+pub use crate::imxrt106::peripherals::sai::Instance;
 pub use crate::imxrt106::peripherals::sai::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::sai::{
     PARAM, RCR1, RCR2, RCR3, RCR4, RCR5, RCSR, RDR0, RDR1, RDR2, RDR3, RFR0, RFR1, RFR2, RFR3, RMR,
     TCR1, TCR2, TCR3, TCR4, TCR5, TCSR, TDR0, TDR1, TDR2, TDR3, TFR0, TFR1, TFR2, TFR3, TMR, VERID,
@@ -32,8 +32,8 @@ pub struct SAI1 {
     addr: u32,
 }
 
-impl private::Sealed for SAI1 {}
-impl Valid for SAI1 {}
+impl crate::private::Sealed for SAI1 {}
+impl crate::Valid for SAI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -173,8 +173,8 @@ pub struct SAI2 {
     addr: u32,
 }
 
-impl private::Sealed for SAI2 {}
-impl Valid for SAI2 {}
+impl crate::private::Sealed for SAI2 {}
+impl crate::Valid for SAI2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -314,8 +314,8 @@ pub struct SAI3 {
     addr: u32,
 }
 
-impl private::Sealed for SAI3 {}
-impl Valid for SAI3 {}
+impl crate::private::Sealed for SAI3 {}
+impl crate::Valid for SAI3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

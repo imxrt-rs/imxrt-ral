@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::bee::private;
-pub use crate::imxrt106::peripherals::bee::{Instance, Valid};
+pub use crate::imxrt106::peripherals::bee::Instance;
 pub use crate::imxrt106::peripherals::bee::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::bee::{
     ADDR_OFFSET0, ADDR_OFFSET1, AES_KEY0_W0, AES_KEY0_W1, AES_KEY0_W2, AES_KEY0_W3, CTRL,
     CTR_NONCE0_W0, CTR_NONCE0_W1, CTR_NONCE0_W2, CTR_NONCE0_W3, CTR_NONCE1_W0, CTR_NONCE1_W1,
@@ -33,8 +33,8 @@ pub struct BEE {
     addr: u32,
 }
 
-impl private::Sealed for BEE {}
-impl Valid for BEE {}
+impl crate::private::Sealed for BEE {}
+impl crate::Valid for BEE {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::iomuxc_snvs::private;
-pub use crate::imxrt106::peripherals::iomuxc_snvs::{Instance, Valid};
+pub use crate::imxrt106::peripherals::iomuxc_snvs::Instance;
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::iomuxc_snvs::{
     SW_MUX_CTL_PAD_PMIC_ON_REQ, SW_MUX_CTL_PAD_PMIC_STBY_REQ, SW_MUX_CTL_PAD_WAKEUP,
     SW_PAD_CTL_PAD_ONOFF, SW_PAD_CTL_PAD_PMIC_ON_REQ, SW_PAD_CTL_PAD_PMIC_STBY_REQ,
@@ -33,8 +33,8 @@ pub struct IOMUXC_SNVS {
     addr: u32,
 }
 
-impl private::Sealed for IOMUXC_SNVS {}
-impl Valid for IOMUXC_SNVS {}
+impl crate::private::Sealed for IOMUXC_SNVS {}
+impl crate::Valid for IOMUXC_SNVS {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

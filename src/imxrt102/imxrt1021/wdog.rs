@@ -454,13 +454,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The WDOG1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type WDOG1 = Instance<1>;
@@ -479,8 +472,8 @@ pub struct WDOG1 {
     addr: u32,
 }
 
-impl private::Sealed for WDOG1 {}
-impl Valid for WDOG1 {}
+impl crate::private::Sealed for WDOG1 {}
+impl crate::Valid for WDOG1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -593,8 +586,8 @@ pub struct WDOG2 {
     addr: u32,
 }
 
-impl private::Sealed for WDOG2 {}
-impl Valid for WDOG2 {}
+impl crate::private::Sealed for WDOG2 {}
+impl crate::Valid for WDOG2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

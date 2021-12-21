@@ -4640,13 +4640,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The USDHC1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type USDHC1 = Instance<1>;
@@ -4665,8 +4658,8 @@ pub struct USDHC1 {
     addr: u32,
 }
 
-impl private::Sealed for USDHC1 {}
-impl Valid for USDHC1 {}
+impl crate::private::Sealed for USDHC1 {}
+impl crate::Valid for USDHC1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -4803,8 +4796,8 @@ pub struct USDHC2 {
     addr: u32,
 }
 
-impl private::Sealed for USDHC2 {}
-impl Valid for USDHC2 {}
+impl crate::private::Sealed for USDHC2 {}
+impl crate::Valid for USDHC2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

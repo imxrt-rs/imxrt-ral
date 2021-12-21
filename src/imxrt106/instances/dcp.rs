@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::dcp::private;
-pub use crate::imxrt106::peripherals::dcp::{Instance, Valid};
+pub use crate::imxrt106::peripherals::dcp::Instance;
 pub use crate::imxrt106::peripherals::dcp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::dcp::{
     CAPABILITY0, CAPABILITY1, CH0CMDPTR, CH0OPTS, CH0OPTS_CLR, CH0OPTS_SET, CH0OPTS_TOG, CH0SEMA,
     CH0STAT, CH0STAT_CLR, CH0STAT_SET, CH0STAT_TOG, CH1CMDPTR, CH1OPTS, CH1OPTS_CLR, CH1OPTS_SET,
@@ -39,8 +39,8 @@ pub struct DCP {
     addr: u32,
 }
 
-impl private::Sealed for DCP {}
-impl Valid for DCP {}
+impl crate::private::Sealed for DCP {}
+impl crate::Valid for DCP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

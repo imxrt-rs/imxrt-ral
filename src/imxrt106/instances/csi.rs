@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::csi::private;
-pub use crate::imxrt106::peripherals::csi::{Instance, Valid};
+pub use crate::imxrt106::peripherals::csi::Instance;
 pub use crate::imxrt106::peripherals::csi::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::csi::{
     CSICR1, CSICR18, CSICR19, CSICR2, CSICR3, CSIDMASA_FB1, CSIDMASA_FB2, CSIDMASA_STATFIFO,
     CSIDMATS_STATFIFO, CSIFBUF_PARA, CSIIMAG_PARA, CSIRFIFO, CSIRXCNT, CSISR, CSISTATFIFO,
@@ -32,8 +32,8 @@ pub struct CSI {
     addr: u32,
 }
 
-impl private::Sealed for CSI {}
-impl Valid for CSI {}
+impl crate::private::Sealed for CSI {}
+impl crate::Valid for CSI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -3397,13 +3397,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The ENET peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type ENET = Instance<0>;
@@ -3422,8 +3415,8 @@ pub struct ENET {
     addr: u32,
 }
 
-impl private::Sealed for ENET {}
-impl Valid for ENET {}
+impl crate::private::Sealed for ENET {}
+impl crate::Valid for ENET {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

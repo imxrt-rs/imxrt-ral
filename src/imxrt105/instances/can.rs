@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::can::private;
-pub use crate::imxrt105::peripherals::can::{Instance, Valid};
+pub use crate::imxrt105::peripherals::can::Instance;
 pub use crate::imxrt105::peripherals::can::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::can::{
     CRCR, CS0, CS1, CS10, CS11, CS12, CS13, CS14, CS15, CS16, CS17, CS18, CS19, CS2, CS20, CS21,
     CS22, CS23, CS24, CS25, CS26, CS27, CS28, CS29, CS3, CS30, CS31, CS32, CS33, CS34, CS35, CS36,
@@ -59,8 +59,8 @@ pub struct CAN1 {
     addr: u32,
 }
 
-impl private::Sealed for CAN1 {}
-impl Valid for CAN1 {}
+impl crate::private::Sealed for CAN1 {}
+impl crate::Valid for CAN1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -508,8 +508,8 @@ pub struct CAN2 {
     addr: u32,
 }
 
-impl private::Sealed for CAN2 {}
-impl Valid for CAN2 {}
+impl crate::private::Sealed for CAN2 {}
+impl crate::Valid for CAN2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

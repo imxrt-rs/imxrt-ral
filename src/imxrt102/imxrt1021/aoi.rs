@@ -586,13 +586,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The AOI peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type AOI = Instance<0>;
@@ -611,8 +604,8 @@ pub struct AOI {
     addr: u32,
 }
 
-impl private::Sealed for AOI {}
-impl Valid for AOI {}
+impl crate::private::Sealed for AOI {}
+impl crate::Valid for AOI {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

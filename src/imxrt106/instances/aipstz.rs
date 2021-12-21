@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::aipstz::private;
-pub use crate::imxrt106::peripherals::aipstz::{Instance, Valid};
+pub use crate::imxrt106::peripherals::aipstz::Instance;
 pub use crate::imxrt106::peripherals::aipstz::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::aipstz::{MPR, OPACR, OPACR1, OPACR2, OPACR3, OPACR4};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct AIPSTZ1 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ1 {}
-impl Valid for AIPSTZ1 {}
+impl crate::private::Sealed for AIPSTZ1 {}
+impl crate::Valid for AIPSTZ1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -144,8 +144,8 @@ pub struct AIPSTZ2 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ2 {}
-impl Valid for AIPSTZ2 {}
+impl crate::private::Sealed for AIPSTZ2 {}
+impl crate::Valid for AIPSTZ2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -259,8 +259,8 @@ pub struct AIPSTZ3 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ3 {}
-impl Valid for AIPSTZ3 {}
+impl crate::private::Sealed for AIPSTZ3 {}
+impl crate::Valid for AIPSTZ3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -374,8 +374,8 @@ pub struct AIPSTZ4 {
     addr: u32,
 }
 
-impl private::Sealed for AIPSTZ4 {}
-impl Valid for AIPSTZ4 {}
+impl crate::private::Sealed for AIPSTZ4 {}
+impl crate::Valid for AIPSTZ4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

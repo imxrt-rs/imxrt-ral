@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::usbphy::private;
-pub use crate::imxrt105::peripherals::usbphy::{Instance, Valid};
+pub use crate::imxrt105::peripherals::usbphy::Instance;
 pub use crate::imxrt105::peripherals::usbphy::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::usbphy::{
     CTRL, CTRL_CLR, CTRL_SET, CTRL_TOG, DEBUG, DEBUG0_STATUS, DEBUG1, DEBUG1_CLR, DEBUG1_SET,
     DEBUG1_TOG, DEBUG_CLR, DEBUG_SET, DEBUG_TOG, PWD, PWD_CLR, PWD_SET, PWD_TOG, RX, RX_CLR,
@@ -33,8 +33,8 @@ pub struct USBPHY1 {
     addr: u32,
 }
 
-impl private::Sealed for USBPHY1 {}
-impl Valid for USBPHY1 {}
+impl crate::private::Sealed for USBPHY1 {}
+impl crate::Valid for USBPHY1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -169,8 +169,8 @@ pub struct USBPHY2 {
     addr: u32,
 }
 
-impl private::Sealed for USBPHY2 {}
-impl Valid for USBPHY2 {}
+impl crate::private::Sealed for USBPHY2 {}
+impl crate::Valid for USBPHY2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

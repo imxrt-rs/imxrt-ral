@@ -570,13 +570,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The CMP1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type CMP1 = Instance<1>;
@@ -595,8 +588,8 @@ pub struct CMP1 {
     addr: u32,
 }
 
-impl private::Sealed for CMP1 {}
-impl Valid for CMP1 {}
+impl crate::private::Sealed for CMP1 {}
+impl crate::Valid for CMP1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -710,8 +703,8 @@ pub struct CMP2 {
     addr: u32,
 }
 
-impl private::Sealed for CMP2 {}
-impl Valid for CMP2 {}
+impl crate::private::Sealed for CMP2 {}
+impl crate::Valid for CMP2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -825,8 +818,8 @@ pub struct CMP3 {
     addr: u32,
 }
 
-impl private::Sealed for CMP3 {}
-impl Valid for CMP3 {}
+impl crate::private::Sealed for CMP3 {}
+impl crate::Valid for CMP3 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -940,8 +933,8 @@ pub struct CMP4 {
     addr: u32,
 }
 
-impl private::Sealed for CMP4 {}
-impl Valid for CMP4 {}
+impl crate::private::Sealed for CMP4 {}
+impl crate::Valid for CMP4 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

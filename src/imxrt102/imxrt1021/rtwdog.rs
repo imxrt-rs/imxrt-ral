@@ -464,13 +464,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The RTWDOG peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type RTWDOG = Instance<0>;
@@ -489,8 +482,8 @@ pub struct RTWDOG {
     addr: u32,
 }
 
-impl private::Sealed for RTWDOG {}
-impl Valid for RTWDOG {}
+impl crate::private::Sealed for RTWDOG {}
+impl crate::Valid for RTWDOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

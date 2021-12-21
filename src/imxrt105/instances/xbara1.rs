@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::xbara1::private;
-pub use crate::imxrt105::peripherals::xbara1::{Instance, Valid};
+pub use crate::imxrt105::peripherals::xbara1::Instance;
 pub use crate::imxrt105::peripherals::xbara1::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::xbara1::{
     CTRL0, CTRL1, SEL0, SEL1, SEL10, SEL11, SEL12, SEL13, SEL14, SEL15, SEL16, SEL17, SEL18, SEL19,
     SEL2, SEL20, SEL21, SEL22, SEL23, SEL24, SEL25, SEL26, SEL27, SEL28, SEL29, SEL3, SEL30, SEL31,
@@ -35,8 +35,8 @@ pub struct XBARA1 {
     addr: u32,
 }
 
-impl private::Sealed for XBARA1 {}
-impl Valid for XBARA1 {}
+impl crate::private::Sealed for XBARA1 {}
+impl crate::Valid for XBARA1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

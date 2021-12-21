@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::enet::private;
-pub use crate::imxrt106::peripherals::enet::{Instance, Valid};
+pub use crate::imxrt106::peripherals::enet::Instance;
 pub use crate::imxrt106::peripherals::enet::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::enet::{
     ATCOR, ATCR, ATINC, ATOFF, ATPER, ATSTMP, ATVR, ECR, EIMR, EIR, FTRL, GALR, GAUR, IALR, IAUR,
     IEEE_R_ALIGN, IEEE_R_CRC, IEEE_R_DROP, IEEE_R_FDXFC, IEEE_R_FRAME_OK, IEEE_R_MACERR,
@@ -43,8 +43,8 @@ pub struct ENET1 {
     addr: u32,
 }
 
-impl private::Sealed for ENET1 {}
-impl Valid for ENET1 {}
+impl crate::private::Sealed for ENET1 {}
+impl crate::Valid for ENET1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -257,8 +257,8 @@ pub struct ENET2 {
     addr: u32,
 }
 
-impl private::Sealed for ENET2 {}
-impl Valid for ENET2 {}
+impl crate::private::Sealed for ENET2 {}
+impl crate::Valid for ENET2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

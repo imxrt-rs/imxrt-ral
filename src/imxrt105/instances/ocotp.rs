@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-use crate::imxrt105::peripherals::ocotp::private;
-pub use crate::imxrt105::peripherals::ocotp::{Instance, Valid};
+pub use crate::imxrt105::peripherals::ocotp::Instance;
 pub use crate::imxrt105::peripherals::ocotp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::ocotp::{
     HW_OCOTP_ANA0, HW_OCOTP_ANA1, HW_OCOTP_ANA2, HW_OCOTP_CFG0, HW_OCOTP_CFG1, HW_OCOTP_CFG2,
     HW_OCOTP_CFG3, HW_OCOTP_CFG4, HW_OCOTP_CFG5, HW_OCOTP_CFG6, HW_OCOTP_CTRL, HW_OCOTP_CTRL_CLR,
@@ -40,8 +40,8 @@ pub struct OCOTP {
     addr: u32,
 }
 
-impl private::Sealed for OCOTP {}
-impl Valid for OCOTP {}
+impl crate::private::Sealed for OCOTP {}
+impl crate::Valid for OCOTP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

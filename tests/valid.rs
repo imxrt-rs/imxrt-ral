@@ -13,7 +13,7 @@
 
 fn is_valid<const LPUART_N: u8>() -> bool
 where
-    imxrt_ral::lpuart::Instance<LPUART_N>: imxrt_ral::lpuart::Valid,
+    imxrt_ral::lpuart::Instance<LPUART_N>: imxrt_ral::Valid,
 {
     true
 }

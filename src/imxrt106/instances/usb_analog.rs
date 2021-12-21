@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::usb_analog::private;
-pub use crate::imxrt106::peripherals::usb_analog::{Instance, Valid};
+pub use crate::imxrt106::peripherals::usb_analog::Instance;
 pub use crate::imxrt106::peripherals::usb_analog::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::usb_analog::{
     DIGPROG, USB1_CHRG_DETECT, USB1_CHRG_DETECT_CLR, USB1_CHRG_DETECT_SET, USB1_CHRG_DETECT_STAT,
     USB1_CHRG_DETECT_TOG, USB1_LOOPBACK, USB1_LOOPBACK_CLR, USB1_LOOPBACK_SET, USB1_LOOPBACK_TOG,
@@ -38,8 +38,8 @@ pub struct USB_ANALOG {
     addr: u32,
 }
 
-impl private::Sealed for USB_ANALOG {}
-impl Valid for USB_ANALOG {}
+impl crate::private::Sealed for USB_ANALOG {}
+impl crate::Valid for USB_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

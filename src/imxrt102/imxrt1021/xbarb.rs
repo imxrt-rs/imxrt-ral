@@ -330,13 +330,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The XBARB peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type XBARB = Instance<0>;
@@ -355,8 +348,8 @@ pub struct XBARB {
     addr: u32,
 }
 
-impl private::Sealed for XBARB {}
-impl Valid for XBARB {}
+impl crate::private::Sealed for XBARB {}
+impl crate::Valid for XBARB {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

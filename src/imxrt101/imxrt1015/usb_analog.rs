@@ -579,13 +579,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The USB_ANALOG peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type USB_ANALOG = Instance<0>;
@@ -604,8 +597,8 @@ pub struct USB_ANALOG {
     addr: u32,
 }
 
-impl private::Sealed for USB_ANALOG {}
-impl Valid for USB_ANALOG {}
+impl crate::private::Sealed for USB_ANALOG {}
+impl crate::Valid for USB_ANALOG {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::src::private;
-pub use crate::imxrt106::peripherals::src::{Instance, Valid};
+pub use crate::imxrt106::peripherals::src::Instance;
 pub use crate::imxrt106::peripherals::src::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::src::{
     GPR1, GPR10, GPR2, GPR3, GPR4, GPR5, GPR6, GPR7, GPR8, GPR9, SBMR1, SBMR2, SCR, SRSR,
 };
@@ -31,8 +31,8 @@ pub struct SRC {
     addr: u32,
 }
 
-impl private::Sealed for SRC {}
-impl Valid for SRC {}
+impl crate::private::Sealed for SRC {}
+impl crate::Valid for SRC {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-use crate::imxrt101::peripherals::kpp::private;
-pub use crate::imxrt101::peripherals::kpp::{Instance, Valid};
+pub use crate::imxrt101::peripherals::kpp::Instance;
 pub use crate::imxrt101::peripherals::kpp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::kpp::{KDDR, KPCR, KPDR, KPSR};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct KPP {
     addr: u32,
 }
 
-impl private::Sealed for KPP {}
-impl Valid for KPP {}
+impl crate::private::Sealed for KPP {}
+impl crate::Valid for KPP {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

@@ -5360,13 +5360,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The IOMUXC_GPR peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type IOMUXC_GPR = Instance<0>;
@@ -5385,8 +5378,8 @@ pub struct IOMUXC_GPR {
     addr: u32,
 }
 
-impl private::Sealed for IOMUXC_GPR {}
-impl Valid for IOMUXC_GPR {}
+impl crate::private::Sealed for IOMUXC_GPR {}
+impl crate::Valid for IOMUXC_GPR {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

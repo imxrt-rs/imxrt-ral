@@ -1598,13 +1598,6 @@ impl<const N: u8> Instance<N> {
     }
 }
 
-pub(crate) mod private {
-    pub trait Sealed {}
-}
-
-/// Describes a valid `Instance<N>` for this peripheral.
-pub trait Valid: private::Sealed {}
-
 /// The LPSPI1 peripheral instance.
 #[cfg(not(feature = "doc"))]
 pub type LPSPI1 = Instance<1>;
@@ -1623,8 +1616,8 @@ pub struct LPSPI1 {
     addr: u32,
 }
 
-impl private::Sealed for LPSPI1 {}
-impl Valid for LPSPI1 {}
+impl crate::private::Sealed for LPSPI1 {}
+impl crate::Valid for LPSPI1 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
@@ -1749,8 +1742,8 @@ pub struct LPSPI2 {
     addr: u32,
 }
 
-impl private::Sealed for LPSPI2 {}
-impl Valid for LPSPI2 {}
+impl crate::private::Sealed for LPSPI2 {}
+impl crate::Valid for LPSPI2 {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]

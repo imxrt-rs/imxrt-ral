@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-use crate::imxrt106::peripherals::flexram::private;
-pub use crate::imxrt106::peripherals::flexram::{Instance, Valid};
+pub use crate::imxrt106::peripherals::flexram::Instance;
 pub use crate::imxrt106::peripherals::flexram::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::flexram::{INT_SIG_EN, INT_STATUS, INT_STAT_EN, TCM_CTRL};
 #[cfg(not(feature = "nosync"))]
 use core::sync::atomic::{AtomicBool, Ordering};
@@ -29,8 +29,8 @@ pub struct FLEXRAM {
     addr: u32,
 }
 
-impl private::Sealed for FLEXRAM {}
-impl Valid for FLEXRAM {}
+impl crate::private::Sealed for FLEXRAM {}
+impl crate::Valid for FLEXRAM {}
 
 #[cfg(not(feature = "nosync"))]
 #[allow(renamed_and_removed_lints)]
