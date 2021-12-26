@@ -931,7 +931,7 @@ class PeripheralPrototype(Node):
             df = node.attrib['derivedFrom']
             df_node = svd.find(f".//peripheral[name='{df}']")
             if df_node is None:
-                raise ValueError("Can't find derivedFrom[{df}]")
+                raise ValueError(f"Can't find derivedFrom[{df}]")
             desc = get_string(df_node, 'description', default=desc)
             addr = get_int(node, 'baseAddress', addr)
             registers = df_node.find('registers')
