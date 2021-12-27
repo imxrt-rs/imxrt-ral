@@ -1,0 +1,10 @@
+# The PWM submodules may be represented as a cluster, rather that
+# individually named registers.
+#
+# This file is nearly equivalent to submodule_cluster.yaml, but has
+# "PWM" as the peripheral name, instead of PWM1. We rename the peripheral
+# on the 1015 for consistency with other chip PWM peripheral names.
+
+PWM:
+  _include:
+    - "submodule_cluster_impl.yaml"

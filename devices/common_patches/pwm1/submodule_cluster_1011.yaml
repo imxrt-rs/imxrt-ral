@@ -6,7 +6,7 @@
 # Everything in this is the same as the normal submodule_cluster patch,
 # except for the final phase delay register.
 
-PWM1:
+PWM:
   _cluster:
     "SM%s":
       "SM?CNT": {}

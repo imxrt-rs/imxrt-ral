@@ -702,10 +702,10 @@ pub mod FCTRL0 {
         /// Read-write values
         pub mod RW {
 
-            /// 0b0000: Normal mode. PWM outputs disabled by this fault are not enabled until FSTS\[FFLAGx\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\[FHALF\] and FSTS\[FFULL\] without regard to the state of FSTS\[FFPINx\]. If neither FHALF nor FFULL is setm then the fault condition cannot be cleared. The PWM outputs disabled by this fault input will not be re-enabled until the actual FAULTx input signal de-asserts since the fault input will combinationally disable the PWM outputs (as programmed in DISMAPn).
+            /// 0b0000: Normal mode. PWM outputs disabled by this fault are not enabled until FSTS\[FFLAGx\] is clear at the start of a half cycle or full cycle depending on the state of FSTS\[FFULL\] without regard to the state of FSTS\[FFPINx\]. The PWM outputs disabled by this fault input will not be re-enabled until the actual FAULTx input signal de-asserts since the fault input will combinationally disable the PWM outputs (as programmed in DISMAPn).
             pub const FSAFE_0: u16 = 0b0000;
 
-            /// 0b0001: Safe mode. PWM outputs disabled by this fault are not enabled until FSTS\[FFLAGx\] is clear and FSTS\[FFPINx\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\[FHALF\] and FSTS\[FFULL\]. If neither FHLAF nor FFULL is set, then the fault condition cannot be cleared.
+            /// 0b0001: Safe mode. PWM outputs disabled by this fault are not enabled until FSTS\[FFLAGx\] is clear and FSTS\[FFPINx\] is clear at the start of a half cycle or full cycle depending on the state of FSTS\[FFULL\].
             pub const FSAFE_1: u16 = 0b0001;
         }
     }
@@ -723,10 +723,10 @@ pub mod FCTRL0 {
         /// Read-write values
         pub mod RW {
 
-            /// 0b0000: Manual fault clearing. PWM outputs disabled by this fault are not enabled until FSTS\[FFLAGx\] is clear at the start of a half cycle or full cycle depending the states of FSTS\[FHALF\] and FSTS\[FFULL\]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared. This is further controlled by FCTRL\[FSAFE\].
+            /// 0b0000: Manual fault clearing. PWM outputs disabled by this fault are not enabled until FSTS\[FFLAGx\] is clear at the start of a half cycle or full cycle depending the state of FSTS\[FFULL\]. This is further controlled by FCTRL\[FSAFE\].
             pub const FAUTO_0: u16 = 0b0000;
 
-            /// 0b0001: Automatic fault clearing. PWM outputs disabled by this fault are enabled when FSTS\[FFPINx\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\[FHALF\] and FSTS\[FFULL\] without regard to the state of FSTS\[FFLAGx\]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared.
+            /// 0b0001: Automatic fault clearing. PWM outputs disabled by this fault are enabled when FSTS\[FFPINx\] is clear at the start of a half cycle or full cycle depending on the state of FSTS\[FFULL\] without regard to the state of FSTS\[FFLAGx\].
             pub const FAUTO_1: u16 = 0b0001;
         }
     }
@@ -3573,24 +3573,6 @@ pub mod SMCVAL5CYC0 {
     }
 }
 
-/// Phase Delay Register
-pub mod SMPHASEDLY0 {
-
-    /// Initial Count Register Bits
-    pub mod PHASEDLY {
-        /// Offset (0 bits)
-        pub const offset: u16 = 0;
-        /// Mask (16 bits: 0xffff << 0)
-        pub const mask: u16 = 0xffff << offset;
-        /// Read-only values (empty)
-        pub mod R {}
-        /// Write-only values (empty)
-        pub mod W {}
-        /// Read-write values (empty)
-        pub mod RW {}
-    }
-}
-
 /// Counter Register
 pub mod SMCNT1 {
     pub use super::SMCNT0::CNT;
@@ -3895,11 +3877,6 @@ pub mod SMCVAL51 {
 /// Capture Value 5 Cycle Register
 pub mod SMCVAL5CYC1 {
     pub use super::SMCVAL5CYC0::CVAL5CYC;
-}
-
-/// Phase Delay Register
-pub mod SMPHASEDLY1 {
-    pub use super::SMPHASEDLY0::PHASEDLY;
 }
 
 /// Counter Register
@@ -4208,11 +4185,6 @@ pub mod SMCVAL5CYC2 {
     pub use super::SMCVAL5CYC0::CVAL5CYC;
 }
 
-/// Phase Delay Register
-pub mod SMPHASEDLY2 {
-    pub use super::SMPHASEDLY0::PHASEDLY;
-}
-
 /// Counter Register
 pub mod SMCNT3 {
     pub use super::SMCNT0::CNT;
@@ -4518,11 +4490,6 @@ pub mod SMCVAL53 {
 pub mod SMCVAL5CYC3 {
     pub use super::SMCVAL5CYC0::CVAL5CYC;
 }
-
-/// Phase Delay Register
-pub mod SMPHASEDLY3 {
-    pub use super::SMPHASEDLY0::PHASEDLY;
-}
 #[repr(C)]
 pub struct RegisterBlock {
     /// Counter Register
@@ -4656,11 +4623,7 @@ pub struct RegisterBlock {
     /// Capture Value 5 Cycle Register
     pub SMCVAL5CYC0: RORegister<u16>,
 
-    /// Phase Delay Register
-    pub SMPHASEDLY0: RWRegister<u16>,
-
-    _reserved2: [u32; 1],
-    _reserved3: [u16; 1],
+    _reserved2: [u32; 2],
 
     /// Counter Register
     pub SMCNT1: RORegister<u16>,
@@ -4674,7 +4637,7 @@ pub struct RegisterBlock {
     /// Control Register
     pub SMCTRL1: RWRegister<u16>,
 
-    _reserved4: [u16; 1],
+    _reserved3: [u16; 1],
 
     /// Value Register 0
     pub SMVAL01: RWRegister<u16>,
@@ -4793,11 +4756,7 @@ pub struct RegisterBlock {
     /// Capture Value 5 Cycle Register
     pub SMCVAL5CYC1: RORegister<u16>,
 
-    /// Phase Delay Register
-    pub SMPHASEDLY1: RWRegister<u16>,
-
-    _reserved5: [u32; 1],
-    _reserved6: [u16; 1],
+    _reserved4: [u32; 2],
 
     /// Counter Register
     pub SMCNT2: RORegister<u16>,
@@ -4811,7 +4770,7 @@ pub struct RegisterBlock {
     /// Control Register
     pub SMCTRL2: RWRegister<u16>,
 
-    _reserved7: [u16; 1],
+    _reserved5: [u16; 1],
 
     /// Value Register 0
     pub SMVAL02: RWRegister<u16>,
@@ -4930,11 +4889,7 @@ pub struct RegisterBlock {
     /// Capture Value 5 Cycle Register
     pub SMCVAL5CYC2: RORegister<u16>,
 
-    /// Phase Delay Register
-    pub SMPHASEDLY2: RWRegister<u16>,
-
-    _reserved8: [u32; 1],
-    _reserved9: [u16; 1],
+    _reserved6: [u32; 2],
 
     /// Counter Register
     pub SMCNT3: RORegister<u16>,
@@ -4948,7 +4903,7 @@ pub struct RegisterBlock {
     /// Control Register
     pub SMCTRL3: RWRegister<u16>,
 
-    _reserved10: [u16; 1],
+    _reserved7: [u16; 1],
 
     /// Value Register 0
     pub SMVAL03: RWRegister<u16>,
@@ -5067,11 +5022,7 @@ pub struct RegisterBlock {
     /// Capture Value 5 Cycle Register
     pub SMCVAL5CYC3: RORegister<u16>,
 
-    /// Phase Delay Register
-    pub SMPHASEDLY3: RWRegister<u16>,
-
-    _reserved11: [u32; 1],
-    _reserved12: [u16; 1],
+    _reserved8: [u32; 2],
 
     /// Output Enable Register
     pub OUTEN: RWRegister<u16>,
@@ -5150,7 +5101,6 @@ pub struct ResetValues {
     pub SMCVAL4CYC0: u16,
     pub SMCVAL50: u16,
     pub SMCVAL5CYC0: u16,
-    pub SMPHASEDLY0: u16,
     pub SMCNT1: u16,
     pub SMINIT1: u16,
     pub SMCTRL21: u16,
@@ -5194,7 +5144,6 @@ pub struct ResetValues {
     pub SMCVAL4CYC1: u16,
     pub SMCVAL51: u16,
     pub SMCVAL5CYC1: u16,
-    pub SMPHASEDLY1: u16,
     pub SMCNT2: u16,
     pub SMINIT2: u16,
     pub SMCTRL22: u16,
@@ -5238,7 +5187,6 @@ pub struct ResetValues {
     pub SMCVAL4CYC2: u16,
     pub SMCVAL52: u16,
     pub SMCVAL5CYC2: u16,
-    pub SMPHASEDLY2: u16,
     pub SMCNT3: u16,
     pub SMINIT3: u16,
     pub SMCTRL23: u16,
@@ -5282,7 +5230,6 @@ pub struct ResetValues {
     pub SMCVAL4CYC3: u16,
     pub SMCVAL53: u16,
     pub SMCVAL5CYC3: u16,
-    pub SMPHASEDLY3: u16,
     pub OUTEN: u16,
     pub MASK: u16,
     pub SWCOUT: u16,
@@ -5327,8 +5274,8 @@ impl Instance {
     }
 }
 
-/// Access functions for the PWM1 peripheral instance
-pub mod PWM1 {
+/// Access functions for the PWM peripheral instance
+pub mod PWM {
     use super::ResetValues;
     #[cfg(not(feature = "nosync"))]
     use core::sync::atomic::{AtomicBool, Ordering};
@@ -5338,7 +5285,7 @@ pub mod PWM1 {
 
     #[cfg(not(feature = "nosync"))]
     const INSTANCE: Instance = Instance {
-        addr: 0x401cc000,
+        addr: 0x403dc000,
         _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
@@ -5352,7 +5299,7 @@ pub mod PWM1 {
         intrs: &[],
     };
 
-    /// Reset values for each field in PWM1
+    /// Reset values for each field in PWM
     pub const reset: ResetValues = ResetValues {
         OUTEN: 0x00000000,
         MASK: 0x00000000,
@@ -5408,7 +5355,6 @@ pub mod PWM1 {
         SMCVAL4CYC0: 0x00000000,
         SMCVAL50: 0x00000000,
         SMCVAL5CYC0: 0x00000000,
-        SMPHASEDLY0: 0x00000000,
         SMCNT1: 0x00000000,
         SMINIT1: 0x00000000,
         SMCTRL21: 0x00000000,
@@ -5452,7 +5398,6 @@ pub mod PWM1 {
         SMCVAL4CYC1: 0x00000000,
         SMCVAL51: 0x00000000,
         SMCVAL5CYC1: 0x00000000,
-        SMPHASEDLY1: 0x00000000,
         SMCNT2: 0x00000000,
         SMINIT2: 0x00000000,
         SMCTRL22: 0x00000000,
@@ -5496,7 +5441,6 @@ pub mod PWM1 {
         SMCVAL4CYC2: 0x00000000,
         SMCVAL52: 0x00000000,
         SMCVAL5CYC2: 0x00000000,
-        SMPHASEDLY2: 0x00000000,
         SMCNT3: 0x00000000,
         SMINIT3: 0x00000000,
         SMCTRL23: 0x00000000,
@@ -5540,16 +5484,15 @@ pub mod PWM1 {
         SMCVAL4CYC3: 0x00000000,
         SMCVAL53: 0x00000000,
         SMCVAL5CYC3: 0x00000000,
-        SMPHASEDLY3: 0x00000000,
     };
 
     #[cfg(not(feature = "nosync"))]
     #[allow(renamed_and_removed_lints)]
     #[allow(private_no_mangle_statics)]
     #[no_mangle]
-    static PWM1_TAKEN: AtomicBool = AtomicBool::new(false);
+    static PWM_TAKEN: AtomicBool = AtomicBool::new(false);
 
-    /// Safe access to PWM1
+    /// Safe access to PWM
     ///
     /// This function returns `Some(Instance)` if this instance is not
     /// currently taken, and `None` if it is. This ensures that if you
@@ -5564,7 +5507,7 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub fn take() -> Option<Instance> {
-        let taken = PWM1_TAKEN.swap(true, Ordering::SeqCst);
+        let taken = PWM_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
@@ -5572,7 +5515,7 @@ pub mod PWM1 {
         }
     }
 
-    /// Release exclusive access to PWM1
+    /// Release exclusive access to PWM
     ///
     /// This function allows you to return an `Instance` so that it
     /// is available to `take()` again. This function will panic if
@@ -5583,11 +5526,11 @@ pub mod PWM1 {
     pub fn release(inst: Instance) {
         assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
 
-        let taken = PWM1_TAKEN.swap(false, Ordering::SeqCst);
+        let taken = PWM_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
 
-    /// Unsafely steal PWM1
+    /// Unsafely steal PWM
     ///
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
@@ -5595,11 +5538,11 @@ pub mod PWM1 {
     #[cfg(not(feature = "nosync"))]
     #[inline]
     pub unsafe fn steal() -> Instance {
-        PWM1_TAKEN.store(true, Ordering::SeqCst);
+        PWM_TAKEN.store(true, Ordering::SeqCst);
         INSTANCE
     }
 
-    /// The interrupts associated with PWM1
+    /// The interrupts associated with PWM
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
         crate::interrupt::PWM1_0,
@@ -5609,14 +5552,14 @@ pub mod PWM1 {
         crate::interrupt::PWM1_FAULT,
     ];
 
-    /// The interrupts associated with PWM1
+    /// The interrupts associated with PWM
     ///
     /// Note: the values are invalid for a documentation build.
     #[cfg(feature = "doc")]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
 }
 
-/// Raw pointer to PWM1
+/// Raw pointer to PWM
 ///
 /// Dereferencing this is unsafe because you are not ensured unique
 /// access to the peripheral, so you may encounter data races with
@@ -5625,4 +5568,4 @@ pub mod PWM1 {
 ///
 /// This constant is provided for ease of use in unsafe code: you can
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
-pub const PWM1: *const RegisterBlock = 0x401cc000 as *const _;
+pub const PWM: *const RegisterBlock = 0x403dc000 as *const _;

@@ -16,6 +16,14 @@ consider using the [`cortex-m`][https://crates.io/crates/cortex-m] crate.
 enumerations now implement `cortex_m::interrupt::InterruptNumber`, instead
 of `bare_metal::Nr`.
 
+**BREAKING** The following symbols have been renamed:
+
+- (1011, 1015) The `adc1` module is now `adc`. Rename applies to the peripheral
+  instance, too: `ADC1` is now `ADC`.
+- (1011, 1015) The `pwm1` modules is now `pwm`; similar to the ADC rename, above.
+- (all 1050, 1060 chips) `ENET` is `ENET1`, and `FLEXSPI` is `FLEXSPI1`. The
+  instances that end with '2' are unchanged.
+
 Mark all registers as `#[repr(transparent)]`.
 
 Fix builds with the `"nosync"` feature. Use the `"nosync"` feature to disable

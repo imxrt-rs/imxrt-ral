@@ -23,7 +23,7 @@ pub mod iomuxc_snvs;
 pub use super::instances::ewm;
 pub mod wdog;
 pub use super::instances::rtwdog;
-pub mod adc1;
+pub mod adc;
 pub mod trng;
 pub use super::instances::ccm_analog;
 pub use super::instances::snvs;
@@ -48,7 +48,7 @@ pub mod lpi2c;
 pub mod lpspi;
 pub use super::instances::flexio1;
 pub mod gpio;
-pub mod pwm1;
+pub mod pwm;
 pub mod sai;
 pub mod spdif;
 pub use super::instances::gpt;
@@ -76,7 +76,7 @@ pub struct Peripherals {
     pub WDOG1: wdog::Instance,
     pub WDOG2: wdog::Instance,
     pub RTWDOG: rtwdog::Instance,
-    pub ADC1: adc1::Instance,
+    pub ADC: adc::Instance,
     pub TRNG: trng::Instance,
     pub SNVS: snvs::Instance,
     pub CCM_ANALOG: ccm_analog::Instance,
@@ -108,7 +108,7 @@ pub struct Peripherals {
     pub GPIO1: gpio::Instance,
     pub GPIO5: gpio::Instance,
     pub GPIO2: gpio::Instance,
-    pub PWM1: pwm1::Instance,
+    pub PWM: pwm::Instance,
     pub SPDIF: spdif::Instance,
     pub SAI1: sai::Instance,
     pub SAI3: sai::Instance,
@@ -144,7 +144,7 @@ impl Peripherals {
             WDOG1: wdog::WDOG1::steal(),
             WDOG2: wdog::WDOG2::steal(),
             RTWDOG: rtwdog::RTWDOG::steal(),
-            ADC1: adc1::ADC1::steal(),
+            ADC: adc::ADC::steal(),
             TRNG: trng::TRNG::steal(),
             SNVS: snvs::SNVS::steal(),
             CCM_ANALOG: ccm_analog::CCM_ANALOG::steal(),
@@ -176,7 +176,7 @@ impl Peripherals {
             GPIO1: gpio::GPIO1::steal(),
             GPIO5: gpio::GPIO5::steal(),
             GPIO2: gpio::GPIO2::steal(),
-            PWM1: pwm1::PWM1::steal(),
+            PWM: pwm::PWM::steal(),
             SPDIF: spdif::SPDIF::steal(),
             SAI1: sai::SAI1::steal(),
             SAI3: sai::SAI3::steal(),
