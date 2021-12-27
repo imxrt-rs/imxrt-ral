@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt102/imxrt1021/aipstz.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>aipstz.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt102&#x2F;imxrt1021&#x2F;aipstz.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>aipstz.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1076,12 +1073,11 @@
 <span id="1073">1073</span>
 <span id="1074">1074</span>
 <span id="1075">1075</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! AIPSTZ Control Registers</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::RWRegister</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::RWRegister</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
@@ -1119,7 +1115,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MPROT5::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MPROT5::RW</span>;
     }
 
     <span class="doccomment">/// Master 2 Priviledge, Buffer, Read, Write Control</span>
@@ -1132,7 +1128,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MPROT5::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MPROT5::RW</span>;
     }
 
     <span class="doccomment">/// Master 1 Priviledge, Buffer, Read, Write Control</span>
@@ -1145,7 +1141,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MPROT5::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MPROT5::RW</span>;
     }
 
     <span class="doccomment">/// Master 0 Priviledge, Buffer, Read, Write Control</span>
@@ -1158,7 +1154,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MPROT5::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MPROT5::RW</span>;
     }
 }
 
@@ -1196,7 +1192,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 5</span>
@@ -1209,7 +1205,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 4</span>
@@ -1222,7 +1218,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 3</span>
@@ -1235,7 +1231,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 2</span>
@@ -1248,7 +1244,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 1</span>
@@ -1261,7 +1257,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 0</span>
@@ -1274,7 +1270,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC7::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC7::RW</span>;
     }
 }
 
@@ -1312,7 +1308,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 13</span>
@@ -1325,7 +1321,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 12</span>
@@ -1338,7 +1334,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 11</span>
@@ -1351,7 +1347,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 10</span>
@@ -1364,7 +1360,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 9</span>
@@ -1377,7 +1373,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 8</span>
@@ -1390,7 +1386,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC15::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC15::RW</span>;
     }
 }
 
@@ -1428,7 +1424,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 21</span>
@@ -1441,7 +1437,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 20</span>
@@ -1454,7 +1450,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 19</span>
@@ -1467,7 +1463,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 18</span>
@@ -1480,7 +1476,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 17</span>
@@ -1493,7 +1489,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 16</span>
@@ -1506,7 +1502,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC23::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC23::RW</span>;
     }
 }
 
@@ -1544,7 +1540,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 29</span>
@@ -1557,7 +1553,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 28</span>
@@ -1570,7 +1566,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 27</span>
@@ -1583,7 +1579,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 26</span>
@@ -1596,7 +1592,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 25</span>
@@ -1609,7 +1605,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 
     <span class="doccomment">/// Off-platform Peripheral Access Control 24</span>
@@ -1622,7 +1618,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC31::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC31::RW</span>;
     }
 }
 
@@ -1660,7 +1656,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OPAC33::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OPAC33::RW</span>;
     }
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
@@ -1697,13 +1693,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -1720,19 +1716,19 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
 
 <span class="doccomment">/// Access functions for the AIPSTZ1 peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ1</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
@@ -1774,7 +1770,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -1792,7 +1788,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -1805,20 +1801,20 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">AIPSTZ1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ1</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ1</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to AIPSTZ1</span>
@@ -1834,12 +1830,12 @@
 
 <span class="doccomment">/// Access functions for the AIPSTZ2 peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ2</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
@@ -1881,7 +1877,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -1899,7 +1895,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -1912,20 +1908,20 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">AIPSTZ2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ2</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ2</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to AIPSTZ2</span>
@@ -1941,12 +1937,12 @@
 
 <span class="doccomment">/// Access functions for the AIPSTZ3 peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ3</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
@@ -1988,7 +1984,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -2006,7 +2002,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -2019,20 +2015,20 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">AIPSTZ3_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ3</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ3</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to AIPSTZ3</span>
@@ -2048,12 +2044,12 @@
 
 <span class="doccomment">/// Access functions for the AIPSTZ4 peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ4</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
@@ -2095,7 +2091,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ4_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -2113,7 +2109,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ4_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -2126,20 +2122,20 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">AIPSTZ4_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ4</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 
     <span class="doccomment">/// The interrupts associated with AIPSTZ4</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to AIPSTZ4</span>
@@ -2152,6 +2148,7 @@
 <span class="doccomment">/// This constant is provided for ease of use in unsafe code: you can</span>
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">AIPSTZ4</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x4037c000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

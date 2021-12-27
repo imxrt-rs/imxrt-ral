@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt102/imxrt1021/xtalosc24m.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>xtalosc24m.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt102&#x2F;imxrt1021&#x2F;xtalosc24m.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>xtalosc24m.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1196,12 +1193,11 @@
 <span id="1193">1193</span>
 <span id="1194">1194</span>
 <span id="1195">1195</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! XTALOSC24M</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::RWRegister</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::RWRegister</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
@@ -1518,56 +1514,56 @@
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC0_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_CTRL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::DISCON_HIGH_SNVS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_I</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_PWD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_SELFBIASOFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGADJ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGUP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::RTC_XTAL_SOURCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::STOP_MODE_CONFIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::VID_PLL_PREDIV</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::XTAL_24M_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_CTRL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::DISCON_HIGH_SNVS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_I</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_SELFBIASOFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGADJ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGUP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::RTC_XTAL_SOURCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::STOP_MODE_CONFIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::VID_PLL_PREDIV</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::XTAL_24M_PWD</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC0_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_CTRL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::DISCON_HIGH_SNVS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_I</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_PWD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_SELFBIASOFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGADJ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGUP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::RTC_XTAL_SOURCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::STOP_MODE_CONFIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::VID_PLL_PREDIV</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::XTAL_24M_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_CTRL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::DISCON_HIGH_SNVS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_I</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_SELFBIASOFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGADJ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGUP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::RTC_XTAL_SOURCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::STOP_MODE_CONFIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::VID_PLL_PREDIV</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::XTAL_24M_PWD</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC0_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_CTRL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::DISCON_HIGH_SNVS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_I</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_PWD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_SELFBIASOFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGADJ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGUP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::RTC_XTAL_SOURCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::STOP_MODE_CONFIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::VID_PLL_PREDIV</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::XTAL_24M_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_CTRL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::DISCON_HIGH_SNVS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_I</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_SELFBIASOFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGADJ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGUP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::RTC_XTAL_SOURCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::STOP_MODE_CONFIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::VID_PLL_PREDIV</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::XTAL_24M_PWD</span>;
 }
 
 <span class="doccomment">/// XTAL OSC (LP) Control Register</span>
@@ -1813,56 +1809,56 @@
 
 <span class="doccomment">/// XTAL OSC (LP) Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LOWPWR_CTRL_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::CPU_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::DISPLAY_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::GPU_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::L1_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::L2_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::LPBG_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::LPBG_TEST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::MIX_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::OSC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::RCOSC_CG_OVERRIDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::RC_OSC_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::REFTOP_IBIAS_OFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::XTALOSC_PWRUP_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::XTALOSC_PWRUP_STAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::CPU_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::DISPLAY_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::GPU_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::L1_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::L2_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::LPBG_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::LPBG_TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::MIX_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::OSC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::RCOSC_CG_OVERRIDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::RC_OSC_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::REFTOP_IBIAS_OFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::XTALOSC_PWRUP_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::XTALOSC_PWRUP_STAT</span>;
 }
 
 <span class="doccomment">/// XTAL OSC (LP) Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LOWPWR_CTRL_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::CPU_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::DISPLAY_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::GPU_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::L1_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::L2_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::LPBG_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::LPBG_TEST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::MIX_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::OSC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::RCOSC_CG_OVERRIDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::RC_OSC_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::REFTOP_IBIAS_OFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::XTALOSC_PWRUP_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::XTALOSC_PWRUP_STAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::CPU_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::DISPLAY_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::GPU_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::L1_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::L2_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::LPBG_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::LPBG_TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::MIX_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::OSC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::RCOSC_CG_OVERRIDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::RC_OSC_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::REFTOP_IBIAS_OFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::XTALOSC_PWRUP_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::XTALOSC_PWRUP_STAT</span>;
 }
 
 <span class="doccomment">/// XTAL OSC (LP) Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LOWPWR_CTRL_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::CPU_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::DISPLAY_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::GPU_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::L1_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::L2_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::LPBG_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::LPBG_TEST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::MIX_PWRGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::OSC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::RCOSC_CG_OVERRIDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::RC_OSC_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::REFTOP_IBIAS_OFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::XTALOSC_PWRUP_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LOWPWR_CTRL::XTALOSC_PWRUP_STAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::CPU_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::DISPLAY_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::GPU_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::L1_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::L2_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::LPBG_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::LPBG_TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::MIX_PWRGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::OSC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::RCOSC_CG_OVERRIDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::RC_OSC_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::REFTOP_IBIAS_OFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::XTALOSC_PWRUP_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LOWPWR_CTRL::XTALOSC_PWRUP_STAT</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 0 Register</span>
@@ -1983,38 +1979,38 @@
 
 <span class="doccomment">/// XTAL OSC Configuration 0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG0_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::HYST_MINUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::HYST_PLUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::INVERT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::RC_OSC_PROG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::RC_OSC_PROG_CUR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::START</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::HYST_MINUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::HYST_PLUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::INVERT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::RC_OSC_PROG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::RC_OSC_PROG_CUR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::START</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG0_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::HYST_MINUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::HYST_PLUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::INVERT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::RC_OSC_PROG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::RC_OSC_PROG_CUR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::START</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::HYST_MINUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::HYST_PLUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::INVERT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::RC_OSC_PROG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::RC_OSC_PROG_CUR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::START</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG0_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::HYST_MINUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::HYST_PLUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::INVERT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::RC_OSC_PROG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::RC_OSC_PROG_CUR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG0::START</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::HYST_MINUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::HYST_PLUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::INVERT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::RC_OSC_PROG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::RC_OSC_PROG_CUR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG0::START</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 1 Register</span>
@@ -2051,20 +2047,20 @@
 
 <span class="doccomment">/// XTAL OSC Configuration 1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG1_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG1::COUNT_RC_CUR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG1::COUNT_RC_TRG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG1::COUNT_RC_CUR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG1::COUNT_RC_TRG</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG1_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG1::COUNT_RC_CUR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG1::COUNT_RC_TRG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG1::COUNT_RC_CUR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG1::COUNT_RC_TRG</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG1_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG1::COUNT_RC_CUR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG1::COUNT_RC_TRG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG1::COUNT_RC_CUR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG1::COUNT_RC_TRG</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 2 Register</span>
@@ -2129,26 +2125,26 @@
 
 <span class="doccomment">/// XTAL OSC Configuration 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG2_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::CLK_1M_ERR_FL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::COUNT_1M_TRG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::ENABLE_1M</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::MUX_1M</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::CLK_1M_ERR_FL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::COUNT_1M_TRG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::ENABLE_1M</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::MUX_1M</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG2_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::CLK_1M_ERR_FL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::COUNT_1M_TRG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::ENABLE_1M</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::MUX_1M</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::CLK_1M_ERR_FL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::COUNT_1M_TRG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::ENABLE_1M</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::MUX_1M</span>;
 }
 
 <span class="doccomment">/// XTAL OSC Configuration 2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OSC_CONFIG2_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::CLK_1M_ERR_FL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::COUNT_1M_TRG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::ENABLE_1M</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::OSC_CONFIG2::MUX_1M</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::CLK_1M_ERR_FL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::COUNT_1M_TRG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::ENABLE_1M</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::OSC_CONFIG2::MUX_1M</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -2244,13 +2240,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -2267,19 +2263,19 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
 
 <span class="doccomment">/// Access functions for the XTALOSC24M peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">XTALOSC24M</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
@@ -2335,7 +2331,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">XTALOSC24M_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -2353,7 +2349,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">XTALOSC24M_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -2366,20 +2362,20 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">XTALOSC24M_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with XTALOSC24M</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 
     <span class="doccomment">/// The interrupts associated with XTALOSC24M</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to XTALOSC24M</span>
@@ -2392,6 +2388,7 @@
 <span class="doccomment">/// This constant is provided for ease of use in unsafe code: you can</span>
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">XTALOSC24M</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x400d8000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

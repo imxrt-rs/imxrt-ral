@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt105/imxrt1051/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt105&#x2F;imxrt1051&#x2F;mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -293,73 +290,72 @@
 <span id="290">290</span>
 <span id="291">291</span>
 <span id="292">292</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="doccomment">//! Register access layer for imxrt1051</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Register access layer for imxrt1051</span>
 
 <span class="doccomment">/// Number of priority bits implemented by the NVIC</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NVIC_PRIO_BITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">4</span>;
 
 <span class="doccomment">/// Interrupt-related magic for this device</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">interrupts</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::interrupts::Interrupt</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::interrupts::Interrupt</span> <span class="kw">as</span> <span class="ident">interrupt</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::interrupts::Interrupt</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::interrupts::Interrupt</span> <span class="kw">as</span> <span class="ident">interrupt</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::adc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::adc_etc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::aipstz</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::aoi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::bee</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::can</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ccm</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ccm_analog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::cmp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::csu</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dcdc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dcp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dma0</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::dmamux</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::enc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::enet</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ewm</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::flexio</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::flexram</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::flexspi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::gpc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::gpio</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::gpt</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc_gpr</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc_snvs</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::iomuxc_snvs_gpr</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::kpp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::lpi2c</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::lpspi</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::lpuart</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::ocotp</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pgc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pit</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pmu</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::pwm</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::romc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::rtwdog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::sai</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::semc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::snvs</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::spdif</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::src</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::tempmon</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::tmr</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::trng</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::tsc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usb</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usb_analog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usbnc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usbphy</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::usdhc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::wdog</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::xbara1</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::xbarb</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::instances::xtalosc24m</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::adc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::adc_etc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::aipstz</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::aoi</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::bee</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::can</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::ccm</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::ccm_analog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::cmp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::csu</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::dcdc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::dcp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::dma0</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::dmamux</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::enc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::enet</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::ewm</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::flexio</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::flexram</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::flexspi</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::gpc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::gpio</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::gpt</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::iomuxc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::iomuxc_gpr</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::iomuxc_snvs</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::iomuxc_snvs_gpr</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::kpp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::lpi2c</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::lpspi</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::lpuart</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::ocotp</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::pgc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::pit</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::pmu</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::pwm</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::romc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::rtwdog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::sai</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::semc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::snvs</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::spdif</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::src</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::tempmon</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::tmr</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::trng</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::tsc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::usb</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::usb_analog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::usbnc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::usbphy</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::usdhc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::wdog</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::xbara1</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::xbarb</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::xtalosc24m</span>;
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>)))]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_snake_case</span>)]</span>
@@ -473,7 +469,7 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>)))]</span>
 <span class="kw">impl</span> <span class="ident">Peripherals</span> {
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">Peripherals</span> {
             <span class="ident">AIPSTZ1</span>: <span class="ident">aipstz::AIPSTZ1::steal</span>(),
             <span class="ident">AIPSTZ2</span>: <span class="ident">aipstz::AIPSTZ2::steal</span>(),
@@ -582,10 +578,11 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rtic&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">Peripherals</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">Peripherals</span> {}
     }
 }
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

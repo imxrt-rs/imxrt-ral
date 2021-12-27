@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt101/peripherals/ccm_analog.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ccm_analog.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt101&#x2F;peripherals&#x2F;ccm_analog.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ccm_analog.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1989,14 +1986,13 @@
 <span id="1986">1986</span>
 <span id="1987">1987</span>
 <span id="1988">1988</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! CCM_ANALOG</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Used by: imxrt1011, imxrt1015</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::RWRegister</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::RWRegister</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
@@ -2115,35 +2111,35 @@
 
 <span class="doccomment">/// Analog USB1 480MHz PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_USB1_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::EN_USB_CLKS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::POWER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::EN_USB_CLKS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::POWER</span>;
 }
 
 <span class="doccomment">/// Analog USB1 480MHz PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_USB1_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::EN_USB_CLKS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::POWER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::EN_USB_CLKS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::POWER</span>;
 }
 
 <span class="doccomment">/// Analog USB1 480MHz PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_USB1_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::EN_USB_CLKS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_USB1::POWER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::EN_USB_CLKS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_USB1::POWER</span>;
 }
 
 <span class="doccomment">/// Analog System PLL Control Register</span>
@@ -2240,32 +2236,32 @@
 
 <span class="doccomment">/// Analog System PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_SYS_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Analog System PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_SYS_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Analog System PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_SYS_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// 528MHz System PLL Spread Spectrum Register</span>
@@ -2475,45 +2471,45 @@
 
 <span class="doccomment">/// Analog Audio PLL control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_AUDIO_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::POST_DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::POST_DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Analog Audio PLL control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_AUDIO_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::POST_DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::POST_DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Analog Audio PLL control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_AUDIO_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::ENABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::POST_DIV_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_AUDIO::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::ENABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::POST_DIV_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_AUDIO::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Numerator of Audio PLL Fractional Loop Divider Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_AUDIO_NUM</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS_NUM::A</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS_NUM::A</span>;
 }
 
 <span class="doccomment">/// Denominator of Audio PLL Fractional Loop Divider Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_AUDIO_DENOM</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_SYS_DENOM::B</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_SYS_DENOM::B</span>;
 }
 
 <span class="doccomment">/// Analog ENET PLL Control Register</span>
@@ -2596,29 +2592,29 @@
 
 <span class="doccomment">/// Analog ENET PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_ENET_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::ENET_500M_REF_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::ENET_500M_REF_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Analog ENET PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_ENET_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::ENET_500M_REF_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::ENET_500M_REF_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// Analog ENET PLL Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PLL_ENET_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::BYPASS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::BYPASS_CLK_SRC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::ENET_500M_REF_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PLL_ENET::POWERDOWN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::BYPASS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::BYPASS_CLK_SRC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::ENET_500M_REF_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PLL_ENET::POWERDOWN</span>;
 }
 
 <span class="doccomment">/// 480MHz Clock (PLL3) Phase Fractional Divider Control Register</span>
@@ -2795,114 +2791,114 @@
 
 <span class="doccomment">/// 480MHz Clock (PLL3) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_480_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// 480MHz Clock (PLL3) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_480_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// 480MHz Clock (PLL3) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_480_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// 528MHz Clock (PLL2) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_528</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// 528MHz Clock (PLL2) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_528_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// 528MHz Clock (PLL2) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_528_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// 528MHz Clock (PLL2) Phase Fractional Divider Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PFD_528_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD0_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD1_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD2_STABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_FRAC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PFD_480::PFD3_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD0_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD1_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD2_STABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_FRAC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PFD_480::PFD3_STABLE</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
@@ -3197,53 +3193,53 @@
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC0_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_CTRL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::DISCON_HIGH_SNVS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_I</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_PWD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_SELFBIASOFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGADJ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGUP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::RTC_XTAL_SOURCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::STOP_MODE_CONFIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::XTAL_24M_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_CTRL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::DISCON_HIGH_SNVS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_I</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_SELFBIASOFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGADJ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGUP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::RTC_XTAL_SOURCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::STOP_MODE_CONFIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::XTAL_24M_PWD</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC0_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_CTRL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::DISCON_HIGH_SNVS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_I</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_PWD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_SELFBIASOFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGADJ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGUP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::RTC_XTAL_SOURCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::STOP_MODE_CONFIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::XTAL_24M_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_CTRL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::DISCON_HIGH_SNVS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_I</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_SELFBIASOFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGADJ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGUP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::RTC_XTAL_SOURCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::STOP_MODE_CONFIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::XTAL_24M_PWD</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC0_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_CTRL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::CLKGATE_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::DISCON_HIGH_SNVS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_I</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::OSC_XTALOK_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_PWD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_SELFBIASOFF</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGADJ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::REFTOP_VBGUP</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::RTC_XTAL_SOURCE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::STOP_MODE_CONFIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC0::XTAL_24M_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_CTRL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::CLKGATE_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::DISCON_HIGH_SNVS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_I</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::OSC_XTALOK_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_PWD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_SELFBIASOFF</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGADJ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::REFTOP_VBGUP</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::RTC_XTAL_SOURCE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::STOP_MODE_CONFIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC0::XTAL_24M_PWD</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 1</span>
@@ -3350,35 +3346,35 @@
 
 <span class="doccomment">/// Miscellaneous Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC1_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_ANA_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_DIG_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPHIGH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPLOW</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPPANIC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::PFD_480_AUTOGATE_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::PFD_528_AUTOGATE_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_ANA_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_DIG_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPHIGH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPLOW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPPANIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::PFD_480_AUTOGATE_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::PFD_528_AUTOGATE_EN</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC1_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_ANA_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_DIG_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPHIGH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPLOW</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPPANIC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::PFD_480_AUTOGATE_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::PFD_528_AUTOGATE_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_ANA_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_DIG_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPHIGH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPLOW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPPANIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::PFD_480_AUTOGATE_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::PFD_528_AUTOGATE_EN</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC1_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_ANA_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_DIG_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPHIGH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPLOW</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::IRQ_TEMPPANIC</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::PFD_480_AUTOGATE_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC1::PFD_528_AUTOGATE_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_ANA_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_DIG_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPHIGH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPLOW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::IRQ_TEMPPANIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::PFD_480_AUTOGATE_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC1::PFD_528_AUTOGATE_EN</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 2</span>
@@ -3681,7 +3677,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::REG0_STEP_TIME::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::REG0_STEP_TIME::RW</span>;
     }
 
     <span class="doccomment">/// Number of clock periods (24MHz clock).Not related to CCM. See Power Management Unit (PMU)</span>
@@ -3694,74 +3690,74 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::REG0_STEP_TIME::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::REG0_STEP_TIME::RW</span>;
     }
 }
 
 <span class="doccomment">/// Miscellaneous Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC2_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::AUDIO_DIV_LSB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::AUDIO_DIV_MSB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::PLL3_DISABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_STEP_TIME</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_STEP_TIME</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::AUDIO_DIV_LSB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::AUDIO_DIV_MSB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::PLL3_DISABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_STEP_TIME</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC2_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::AUDIO_DIV_LSB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::AUDIO_DIV_MSB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::PLL3_DISABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_STEP_TIME</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_STEP_TIME</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::AUDIO_DIV_LSB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::AUDIO_DIV_MSB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::PLL3_DISABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_STEP_TIME</span>;
 }
 
 <span class="doccomment">/// Miscellaneous Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC2_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::AUDIO_DIV_LSB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::AUDIO_DIV_MSB</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::PLL3_DISABLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG0_STEP_TIME</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG1_STEP_TIME</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_BO_OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_BO_STATUS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_ENABLE_BO</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_OK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::MISC2::REG2_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::AUDIO_DIV_LSB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::AUDIO_DIV_MSB</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::PLL3_DISABLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG0_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG1_STEP_TIME</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_BO_OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_BO_STATUS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_ENABLE_BO</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_OK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::MISC2::REG2_STEP_TIME</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -3951,13 +3947,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -3974,10 +3970,11 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

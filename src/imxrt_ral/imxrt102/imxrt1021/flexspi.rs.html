@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt102/imxrt1021/flexspi.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>flexspi.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt102&#x2F;imxrt1021&#x2F;flexspi.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>flexspi.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -4007,8 +4004,7 @@
 <span id="4004">4004</span>
 <span id="4005">4005</span>
 <span id="4006">4006</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! FlexSPI</span>
 
@@ -4883,26 +4879,26 @@
 
 <span class="doccomment">/// AHB RX Buffer 1 Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AHBRXBUF1CR0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::BUFSZ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::MSTRID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::PREFETCHEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::PRIORITY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::BUFSZ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::MSTRID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::PREFETCHEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::PRIORITY</span>;
 }
 
 <span class="doccomment">/// AHB RX Buffer 2 Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AHBRXBUF2CR0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::BUFSZ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::MSTRID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::PREFETCHEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::PRIORITY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::BUFSZ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::MSTRID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::PREFETCHEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::PRIORITY</span>;
 }
 
 <span class="doccomment">/// AHB RX Buffer 3 Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AHBRXBUF3CR0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::BUFSZ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::MSTRID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::PREFETCHEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::AHBRXBUF0CR0::PRIORITY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::BUFSZ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::MSTRID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::PREFETCHEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::AHBRXBUF0CR0::PRIORITY</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 0</span>
@@ -4925,17 +4921,17 @@
 
 <span class="doccomment">/// Flash A2 Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHA2CR0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHA1CR0::FLSHSZ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHA1CR0::FLSHSZ</span>;
 }
 
 <span class="doccomment">/// Flash B1 Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHB1CR0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHA1CR0::FLSHSZ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHA1CR0::FLSHSZ</span>;
 }
 
 <span class="doccomment">/// Flash B2 Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHB2CR0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHA1CR0::FLSHSZ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHA1CR0::FLSHSZ</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 1</span>
@@ -5035,32 +5031,32 @@
 
 <span class="doccomment">/// Flash A1 Control Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHCR1A2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CAS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CSINTERVAL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CSINTERVALUNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::TCSH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::TCSS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::WA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CAS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CSINTERVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CSINTERVALUNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::TCSH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::TCSS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::WA</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHCR1B1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CAS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CSINTERVAL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CSINTERVALUNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::TCSH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::TCSS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::WA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CAS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CSINTERVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CSINTERVALUNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::TCSH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::TCSS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::WA</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 1</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHCR1B2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CAS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CSINTERVAL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::CSINTERVALUNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::TCSH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::TCSS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR1A1::WA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CAS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CSINTERVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::CSINTERVALUNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::TCSH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::TCSS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR1A1::WA</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 2</span>
@@ -5192,35 +5188,35 @@
 
 <span class="doccomment">/// Flash A1 Control Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHCR2A2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::ARDSEQID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::ARDSEQNUM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRSEQID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRSEQNUM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRWAIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRWAITUNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::CLRINSTRPTR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::ARDSEQID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::ARDSEQNUM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRSEQID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRSEQNUM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRWAIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRWAITUNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::CLRINSTRPTR</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHCR2B1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::ARDSEQID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::ARDSEQNUM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRSEQID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRSEQNUM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRWAIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRWAITUNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::CLRINSTRPTR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::ARDSEQID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::ARDSEQNUM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRSEQID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRSEQNUM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRWAIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRWAITUNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::CLRINSTRPTR</span>;
 }
 
 <span class="doccomment">/// Flash A1 Control Register 2</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLSHCR2B2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::ARDSEQID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::ARDSEQNUM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRSEQID</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRSEQNUM</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRWAIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::AWRWAITUNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::FLSHCR2A1::CLRINSTRPTR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::ARDSEQID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::ARDSEQNUM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRSEQID</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRSEQNUM</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRWAIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::AWRWAITUNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::FLSHCR2A1::CLRINSTRPTR</span>;
 }
 
 <span class="doccomment">/// Flash Control Register 4</span>
@@ -5575,11 +5571,11 @@
 
 <span class="doccomment">/// DLL Control Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">DLLCRB</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DLLCRA::DLLEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DLLCRA::DLLRESET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DLLCRA::OVRDEN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DLLCRA::OVRDVAL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DLLCRA::SLVDLYTARGET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DLLCRA::DLLEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DLLCRA::DLLRESET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DLLCRA::OVRDEN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DLLCRA::OVRDVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DLLCRA::SLVDLYTARGET</span>;
 }
 
 <span class="doccomment">/// Status Register 0</span>
@@ -5991,157 +5987,157 @@
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR7</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR8</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR9</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR10</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR14</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR15</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR16</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR17</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR18</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR19</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR20</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR24</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR25</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR26</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR27</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR28</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR29</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR30</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP RX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">RFDR31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::RFDR0::RXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RFDR0::RXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
@@ -6164,157 +6160,157 @@
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR7</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR8</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR9</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR10</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR14</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR15</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR16</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR17</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR18</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR19</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR20</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR24</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR25</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR26</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR27</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR28</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR29</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR30</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// IP TX FIFO Data Register 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TFDR31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TFDR0::TXDATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TFDR0::TXDATA</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
@@ -6407,632 +6403,632 @@
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT7</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT8</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT9</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT10</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT11</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT12</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT13</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT14</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT15</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT16</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT17</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT18</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT19</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT20</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT24</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT25</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT26</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT27</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT28</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT29</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT30</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT32</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT33</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT34</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT35</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT36</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT37</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT38</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT39</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT40</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT41</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT42</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT43</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT44</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT45</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT46</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT47</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT48</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT49</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT50</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT51</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT52</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT53</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT54</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT55</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT56</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT57</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT58</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT59</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT60</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT61</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT62</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 
 <span class="doccomment">/// LUT 0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT63</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::NUM_PADS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPCODE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0::OPERAND1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::NUM_PADS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPCODE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0::OPERAND1</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -7720,13 +7716,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -7743,26 +7739,26 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
 
 <span class="doccomment">/// Access functions for the FLEXSPI peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">FLEXSPI</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
         <span class="ident">addr</span>: <span class="number">0x402a8000</span>,
         <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="kw">crate</span><span class="ident">::interrupt::FLEXSPI</span>],
+        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::FLEXSPI</span>],
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
@@ -7957,7 +7953,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">FLEXSPI_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -7975,7 +7971,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">FLEXSPI_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -7988,20 +7984,20 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">FLEXSPI_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with FLEXSPI</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="kw">crate</span><span class="ident">::interrupt::FLEXSPI</span>];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::FLEXSPI</span>];
 
     <span class="doccomment">/// The interrupts associated with FLEXSPI</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to FLEXSPI</span>
@@ -8014,6 +8010,7 @@
 <span class="doccomment">/// This constant is provided for ease of use in unsafe code: you can</span>
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FLEXSPI</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x402a8000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

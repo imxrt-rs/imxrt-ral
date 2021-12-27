@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt101/imxrt1011/adc_etc.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>adc_etc.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt101&#x2F;imxrt1011&#x2F;adc_etc.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>adc_etc.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -2414,8 +2411,7 @@
 <span id="2411">2411</span>
 <span id="2412">2412</span>
 <span id="2413">2413</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! ADC_ETC</span>
 
@@ -4175,290 +4171,290 @@
 
 <span class="doccomment">/// ETC_TRIG Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_CTRL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::CHAINx_DONE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::SW_TRIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::SYNC_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_CHAIN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_PRIORITY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::CHAINx_DONE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::SW_TRIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::SYNC_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_CHAIN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_PRIORITY</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Counter Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_COUNTER</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_COUNTER::INIT_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_COUNTER::SAMPLE_INTERVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_COUNTER::INIT_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_COUNTER::SAMPLE_INTERVAL</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 0/1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_CHAIN_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::B2B0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::B2B1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::CSEL0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::CSEL1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::HWTS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::HWTS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE0_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE1_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::B2B0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::B2B1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::CSEL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::CSEL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::HWTS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::HWTS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE0_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE1_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 2/3 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_CHAIN_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::B2B2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::B2B3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::CSEL2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::CSEL3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::HWTS2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::HWTS3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE2_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE3_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::B2B2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::B2B3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::CSEL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::CSEL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::HWTS2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::HWTS3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE2_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE3_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 4/5 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_CHAIN_5_4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::B2B4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::B2B5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::CSEL4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::CSEL5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::HWTS4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::HWTS5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE4_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE5_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::B2B4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::B2B5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::CSEL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::CSEL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::HWTS4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::HWTS5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE4_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE5_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 6/7 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_CHAIN_7_6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::B2B6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::B2B7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::CSEL6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::CSEL7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::HWTS6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::HWTS7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE6_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE7_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::B2B6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::B2B7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::CSEL6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::CSEL7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::HWTS6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::HWTS7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE6_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE7_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 1/0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_RESULT_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_1_0::DATA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_1_0::DATA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_1_0::DATA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_1_0::DATA1</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 3/2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_RESULT_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_3_2::DATA2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_3_2::DATA3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_3_2::DATA2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_3_2::DATA3</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 5/4 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_RESULT_5_4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_5_4::DATA4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_5_4::DATA5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_5_4::DATA4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_5_4::DATA5</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 7/6 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG1_RESULT_7_6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_7_6::DATA6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_7_6::DATA7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_7_6::DATA6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_7_6::DATA7</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_CTRL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::CHAINx_DONE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::SW_TRIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::SYNC_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_CHAIN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_PRIORITY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::CHAINx_DONE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::SW_TRIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::SYNC_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_CHAIN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_PRIORITY</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Counter Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_COUNTER</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_COUNTER::INIT_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_COUNTER::SAMPLE_INTERVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_COUNTER::INIT_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_COUNTER::SAMPLE_INTERVAL</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 0/1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_CHAIN_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::B2B0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::B2B1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::CSEL0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::CSEL1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::HWTS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::HWTS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE0_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE1_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::B2B0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::B2B1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::CSEL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::CSEL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::HWTS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::HWTS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE0_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE1_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 2/3 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_CHAIN_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::B2B2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::B2B3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::CSEL2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::CSEL3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::HWTS2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::HWTS3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE2_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE3_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::B2B2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::B2B3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::CSEL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::CSEL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::HWTS2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::HWTS3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE2_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE3_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 4/5 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_CHAIN_5_4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::B2B4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::B2B5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::CSEL4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::CSEL5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::HWTS4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::HWTS5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE4_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE5_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::B2B4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::B2B5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::CSEL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::CSEL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::HWTS4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::HWTS5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE4_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE5_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 6/7 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_CHAIN_7_6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::B2B6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::B2B7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::CSEL6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::CSEL7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::HWTS6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::HWTS7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE6_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE7_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::B2B6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::B2B7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::CSEL6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::CSEL7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::HWTS6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::HWTS7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE6_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE7_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 1/0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_RESULT_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_1_0::DATA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_1_0::DATA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_1_0::DATA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_1_0::DATA1</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 3/2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_RESULT_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_3_2::DATA2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_3_2::DATA3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_3_2::DATA2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_3_2::DATA3</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 5/4 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_RESULT_5_4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_5_4::DATA4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_5_4::DATA5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_5_4::DATA4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_5_4::DATA5</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 7/6 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG2_RESULT_7_6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_7_6::DATA6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_7_6::DATA7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_7_6::DATA6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_7_6::DATA7</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_CTRL</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::CHAINx_DONE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::SW_TRIG</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::SYNC_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_CHAIN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CTRL::TRIG_PRIORITY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::CHAINx_DONE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::SW_TRIG</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::SYNC_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_CHAIN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CTRL::TRIG_PRIORITY</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Counter Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_COUNTER</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_COUNTER::INIT_DELAY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_COUNTER::SAMPLE_INTERVAL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_COUNTER::INIT_DELAY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_COUNTER::SAMPLE_INTERVAL</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 0/1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_CHAIN_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::B2B0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::B2B1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::CSEL0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::CSEL1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::HWTS0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::HWTS1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE0_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_1_0::IE1_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::B2B0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::B2B1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::CSEL0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::CSEL1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::HWTS0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::HWTS1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE0_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_1_0::IE1_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 2/3 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_CHAIN_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::B2B2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::B2B3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::CSEL2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::CSEL3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::HWTS2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::HWTS3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE2_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE3</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_3_2::IE3_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::B2B2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::B2B3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::CSEL2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::CSEL3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::HWTS2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::HWTS3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE2_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_3_2::IE3_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 4/5 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_CHAIN_5_4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::B2B4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::B2B5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::CSEL4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::CSEL5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::HWTS4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::HWTS5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE4_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE5</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_5_4::IE5_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::B2B4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::B2B5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::CSEL4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::CSEL5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::HWTS4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::HWTS5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE4_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_5_4::IE5_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Chain 6/7 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_CHAIN_7_6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::B2B6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::B2B7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::CSEL6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::CSEL7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::HWTS6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::HWTS7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE6_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE7</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_CHAIN_7_6::IE7_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::B2B6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::B2B7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::CSEL6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::CSEL7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::HWTS6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::HWTS7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE6_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_CHAIN_7_6::IE7_EN</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 1/0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_RESULT_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_1_0::DATA0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_1_0::DATA1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_1_0::DATA0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_1_0::DATA1</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 3/2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_RESULT_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_3_2::DATA2</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_3_2::DATA3</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_3_2::DATA2</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_3_2::DATA3</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 5/4 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_RESULT_5_4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_5_4::DATA4</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_5_4::DATA5</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_5_4::DATA4</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_5_4::DATA5</span>;
 }
 
 <span class="doccomment">/// ETC_TRIG Result Data 7/6 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">TRIG3_RESULT_7_6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_7_6::DATA6</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::TRIG0_RESULT_7_6::DATA7</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_7_6::DATA6</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::TRIG0_RESULT_7_6::DATA7</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -4644,13 +4640,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -4667,19 +4663,19 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
 
 <span class="doccomment">/// Access functions for the ADC_ETC peripheral instance</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ADC_ETC</span> {
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::ResetValues</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="kw">super</span><span class="ident">::Instance</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
@@ -4687,11 +4683,11 @@
         <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
-            <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ0</span>,
-            <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ1</span>,
-            <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ2</span>,
-            <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ3</span>,
-            <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_ERROR_IRQ</span>,
+            <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ0</span>,
+            <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ1</span>,
+            <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ2</span>,
+            <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ3</span>,
+            <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_ERROR_IRQ</span>,
         ],
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
@@ -4765,7 +4761,7 @@
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">ADC_ETC_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
@@ -4783,7 +4779,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">=</span><span class="op">=</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
+        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">ADC_ETC_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
@@ -4796,26 +4792,26 @@
     <span class="doccomment">/// state.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
         <span class="ident">ADC_ETC_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="ident">INSTANCE</span>
     }
 
     <span class="doccomment">/// The interrupts associated with ADC_ETC</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">5</span>] <span class="op">=</span> [
-        <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ0</span>,
-        <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ1</span>,
-        <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ2</span>,
-        <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_IRQ3</span>,
-        <span class="kw">crate</span><span class="ident">::interrupt::ADC_ETC_ERROR_IRQ</span>,
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">5</span>] <span class="op">=</span> [
+        <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ0</span>,
+        <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ1</span>,
+        <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ2</span>,
+        <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_IRQ3</span>,
+        <span class="ident"><span class="kw">crate</span>::interrupt::ADC_ETC_ERROR_IRQ</span>,
     ];
 
     <span class="doccomment">/// The interrupts associated with ADC_ETC</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: the values are invalid for a documentation build.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="kw">crate</span><span class="ident">::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
 }
 
 <span class="doccomment">/// Raw pointer to ADC_ETC</span>
@@ -4828,6 +4824,7 @@
 <span class="doccomment">/// This constant is provided for ease of use in unsafe code: you can</span>
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ADC_ETC</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40088000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

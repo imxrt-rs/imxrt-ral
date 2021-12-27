@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt106/peripherals/ocotp.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ocotp.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt106&#x2F;peripherals&#x2F;ocotp.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ocotp.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1870,8 +1867,7 @@
 <span id="1867">1867</span>
 <span id="1868">1868</span>
 <span id="1869">1869</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! OCOTP</span>
 <span class="doccomment">//!</span>
@@ -2147,28 +2143,28 @@
 
 <span class="doccomment">/// OTP Controller Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::ADDR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::BUSY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::CRC_FAIL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::CRC_TEST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::RELOAD_SHADOWS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::WR_UNLOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::BUSY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::CRC_FAIL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::CRC_TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::RELOAD_SHADOWS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::WR_UNLOCK</span>;
 }
 
 <span class="doccomment">/// OTP Controller Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::ADDR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::BUSY</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::CRC_FAIL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::CRC_TEST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::ERROR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::RELOAD_SHADOWS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::RSVD0</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::RSVD1</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL_SET::WR_UNLOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::BUSY</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::CRC_FAIL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::CRC_TEST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::ERROR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::RELOAD_SHADOWS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::RSVD0</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::RSVD1</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL_SET::WR_UNLOCK</span>;
 }
 
 <span class="doccomment">/// OTP Controller Timing Register</span>
@@ -2297,7 +2293,7 @@
 
 <span class="doccomment">/// OTP Controller Read Data Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">READ_FUSE_DATA</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DATA::DATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DATA::DATA</span>;
 }
 
 <span class="doccomment">/// Sticky bit Register</span>
@@ -2436,23 +2432,23 @@
 
 <span class="doccomment">/// Software Controllable Signals Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SCS_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::HAB_JDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::SPARE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::HAB_JDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::SPARE</span>;
 }
 
 <span class="doccomment">/// Software Controllable Signals Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SCS_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::HAB_JDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::SPARE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::HAB_JDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::SPARE</span>;
 }
 
 <span class="doccomment">/// Software Controllable Signals Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SCS_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::HAB_JDE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::LOCK</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::SCS::SPARE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::HAB_JDE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::LOCK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::SCS::SPARE</span>;
 }
 
 <span class="doccomment">/// OTP Controller CRC test address</span>
@@ -2531,7 +2527,7 @@
 
 <span class="doccomment">/// OTP Controller CRC Value Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CRC_VALUE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::DATA::DATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::DATA::DATA</span>;
 }
 
 <span class="doccomment">/// OTP Controller Version Register</span>
@@ -2930,312 +2926,312 @@
 
 <span class="doccomment">/// Value of OTP Bank0 Word2 (Configuration and Manufacturing Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CFG1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank0 Word3 (Configuration and Manufacturing Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CFG2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank0 Word4 (Configuration and Manufacturing Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CFG3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank0 Word5 (Configuration and Manufacturing Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CFG4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank0 Word6 (Configuration and Manufacturing Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CFG5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank0 Word7 (Configuration and Manufacturing Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CFG6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word0 (Memory Related Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MEM0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word1 (Memory Related Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MEM1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word2 (Memory Related Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MEM2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word3 (Memory Related Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MEM3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word4 (Memory Related Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MEM4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word5 (Memory Related Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ANA0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word6 (General Purpose Customer Defined Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ANA1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank1 Word7 (General Purpose Customer Defined Info.)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ANA2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word0 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word1 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word2 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word3 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word4 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word5 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word6 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank2 Word7 (OTPMK Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK7</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word0 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word1 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word2 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word3 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word4 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word5 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word6 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Shadow Register for OTP Bank3 Word7 (SRK Hash)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK7</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word0 (Secure JTAG Response Field)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SJC_RESP0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word1 (Secure JTAG Response Field)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SJC_RESP1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word2 (MAC Address)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MAC0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word3 (MAC Address)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MAC1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word4 (MAC2 Address)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MAC2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word5 (CRC Key)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">OTPMK_CRC32</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word6 (General Purpose Customer Defined Info)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank4 Word7 (General Purpose Customer Defined Info)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word0 (SW GP1)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SW_GP1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word1 (SW GP2)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SW_GP20</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word2 (SW GP2)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SW_GP21</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word3 (SW GP2)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SW_GP22</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word4 (SW GP2)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SW_GP23</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word5 (Misc Conf)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC_CONF0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word6 (Misc Conf)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">MISC_CONF1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank5 Word7 (SRK Revoke)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">SRK_REVOKE</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word0 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word1 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word2 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word3 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH3</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word4 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH4</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word5 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH5</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word6 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH6</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank6 Word7 (ROM Patch)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROM_PATCH7</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word0 (GP3)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP30</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word1 (GP3)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP31</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word2 (GP3)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP32</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word3 (GP3)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP33</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word4 (GP4)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP40</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word5 (GP4)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP41</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word6 (GP4)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP42</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 
 <span class="doccomment">/// Value of OTP Bank7 Word7 (GP4)</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GP43</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CFG0::BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CFG0::BITS</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -3713,13 +3709,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -3736,10 +3732,11 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>

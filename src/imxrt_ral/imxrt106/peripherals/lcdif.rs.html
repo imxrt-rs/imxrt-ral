@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/imxrt106/peripherals/lcdif.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lcdif.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;imxrt106&#x2F;peripherals&#x2F;lcdif.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lcdif.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -2503,8 +2500,7 @@
 <span id="2500">2500</span>
 <span id="2501">2501</span>
 <span id="2502">2502</span>
-</pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! LCDIF Register Reference Index</span>
 <span class="doccomment">//!</span>
@@ -2706,7 +2702,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CSC_DATA_SWIZZLE::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CSC_DATA_SWIZZLE::RW</span>;
     }
 
     <span class="doccomment">/// Set this bit to 1 to make the hardware go into the DOTCLK mode, i</span>
@@ -2803,62 +2799,62 @@
 
 <span class="doccomment">/// LCDIF General Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::BYPASS_COUNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CSC_DATA_SWIZZLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_16_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_18_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_24_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_SHIFT_DIR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DOTCLK_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE_PXP_HANDSHAKE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::INPUT_DATA_SWIZZLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::LCD_DATABUS_WIDTH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::MASTER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RUN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SFTRST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SHIFT_NUM_BITS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::WORD_LENGTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::BYPASS_COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::CSC_DATA_SWIZZLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_16_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_18_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_24_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_SHIFT_DIR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DOTCLK_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::ENABLE_PXP_HANDSHAKE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::INPUT_DATA_SWIZZLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::LCD_DATABUS_WIDTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::MASTER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::RUN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::SFTRST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::SHIFT_NUM_BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::WORD_LENGTH</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::BYPASS_COUNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CSC_DATA_SWIZZLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_16_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_18_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_24_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_SHIFT_DIR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DOTCLK_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE_PXP_HANDSHAKE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::INPUT_DATA_SWIZZLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::LCD_DATABUS_WIDTH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::MASTER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RUN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SFTRST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SHIFT_NUM_BITS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::WORD_LENGTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::BYPASS_COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::CSC_DATA_SWIZZLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_16_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_18_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_24_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_SHIFT_DIR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DOTCLK_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::ENABLE_PXP_HANDSHAKE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::INPUT_DATA_SWIZZLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::LCD_DATABUS_WIDTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::MASTER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::RUN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::SFTRST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::SHIFT_NUM_BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::WORD_LENGTH</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::BYPASS_COUNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CLKGATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::CSC_DATA_SWIZZLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_16_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_18_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_FORMAT_24_BIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DATA_SHIFT_DIR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::DOTCLK_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::ENABLE_PXP_HANDSHAKE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::INPUT_DATA_SWIZZLE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::LCD_DATABUS_WIDTH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::MASTER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::RUN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SFTRST</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::SHIFT_NUM_BITS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL::WORD_LENGTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::BYPASS_COUNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::CLKGATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::CSC_DATA_SWIZZLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_16_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_18_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_FORMAT_24_BIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DATA_SHIFT_DIR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::DOTCLK_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::ENABLE_PXP_HANDSHAKE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::INPUT_DATA_SWIZZLE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::LCD_DATABUS_WIDTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::MASTER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::RUN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::SFTRST</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::SHIFT_NUM_BITS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL::WORD_LENGTH</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control1 Register</span>
@@ -2895,7 +2891,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VSYNC_EDGE_IRQ::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VSYNC_EDGE_IRQ::RW</span>;
     }
 
     <span class="doccomment">/// This bit is set to indicate that an interrupt is requested by the LCDIF block</span>
@@ -2908,7 +2904,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VSYNC_EDGE_IRQ::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VSYNC_EDGE_IRQ::RW</span>;
     }
 
     <span class="doccomment">/// This bit is set to indicate that an interrupt is requested by the LCDIF block</span>
@@ -2921,7 +2917,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VSYNC_EDGE_IRQ::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VSYNC_EDGE_IRQ::RW</span>;
     }
 
     <span class="doccomment">/// This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode</span>
@@ -3074,7 +3070,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VSYNC_EDGE_IRQ::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VSYNC_EDGE_IRQ::RW</span>;
     }
 
     <span class="doccomment">/// This bit is set to enable bus master error interrupt in the LCDIF master mode.</span>
@@ -3122,68 +3118,68 @@
 
 <span class="doccomment">/// LCDIF General Control1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL1_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BM_ERROR_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BM_ERROR_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BYTE_PACKING_FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CS_OUT_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CUR_FRAME_DONE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CUR_FRAME_DONE_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::FIFO_CLEAR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::IMAGE_DATA_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::INTERLACE_FIELDS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::IRQ_ON_ALTERNATE_FIELDS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::OVERFLOW_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::OVERFLOW_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::RECOVER_ON_UNDERFLOW</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::START_INTERLACE_FROM_SECOND_FIELD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::UNDERFLOW_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::UNDERFLOW_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::VSYNC_EDGE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::VSYNC_EDGE_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BM_ERROR_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BM_ERROR_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BYTE_PACKING_FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CS_OUT_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CUR_FRAME_DONE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CUR_FRAME_DONE_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::FIFO_CLEAR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::IMAGE_DATA_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::INTERLACE_FIELDS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::IRQ_ON_ALTERNATE_FIELDS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::OVERFLOW_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::OVERFLOW_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::RECOVER_ON_UNDERFLOW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::START_INTERLACE_FROM_SECOND_FIELD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::UNDERFLOW_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::UNDERFLOW_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::VSYNC_EDGE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::VSYNC_EDGE_IRQ_EN</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL1_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BM_ERROR_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BM_ERROR_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BYTE_PACKING_FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CS_OUT_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CUR_FRAME_DONE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CUR_FRAME_DONE_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::FIFO_CLEAR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::IMAGE_DATA_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::INTERLACE_FIELDS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::IRQ_ON_ALTERNATE_FIELDS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::OVERFLOW_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::OVERFLOW_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::RECOVER_ON_UNDERFLOW</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::START_INTERLACE_FROM_SECOND_FIELD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::UNDERFLOW_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::UNDERFLOW_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::VSYNC_EDGE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::VSYNC_EDGE_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BM_ERROR_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BM_ERROR_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BYTE_PACKING_FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CS_OUT_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CUR_FRAME_DONE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CUR_FRAME_DONE_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::FIFO_CLEAR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::IMAGE_DATA_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::INTERLACE_FIELDS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::IRQ_ON_ALTERNATE_FIELDS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::OVERFLOW_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::OVERFLOW_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::RECOVER_ON_UNDERFLOW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::START_INTERLACE_FROM_SECOND_FIELD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::UNDERFLOW_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::UNDERFLOW_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::VSYNC_EDGE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::VSYNC_EDGE_IRQ_EN</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL1_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BM_ERROR_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BM_ERROR_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::BYTE_PACKING_FORMAT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CS_OUT_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CUR_FRAME_DONE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::CUR_FRAME_DONE_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::FIFO_CLEAR</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::IMAGE_DATA_SELECT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::INTERLACE_FIELDS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::IRQ_ON_ALTERNATE_FIELDS</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::OVERFLOW_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::OVERFLOW_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::RECOVER_ON_UNDERFLOW</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::START_INTERLACE_FROM_SECOND_FIELD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::UNDERFLOW_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::UNDERFLOW_IRQ_EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::VSYNC_EDGE_IRQ</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL1::VSYNC_EDGE_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BM_ERROR_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BM_ERROR_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::BYTE_PACKING_FORMAT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CS_OUT_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CUR_FRAME_DONE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::CUR_FRAME_DONE_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::FIFO_CLEAR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::IMAGE_DATA_SELECT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::INTERLACE_FIELDS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::IRQ_ON_ALTERNATE_FIELDS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::OVERFLOW_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::OVERFLOW_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::RECOVER_ON_UNDERFLOW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::START_INTERLACE_FROM_SECOND_FIELD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::UNDERFLOW_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::UNDERFLOW_IRQ_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::VSYNC_EDGE_IRQ</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL1::VSYNC_EDGE_IRQ_EN</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control2 Register</span>
@@ -3232,7 +3228,7 @@
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">R</span> {}
         <span class="doccomment">/// Write-only values (empty)</span>
         <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">W</span> {}
-        <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::EVEN_LINE_PATTERN::RW</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::EVEN_LINE_PATTERN::RW</span>;
     }
 
     <span class="doccomment">/// By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)</span>
@@ -3282,26 +3278,26 @@
 
 <span class="doccomment">/// LCDIF General Control2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL2_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::BURST_LEN_8</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::EVEN_LINE_PATTERN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::ODD_LINE_PATTERN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::OUTSTANDING_REQS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::BURST_LEN_8</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::EVEN_LINE_PATTERN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::ODD_LINE_PATTERN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::OUTSTANDING_REQS</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL2_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::BURST_LEN_8</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::EVEN_LINE_PATTERN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::ODD_LINE_PATTERN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::OUTSTANDING_REQS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::BURST_LEN_8</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::EVEN_LINE_PATTERN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::ODD_LINE_PATTERN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::OUTSTANDING_REQS</span>;
 }
 
 <span class="doccomment">/// LCDIF General Control2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">CTRL2_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::BURST_LEN_8</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::EVEN_LINE_PATTERN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::ODD_LINE_PATTERN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CTRL2::OUTSTANDING_REQS</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::BURST_LEN_8</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::EVEN_LINE_PATTERN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::ODD_LINE_PATTERN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CTRL2::OUTSTANDING_REQS</span>;
 }
 
 <span class="doccomment">/// LCDIF Horizontal and Vertical Valid Data Count Register</span>
@@ -3356,7 +3352,7 @@
 
 <span class="doccomment">/// LCD Interface Next Buffer Address Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">NEXT_BUF</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CUR_BUF::ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CUR_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// LCDIF VSYNC Mode and Dotclk Mode Control Register0</span>
@@ -3505,44 +3501,44 @@
 
 <span class="doccomment">/// LCDIF VSYNC Mode and Dotclk Mode Control Register0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">VDCTRL0_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::DOTCLK_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::ENABLE_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::ENABLE_PRESENT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HALF_LINE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HALF_LINE_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HSYNC_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PERIOD_UNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PULSE_WIDTH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PULSE_WIDTH_UNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::DOTCLK_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::ENABLE_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::ENABLE_PRESENT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HALF_LINE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HALF_LINE_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HSYNC_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PERIOD_UNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PULSE_WIDTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PULSE_WIDTH_UNIT</span>;
 }
 
 <span class="doccomment">/// LCDIF VSYNC Mode and Dotclk Mode Control Register0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">VDCTRL0_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::DOTCLK_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::ENABLE_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::ENABLE_PRESENT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HALF_LINE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HALF_LINE_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HSYNC_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PERIOD_UNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PULSE_WIDTH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PULSE_WIDTH_UNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::DOTCLK_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::ENABLE_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::ENABLE_PRESENT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HALF_LINE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HALF_LINE_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HSYNC_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PERIOD_UNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PULSE_WIDTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PULSE_WIDTH_UNIT</span>;
 }
 
 <span class="doccomment">/// LCDIF VSYNC Mode and Dotclk Mode Control Register0</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">VDCTRL0_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::DOTCLK_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::ENABLE_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::ENABLE_PRESENT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HALF_LINE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HALF_LINE_MODE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::HSYNC_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PERIOD_UNIT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PULSE_WIDTH</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::VDCTRL0::VSYNC_PULSE_WIDTH_UNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::DOTCLK_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::ENABLE_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::ENABLE_PRESENT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HALF_LINE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HALF_LINE_MODE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::HSYNC_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PERIOD_UNIT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PULSE_WIDTH</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::VDCTRL0::VSYNC_PULSE_WIDTH_UNIT</span>;
 }
 
 <span class="doccomment">/// LCDIF VSYNC Mode and Dotclk Mode Control Register1</span>
@@ -3703,7 +3699,7 @@
 
 <span class="doccomment">/// Bus Master Error Status Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">BM_ERROR_STAT</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::CUR_BUF::ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::CUR_BUF::ADDR</span>;
 }
 
 <span class="doccomment">/// CRC Status Register</span>
@@ -3860,20 +3856,20 @@
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL0_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL0::FD_PERIOD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL0::LD_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL0::FD_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL0::LD_PERIOD</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL0_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL0::FD_PERIOD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL0::LD_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL0::FD_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL0::LD_PERIOD</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control0 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL0_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL0::FD_PERIOD</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL0::LD_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL0::FD_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL0::LD_PERIOD</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control1 Register</span>
@@ -3910,20 +3906,20 @@
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL1_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL1::FRAME_CNT_CYCLES</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL1::FRAME_CNT_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL1::FRAME_CNT_CYCLES</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL1::FRAME_CNT_PERIOD</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL1_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL1::FRAME_CNT_CYCLES</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL1::FRAME_CNT_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL1::FRAME_CNT_CYCLES</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL1::FRAME_CNT_PERIOD</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control1 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL1_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL1::FRAME_CNT_CYCLES</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL1::FRAME_CNT_PERIOD</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL1::FRAME_CNT_CYCLES</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL1::FRAME_CNT_PERIOD</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control2 Register</span>
@@ -3960,20 +3956,20 @@
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL2_SET</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL2::PIGEON_CLK_GATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL2::PIGEON_DATA_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL2::PIGEON_CLK_GATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL2::PIGEON_DATA_EN</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL2_CLR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL2::PIGEON_CLK_GATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL2::PIGEON_DATA_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL2::PIGEON_CLK_GATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL2::PIGEON_DATA_EN</span>;
 }
 
 <span class="doccomment">/// LCDIF Pigeon Mode Control2 Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEONCTRL2_TOG</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL2::PIGEON_CLK_GATE</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEONCTRL2::PIGEON_DATA_EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL2::PIGEON_CLK_GATE</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEONCTRL2::PIGEON_DATA_EN</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
@@ -4239,255 +4235,255 @@
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_1_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_1_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_1_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_2_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_2_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_2_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_3_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_3_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_3_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_4_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_4_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_4_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_5_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_5_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_5_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_6_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_6_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_6_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_7_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_7_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_7_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_8_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_8_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_8_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_9_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_9_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_9_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_10_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_10_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_10_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_11_0</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::EN</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::INC_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::MASK_CNT_SEL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::OFFSET</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::POL</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_0::STATE_MASK</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::EN</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::INC_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::MASK_CNT_SEL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::OFFSET</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::POL</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_0::STATE_MASK</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_11_1</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::CLR_CNT</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_1::SET_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::CLR_CNT</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_1::SET_CNT</span>;
 }
 
 <span class="doccomment">/// Panel Interface Signal Generator Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">PIGEON_11_2</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_ANOTHER</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::PIGEON_0_2::SIG_LOGIC</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_ANOTHER</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::PIGEON_0_2::SIG_LOGIC</span>;
 }
 
 <span class="doccomment">/// Lookup Table Data Register.</span>
@@ -4546,12 +4542,12 @@
 
 <span class="doccomment">/// Lookup Table Control Register.</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT1_ADDR</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0_ADDR::ADDR</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0_ADDR::ADDR</span>;
 }
 
 <span class="doccomment">/// Lookup Table Data Register.</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LUT1_DATA</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">super</span><span class="ident">::LUT0_DATA::DATA</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::LUT0_DATA::DATA</span>;
 }
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
@@ -4979,13 +4975,13 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>],
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
         <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span>.<span class="ident">addr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>) }
     }
 }
@@ -5002,10 +4998,11 @@
     <span class="doccomment">/// associated with the peripheral. There&#39;s no guarantee for</span>
     <span class="doccomment">/// interrupt signal ordering in the collection.</span>
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="kw">crate</span><span class="ident">::Interrupt</span>] {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">interrupts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>] {
         <span class="self">self</span>.<span class="ident">intrs</span>
     }
 }
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="imxrt_ral" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
+</body></html>
