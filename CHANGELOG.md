@@ -44,7 +44,7 @@ of `bare_metal::Nr`.
 - (all 1050, 1060 chips) `ENET` is `ENET1`, and `FLEXSPI` is `FLEXSPI1`. The
   instances that end with '2' are unchanged.
 
-Mark all registers as `#[repr(transparent)]`.
+Depend on `ral-registers`, and expose the API through the `imxrt-ral` package.
 
 Fix builds with the `"nosync"` feature. Use the `"nosync"` feature to disable
 owned peripheral instance. You may only access registers behind the `unsafe`
