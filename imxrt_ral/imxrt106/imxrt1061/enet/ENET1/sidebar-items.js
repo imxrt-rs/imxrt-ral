@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with ENET1"],["reset","Reset values for each field in ENET1"]],"fn":[["release","Release exclusive access to ENET1"],["steal","Unsafely steal ENET1"],["take","Safe access to ENET1"]]});

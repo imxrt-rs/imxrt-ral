@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with PWM1"],["reset","Reset values for each field in PWM1"]],"fn":[["release","Release exclusive access to PWM1"],["steal","Unsafely steal PWM1"],["take","Safe access to PWM1"]]});

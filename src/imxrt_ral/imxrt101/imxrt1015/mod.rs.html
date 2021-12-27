@@ -232,7 +232,7 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::ewm</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">wdog</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::rtwdog</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">adc1</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">adc</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">trng</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::ccm_analog</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::instances::snvs</span>;
@@ -265,7 +265,7 @@
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">flexspi</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lpi2c</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lpspi</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pwm1</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pwm</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">sai</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">spdif</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">usb</span>;
@@ -290,7 +290,7 @@
     <span class="kw">pub</span> <span class="ident">WDOG1</span>: <span class="ident">wdog::Instance</span>,
     <span class="kw">pub</span> <span class="ident">WDOG2</span>: <span class="ident">wdog::Instance</span>,
     <span class="kw">pub</span> <span class="ident">RTWDOG</span>: <span class="ident">rtwdog::Instance</span>,
-    <span class="kw">pub</span> <span class="ident">ADC1</span>: <span class="ident">adc1::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">ADC</span>: <span class="ident">adc::Instance</span>,
     <span class="kw">pub</span> <span class="ident">TRNG</span>: <span class="ident">trng::Instance</span>,
     <span class="kw">pub</span> <span class="ident">SNVS</span>: <span class="ident">snvs::Instance</span>,
     <span class="kw">pub</span> <span class="ident">CCM_ANALOG</span>: <span class="ident">ccm_analog::Instance</span>,
@@ -337,7 +337,7 @@
     <span class="kw">pub</span> <span class="ident">XBARA</span>: <span class="ident">xbara::Instance</span>,
     <span class="kw">pub</span> <span class="ident">XBARB</span>: <span class="ident">xbarb::Instance</span>,
     <span class="kw">pub</span> <span class="ident">ENC1</span>: <span class="ident">enc1::Instance</span>,
-    <span class="kw">pub</span> <span class="ident">PWM1</span>: <span class="ident">pwm1::Instance</span>,
+    <span class="kw">pub</span> <span class="ident">PWM</span>: <span class="ident">pwm::Instance</span>,
     <span class="kw">pub</span> <span class="ident">BEE</span>: <span class="ident">bee::Instance</span>,
     <span class="kw">pub</span> <span class="ident">LPI2C1</span>: <span class="ident">lpi2c::Instance</span>,
     <span class="kw">pub</span> <span class="ident">LPI2C2</span>: <span class="ident">lpi2c::Instance</span>,
@@ -365,7 +365,7 @@
             <span class="ident">WDOG1</span>: <span class="ident">wdog::WDOG1::steal</span>(),
             <span class="ident">WDOG2</span>: <span class="ident">wdog::WDOG2::steal</span>(),
             <span class="ident">RTWDOG</span>: <span class="ident">rtwdog::RTWDOG::steal</span>(),
-            <span class="ident">ADC1</span>: <span class="ident">adc1::ADC1::steal</span>(),
+            <span class="ident">ADC</span>: <span class="ident">adc::ADC::steal</span>(),
             <span class="ident">TRNG</span>: <span class="ident">trng::TRNG::steal</span>(),
             <span class="ident">SNVS</span>: <span class="ident">snvs::SNVS::steal</span>(),
             <span class="ident">CCM_ANALOG</span>: <span class="ident">ccm_analog::CCM_ANALOG::steal</span>(),
@@ -412,7 +412,7 @@
             <span class="ident">XBARA</span>: <span class="ident">xbara::XBARA::steal</span>(),
             <span class="ident">XBARB</span>: <span class="ident">xbarb::XBARB::steal</span>(),
             <span class="ident">ENC1</span>: <span class="ident">enc1::ENC1::steal</span>(),
-            <span class="ident">PWM1</span>: <span class="ident">pwm1::PWM1::steal</span>(),
+            <span class="ident">PWM</span>: <span class="ident">pwm::PWM::steal</span>(),
             <span class="ident">BEE</span>: <span class="ident">bee::BEE::steal</span>(),
             <span class="ident">LPI2C1</span>: <span class="ident">lpi2c::LPI2C1::steal</span>(),
             <span class="ident">LPI2C2</span>: <span class="ident">lpi2c::LPI2C2::steal</span>(),
