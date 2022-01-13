@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::flexio::Instance;
 pub use crate::imxrt105::peripherals::flexio::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::flexio::{
     CTRL, PARAM, PIN, SHIFTBUF0, SHIFTBUF1, SHIFTBUF2, SHIFTBUF3, SHIFTBUFBBS0, SHIFTBUFBBS1,
     SHIFTBUFBBS2, SHIFTBUFBBS3, SHIFTBUFBIS0, SHIFTBUFBIS1, SHIFTBUFBIS2, SHIFTBUFBIS3,
@@ -17,24 +17,43 @@ pub use crate::imxrt105::peripherals::flexio::{
     SHIFTSIEN, SHIFTSTAT, SHIFTSTATE, TIMCFG0, TIMCFG1, TIMCFG2, TIMCFG3, TIMCMP0, TIMCMP1,
     TIMCMP2, TIMCMP3, TIMCTL0, TIMCTL1, TIMCTL2, TIMCTL3, TIMIEN, TIMSTAT, VERID,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The FLEXIO1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type FLEXIO1 = Instance<1>;
+
+/// The FLEXIO1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type FLEXIO1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct FLEXIO1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for FLEXIO1 {}
+impl crate::Valid for FLEXIO1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static FLEXIO1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the FLEXIO1 peripheral instance
-pub mod FLEXIO1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl FLEXIO1 {
+    const INSTANCE: Self = Self {
         addr: 0x401ac000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXIO1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in FLEXIO1
@@ -101,12 +120,6 @@ pub mod FLEXIO1 {
         SHIFTBUFNIS3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static FLEXIO1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to FLEXIO1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -119,14 +132,13 @@ pub mod FLEXIO1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = FLEXIO1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -136,11 +148,8 @@ pub mod FLEXIO1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = FLEXIO1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -150,13 +159,14 @@ pub mod FLEXIO1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         FLEXIO1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl FLEXIO1 {
     /// The interrupts associated with FLEXIO1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXIO1];
@@ -179,23 +189,40 @@ pub mod FLEXIO1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const FLEXIO1: *const RegisterBlock = 0x401ac000 as *const _;
 
+/// The FLEXIO2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type FLEXIO2 = Instance<2>;
+
+/// The FLEXIO2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type FLEXIO2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct FLEXIO2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for FLEXIO2 {}
+impl crate::Valid for FLEXIO2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static FLEXIO2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the FLEXIO2 peripheral instance
-pub mod FLEXIO2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl FLEXIO2 {
+    const INSTANCE: Self = Self {
         addr: 0x401b0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXIO2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in FLEXIO2
@@ -262,12 +289,6 @@ pub mod FLEXIO2 {
         SHIFTBUFNIS3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static FLEXIO2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to FLEXIO2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -280,14 +301,13 @@ pub mod FLEXIO2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = FLEXIO2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -297,11 +317,8 @@ pub mod FLEXIO2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = FLEXIO2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -311,13 +328,14 @@ pub mod FLEXIO2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         FLEXIO2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl FLEXIO2 {
     /// The interrupts associated with FLEXIO2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXIO2];

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::flexspi::Instance;
 pub use crate::imxrt106::peripherals::flexspi::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::flexspi::{
     AHBCR, AHBRXBUF0CR0, AHBRXBUF1CR0, AHBRXBUF2CR0, AHBRXBUF3CR0, AHBSPNDSTS, DLLCRA, DLLCRB,
     FLSHA1CR0, FLSHA2CR0, FLSHB1CR0, FLSHB2CR0, FLSHCR1A1, FLSHCR1A2, FLSHCR1B1, FLSHCR1B2,
@@ -23,24 +23,43 @@ pub use crate::imxrt106::peripherals::flexspi::{
     TFDR17, TFDR18, TFDR19, TFDR2, TFDR20, TFDR21, TFDR22, TFDR23, TFDR24, TFDR25, TFDR26, TFDR27,
     TFDR28, TFDR29, TFDR3, TFDR30, TFDR31, TFDR4, TFDR5, TFDR6, TFDR7, TFDR8, TFDR9,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The FLEXSPI1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type FLEXSPI1 = Instance<1>;
+
+/// The FLEXSPI1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type FLEXSPI1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct FLEXSPI1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for FLEXSPI1 {}
+impl crate::Valid for FLEXSPI1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static FLEXSPI1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the FLEXSPI1 peripheral instance
-pub mod FLEXSPI1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl FLEXSPI1 {
+    const INSTANCE: Self = Self {
         addr: 0x402a8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXSPI],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in FLEXSPI1
@@ -213,12 +232,6 @@ pub mod FLEXSPI1 {
         LUT63: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static FLEXSPI1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to FLEXSPI1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -231,14 +244,13 @@ pub mod FLEXSPI1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = FLEXSPI1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -248,11 +260,8 @@ pub mod FLEXSPI1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = FLEXSPI1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -262,13 +271,14 @@ pub mod FLEXSPI1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         FLEXSPI1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl FLEXSPI1 {
     /// The interrupts associated with FLEXSPI1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXSPI];
@@ -291,23 +301,40 @@ pub mod FLEXSPI1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const FLEXSPI1: *const RegisterBlock = 0x402a8000 as *const _;
 
+/// The FLEXSPI2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type FLEXSPI2 = Instance<2>;
+
+/// The FLEXSPI2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type FLEXSPI2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct FLEXSPI2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for FLEXSPI2 {}
+impl crate::Valid for FLEXSPI2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static FLEXSPI2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the FLEXSPI2 peripheral instance
-pub mod FLEXSPI2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl FLEXSPI2 {
+    const INSTANCE: Self = Self {
         addr: 0x402a4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::FLEXSPI2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in FLEXSPI2
@@ -480,12 +507,6 @@ pub mod FLEXSPI2 {
         LUT63: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static FLEXSPI2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to FLEXSPI2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -498,14 +519,13 @@ pub mod FLEXSPI2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = FLEXSPI2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -515,11 +535,8 @@ pub mod FLEXSPI2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = FLEXSPI2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -529,13 +546,14 @@ pub mod FLEXSPI2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         FLEXSPI2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl FLEXSPI2 {
     /// The interrupts associated with FLEXSPI2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::FLEXSPI2];

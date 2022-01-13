@@ -4,27 +4,46 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::xbarb::Instance;
 pub use crate::imxrt106::peripherals::xbarb::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::xbarb::{SEL0, SEL1, SEL2, SEL3, SEL4, SEL5, SEL6, SEL7};
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The XBARB2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type XBARB2 = Instance<2>;
+
+/// The XBARB2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type XBARB2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct XBARB2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for XBARB2 {}
+impl crate::Valid for XBARB2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static XBARB2_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the XBARB2 peripheral instance
-pub mod XBARB2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl XBARB2 {
+    const INSTANCE: Self = Self {
         addr: 0x403c0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -40,12 +59,6 @@ pub mod XBARB2 {
         SEL7: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static XBARB2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to XBARB2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -58,14 +71,13 @@ pub mod XBARB2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = XBARB2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -75,11 +87,8 @@ pub mod XBARB2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = XBARB2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -89,13 +98,14 @@ pub mod XBARB2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         XBARB2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl XBARB2 {
     /// The interrupts associated with XBARB2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
@@ -118,22 +128,39 @@ pub mod XBARB2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const XBARB2: *const RegisterBlock = 0x403c0000 as *const _;
 
+/// The XBARB3 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type XBARB3 = Instance<3>;
+
+/// The XBARB3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type XBARB3 = Instance<3>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct XBARB3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for XBARB3 {}
+impl crate::Valid for XBARB3 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static XBARB3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the XBARB3 peripheral instance
-pub mod XBARB3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl XBARB3 {
+    const INSTANCE: Self = Self {
         addr: 0x403c4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -149,12 +176,6 @@ pub mod XBARB3 {
         SEL7: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static XBARB3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to XBARB3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -167,14 +188,13 @@ pub mod XBARB3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = XBARB3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -184,11 +204,8 @@ pub mod XBARB3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = XBARB3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -198,13 +215,14 @@ pub mod XBARB3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         XBARB3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl XBARB3 {
     /// The interrupts associated with XBARB3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

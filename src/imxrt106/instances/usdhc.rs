@@ -4,33 +4,52 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::usdhc::Instance;
 pub use crate::imxrt106::peripherals::usdhc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::usdhc::{
     ADMA_ERR_STATUS, ADMA_SYS_ADDR, AUTOCMD12_ERR_STATUS, BLK_ATT, CLK_TUNE_CTRL_STATUS, CMD_ARG,
     CMD_RSP0, CMD_RSP1, CMD_RSP2, CMD_RSP3, CMD_XFR_TYP, DATA_BUFF_ACC_PORT, DLL_CTRL, DLL_STATUS,
     DS_ADDR, FORCE_EVENT, HOST_CTRL_CAP, INT_SIGNAL_EN, INT_STATUS, INT_STATUS_EN, MIX_CTRL,
     MMC_BOOT, PRES_STATE, PROT_CTRL, SYS_CTRL, TUNING_CTRL, VEND_SPEC, VEND_SPEC2, WTMK_LVL,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The USDHC1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type USDHC1 = Instance<1>;
+
+/// The USDHC1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USDHC1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct USDHC1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for USDHC1 {}
+impl crate::Valid for USDHC1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USDHC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the USDHC1 peripheral instance
-pub mod USDHC1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USDHC1 {
+    const INSTANCE: Self = Self {
         addr: 0x402c0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USDHC1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USDHC1
@@ -66,12 +85,6 @@ pub mod USDHC1 {
         TUNING_CTRL: 0x00212800,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USDHC1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to USDHC1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -84,14 +97,13 @@ pub mod USDHC1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USDHC1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -101,11 +113,8 @@ pub mod USDHC1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = USDHC1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -115,13 +124,14 @@ pub mod USDHC1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USDHC1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl USDHC1 {
     /// The interrupts associated with USDHC1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USDHC1];
@@ -144,23 +154,40 @@ pub mod USDHC1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const USDHC1: *const RegisterBlock = 0x402c0000 as *const _;
 
+/// The USDHC2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type USDHC2 = Instance<2>;
+
+/// The USDHC2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USDHC2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct USDHC2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for USDHC2 {}
+impl crate::Valid for USDHC2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USDHC2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the USDHC2 peripheral instance
-pub mod USDHC2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USDHC2 {
+    const INSTANCE: Self = Self {
         addr: 0x402c4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::USDHC2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in USDHC2
@@ -196,12 +223,6 @@ pub mod USDHC2 {
         TUNING_CTRL: 0x00212800,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USDHC2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to USDHC2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -214,14 +235,13 @@ pub mod USDHC2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USDHC2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -231,11 +251,8 @@ pub mod USDHC2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = USDHC2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -245,13 +262,14 @@ pub mod USDHC2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USDHC2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl USDHC2 {
     /// The interrupts associated with USDHC2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::USDHC2];

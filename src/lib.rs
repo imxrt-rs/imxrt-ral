@@ -12,12 +12,13 @@
 //! In the generated documentation, all devices are visible inside their family
 //! modules, but when built for a specific device, only that devices' constants
 //! will be available.
-
+#![doc = include_str!("../usage.md")]
 #![cfg_attr(target_arch = "arm", no_std)]
 #![allow(clippy::all)]
 
 mod register;
 
+pub use crate::register::{modify_reg, read_reg, write_reg};
 pub use crate::register::{RORegister, UnsafeRORegister};
 pub use crate::register::{RWRegister, UnsafeRWRegister};
 pub use crate::register::{UnsafeWORegister, WORegister};
@@ -38,6 +39,19 @@ pub use crate::register::{UnsafeWORegister, WORegister};
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Interrupt {}
 
+/// The constant for a peripheral with just one instance.
+///
+/// The CCM peripheral is an example of a "sole instance." On the other
+/// hand, no LPUART peripheral will have this constant, since there are
+/// multiple instances.
+pub const SOLE_INSTANCE: u8 = 0;
+
+mod private {
+    pub trait Sealed {}
+}
+
+/// Implemented on all `Instance<N>` when `N` is a valid instance number.
+pub trait Valid: private::Sealed {}
 #[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
 pub mod imxrt101;
 

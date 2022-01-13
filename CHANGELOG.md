@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+**BREAKING** Peripherals that support multiple instances are now unique types.
+This affects APIs that accept instances. See the before and after below for
+a summary. The usage documentation contains more examples.
+
+```rust
+use imxrt_ral::{ccm, lpuart};
+
+// Before
+let _: lpuart::Instance = lpuart::LPUART4::take().unwrap();
+let _: ccm::Instance = ccm::CCM::take().unwrap();
+
+// After
+let lpuart4: lpuart::Instance<4> = lpuart::LPUART4::take().unwrap();
+// Equivalent:
+let lpuart4: lpuart::LPUART4 = lpuart4;
+
+// Use peripheral names when naming singleton instances:
+let _: ccm::CCM = ccm::CCM::take().unwrap();
+```
+
 **BREAKING** Undo an SVD patch that renamed the USB module path for 1010,
 1015, and 1020 chips. `imxrt-ral` users on those systems may now find USB
 register APIS at the `imxrt_ral::usb` path, rather than `imxrt_ral::usb1`.
@@ -24,7 +44,7 @@ of `bare_metal::Nr`.
 - (all 1050, 1060 chips) `ENET` is `ENET1`, and `FLEXSPI` is `FLEXSPI1`. The
   instances that end with '2' are unchanged.
 
-Mark all registers as `#[repr(transparent)]`.
+Depend on `ral-registers`, and expose the API through the `imxrt-ral` package.
 
 Fix builds with the `"nosync"` feature. Use the `"nosync"` feature to disable
 owned peripheral instance. You may only access registers behind the `unsafe`

@@ -3,9 +3,9 @@
 //! FLEXCAN
 
 use crate::{RORegister, RWRegister};
-#[cfg(not(feature = "nosync"))]
-use core::marker::PhantomData;
 
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
 /// Module Configuration Register
 pub mod MCR {
 
@@ -5809,14 +5809,15 @@ pub struct ResetValues {
     pub RXIMR63: u32,
     pub GFWR: u32,
 }
-#[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
-    pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -5825,10 +5826,10 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<const N: u8> Send for Instance<N> {}
 
 #[cfg(not(feature = "nosync"))]
-impl Instance {
+impl<const N: u8> Instance<N> {
     /// Return the interrupt signals associated with this
     /// peripheral instance
     ///
@@ -5841,23 +5842,40 @@ impl Instance {
     }
 }
 
+/// The CAN1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type CAN1 = Instance<1>;
+
+/// The CAN1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CAN1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct CAN1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for CAN1 {}
+impl crate::Valid for CAN1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CAN1_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CAN1 peripheral instance
-pub mod CAN1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CAN1 {
+    const INSTANCE: Self = Self {
         addr: 0x401d0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CAN1
@@ -6204,12 +6222,6 @@ pub mod CAN1 {
         GFWR: 0x0000007F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CAN1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CAN1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -6222,14 +6234,13 @@ pub mod CAN1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CAN1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -6239,11 +6250,8 @@ pub mod CAN1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = CAN1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -6253,13 +6261,14 @@ pub mod CAN1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CAN1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl CAN1 {
     /// The interrupts associated with CAN1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::CAN1];
@@ -6282,23 +6291,40 @@ pub mod CAN1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const CAN1: *const RegisterBlock = 0x401d0000 as *const _;
 
+/// The CAN2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type CAN2 = Instance<2>;
+
+/// The CAN2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CAN2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct CAN2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for CAN2 {}
+impl crate::Valid for CAN2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CAN2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CAN2 peripheral instance
-pub mod CAN2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CAN2 {
+    const INSTANCE: Self = Self {
         addr: 0x401d4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::CAN2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CAN2
@@ -6645,12 +6671,6 @@ pub mod CAN2 {
         GFWR: 0x0000007F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CAN2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to CAN2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -6663,14 +6683,13 @@ pub mod CAN2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CAN2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -6680,11 +6699,8 @@ pub mod CAN2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = CAN2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -6694,13 +6710,14 @@ pub mod CAN2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CAN2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl CAN2 {
     /// The interrupts associated with CAN2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::CAN2];

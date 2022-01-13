@@ -3,9 +3,9 @@
 //! High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)
 
 use crate::RWRegister;
-#[cfg(not(feature = "nosync"))]
-use core::marker::PhantomData;
 
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
 /// CMP Control Register 0
 pub mod CR0 {
 
@@ -537,14 +537,15 @@ pub struct ResetValues {
     pub DACCR: u8,
     pub MUXCR: u8,
 }
-#[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
-    pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -553,10 +554,10 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<const N: u8> Send for Instance<N> {}
 
 #[cfg(not(feature = "nosync"))]
-impl Instance {
+impl<const N: u8> Instance<N> {
     /// Return the interrupt signals associated with this
     /// peripheral instance
     ///
@@ -569,23 +570,40 @@ impl Instance {
     }
 }
 
+/// The CMP1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type CMP1 = Instance<1>;
+
+/// The CMP1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct CMP1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for CMP1 {}
+impl crate::Valid for CMP1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CMP1_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CMP1 peripheral instance
-pub mod CMP1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CMP1 {
+    const INSTANCE: Self = Self {
         addr: 0x40094000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP1
@@ -597,12 +615,6 @@ pub mod CMP1 {
         DACCR: 0x00000000,
         MUXCR: 0x00000000,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CMP1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP1
     ///
@@ -616,14 +628,13 @@ pub mod CMP1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CMP1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -633,11 +644,8 @@ pub mod CMP1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = CMP1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -647,13 +655,14 @@ pub mod CMP1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CMP1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl CMP1 {
     /// The interrupts associated with CMP1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP1];
@@ -676,23 +685,40 @@ pub mod CMP1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const CMP1: *const RegisterBlock = 0x40094000 as *const _;
 
+/// The CMP2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type CMP2 = Instance<2>;
+
+/// The CMP2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct CMP2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for CMP2 {}
+impl crate::Valid for CMP2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CMP2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CMP2 peripheral instance
-pub mod CMP2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CMP2 {
+    const INSTANCE: Self = Self {
         addr: 0x40094008,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP2
@@ -704,12 +730,6 @@ pub mod CMP2 {
         DACCR: 0x00000000,
         MUXCR: 0x00000000,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CMP2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP2
     ///
@@ -723,14 +743,13 @@ pub mod CMP2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CMP2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -740,11 +759,8 @@ pub mod CMP2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = CMP2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -754,13 +770,14 @@ pub mod CMP2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CMP2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl CMP2 {
     /// The interrupts associated with CMP2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP2];
@@ -783,23 +800,40 @@ pub mod CMP2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const CMP2: *const RegisterBlock = 0x40094008 as *const _;
 
+/// The CMP3 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type CMP3 = Instance<3>;
+
+/// The CMP3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP3 = Instance<3>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct CMP3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for CMP3 {}
+impl crate::Valid for CMP3 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CMP3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CMP3 peripheral instance
-pub mod CMP3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CMP3 {
+    const INSTANCE: Self = Self {
         addr: 0x40094010,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP3],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP3
@@ -811,12 +845,6 @@ pub mod CMP3 {
         DACCR: 0x00000000,
         MUXCR: 0x00000000,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CMP3_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP3
     ///
@@ -830,14 +858,13 @@ pub mod CMP3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CMP3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -847,11 +874,8 @@ pub mod CMP3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = CMP3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -861,13 +885,14 @@ pub mod CMP3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CMP3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl CMP3 {
     /// The interrupts associated with CMP3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP3];
@@ -890,23 +915,40 @@ pub mod CMP3 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const CMP3: *const RegisterBlock = 0x40094010 as *const _;
 
+/// The CMP4 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type CMP4 = Instance<4>;
+
+/// The CMP4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type CMP4 = Instance<4>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct CMP4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for CMP4 {}
+impl crate::Valid for CMP4 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static CMP4_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the CMP4 peripheral instance
-pub mod CMP4 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl CMP4 {
+    const INSTANCE: Self = Self {
         addr: 0x40094018,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ACMP4],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in CMP4
@@ -918,12 +960,6 @@ pub mod CMP4 {
         DACCR: 0x00000000,
         MUXCR: 0x00000000,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static CMP4_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to CMP4
     ///
@@ -937,14 +973,13 @@ pub mod CMP4 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = CMP4_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -954,11 +989,8 @@ pub mod CMP4 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = CMP4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -968,13 +1000,14 @@ pub mod CMP4 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         CMP4_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl CMP4 {
     /// The interrupts associated with CMP4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::ACMP4];

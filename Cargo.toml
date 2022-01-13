@@ -29,6 +29,9 @@ default-target = "thumbv7em-none-eabihf"
 version = "0.7.2"
 optional = true
 
+[dependencies.ral-registers]
+version = "0.1"
+
 [lib]
 bench = false
 test = false

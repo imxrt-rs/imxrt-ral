@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::semc::Instance;
 pub use crate::imxrt106::peripherals::semc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::semc::{
     BMCR0, BMCR1, BR0, BR1, BR2, BR3, BR4, BR5, BR6, BR7, BR8, DBICR0, DBICR1, DLLCR, INTEN, INTR,
     IOCR, IPCMD, IPCR0, IPCR1, IPCR2, IPRXDAT, IPTXDAT, MCR, NANDCR0, NANDCR1, NANDCR2, NANDCR3,
@@ -14,24 +14,43 @@ pub use crate::imxrt106::peripherals::semc::{
     SRAMCR2, SRAMCR3, STS0, STS1, STS10, STS11, STS12, STS13, STS14, STS15, STS2, STS3, STS4, STS5,
     STS6, STS7, STS8, STS9,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The SEMC peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type SEMC = Instance<0>;
+
+/// The SEMC peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type SEMC = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct SEMC {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for SEMC {}
+impl crate::Valid for SEMC {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static SEMC_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the SEMC peripheral instance
-pub mod SEMC {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl SEMC {
+    const INSTANCE: Self = Self {
         addr: 0x402f0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::SEMC],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in SEMC
@@ -94,12 +113,6 @@ pub mod SEMC {
         STS15: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static SEMC_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to SEMC
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -112,14 +125,13 @@ pub mod SEMC {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = SEMC_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -129,11 +141,8 @@ pub mod SEMC {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = SEMC_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -143,13 +152,14 @@ pub mod SEMC {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         SEMC_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl SEMC {
     /// The interrupts associated with SEMC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::SEMC];

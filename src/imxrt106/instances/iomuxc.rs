@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::iomuxc::Instance;
 pub use crate::imxrt106::peripherals::iomuxc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::iomuxc::{
     ANATOP_USB_OTG1_ID_SELECT_INPUT, ANATOP_USB_OTG2_ID_SELECT_INPUT,
     CANFD_IPP_IND_CANRX_SELECT_INPUT, CCM_PMIC_READY_SELECT_INPUT, CSI_DATA02_SELECT_INPUT,
@@ -175,23 +175,42 @@ pub use crate::imxrt106::peripherals::iomuxc::{
     XBAR1_IN22_SELECT_INPUT, XBAR1_IN23_SELECT_INPUT, XBAR1_IN24_SELECT_INPUT,
     XBAR1_IN25_SELECT_INPUT,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The IOMUXC peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type IOMUXC = Instance<0>;
+
+/// The IOMUXC peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type IOMUXC = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct IOMUXC {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for IOMUXC {}
+impl crate::Valid for IOMUXC {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static IOMUXC_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the IOMUXC peripheral instance
-pub mod IOMUXC {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl IOMUXC {
+    const INSTANCE: Self = Self {
         addr: 0x401f8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -678,12 +697,6 @@ pub mod IOMUXC {
         CANFD_IPP_IND_CANRX_SELECT_INPUT: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static IOMUXC_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to IOMUXC
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -696,14 +709,13 @@ pub mod IOMUXC {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = IOMUXC_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -713,11 +725,8 @@ pub mod IOMUXC {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = IOMUXC_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -727,13 +736,14 @@ pub mod IOMUXC {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         IOMUXC_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl IOMUXC {
     /// The interrupts associated with IOMUXC
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::ocotp::Instance;
 pub use crate::imxrt105::peripherals::ocotp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::ocotp::{
     HW_OCOTP_ANA0, HW_OCOTP_ANA1, HW_OCOTP_ANA2, HW_OCOTP_CFG0, HW_OCOTP_CFG1, HW_OCOTP_CFG2,
     HW_OCOTP_CFG3, HW_OCOTP_CFG4, HW_OCOTP_CFG5, HW_OCOTP_CFG6, HW_OCOTP_CTRL, HW_OCOTP_CTRL_CLR,
@@ -19,23 +19,42 @@ pub use crate::imxrt105::peripherals::ocotp::{
     HW_OCOTP_SW_GP1, HW_OCOTP_SW_GP20, HW_OCOTP_SW_GP21, HW_OCOTP_SW_GP22, HW_OCOTP_SW_GP23,
     HW_OCOTP_SW_STICKY, HW_OCOTP_TIMING, HW_OCOTP_TIMING2, HW_OCOTP_VERSION,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The OCOTP peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type OCOTP = Instance<0>;
+
+/// The OCOTP peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type OCOTP = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct OCOTP {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for OCOTP {}
+impl crate::Valid for OCOTP {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static OCOTP_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the OCOTP peripheral instance
-pub mod OCOTP {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl OCOTP {
+    const INSTANCE: Self = Self {
         addr: 0x401f4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -97,12 +116,6 @@ pub mod OCOTP {
         HW_OCOTP_SRK_REVOKE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static OCOTP_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to OCOTP
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -115,14 +128,13 @@ pub mod OCOTP {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = OCOTP_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -132,11 +144,8 @@ pub mod OCOTP {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = OCOTP_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -146,13 +155,14 @@ pub mod OCOTP {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         OCOTP_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl OCOTP {
     /// The interrupts associated with OCOTP
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

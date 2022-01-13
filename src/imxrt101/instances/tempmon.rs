@@ -4,34 +4,53 @@
 //!
 //! Used by: imxrt1011, imxrt1015
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt101::peripherals::tempmon::Instance;
 pub use crate::imxrt101::peripherals::tempmon::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt101::peripherals::tempmon::{
     TEMPSENSE0, TEMPSENSE0_CLR, TEMPSENSE0_SET, TEMPSENSE0_TOG, TEMPSENSE1, TEMPSENSE1_CLR,
     TEMPSENSE1_SET, TEMPSENSE1_TOG, TEMPSENSE2, TEMPSENSE2_CLR, TEMPSENSE2_SET, TEMPSENSE2_TOG,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The TEMPMON peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type TEMPMON = Instance<0>;
+
+/// The TEMPMON peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TEMPMON = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct TEMPMON {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for TEMPMON {}
+impl crate::Valid for TEMPMON {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static TEMPMON_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the TEMPMON peripheral instance
-pub mod TEMPMON {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl TEMPMON {
+    const INSTANCE: Self = Self {
         addr: 0x400d8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::TEMP_LOW_HIGH,
             crate::interrupt::TEMP_PANIC,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TEMPMON
@@ -50,12 +69,6 @@ pub mod TEMPMON {
         TEMPSENSE2_TOG: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static TEMPMON_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to TEMPMON
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -68,14 +81,13 @@ pub mod TEMPMON {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = TEMPMON_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -85,11 +97,8 @@ pub mod TEMPMON {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = TEMPMON_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -99,13 +108,14 @@ pub mod TEMPMON {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         TEMPMON_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl TEMPMON {
     /// The interrupts associated with TEMPMON
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [

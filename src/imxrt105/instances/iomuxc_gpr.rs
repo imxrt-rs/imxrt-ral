@@ -4,31 +4,50 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::iomuxc_gpr::Instance;
 pub use crate::imxrt105::peripherals::iomuxc_gpr::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::iomuxc_gpr::{
     GPR0, GPR1, GPR10, GPR11, GPR12, GPR13, GPR14, GPR15, GPR16, GPR17, GPR18, GPR19, GPR2, GPR20,
     GPR21, GPR22, GPR23, GPR24, GPR25, GPR3, GPR4, GPR5, GPR6, GPR7, GPR8, GPR9,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The IOMUXC_GPR peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type IOMUXC_GPR = Instance<0>;
+
+/// The IOMUXC_GPR peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type IOMUXC_GPR = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct IOMUXC_GPR {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for IOMUXC_GPR {}
+impl crate::Valid for IOMUXC_GPR {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static IOMUXC_GPR_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the IOMUXC_GPR peripheral instance
-pub mod IOMUXC_GPR {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl IOMUXC_GPR {
+    const INSTANCE: Self = Self {
         addr: 0x400ac000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPR_IRQ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in IOMUXC_GPR
@@ -61,12 +80,6 @@ pub mod IOMUXC_GPR {
         GPR25: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static IOMUXC_GPR_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to IOMUXC_GPR
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -79,14 +92,13 @@ pub mod IOMUXC_GPR {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = IOMUXC_GPR_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -96,11 +108,8 @@ pub mod IOMUXC_GPR {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = IOMUXC_GPR_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -110,13 +119,14 @@ pub mod IOMUXC_GPR {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         IOMUXC_GPR_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl IOMUXC_GPR {
     /// The interrupts associated with IOMUXC_GPR
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPR_IRQ];

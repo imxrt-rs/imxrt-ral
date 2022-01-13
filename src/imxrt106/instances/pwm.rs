@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::pwm::Instance;
 pub use crate::imxrt106::peripherals::pwm::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::pwm::{
     DTSRCSEL, FCTRL0, FCTRL20, FFILT0, FSTS0, FTST0, MASK, MCTRL, MCTRL2, OUTEN, SMCAPTCOMPA0,
     SMCAPTCOMPA1, SMCAPTCOMPA2, SMCAPTCOMPA3, SMCAPTCOMPB0, SMCAPTCOMPB1, SMCAPTCOMPB2,
@@ -32,20 +32,41 @@ pub use crate::imxrt106::peripherals::pwm::{
     SMVAL32, SMVAL33, SMVAL40, SMVAL41, SMVAL42, SMVAL43, SMVAL50, SMVAL51, SMVAL52, SMVAL53,
     SWCOUT,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The PWM1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type PWM1 = Instance<1>;
+
+/// The PWM1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PWM1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct PWM1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for PWM1 {}
+impl crate::Valid for PWM1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static PWM1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the PWM1 peripheral instance
-pub mod PWM1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl PWM1 {
+    const INSTANCE: Self = Self {
         addr: 0x403dc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::PWM1_0,
@@ -54,8 +75,6 @@ pub mod PWM1 {
             crate::interrupt::PWM1_3,
             crate::interrupt::PWM1_FAULT,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PWM1
@@ -245,12 +264,6 @@ pub mod PWM1 {
         SMCVAL5CYC3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static PWM1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to PWM1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -263,14 +276,13 @@ pub mod PWM1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = PWM1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -280,11 +292,8 @@ pub mod PWM1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = PWM1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -294,13 +303,14 @@ pub mod PWM1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         PWM1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl PWM1 {
     /// The interrupts associated with PWM1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -329,19 +339,38 @@ pub mod PWM1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const PWM1: *const RegisterBlock = 0x403dc000 as *const _;
 
+/// The PWM2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type PWM2 = Instance<2>;
+
+/// The PWM2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PWM2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct PWM2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for PWM2 {}
+impl crate::Valid for PWM2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static PWM2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the PWM2 peripheral instance
-pub mod PWM2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl PWM2 {
+    const INSTANCE: Self = Self {
         addr: 0x403e0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::PWM2_0,
@@ -350,8 +379,6 @@ pub mod PWM2 {
             crate::interrupt::PWM2_3,
             crate::interrupt::PWM2_FAULT,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PWM2
@@ -541,12 +568,6 @@ pub mod PWM2 {
         SMCVAL5CYC3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static PWM2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to PWM2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -559,14 +580,13 @@ pub mod PWM2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = PWM2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -576,11 +596,8 @@ pub mod PWM2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = PWM2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -590,13 +607,14 @@ pub mod PWM2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         PWM2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl PWM2 {
     /// The interrupts associated with PWM2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -625,19 +643,38 @@ pub mod PWM2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const PWM2: *const RegisterBlock = 0x403e0000 as *const _;
 
+/// The PWM3 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type PWM3 = Instance<3>;
+
+/// The PWM3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PWM3 = Instance<3>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct PWM3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for PWM3 {}
+impl crate::Valid for PWM3 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static PWM3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the PWM3 peripheral instance
-pub mod PWM3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl PWM3 {
+    const INSTANCE: Self = Self {
         addr: 0x403e4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::PWM3_0,
@@ -646,8 +683,6 @@ pub mod PWM3 {
             crate::interrupt::PWM3_3,
             crate::interrupt::PWM3_FAULT,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PWM3
@@ -837,12 +872,6 @@ pub mod PWM3 {
         SMCVAL5CYC3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static PWM3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to PWM3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -855,14 +884,13 @@ pub mod PWM3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = PWM3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -872,11 +900,8 @@ pub mod PWM3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = PWM3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -886,13 +911,14 @@ pub mod PWM3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         PWM3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl PWM3 {
     /// The interrupts associated with PWM3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [
@@ -921,19 +947,38 @@ pub mod PWM3 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const PWM3: *const RegisterBlock = 0x403e4000 as *const _;
 
+/// The PWM4 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type PWM4 = Instance<4>;
+
+/// The PWM4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PWM4 = Instance<4>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct PWM4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for PWM4 {}
+impl crate::Valid for PWM4 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static PWM4_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the PWM4 peripheral instance
-pub mod PWM4 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl PWM4 {
+    const INSTANCE: Self = Self {
         addr: 0x403e8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::PWM4_0,
@@ -942,8 +987,6 @@ pub mod PWM4 {
             crate::interrupt::PWM4_3,
             crate::interrupt::PWM4_FAULT,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PWM4
@@ -1133,12 +1176,6 @@ pub mod PWM4 {
         SMCVAL5CYC3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static PWM4_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to PWM4
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -1151,14 +1188,13 @@ pub mod PWM4 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = PWM4_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -1168,11 +1204,8 @@ pub mod PWM4 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = PWM4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -1182,13 +1215,14 @@ pub mod PWM4 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         PWM4_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl PWM4 {
     /// The interrupts associated with PWM4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 5] = [

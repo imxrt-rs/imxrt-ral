@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::enet::Instance;
 pub use crate::imxrt105::peripherals::enet::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::enet::{
     ATCOR, ATCR, ATINC, ATOFF, ATPER, ATSTMP, ATVR, ECR, EIMR, EIR, FTRL, GALR, GAUR, IALR, IAUR,
     IEEE_R_ALIGN, IEEE_R_CRC, IEEE_R_DROP, IEEE_R_FDXFC, IEEE_R_FRAME_OK, IEEE_R_MACERR,
@@ -22,24 +22,43 @@ pub use crate::imxrt105::peripherals::enet::{
     RMON_T_PACKETS, RMON_T_P_GTE2048, RMON_T_UNDERSIZE, RSEM, RSFL, RXIC, TACC, TAEM, TAFL, TCCR0,
     TCCR1, TCCR2, TCCR3, TCR, TCSR0, TCSR1, TCSR2, TCSR3, TDAR, TDSR, TFWR, TGSR, TIPG, TSEM, TXIC,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The ENET peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type ENET = Instance<0>;
+
+/// The ENET peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type ENET = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct ENET {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for ENET {}
+impl crate::Valid for ENET {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static ENET_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the ENET peripheral instance
-pub mod ENET {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl ENET {
+    const INSTANCE: Self = Self {
         addr: 0x402d8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::ENET, crate::interrupt::ENET_1588_Timer],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in ENET
@@ -150,12 +169,6 @@ pub mod ENET {
         TCCR3: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static ENET_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to ENET
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -168,14 +181,13 @@ pub mod ENET {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = ENET_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -185,11 +197,8 @@ pub mod ENET {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = ENET_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -199,13 +208,14 @@ pub mod ENET {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         ENET_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl ENET {
     /// The interrupts associated with ENET
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] =

@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1051, imxrt1052
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt105::peripherals::tmr::Instance;
 pub use crate::imxrt105::peripherals::tmr::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt105::peripherals::tmr::{
     CAPT0, CAPT1, CAPT2, CAPT3, CMPLD10, CMPLD11, CMPLD12, CMPLD13, CMPLD20, CMPLD21, CMPLD22,
     CMPLD23, CNTR0, CNTR1, CNTR2, CNTR3, COMP10, COMP11, COMP12, COMP13, COMP20, COMP21, COMP22,
@@ -14,24 +14,43 @@ pub use crate::imxrt105::peripherals::tmr::{
     ENBL, FILT0, FILT1, FILT2, FILT3, HOLD0, HOLD1, HOLD2, HOLD3, LOAD0, LOAD1, LOAD2, LOAD3,
     SCTRL0, SCTRL1, SCTRL2, SCTRL3,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The TMR1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type TMR1 = Instance<1>;
+
+/// The TMR1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct TMR1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for TMR1 {}
+impl crate::Valid for TMR1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static TMR1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the TMR1 peripheral instance
-pub mod TMR1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl TMR1 {
+    const INSTANCE: Self = Self {
         addr: 0x401dc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR1
@@ -91,12 +110,6 @@ pub mod TMR1 {
         ENBL: 0x0000000F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static TMR1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to TMR1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -109,14 +122,13 @@ pub mod TMR1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = TMR1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -126,11 +138,8 @@ pub mod TMR1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = TMR1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -140,13 +149,14 @@ pub mod TMR1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         TMR1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl TMR1 {
     /// The interrupts associated with TMR1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR1];
@@ -169,23 +179,40 @@ pub mod TMR1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const TMR1: *const RegisterBlock = 0x401dc000 as *const _;
 
+/// The TMR2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type TMR2 = Instance<2>;
+
+/// The TMR2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct TMR2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for TMR2 {}
+impl crate::Valid for TMR2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static TMR2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the TMR2 peripheral instance
-pub mod TMR2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl TMR2 {
+    const INSTANCE: Self = Self {
         addr: 0x401e0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR2
@@ -245,12 +272,6 @@ pub mod TMR2 {
         ENBL: 0x0000000F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static TMR2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to TMR2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -263,14 +284,13 @@ pub mod TMR2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = TMR2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -280,11 +300,8 @@ pub mod TMR2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = TMR2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -294,13 +311,14 @@ pub mod TMR2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         TMR2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl TMR2 {
     /// The interrupts associated with TMR2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR2];
@@ -323,23 +341,40 @@ pub mod TMR2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const TMR2: *const RegisterBlock = 0x401e0000 as *const _;
 
+/// The TMR3 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type TMR3 = Instance<3>;
+
+/// The TMR3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR3 = Instance<3>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct TMR3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for TMR3 {}
+impl crate::Valid for TMR3 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static TMR3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the TMR3 peripheral instance
-pub mod TMR3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl TMR3 {
+    const INSTANCE: Self = Self {
         addr: 0x401e4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR3],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR3
@@ -399,12 +434,6 @@ pub mod TMR3 {
         ENBL: 0x0000000F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static TMR3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to TMR3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -417,14 +446,13 @@ pub mod TMR3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = TMR3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -434,11 +462,8 @@ pub mod TMR3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = TMR3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -448,13 +473,14 @@ pub mod TMR3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         TMR3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl TMR3 {
     /// The interrupts associated with TMR3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR3];
@@ -477,23 +503,40 @@ pub mod TMR3 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const TMR3: *const RegisterBlock = 0x401e4000 as *const _;
 
+/// The TMR4 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type TMR4 = Instance<4>;
+
+/// The TMR4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type TMR4 = Instance<4>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct TMR4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for TMR4 {}
+impl crate::Valid for TMR4 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static TMR4_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the TMR4 peripheral instance
-pub mod TMR4 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl TMR4 {
+    const INSTANCE: Self = Self {
         addr: 0x401e8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::TMR4],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in TMR4
@@ -553,12 +596,6 @@ pub mod TMR4 {
         ENBL: 0x0000000F,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static TMR4_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to TMR4
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -571,14 +608,13 @@ pub mod TMR4 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = TMR4_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -588,11 +624,8 @@ pub mod TMR4 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = TMR4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -602,13 +635,14 @@ pub mod TMR4 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         TMR4_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl TMR4 {
     /// The interrupts associated with TMR4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::TMR4];

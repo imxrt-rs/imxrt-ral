@@ -28,8 +28,8 @@ mod app {
 
     #[local]
     struct Local {
-        gpio2: ral::gpio::Instance,
-        pit: ral::pit::Instance,
+        gpio2: ral::gpio::GPIO2,
+        pit: ral::pit::PIT,
     }
 
     #[shared]

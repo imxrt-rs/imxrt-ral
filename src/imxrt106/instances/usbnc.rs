@@ -4,27 +4,46 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::usbnc::Instance;
 pub use crate::imxrt106::peripherals::usbnc::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::usbnc::{USB_OTG1_CTRL, USB_OTG1_PHY_CTRL_0};
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The USBNC1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type USBNC1 = Instance<1>;
+
+/// The USBNC1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USBNC1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct USBNC1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for USBNC1 {}
+impl crate::Valid for USBNC1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USBNC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the USBNC1 peripheral instance
-pub mod USBNC1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USBNC1 {
+    const INSTANCE: Self = Self {
         addr: 0x402e0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -33,12 +52,6 @@ pub mod USBNC1 {
         USB_OTG1_CTRL: 0x30001000,
         USB_OTG1_PHY_CTRL_0: 0x00000000,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USBNC1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBNC1
     ///
@@ -52,14 +65,13 @@ pub mod USBNC1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USBNC1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -69,11 +81,8 @@ pub mod USBNC1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = USBNC1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -83,13 +92,14 @@ pub mod USBNC1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USBNC1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl USBNC1 {
     /// The interrupts associated with USBNC1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];
@@ -112,22 +122,39 @@ pub mod USBNC1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const USBNC1: *const RegisterBlock = 0x402e0000 as *const _;
 
+/// The USBNC2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type USBNC2 = Instance<2>;
+
+/// The USBNC2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type USBNC2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct USBNC2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for USBNC2 {}
+impl crate::Valid for USBNC2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static USBNC2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the USBNC2 peripheral instance
-pub mod USBNC2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl USBNC2 {
+    const INSTANCE: Self = Self {
         addr: 0x402e0004,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -136,12 +163,6 @@ pub mod USBNC2 {
         USB_OTG1_CTRL: 0x30001000,
         USB_OTG1_PHY_CTRL_0: 0x00000000,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static USBNC2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to USBNC2
     ///
@@ -155,14 +176,13 @@ pub mod USBNC2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = USBNC2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -172,11 +192,8 @@ pub mod USBNC2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = USBNC2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -186,13 +203,14 @@ pub mod USBNC2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         USBNC2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl USBNC2 {
     /// The interrupts associated with USBNC2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

@@ -4,26 +4,47 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::gpio::Instance;
 pub use crate::imxrt106::peripherals::gpio::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::gpio::{
     DR, DR_CLEAR, DR_SET, DR_TOGGLE, EDGE_SEL, GDIR, ICR1, ICR2, IMR, ISR, PSR,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The GPIO1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO1 = Instance<1>;
+
+/// The GPIO1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO1 {}
+impl crate::Valid for GPIO1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO1_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the GPIO1 peripheral instance
-pub mod GPIO1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO1 {
+    const INSTANCE: Self = Self {
         addr: 0x401b8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::GPIO1_INT0,
@@ -37,8 +58,6 @@ pub mod GPIO1 {
             crate::interrupt::GPIO1_Combined_0_15,
             crate::interrupt::GPIO1_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO1
@@ -56,12 +75,6 @@ pub mod GPIO1 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO1_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO1
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -74,14 +87,13 @@ pub mod GPIO1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -91,11 +103,8 @@ pub mod GPIO1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -105,13 +114,14 @@ pub mod GPIO1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO1 {
     /// The interrupts associated with GPIO1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 10] = [
@@ -145,26 +155,43 @@ pub mod GPIO1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO1: *const RegisterBlock = 0x401b8000 as *const _;
 
+/// The GPIO2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO2 = Instance<2>;
+
+/// The GPIO2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO2 {}
+impl crate::Valid for GPIO2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO2 peripheral instance
-pub mod GPIO2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO2 {
+    const INSTANCE: Self = Self {
         addr: 0x401bc000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::GPIO2_Combined_0_15,
             crate::interrupt::GPIO2_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO2
@@ -182,12 +209,6 @@ pub mod GPIO2 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO2_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO2
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -200,14 +221,13 @@ pub mod GPIO2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -217,11 +237,8 @@ pub mod GPIO2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -231,13 +248,14 @@ pub mod GPIO2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO2 {
     /// The interrupts associated with GPIO2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -263,26 +281,43 @@ pub mod GPIO2 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO2: *const RegisterBlock = 0x401bc000 as *const _;
 
+/// The GPIO3 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO3 = Instance<3>;
+
+/// The GPIO3 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO3 = Instance<3>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO3 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO3 {}
+impl crate::Valid for GPIO3 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO3_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO3 peripheral instance
-pub mod GPIO3 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO3 {
+    const INSTANCE: Self = Self {
         addr: 0x401c0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::GPIO3_Combined_0_15,
             crate::interrupt::GPIO3_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO3
@@ -300,12 +335,6 @@ pub mod GPIO3 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO3_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO3
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -318,14 +347,13 @@ pub mod GPIO3 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO3_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -335,11 +363,8 @@ pub mod GPIO3 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO3_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -349,13 +374,14 @@ pub mod GPIO3 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO3_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO3 {
     /// The interrupts associated with GPIO3
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -381,26 +407,43 @@ pub mod GPIO3 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO3: *const RegisterBlock = 0x401c0000 as *const _;
 
+/// The GPIO4 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO4 = Instance<4>;
+
+/// The GPIO4 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO4 = Instance<4>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO4 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO4 {}
+impl crate::Valid for GPIO4 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO4_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO4 peripheral instance
-pub mod GPIO4 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO4 {
+    const INSTANCE: Self = Self {
         addr: 0x401c4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::GPIO4_Combined_0_15,
             crate::interrupt::GPIO4_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO4
@@ -418,12 +461,6 @@ pub mod GPIO4 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO4_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO4
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -436,14 +473,13 @@ pub mod GPIO4 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO4_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -453,11 +489,8 @@ pub mod GPIO4 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO4_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -467,13 +500,14 @@ pub mod GPIO4 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO4_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO4 {
     /// The interrupts associated with GPIO4
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -499,26 +533,43 @@ pub mod GPIO4 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO4: *const RegisterBlock = 0x401c4000 as *const _;
 
+/// The GPIO5 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO5 = Instance<5>;
+
+/// The GPIO5 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO5 = Instance<5>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO5 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO5 {}
+impl crate::Valid for GPIO5 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO5_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO5 peripheral instance
-pub mod GPIO5 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO5 {
+    const INSTANCE: Self = Self {
         addr: 0x400c0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[
             crate::interrupt::GPIO5_Combined_0_15,
             crate::interrupt::GPIO5_Combined_16_31,
         ],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO5
@@ -536,12 +587,6 @@ pub mod GPIO5 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO5_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO5
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -554,14 +599,13 @@ pub mod GPIO5 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO5_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -571,11 +615,8 @@ pub mod GPIO5 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO5_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -585,13 +626,14 @@ pub mod GPIO5 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO5_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO5 {
     /// The interrupts associated with GPIO5
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 2] = [
@@ -617,23 +659,40 @@ pub mod GPIO5 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO5: *const RegisterBlock = 0x400c0000 as *const _;
 
+/// The GPIO6 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO6 = Instance<6>;
+
+/// The GPIO6 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO6 = Instance<6>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO6 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO6 {}
+impl crate::Valid for GPIO6 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO6_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO6 peripheral instance
-pub mod GPIO6 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO6 {
+    const INSTANCE: Self = Self {
         addr: 0x42000000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO6
@@ -651,12 +710,6 @@ pub mod GPIO6 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO6_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO6
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -669,14 +722,13 @@ pub mod GPIO6 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO6_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -686,11 +738,8 @@ pub mod GPIO6 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO6_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -700,13 +749,14 @@ pub mod GPIO6 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO6_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO6 {
     /// The interrupts associated with GPIO6
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];
@@ -729,23 +779,40 @@ pub mod GPIO6 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO6: *const RegisterBlock = 0x42000000 as *const _;
 
+/// The GPIO7 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO7 = Instance<7>;
+
+/// The GPIO7 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO7 = Instance<7>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO7 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO7 {}
+impl crate::Valid for GPIO7 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO7_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO7 peripheral instance
-pub mod GPIO7 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO7 {
+    const INSTANCE: Self = Self {
         addr: 0x42004000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO7
@@ -763,12 +830,6 @@ pub mod GPIO7 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO7_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO7
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -781,14 +842,13 @@ pub mod GPIO7 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO7_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -798,11 +858,8 @@ pub mod GPIO7 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO7_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -812,13 +869,14 @@ pub mod GPIO7 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO7_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO7 {
     /// The interrupts associated with GPIO7
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];
@@ -841,23 +899,40 @@ pub mod GPIO7 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO7: *const RegisterBlock = 0x42004000 as *const _;
 
+/// The GPIO8 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO8 = Instance<8>;
+
+/// The GPIO8 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO8 = Instance<8>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO8 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO8 {}
+impl crate::Valid for GPIO8 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO8_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO8 peripheral instance
-pub mod GPIO8 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO8 {
+    const INSTANCE: Self = Self {
         addr: 0x42008000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO8
@@ -875,12 +950,6 @@ pub mod GPIO8 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO8_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO8
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -893,14 +962,13 @@ pub mod GPIO8 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO8_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -910,11 +978,8 @@ pub mod GPIO8 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO8_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -924,13 +989,14 @@ pub mod GPIO8 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO8_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO8 {
     /// The interrupts associated with GPIO8
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];
@@ -953,23 +1019,40 @@ pub mod GPIO8 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const GPIO8: *const RegisterBlock = 0x42008000 as *const _;
 
+/// The GPIO9 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type GPIO9 = Instance<9>;
+
+/// The GPIO9 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type GPIO9 = Instance<9>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct GPIO9 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for GPIO9 {}
+impl crate::Valid for GPIO9 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static GPIO9_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the GPIO9 peripheral instance
-pub mod GPIO9 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl GPIO9 {
+    const INSTANCE: Self = Self {
         addr: 0x4200c000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::GPIO6_7_8_9],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in GPIO9
@@ -987,12 +1070,6 @@ pub mod GPIO9 {
         DR_TOGGLE: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static GPIO9_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to GPIO9
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -1005,14 +1082,13 @@ pub mod GPIO9 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = GPIO9_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -1022,11 +1098,8 @@ pub mod GPIO9 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = GPIO9_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -1036,13 +1109,14 @@ pub mod GPIO9 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         GPIO9_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl GPIO9 {
     /// The interrupts associated with GPIO9
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::GPIO6_7_8_9];

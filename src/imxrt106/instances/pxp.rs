@@ -4,9 +4,9 @@
 //!
 //! Used by: imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::pxp::Instance;
 pub use crate::imxrt106::peripherals::pxp::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::pxp::{
     AS_BUF, AS_CLRKEYHIGH, AS_CLRKEYLOW, AS_CTRL, AS_PITCH, CSC1_COEF0, CSC1_COEF1, CSC1_COEF2,
     CTRL, CTRL_CLR, CTRL_SET, CTRL_TOG, NEXT, OUT_AS_LRC, OUT_AS_ULC, OUT_BUF, OUT_BUF2, OUT_CTRL,
@@ -15,24 +15,43 @@ pub use crate::imxrt106::peripherals::pxp::{
     PS_CTRL_CLR, PS_CTRL_SET, PS_CTRL_TOG, PS_OFFSET, PS_PITCH, PS_SCALE, PS_UBUF, PS_VBUF, STAT,
     STAT_CLR, STAT_SET, STAT_TOG,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The PXP peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type PXP = Instance<0>;
+
+/// The PXP peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type PXP = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct PXP {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for PXP {}
+impl crate::Valid for PXP {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static PXP_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the PXP peripheral instance
-pub mod PXP {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl PXP {
+    const INSTANCE: Self = Self {
         addr: 0x402b4000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::PXP],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in PXP
@@ -83,12 +102,6 @@ pub mod PXP {
         PORTER_DUFF_CTRL: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static PXP_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to PXP
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -101,14 +114,13 @@ pub mod PXP {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = PXP_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -118,11 +130,8 @@ pub mod PXP {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = PXP_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -132,13 +141,14 @@ pub mod PXP {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         PXP_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl PXP {
     /// The interrupts associated with PXP
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::PXP];

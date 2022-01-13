@@ -60,14 +60,6 @@ fn double_release() {
     imxrt_ral::lpuart::LPUART4::release(taken); // panic: not taken
 }
 
-// Test permanently takes I2C1. Do not use I2C1 elsewhere in this test suite.
-#[test]
-#[should_panic(expected = "Released the wrong instance")]
-fn release_wrong_instance() {
-    let i2c1 = imxrt_ral::lpi2c::LPI2C1::take().unwrap();
-    imxrt_ral::lpi2c::LPI2C2::release(i2c1);
-}
-
 // Demonstrates a roundabout way to take two of the same instances.
 #[test]
 fn two_instances() {

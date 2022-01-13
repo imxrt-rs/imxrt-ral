@@ -4,32 +4,51 @@
 //!
 //! Used by: imxrt1061, imxrt1062, imxrt1064
 
-#[cfg(not(feature = "nosync"))]
 pub use crate::imxrt106::peripherals::dmamux::Instance;
 pub use crate::imxrt106::peripherals::dmamux::{RegisterBlock, ResetValues};
+
 pub use crate::imxrt106::peripherals::dmamux::{
     CHCFG0, CHCFG1, CHCFG10, CHCFG11, CHCFG12, CHCFG13, CHCFG14, CHCFG15, CHCFG16, CHCFG17,
     CHCFG18, CHCFG19, CHCFG2, CHCFG20, CHCFG21, CHCFG22, CHCFG23, CHCFG24, CHCFG25, CHCFG26,
     CHCFG27, CHCFG28, CHCFG29, CHCFG3, CHCFG30, CHCFG31, CHCFG4, CHCFG5, CHCFG6, CHCFG7, CHCFG8,
     CHCFG9,
 };
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
+
+/// The DMAMUX peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type DMAMUX = Instance<0>;
+
+/// The DMAMUX peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type DMAMUX = Instance<0>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct DMAMUX {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for DMAMUX {}
+impl crate::Valid for DMAMUX {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static DMAMUX_TAKEN: AtomicBool = AtomicBool::new(false);
 
 /// Access functions for the DMAMUX peripheral instance
-pub mod DMAMUX {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl DMAMUX {
+    const INSTANCE: Self = Self {
         addr: 0x400ec000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
-        intrs: &[],
-        #[cfg(feature = "doc")]
         intrs: &[],
     };
 
@@ -69,12 +88,6 @@ pub mod DMAMUX {
         CHCFG31: 0x00000000,
     };
 
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static DMAMUX_TAKEN: AtomicBool = AtomicBool::new(false);
-
     /// Safe access to DMAMUX
     ///
     /// This function returns `Some(Instance)` if this instance is not
@@ -87,14 +100,13 @@ pub mod DMAMUX {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = DMAMUX_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -104,11 +116,8 @@ pub mod DMAMUX {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = DMAMUX_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -118,13 +127,14 @@ pub mod DMAMUX {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         DMAMUX_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl DMAMUX {
     /// The interrupts associated with DMAMUX
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 0] = [];

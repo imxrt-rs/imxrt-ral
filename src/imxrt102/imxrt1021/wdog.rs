@@ -3,9 +3,9 @@
 //! WDOG
 
 use crate::{RORegister, RWRegister};
-#[cfg(not(feature = "nosync"))]
-use core::marker::PhantomData;
 
+#[cfg(not(feature = "nosync"))]
+use core::sync::atomic::{AtomicBool, Ordering};
 /// Watchdog Control Register
 pub mod WCR {
 
@@ -421,14 +421,15 @@ pub struct ResetValues {
     pub WICR: u16,
     pub WMCR: u16,
 }
-#[cfg(not(feature = "nosync"))]
-pub struct Instance {
+pub struct Instance<const N: u8> {
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) addr: u32,
-    pub(crate) _marker: PhantomData<*const RegisterBlock>,
+    #[cfg_attr(feature = "nosync", allow(unused))]
     pub(crate) intrs: &'static [crate::Interrupt],
 }
+
 #[cfg(not(feature = "nosync"))]
-impl ::core::ops::Deref for Instance {
+impl<const N: u8> ::core::ops::Deref for Instance<N> {
     type Target = RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &RegisterBlock {
@@ -437,10 +438,10 @@ impl ::core::ops::Deref for Instance {
 }
 
 #[cfg(not(feature = "nosync"))]
-unsafe impl Send for Instance {}
+unsafe impl<const N: u8> Send for Instance<N> {}
 
 #[cfg(not(feature = "nosync"))]
-impl Instance {
+impl<const N: u8> Instance<N> {
     /// Return the interrupt signals associated with this
     /// peripheral instance
     ///
@@ -453,23 +454,40 @@ impl Instance {
     }
 }
 
+/// The WDOG1 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type WDOG1 = Instance<1>;
+
+/// The WDOG1 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type WDOG1 = Instance<1>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct WDOG1 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for WDOG1 {}
+impl crate::Valid for WDOG1 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static WDOG1_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the WDOG1 peripheral instance
-pub mod WDOG1 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl WDOG1 {
+    const INSTANCE: Self = Self {
         addr: 0x400b8000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::WDOG1],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in WDOG1
@@ -480,12 +498,6 @@ pub mod WDOG1 {
         WICR: 0x00000004,
         WMCR: 0x00000001,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static WDOG1_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to WDOG1
     ///
@@ -499,14 +511,13 @@ pub mod WDOG1 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = WDOG1_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -516,11 +527,8 @@ pub mod WDOG1 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = WDOG1_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -530,13 +538,14 @@ pub mod WDOG1 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         WDOG1_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl WDOG1 {
     /// The interrupts associated with WDOG1
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::WDOG1];
@@ -559,23 +568,40 @@ pub mod WDOG1 {
 /// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.
 pub const WDOG1: *const RegisterBlock = 0x400b8000 as *const _;
 
+/// The WDOG2 peripheral instance.
+#[cfg(not(feature = "doc"))]
+pub type WDOG2 = Instance<2>;
+
+/// The WDOG2 peripheral instance.
+///
+/// This is a new type only for documentation purposes. When
+/// compiling for a target, this is defined as
+///
+/// ```rust
+/// pub type WDOG2 = Instance<2>;
+/// ```
+#[cfg(feature = "doc")]
+pub struct WDOG2 {
+    #[allow(unused)] // Only for documentation generation.
+    addr: u32,
+}
+
+impl crate::private::Sealed for WDOG2 {}
+impl crate::Valid for WDOG2 {}
+
+#[cfg(not(feature = "nosync"))]
+#[allow(renamed_and_removed_lints)]
+#[allow(private_no_mangle_statics)]
+#[no_mangle]
+static WDOG2_TAKEN: AtomicBool = AtomicBool::new(false);
+
 /// Access functions for the WDOG2 peripheral instance
-pub mod WDOG2 {
-    use super::ResetValues;
-    #[cfg(not(feature = "nosync"))]
-    use core::sync::atomic::{AtomicBool, Ordering};
-
-    #[cfg(not(feature = "nosync"))]
-    use super::Instance;
-
-    #[cfg(not(feature = "nosync"))]
-    const INSTANCE: Instance = Instance {
+#[cfg(not(feature = "nosync"))]
+impl WDOG2 {
+    const INSTANCE: Self = Self {
         addr: 0x400d0000,
-        _marker: ::core::marker::PhantomData,
         #[cfg(not(feature = "doc"))]
         intrs: &[crate::interrupt::WDOG2],
-        #[cfg(feature = "doc")]
-        intrs: &[],
     };
 
     /// Reset values for each field in WDOG2
@@ -586,12 +612,6 @@ pub mod WDOG2 {
         WICR: 0x00000004,
         WMCR: 0x00000001,
     };
-
-    #[cfg(not(feature = "nosync"))]
-    #[allow(renamed_and_removed_lints)]
-    #[allow(private_no_mangle_statics)]
-    #[no_mangle]
-    static WDOG2_TAKEN: AtomicBool = AtomicBool::new(false);
 
     /// Safe access to WDOG2
     ///
@@ -605,14 +625,13 @@ pub mod WDOG2 {
     ///
     /// `Instance` itself dereferences to a `RegisterBlock`, which
     /// provides access to the peripheral's registers.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn take() -> Option<Instance> {
+    pub fn take() -> Option<Self> {
         let taken = WDOG2_TAKEN.swap(true, Ordering::SeqCst);
         if taken {
             None
         } else {
-            Some(INSTANCE)
+            Some(Self::INSTANCE)
         }
     }
 
@@ -622,11 +641,8 @@ pub mod WDOG2 {
     /// is available to `take()` again. This function will panic if
     /// you return a different `Instance` or if this instance is not
     /// already taken.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub fn release(inst: Instance) {
-        assert!(inst.addr == INSTANCE.addr, "Released the wrong instance");
-
+    pub fn release(_: Self) {
         let taken = WDOG2_TAKEN.swap(false, Ordering::SeqCst);
         assert!(taken, "Released a peripheral which was not taken");
     }
@@ -636,13 +652,14 @@ pub mod WDOG2 {
     /// This function is similar to take() but forcibly takes the
     /// Instance, marking it as taken irregardless of its previous
     /// state.
-    #[cfg(not(feature = "nosync"))]
     #[inline]
-    pub unsafe fn steal() -> Instance {
+    pub unsafe fn steal() -> Self {
         WDOG2_TAKEN.store(true, Ordering::SeqCst);
-        INSTANCE
+        Self::INSTANCE
     }
+}
 
+impl WDOG2 {
     /// The interrupts associated with WDOG2
     #[cfg(not(feature = "doc"))]
     pub const INTERRUPTS: [crate::Interrupt; 1] = [crate::interrupt::WDOG2];
