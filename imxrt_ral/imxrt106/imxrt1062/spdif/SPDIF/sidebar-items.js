@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with SPDIF"],["reset","Reset values for each field in SPDIF"]],"fn":[["release","Release exclusive access to SPDIF"],["steal","Unsafely steal SPDIF"],["take","Safe access to SPDIF"]]});

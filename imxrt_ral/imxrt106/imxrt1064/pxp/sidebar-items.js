@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PXP","Raw pointer to PXP"]],"mod":[["PXP","Access functions for the PXP peripheral instance"]]});
+initSidebarItems({"constant":[["PXP","Raw pointer to PXP"]],"struct":[["PXP","The PXP peripheral instance."]]});

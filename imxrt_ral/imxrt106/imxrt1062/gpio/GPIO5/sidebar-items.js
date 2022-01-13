@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with GPIO5"],["reset","Reset values for each field in GPIO5"]],"fn":[["release","Release exclusive access to GPIO5"],["steal","Unsafely steal GPIO5"],["take","Safe access to GPIO5"]]});

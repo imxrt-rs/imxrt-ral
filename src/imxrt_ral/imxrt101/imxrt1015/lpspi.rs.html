@@ -1832,14 +1832,31 @@
 <span id="1832">1832</span>
 <span id="1833">1833</span>
 <span id="1834">1834</span>
+<span id="1835">1835</span>
+<span id="1836">1836</span>
+<span id="1837">1837</span>
+<span id="1838">1838</span>
+<span id="1839">1839</span>
+<span id="1840">1840</span>
+<span id="1841">1841</span>
+<span id="1842">1842</span>
+<span id="1843">1843</span>
+<span id="1844">1844</span>
+<span id="1845">1845</span>
+<span id="1846">1846</span>
+<span id="1847">1847</span>
+<span id="1848">1848</span>
+<span id="1849">1849</span>
+<span id="1850">1850</span>
+<span id="1851">1851</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! LPSPI</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">RORegister</span>, <span class="ident">RWRegister</span>, <span class="ident">WORegister</span>};
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 <span class="doccomment">/// Version ID Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">VERID</span> {
 
@@ -3399,14 +3416,15 @@
     <span class="kw">pub</span> <span class="ident">RSR</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span> <span class="ident">RDR</span>: <span class="ident">u32</span>,
 }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -3415,10 +3433,10 @@
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {}
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Return the interrupt signals associated with this</span>
     <span class="doccomment">/// peripheral instance</span>
     <span class="doccomment">///</span>
@@ -3431,23 +3449,40 @@
     }
 }
 
+<span class="doccomment">/// The LPSPI1 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSPI1</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">1</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPSPI1 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPSPI1 = Instance&lt;1&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPSPI1</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPSPI1</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPSPI1</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPSPI1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPSPI1 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPSPI1</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPSPI1</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40394000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPSPI1</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPSPI1</span>
@@ -3471,12 +3506,6 @@
         <span class="ident">RDR</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPSPI1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPSPI1</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -3489,14 +3518,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPSPI1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -3506,11 +3534,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPSPI1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -3520,13 +3545,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPSPI1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPSPI1</span> {
     <span class="doccomment">/// The interrupts associated with LPSPI1</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPSPI1</span>];
@@ -3549,23 +3575,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPSPI1</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40394000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPSPI2 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSPI2</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">2</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPSPI2 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPSPI2 = Instance&lt;2&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPSPI2</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPSPI2</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPSPI2</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPSPI2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPSPI2 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPSPI2</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPSPI2</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40398000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPSPI2</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPSPI2</span>
@@ -3589,12 +3632,6 @@
         <span class="ident">RDR</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPSPI2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPSPI2</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -3607,14 +3644,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPSPI2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -3624,11 +3660,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPSPI2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -3638,13 +3671,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPSPI2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPSPI2</span> {
     <span class="doccomment">/// The interrupts associated with LPSPI2</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPSPI2</span>];

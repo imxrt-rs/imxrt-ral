@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CSI"],["reset","Reset values for each field in CSI"]],"fn":[["release","Release exclusive access to CSI"],["steal","Unsafely steal CSI"],["take","Safe access to CSI"]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with WDOG1"],["reset","Reset values for each field in WDOG1"]],"fn":[["release","Release exclusive access to WDOG1"],["steal","Unsafely steal WDOG1"],["take","Safe access to WDOG1"]]});

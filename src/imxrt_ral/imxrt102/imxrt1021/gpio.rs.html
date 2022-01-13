@@ -1188,14 +1188,47 @@
 <span id="1188">1188</span>
 <span id="1189">1189</span>
 <span id="1190">1190</span>
+<span id="1191">1191</span>
+<span id="1192">1192</span>
+<span id="1193">1193</span>
+<span id="1194">1194</span>
+<span id="1195">1195</span>
+<span id="1196">1196</span>
+<span id="1197">1197</span>
+<span id="1198">1198</span>
+<span id="1199">1199</span>
+<span id="1200">1200</span>
+<span id="1201">1201</span>
+<span id="1202">1202</span>
+<span id="1203">1203</span>
+<span id="1204">1204</span>
+<span id="1205">1205</span>
+<span id="1206">1206</span>
+<span id="1207">1207</span>
+<span id="1208">1208</span>
+<span id="1209">1209</span>
+<span id="1210">1210</span>
+<span id="1211">1211</span>
+<span id="1212">1212</span>
+<span id="1213">1213</span>
+<span id="1214">1214</span>
+<span id="1215">1215</span>
+<span id="1216">1216</span>
+<span id="1217">1217</span>
+<span id="1218">1218</span>
+<span id="1219">1219</span>
+<span id="1220">1220</span>
+<span id="1221">1221</span>
+<span id="1222">1222</span>
+<span id="1223">1223</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! GPIO</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">RORegister</span>, <span class="ident">RWRegister</span>, <span class="ident">WORegister</span>};
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 <span class="doccomment">/// GPIO data register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">DR</span> {
 
@@ -1859,14 +1892,15 @@
     <span class="kw">pub</span> <span class="ident">DR_CLEAR</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span> <span class="ident">DR_TOGGLE</span>: <span class="ident">u32</span>,
 }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -1875,10 +1909,10 @@
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {}
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Return the interrupt signals associated with this</span>
     <span class="doccomment">/// peripheral instance</span>
     <span class="doccomment">///</span>
@@ -1891,19 +1925,38 @@
     }
 }
 
+<span class="doccomment">/// The GPIO1 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GPIO1</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">1</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The GPIO1 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type GPIO1 = Instance&lt;1&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GPIO1</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">GPIO1</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">GPIO1</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">GPIO1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the GPIO1 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GPIO1</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">GPIO1</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x401b8000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO1_INT0</span>,
@@ -1917,8 +1970,6 @@
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO1_Combined_0_15</span>,
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO1_Combined_16_31</span>,
         ],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in GPIO1</span>
@@ -1936,12 +1987,6 @@
         <span class="ident">DR_TOGGLE</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">GPIO1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to GPIO1</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -1954,14 +1999,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -1971,11 +2015,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -1985,13 +2026,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">GPIO1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">GPIO1</span> {
     <span class="doccomment">/// The interrupts associated with GPIO1</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">10</span>] <span class="op">=</span> [
@@ -2025,26 +2067,43 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">GPIO1</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x401b8000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The GPIO2 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GPIO2</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">2</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The GPIO2 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type GPIO2 = Instance&lt;2&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GPIO2</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">GPIO2</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">GPIO2</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">GPIO2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the GPIO2 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GPIO2</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">GPIO2</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x401bc000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO2_Combined_0_15</span>,
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO2_Combined_16_31</span>,
         ],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in GPIO2</span>
@@ -2062,12 +2121,6 @@
         <span class="ident">DR_TOGGLE</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">GPIO2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to GPIO2</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -2080,14 +2133,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -2097,11 +2149,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -2111,13 +2160,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">GPIO2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">GPIO2</span> {
     <span class="doccomment">/// The interrupts associated with GPIO2</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">2</span>] <span class="op">=</span> [
@@ -2143,26 +2193,43 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">GPIO2</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x401bc000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The GPIO3 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GPIO3</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The GPIO3 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type GPIO3 = Instance&lt;3&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GPIO3</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">GPIO3</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">GPIO3</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">GPIO3_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the GPIO3 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GPIO3</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">GPIO3</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x401c0000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO3_Combined_0_15</span>,
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO3_Combined_16_31</span>,
         ],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in GPIO3</span>
@@ -2180,12 +2247,6 @@
         <span class="ident">DR_TOGGLE</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">GPIO3_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to GPIO3</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -2198,14 +2259,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -2215,11 +2275,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -2229,13 +2286,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">GPIO3_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">GPIO3</span> {
     <span class="doccomment">/// The interrupts associated with GPIO3</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">2</span>] <span class="op">=</span> [
@@ -2261,26 +2319,43 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">GPIO3</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x401c0000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The GPIO5 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GPIO5</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">5</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The GPIO5 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type GPIO5 = Instance&lt;5&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GPIO5</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">GPIO5</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">GPIO5</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">GPIO5_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the GPIO5 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">GPIO5</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">GPIO5</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x400c0000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO5_Combined_0_15</span>,
             <span class="ident"><span class="kw">crate</span>::interrupt::GPIO5_Combined_16_31</span>,
         ],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in GPIO5</span>
@@ -2298,12 +2373,6 @@
         <span class="ident">DR_TOGGLE</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">GPIO5_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to GPIO5</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -2316,14 +2385,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO5_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -2333,11 +2401,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">GPIO5_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -2347,13 +2412,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">GPIO5_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">GPIO5</span> {
     <span class="doccomment">/// The interrupts associated with GPIO5</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">2</span>] <span class="op">=</span> [

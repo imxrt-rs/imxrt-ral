@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CCM_ANALOG","Raw pointer to CCM_ANALOG"]],"mod":[["CCM_ANALOG","Access functions for the CCM_ANALOG peripheral instance"]]});
+initSidebarItems({"constant":[["CCM_ANALOG","Raw pointer to CCM_ANALOG"]],"struct":[["CCM_ANALOG","The CCM_ANALOG peripheral instance."]]});

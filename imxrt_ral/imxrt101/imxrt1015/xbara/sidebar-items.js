@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["XBARA","Raw pointer to XBARA"]],"mod":[["XBARA","Access functions for the XBARA peripheral instance"]]});
+initSidebarItems({"constant":[["XBARA","Raw pointer to XBARA"]],"struct":[["XBARA","The XBARA peripheral instance."]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with PGC"],["reset","Reset values for each field in PGC"]],"fn":[["release","Release exclusive access to PGC"],["steal","Unsafely steal PGC"],["take","Safe access to PGC"]]});

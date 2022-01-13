@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BEE","Raw pointer to BEE"]],"mod":[["BEE","Access functions for the BEE peripheral instance"]]});
+initSidebarItems({"constant":[["BEE","Raw pointer to BEE"]],"struct":[["BEE","The BEE peripheral instance."]]});

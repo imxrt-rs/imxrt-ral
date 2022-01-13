@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["KPP","Raw pointer to KPP"]],"mod":[["KPP","Access functions for the KPP peripheral instance"]]});
+initSidebarItems({"constant":[["KPP","Raw pointer to KPP"]],"struct":[["KPP","The KPP peripheral instance."]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with USBPHY2"],["reset","Reset values for each field in USBPHY2"]],"fn":[["release","Release exclusive access to USBPHY2"],["steal","Unsafely steal USBPHY2"],["take","Safe access to USBPHY2"]]});

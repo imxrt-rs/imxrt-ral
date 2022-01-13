@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMA0","Raw pointer to DMA0"]],"mod":[["DMA0","Access functions for the DMA0 peripheral instance"]]});
+initSidebarItems({"constant":[["DMA0","Raw pointer to DMA0"]],"struct":[["DMA0","The DMA0 peripheral instance."]]});

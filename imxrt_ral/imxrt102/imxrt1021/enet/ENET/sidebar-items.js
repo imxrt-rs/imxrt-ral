@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with ENET"],["reset","Reset values for each field in ENET"]],"fn":[["release","Release exclusive access to ENET"],["steal","Unsafely steal ENET"],["take","Safe access to ENET"]]});

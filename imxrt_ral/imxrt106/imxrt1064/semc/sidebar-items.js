@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SEMC","Raw pointer to SEMC"]],"mod":[["SEMC","Access functions for the SEMC peripheral instance"]]});
+initSidebarItems({"constant":[["SEMC","Raw pointer to SEMC"]],"struct":[["SEMC","The SEMC peripheral instance."]]});

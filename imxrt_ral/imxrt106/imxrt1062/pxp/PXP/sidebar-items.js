@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with PXP"],["reset","Reset values for each field in PXP"]],"fn":[["release","Release exclusive access to PXP"],["steal","Unsafely steal PXP"],["take","Safe access to PXP"]]});

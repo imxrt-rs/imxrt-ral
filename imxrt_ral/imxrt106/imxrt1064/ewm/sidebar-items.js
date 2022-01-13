@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EWM","Raw pointer to EWM"]],"mod":[["EWM","Access functions for the EWM peripheral instance"]]});
+initSidebarItems({"constant":[["EWM","Raw pointer to EWM"]],"struct":[["EWM","The EWM peripheral instance."]]});

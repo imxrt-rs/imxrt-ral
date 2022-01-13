@@ -436,33 +436,86 @@
 <span id="436">436</span>
 <span id="437">437</span>
 <span id="438">438</span>
+<span id="439">439</span>
+<span id="440">440</span>
+<span id="441">441</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+<span id="467">467</span>
+<span id="468">468</span>
+<span id="469">469</span>
+<span id="470">470</span>
+<span id="471">471</span>
+<span id="472">472</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! AIPSTZ Control Registers</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Used by: imxrt1061, imxrt1062, imxrt1064</span>
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::imxrt106::peripherals::aipstz::Instance</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::imxrt106::peripherals::aipstz</span>::{<span class="ident">RegisterBlock</span>, <span class="ident">ResetValues</span>};
+
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::imxrt106::peripherals::aipstz</span>::{<span class="ident">MPR</span>, <span class="ident">OPACR</span>, <span class="ident">OPACR1</span>, <span class="ident">OPACR2</span>, <span class="ident">OPACR3</span>, <span class="ident">OPACR4</span>};
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
+
+<span class="doccomment">/// The AIPSTZ1 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AIPSTZ1</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">1</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The AIPSTZ1 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type AIPSTZ1 = Instance&lt;1&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AIPSTZ1</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">AIPSTZ1</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">AIPSTZ1</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">AIPSTZ1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
 <span class="doccomment">/// Access functions for the AIPSTZ1 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ1</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">AIPSTZ1</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x4007c000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
@@ -476,12 +529,6 @@
         <span class="ident">OPACR4</span>: <span class="number">0x44444444</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">AIPSTZ1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to AIPSTZ1</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -494,14 +541,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -511,11 +557,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -525,13 +568,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">AIPSTZ1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">AIPSTZ1</span> {
     <span class="doccomment">/// The interrupts associated with AIPSTZ1</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
@@ -554,22 +598,39 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">AIPSTZ1</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x4007c000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The AIPSTZ2 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AIPSTZ2</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">2</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The AIPSTZ2 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type AIPSTZ2 = Instance&lt;2&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AIPSTZ2</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">AIPSTZ2</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">AIPSTZ2</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">AIPSTZ2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the AIPSTZ2 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ2</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">AIPSTZ2</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x4017c000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
@@ -583,12 +644,6 @@
         <span class="ident">OPACR4</span>: <span class="number">0x44444444</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">AIPSTZ2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to AIPSTZ2</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -601,14 +656,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -618,11 +672,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -632,13 +683,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">AIPSTZ2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">AIPSTZ2</span> {
     <span class="doccomment">/// The interrupts associated with AIPSTZ2</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
@@ -661,22 +713,39 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">AIPSTZ2</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x4017c000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The AIPSTZ3 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AIPSTZ3</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The AIPSTZ3 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type AIPSTZ3 = Instance&lt;3&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AIPSTZ3</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">AIPSTZ3</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">AIPSTZ3</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">AIPSTZ3_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the AIPSTZ3 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ3</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">AIPSTZ3</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x4027c000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
@@ -690,12 +759,6 @@
         <span class="ident">OPACR4</span>: <span class="number">0x44444444</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">AIPSTZ3_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to AIPSTZ3</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -708,14 +771,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -725,11 +787,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -739,13 +798,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">AIPSTZ3_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">AIPSTZ3</span> {
     <span class="doccomment">/// The interrupts associated with AIPSTZ3</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];
@@ -768,22 +828,39 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">AIPSTZ3</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x4027c000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The AIPSTZ4 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AIPSTZ4</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">4</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The AIPSTZ4 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type AIPSTZ4 = Instance&lt;4&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AIPSTZ4</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">AIPSTZ4</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">AIPSTZ4</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">AIPSTZ4_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the AIPSTZ4 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">AIPSTZ4</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">AIPSTZ4</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x4037c000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
@@ -797,12 +874,6 @@
         <span class="ident">OPACR4</span>: <span class="number">0x44444444</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">AIPSTZ4_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to AIPSTZ4</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -815,14 +886,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ4_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -832,11 +902,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">AIPSTZ4_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -846,13 +913,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">AIPSTZ4_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">AIPSTZ4</span> {
     <span class="doccomment">/// The interrupts associated with AIPSTZ4</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];

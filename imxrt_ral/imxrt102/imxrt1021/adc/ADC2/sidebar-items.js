@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with ADC2"],["reset","Reset values for each field in ADC2"]],"fn":[["release","Release exclusive access to ADC2"],["steal","Unsafely steal ADC2"],["take","Safe access to ADC2"]]});

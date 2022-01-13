@@ -155,15 +155,25 @@
 <span id="155">155</span>
 <span id="156">156</span>
 <span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! USB Analog</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Used by: imxrt1051, imxrt1052</span>
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::imxrt105::peripherals::usb_analog::Instance</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::imxrt105::peripherals::usb_analog</span>::{<span class="ident">RegisterBlock</span>, <span class="ident">ResetValues</span>};
+
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::imxrt105::peripherals::usb_analog</span>::{
     <span class="ident">DIGPROG</span>, <span class="ident">USB1_CHRG_DETECT</span>, <span class="ident">USB1_CHRG_DETECT_CLR</span>, <span class="ident">USB1_CHRG_DETECT_SET</span>, <span class="ident">USB1_CHRG_DETECT_STAT</span>,
     <span class="ident">USB1_CHRG_DETECT_TOG</span>, <span class="ident">USB1_LOOPBACK</span>, <span class="ident">USB1_LOOPBACK_CLR</span>, <span class="ident">USB1_LOOPBACK_SET</span>, <span class="ident">USB1_LOOPBACK_TOG</span>,
@@ -174,23 +184,42 @@
     <span class="ident">USB2_MISC_CLR</span>, <span class="ident">USB2_MISC_SET</span>, <span class="ident">USB2_MISC_TOG</span>, <span class="ident">USB2_VBUS_DETECT</span>, <span class="ident">USB2_VBUS_DETECT_CLR</span>,
     <span class="ident">USB2_VBUS_DETECT_SET</span>, <span class="ident">USB2_VBUS_DETECT_STAT</span>, <span class="ident">USB2_VBUS_DETECT_TOG</span>,
 };
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
+
+<span class="doccomment">/// The USB_ANALOG peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">USB_ANALOG</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">0</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The USB_ANALOG peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type USB_ANALOG = Instance&lt;0&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">USB_ANALOG</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">USB_ANALOG</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">USB_ANALOG</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">USB_ANALOG_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
 <span class="doccomment">/// Access functions for the USB_ANALOG peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">USB_ANALOG</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">USB_ANALOG</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x400d8000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
@@ -235,12 +264,6 @@
         <span class="ident">DIGPROG</span>: <span class="number">0x006A0001</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">USB_ANALOG_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to USB_ANALOG</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -253,14 +276,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">USB_ANALOG_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -270,11 +292,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">USB_ANALOG_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -284,13 +303,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">USB_ANALOG_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">USB_ANALOG</span> {
     <span class="doccomment">/// The interrupts associated with USB_ANALOG</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">0</span>] <span class="op">=</span> [];

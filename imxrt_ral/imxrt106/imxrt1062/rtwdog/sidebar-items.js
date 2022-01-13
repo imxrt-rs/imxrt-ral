@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RTWDOG","Raw pointer to RTWDOG"]],"mod":[["RTWDOG","Access functions for the RTWDOG peripheral instance"]]});
+initSidebarItems({"constant":[["RTWDOG","Raw pointer to RTWDOG"]],"struct":[["RTWDOG","The RTWDOG peripheral instance."]]});

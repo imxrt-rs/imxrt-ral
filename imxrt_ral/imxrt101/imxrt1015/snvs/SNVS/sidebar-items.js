@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with SNVS"],["reset","Reset values for each field in SNVS"]],"fn":[["release","Release exclusive access to SNVS"],["steal","Unsafely steal SNVS"],["take","Safe access to SNVS"]]});

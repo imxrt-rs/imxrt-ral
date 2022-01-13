@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with FLEXIO3"],["reset","Reset values for each field in FLEXIO3"]],"fn":[["release","Release exclusive access to FLEXIO3"],["steal","Unsafely steal FLEXIO3"],["take","Safe access to FLEXIO3"]]});

@@ -3356,14 +3356,79 @@
 <span id="3356">3356</span>
 <span id="3357">3357</span>
 <span id="3358">3358</span>
+<span id="3359">3359</span>
+<span id="3360">3360</span>
+<span id="3361">3361</span>
+<span id="3362">3362</span>
+<span id="3363">3363</span>
+<span id="3364">3364</span>
+<span id="3365">3365</span>
+<span id="3366">3366</span>
+<span id="3367">3367</span>
+<span id="3368">3368</span>
+<span id="3369">3369</span>
+<span id="3370">3370</span>
+<span id="3371">3371</span>
+<span id="3372">3372</span>
+<span id="3373">3373</span>
+<span id="3374">3374</span>
+<span id="3375">3375</span>
+<span id="3376">3376</span>
+<span id="3377">3377</span>
+<span id="3378">3378</span>
+<span id="3379">3379</span>
+<span id="3380">3380</span>
+<span id="3381">3381</span>
+<span id="3382">3382</span>
+<span id="3383">3383</span>
+<span id="3384">3384</span>
+<span id="3385">3385</span>
+<span id="3386">3386</span>
+<span id="3387">3387</span>
+<span id="3388">3388</span>
+<span id="3389">3389</span>
+<span id="3390">3390</span>
+<span id="3391">3391</span>
+<span id="3392">3392</span>
+<span id="3393">3393</span>
+<span id="3394">3394</span>
+<span id="3395">3395</span>
+<span id="3396">3396</span>
+<span id="3397">3397</span>
+<span id="3398">3398</span>
+<span id="3399">3399</span>
+<span id="3400">3400</span>
+<span id="3401">3401</span>
+<span id="3402">3402</span>
+<span id="3403">3403</span>
+<span id="3404">3404</span>
+<span id="3405">3405</span>
+<span id="3406">3406</span>
+<span id="3407">3407</span>
+<span id="3408">3408</span>
+<span id="3409">3409</span>
+<span id="3410">3410</span>
+<span id="3411">3411</span>
+<span id="3412">3412</span>
+<span id="3413">3413</span>
+<span id="3414">3414</span>
+<span id="3415">3415</span>
+<span id="3416">3416</span>
+<span id="3417">3417</span>
+<span id="3418">3418</span>
+<span id="3419">3419</span>
+<span id="3420">3420</span>
+<span id="3421">3421</span>
+<span id="3422">3422</span>
+<span id="3423">3423</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! LPUART</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">RORegister</span>, <span class="ident">RWRegister</span>};
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
 <span class="doccomment">/// Version ID Register</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">VERID</span> {
 
@@ -5779,14 +5844,15 @@
     <span class="kw">pub</span> <span class="ident">FIFO</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span> <span class="ident">WATER</span>: <span class="ident">u32</span>,
 }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -5795,10 +5861,10 @@
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {}
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Return the interrupt signals associated with this</span>
     <span class="doccomment">/// peripheral instance</span>
     <span class="doccomment">///</span>
@@ -5811,23 +5877,40 @@
     }
 }
 
+<span class="doccomment">/// The LPUART1 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART1</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">1</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART1 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART1 = Instance&lt;1&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART1</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART1</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART1</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART1 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART1</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART1</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40184000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART1</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART1</span>
@@ -5846,12 +5929,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART1_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART1</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -5864,14 +5941,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -5881,11 +5957,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART1_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -5895,13 +5968,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART1_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART1</span> {
     <span class="doccomment">/// The interrupts associated with LPUART1</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART1</span>];
@@ -5924,23 +5998,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART1</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40184000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART2 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART2</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">2</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART2 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART2 = Instance&lt;2&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART2</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART2</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART2</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART2 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART2</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART2</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40188000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART2</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART2</span>
@@ -5959,12 +6050,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART2_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART2</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -5977,14 +6062,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -5994,11 +6078,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART2_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6008,13 +6089,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART2_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART2</span> {
     <span class="doccomment">/// The interrupts associated with LPUART2</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART2</span>];
@@ -6037,23 +6119,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART2</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40188000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART3 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART3</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART3 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART3 = Instance&lt;3&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART3</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART3</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART3</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART3_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART3 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART3</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART3</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x4018c000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART3</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART3</span>
@@ -6072,12 +6171,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART3_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART3</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -6090,14 +6183,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -6107,11 +6199,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART3_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6121,13 +6210,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART3_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART3</span> {
     <span class="doccomment">/// The interrupts associated with LPUART3</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART3</span>];
@@ -6150,23 +6240,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART3</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x4018c000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART4 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART4</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">4</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART4 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART4 = Instance&lt;4&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART4</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART4</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART4</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART4_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART4 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART4</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART4</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40190000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART4</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART4</span>
@@ -6185,12 +6292,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART4_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART4</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -6203,14 +6304,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART4_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -6220,11 +6320,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART4_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6234,13 +6331,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART4_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART4</span> {
     <span class="doccomment">/// The interrupts associated with LPUART4</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART4</span>];
@@ -6263,23 +6361,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART4</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40190000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART5 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART5</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">5</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART5 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART5 = Instance&lt;5&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART5</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART5</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART5</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART5_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART5 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART5</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART5</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40194000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART5</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART5</span>
@@ -6298,12 +6413,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART5_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART5</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -6316,14 +6425,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART5_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -6333,11 +6441,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART5_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6347,13 +6452,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART5_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART5</span> {
     <span class="doccomment">/// The interrupts associated with LPUART5</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART5</span>];
@@ -6376,23 +6482,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART5</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40194000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART6 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART6</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">6</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART6 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART6 = Instance&lt;6&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART6</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART6</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART6</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART6_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART6 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART6</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART6</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x40198000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART6</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART6</span>
@@ -6411,12 +6534,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART6_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART6</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -6429,14 +6546,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART6_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -6446,11 +6562,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART6_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6460,13 +6573,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART6_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART6</span> {
     <span class="doccomment">/// The interrupts associated with LPUART6</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART6</span>];
@@ -6489,23 +6603,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART6</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x40198000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART7 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART7</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">7</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART7 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART7 = Instance&lt;7&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART7</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART7</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART7</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART7_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART7 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART7</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART7</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x4019c000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART7</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART7</span>
@@ -6524,12 +6655,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART7_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART7</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -6542,14 +6667,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART7_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -6559,11 +6683,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART7_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6573,13 +6694,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART7_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART7</span> {
     <span class="doccomment">/// The interrupts associated with LPUART7</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART7</span>];
@@ -6602,23 +6724,40 @@
 <span class="doccomment">/// simply call for example `write_reg!(gpio, GPIOA, ODR, 1);`.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LPUART7</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span> <span class="op">=</span> <span class="number">0x4019c000</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>;
 
+<span class="doccomment">/// The LPUART8 peripheral instance.</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUART8</span> <span class="op">=</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="number">8</span><span class="op">&gt;</span>;
+
+<span class="doccomment">/// The LPUART8 peripheral instance.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is a new type only for documentation purposes. When</span>
+<span class="doccomment">/// compiling for a target, this is defined as</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust</span>
+<span class="doccomment">/// pub type LPUART8 = Instance&lt;8&gt;;</span>
+<span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LPUART8</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span> <span class="comment">// Only for documentation generation.</span>
+    <span class="ident">addr</span>: <span class="ident">u32</span>,
+}
+
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::private::Sealed</span> <span class="kw">for</span> <span class="ident">LPUART8</span> {}
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::Valid</span> <span class="kw">for</span> <span class="ident">LPUART8</span> {}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">static</span> <span class="ident">LPUART8_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
+
 <span class="doccomment">/// Access functions for the LPUART8 peripheral instance</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">LPUART8</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ResetValues</span>;
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Instance</span>;
-
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="ident">Instance</span> <span class="op">=</span> <span class="ident">Instance</span> {
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
+<span class="kw">impl</span> <span class="ident">LPUART8</span> {
+    <span class="kw">const</span> <span class="ident">INSTANCE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span> {
         <span class="ident">addr</span>: <span class="number">0x401a0000</span>,
-        <span class="ident">_marker</span>: <span class="ident">::core::marker::PhantomData</span>,
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
         <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[<span class="ident"><span class="kw">crate</span>::interrupt::LPUART8</span>],
-        <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>)]</span>
-        <span class="ident">intrs</span>: <span class="kw-2">&amp;</span>[],
     };
 
     <span class="doccomment">/// Reset values for each field in LPUART8</span>
@@ -6637,12 +6776,6 @@
         <span class="ident">WATER</span>: <span class="number">0x00000000</span>,
     };
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">private_no_mangle_statics</span>)]</span>
-    <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-    <span class="kw">static</span> <span class="ident">LPUART8_TAKEN</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
-
     <span class="doccomment">/// Safe access to LPUART8</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function returns `Some(Instance)` if this instance is not</span>
@@ -6655,14 +6788,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// `Instance` itself dereferences to a `RegisterBlock`, which</span>
     <span class="doccomment">/// provides access to the peripheral&#39;s registers.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Instance</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">take</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART8_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="kw">if</span> <span class="ident">taken</span> {
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">INSTANCE</span>)
+            <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::INSTANCE</span>)
         }
     }
 
@@ -6672,11 +6804,8 @@
     <span class="doccomment">/// is available to `take()` again. This function will panic if</span>
     <span class="doccomment">/// you return a different `Instance` or if this instance is not</span>
     <span class="doccomment">/// already taken.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">inst</span>: <span class="ident">Instance</span>) {
-        <span class="macro">assert!</span>(<span class="ident">inst</span>.<span class="ident">addr</span> <span class="op">==</span> <span class="ident">INSTANCE</span>.<span class="ident">addr</span>, <span class="string">&quot;Released the wrong instance&quot;</span>);
-
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="kw">_</span>: <span class="self">Self</span>) {
         <span class="kw">let</span> <span class="ident">taken</span> <span class="op">=</span> <span class="ident">LPUART8_TAKEN</span>.<span class="ident">swap</span>(<span class="bool-val">false</span>, <span class="ident">Ordering::SeqCst</span>);
         <span class="macro">assert!</span>(<span class="ident">taken</span>, <span class="string">&quot;Released a peripheral which was not taken&quot;</span>);
     }
@@ -6686,13 +6815,14 @@
     <span class="doccomment">/// This function is similar to take() but forcibly takes the</span>
     <span class="doccomment">/// Instance, marking it as taken irregardless of its previous</span>
     <span class="doccomment">/// state.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="ident">Instance</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">steal</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">LPUART8_TAKEN</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::SeqCst</span>);
-        <span class="ident">INSTANCE</span>
+        <span class="ident"><span class="self">Self</span>::INSTANCE</span>
     }
+}
 
+<span class="kw">impl</span> <span class="ident">LPUART8</span> {
     <span class="doccomment">/// The interrupts associated with LPUART8</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;doc&quot;</span>))]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERRUPTS</span>: [<span class="ident"><span class="kw">crate</span>::Interrupt</span>; <span class="number">1</span>] <span class="op">=</span> [<span class="ident"><span class="kw">crate</span>::interrupt::LPUART8</span>];

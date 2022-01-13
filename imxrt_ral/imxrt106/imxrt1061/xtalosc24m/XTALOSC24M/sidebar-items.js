@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with XTALOSC24M"],["reset","Reset values for each field in XTALOSC24M"]],"fn":[["release","Release exclusive access to XTALOSC24M"],["steal","Unsafely steal XTALOSC24M"],["take","Safe access to XTALOSC24M"]]});

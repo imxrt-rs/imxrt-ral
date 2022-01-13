@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with LPUART8"],["reset","Reset values for each field in LPUART8"]],"fn":[["release","Release exclusive access to LPUART8"],["steal","Unsafely steal LPUART8"],["take","Safe access to LPUART8"]]});

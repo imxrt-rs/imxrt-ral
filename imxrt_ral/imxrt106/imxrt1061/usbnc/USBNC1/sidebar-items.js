@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with USBNC1"],["reset","Reset values for each field in USBNC1"]],"fn":[["release","Release exclusive access to USBNC1"],["steal","Unsafely steal USBNC1"],["take","Safe access to USBNC1"]]});

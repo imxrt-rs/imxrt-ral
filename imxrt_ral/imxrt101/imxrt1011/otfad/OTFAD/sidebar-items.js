@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with OTFAD"],["reset","Reset values for each field in OTFAD"]],"fn":[["release","Release exclusive access to OTFAD"],["steal","Unsafely steal OTFAD"],["take","Safe access to OTFAD"]]});

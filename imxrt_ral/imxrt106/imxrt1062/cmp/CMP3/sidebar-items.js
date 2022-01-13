@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CMP3"],["reset","Reset values for each field in CMP3"]],"fn":[["release","Release exclusive access to CMP3"],["steal","Unsafely steal CMP3"],["take","Safe access to CMP3"]]});

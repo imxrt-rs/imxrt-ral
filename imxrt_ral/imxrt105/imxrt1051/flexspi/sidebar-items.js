@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXSPI","Raw pointer to FLEXSPI"]],"mod":[["FLEXSPI","Access functions for the FLEXSPI peripheral instance"]]});
+initSidebarItems({"constant":[["FLEXSPI","Raw pointer to FLEXSPI"]],"struct":[["FLEXSPI","The FLEXSPI peripheral instance."]]});

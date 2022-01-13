@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXIO1","Raw pointer to FLEXIO1"]],"mod":[["FLEXIO1","Access functions for the FLEXIO1 peripheral instance"]]});
+initSidebarItems({"constant":[["FLEXIO1","Raw pointer to FLEXIO1"]],"struct":[["FLEXIO1","The FLEXIO1 peripheral instance."]]});

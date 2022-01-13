@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OCOTP","Raw pointer to OCOTP"]],"mod":[["OCOTP","Access functions for the OCOTP peripheral instance"]]});
+initSidebarItems({"constant":[["OCOTP","Raw pointer to OCOTP"]],"struct":[["OCOTP","The OCOTP peripheral instance."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CAN3","Raw pointer to CAN3"]],"mod":[["CAN3","Access functions for the CAN3 peripheral instance"]]});
+initSidebarItems({"constant":[["CAN3","Raw pointer to CAN3"]],"struct":[["CAN3","The CAN3 peripheral instance."]]});

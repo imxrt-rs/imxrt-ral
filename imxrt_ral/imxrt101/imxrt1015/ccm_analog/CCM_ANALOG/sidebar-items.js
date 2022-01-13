@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CCM_ANALOG"],["reset","Reset values for each field in CCM_ANALOG"]],"fn":[["release","Release exclusive access to CCM_ANALOG"],["steal","Unsafely steal CCM_ANALOG"],["take","Safe access to CCM_ANALOG"]]});

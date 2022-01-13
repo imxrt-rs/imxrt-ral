@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PIT","Raw pointer to PIT"]],"mod":[["PIT","Access functions for the PIT peripheral instance"]]});
+initSidebarItems({"constant":[["PIT","Raw pointer to PIT"]],"struct":[["PIT","The PIT peripheral instance."]]});

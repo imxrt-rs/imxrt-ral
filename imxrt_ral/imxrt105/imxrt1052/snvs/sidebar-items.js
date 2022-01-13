@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SNVS","Raw pointer to SNVS"]],"mod":[["SNVS","Access functions for the SNVS peripheral instance"]]});
+initSidebarItems({"constant":[["SNVS","Raw pointer to SNVS"]],"struct":[["SNVS","The SNVS peripheral instance."]]});

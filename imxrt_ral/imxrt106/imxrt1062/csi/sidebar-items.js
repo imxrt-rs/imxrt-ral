@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CSI","Raw pointer to CSI"]],"mod":[["CSI","Access functions for the CSI peripheral instance"]]});
+initSidebarItems({"constant":[["CSI","Raw pointer to CSI"]],"struct":[["CSI","The CSI peripheral instance."]]});

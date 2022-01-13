@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CCM"],["reset","Reset values for each field in CCM"]],"fn":[["release","Release exclusive access to CCM"],["steal","Unsafely steal CCM"],["take","Safe access to CCM"]]});

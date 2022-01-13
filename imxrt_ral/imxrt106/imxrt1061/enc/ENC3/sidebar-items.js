@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with ENC3"],["reset","Reset values for each field in ENC3"]],"fn":[["release","Release exclusive access to ENC3"],["steal","Unsafely steal ENC3"],["take","Safe access to ENC3"]]});

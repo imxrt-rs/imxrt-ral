@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TSC","Raw pointer to TSC"]],"mod":[["TSC","Access functions for the TSC peripheral instance"]]});
+initSidebarItems({"constant":[["TSC","Raw pointer to TSC"]],"struct":[["TSC","The TSC peripheral instance."]]});

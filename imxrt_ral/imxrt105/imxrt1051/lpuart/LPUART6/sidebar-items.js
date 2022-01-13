@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with LPUART6"],["reset","Reset values for each field in LPUART6"]],"fn":[["release","Release exclusive access to LPUART6"],["steal","Unsafely steal LPUART6"],["take","Safe access to LPUART6"]]});

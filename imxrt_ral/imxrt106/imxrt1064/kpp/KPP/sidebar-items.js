@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with KPP"],["reset","Reset values for each field in KPP"]],"fn":[["release","Release exclusive access to KPP"],["steal","Unsafely steal KPP"],["take","Safe access to KPP"]]});

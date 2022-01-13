@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USBNC","Raw pointer to USBNC"]],"mod":[["USBNC","Access functions for the USBNC peripheral instance"]]});
+initSidebarItems({"constant":[["USBNC","Raw pointer to USBNC"]],"struct":[["USBNC","The USBNC peripheral instance."]]});

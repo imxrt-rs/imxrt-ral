@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USBPHY","Raw pointer to USBPHY"]],"mod":[["USBPHY","Access functions for the USBPHY peripheral instance"]]});
+initSidebarItems({"constant":[["USBPHY","Raw pointer to USBPHY"]],"struct":[["USBPHY","The USBPHY peripheral instance."]]});

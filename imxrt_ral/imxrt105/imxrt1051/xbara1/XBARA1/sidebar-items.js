@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with XBARA1"],["reset","Reset values for each field in XBARA1"]],"fn":[["release","Release exclusive access to XBARA1"],["steal","Unsafely steal XBARA1"],["take","Safe access to XBARA1"]]});

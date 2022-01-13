@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LCDIF","Raw pointer to LCDIF"]],"mod":[["LCDIF","Access functions for the LCDIF peripheral instance"]]});
+initSidebarItems({"constant":[["LCDIF","Raw pointer to LCDIF"]],"struct":[["LCDIF","The LCDIF peripheral instance."]]});

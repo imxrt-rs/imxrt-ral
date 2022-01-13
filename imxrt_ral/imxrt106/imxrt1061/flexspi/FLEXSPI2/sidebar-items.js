@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with FLEXSPI2"],["reset","Reset values for each field in FLEXSPI2"]],"fn":[["release","Release exclusive access to FLEXSPI2"],["steal","Unsafely steal FLEXSPI2"],["take","Safe access to FLEXSPI2"]]});

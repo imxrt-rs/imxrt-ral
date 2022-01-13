@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with GPIO9"],["reset","Reset values for each field in GPIO9"]],"fn":[["release","Release exclusive access to GPIO9"],["steal","Unsafely steal GPIO9"],["take","Safe access to GPIO9"]]});

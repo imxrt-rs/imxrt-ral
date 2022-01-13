@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET","Raw pointer to ENET"]],"mod":[["ENET","Access functions for the ENET peripheral instance"]]});
+initSidebarItems({"constant":[["ENET","Raw pointer to ENET"]],"struct":[["ENET","The ENET peripheral instance."]]});

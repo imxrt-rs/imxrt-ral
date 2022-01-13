@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CMP1"],["reset","Reset values for each field in CMP1"]],"fn":[["release","Release exclusive access to CMP1"],["steal","Unsafely steal CMP1"],["take","Safe access to CMP1"]]});

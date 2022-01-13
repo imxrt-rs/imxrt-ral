@@ -462,7 +462,6 @@
 <span id="462">462</span>
 <span id="463">463</span>
 <span id="464">464</span>
-<span id="465">465</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! ROMC</span>
@@ -470,8 +469,6 @@
 <span class="doccomment">//! Used by: imxrt1051, imxrt1052</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">RORegister</span>, <span class="ident">RWRegister</span>};
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
 
 <span class="doccomment">/// ROMC Data Registers</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ROMPATCH7D</span> {
@@ -897,14 +894,15 @@
     <span class="kw">pub</span> <span class="ident">ROMPATCH15A</span>: <span class="ident">u32</span>,
     <span class="kw">pub</span> <span class="ident">ROMPATCHSR</span>: <span class="ident">u32</span>,
 }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span> {
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">addr</span>: <span class="ident">u32</span>,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RegisterBlock</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>, <span class="ident">allow</span>(<span class="ident">unused</span>))]</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">intrs</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::Interrupt</span>],
 }
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">::core::ops::Deref</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">RegisterBlock</span>;
     <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">RegisterBlock</span> {
@@ -913,10 +911,10 @@
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span> {}
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {}
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nosync&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">Instance</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Return the interrupt signals associated with this</span>
     <span class="doccomment">/// peripheral instance</span>
     <span class="doccomment">///</span>

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with AIPSTZ4"],["reset","Reset values for each field in AIPSTZ4"]],"fn":[["release","Release exclusive access to AIPSTZ4"],["steal","Unsafely steal AIPSTZ4"],["take","Safe access to AIPSTZ4"]]});

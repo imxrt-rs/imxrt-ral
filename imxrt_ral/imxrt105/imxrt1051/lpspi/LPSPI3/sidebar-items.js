@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with LPSPI3"],["reset","Reset values for each field in LPSPI3"]],"fn":[["release","Release exclusive access to LPSPI3"],["steal","Unsafely steal LPSPI3"],["take","Safe access to LPSPI3"]]});

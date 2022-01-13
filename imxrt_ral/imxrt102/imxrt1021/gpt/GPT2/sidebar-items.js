@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with GPT2"],["reset","Reset values for each field in GPT2"]],"fn":[["release","Release exclusive access to GPT2"],["steal","Unsafely steal GPT2"],["take","Safe access to GPT2"]]});

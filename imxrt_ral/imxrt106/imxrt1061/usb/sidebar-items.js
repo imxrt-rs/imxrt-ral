@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USB1","Raw pointer to USB1"],["USB2","Raw pointer to USB2"]],"mod":[["USB1","Access functions for the USB1 peripheral instance"],["USB2","Access functions for the USB2 peripheral instance"]]});
+initSidebarItems({"constant":[["USB1","Raw pointer to USB1"],["USB2","Raw pointer to USB2"]],"struct":[["USB1","The USB1 peripheral instance."],["USB2","The USB2 peripheral instance."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMAMUX","Raw pointer to DMAMUX"]],"mod":[["DMAMUX","Access functions for the DMAMUX peripheral instance"]]});
+initSidebarItems({"constant":[["DMAMUX","Raw pointer to DMAMUX"]],"struct":[["DMAMUX","The DMAMUX peripheral instance."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXRAM","Raw pointer to FLEXRAM"]],"mod":[["FLEXRAM","Access functions for the FLEXRAM peripheral instance"]]});
+initSidebarItems({"constant":[["FLEXRAM","Raw pointer to FLEXRAM"]],"struct":[["FLEXRAM","The FLEXRAM peripheral instance."]]});

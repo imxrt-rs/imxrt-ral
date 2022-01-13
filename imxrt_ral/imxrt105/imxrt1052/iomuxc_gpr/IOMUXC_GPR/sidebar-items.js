@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with IOMUXC_GPR"],["reset","Reset values for each field in IOMUXC_GPR"]],"fn":[["release","Release exclusive access to IOMUXC_GPR"],["steal","Unsafely steal IOMUXC_GPR"],["take","Safe access to IOMUXC_GPR"]]});

@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with TMR4"],["reset","Reset values for each field in TMR4"]],"fn":[["release","Release exclusive access to TMR4"],["steal","Unsafely steal TMR4"],["take","Safe access to TMR4"]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPI2C1","Raw pointer to LPI2C1"],["LPI2C2","Raw pointer to LPI2C2"]],"mod":[["LPI2C1","Access functions for the LPI2C1 peripheral instance"],["LPI2C2","Access functions for the LPI2C2 peripheral instance"]]});
+initSidebarItems({"constant":[["LPI2C1","Raw pointer to LPI2C1"],["LPI2C2","Raw pointer to LPI2C2"]],"struct":[["LPI2C1","The LPI2C1 peripheral instance."],["LPI2C2","The LPI2C2 peripheral instance."]]});

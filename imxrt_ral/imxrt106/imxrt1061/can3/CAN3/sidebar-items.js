@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with CAN3"],["reset","Reset values for each field in CAN3"]],"fn":[["release","Release exclusive access to CAN3"],["steal","Unsafely steal CAN3"],["take","Safe access to CAN3"]]});

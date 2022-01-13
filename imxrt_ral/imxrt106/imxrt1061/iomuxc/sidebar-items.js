@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IOMUXC","Raw pointer to IOMUXC"]],"mod":[["IOMUXC","Access functions for the IOMUXC peripheral instance"]]});
+initSidebarItems({"constant":[["IOMUXC","Raw pointer to IOMUXC"]],"struct":[["IOMUXC","The IOMUXC peripheral instance."]]});

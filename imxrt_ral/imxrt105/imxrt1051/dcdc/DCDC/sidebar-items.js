@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["INTERRUPTS","The interrupts associated with DCDC"],["reset","Reset values for each field in DCDC"]],"fn":[["release","Release exclusive access to DCDC"],["steal","Unsafely steal DCDC"],["take","Safe access to DCDC"]]});
