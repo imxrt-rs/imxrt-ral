@@ -57,6 +57,12 @@ Associate interrupt signals with peripheral instances:
 - Peripheral instance modules have an associated constant, `INTERRUPTS`,
   that is an array of zero or more interrupt signals.
 
+Change how reserved peripheral memory is computed, resolving incorrect
+register offsets for the following peripherals and chips:
+
+- FlexPWM for the 1011.
+- Quad timers for all applicable chips.
+
 ## [0.4.2] 2021-03-11
 
 This release may let you use `imxrt-ral` without including additional

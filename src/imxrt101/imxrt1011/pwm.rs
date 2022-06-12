@@ -4659,8 +4659,7 @@ pub struct RegisterBlock {
     /// Phase Delay Register
     pub SMPHASEDLY0: RWRegister<u16>,
 
-    _reserved2: [u32; 1],
-    _reserved3: [u16; 1],
+    _reserved2: [u16; 3],
 
     /// Counter Register
     pub SMCNT1: RORegister<u16>,
@@ -4674,7 +4673,7 @@ pub struct RegisterBlock {
     /// Control Register
     pub SMCTRL1: RWRegister<u16>,
 
-    _reserved4: [u16; 1],
+    _reserved3: [u16; 1],
 
     /// Value Register 0
     pub SMVAL01: RWRegister<u16>,
@@ -4796,8 +4795,7 @@ pub struct RegisterBlock {
     /// Phase Delay Register
     pub SMPHASEDLY1: RWRegister<u16>,
 
-    _reserved5: [u32; 1],
-    _reserved6: [u16; 1],
+    _reserved4: [u16; 3],
 
     /// Counter Register
     pub SMCNT2: RORegister<u16>,
@@ -4811,7 +4809,7 @@ pub struct RegisterBlock {
     /// Control Register
     pub SMCTRL2: RWRegister<u16>,
 
-    _reserved7: [u16; 1],
+    _reserved5: [u16; 1],
 
     /// Value Register 0
     pub SMVAL02: RWRegister<u16>,
@@ -4933,8 +4931,7 @@ pub struct RegisterBlock {
     /// Phase Delay Register
     pub SMPHASEDLY2: RWRegister<u16>,
 
-    _reserved8: [u32; 1],
-    _reserved9: [u16; 1],
+    _reserved6: [u16; 3],
 
     /// Counter Register
     pub SMCNT3: RORegister<u16>,
@@ -4948,7 +4945,7 @@ pub struct RegisterBlock {
     /// Control Register
     pub SMCTRL3: RWRegister<u16>,
 
-    _reserved10: [u16; 1],
+    _reserved7: [u16; 1],
 
     /// Value Register 0
     pub SMVAL03: RWRegister<u16>,
@@ -5070,8 +5067,7 @@ pub struct RegisterBlock {
     /// Phase Delay Register
     pub SMPHASEDLY3: RWRegister<u16>,
 
-    _reserved11: [u32; 1],
-    _reserved12: [u16; 1],
+    _reserved8: [u16; 3],
 
     /// Output Enable Register
     pub OUTEN: RWRegister<u16>,

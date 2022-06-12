@@ -841,11 +841,11 @@ class PeripheralPrototype(Node):
             if register.offset != address:
                 gaps = []
                 u32s = (register.offset - address) // 4
-                if u32s != 0:
+                if u32s != 0 and address % 4 == 0:
                     gaps.append(f"[u32; {u32s}]")
                     address += u32s * 4
                 u16s = (register.offset - address) // 2
-                if u16s != 0:
+                if u16s != 0 and address % 2 == 0:
                     gaps.append(f"[u16; {u16s}]")
                     address += u16s * 2
                 u8s = register.offset - address
