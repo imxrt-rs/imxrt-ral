@@ -1330,7 +1330,7 @@ pub struct RegisterBlock {
     /// Timer Channel DMA Enable Register
     pub DMA0: RWRegister<u16>,
 
-    _reserved1: [u32; 1],
+    _reserved1: [u16; 2],
 
     /// Timer Channel Enable Register
     pub ENBL: RWRegister<u16>,
@@ -1374,8 +1374,7 @@ pub struct RegisterBlock {
     /// Timer Channel DMA Enable Register
     pub DMA1: RWRegister<u16>,
 
-    _reserved2: [u32; 1],
-    _reserved3: [u16; 1],
+    _reserved2: [u16; 3],
 
     /// Timer Channel Compare Register 1
     pub COMP12: RWRegister<u16>,
@@ -1416,8 +1415,7 @@ pub struct RegisterBlock {
     /// Timer Channel DMA Enable Register
     pub DMA2: RWRegister<u16>,
 
-    _reserved4: [u32; 1],
-    _reserved5: [u16; 1],
+    _reserved3: [u16; 3],
 
     /// Timer Channel Compare Register 1
     pub COMP13: RWRegister<u16>,

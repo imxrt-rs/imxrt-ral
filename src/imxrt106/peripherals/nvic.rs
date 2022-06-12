@@ -3620,8 +3620,7 @@ pub struct RegisterBlock {
     /// Interrupt Priority Register 157
     pub NVICIP157: RWRegister<u8>,
 
-    _reserved6: [u32; 664],
-    _reserved7: [u16; 1],
+    _reserved6: [u16; 1329],
 
     /// Software Trigger Interrupt Register
     pub NVICSTIR: RWRegister<u32>,
