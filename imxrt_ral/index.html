@@ -1,4 +1,10 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This project provides a register access layer (RAL) for all NXP i.mx rt microcontrollers."><meta name="keywords" content="rust, rustlang, rust-lang, imxrt_ral"><title>imxrt_ral - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../imxrt_ral/index.html'><div class='logo-container rust-logo'><img src='../rust-logo.png' alt='logo'></div></a><h2 class="location">Crate imxrt_ral</h2><div class="block version"><div class="narrow-helper"></div><p>Version 0.5.0</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all imxrt_ral's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li></ul></div><div id="sidebar-vars" data-name="imxrt_ral" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">imxrt_ral</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/imxrt_ral/lib.rs.html#4-94" title="goto source code">[src]</a></span></h1><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>This project provides a register access layer (RAL) for all
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This project provides a register access layer (RAL) for all NXP i.mx rt microcontrollers."><meta name="keywords" content="rust, rustlang, rust-lang, imxrt_ral"><title>imxrt_ral - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><script defer src="../main.js"></script>
+    <noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../imxrt_ral/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../imxrt_ral/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"><a href="#">Crate imxrt_ral</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.5.0</li><li><a id="all-types" href="all.html">All Items</a></li></div></ul><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li></ul></div></section><div id="sidebar-vars" data-name="imxrt_ral" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../imxrt_ral/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">imxrt_ral</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/imxrt_ral/lib.rs.html#4-94">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>This project provides a register access layer (RAL) for all
 NXP i.mx rt microcontrollers.</p>
 <p>When built, you must specify a device feature, such as <code>imxrt1062</code>.
 This will cause all modules in that device’s module to be re-exported
@@ -7,7 +13,7 @@ from the top level, so that for example <code>imxrt_ral::gpio</code> will resolv
 <p>In the generated documentation, all devices are visible inside their family
 modules, but when built for a specific device, only that devices’ constants
 will be available.</p>
-<h2 id="usage" class="section-header"><a href="#usage">Usage</a></h2>
+<h2 id="usage"><a href="#usage">Usage</a></h2>
 <p>imxrt-ral APIs use const generics to differentiate different peripheral instances.
 This section describes some design techniques for using, or ignoring, these type
 hints.</p>
@@ -79,7 +85,7 @@ match their peripheral instance:</p>
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">GpioDriver</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_high</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pin</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">P</span>)
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_high</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">pin</span>: <span class="kw-2">&amp;mut</span> <span class="ident">P</span>)
     <span class="kw">where</span>
         <span class="ident">P</span>: <span class="ident">GpioPin</span><span class="op">&lt;</span><span class="ident">GpioInstance</span> <span class="op">=</span> <span class="ident">Const</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span><span class="op">&gt;</span>, <span class="comment">// &lt;-- Requirement here</span>
     {
@@ -89,7 +95,7 @@ match their peripheral instance:</p>
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">gpio2</span> <span class="op">=</span> <span class="ident">GpioDriver::new</span>(<span class="ident">gpio::GPIO2::take</span>().<span class="ident">unwrap</span>());
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ad_b1_00</span> <span class="op">=</span> <span class="comment">// Ownership of pin...</span>
-<span class="ident">gpio2</span>.<span class="ident">set_high</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ad_b1_00</span>);</code></pre></div>
+<span class="ident">gpio2</span>.<span class="ident">set_high</span>(<span class="kw-2">&amp;mut</span> <span class="ident">ad_b1_00</span>);</code></pre></div>
 <p>If you provide a GPIO<strong>1</strong> pin to the GPIO<strong>2</strong> driver, it fails
 at compile time:</p>
 
@@ -104,12 +110,12 @@ at compile time:</p>
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">gpio2</span> <span class="op">=</span> <span class="ident">GpioDriver::new</span>(<span class="ident">gpio::GPIO2::take</span>().<span class="ident">unwrap</span>());
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sd_b0_03</span> <span class="op">=</span> <span class="comment">// Ownership of pin...</span>
 <span class="comment">// Incorrect: GPIO1 pin with GPIO2 driver</span>
-<span class="ident">gpio2</span>.<span class="ident">set_high</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">sd_b0_03</span>);</code></pre></div>
+<span class="ident">gpio2</span>.<span class="ident">set_high</span>(<span class="kw-2">&amp;mut</span> <span class="ident">sd_b0_03</span>);</code></pre></div>
 <p>If you would like such a statement to compile, remove the <code>GpioPin</code> constraint
 on the <code>set_high</code> function:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">impl</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span> <span class="ident">GpioDriver</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_high</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pin</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">P</span>)
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_high</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">pin</span>: <span class="kw-2">&amp;mut</span> <span class="ident">P</span>)
     <span class="kw">where</span>
         <span class="ident">P</span>: <span class="ident">GpioPin</span><span class="comment">/*&lt;GpioInstance = Const&lt;N&gt;&gt;*/</span>, <span class="comment">// No constraint that pin matches driver</span>
     {
@@ -120,7 +126,7 @@ on the <code>set_high</code> function:</p>
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">gpio2</span> <span class="op">=</span> <span class="ident">GpioDriver::new</span>(<span class="ident">gpio::GPIO2::take</span>().<span class="ident">unwrap</span>());
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sd_b0_03</span> <span class="op">=</span> <span class="comment">// Ownership of pin...</span>
 <span class="comment">// Now OK: GPIO1 pin with GPIO2 driver</span>
-<span class="ident">gpio2</span>.<span class="ident">set_high</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">sd_b0_03</span>);</code></pre></div>
+<span class="ident">gpio2</span>.<span class="ident">set_high</span>(<span class="kw-2">&amp;mut</span> <span class="ident">sd_b0_03</span>);</code></pre></div>
 <p>If you don’t want to carry around a generic type for your driver struct,
 you can still model peripheral ownership, and work with a pointer to the
 register block. You’ll need to use some <code>unsafe</code> code, as shown below:</p>
@@ -134,7 +140,7 @@ register block. You’ll need to use some <code>unsafe</code> code, as shown bel
 <span class="kw">impl</span> <span class="ident">GpioDriver</span> {
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">N</span>: <span class="ident">u8</span><span class="op">&gt;</span>(<span class="ident">gpio</span>: <span class="ident">gpio::Instance</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span>) -&gt; <span class="ident">GpioDriver</span> {
         <span class="comment">// Instance derefs to a register block</span>
-        <span class="kw">let</span> <span class="ident">register</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">gpio::RegisterBlock</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">gpio</span>;
+        <span class="kw">let</span> <span class="ident">register</span>: <span class="kw-2">*const</span> <span class="ident">gpio::RegisterBlock</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">gpio</span>;
         <span class="comment">// Safety: pointer points to static peripheral memory,</span>
         <span class="comment">// which will outlive the gpio Instance.</span>
         <span class="kw">let</span> <span class="ident">register</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">register</span> };
@@ -150,7 +156,7 @@ register block. You’ll need to use some <code>unsafe</code> code, as shown bel
 <span class="comment">// gpio::GPIO2::take().unwrap();</span></code></pre></div>
 <p>This approach loses some of the compile-time checks, but may be simpler
 for others to use.</p>
-<h3 id="peripheral-name-vs-instancen" class="section-header"><a href="#peripheral-name-vs-instancen"><code>[Peripheral name]</code> vs <code>Instance&lt;N&gt;</code></a></h3>
+<h3 id="peripheral-name-vs-instancen"><a href="#peripheral-name-vs-instancen"><code>[Peripheral name]</code> vs <code>Instance&lt;N&gt;</code></a></h3>
 <p>Design to a concrete type when you know that there’s only one, single instance
 of that peripheral across all chips. This simplifies your driver API while still
 supporting all i.MX RT chips. The CCM peripheral is an example of a peripheral with
@@ -202,7 +208,7 @@ USB instances:</p>
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;imxrt1021&quot;</span>)]</span>
 <span class="ident">new_usb_driver</span>(<span class="ident">usb::USB::take</span>().<span class="ident">unwrap</span>()); <span class="comment">// &lt;-- Doesn&#39;t work here, either! USB == Instance&lt;0&gt; != Instance&lt;1&gt;</span></code></pre></div>
-<h3 id="valid-instance-numbers" class="section-header"><a href="#valid-instance-numbers">Valid instance numbers</a></h3>
+<h3 id="valid-instance-numbers"><a href="#valid-instance-numbers">Valid instance numbers</a></h3>
 <p>Consider a function that needs to change behavior given only the const generic instance
 number:</p>
 
@@ -213,7 +219,7 @@ number:</p>
 <span class="doccomment">/// # Panics</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Panics if `LPUART_N` does not represent a valid LPUART instance.</span>
-<span class="kw">fn</span> <span class="ident">ccm_enable_lpuart_clock_gate</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">LPUART_N</span>: <span class="ident">u8</span><span class="op">&gt;</span>(<span class="ident">ccm</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ccm::CCM</span>) {
+<span class="kw">fn</span> <span class="ident">ccm_enable_lpuart_clock_gate</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">LPUART_N</span>: <span class="ident">u8</span><span class="op">&gt;</span>(<span class="ident">ccm</span>: <span class="kw-2">&amp;mut</span> <span class="ident">ccm::CCM</span>) {
     <span class="kw">match</span> <span class="ident">LPUART_N</span> {
         <span class="number">1</span> =&gt; { <span class="comment">/* ... */</span> }
         <span class="number">2</span> =&gt; { <span class="comment">/* ... */</span> }
@@ -224,14 +230,14 @@ number:</p>
 }
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ccm</span> <span class="op">=</span> <span class="ident">ccm::CCM::take</span>()<span class="question-mark">?</span>;
-<span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ccm</span>); <span class="comment">// OK: LPUART3 is valid.</span>
-<span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">9</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ccm</span>); <span class="comment">// panic! LPUART9 isn&#39;t valid</span></code></pre></div>
+<span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="ident">ccm</span>); <span class="comment">// OK: LPUART3 is valid.</span>
+<span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">9</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="ident">ccm</span>); <span class="comment">// panic! LPUART9 isn&#39;t valid</span></code></pre></div>
 <p>To catch an invalid N at compile time, use <code>Valid</code>, a trait implemented on
 all valid <code>Instance&lt;N&gt;</code> types.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">imxrt_ral::lpuart</span>;
 
-<span class="kw">fn</span> <span class="ident">ccm_enable_lpuart_clock_gate</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">LPUART_N</span>: <span class="ident">u8</span><span class="op">&gt;</span>(<span class="ident">ccm</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ccm::CCM</span>)
+<span class="kw">fn</span> <span class="ident">ccm_enable_lpuart_clock_gate</span><span class="op">&lt;</span><span class="kw">const</span> <span class="ident">LPUART_N</span>: <span class="ident">u8</span><span class="op">&gt;</span>(<span class="ident">ccm</span>: <span class="kw-2">&amp;mut</span> <span class="ident">ccm::CCM</span>)
 <span class="kw">where</span>
     <span class="ident">lpuart::Instance</span><span class="op">&lt;</span><span class="ident">LPUART_N</span><span class="op">&gt;</span>: <span class="ident">imxrt_ral::Valid</span>, <span class="comment">// NEW: constrain LPUART_N to valid instance numbers.</span>
 {
@@ -245,10 +251,10 @@ all valid <code>Instance&lt;N&gt;</code> types.</p>
 }
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ccm</span> <span class="op">=</span> <span class="ident">ccm::CCM::take</span>()<span class="question-mark">?</span>;
-<span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ccm</span>); <span class="comment">// OK: LPUART3 is valid.</span></code></pre></div>
+<span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">3</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="ident">ccm</span>); <span class="comment">// OK: LPUART3 is valid.</span></code></pre></div>
 
-<div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail"><code><span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">9</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ccm</span>); <span class="comment">// Does not compile!</span></code></pre></div>
-<h3 id="disable-strongly-typed-instances" class="section-header"><a href="#disable-strongly-typed-instances">Disable strongly-typed instances</a></h3>
+<div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail"><code><span class="ident">ccm_enable_lpuart_clock_gate</span>::<span class="op">&lt;</span><span class="number">9</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="ident">ccm</span>); <span class="comment">// Does not compile!</span></code></pre></div>
+<h3 id="disable-strongly-typed-instances"><a href="#disable-strongly-typed-instances">Disable strongly-typed instances</a></h3>
 <p>If you don’t want strongly-typed peripheral instances, enable the <code>nosync</code> feature.
 <code>nosync</code> disables all synchronised access functions, like <code>take()</code> and <code>release()</code>,
 as well as all the types associated with that API. <code>nosync</code> requires direct, unsafe
@@ -278,29 +284,28 @@ dependencies to break, especially if they rely on owning strongly-typed instance
 
 <span class="kw">let</span> <span class="ident">gpio1</span> <span class="op">=</span> <span class="ident">GpioDriver::gpio1</span>().<span class="ident">unwrap</span>();
 <span class="macro">assert!</span>(<span class="ident">GpioDriver::gpio1</span>().<span class="ident">is_none</span>());</code></pre></div>
-</div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt101/index.html" title="imxrt_ral::imxrt101 mod">imxrt101</a></div><div class="item-right docblock-short"><p>Parent module for all IMXRT101 devices.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt102/index.html" title="imxrt_ral::imxrt102 mod">imxrt102</a></div><div class="item-right docblock-short"><p>Parent module for all IMXRT102 devices.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt105/index.html" title="imxrt_ral::imxrt105 mod">imxrt105</a></div><div class="item-right docblock-short"><p>Parent module for all IMXRT105 devices.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt106/index.html" title="imxrt_ral::imxrt106 mod">imxrt106</a></div><div class="item-right docblock-short"><p>Parent module for all IMXRT106 devices.</p>
-</div></div></div><h2 id="macros" class="section-header"><a href="#macros">Macros</a></h2>
+</div></div></div><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.modify_reg.html" title="imxrt_ral::modify_reg macro">modify_reg</a></div><div class="item-right docblock-short"><p>Modify a RWRegister or UnsafeRWRegister.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.read_reg.html" title="imxrt_ral::read_reg macro">read_reg</a></div><div class="item-right docblock-short"><p>Read the value from a RORegister, RWRegister, UnsafeRORegister, or UnsafeRWRegister.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.reset_reg.html" title="imxrt_ral::reset_reg macro">reset_reg</a></div><div class="item-right docblock-short"><p>Reset a RWRegister, UnsafeRWRegister, WORegister, or UnsafeWORegister to its reset value.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.write_reg.html" title="imxrt_ral::write_reg macro">write_reg</a></div><div class="item-right docblock-short"><p>Write to a RWRegister or UnsafeRWRegister.</p>
-</div></div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RORegister.html" title="imxrt_ral::RORegister struct">RORegister</a></div><div class="item-right docblock-short"><p>A read-only register of type T.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RWRegister.html" title="imxrt_ral::RWRegister struct">RWRegister</a></div><div class="item-right docblock-short"><p>A read-write register of type T.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.UnsafeRORegister.html" title="imxrt_ral::UnsafeRORegister struct">UnsafeRORegister</a></div><div class="item-right docblock-short"><p>A read-only register of type T, where read access is unsafe.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.UnsafeRWRegister.html" title="imxrt_ral::UnsafeRWRegister struct">UnsafeRWRegister</a></div><div class="item-right docblock-short"><p>A read-write register of type T, where read/write access is unsafe.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.UnsafeWORegister.html" title="imxrt_ral::UnsafeWORegister struct">UnsafeWORegister</a></div><div class="item-right docblock-short"><p>A write-only register of type T, where write access is unsafe.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WORegister.html" title="imxrt_ral::WORegister struct">WORegister</a></div><div class="item-right docblock-short"><p>A write-only register of type T.</p>
-</div></div></div><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
+</div></div></div><h2 id="enums" class="small-section-header"><a href="#enums">Enums</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.Interrupt.html" title="imxrt_ral::Interrupt enum">Interrupt</a></div><div class="item-right docblock-short"><p>Interrupt sources</p>
-</div></div></div><h2 id="constants" class="section-header"><a href="#constants">Constants</a></h2>
+</div></div></div><h2 id="constants" class="small-section-header"><a href="#constants">Constants</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.SOLE_INSTANCE.html" title="imxrt_ral::SOLE_INSTANCE constant">SOLE_INSTANCE</a></div><div class="item-right docblock-short"><p>The constant for a peripheral with just one instance.</p>
-</div></div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Valid.html" title="imxrt_ral::Valid trait">Valid</a></div><div class="item-right docblock-short"><p>Implemented on all <code>Instance&lt;N&gt;</code> when <code>N</code> is a valid instance number.</p>
-</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="imxrt_ral" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
-    <script src="../main.js"></script>
+</div></div></div></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="imxrt_ral" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0 (fe5b13d68 2022-05-18)" ></div>
 </body></html>
