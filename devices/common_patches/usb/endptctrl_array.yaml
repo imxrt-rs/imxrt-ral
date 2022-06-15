@@ -15,4 +15,4 @@ _modify:
 _array:
   ENDPTCTRL[1234567]:
     displayName: "ENDPTCTRL%s"
-    description: "Endpoint Control %s"
+    description: "Endpoint Control"
