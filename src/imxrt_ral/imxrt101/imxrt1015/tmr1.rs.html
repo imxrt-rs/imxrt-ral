@@ -1710,8 +1710,6 @@
 <span id="1705">1705</span>
 <span id="1706">1706</span>
 <span id="1707">1707</span>
-<span id="1708">1708</span>
-<span id="1709">1709</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! Quad Timer</span>
@@ -3044,7 +3042,7 @@
     <span class="doccomment">/// Timer Channel DMA Enable Register</span>
     <span class="kw">pub</span> <span class="ident">DMA0</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved1</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
+    <span class="ident">_reserved1</span>: [<span class="ident">u16</span>; <span class="number">2</span>],
 
     <span class="doccomment">/// Timer Channel Enable Register</span>
     <span class="kw">pub</span> <span class="ident">ENBL</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -3088,8 +3086,7 @@
     <span class="doccomment">/// Timer Channel DMA Enable Register</span>
     <span class="kw">pub</span> <span class="ident">DMA1</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved2</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
-    <span class="ident">_reserved3</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved2</span>: [<span class="ident">u16</span>; <span class="number">3</span>],
 
     <span class="doccomment">/// Timer Channel Compare Register 1</span>
     <span class="kw">pub</span> <span class="ident">COMP12</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -3130,8 +3127,7 @@
     <span class="doccomment">/// Timer Channel DMA Enable Register</span>
     <span class="kw">pub</span> <span class="ident">DMA2</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved4</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
-    <span class="ident">_reserved5</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved3</span>: [<span class="ident">u16</span>; <span class="number">3</span>],
 
     <span class="doccomment">/// Timer Channel Compare Register 1</span>
     <span class="kw">pub</span> <span class="ident">COMP13</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,

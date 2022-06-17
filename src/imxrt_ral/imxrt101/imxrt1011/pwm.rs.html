@@ -5636,10 +5636,6 @@
 <span id="5631">5631</span>
 <span id="5632">5632</span>
 <span id="5633">5633</span>
-<span id="5634">5634</span>
-<span id="5635">5635</span>
-<span id="5636">5636</span>
-<span id="5637">5637</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>, <span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 <span class="doccomment">//! PWM</span>
@@ -10301,8 +10297,7 @@
     <span class="doccomment">/// Phase Delay Register</span>
     <span class="kw">pub</span> <span class="ident">SMPHASEDLY0</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved2</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
-    <span class="ident">_reserved3</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved2</span>: [<span class="ident">u16</span>; <span class="number">3</span>],
 
     <span class="doccomment">/// Counter Register</span>
     <span class="kw">pub</span> <span class="ident">SMCNT1</span>: <span class="ident">RORegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -10316,7 +10311,7 @@
     <span class="doccomment">/// Control Register</span>
     <span class="kw">pub</span> <span class="ident">SMCTRL1</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved4</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved3</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
 
     <span class="doccomment">/// Value Register 0</span>
     <span class="kw">pub</span> <span class="ident">SMVAL01</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -10438,8 +10433,7 @@
     <span class="doccomment">/// Phase Delay Register</span>
     <span class="kw">pub</span> <span class="ident">SMPHASEDLY1</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved5</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
-    <span class="ident">_reserved6</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved4</span>: [<span class="ident">u16</span>; <span class="number">3</span>],
 
     <span class="doccomment">/// Counter Register</span>
     <span class="kw">pub</span> <span class="ident">SMCNT2</span>: <span class="ident">RORegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -10453,7 +10447,7 @@
     <span class="doccomment">/// Control Register</span>
     <span class="kw">pub</span> <span class="ident">SMCTRL2</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved7</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved5</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
 
     <span class="doccomment">/// Value Register 0</span>
     <span class="kw">pub</span> <span class="ident">SMVAL02</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -10575,8 +10569,7 @@
     <span class="doccomment">/// Phase Delay Register</span>
     <span class="kw">pub</span> <span class="ident">SMPHASEDLY2</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved8</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
-    <span class="ident">_reserved9</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved6</span>: [<span class="ident">u16</span>; <span class="number">3</span>],
 
     <span class="doccomment">/// Counter Register</span>
     <span class="kw">pub</span> <span class="ident">SMCNT3</span>: <span class="ident">RORegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -10590,7 +10583,7 @@
     <span class="doccomment">/// Control Register</span>
     <span class="kw">pub</span> <span class="ident">SMCTRL3</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved10</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved7</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
 
     <span class="doccomment">/// Value Register 0</span>
     <span class="kw">pub</span> <span class="ident">SMVAL03</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
@@ -10712,8 +10705,7 @@
     <span class="doccomment">/// Phase Delay Register</span>
     <span class="kw">pub</span> <span class="ident">SMPHASEDLY3</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
 
-    <span class="ident">_reserved11</span>: [<span class="ident">u32</span>; <span class="number">1</span>],
-    <span class="ident">_reserved12</span>: [<span class="ident">u16</span>; <span class="number">1</span>],
+    <span class="ident">_reserved8</span>: [<span class="ident">u16</span>; <span class="number">3</span>],
 
     <span class="doccomment">/// Output Enable Register</span>
     <span class="kw">pub</span> <span class="ident">OUTEN</span>: <span class="ident">RWRegister</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>,
