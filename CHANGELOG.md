@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.4.3] 2022-07-06
+
 Mark all registers as `#[repr(transparent)]`.
 
 Fix builds with the `"nosync"` feature. Use the `"nosync"` feature to disable
@@ -70,6 +72,7 @@ This release also removes mention of 'stm32ral' in the API documentation.
 Initial build and release of imxrt family of peripheral access crates
 
 [Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.0...HEAD
+[0.4.3]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.1...0.4.2
 [0.4.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.0...0.4.1
 [0.4.0]: https://github.com/imxrt-rs/imxrt-ral/compare/0.3.0...0.4.0
