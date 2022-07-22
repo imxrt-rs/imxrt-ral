@@ -4,7 +4,8 @@
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
-DEVICES ?= imxrt1011 imxrt1015 imxrt1021 imxrt1051 imxrt1052 imxrt1061 imxrt1062 imxrt1064 
+DEVICES ?= imxrt1011 imxrt1015 imxrt1021 imxrt1051 imxrt1052 imxrt1061 imxrt1062 imxrt1064 \
+	imxrt1176_cm7 imxrt1176_cm4
 
 all: patch crate rustfmt check
 

@@ -1,0 +1,3 @@
+_svd: "../svd/imxrt1176_cm7.svd"
+
+# TODO figure out which patches apply
