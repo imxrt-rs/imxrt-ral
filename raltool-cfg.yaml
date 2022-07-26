@@ -26,10 +26,10 @@ transforms:
       to: imxrt1064
   - Rename:
       from: Mimxrt1176Cm7
-      to: imxrt1170_cm7
+      to: imxrt1176_cm7
   - Rename:
       from: Mimxrt1176Cm4
-      to: imxrt1170_cm4
+      to: imxrt1176_cm4
   - Rename:
       from: pit1::Pit1
       to: pit::Pit

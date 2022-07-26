@@ -1,3 +1,74 @@
 _svd: "../svd/imxrt1176_cm7.svd"
 
-# TODO figure out which patches apply
+_delete:
+  - AUDIO_PLL
+  - VIDEO_PLL
+  - ETHERNET_PLL
+
+_include:
+  - "common_patches/dma0/tcd_cluster.yaml"
+
+# All of the directives below this comment are removing or simplifying
+# duplicated enumeratedValue fields in select register fields. These prevent
+# compilation due to duplicate symbols.
+OCOTP:
+    CTRL:
+      _clear:
+        - ADDR
+
+DMA?:
+  TCD*_ATTR:
+    SMOD:
+      _replace_enum:
+        DISABLED: [0, "Disabled"]
+        ENABLED: [1, "ENABLED"]
+
+CAAM:
+  MPECC:
+      MP_SYNDROME:
+        _replace_enum:
+          KEYOK: [0, "The MP Key in the SFP passes the ECC check."]
+
+USBHSDCD?:
+  TIMER0:
+    _clear:
+      - TSEQ_INIT
+  TIMER1:
+    _clear:
+      - TVDPSRC_ON
+      - TDCD_DBNC
+  TIMER2_BC11:
+    _clear:
+      - CHECK_DM
+      - TVDPSRC_CON
+  TIMER2_BC12:
+    _clear:
+      - TVDMSRC_ON
+      - TWAIT_AFTER_PRD
+
+ASRC:
+  ASRCNCR:
+    _clear:
+      - ANCA
+      - ANCB
+      - ANCC
+
+SPDIF:
+  SCR:
+    InputSrcSel:
+      _replace_enum:
+        SPDIF_IN: [0, "SPDIF_IN"]
+
+EMVSIM?:
+  DIVISOR:
+    _clear:
+      - DIVISOR_VALUE
+
+PWM?:
+  SMOCTRL:
+    _clear:
+      - PWMXFS
+      - PWMBFS
+      - PWMAFS
+
+# End directives to remove duplicated enumeratedValues.
