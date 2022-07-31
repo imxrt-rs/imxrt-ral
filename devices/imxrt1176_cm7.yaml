@@ -1,6 +1,8 @@
 _svd: "../svd/imxrt1176_cm7.svd"
 
 _delete:
+  # Removing these because they're all aliased, and they're all
+  # (incorrectly) pointing at address zero.
   - AUDIO_PLL
   - VIDEO_PLL
   - ETHERNET_PLL

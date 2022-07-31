@@ -1,10 +1,5 @@
 _svd: "../svd/imxrt1176_cm4.svd"
 
-_delete:
-  - AUDIO_PLL
-  - VIDEO_PLL
-  - ETHERNET_PLL
-
 DMA1:
   _cluster:
     "TCD%s":
@@ -23,6 +18,60 @@ DMA1:
       "TCD*_CSR": {}
       "TCD*_BITER_ELINKNO": {}
       "TCD*_BITER_ELINKYES": {}
+
+# Remove the CM7_GPIO[2|3] peripherals.
+#
+# This is a verbose workaround for https://github.com/stm32-rs/svdtools/issues/30.
+# Also identified in https://github.com/stm32-rs/svdtools/issues/9#issuecomment-605467243
+# The goal is to remove the CM7_GPIO[2|3], then fix the rest of the GPIOs so that they
+# derive from another GPIO. I tried combinations of rebases and renames without luck.
+# So the process follows
+#
+# 1. Remove GPIO2 and CM7_GPIO3.
+# 2. Rename CM7_GPIO2 to GPIO2, and fix up addresses n'at. (Effectively removes CM7_GPIO2.)
+# 3. (Re)Add the interrupts for GPIO2.
+# 4. Change all other GPIO derivations to point at GPIO2.
+
+_delete:
+  - GPIO2
+  - CM7_GPIO3
+
+  # Removing these because they're all aliased, and they're all
+  # (incorrectly) pointing at address zero.
+  - AUDIO_PLL
+  - VIDEO_PLL
+  - ETHERNET_PLL
+
+_modify:
+  CM7_GPIO2:
+    name: GPIO2
+    baseAddress: 0x40130000
+    addressBlock:
+      offset: 0
+      size: 0x90
+      usage: registers
+
+GPIO2:
+  _add:
+    _interrupts:
+      GPIO2_Combined_0_15:
+        value: 102
+      GPIO2_Combined_16_31:
+        value: 103
+
+_derive:
+  GPIO1: GPIO2
+  GPIO3: GPIO2
+  GPIO4: GPIO2
+  GPIO5: GPIO2
+  GPIO6: GPIO2
+  GPIO7: GPIO2
+  GPIO8: GPIO2
+  GPIO9: GPIO2
+  GPIO10: GPIO2
+  GPIO11: GPIO2
+  GPIO12: GPIO2
+  GPIO13: GPIO2
 
 # All of the directives below this comment are removing or simplifying
 # duplicated enumeratedValue fields in select register fields. These prevent
