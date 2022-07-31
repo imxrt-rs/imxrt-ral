@@ -7,8 +7,43 @@ _delete:
   - VIDEO_PLL
   - ETHERNET_PLL
 
+  - USB_OTG2
+  - USBNC_OTG2
+
 _include:
   - "common_patches/dma0/tcd_cluster.yaml"
+  - "common_patches/usb1.yaml"
+
+# Rename USB to match 10xx families.
+# This requires that we remove USB2 peripherals,
+# then re-add them as deriving from USB1. We
+# need this workaround because we cannot modify the
+# names of peripherals that have a derivedFrom attribute.
+_modify:
+  _peripherals:
+    USB_OTG1:
+      name: USB1
+    USBNC_OTG1:
+      name: USBNC1
+
+_add:
+  USB2:
+    derivedFrom: USB1
+    baseAddress: 0x4042C000
+    addressBlock:
+      offset: 0
+      size: 0x1E0
+      usage: registers
+    interrupts:
+      USB_OTG2:
+        value: 135
+  USBNC2:
+    derivedFrom: USBNC1
+    baseAddress: 0x4042C200
+    addressBlock:
+      offset: 0
+      size: 0x14
+      usage: registers
 
 # All of the directives below this comment are removing or simplifying
 # duplicated enumeratedValue fields in select register fields. These prevent
