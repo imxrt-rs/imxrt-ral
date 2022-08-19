@@ -2762,8 +2762,8 @@ pub mod TCSR0 {
             /// 0b0111: Timer Channel is configured for Output Compare - set output on compare.
             pub const TMODE_7: u32 = 0b0111;
 
-            /// 0b0000: Timer Channel is configured for Output Compare - set output on compare, clear output on overflow.
-            pub const TMODE_9: u32 = 0b0000;
+            /// 0b1001: Timer Channel is configured for Output Compare - set output on compare, clear output on overflow.
+            pub const TMODE_9: u32 = 0b1001;
 
             /// 0b1010: Timer Channel is configured for Output Compare - clear output on compare, set output on overflow.
             pub const TMODE_10: u32 = 0b1010;

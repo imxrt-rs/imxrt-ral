@@ -3747,8 +3747,8 @@ pub mod CGPR {
             /// 0b01: Enable memory (outside ARM platform) DS mode when system STOP and PLL are disabled
             pub const SYS_MEM_DS_CTRL_1: u32 = 0b01;
 
-            /// 0b00: enable memory (outside ARM platform) DS mode when system is in STOP mode
-            pub const SYS_MEM_DS_CTRL_2: u32 = 0b00;
+            /// 0b10: enable memory (outside ARM platform) DS mode when system is in STOP mode
+            pub const SYS_MEM_DS_CTRL_2: u32 = 0b10;
         }
     }
 

@@ -46,6 +46,9 @@ of `bare_metal::Nr`.
 
 Depend on `ral-registers`, and expose the API through the `imxrt-ral` package.
 
+Correct enumerated values that were specified with alternate binary values in
+the SVD files.
+
 ## [0.4.3] 2022-07-06
 
 Mark all registers as `#[repr(transparent)]`.
