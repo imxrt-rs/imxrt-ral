@@ -1089,8 +1089,8 @@ pub mod PROT_CTRL {
         /// Read-write values
         pub mod RW {
 
-            /// 0b000: Burst length is enabled for INCR
-            pub const BURST_LEN_EN_1: u32 = 0b000;
+            /// 0b001: Burst length is enabled for INCR
+            pub const BURST_LEN_EN_1: u32 = 0b001;
         }
     }
 

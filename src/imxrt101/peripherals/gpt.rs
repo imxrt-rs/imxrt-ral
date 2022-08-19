@@ -327,8 +327,8 @@ pub mod CR {
             /// 0b011: Set output pin
             pub const OM3_3: u32 = 0b011;
 
-            /// 0b000: Generate an active low pulse (that is one input clock wide) on the output pin.
-            pub const OM3_4: u32 = 0b000;
+            /// 0b100: Generate an active low pulse (that is one input clock wide) on the output pin.
+            pub const OM3_4: u32 = 0b100;
         }
     }
 

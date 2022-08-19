@@ -1656,8 +1656,17 @@ def get_int(node, tag, default=None):
         return 0
     elif text[:2] == "0x":
         return int(text[2:], 16)
+    # Binary values can have two prefixes. They
+    # also use "x" to represent don't-care bits.
+    # Replace don't-care bits with zeros to generate
+    # a valid value.
+    #
+    # Unclear if the "x" is always lowercase, so
+    # we're being conservative.
     elif text[:2] == "0b":
-        return int(text[2:], 2)
+        return int(text[2:].lower().replace("x", "0"), 2)
+    elif text[0] == "#":
+        return int(text[1:].lower().replace("x", "0"), 2)
     else:
         # Annoyingly sometimes constants are base-10 with leading zeros,
         # so int(text, 0) for autodetection does not work.

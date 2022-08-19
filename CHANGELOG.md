@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+Correct enumerated values that were specified with alternate binary values in
+the SVD files.
+
 ## [0.4.3] 2022-07-06
 
 Mark all registers as `#[repr(transparent)]`.

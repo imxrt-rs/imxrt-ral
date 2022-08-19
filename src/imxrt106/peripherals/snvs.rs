@@ -1079,8 +1079,8 @@ pub mod HPSVCR {
             /// 0b01: Security Violation 5 is a non-fatal violation
             pub const SV5_CFG_1: u32 = 0b01;
 
-            /// 0b00: Security Violation 5 is a fatal violation
-            pub const SV5_CFG_2: u32 = 0b00;
+            /// 0b10: Security Violation 5 is a fatal violation
+            pub const SV5_CFG_2: u32 = 0b10;
         }
     }
 
@@ -1103,8 +1103,8 @@ pub mod HPSVCR {
             /// 0b01: LP security violation is a non-fatal violation
             pub const LPSV_CFG_1: u32 = 0b01;
 
-            /// 0b00: LP security violation is a fatal violation
-            pub const LPSV_CFG_2: u32 = 0b00;
+            /// 0b10: LP security violation is a fatal violation
+            pub const LPSV_CFG_2: u32 = 0b10;
         }
     }
 }

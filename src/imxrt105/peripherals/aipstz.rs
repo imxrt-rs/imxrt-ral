@@ -27,8 +27,8 @@ pub mod MPR {
             /// 0b0000: Accesses from this master are forced to user-mode (ips_supervisor_access is forced to zero) regardless of the hprot\[1\] access attribute.
             pub const MPL0: u32 = 0b0000;
 
-            /// 0b0000: Accesses from this master are not forced to user-mode. The hprot\[1\] access attribute is used directly to determine ips_supervisor_access.
-            pub const MPL1: u32 = 0b0000;
+            /// 0b0001: Accesses from this master are not forced to user-mode. The hprot\[1\] access attribute is used directly to determine ips_supervisor_access.
+            pub const MPL1: u32 = 0b0001;
         }
     }
 
@@ -104,8 +104,8 @@ pub mod OPACR {
             /// 0b0000: Accesses from an untrusted master are allowed.
             pub const TP0: u32 = 0b0000;
 
-            /// 0b0000: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
-            pub const TP1: u32 = 0b0000;
+            /// 0b0001: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
+            pub const TP1: u32 = 0b0001;
         }
     }
 
@@ -220,8 +220,8 @@ pub mod OPACR1 {
             /// 0b0000: Accesses from an untrusted master are allowed.
             pub const TP0: u32 = 0b0000;
 
-            /// 0b0000: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
-            pub const TP1: u32 = 0b0000;
+            /// 0b0001: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
+            pub const TP1: u32 = 0b0001;
         }
     }
 
@@ -336,8 +336,8 @@ pub mod OPACR2 {
             /// 0b0000: Accesses from an untrusted master are allowed.
             pub const TP0: u32 = 0b0000;
 
-            /// 0b0000: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
-            pub const TP1: u32 = 0b0000;
+            /// 0b0001: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
+            pub const TP1: u32 = 0b0001;
         }
     }
 
@@ -452,8 +452,8 @@ pub mod OPACR3 {
             /// 0b0000: Accesses from an untrusted master are allowed.
             pub const TP0: u32 = 0b0000;
 
-            /// 0b0000: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
-            pub const TP1: u32 = 0b0000;
+            /// 0b0001: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
+            pub const TP1: u32 = 0b0001;
         }
     }
 
@@ -568,8 +568,8 @@ pub mod OPACR4 {
             /// 0b0000: Accesses from an untrusted master are allowed.
             pub const TP0: u32 = 0b0000;
 
-            /// 0b0000: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
-            pub const TP1: u32 = 0b0000;
+            /// 0b0001: Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus.
+            pub const TP1: u32 = 0b0001;
         }
     }
 

@@ -925,8 +925,8 @@ pub mod ESR1 {
             /// 0b01: Error Passive
             pub const FLTCONF_1: u32 = 0b01;
 
-            /// 0b00: Bus off
-            pub const FLTCONF_2: u32 = 0b00;
+            /// 0b10: Bus off
+            pub const FLTCONF_2: u32 = 0b10;
         }
     }
 

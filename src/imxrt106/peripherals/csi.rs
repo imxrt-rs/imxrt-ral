@@ -678,8 +678,8 @@ pub mod CSICR2 {
             /// 0b01: Abs Diff on every third green pixels
             pub const AFS_1: u32 = 0b01;
 
-            /// 0b00: Abs Diff on every four green pixels
-            pub const AFS_2: u32 = 0b00;
+            /// 0b10: Abs Diff on every four green pixels
+            pub const AFS_2: u32 = 0b10;
         }
     }
 
