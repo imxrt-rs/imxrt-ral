@@ -46,6 +46,8 @@ of `bare_metal::Nr`.
 
 Depend on `ral-registers`, and expose the API through the `imxrt-ral` package.
 
+## [0.4.4] 2022-08-21
+
 Correct enumerated values that were specified with alternate binary values in
 the SVD files.
 
@@ -126,6 +128,7 @@ This release also removes mention of 'stm32ral' in the API documentation.
 Initial build and release of imxrt family of peripheral access crates
 
 [Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.0...HEAD
+[0.4.4]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.1...0.4.2
 [0.4.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.0...0.4.1
