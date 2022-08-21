@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERQ15_0","0b0: The DMA request signal for the corresponding channel is disabled"],["ERQ15_1","0b1: The DMA request signal for the corresponding channel is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERQ15_0","0b0: The DMA request signal for the corresponding channel is disabled"],["ERQ15_1","0b1: The DMA request signal for the corresponding channel is enabled"]]};

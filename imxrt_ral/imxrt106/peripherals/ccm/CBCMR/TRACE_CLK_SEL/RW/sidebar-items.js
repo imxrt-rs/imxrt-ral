@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TRACE_CLK_SEL_0","0b00: derive clock from PLL2"],["TRACE_CLK_SEL_1","0b01: derive clock from PLL2 PFD2"],["TRACE_CLK_SEL_2","0b10: derive clock from PLL2 PFD0"],["TRACE_CLK_SEL_3","0b11: derive clock from PLL2 PFD1"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TRACE_CLK_SEL_0","0b00: derive clock from PLL2"],["TRACE_CLK_SEL_1","0b01: derive clock from PLL2 PFD2"],["TRACE_CLK_SEL_2","0b10: derive clock from PLL2 PFD0"],["TRACE_CLK_SEL_3","0b11: derive clock from PLL2 PFD1"]]};

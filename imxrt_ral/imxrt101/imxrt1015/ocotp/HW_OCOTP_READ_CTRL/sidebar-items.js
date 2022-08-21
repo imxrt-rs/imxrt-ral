@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["READ_FUSE","Used to initiate a read to OTP"]]});
+window.SIDEBAR_ITEMS = {"mod":[["READ_FUSE","Used to initiate a read to OTP"]]};

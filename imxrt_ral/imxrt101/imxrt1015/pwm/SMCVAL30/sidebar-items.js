@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CAPTVAL3","CAPTVAL3"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CAPTVAL3","CAPTVAL3"]]};

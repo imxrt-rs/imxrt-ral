@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HP_DMA_0","0b0: The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."],["HP_DMA_1","0b1: The HP register bit is routed to the csu_hprot1 output for the corresponding master."]]});
+window.SIDEBAR_ITEMS = {"constant":[["HP_DMA_0","0b0: The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."],["HP_DMA_1","0b1: The HP register bit is routed to the csu_hprot1 output for the corresponding master."]]};

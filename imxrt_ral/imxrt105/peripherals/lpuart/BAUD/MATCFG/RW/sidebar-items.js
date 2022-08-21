@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MATCFG_0","0b00: Address Match Wakeup"],["MATCFG_1","0b01: Idle Match Wakeup"],["MATCFG_2","0b10: Match On and Match Off"],["MATCFG_3","0b11: Enables RWU on Data Match and Match On/Off for transmitter CTS input"]]});
+window.SIDEBAR_ITEMS = {"constant":[["MATCFG_0","0b00: Address Match Wakeup"],["MATCFG_1","0b01: Idle Match Wakeup"],["MATCFG_2","0b10: Match On and Match Off"],["MATCFG_3","0b11: Enables RWU on Data Match and Match On/Off for transmitter CTS input"]]};

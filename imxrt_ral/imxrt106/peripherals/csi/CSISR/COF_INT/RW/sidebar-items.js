@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["COF_INT_0","0b0: Video field has no change."],["COF_INT_1","0b1: Change of video field is detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["COF_INT_0","0b0: Video field has no change."],["COF_INT_1","0b1: Change of video field is detected."]]};

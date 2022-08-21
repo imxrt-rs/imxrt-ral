@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["REG1_BO_STATUS_1","0b1: Brownout, supply is below target minus brownout offset."]]});
+window.SIDEBAR_ITEMS = {"constant":[["REG1_BO_STATUS_1","0b1: Brownout, supply is below target minus brownout offset."]]};

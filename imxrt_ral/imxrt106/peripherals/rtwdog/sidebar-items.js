@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CNT","Watchdog Counter Register"],["CS","Watchdog Control and Status Register"],["TOVAL","Watchdog Timeout Value Register"],["WIN","Watchdog Window Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});
+window.SIDEBAR_ITEMS = {"mod":[["CNT","Watchdog Counter Register"],["CS","Watchdog Control and Status Register"],["TOVAL","Watchdog Timeout Value Register"],["WIN","Watchdog Window Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

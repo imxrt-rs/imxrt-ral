@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TRG","Setting this bit will trigger an IP Command."]]});
+window.SIDEBAR_ITEMS = {"mod":[["TRG","Setting this bit will trigger an IP Command."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["IDHIT","This 9-bit field indicates which Identifier Acceptance Filter (see Rx FIFO Structure) was hit by the received message that is in the output of the Rx FIFO"]]});
+window.SIDEBAR_ITEMS = {"mod":[["IDHIT","This 9-bit field indicates which Identifier Acceptance Filter (see Rx FIFO Structure) was hit by the received message that is in the output of the Rx FIFO"]]};

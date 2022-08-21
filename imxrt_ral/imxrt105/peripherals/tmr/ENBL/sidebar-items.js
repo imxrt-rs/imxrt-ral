@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ENBL","Timer Channel Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ENBL","Timer Channel Enable"]]};

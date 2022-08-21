@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["LTH","Life Timer value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["LTH","Life Timer value"]]};

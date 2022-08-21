@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["csu_reset_b_0","0b0: Reset is not a result of the csu_reset_b event."],["csu_reset_b_1","0b1: Reset is a result of the csu_reset_b event."]]});
+window.SIDEBAR_ITEMS = {"constant":[["csu_reset_b_0","0b0: Reset is not a result of the csu_reset_b event."],["csu_reset_b_1","0b1: Reset is a result of the csu_reset_b event."]]};

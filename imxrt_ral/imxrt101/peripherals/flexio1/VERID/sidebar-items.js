@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FEATURE","Feature Specification Number"],["MAJOR","Major Version Number"],["MINOR","Minor Version Number"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FEATURE","Feature Specification Number"],["MAJOR","Major Version Number"],["MINOR","Minor Version Number"]]};

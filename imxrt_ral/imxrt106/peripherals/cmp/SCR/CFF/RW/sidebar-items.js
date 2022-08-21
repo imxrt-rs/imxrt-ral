@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CFF_0","0b0: Falling-edge on COUT has not been detected."],["CFF_1","0b1: Falling-edge on COUT has occurred."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CFF_0","0b0: Falling-edge on COUT has not been detected."],["CFF_1","0b1: Falling-edge on COUT has occurred."]]};

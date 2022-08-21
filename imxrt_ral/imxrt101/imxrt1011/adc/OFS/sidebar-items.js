@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["OFS","Offset value"],["SIGN","Sign bit"]]});
+window.SIDEBAR_ITEMS = {"mod":[["OFS","Offset value"],["SIGN","Sign bit"]]};

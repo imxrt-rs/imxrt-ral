@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["lockup_rst_0","0b0: disabled"],["lockup_rst_1","0b1: enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["lockup_rst_0","0b0: disabled"],["lockup_rst_1","0b1: enabled"]]};

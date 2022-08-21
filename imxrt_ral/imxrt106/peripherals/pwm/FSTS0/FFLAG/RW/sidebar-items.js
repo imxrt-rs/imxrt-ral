@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FFLAG_0","0b0000: No fault on the FAULTx pin."],["FFLAG_1","0b0001: Fault on the FAULTx pin."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FFLAG_0","0b0000: No fault on the FAULTx pin."],["FFLAG_1","0b0001: Fault on the FAULTx pin."]]};

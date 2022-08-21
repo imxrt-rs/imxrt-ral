@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SAI2_CLK_SEL_0","0b00: derive clock from PLL3 PFD2"],["SAI2_CLK_SEL_1","0b01: derive clock from PLL5"],["SAI2_CLK_SEL_2","0b10: derive clock from PLL4"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SAI2_CLK_SEL_0","0b00: derive clock from PLL3 PFD2"],["SAI2_CLK_SEL_1","0b01: derive clock from PLL5"],["SAI2_CLK_SEL_2","0b10: derive clock from PLL4"]]};

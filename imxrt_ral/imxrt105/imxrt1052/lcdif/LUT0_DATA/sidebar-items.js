@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DATA","Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DATA","Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register"]]};

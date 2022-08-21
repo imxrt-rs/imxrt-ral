@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ODE_0_Open_Drain_Disabled","0b0: Open Drain Disabled"],["ODE_1_Open_Drain_Enabled","0b1: Open Drain Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ODE_0_Open_Drain_Disabled","0b0: Open Drain Disabled"],["ODE_1_Open_Drain_Enabled","0b1: Open Drain Enabled"]]};

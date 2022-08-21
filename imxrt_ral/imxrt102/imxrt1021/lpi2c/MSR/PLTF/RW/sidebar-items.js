@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PLTF_0","0b0: Pin low timeout has not occurred or is disabled"],["PLTF_1","0b1: Pin low timeout has occurred"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PLTF_0","0b0: Pin low timeout has not occurred or is disabled"],["PLTF_1","0b1: Pin low timeout has occurred"]]};

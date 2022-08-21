@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WIDTH_0","0b00: 1 bit transfer"],["WIDTH_1","0b01: 2 bit transfer"],["WIDTH_2","0b10: 4 bit transfer"]]});
+window.SIDEBAR_ITEMS = {"constant":[["WIDTH_0","0b00: 1 bit transfer"],["WIDTH_1","0b01: 2 bit transfer"],["WIDTH_2","0b10: 4 bit transfer"]]};

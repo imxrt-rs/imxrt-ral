@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SRXDIS_0","0b0: Self reception enabled"],["SRXDIS_1","0b1: Self reception disabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SRXDIS_0","0b0: Self reception enabled"],["SRXDIS_1","0b1: Self reception disabled"]]};

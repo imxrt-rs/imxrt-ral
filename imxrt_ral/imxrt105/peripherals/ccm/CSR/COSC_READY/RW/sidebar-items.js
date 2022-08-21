@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["COSC_READY_0","0b0: on board oscillator is not ready."],["COSC_READY_1","0b1: on board oscillator is ready."]]});
+window.SIDEBAR_ITEMS = {"constant":[["COSC_READY_0","0b0: on board oscillator is not ready."],["COSC_READY_1","0b1: on board oscillator is ready."]]};

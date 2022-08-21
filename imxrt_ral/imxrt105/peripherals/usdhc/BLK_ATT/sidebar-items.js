@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["BLKCNT","Block Count"],["BLKSIZE","Block Size"]]});
+window.SIDEBAR_ITEMS = {"mod":[["BLKCNT","Block Count"],["BLKSIZE","Block Size"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["NUW_S2_0","0b0: The non-secure user write access is disabled for the second slave."],["NUW_S2_1","0b1: The non-secure user write access is enabled for the second slave."]]});
+window.SIDEBAR_ITEMS = {"constant":[["NUW_S2_0","0b0: The non-secure user write access is disabled for the second slave."],["NUW_S2_1","0b1: The non-secure user write access is enabled for the second slave."]]};

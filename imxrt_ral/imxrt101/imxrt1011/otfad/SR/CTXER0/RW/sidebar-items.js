@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERROR","0b1: Either a key blob integrity error or a key blob CRC error was detected in context “n”."],["NOERROR","0b0: No key blob error was detected for context “n”."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERROR","0b1: Either a key blob integrity error or a key blob CRC error was detected in context “n”."],["NOERROR","0b0: No key blob error was detected for context “n”."]]};

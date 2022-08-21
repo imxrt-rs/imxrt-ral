@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CMD","Command Data"],["DATA","Transmit Data"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CMD","Command Data"],["DATA","Transmit Data"]]};

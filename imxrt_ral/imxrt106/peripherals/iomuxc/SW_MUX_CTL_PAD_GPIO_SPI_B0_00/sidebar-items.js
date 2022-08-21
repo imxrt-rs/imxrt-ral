@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SION","Software Input On Field."]]});
+window.SIDEBAR_ITEMS = {"mod":[["SION","Software Input On Field."]]};

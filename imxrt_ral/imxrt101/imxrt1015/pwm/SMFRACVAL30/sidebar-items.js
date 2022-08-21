@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FRACVAL3","Fractional Value 3"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FRACVAL3","Fractional Value 3"]]};

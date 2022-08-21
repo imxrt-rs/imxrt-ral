@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["UTMI_TESTSTART","Setting this bit can enable 1"]]});
+window.SIDEBAR_ITEMS = {"mod":[["UTMI_TESTSTART","Setting this bit can enable 1"]]};

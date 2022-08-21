@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXIO1_IPG_DOZE_0","0b0: FLEXIO1 is not in doze mode"],["FLEXIO1_IPG_DOZE_1","0b1: FLEXIO1 is in doze mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLEXIO1_IPG_DOZE_0","0b0: FLEXIO1 is not in doze mode"],["FLEXIO1_IPG_DOZE_1","0b1: FLEXIO1 is in doze mode"]]};

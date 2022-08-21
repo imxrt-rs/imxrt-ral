@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RESYNCDIS_0","0b0: Resynchronization during received data word is supported"],["RESYNCDIS_1","0b1: Resynchronization during received data word is disabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RESYNCDIS_0","0b0: Resynchronization during received data word is supported"],["RESYNCDIS_1","0b1: Resynchronization during received data word is disabled"]]};

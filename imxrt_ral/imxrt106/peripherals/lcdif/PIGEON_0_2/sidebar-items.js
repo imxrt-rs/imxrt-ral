@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SIG_ANOTHER","Select another signal for logic operation or as mask or counter tick event"],["SIG_LOGIC","Logic operation with another signal: DIS/AND/OR/COND"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SIG_ANOTHER","Select another signal for logic operation or as mask or counter tick event"],["SIG_LOGIC","Logic operation with another signal: DIS/AND/OR/COND"]]};

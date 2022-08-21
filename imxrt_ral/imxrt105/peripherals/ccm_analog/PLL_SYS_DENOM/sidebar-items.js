@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["B","30 bit Denominator (B) of fractional loop divider (unsigned integer)."]]});
+window.SIDEBAR_ITEMS = {"mod":[["B","30 bit Denominator (B) of fractional loop divider (unsigned integer)."]]};

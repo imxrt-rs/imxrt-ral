@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["KRIE_0","0b0: No interrupt request is generated when KPKR is set."],["KRIE_1","0b1: An interrupt request is generated when KPKR is set."]]});
+window.SIDEBAR_ITEMS = {"constant":[["KRIE_0","0b0: No interrupt request is generated when KPKR is set."],["KRIE_1","0b1: An interrupt request is generated when KPKR is set."]]};

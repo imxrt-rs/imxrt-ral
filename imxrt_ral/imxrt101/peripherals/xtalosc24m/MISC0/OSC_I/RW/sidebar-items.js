@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MINUS_12_5_PERCENT","0b01: Decrease current by 12.5%"],["MINUS_25_PERCENT","0b10: Decrease current by 25.0%"],["MINUS_37_5_PERCENT","0b11: Decrease current by 37.5%"],["NOMINAL","0b00: Nominal"]]});
+window.SIDEBAR_ITEMS = {"constant":[["MINUS_12_5_PERCENT","0b01: Decrease current by 12.5%"],["MINUS_25_PERCENT","0b10: Decrease current by 25.0%"],["MINUS_37_5_PERCENT","0b11: Decrease current by 37.5%"],["NOMINAL","0b00: Nominal"]]};

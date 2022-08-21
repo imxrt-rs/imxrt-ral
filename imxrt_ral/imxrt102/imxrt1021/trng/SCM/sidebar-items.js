@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["MONO_CT","Monobit Count"],["MONO_MAX","Monobit Maximum Limit"],["MONO_RNG","Monobit Range"]]});
+window.SIDEBAR_ITEMS = {"mod":[["MONO_CT","Monobit Count"],["MONO_MAX","Monobit Maximum Limit"],["MONO_RNG","Monobit Range"]]};

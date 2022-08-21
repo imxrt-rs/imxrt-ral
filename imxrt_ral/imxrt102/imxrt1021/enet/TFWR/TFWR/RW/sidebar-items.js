@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TFWR_0","0b000000: 64 bytes written."],["TFWR_1","0b000001: 64 bytes written."],["TFWR_2","0b000010: 128 bytes written."],["TFWR_3","0b000011: 192 bytes written."],["TFWR_31","0b011111: 1984 bytes written."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TFWR_0","0b000000: 64 bytes written."],["TFWR_1","0b000001: 64 bytes written."],["TFWR_2","0b000010: 128 bytes written."],["TFWR_3","0b000011: 192 bytes written."],["TFWR_31","0b011111: 1984 bytes written."]]};

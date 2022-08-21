@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CTR","AES Counter"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CTR","AES Counter"]]};

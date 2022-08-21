@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ADTRG_0","0b0: Software trigger selected"],["ADTRG_1","0b1: Hardware trigger selected"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ADTRG_0","0b0: Software trigger selected"],["ADTRG_1","0b1: Hardware trigger selected"]]};

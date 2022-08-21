@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CONTC_0","0b0: Command word for start of new transfer"],["CONTC_1","0b1: Command word for continuing transfer"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CONTC_0","0b0: Command word for start of new transfer"],["CONTC_1","0b1: Command word for continuing transfer"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WAKMSK_0","0b0: Wake Up Interrupt is disabled."],["WAKMSK_1","0b1: Wake Up Interrupt is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WAKMSK_0","0b0: Wake Up Interrupt is disabled."],["WAKMSK_1","0b1: Wake Up Interrupt is enabled."]]};

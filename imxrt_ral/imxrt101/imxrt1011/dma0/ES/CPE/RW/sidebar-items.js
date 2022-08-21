@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CPE_0","0b0: No channel priority error"],["CPE_1","0b1: The last recorded error was a configuration error in the channel priorities . Channel priorities are not unique."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CPE_0","0b0: No channel priority error"],["CPE_1","0b1: The last recorded error was a configuration error in the channel priorities . Channel priorities are not unique."]]};

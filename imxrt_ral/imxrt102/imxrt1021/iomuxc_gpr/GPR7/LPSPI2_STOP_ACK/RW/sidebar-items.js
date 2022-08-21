@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPSPI2_STOP_ACK_0","0b0: stop acknowledge is not asserted"],["LPSPI2_STOP_ACK_1","0b1: stop acknowledge is asserted"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPSPI2_STOP_ACK_0","0b0: stop acknowledge is not asserted"],["LPSPI2_STOP_ACK_1","0b1: stop acknowledge is asserted"]]};

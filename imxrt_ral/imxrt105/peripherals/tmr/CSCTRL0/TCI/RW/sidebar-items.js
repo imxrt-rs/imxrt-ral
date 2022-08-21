@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TCI_0","0b0: Stop counter upon receiving a second trigger event while still counting from the first trigger event."],["TCI_1","0b1: Reload the counter upon receiving a second trigger event while still counting from the first trigger event."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TCI_0","0b0: Stop counter upon receiving a second trigger event while still counting from the first trigger event."],["TCI_1","0b1: Reload the counter upon receiving a second trigger event while still counting from the first trigger event."]]};

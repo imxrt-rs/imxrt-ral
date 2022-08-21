@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BUF5I_0","0b0: No such occurrence"],["BUF5I_1","0b1: MB5 completed transmission/reception or frames available in the FIFO"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BUF5I_0","0b0: No such occurrence"],["BUF5I_1","0b1: MB5 completed transmission/reception or frames available in the FIFO"]]};

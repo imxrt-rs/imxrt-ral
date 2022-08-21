@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CMPIRQ_0","0b0: No match has occurred"],["CMPIRQ_1","0b1: COMP match has occurred"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CMPIRQ_0","0b0: No match has occurred"],["CMPIRQ_1","0b1: COMP match has occurred"]]};

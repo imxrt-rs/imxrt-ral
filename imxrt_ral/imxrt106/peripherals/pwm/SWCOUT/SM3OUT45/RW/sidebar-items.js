@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SM3OUT45_0","0b0: A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM45."],["SM3OUT45_1","0b1: A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM45."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SM3OUT45_0","0b0: A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM45."],["SM3OUT45_1","0b1: A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM45."]]};

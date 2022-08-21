@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MIB_CLEAR_0","0b0: See note above."],["MIB_CLEAR_1","0b1: All statistics counters are reset to 0."]]});
+window.SIDEBAR_ITEMS = {"constant":[["MIB_CLEAR_0","0b0: See note above."],["MIB_CLEAR_1","0b1: All statistics counters are reset to 0."]]};

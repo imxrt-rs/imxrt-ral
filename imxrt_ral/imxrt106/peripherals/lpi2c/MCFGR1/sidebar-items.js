@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["AUTOSTOP","Automatic STOP Generation"],["IGNACK","IGNACK"],["MATCFG","Match Configuration"],["PINCFG","Pin Configuration"],["PRESCALE","Prescaler"],["TIMECFG","Timeout Configuration"]]});
+window.SIDEBAR_ITEMS = {"mod":[["AUTOSTOP","Automatic STOP Generation"],["IGNACK","IGNACK"],["MATCFG","Match Configuration"],["PINCFG","Pin Configuration"],["PRESCALE","Prescaler"],["TIMECFG","Timeout Configuration"]]};

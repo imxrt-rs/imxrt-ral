@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SOURCE_0","0b000000: Address Comparator 0 matched"],["SOURCE_1","0b000001: Address Comparator 1 matched"],["SOURCE_15","0b001111: Address Comparator 15 matched"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SOURCE_0","0b000000: Address Comparator 0 matched"],["SOURCE_1","0b000001: Address Comparator 1 matched"],["SOURCE_15","0b001111: Address Comparator 15 matched"]]};

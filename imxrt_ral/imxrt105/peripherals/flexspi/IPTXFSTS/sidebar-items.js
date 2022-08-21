@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FILL","Fill level of IP TX FIFO."],["WRCNTR","Total Write Data Counter: WRCNTR * 64 Bits."]]});
+window.SIDEBAR_ITEMS = {"mod":[["FILL","Fill level of IP TX FIFO."],["WRCNTR","Total Write Data Counter: WRCNTR * 64 Bits."]]};

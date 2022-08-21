@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["START","0b1: Start the measurement process."],["STOP","0b0: Do not start the measurement process."]]});
+window.SIDEBAR_ITEMS = {"constant":[["START","0b1: Start the measurement process."],["STOP","0b0: Do not start the measurement process."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WDOG1_MASK_0","0b0: WDOG1 Timeout behaves normally"],["WDOG1_MASK_1","0b1: WDOG1 Timeout is masked"]]});
+window.SIDEBAR_ITEMS = {"constant":[["WDOG1_MASK_0","0b0: WDOG1 Timeout behaves normally"],["WDOG1_MASK_1","0b1: WDOG1 Timeout is masked"]]};

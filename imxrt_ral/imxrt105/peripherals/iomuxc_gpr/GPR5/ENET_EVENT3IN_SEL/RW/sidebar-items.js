@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET_EVENT3IN_SEL_0","0b0: event3 source input from pad"],["ENET_EVENT3IN_SEL_1","0b1: event3 source input from gpt2.ipp_do_cmpout1"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENET_EVENT3IN_SEL_0","0b0: event3 source input from pad"],["ENET_EVENT3IN_SEL_1","0b1: event3 source input from gpt2.ipp_do_cmpout1"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["EPRNE","RX Endpoint NAK Enable - R/W"],["EPTNE","TX Endpoint NAK Enable - R/W"]]});
+window.SIDEBAR_ITEMS = {"mod":[["EPRNE","RX Endpoint NAK Enable - R/W"],["EPTNE","TX Endpoint NAK Enable - R/W"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PCSPOL_0","0b0000: The Peripheral Chip Select pin PCSx is active low"],["PCSPOL_1","0b0001: The Peripheral Chip Select pin PCSx is active high"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PCSPOL_0","0b0000: The Peripheral Chip Select pin PCSx is active low"],["PCSPOL_1","0b0001: The Peripheral Chip Select pin PCSx is active high"]]};

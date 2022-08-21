@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BUFHM_0","0b00000000000000000000000000000000: The corresponding buffer Interrupt is disabled"],["BUFHM_1","0b00000000000000000000000000000001: The corresponding buffer Interrupt is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BUFHM_0","0b00000000000000000000000000000000: The corresponding buffer Interrupt is disabled"],["BUFHM_1","0b00000000000000000000000000000001: The corresponding buffer Interrupt is enabled"]]};

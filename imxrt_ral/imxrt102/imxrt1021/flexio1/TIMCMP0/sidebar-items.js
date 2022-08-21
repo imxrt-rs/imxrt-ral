@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CMP","Timer Compare Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CMP","Timer Compare Value"]]};

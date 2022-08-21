@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DTOE_0","0b0: No Error"],["DTOE_1","0b1: Time out"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DTOE_0","0b0: No Error"],["DTOE_1","0b1: Time out"]]};

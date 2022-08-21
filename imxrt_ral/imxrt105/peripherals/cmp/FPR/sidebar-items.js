@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FILT_PER","Filter Sample Period"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FILT_PER","Filter Sample Period"]]};

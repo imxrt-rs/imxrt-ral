@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HOLDTIME_0","0b000: 1 internal module clock cycle"],["HOLDTIME_1","0b001: 2 internal module clock cycles"],["HOLDTIME_2","0b010: 3 internal module clock cycles"],["HOLDTIME_7","0b111: 8 internal module clock cycles"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HOLDTIME_0","0b000: 1 internal module clock cycle"],["HOLDTIME_1","0b001: 2 internal module clock cycles"],["HOLDTIME_2","0b010: 3 internal module clock cycles"],["HOLDTIME_7","0b111: 8 internal module clock cycles"]]};

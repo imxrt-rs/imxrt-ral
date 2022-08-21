@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WSR_21845","0b0101010101010101: Write to the Watchdog Service Register (WDOG_WSR)."],["WSR_43690","0b1010101010101010: Write to the Watchdog Service Register (WDOG_WSR)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WSR_21845","0b0101010101010101: Write to the Watchdog Service Register (WDOG_WSR)."],["WSR_43690","0b1010101010101010: Write to the Watchdog Service Register (WDOG_WSR)."]]};

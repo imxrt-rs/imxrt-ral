@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OCA_0","0b0: This port does not have an over-current condition."],["OCA_1","0b1: This port currently has an over-current condition"]]});
+window.SIDEBAR_ITEMS = {"constant":[["OCA_0","0b0: This port does not have an over-current condition."],["OCA_1","0b1: This port currently has an over-current condition"]]};

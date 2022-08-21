@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SOF_0","0b0: Subsequent data word received after LPSPI_PCS assertion"],["SOF_1","0b1: First data word received after LPSPI_PCS assertion"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SOF_0","0b0: Subsequent data word received after LPSPI_PCS assertion"],["SOF_1","0b1: First data word received after LPSPI_PCS assertion"]]};

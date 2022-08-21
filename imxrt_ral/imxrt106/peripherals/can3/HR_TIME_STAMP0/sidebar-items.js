@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TS","High Resolution Time Stamp"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TS","High Resolution Time Stamp"]]};

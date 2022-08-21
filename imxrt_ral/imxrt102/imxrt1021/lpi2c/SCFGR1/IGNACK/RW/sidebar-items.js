@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IGNACK_0","0b0: Slave will end transfer when NACK is detected"],["IGNACK_1","0b1: Slave will not end transfer when NACK detected"]]});
+window.SIDEBAR_ITEMS = {"constant":[["IGNACK_0","0b0: Slave will end transfer when NACK is detected"],["IGNACK_1","0b1: Slave will not end transfer when NACK detected"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RTF_0","0b0: No effect"],["RTF_1","0b1: Transmit Data Register is now empty"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RTF_0","0b0: No effect"],["RTF_1","0b1: Transmit Data Register is now empty"]]};

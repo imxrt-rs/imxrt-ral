@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FRQ_MIN","Frequency Count Minimum Limit"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FRQ_MIN","Frequency Count Minimum Limit"]]};

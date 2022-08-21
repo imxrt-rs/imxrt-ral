@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FILL","Fill level of IP RX FIFO."],["RDCNTR","Total Read Data Counter: RDCNTR * 64 Bits."]]});
+window.SIDEBAR_ITEMS = {"mod":[["FILL","Fill level of IP RX FIFO."],["RDCNTR","Total Read Data Counter: RDCNTR * 64 Bits."]]};

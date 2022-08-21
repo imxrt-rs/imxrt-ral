@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPCALB_EN_0","0b0: SRTC Time calibration is disabled."],["LPCALB_EN_1","0b1: SRTC Time calibration is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPCALB_EN_0","0b0: SRTC Time calibration is disabled."],["LPCALB_EN_1","0b1: SRTC Time calibration is enabled."]]};

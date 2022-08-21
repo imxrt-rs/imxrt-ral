@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SAI1_MCLK_DIR_0","0b0: sai1.MCLK is input signal"],["SAI1_MCLK_DIR_1","0b1: sai1.MCLK is output signal"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SAI1_MCLK_DIR_0","0b0: sai1.MCLK is input signal"],["SAI1_MCLK_DIR_1","0b1: sai1.MCLK is output signal"]]};

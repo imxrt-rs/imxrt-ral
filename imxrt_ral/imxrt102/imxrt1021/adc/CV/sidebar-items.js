@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CV1","Compare Value 1"],["CV2","Compare Value 2"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CV1","Compare Value 1"],["CV2","Compare Value 2"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRAC_PU_0","0b0: Turn off fractional delay logic."],["FRAC_PU_1","0b1: Power up fractional delay logic."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRAC_PU_0","0b0: Turn off fractional delay logic."],["FRAC_PU_1","0b1: Power up fractional delay logic."]]};

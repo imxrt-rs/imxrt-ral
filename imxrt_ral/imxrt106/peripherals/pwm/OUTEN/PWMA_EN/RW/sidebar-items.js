@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PWMA_EN_0","0b0000: PWM_A output disabled."],["PWMA_EN_1","0b0001: PWM_A output enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PWMA_EN_0","0b0000: PWM_A output disabled."],["PWMA_EN_1","0b0001: PWM_A output enabled."]]};

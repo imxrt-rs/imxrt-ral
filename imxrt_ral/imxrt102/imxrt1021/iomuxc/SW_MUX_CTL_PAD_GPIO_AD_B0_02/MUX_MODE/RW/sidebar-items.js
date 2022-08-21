@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ALT0","0b000: Select mux mode: ALT0 mux port: JTAG_MOD of instance: jtag_mux"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO1_IO02 of instance: gpio1"],["ALT7","0b111: Select mux mode: ALT7 mux port: GPT1_CAPTURE1 of instance: gpt1"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ALT0","0b000: Select mux mode: ALT0 mux port: JTAG_MOD of instance: jtag_mux"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO1_IO02 of instance: gpio1"],["ALT7","0b111: Select mux mode: ALT7 mux port: GPT1_CAPTURE1 of instance: gpt1"]]};

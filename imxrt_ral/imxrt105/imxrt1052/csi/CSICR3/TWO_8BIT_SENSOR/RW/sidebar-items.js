@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TWO_8BIT_SENSOR_0","0b0: Only one sensor is connected."],["TWO_8BIT_SENSOR_1","0b1: Two 8-bit sensors are connected or one 16-bit sensor is connected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TWO_8BIT_SENSOR_0","0b0: Only one sensor is connected."],["TWO_8BIT_SENSOR_1","0b1: Two 8-bit sensors are connected or one 16-bit sensor is connected."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERCA_0","0b0: Fixed priority arbitration is used for channel selection ."],["ERCA_1","0b1: Round robin arbitration is used for channel selection ."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERCA_0","0b0: Fixed priority arbitration is used for channel selection ."],["ERCA_1","0b1: Round robin arbitration is used for channel selection ."]]};

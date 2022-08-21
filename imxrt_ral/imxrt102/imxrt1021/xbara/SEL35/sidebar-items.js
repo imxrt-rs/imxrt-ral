@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SEL70","Input (XBARA_INn) to be muxed to XBARA_OUT70 (refer to Functional Description section for input/output assignment)"],["SEL71","Input (XBARA_INn) to be muxed to XBARA_OUT71 (refer to Functional Description section for input/output assignment)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SEL70","Input (XBARA_INn) to be muxed to XBARA_OUT70 (refer to Functional Description section for input/output assignment)"],["SEL71","Input (XBARA_INn) to be muxed to XBARA_OUT71 (refer to Functional Description section for input/output assignment)"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FHALF_0","0b0000: PWM outputs are not re-enabled at the start of a half cycle."],["FHALF_1","0b0001: PWM outputs are re-enabled at the start of a half cycle (as defined by VAL0)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FHALF_0","0b0000: PWM outputs are not re-enabled at the start of a half cycle."],["FHALF_1","0b0001: PWM outputs are re-enabled at the start of a half cycle (as defined by VAL0)."]]};

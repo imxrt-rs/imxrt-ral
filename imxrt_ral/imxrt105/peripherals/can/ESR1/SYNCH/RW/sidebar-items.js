@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SYNCH_0","0b0: FlexCAN is not synchronized to the CAN bus"],["SYNCH_1","0b1: FlexCAN is synchronized to the CAN bus"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SYNCH_0","0b0: FlexCAN is not synchronized to the CAN bus"],["SYNCH_1","0b1: FlexCAN is synchronized to the CAN bus"]]};

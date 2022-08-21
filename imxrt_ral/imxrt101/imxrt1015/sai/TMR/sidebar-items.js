@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TWM","Transmit Word Mask"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TWM","Transmit Word Mask"]]};

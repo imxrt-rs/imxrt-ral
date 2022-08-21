@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PGD","Power Glitch Detector Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PGD","Power Glitch Detector Value"]]};

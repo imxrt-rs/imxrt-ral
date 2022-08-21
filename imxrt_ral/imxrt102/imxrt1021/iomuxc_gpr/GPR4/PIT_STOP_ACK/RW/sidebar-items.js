@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PIT_STOP_ACK_0","0b0: PIT stop acknowledge is not asserted"],["PIT_STOP_ACK_1","0b1: PIT stop acknowledge is asserted"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PIT_STOP_ACK_0","0b0: PIT stop acknowledge is not asserted"],["PIT_STOP_ACK_1","0b1: PIT stop acknowledge is asserted"]]};

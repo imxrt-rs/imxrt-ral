@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RxAutoSync_0","0b0: Rx FIFO auto sync off"],["RxAutoSync_1","0b1: RxFIFO auto sync on"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RxAutoSync_0","0b0: Rx FIFO auto sync off"],["RxAutoSync_1","0b1: RxFIFO auto sync on"]]};

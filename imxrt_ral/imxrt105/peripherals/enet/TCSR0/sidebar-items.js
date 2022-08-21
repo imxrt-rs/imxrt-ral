@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TDRE","Timer DMA Request Enable"],["TF","Timer Flag"],["TIE","Timer Interrupt Enable"],["TMODE","Timer Mode"],["TPWC","Timer PulseWidth Control"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TDRE","Timer DMA Request Enable"],["TF","Timer Flag"],["TIE","Timer Interrupt Enable"],["TMODE","Timer Mode"],["TPWC","Timer PulseWidth Control"]]};

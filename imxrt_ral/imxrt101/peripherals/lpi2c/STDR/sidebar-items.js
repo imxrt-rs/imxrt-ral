@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DATA","Transmit Data"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DATA","Transmit Data"]]};

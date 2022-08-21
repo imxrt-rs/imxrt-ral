@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CF","Configure Flag Host software sets this bit as the last action in its process of configuring the Host Controller"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CF","Configure Flag Host software sets this bit as the last action in its process of configuring the Host Controller"]]};

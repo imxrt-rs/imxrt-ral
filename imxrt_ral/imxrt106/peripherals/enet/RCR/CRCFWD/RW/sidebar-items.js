@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CRCFWD_0","0b0: The CRC field of received frames is transmitted to the user application."],["CRCFWD_1","0b1: The CRC field is stripped from the frame."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CRCFWD_0","0b0: The CRC field of received frames is transmitted to the user application."],["CRCFWD_1","0b1: The CRC field is stripped from the frame."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["GADDR1","Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address"]]});
+window.SIDEBAR_ITEMS = {"mod":[["GADDR1","Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address"]]};

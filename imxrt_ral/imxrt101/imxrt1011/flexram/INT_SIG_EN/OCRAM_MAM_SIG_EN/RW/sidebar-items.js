@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OCRAM_MAM_SIG_EN_0","0b0: Masked"],["OCRAM_MAM_SIG_EN_1","0b1: Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["OCRAM_MAM_SIG_EN_0","0b0: Masked"],["OCRAM_MAM_SIG_EN_1","0b1: Enabled"]]};

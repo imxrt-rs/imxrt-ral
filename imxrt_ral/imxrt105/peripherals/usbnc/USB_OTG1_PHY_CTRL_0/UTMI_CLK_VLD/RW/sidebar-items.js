@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["UTMI_CLK_VLD_0","0b0: Invalid"],["UTMI_CLK_VLD_1","0b1: Valid"]]});
+window.SIDEBAR_ITEMS = {"constant":[["UTMI_CLK_VLD_0","0b0: Invalid"],["UTMI_CLK_VLD_1","0b1: Valid"]]};

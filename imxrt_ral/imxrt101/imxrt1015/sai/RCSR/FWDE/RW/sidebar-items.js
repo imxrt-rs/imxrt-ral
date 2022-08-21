@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FWDE_0","0b0: Disables the DMA request."],["FWDE_1","0b1: Enables the DMA request."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FWDE_0","0b0: Disables the DMA request."],["FWDE_1","0b1: Enables the DMA request."]]};

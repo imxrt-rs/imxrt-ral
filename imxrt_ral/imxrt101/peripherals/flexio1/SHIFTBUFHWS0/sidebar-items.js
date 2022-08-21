@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SHIFTBUFHWS","Shift Buffer"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SHIFTBUFHWS","Shift Buffer"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["BL","Burst Length"],["COL","Column address bit number"],["EDO","EDO mode enabled"],["PS","Port Size"],["SYNCEN","Select NAND controller mode."]]});
+window.SIDEBAR_ITEMS = {"mod":[["BL","Burst Length"],["COL","Column address bit number"],["EDO","EDO mode enabled"],["PS","Port Size"],["SYNCEN","Select NAND controller mode."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CM","Count Mode"],["COINIT","Co-Channel Initialization"],["DIR","Count Direction"],["LENGTH","Count Length"],["ONCE","Count Once"],["OUTMODE","Output Mode"],["PCS","Primary Count Source"],["SCS","Secondary Count Source"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CM","Count Mode"],["COINIT","Co-Channel Initialization"],["DIR","Count Direction"],["LENGTH","Count Length"],["ONCE","Count Once"],["OUTMODE","Output Mode"],["PCS","Primary Count Source"],["SCS","Secondary Count Source"]]};

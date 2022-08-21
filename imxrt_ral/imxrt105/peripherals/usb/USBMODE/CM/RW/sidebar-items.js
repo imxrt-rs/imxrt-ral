@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CM_0","0b00: Idle [Default for combination host/device]"],["CM_2","0b10: Device Controller [Default for device only controller]"],["CM_3","0b11: Host Controller [Default for host only controller]"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CM_0","0b00: Idle [Default for combination host/device]"],["CM_2","0b10: Device Controller [Default for device only controller]"],["CM_3","0b11: Host Controller [Default for host only controller]"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SEN_0","0b0: I2C Slave mode is disabled"],["SEN_1","0b1: I2C Slave mode is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SEN_0","0b0: I2C Slave mode is disabled"],["SEN_1","0b1: I2C Slave mode is enabled"]]};

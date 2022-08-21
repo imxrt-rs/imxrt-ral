@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IRQE_0","0b0: SR[KBERR] = 1 does not generate an interrupt request."],["IRQE_1","0b1: SR[KBERR] = 1 generates an interrupt request."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IRQE_0","0b0: SR[KBERR] = 1 does not generate an interrupt request."],["IRQE_1","0b1: SR[KBERR] = 1 generates an interrupt request."]]};

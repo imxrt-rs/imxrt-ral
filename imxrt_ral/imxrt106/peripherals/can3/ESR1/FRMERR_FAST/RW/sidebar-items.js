@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRMERR_FAST_0","0b0: No such occurrence."],["FRMERR_FAST_1","0b1: A Form Error occurred since last read of this register."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRMERR_FAST_0","0b0: No such occurrence."],["FRMERR_FAST_1","0b1: A Form Error occurred since last read of this register."]]};

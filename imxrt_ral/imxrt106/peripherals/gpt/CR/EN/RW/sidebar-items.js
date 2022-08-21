@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EN_0","0b0: GPT is disabled."],["EN_1","0b1: GPT is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["EN_0","0b0: GPT is disabled."],["EN_1","0b1: GPT is enabled."]]};

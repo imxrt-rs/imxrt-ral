@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FGM_0","0b00000000000000000000000000000000: The corresponding bit in the filter is “don’t care”"],["FGM_1","0b00000000000000000000000000000001: The corresponding bit in the filter is checked"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FGM_0","0b00000000000000000000000000000000: The corresponding bit in the filter is “don’t care”"],["FGM_1","0b00000000000000000000000000000001: The corresponding bit in the filter is checked"]]};

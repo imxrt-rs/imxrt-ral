@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BWRIEN_0","0b0: Masked"],["BWRIEN_1","0b1: Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BWRIEN_0","0b0: Masked"],["BWRIEN_1","0b1: Enabled"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPSVI_EN_0","0b0: LP Security Violation Interrupt is Disabled"],["LPSVI_EN_1","0b1: LP Security Violation Interrupt is Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPSVI_EN_0","0b0: LP Security Violation Interrupt is Disabled"],["LPSVI_EN_1","0b1: LP Security Violation Interrupt is Enabled"]]};

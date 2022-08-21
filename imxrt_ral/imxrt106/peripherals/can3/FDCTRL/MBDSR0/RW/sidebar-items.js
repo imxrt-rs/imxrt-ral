@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MBDSR0_0","0b00: Selects 8 bytes per Message Buffer."],["MBDSR0_1","0b01: Selects 16 bytes per Message Buffer."],["MBDSR0_2","0b10: Selects 32 bytes per Message Buffer."],["MBDSR0_3","0b11: Selects 64 bytes per Message Buffer."]]});
+window.SIDEBAR_ITEMS = {"constant":[["MBDSR0_0","0b00: Selects 8 bytes per Message Buffer."],["MBDSR0_1","0b01: Selects 16 bytes per Message Buffer."],["MBDSR0_2","0b10: Selects 32 bytes per Message Buffer."],["MBDSR0_3","0b11: Selects 64 bytes per Message Buffer."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IOMUXC","Raw pointer to IOMUXC"]],"struct":[["IOMUXC","The IOMUXC peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IOMUXC","Raw pointer to IOMUXC"]],"struct":[["IOMUXC","The IOMUXC peripheral instance."]]};

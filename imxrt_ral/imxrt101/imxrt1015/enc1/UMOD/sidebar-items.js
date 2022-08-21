@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["MOD","This read/write register contains the upper (most significant) half of the modulus register"]]});
+window.SIDEBAR_ITEMS = {"mod":[["MOD","This read/write register contains the upper (most significant) half of the modulus register"]]};

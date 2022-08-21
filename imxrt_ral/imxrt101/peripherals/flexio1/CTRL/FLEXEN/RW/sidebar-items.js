@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXEN_0","0b0: FlexIO module is disabled."],["FLEXEN_1","0b1: FlexIO module is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLEXEN_0","0b0: FlexIO module is disabled."],["FLEXEN_1","0b1: FlexIO module is enabled."]]};

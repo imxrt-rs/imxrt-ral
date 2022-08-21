@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WAIT_0","0b0: Watchdog disabled in chip wait mode."],["WAIT_1","0b1: Watchdog enabled in chip wait mode."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WAIT_0","0b0: Watchdog disabled in chip wait mode."],["WAIT_1","0b1: Watchdog enabled in chip wait mode."]]};

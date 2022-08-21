@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRQ_CT_FAIL_0","0b0: No hardware nor self test frequency errors."],["FRQ_CT_FAIL_1","0b1: The frequency counter has detected a failure."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRQ_CT_FAIL_0","0b0: No hardware nor self test frequency errors."],["FRQ_CT_FAIL_1","0b1: The frequency counter has detected a failure."]]};

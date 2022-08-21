@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["VALDE_0","0b0: DMA write requests disabled"],["VALDE_1","0b1: DMA write requests for the VALx and FRACVALx registers enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["VALDE_0","0b0: DMA write requests disabled"],["VALDE_1","0b1: DMA write requests for the VALx and FRACVALx registers enabled"]]};

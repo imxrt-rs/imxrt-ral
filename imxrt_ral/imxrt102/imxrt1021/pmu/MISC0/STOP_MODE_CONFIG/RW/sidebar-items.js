@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["STANDBY","0b01: Analog regulators are ON."],["STOP_MODE_CONFIG_0","0b00: SUSPEND (DSM)"],["STOP_MODE_CONFIG_2","0b10: STOP (lower power)"],["STOP_MODE_CONFIG_3","0b11: STOP (very lower power)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["STANDBY","0b01: Analog regulators are ON."],["STOP_MODE_CONFIG_0","0b00: SUSPEND (DSM)"],["STOP_MODE_CONFIG_2","0b10: STOP (lower power)"],["STOP_MODE_CONFIG_3","0b11: STOP (very lower power)"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DOZEN_0","0b0: LPSPI module is enabled in Doze mode"],["DOZEN_1","0b1: LPSPI module is disabled in Doze mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DOZEN_0","0b0: LPSPI module is enabled in Doze mode"],["DOZEN_1","0b1: LPSPI module is disabled in Doze mode"]]};

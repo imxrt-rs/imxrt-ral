@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FRAC1_EN","Fractional Cycle PWM Period Enable"],["FRAC23_EN","Fractional Cycle Placement Enable for PWM_A"],["FRAC45_EN","Fractional Cycle Placement Enable for PWM_B"],["FRAC_PU","Fractional Delay Circuit Power Up"],["TEST","Test Status Bit"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FRAC1_EN","Fractional Cycle PWM Period Enable"],["FRAC23_EN","Fractional Cycle Placement Enable for PWM_A"],["FRAC45_EN","Fractional Cycle Placement Enable for PWM_B"],["FRAC_PU","Fractional Delay Circuit Power Up"],["TEST","Test Status Bit"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WT_0","0b00000000: - 0.5 Seconds (Default)."],["WT_1","0b00000001: - 1.0 Seconds."],["WT_2","0b00000010: - 1.5 Seconds."],["WT_255","0b11111111: - 128 Seconds."],["WT_3","0b00000011: - 2.0 Seconds."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WT_0","0b00000000: - 0.5 Seconds (Default)."],["WT_1","0b00000001: - 1.0 Seconds."],["WT_2","0b00000010: - 1.5 Seconds."],["WT_255","0b11111111: - 128 Seconds."],["WT_3","0b00000011: - 2.0 Seconds."]]};

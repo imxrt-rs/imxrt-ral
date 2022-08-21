@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["WICT","WICT"],["WIE","WIE"],["WTIS","WTIS"]]});
+window.SIDEBAR_ITEMS = {"mod":[["WICT","WICT"],["WIE","WIE"],["WTIS","WTIS"]]};

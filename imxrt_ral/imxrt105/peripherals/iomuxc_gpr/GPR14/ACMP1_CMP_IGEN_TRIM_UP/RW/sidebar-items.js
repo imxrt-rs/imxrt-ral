@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ACMP1_CMP_IGEN_TRIM_UP_0","0b0: no increase"],["ACMP1_CMP_IGEN_TRIM_UP_1","0b1: increases"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ACMP1_CMP_IGEN_TRIM_UP_0","0b0: no increase"],["ACMP1_CMP_IGEN_TRIM_UP_1","0b1: increases"]]};

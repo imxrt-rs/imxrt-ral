@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AUTO_MEASURE_0","0b0: Disable Auto Measure"],["AUTO_MEASURE_1","0b1: Auto Measure"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AUTO_MEASURE_0","0b0: Disable Auto Measure"],["AUTO_MEASURE_1","0b1: Auto Measure"]]};

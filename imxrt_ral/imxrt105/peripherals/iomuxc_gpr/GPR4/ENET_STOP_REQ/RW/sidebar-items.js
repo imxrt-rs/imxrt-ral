@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET_STOP_REQ_0","0b0: stop request off"],["ENET_STOP_REQ_1","0b1: stop request on"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENET_STOP_REQ_0","0b0: stop request off"],["ENET_STOP_REQ_1","0b1: stop request on"]]};

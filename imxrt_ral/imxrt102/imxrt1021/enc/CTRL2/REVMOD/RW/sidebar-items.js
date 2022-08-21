@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["REVMOD_0","0b0: Use INDEX pulse to increment/decrement revolution counter (REV)."],["REVMOD_1","0b1: Use modulus counting roll-over/under to increment/decrement revolution counter (REV)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["REVMOD_0","0b0: Use INDEX pulse to increment/decrement revolution counter (REV)."],["REVMOD_1","0b1: Use modulus counting roll-over/under to increment/decrement revolution counter (REV)."]]};

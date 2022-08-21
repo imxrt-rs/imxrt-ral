@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["IDHIT","Identifier Acceptance Filter Hit Indicator"]]});
+window.SIDEBAR_ITEMS = {"mod":[["IDHIT","Identifier Acceptance Filter Hit Indicator"]]};

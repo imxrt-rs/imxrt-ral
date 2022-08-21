@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MASTER_KEY_SEL_0","0b00: Select one time programmable master key."],["MASTER_KEY_SEL_2","0b10: Select zeroizable master key when MKS_EN bit is set ."],["MASTER_KEY_SEL_3","0b11: Select combined master key when MKS_EN bit is set ."]]});
+window.SIDEBAR_ITEMS = {"constant":[["MASTER_KEY_SEL_0","0b00: Select one time programmable master key."],["MASTER_KEY_SEL_2","0b10: Select zeroizable master key when MKS_EN bit is set ."],["MASTER_KEY_SEL_3","0b11: Select combined master key when MKS_EN bit is set ."]]};

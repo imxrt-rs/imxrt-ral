@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HNE_0","0b0: Use positive going edge-to-trigger initialization of position counters UPOS and LPOS"],["HNE_1","0b1: Use negative going edge-to-trigger initialization of position counters UPOS and LPOS"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HNE_0","0b0: Use positive going edge-to-trigger initialization of position counters UPOS and LPOS"],["HNE_1","0b1: Use negative going edge-to-trigger initialization of position counters UPOS and LPOS"]]};

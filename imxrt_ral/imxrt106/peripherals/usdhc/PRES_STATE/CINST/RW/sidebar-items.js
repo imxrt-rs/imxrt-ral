@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CINST_0","0b0: Power on Reset or No Card"],["CINST_1","0b1: Card Inserted"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CINST_0","0b0: Power on Reset or No Card"],["CINST_1","0b1: Card Inserted"]]};

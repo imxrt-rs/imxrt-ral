@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DIE_0","0b0: Watchdog timer interrupt is disabled"],["DIE_1","0b1: Watchdog timer interrupt is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DIE_0","0b0: Watchdog timer interrupt is disabled"],["DIE_1","0b1: Watchdog timer interrupt is enabled"]]};

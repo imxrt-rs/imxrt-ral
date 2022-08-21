@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RFEN_0","0b0: FIFO not enabled"],["RFEN_1","0b1: FIFO enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RFEN_0","0b0: FIFO not enabled"],["RFEN_1","0b1: FIFO enabled"]]};

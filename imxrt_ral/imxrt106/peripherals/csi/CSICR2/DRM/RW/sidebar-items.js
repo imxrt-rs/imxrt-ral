@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DRM_0","0b0: Stats grid of 8 x 6"],["DRM_1","0b1: Stats grid of 8 x 12"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DRM_0","0b0: Stats grid of 8 x 6"],["DRM_1","0b1: Stats grid of 8 x 12"]]};

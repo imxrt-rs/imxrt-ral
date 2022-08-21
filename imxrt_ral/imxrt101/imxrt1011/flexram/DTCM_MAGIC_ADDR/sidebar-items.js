@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DTCM_MAGIC_ADDR","DTCM Magic Address"],["DTCM_WR_RD_SEL","DTCM Write Read Select"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DTCM_MAGIC_ADDR","DTCM Magic Address"],["DTCM_WR_RD_SEL","DTCM Write Read Select"]]};

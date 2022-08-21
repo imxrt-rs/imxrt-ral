@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CRC32","0b0001: CRC32"],["SHA1","0b0000: SHA1"],["SHA256","0b0010: SHA256"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CRC32","0b0001: CRC32"],["SHA1","0b0000: SHA1"],["SHA256","0b0010: SHA256"]]};

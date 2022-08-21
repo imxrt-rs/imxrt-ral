@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMA_REFLASH_SFF_0","0b0: No reflashing"],["DMA_REFLASH_SFF_1","0b1: Reflash the embedded DMA controller"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DMA_REFLASH_SFF_0","0b0: No reflashing"],["DMA_REFLASH_SFF_1","0b1: Reflash the embedded DMA controller"]]};

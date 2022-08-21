@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["POST_DIV_SELECT_0","0b00: Divide by 4."],["POST_DIV_SELECT_1","0b01: Divide by 2."],["POST_DIV_SELECT_2","0b10: Divide by 1."]]});
+window.SIDEBAR_ITEMS = {"constant":[["POST_DIV_SELECT_0","0b00: Divide by 4."],["POST_DIV_SELECT_1","0b01: Divide by 2."],["POST_DIV_SELECT_2","0b10: Divide by 1."]]};

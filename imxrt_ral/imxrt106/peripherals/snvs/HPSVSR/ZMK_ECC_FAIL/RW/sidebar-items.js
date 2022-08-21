@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ZMK_ECC_FAIL_0","0b0: ZMK ECC Failure was not detected."],["ZMK_ECC_FAIL_1","0b1: ZMK ECC Failure was detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ZMK_ECC_FAIL_0","0b0: ZMK ECC Failure was not detected."],["ZMK_ECC_FAIL_1","0b1: ZMK ECC Failure was detected."]]};

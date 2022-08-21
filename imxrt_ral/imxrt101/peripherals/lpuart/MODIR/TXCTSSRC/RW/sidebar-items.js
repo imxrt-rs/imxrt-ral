@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TXCTSSRC_0","0b0: CTS input is the CTS_B pin."],["TXCTSSRC_1","0b1: CTS input is the inverted Receiver Match result."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TXCTSSRC_0","0b0: CTS input is the CTS_B pin."],["TXCTSSRC_1","0b1: CTS input is the inverted Receiver Match result."]]};

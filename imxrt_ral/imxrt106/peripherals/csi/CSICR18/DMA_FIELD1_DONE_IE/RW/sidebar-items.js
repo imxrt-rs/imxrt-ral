@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMA_FIELD1_DONE_IE_0","0b0: Interrupt disabled"],["DMA_FIELD1_DONE_IE_1","0b1: Interrupt enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DMA_FIELD1_DONE_IE_0","0b0: Interrupt disabled"],["DMA_FIELD1_DONE_IE_1","0b1: Interrupt enabled"]]};

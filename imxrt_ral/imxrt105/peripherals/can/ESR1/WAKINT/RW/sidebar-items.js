@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WAKINT_0","0b0: No such occurrence"],["WAKINT_1","0b1: Indicates a recessive to dominant transition received on the CAN bus when the FLEXCAN module is in Stop Mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["WAKINT_0","0b0: No such occurrence"],["WAKINT_1","0b1: Indicates a recessive to dominant transition received on the CAN bus when the FLEXCAN module is in Stop Mode"]]};

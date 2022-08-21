@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET","Raw pointer to ENET"]],"struct":[["ENET","The ENET peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENET","Raw pointer to ENET"]],"struct":[["ENET","The ENET peripheral instance."]]};

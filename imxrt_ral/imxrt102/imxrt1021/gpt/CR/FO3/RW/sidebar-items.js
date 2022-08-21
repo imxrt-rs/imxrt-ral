@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FO3_0","0b0: Writing a 0 has no effect."],["FO3_1","0b1: Causes the programmed pin action on the timer Output Compare n pin; the OFn flag is not set."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FO3_0","0b0: Writing a 0 has no effect."],["FO3_1","0b1: Causes the programmed pin action on the timer Output Compare n pin; the OFn flag is not set."]]};

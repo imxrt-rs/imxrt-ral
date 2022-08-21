@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SFTW_0","0b0: Reset is not the result of a software reset."],["SFTW_1","0b1: Reset is the result of a software reset."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SFTW_0","0b0: Reset is not the result of a software reset."],["SFTW_1","0b1: Reset is the result of a software reset."]]};

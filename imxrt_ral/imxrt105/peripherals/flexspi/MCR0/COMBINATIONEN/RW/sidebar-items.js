@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["COMBINATIONEN_0","0b0: Disable."],["COMBINATIONEN_1","0b1: Enable."]]});
+window.SIDEBAR_ITEMS = {"constant":[["COMBINATIONEN_0","0b0: Disable."],["COMBINATIONEN_1","0b1: Enable."]]};

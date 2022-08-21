@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FreqMeas","Frequency measurement data"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FreqMeas","Frequency measurement data"]]};

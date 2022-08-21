@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXSPI","Raw pointer to FLEXSPI"]],"struct":[["FLEXSPI","The FLEXSPI peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI","Raw pointer to FLEXSPI"]],"struct":[["FLEXSPI","The FLEXSPI peripheral instance."]]};

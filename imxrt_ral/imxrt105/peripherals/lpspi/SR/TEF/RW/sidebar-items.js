@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TEF_0","0b0: Transmit FIFO underrun has not occurred"],["TEF_1","0b1: Transmit FIFO underrun has occurred"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TEF_0","0b0: Transmit FIFO underrun has not occurred"],["TEF_1","0b1: Transmit FIFO underrun has occurred"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RXINV_0","0b0: Receive data not inverted."],["RXINV_1","0b1: Receive data inverted."]]});
+window.SIDEBAR_ITEMS = {"constant":[["RXINV_0","0b0: Receive data not inverted."],["RXINV_1","0b1: Receive data inverted."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DECRYPT","0b0: DECRYPT"],["ENCRYPT","0b1: ENCRYPT"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DECRYPT","0b0: DECRYPT"],["ENCRYPT","0b1: ENCRYPT"]]};

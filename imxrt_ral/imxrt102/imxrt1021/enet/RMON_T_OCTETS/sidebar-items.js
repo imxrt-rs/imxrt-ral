@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TXOCTS","Number of transmit octets"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TXOCTS","Number of transmit octets"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DMA_RFIFO_HIGHEST_FIFO_LEVEL","This byte stores the highest FIFO level achieved by CSI FIFO timely and will be clear by writing 8’ff to it"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DMA_RFIFO_HIGHEST_FIFO_LEVEL","This byte stores the highest FIFO level achieved by CSI FIFO timely and will be clear by writing 8’ff to it"]]};

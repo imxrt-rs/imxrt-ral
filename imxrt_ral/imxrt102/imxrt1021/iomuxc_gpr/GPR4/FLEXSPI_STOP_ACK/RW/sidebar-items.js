@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXSPI_STOP_ACK_0","0b0: FLEXSPI stop acknowledge is not asserted"],["FLEXSPI_STOP_ACK_1","0b1: FLEXSPI stop acknowledge is asserted"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI_STOP_ACK_0","0b0: FLEXSPI stop acknowledge is not asserted"],["FLEXSPI_STOP_ACK_1","0b1: FLEXSPI stop acknowledge is asserted"]]};

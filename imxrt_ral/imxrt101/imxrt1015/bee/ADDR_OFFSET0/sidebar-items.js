@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ADDR_OFFSET0","Signed offset for BEE region 0"],["ADDR_OFFSET0_LOCK","Lock bits for addr_offset0"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ADDR_OFFSET0","Signed offset for BEE region 0"],["ADDR_OFFSET0_LOCK","Lock bits for addr_offset0"]]};

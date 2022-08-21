@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BOOT_EN_0","0b0: Fast boot disable"],["BOOT_EN_1","0b1: Fast boot enable"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BOOT_EN_0","0b0: Fast boot disable"],["BOOT_EN_1","0b1: Fast boot enable"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["REV_0","0b0: Count normally"],["REV_1","0b1: Count in the reverse direction"]]});
+window.SIDEBAR_ITEMS = {"constant":[["REV_0","0b0: Count normally"],["REV_1","0b1: Count in the reverse direction"]]};

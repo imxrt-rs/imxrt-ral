@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["USB_OTG1_CTRL","USB OTG1 Control Register"],["USB_OTG1_PHY_CTRL_0","OTG1 UTMI PHY Control 0 Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]});
+window.SIDEBAR_ITEMS = {"mod":[["USB_OTG1_CTRL","USB OTG1 Control Register"],["USB_OTG1_PHY_CTRL_0","OTG1 UTMI PHY Control 0 Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

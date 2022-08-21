@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["HC","Host Capable. Indicating whether host operation mode is supported or not."],["NPORT","The Nmber of downstream ports supported by the host controller is (NPORT+1)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["HC","Host Capable. Indicating whether host operation mode is supported or not."],["NPORT","The Nmber of downstream ports supported by the host controller is (NPORT+1)"]]};

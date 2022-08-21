@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CEBESEN_0","0b0: Masked"],["CEBESEN_1","0b1: Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CEBESEN_0","0b0: Masked"],["CEBESEN_1","0b1: Enabled"]]};

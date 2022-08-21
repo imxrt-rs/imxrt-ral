@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CAL_CODE","Calibration Result Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CAL_CODE","Calibration Result Value"]]};

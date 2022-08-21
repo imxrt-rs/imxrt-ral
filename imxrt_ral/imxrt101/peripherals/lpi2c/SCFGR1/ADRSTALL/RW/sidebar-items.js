@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ADRSTALL_0","0b0: Clock stretching is disabled"],["ADRSTALL_1","0b1: Clock stretching is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ADRSTALL_0","0b0: Clock stretching is disabled"],["ADRSTALL_1","0b1: Clock stretching is enabled"]]};

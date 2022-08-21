@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CAPTURE_0","0b0: No effect."],["CAPTURE_1","0b1: The current time is captured and can be read from the ATVR register."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CAPTURE_0","0b0: No effect."],["CAPTURE_1","0b1: The current time is captured and can be read from the ATVR register."]]};

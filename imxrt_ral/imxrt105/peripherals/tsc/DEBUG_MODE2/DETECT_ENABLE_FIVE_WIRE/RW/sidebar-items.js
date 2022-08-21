@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DETECT_ENABLE_FIVE_WIRE_0","0b0: Do not read five wire detect value, read default value from analogue"],["DETECT_ENABLE_FIVE_WIRE_1","0b1: Read five wire detect status from analogue"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DETECT_ENABLE_FIVE_WIRE_0","0b0: Do not read five wire detect value, read default value from analogue"],["DETECT_ENABLE_FIVE_WIRE_1","0b1: Read five wire detect status from analogue"]]};

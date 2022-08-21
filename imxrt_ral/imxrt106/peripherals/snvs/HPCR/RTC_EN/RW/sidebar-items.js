@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RTC_EN_0","0b0: RTC is disabled"],["RTC_EN_1","0b1: RTC is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RTC_EN_0","0b0: RTC is disabled"],["RTC_EN_1","0b1: RTC is enabled"]]};

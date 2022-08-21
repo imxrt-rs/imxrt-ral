@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPCALB_HL_0","0b0: Write access is allowed."],["LPCALB_HL_1","0b1: Write access is not allowed."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPCALB_HL_0","0b0: Write access is allowed."],["LPCALB_HL_1","0b1: Write access is not allowed."]]};

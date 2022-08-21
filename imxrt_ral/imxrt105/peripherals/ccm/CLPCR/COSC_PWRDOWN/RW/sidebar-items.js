@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["COSC_PWRDOWN_0","0b0: On chip oscillator will not be powered down, i.e. cosc_pwrdown = ‘0’."],["COSC_PWRDOWN_1","0b1: On chip oscillator will be powered down, i.e. cosc_pwrdown = ‘1’."]]});
+window.SIDEBAR_ITEMS = {"constant":[["COSC_PWRDOWN_0","0b0: On chip oscillator will not be powered down, i.e. cosc_pwrdown = ‘0’."],["COSC_PWRDOWN_1","0b1: On chip oscillator will be powered down, i.e. cosc_pwrdown = ‘1’."]]};

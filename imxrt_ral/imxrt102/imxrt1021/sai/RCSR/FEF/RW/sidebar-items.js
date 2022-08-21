@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FEF_0","0b0: Receive overflow not detected."],["FEF_1","0b1: Receive overflow detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FEF_0","0b0: Receive overflow not detected."],["FEF_1","0b1: Receive overflow detected."]]};

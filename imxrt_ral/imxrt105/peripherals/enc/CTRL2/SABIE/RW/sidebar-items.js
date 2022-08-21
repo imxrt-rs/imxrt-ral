@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SABIE_0","0b0: Simultaneous PHASEA and PHASEB change interrupt disabled."],["SABIE_1","0b1: Simultaneous PHASEA and PHASEB change interrupt enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SABIE_0","0b0: Simultaneous PHASEA and PHASEB change interrupt disabled."],["SABIE_1","0b1: Simultaneous PHASEA and PHASEB change interrupt enabled."]]};

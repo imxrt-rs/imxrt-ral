@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPI2C3_IPG_DOZE_0","0b0: not in doze mode"],["LPI2C3_IPG_DOZE_1","0b1: in doze mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPI2C3_IPG_DOZE_0","0b0: not in doze mode"],["LPI2C3_IPG_DOZE_1","0b1: in doze mode"]]};

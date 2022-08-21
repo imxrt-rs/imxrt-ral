@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WPOL0_0","0b0: Low active"],["WPOL0_1","0b1: High active"]]});
+window.SIDEBAR_ITEMS = {"constant":[["WPOL0_0","0b0: Low active"],["WPOL0_1","0b1: High active"]]};

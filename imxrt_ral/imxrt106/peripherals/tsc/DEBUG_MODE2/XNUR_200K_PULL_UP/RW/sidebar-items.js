@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["XNUR_200K_PULL_UP_0","0b0: Close the switch"],["XNUR_200K_PULL_UP_1","0b1: Open up the switch"]]});
+window.SIDEBAR_ITEMS = {"constant":[["XNUR_200K_PULL_UP_0","0b0: Close the switch"],["XNUR_200K_PULL_UP_1","0b1: Open up the switch"]]};

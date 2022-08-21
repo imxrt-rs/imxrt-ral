@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AND","0b0001: sigout = sig_another AND this_sig"],["DIS","0b0000: No logic operation"],["MASK","0b0011: mask = sig_another AND other_masks"],["OR","0b0010: sigout = sig_another OR this_sig"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AND","0b0001: sigout = sig_another AND this_sig"],["DIS","0b0000: No logic operation"],["MASK","0b0011: mask = sig_another AND other_masks"],["OR","0b0010: sigout = sig_another OR this_sig"]]};

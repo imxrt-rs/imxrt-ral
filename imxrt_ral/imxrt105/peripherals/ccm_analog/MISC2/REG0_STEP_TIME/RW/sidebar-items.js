@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["_128_CLOCKS","0b01: 128"],["_256_CLOCKS","0b10: 256"],["_512_CLOCKS","0b11: 512"],["_64_CLOCKS","0b00: 64"]]});
+window.SIDEBAR_ITEMS = {"constant":[["_128_CLOCKS","0b01: 128"],["_256_CLOCKS","0b10: 256"],["_512_CLOCKS","0b11: 512"],["_64_CLOCKS","0b00: 64"]]};

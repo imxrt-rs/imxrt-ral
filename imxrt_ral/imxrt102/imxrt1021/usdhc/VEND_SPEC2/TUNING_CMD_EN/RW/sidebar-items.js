@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TUNING_CMD_EN_0","0b0: Auto tuning circuit does not check the CMD line."],["TUNING_CMD_EN_1","0b1: Auto tuning circuit checks the CMD line."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TUNING_CMD_EN_0","0b0: Auto tuning circuit does not check the CMD line."],["TUNING_CMD_EN_1","0b1: Auto tuning circuit checks the CMD line."]]};

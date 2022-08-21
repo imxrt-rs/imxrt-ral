@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRZ_0","0b0: Timers continue to run in Debug mode."],["FRZ_1","0b1: Timers are stopped in Debug mode."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRZ_0","0b0: Timers continue to run in Debug mode."],["FRZ_1","0b1: Timers are stopped in Debug mode."]]};

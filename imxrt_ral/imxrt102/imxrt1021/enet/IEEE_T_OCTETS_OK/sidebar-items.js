@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["COUNT","Octet count for frames transmitted without error Counts total octets (includes header and FCS fields)."]]});
+window.SIDEBAR_ITEMS = {"mod":[["COUNT","Octet count for frames transmitted without error Counts total octets (includes header and FCS fields)."]]};

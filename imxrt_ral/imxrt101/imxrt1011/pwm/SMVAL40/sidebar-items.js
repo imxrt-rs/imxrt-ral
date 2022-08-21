@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["VAL4","Value Register 4"]]});
+window.SIDEBAR_ITEMS = {"mod":[["VAL4","Value Register 4"]]};

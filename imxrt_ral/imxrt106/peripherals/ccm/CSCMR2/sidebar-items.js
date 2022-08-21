@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CAN_CLK_PODF","Divider for CAN/CANFD clock podf."],["CAN_CLK_SEL","Selector for CAN/CANFD clock multiplexer"],["FLEXIO2_CLK_SEL","Selector for flexio2/flexio3 clock multiplexer"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CAN_CLK_PODF","Divider for CAN/CANFD clock podf."],["CAN_CLK_SEL","Selector for CAN/CANFD clock multiplexer"],["FLEXIO2_CLK_SEL","Selector for flexio2/flexio3 clock multiplexer"]]};

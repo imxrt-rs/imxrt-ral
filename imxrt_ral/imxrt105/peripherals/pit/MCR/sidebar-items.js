@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FRZ","Freeze"],["MDIS","Module Disable - (PIT section)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FRZ","Freeze"],["MDIS","Module Disable - (PIT section)"]]};

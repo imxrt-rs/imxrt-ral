@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["LOOP_BACK_FAIL_COUNT","Running count of the failed pseudo-random generator loopback"],["SQUELCH_COUNT","Running count of the squelch reset instead of normal end for HS RX."],["UTMI_RXERROR_FAIL_COUNT","Running count of the UTMI_RXERROR."]]});
+window.SIDEBAR_ITEMS = {"mod":[["LOOP_BACK_FAIL_COUNT","Running count of the failed pseudo-random generator loopback"],["SQUELCH_COUNT","Running count of the squelch reset instead of normal end for HS RX."],["UTMI_RXERROR_FAIL_COUNT","Running count of the UTMI_RXERROR."]]};

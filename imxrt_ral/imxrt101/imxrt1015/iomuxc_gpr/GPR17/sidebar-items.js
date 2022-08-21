@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FLEXRAM_BANK_CFG","FlexRAM bank config value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FLEXRAM_BANK_CFG","FlexRAM bank config value"]]};

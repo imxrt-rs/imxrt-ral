@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CACHE_USB_0","0b0: Cacheable attribute is off for read/write transactions."],["CACHE_USB_1","0b1: Cacheable attribute is on for read/write transactions."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CACHE_USB_0","0b0: Cacheable attribute is off for read/write transactions."],["CACHE_USB_1","0b1: Cacheable attribute is on for read/write transactions."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HYSTCTR_0","0b00: Level 0"],["HYSTCTR_1","0b01: Level 1"],["HYSTCTR_2","0b10: Level 2"],["HYSTCTR_3","0b11: Level 3"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HYSTCTR_0","0b00: Level 0"],["HYSTCTR_1","0b01: Level 1"],["HYSTCTR_2","0b10: Level 2"],["HYSTCTR_3","0b11: Level 3"]]};

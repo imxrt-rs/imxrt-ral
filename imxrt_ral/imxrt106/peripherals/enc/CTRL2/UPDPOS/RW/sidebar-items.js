@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["UPDPOS_0","0b0: No action for POSD, REV, UPOS and LPOS on rising edge of TRIGGER"],["UPDPOS_1","0b1: Clear POSD, REV, UPOS and LPOS on rising edge of TRIGGER"]]});
+window.SIDEBAR_ITEMS = {"constant":[["UPDPOS_0","0b0: No action for POSD, REV, UPOS and LPOS on rising edge of TRIGGER"],["UPDPOS_1","0b1: Clear POSD, REV, UPOS and LPOS on rising edge of TRIGGER"]]};

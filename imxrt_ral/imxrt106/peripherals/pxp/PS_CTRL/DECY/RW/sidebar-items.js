@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DECY2","0b01: Decimate PS by 2."],["DECY4","0b10: Decimate PS by 4."],["DECY8","0b11: Decimate PS by 8."],["DISABLE","0b00: Disable pre-decimation filter."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DECY2","0b01: Decimate PS by 2."],["DECY4","0b10: Decimate PS by 4."],["DECY8","0b11: Decimate PS by 8."],["DISABLE","0b00: Disable pre-decimation filter."]]};

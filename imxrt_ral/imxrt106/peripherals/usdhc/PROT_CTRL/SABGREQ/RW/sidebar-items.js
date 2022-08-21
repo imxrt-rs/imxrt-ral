@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SABGREQ_0","0b0: Transfer"],["SABGREQ_1","0b1: Stop"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SABGREQ_0","0b0: Transfer"],["SABGREQ_1","0b1: Stop"]]};

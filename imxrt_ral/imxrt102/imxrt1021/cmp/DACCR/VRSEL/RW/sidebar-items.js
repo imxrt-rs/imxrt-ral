@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["VRSEL_0","0b0: Vin1 is selected as resistor ladder network supply reference."],["VRSEL_1","0b1: Vin2 is selected as resistor ladder network supply reference."]]});
+window.SIDEBAR_ITEMS = {"constant":[["VRSEL_0","0b0: Vin1 is selected as resistor ladder network supply reference."],["VRSEL_1","0b1: Vin2 is selected as resistor ladder network supply reference."]]};

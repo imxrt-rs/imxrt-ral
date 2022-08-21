@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FIELD_RETURN_LOCK","Shadow register write and OTP write lock for FIELD_RETURN region"],["SRK_REVOKE_LOCK","Shadow register write and OTP write lock for SRK_REVOKE region"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FIELD_RETURN_LOCK","Shadow register write and OTP write lock for FIELD_RETURN region"],["SRK_REVOKE_LOCK","Shadow register write and OTP write lock for SRK_REVOKE region"]]};

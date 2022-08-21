@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LS_0","0b00: SE0"],["LS_1","0b01: K-state"],["LS_2","0b10: J-state"],["LS_3","0b11: Undefined"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LS_0","0b00: SE0"],["LS_1","0b01: K-state"],["LS_2","0b10: J-state"],["LS_3","0b11: Undefined"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERRMSK_0","0b0: Error interrupt disabled."],["ERRMSK_1","0b1: Error interrupt enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERRMSK_0","0b0: Error interrupt disabled."],["ERRMSK_1","0b1: Error interrupt enabled."]]};

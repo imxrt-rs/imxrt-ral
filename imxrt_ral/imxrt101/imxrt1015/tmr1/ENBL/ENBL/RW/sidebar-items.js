@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENBL_0","0b0000: Timer channel is disabled."],["ENBL_1","0b0001: Timer channel is enabled. (default)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENBL_0","0b0000: Timer channel is disabled."],["ENBL_1","0b0001: Timer channel is enabled. (default)"]]};

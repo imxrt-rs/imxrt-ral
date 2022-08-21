@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EDREQ_5_0","0b0: Disable asynchronous DMA request for channel 5."],["EDREQ_5_1","0b1: Enable asynchronous DMA request for channel 5."]]});
+window.SIDEBAR_ITEMS = {"constant":[["EDREQ_5_0","0b0: Disable asynchronous DMA request for channel 5."],["EDREQ_5_1","0b1: Enable asynchronous DMA request for channel 5."]]};

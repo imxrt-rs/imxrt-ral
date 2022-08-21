@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HPTA_EN_0","0b0: HP Time Alarm Interrupt is disabled"],["HPTA_EN_1","0b1: HP Time Alarm Interrupt is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HPTA_EN_0","0b0: HP Time Alarm Interrupt is disabled"],["HPTA_EN_1","0b1: HP Time Alarm Interrupt is enabled"]]};

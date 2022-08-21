@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PTW_0","0b0: Select the 8-bit UTMI interface [60MHz]"],["PTW_1","0b1: Select the 16-bit UTMI interface [30MHz]"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PTW_0","0b0: Select the 8-bit UTMI interface [60MHz]"],["PTW_1","0b1: Select the 16-bit UTMI interface [30MHz]"]]};

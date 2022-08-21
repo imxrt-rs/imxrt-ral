@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RX15M","Rx Buffer 15 Mask Bits"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RX15M","Rx Buffer 15 Mask Bits"]]};

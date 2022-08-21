@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DACEN_0","0b0: DAC is disabled."],["DACEN_1","0b1: DAC is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DACEN_0","0b0: DAC is disabled."],["DACEN_1","0b1: DAC is enabled."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ADACKEN_0","0b0: Asynchronous clock output disabled; Asynchronous clock only enabled if selected by ADICLK and a conversion is active."],["ADACKEN_1","0b1: Asynchronous clock and clock output enabled regardless of the state of the ADC"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ADACKEN_0","0b0: Asynchronous clock output disabled; Asynchronous clock only enabled if selected by ADICLK and a conversion is active."],["ADACKEN_1","0b1: Asynchronous clock and clock output enabled regardless of the state of the ADC"]]};

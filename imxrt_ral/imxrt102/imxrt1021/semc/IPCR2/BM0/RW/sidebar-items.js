@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BM0_0","0b0: Byte Unmasked"],["BM0_1","0b1: Byte Masked"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BM0_0","0b0: Byte Unmasked"],["BM0_1","0b1: Byte Masked"]]};

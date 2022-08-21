@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CLK1","0b01: Select the CLK1_N / CLK1_P as source."],["REF_CLK_24M","0b00: Select the 24MHz oscillator as source."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CLK1","0b01: Select the CLK1_N / CLK1_P as source."],["REF_CLK_24M","0b00: Select the 24MHz oscillator as source."]]};

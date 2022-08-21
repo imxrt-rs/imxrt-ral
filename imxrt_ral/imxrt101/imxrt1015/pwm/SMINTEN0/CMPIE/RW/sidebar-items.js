@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CMPIE_0","0b000000: The corresponding STS[CMPF] bit will not cause an interrupt request."],["CMPIE_1","0b000001: The corresponding STS[CMPF] bit will cause an interrupt request."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CMPIE_0","0b000000: The corresponding STS[CMPF] bit will not cause an interrupt request."],["CMPIE_1","0b000001: The corresponding STS[CMPF] bit will cause an interrupt request."]]};

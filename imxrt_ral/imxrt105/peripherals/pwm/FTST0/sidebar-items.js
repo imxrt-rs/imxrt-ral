@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FTEST","Fault Test"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FTEST","Fault Test"]]};

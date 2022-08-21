@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EXE_TUNE_0","0b0: Not Tuned or Tuning Completed"],["EXE_TUNE_1","0b1: Execute Tuning"]]});
+window.SIDEBAR_ITEMS = {"constant":[["EXE_TUNE_0","0b0: Not Tuned or Tuning Completed"],["EXE_TUNE_1","0b1: Execute Tuning"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPRIOEN_0","0b0: Local Priority disabled"],["LPRIOEN_1","0b1: Local Priority enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPRIOEN_0","0b0: Local Priority disabled"],["LPRIOEN_1","0b1: Local Priority enabled"]]};

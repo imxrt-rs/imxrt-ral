@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["START_MEASURE_0","0b0: Do not start measure for now"],["START_MEASURE_1","0b1: Start measure the X/Y coordinate value"]]});
+window.SIDEBAR_ITEMS = {"constant":[["START_MEASURE_0","0b0: Do not start measure for now"],["START_MEASURE_1","0b1: Start measure the X/Y coordinate value"]]};

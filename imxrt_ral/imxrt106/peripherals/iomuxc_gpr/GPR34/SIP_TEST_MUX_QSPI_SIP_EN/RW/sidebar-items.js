@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SIP_TEST_MUX_QSPI_SIP_EN_0","0b0: SIP_TEST_MUX is disabled"],["SIP_TEST_MUX_QSPI_SIP_EN_1","0b1: SIP_TEST_MUX is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SIP_TEST_MUX_QSPI_SIP_EN_0","0b0: SIP_TEST_MUX is disabled"],["SIP_TEST_MUX_QSPI_SIP_EN_1","0b1: SIP_TEST_MUX is enabled"]]};

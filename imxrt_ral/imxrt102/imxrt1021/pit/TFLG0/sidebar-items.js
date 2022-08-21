@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TIF","Timer Interrupt Flag"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TIF","Timer Interrupt Flag"]]};

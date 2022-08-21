@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TxCChannelCons_h","SPDIF transmit Cons"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TxCChannelCons_h","SPDIF transmit Cons"]]};

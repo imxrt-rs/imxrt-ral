@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GPIO_EMC_23_ALT3","0b1: Selecting Pad: GPIO_EMC_23 for Mode: ALT3"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GPIO_EMC_23_ALT3","0b1: Selecting Pad: GPIO_EMC_23 for Mode: ALT3"]]};

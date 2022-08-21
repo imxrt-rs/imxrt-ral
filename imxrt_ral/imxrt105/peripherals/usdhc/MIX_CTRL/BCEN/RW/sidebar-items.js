@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BCEN_0","0b0: Disable"],["BCEN_1","0b1: Enable"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BCEN_0","0b0: Disable"],["BCEN_1","0b1: Enable"]]};

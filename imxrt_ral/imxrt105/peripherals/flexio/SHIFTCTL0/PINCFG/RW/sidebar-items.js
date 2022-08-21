@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PINCFG_0","0b00: Shifter pin output disabled"],["PINCFG_1","0b01: Shifter pin open drain or bidirectional output enable"],["PINCFG_2","0b10: Shifter pin bidirectional output data"],["PINCFG_3","0b11: Shifter pin output"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PINCFG_0","0b00: Shifter pin output disabled"],["PINCFG_1","0b01: Shifter pin open drain or bidirectional output enable"],["PINCFG_2","0b10: Shifter pin bidirectional output data"],["PINCFG_3","0b11: Shifter pin output"]]};

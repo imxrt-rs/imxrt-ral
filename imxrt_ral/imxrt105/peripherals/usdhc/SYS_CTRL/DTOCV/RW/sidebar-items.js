@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DTOCV_0","0b0000: SDCLK x 2 14"],["DTOCV_1","0b0001: SDCLK x 2 15"],["DTOCV_13","0b1101: SDCLK x 2 27"],["DTOCV_14","0b1110: SDCLK x 2 28"],["DTOCV_15","0b1111: SDCLK x 2 29"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DTOCV_0","0b0000: SDCLK x 2 14"],["DTOCV_1","0b0001: SDCLK x 2 15"],["DTOCV_13","0b1101: SDCLK x 2 27"],["DTOCV_14","0b1110: SDCLK x 2 28"],["DTOCV_15","0b1111: SDCLK x 2 29"]]};

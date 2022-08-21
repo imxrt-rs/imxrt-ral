@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IM2_0","0b00: capture disabled"],["IM2_1","0b01: capture on rising edge only"],["IM2_2","0b10: capture on falling edge only"],["IM2_3","0b11: capture on both edges"]]});
+window.SIDEBAR_ITEMS = {"constant":[["IM2_0","0b00: capture disabled"],["IM2_1","0b01: capture on rising edge only"],["IM2_2","0b10: capture on falling edge only"],["IM2_3","0b11: capture on both edges"]]};

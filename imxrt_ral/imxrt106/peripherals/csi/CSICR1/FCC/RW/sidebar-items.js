@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FCC_0","0b0: Asynchronous FIFO clear is selected."],["FCC_1","0b1: Synchronous FIFO clear is selected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FCC_0","0b0: Asynchronous FIFO clear is selected."],["FCC_1","0b1: Synchronous FIFO clear is selected."]]};

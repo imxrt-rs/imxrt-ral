@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["MATCH0","Match 0 Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["MATCH0","Match 0 Value"]]};

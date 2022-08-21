@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["R1_0_CT","Runs of Zero, Length 1 Count"],["R1_1_CT","Runs of One, Length 1 Count"],["RUN1_MAX","Run Length 1 Maximum Limit"],["RUN1_RNG","Run Length 1 Range"]]});
+window.SIDEBAR_ITEMS = {"mod":[["R1_0_CT","Runs of Zero, Length 1 Count"],["R1_1_CT","Runs of One, Length 1 Count"],["RUN1_MAX","Run Length 1 Maximum Limit"],["RUN1_RNG","Run Length 1 Range"]]};

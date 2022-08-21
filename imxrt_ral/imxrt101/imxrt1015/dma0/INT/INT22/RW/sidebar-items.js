@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["INT22_0","0b0: The interrupt request for corresponding channel is cleared"],["INT22_1","0b1: The interrupt request for corresponding channel is active"]]});
+window.SIDEBAR_ITEMS = {"constant":[["INT22_0","0b0: The interrupt request for corresponding channel is cleared"],["INT22_1","0b1: The interrupt request for corresponding channel is active"]]};

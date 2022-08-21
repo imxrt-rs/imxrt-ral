@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SEIE","Shifter Error Interrupt Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SEIE","Shifter Error Interrupt Enable"]]};

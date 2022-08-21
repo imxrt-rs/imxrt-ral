@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GPIO_07_ALT2","0b1: Selecting Pad: GPIO_07 for Mode: ALT2"],["GPIO_AD_05_ALT2","0b0: Selecting Pad: GPIO_AD_05 for Mode: ALT2"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GPIO_07_ALT2","0b1: Selecting Pad: GPIO_07 for Mode: ALT2"],["GPIO_AD_05_ALT2","0b0: Selecting Pad: GPIO_AD_05 for Mode: ALT2"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CAIR_0","0b0: Clear only the INT bit specified in the CINT field"],["CAIR_1","0b1: Clear all bits in INT"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CAIR_0","0b0: Clear only the INT bit specified in the CINT field"],["CAIR_1","0b1: Clear all bits in INT"]]};

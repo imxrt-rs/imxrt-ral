@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RE_0","0b0: Receiver is disabled."],["RE_1","0b1: Receiver is enabled, or receiver has been disabled and has not yet reached end of frame."]]});
+window.SIDEBAR_ITEMS = {"constant":[["RE_0","0b0: Receiver is disabled."],["RE_1","0b1: Receiver is enabled, or receiver has been disabled and has not yet reached end of frame."]]};

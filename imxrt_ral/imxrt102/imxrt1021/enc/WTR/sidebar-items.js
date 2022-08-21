@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["WDOG","WDOG[15:0] is a binary representation of the number of clock cycles plus one that the watchdog timer counts before timing out and optionally generating an interrupt"]]});
+window.SIDEBAR_ITEMS = {"mod":[["WDOG","WDOG[15:0] is a binary representation of the number of clock cycles plus one that the watchdog timer counts before timing out and optionally generating an interrupt"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["AHBBRST","AHB master interface Burst configuration These bits control AHB master transfer type sequence (or priority)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["AHBBRST","AHB master interface Burst configuration These bits control AHB master transfer type sequence (or priority)"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OVWREN_0","0b0: Disable the overwriting. Existing Data in Data result register will not be overwritten by subsequent converted data."],["OVWREN_1","0b1: Enable the overwriting."]]});
+window.SIDEBAR_ITEMS = {"constant":[["OVWREN_0","0b0: Disable the overwriting. Existing Data in Data result register will not be overwritten by subsequent converted data."],["OVWREN_1","0b1: Enable the overwriting."]]};

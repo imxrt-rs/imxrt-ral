@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DATA","Debug data"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DATA","Debug data"]]};

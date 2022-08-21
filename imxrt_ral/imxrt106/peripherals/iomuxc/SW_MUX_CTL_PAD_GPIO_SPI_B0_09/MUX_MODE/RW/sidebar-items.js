@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ALT0","0b000: Select mux mode: ALT0 mux port: FLEXSPI2_A_DQS of instance: flexspi2"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ALT0","0b000: Select mux mode: ALT0 mux port: FLEXSPI2_A_DQS of instance: flexspi2"]]};

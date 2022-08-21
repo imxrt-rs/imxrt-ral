@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BTE_0","0b0: CAN Bit timing expansion is disabled."],["BTE_1","0b1: CAN bit timing expansion is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BTE_0","0b0: CAN Bit timing expansion is disabled."],["BTE_1","0b1: CAN bit timing expansion is enabled."]]};

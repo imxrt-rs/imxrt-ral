@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SARF_0","0b0: SMBus Alert Response is disabled or not detected"],["SARF_1","0b1: SMBus Alert Response is enabled and detected"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SARF_0","0b0: SMBus Alert Response is disabled or not detected"],["SARF_1","0b1: SMBus Alert Response is enabled and detected"]]};

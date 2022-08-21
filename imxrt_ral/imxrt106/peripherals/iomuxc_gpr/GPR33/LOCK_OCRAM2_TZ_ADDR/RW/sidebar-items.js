@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LOCK_OCRAM2_TZ_ADDR_0","0b0000000: Field is not locked"],["LOCK_OCRAM2_TZ_ADDR_1","0b0000001: Field is locked (read access only)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LOCK_OCRAM2_TZ_ADDR_0","0b0000000: Field is not locked"],["LOCK_OCRAM2_TZ_ADDR_1","0b0000001: Field is locked (read access only)"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["XTALOSC_PWRUP_DELAY_0","0b00: 0.25ms"],["XTALOSC_PWRUP_DELAY_1","0b01: 0.5ms"],["XTALOSC_PWRUP_DELAY_2","0b10: 1ms"],["XTALOSC_PWRUP_DELAY_3","0b11: 2ms"]]});
+window.SIDEBAR_ITEMS = {"constant":[["XTALOSC_PWRUP_DELAY_0","0b00: 0.25ms"],["XTALOSC_PWRUP_DELAY_1","0b01: 0.5ms"],["XTALOSC_PWRUP_DELAY_2","0b10: 1ms"],["XTALOSC_PWRUP_DELAY_3","0b11: 2ms"]]};

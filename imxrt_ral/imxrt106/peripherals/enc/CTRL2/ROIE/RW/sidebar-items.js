@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ROIE_0","0b0: Roll-over interrupt is disabled"],["ROIE_1","0b1: Roll-over interrupt is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ROIE_0","0b0: Roll-over interrupt is disabled"],["ROIE_1","0b1: Roll-over interrupt is enabled"]]};

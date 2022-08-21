@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OCRAM_MAM_STATUS_0","0b0: OCRAM did not access magic address."],["OCRAM_MAM_STATUS_1","0b1: OCRAM accessed magic address."]]});
+window.SIDEBAR_ITEMS = {"constant":[["OCRAM_MAM_STATUS_0","0b0: OCRAM did not access magic address."],["OCRAM_MAM_STATUS_1","0b1: OCRAM accessed magic address."]]};

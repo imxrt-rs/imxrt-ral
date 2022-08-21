@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BREN_0","0b0: Read disable"],["BREN_1","0b1: Read enable"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BREN_0","0b0: Read disable"],["BREN_1","0b1: Read enable"]]};

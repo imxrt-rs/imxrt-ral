@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CRC_CHK_DIS_0","0b0: Check CRC16 for every read data packet and check CRC bits for every write data packet"],["CRC_CHK_DIS_1","0b1: Ignore CRC16 check for every read data packet and ignore CRC bits check for every write data packet"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CRC_CHK_DIS_0","0b0: Check CRC16 for every read data packet and check CRC bits for every write data packet"],["CRC_CHK_DIS_1","0b1: Ignore CRC16 check for every read data packet and ignore CRC bits check for every write data packet"]]};

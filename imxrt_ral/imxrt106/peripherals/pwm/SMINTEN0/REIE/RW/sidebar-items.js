@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["REIE_0","0b0: STS[REF] CPU interrupt requests disabled"],["REIE_1","0b1: STS[REF] CPU interrupt requests enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["REIE_0","0b0: STS[REF] CPU interrupt requests disabled"],["REIE_1","0b1: STS[REF] CPU interrupt requests enabled"]]};

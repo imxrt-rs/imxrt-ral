@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CL1_0","0b00: Never preload"],["CL1_1","0b01: Load upon successful compare with the value in COMP1"],["CL1_2","0b10: Load upon successful compare with the value in COMP2"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CL1_0","0b00: Never preload"],["CL1_1","0b01: Load upon successful compare with the value in COMP1"],["CL1_2","0b10: Load upon successful compare with the value in COMP2"]]};

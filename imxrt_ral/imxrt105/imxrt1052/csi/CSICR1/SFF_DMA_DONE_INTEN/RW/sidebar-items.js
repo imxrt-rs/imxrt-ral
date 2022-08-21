@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SFF_DMA_DONE_INTEN_0","0b0: STATFIFO DMA Transfer Done interrupt disable"],["SFF_DMA_DONE_INTEN_1","0b1: STATFIFO DMA Transfer Done interrupt enable"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SFF_DMA_DONE_INTEN_0","0b0: STATFIFO DMA Transfer Done interrupt disable"],["SFF_DMA_DONE_INTEN_1","0b1: STATFIFO DMA Transfer Done interrupt enable"]]};

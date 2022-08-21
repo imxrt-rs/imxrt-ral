@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["GPIO_MUX4_GPIO_SEL","GPIO4 and GPIO9 share same IO MUX function, GPIO_MUX4 selects one GPIO function."]]});
+window.SIDEBAR_ITEMS = {"mod":[["GPIO_MUX4_GPIO_SEL","GPIO4 and GPIO9 share same IO MUX function, GPIO_MUX4 selects one GPIO function."]]};

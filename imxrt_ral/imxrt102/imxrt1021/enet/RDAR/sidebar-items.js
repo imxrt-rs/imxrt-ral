@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RDAR","Receive Descriptor Active"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RDAR","Receive Descriptor Active"]]};

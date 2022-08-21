@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BWR_0","0b0: Not ready to write buffer"],["BWR_1","0b1: Ready to write buffer:"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BWR_0","0b0: Not ready to write buffer"],["BWR_1","0b1: Ready to write buffer:"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CSINTERVALUNIT_0","0b0: The CS interval unit is 1 serial clock cycle"],["CSINTERVALUNIT_1","0b1: The CS interval unit is 256 serial clock cycle"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CSINTERVALUNIT_0","0b0: The CS interval unit is 1 serial clock cycle"],["CSINTERVALUNIT_1","0b1: The CS interval unit is 256 serial clock cycle"]]};

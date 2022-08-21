@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DRDY_0","0b0: No data (word) is ready"],["DRDY_1","0b1: At least 1 datum (word) is ready in RXFIFO."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DRDY_0","0b0: No data (word) is ready"],["DRDY_1","0b1: At least 1 datum (word) is ready in RXFIFO."]]};

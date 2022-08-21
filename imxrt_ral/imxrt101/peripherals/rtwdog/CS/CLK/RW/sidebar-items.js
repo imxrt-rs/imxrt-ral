@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CLK_0","0b00: Bus clock"],["CLK_1","0b01: LPO clock"],["CLK_2","0b10: INTCLK (internal clock)"],["CLK_3","0b11: ERCLK (external reference clock)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CLK_0","0b00: Bus clock"],["CLK_1","0b01: LPO clock"],["CLK_2","0b10: INTCLK (internal clock)"],["CLK_3","0b11: ERCLK (external reference clock)"]]};

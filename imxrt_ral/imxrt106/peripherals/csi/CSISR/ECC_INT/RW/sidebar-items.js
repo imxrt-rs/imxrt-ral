@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ECC_INT_0","0b0: No error detected"],["ECC_INT_1","0b1: Error is detected in CCIR coding"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ECC_INT_0","0b0: No error detected"],["ECC_INT_1","0b1: Error is detected in CCIR coding"]]};

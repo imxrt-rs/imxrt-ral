@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CAPT","Capture Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CAPT","Capture Value"]]};

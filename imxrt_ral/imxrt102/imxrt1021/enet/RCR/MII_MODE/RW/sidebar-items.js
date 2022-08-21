@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MII_MODE_1","0b1: MII or RMII mode, as indicated by the RMII_MODE field."]]});
+window.SIDEBAR_ITEMS = {"constant":[["MII_MODE_1","0b1: MII or RMII mode, as indicated by the RMII_MODE field."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ET1_EN_0","0b0: External tamper 1 is disabled."],["ET1_EN_1","0b1: External tamper 1 is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ET1_EN_0","0b0: External tamper 1 is disabled."],["ET1_EN_1","0b1: External tamper 1 is enabled."]]};

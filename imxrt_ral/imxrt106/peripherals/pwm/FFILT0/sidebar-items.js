@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FILT_CNT","Fault Filter Count"],["FILT_PER","Fault Filter Period"],["GSTR","Fault Glitch Stretch Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FILT_CNT","Fault Filter Count"],["FILT_PER","Fault Filter Period"],["GSTR","Fault Glitch Stretch Enable"]]};

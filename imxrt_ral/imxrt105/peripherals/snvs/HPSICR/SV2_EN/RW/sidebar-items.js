@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SV2_EN_0","0b0: Security Violation 2 Interrupt is Disabled"],["SV2_EN_1","0b1: Security Violation 2 Interrupt is Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SV2_EN_0","0b0: Security Violation 2 Interrupt is Disabled"],["SV2_EN_1","0b1: Security Violation 2 Interrupt is Enabled"]]};

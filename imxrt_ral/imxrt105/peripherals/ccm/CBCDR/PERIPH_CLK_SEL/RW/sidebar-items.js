@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PERIPH_CLK_SEL_0","0b0: derive clock from pre_periph_clk_sel"],["PERIPH_CLK_SEL_1","0b1: derive clock from periph_clk2_clk_divided"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PERIPH_CLK_SEL_0","0b0: derive clock from pre_periph_clk_sel"],["PERIPH_CLK_SEL_1","0b1: derive clock from periph_clk2_clk_divided"]]};

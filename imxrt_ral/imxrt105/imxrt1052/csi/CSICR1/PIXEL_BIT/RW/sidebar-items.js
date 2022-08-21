@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PIXEL_BIT_0","0b0: 8-bit data for each pixel"],["PIXEL_BIT_1","0b1: 10-bit data for each pixel"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PIXEL_BIT_0","0b0: 8-bit data for each pixel"],["PIXEL_BIT_1","0b1: 10-bit data for each pixel"]]};

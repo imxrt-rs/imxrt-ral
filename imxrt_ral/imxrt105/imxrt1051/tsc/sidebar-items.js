@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TSC","Raw pointer to TSC"]],"struct":[["TSC","The TSC peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TSC","Raw pointer to TSC"]],"struct":[["TSC","The TSC peripheral instance."]]};

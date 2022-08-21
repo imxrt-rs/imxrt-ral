@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["STS0_0","0b0: Active edge not yet detected on XBAR_OUT0"],["STS0_1","0b1: Active edge detected on XBAR_OUT0"]]});
+window.SIDEBAR_ITEMS = {"constant":[["STS0_0","0b0: Active edge not yet detected on XBAR_OUT0"],["STS0_1","0b1: Active edge detected on XBAR_OUT0"]]};

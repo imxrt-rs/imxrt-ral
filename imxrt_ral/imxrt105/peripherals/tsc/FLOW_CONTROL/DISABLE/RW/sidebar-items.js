@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DISABLE_0","0b0: Leave HW state machine control"],["DISABLE_1","0b1: SW set to idle status"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DISABLE_0","0b0: Leave HW state machine control"],["DISABLE_1","0b1: SW set to idle status"]]};

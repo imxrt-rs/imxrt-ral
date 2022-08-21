@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["UPDHLD_0","0b0: Disable updates of hold registers on rising edge of TRIGGER"],["UPDHLD_1","0b1: Enable updates of hold registers on rising edge of TRIGGER"]]});
+window.SIDEBAR_ITEMS = {"constant":[["UPDHLD_0","0b0: Disable updates of hold registers on rising edge of TRIGGER"],["UPDHLD_1","0b1: Enable updates of hold registers on rising edge of TRIGGER"]]};

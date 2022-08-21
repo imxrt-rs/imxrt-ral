@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RTE_0","0b0: Re-Tuning is not required"],["RTE_1","0b1: Re-Tuning should be performed"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RTE_0","0b0: Re-Tuning is not required"],["RTE_1","0b1: Re-Tuning should be performed"]]};

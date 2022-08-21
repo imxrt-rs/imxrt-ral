@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["IOMUXC_XBAR_DIR_SEL_2","IOMUXC XBAR_INOUT2 function direction select"],["IOMUXC_XBAR_DIR_SEL_3","IOMUXC XBAR_INOUT3 function direction select"]]});
+window.SIDEBAR_ITEMS = {"mod":[["IOMUXC_XBAR_DIR_SEL_2","IOMUXC XBAR_INOUT2 function direction select"],["IOMUXC_XBAR_DIR_SEL_3","IOMUXC XBAR_INOUT3 function direction select"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ISR","ISR"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ISR","ISR"]]};

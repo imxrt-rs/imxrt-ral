@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IF2IE_0","0b0: IF2IE Input Capture n Interrupt Enable is disabled."],["IF2IE_1","0b1: IF2IE Input Capture n Interrupt Enable is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IF2IE_0","0b0: IF2IE Input Capture n Interrupt Enable is disabled."],["IF2IE_1","0b1: IF2IE Input Capture n Interrupt Enable is enabled."]]};

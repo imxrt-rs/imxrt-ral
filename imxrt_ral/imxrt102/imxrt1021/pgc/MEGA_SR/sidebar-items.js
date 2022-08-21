@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PSR","Power status"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PSR","Power status"]]};

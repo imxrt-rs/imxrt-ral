@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["THUMBX_0","0b0: Arm patch"],["THUMBX_1","0b1: THUMB patch (ignore if data fix)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["THUMBX_0","0b0: Arm patch"],["THUMBX_1","0b1: THUMB patch (ignore if data fix)"]]};

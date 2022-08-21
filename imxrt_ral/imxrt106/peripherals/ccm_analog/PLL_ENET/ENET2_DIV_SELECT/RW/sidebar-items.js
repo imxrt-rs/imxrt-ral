@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET2_DIV_SELECT_0","0b00: 25MHz"],["ENET2_DIV_SELECT_1","0b01: 50MHz"],["ENET2_DIV_SELECT_2","0b10: 100MHz (not 50% duty cycle)"],["ENET2_DIV_SELECT_3","0b11: 125MHz"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENET2_DIV_SELECT_0","0b00: 25MHz"],["ENET2_DIV_SELECT_1","0b01: 50MHz"],["ENET2_DIV_SELECT_2","0b10: 100MHz (not 50% duty cycle)"],["ENET2_DIV_SELECT_3","0b11: 125MHz"]]};

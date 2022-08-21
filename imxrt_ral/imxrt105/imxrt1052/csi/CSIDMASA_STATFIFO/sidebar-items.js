@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DMA_START_ADDR_SFF","DMA Start Address for STATFIFO"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DMA_START_ADDR_SFF","DMA Start Address for STATFIFO"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SYNC_0","0b00: Asynchronous mode."],["SYNC_1","0b01: Synchronous with receiver."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SYNC_0","0b00: Asynchronous mode."],["SYNC_1","0b01: Synchronous with receiver."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RxFIFO_Rst_0","0b0: Normal operation"],["RxFIFO_Rst_1","0b1: Reset register to 1 sample remaining"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RxFIFO_Rst_0","0b0: Normal operation"],["RxFIFO_Rst_1","0b1: Reset register to 1 sample remaining"]]};

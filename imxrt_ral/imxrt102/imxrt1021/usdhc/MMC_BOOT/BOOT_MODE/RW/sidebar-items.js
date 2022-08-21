@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BOOT_MODE_0","0b0: Normal boot"],["BOOT_MODE_1","0b1: Alternative boot"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BOOT_MODE_0","0b0: Normal boot"],["BOOT_MODE_1","0b1: Alternative boot"]]};

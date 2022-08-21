@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["KEY3","AES 128 key from software"]]});
+window.SIDEBAR_ITEMS = {"mod":[["KEY3","AES 128 key from software"]]};

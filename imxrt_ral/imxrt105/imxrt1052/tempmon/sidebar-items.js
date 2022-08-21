@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TEMPMON","Raw pointer to TEMPMON"]],"struct":[["TEMPMON","The TEMPMON peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TEMPMON","Raw pointer to TEMPMON"]],"struct":[["TEMPMON","The TEMPMON peripheral instance."]]};

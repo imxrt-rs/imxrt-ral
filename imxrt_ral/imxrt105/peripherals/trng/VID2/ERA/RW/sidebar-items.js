@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERA_0","0b00000000: COMPILE_OPT for TRNG."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERA_0","0b00000000: COMPILE_OPT for TRNG."]]};

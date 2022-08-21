@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ADMADCE","ADMA Descriptor Error"],["ADMAES","ADMA Error State (when ADMA Error is occurred)"],["ADMALME","ADMA Length Mismatch Error"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ADMADCE","ADMA Descriptor Error"],["ADMAES","ADMA Error State (when ADMA Error is occurred)"],["ADMALME","ADMA Length Mismatch Error"]]};

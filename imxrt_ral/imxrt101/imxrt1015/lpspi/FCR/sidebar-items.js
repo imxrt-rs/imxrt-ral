@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RXWATER","Receive FIFO Watermark"],["TXWATER","Transmit FIFO Watermark"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RXWATER","Receive FIFO Watermark"],["TXWATER","Transmit FIFO Watermark"]]};

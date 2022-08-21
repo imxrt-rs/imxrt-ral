@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CRC_VALUE","Calculated CRC value."]]});
+window.SIDEBAR_ITEMS = {"mod":[["CRC_VALUE","Calculated CRC value."]]};

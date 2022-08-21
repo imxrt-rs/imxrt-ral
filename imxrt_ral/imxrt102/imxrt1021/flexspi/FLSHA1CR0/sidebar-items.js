@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FLSHSZ","Flash Size in KByte."]]});
+window.SIDEBAR_ITEMS = {"mod":[["FLSHSZ","Flash Size in KByte."]]};

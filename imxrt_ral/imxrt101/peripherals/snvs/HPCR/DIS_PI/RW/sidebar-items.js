@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DIS_PI_0","0b0: Periodic interrupt will trigger a functional interrupt"],["DIS_PI_1","0b1: Disable periodic interrupt in the function interrupt"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DIS_PI_0","0b0: Periodic interrupt will trigger a functional interrupt"],["DIS_PI_1","0b1: Disable periodic interrupt in the function interrupt"]]};

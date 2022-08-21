@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ADDR","Context pointer address"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ADDR","Context pointer address"]]};

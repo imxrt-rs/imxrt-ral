@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["COS_0","0b0: Set the filtered comparator output (CMPO) to equal COUT."],["COS_1","0b1: Set the unfiltered comparator output (CMPO) to equal COUTA."]]});
+window.SIDEBAR_ITEMS = {"constant":[["COS_0","0b0: Set the filtered comparator output (CMPO) to equal COUT."],["COS_1","0b1: Set the unfiltered comparator output (CMPO) to equal COUTA."]]};

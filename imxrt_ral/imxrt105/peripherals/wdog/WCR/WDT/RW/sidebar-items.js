@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WDT_0","0b0: No effect on WDOG_B (Default)."],["WDT_1","0b1: Assert WDOG_B upon a Watchdog Time-out event."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WDT_0","0b0: No effect on WDOG_B (Default)."],["WDT_1","0b1: Assert WDOG_B upon a Watchdog Time-out event."]]};

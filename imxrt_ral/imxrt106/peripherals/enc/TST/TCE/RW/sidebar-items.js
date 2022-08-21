@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TCE_0","0b0: Test count is not enabled"],["TCE_1","0b1: Test count is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TCE_0","0b0: Test count is not enabled"],["TCE_1","0b1: Test count is enabled"]]};

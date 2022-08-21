@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IABG_0","0b0: Disabled"],["IABG_1","0b1: Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["IABG_0","0b0: Disabled"],["IABG_1","0b1: Enabled"]]};

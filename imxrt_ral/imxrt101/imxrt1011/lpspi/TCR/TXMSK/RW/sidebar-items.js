@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TXMSK_0","0b0: Normal transfer"],["TXMSK_1","0b1: Mask transmit data"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TXMSK_0","0b0: Normal transfer"],["TXMSK_1","0b1: Mask transmit data"]]};

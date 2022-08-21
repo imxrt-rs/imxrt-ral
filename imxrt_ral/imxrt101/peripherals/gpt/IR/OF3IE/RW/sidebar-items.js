@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OF3IE_0","0b0: Output Compare Channel n interrupt is disabled."],["OF3IE_1","0b1: Output Compare Channel n interrupt is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["OF3IE_0","0b0: Output Compare Channel n interrupt is disabled."],["OF3IE_1","0b1: Output Compare Channel n interrupt is enabled."]]};

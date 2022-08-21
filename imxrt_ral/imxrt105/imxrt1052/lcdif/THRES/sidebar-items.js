@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FASTCLOCK","This value should be set to a value of pixels, from 0 to 511"],["PANIC","This value should be set to a value of pixels from 0 to 511"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FASTCLOCK","This value should be set to a value of pixels, from 0 to 511"],["PANIC","This value should be set to a value of pixels from 0 to 511"]]};

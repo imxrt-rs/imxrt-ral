@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RST_0","0b0: Master logic is not reset"],["RST_1","0b1: Master logic is reset"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RST_0","0b0: Master logic is not reset"],["RST_1","0b1: Master logic is reset"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CLRIPTXF","Clear all valid data entries in IP TX FIFO."],["TXDMAEN","IP TX FIFO filling by DMA enabled."],["TXWMRK","Watermark level is (TXWMRK+1)*64 Bits."]]});
+window.SIDEBAR_ITEMS = {"mod":[["CLRIPTXF","Clear all valid data entries in IP TX FIFO."],["TXDMAEN","IP TX FIFO filling by DMA enabled."],["TXWMRK","Watermark level is (TXWMRK+1)*64 Bits."]]};

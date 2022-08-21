@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DIR_0","0b0: Last count was in the down direction"],["DIR_1","0b1: Last count was in the up direction"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DIR_0","0b0: Last count was in the down direction"],["DIR_1","0b1: Last count was in the up direction"]]};

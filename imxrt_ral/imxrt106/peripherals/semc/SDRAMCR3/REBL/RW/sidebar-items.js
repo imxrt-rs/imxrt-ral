@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["REBL_0","0b000: 1"],["REBL_1","0b001: 2"],["REBL_2","0b010: 3"],["REBL_3","0b011: 4"],["REBL_4","0b100: 5"],["REBL_5","0b101: 6"],["REBL_6","0b110: 7"],["REBL_7","0b111: 8"]]});
+window.SIDEBAR_ITEMS = {"constant":[["REBL_0","0b000: 1"],["REBL_1","0b001: 2"],["REBL_2","0b010: 3"],["REBL_3","0b011: 4"],["REBL_4","0b100: 5"],["REBL_5","0b101: 6"],["REBL_6","0b110: 7"],["REBL_7","0b111: 8"]]};

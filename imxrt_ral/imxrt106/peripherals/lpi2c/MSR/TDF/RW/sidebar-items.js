@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TDF_0","0b0: Transmit data is not requested"],["TDF_1","0b1: Transmit data is requested"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TDF_0","0b0: Transmit data is not requested"],["TDF_1","0b1: Transmit data is requested"]]};

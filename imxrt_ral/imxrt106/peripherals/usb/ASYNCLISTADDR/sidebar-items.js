@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ASYBASE","Link Pointer Low (LPL)"],["EPBASE","Endpoint List Pointer(Low)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ASYBASE","Link Pointer Low (LPL)"],["EPBASE","Endpoint List Pointer(Low)"]]};

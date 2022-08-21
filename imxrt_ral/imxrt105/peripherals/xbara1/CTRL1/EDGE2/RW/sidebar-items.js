@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EDGE2_0","0b00: STS2 never asserts"],["EDGE2_1","0b01: STS2 asserts on rising edges of XBAR_OUT2"],["EDGE2_2","0b10: STS2 asserts on falling edges of XBAR_OUT2"],["EDGE2_3","0b11: STS2 asserts on rising and falling edges of XBAR_OUT2"]]});
+window.SIDEBAR_ITEMS = {"constant":[["EDGE2_0","0b00: STS2 never asserts"],["EDGE2_1","0b01: STS2 asserts on rising edges of XBAR_OUT2"],["EDGE2_2","0b10: STS2 asserts on falling edges of XBAR_OUT2"],["EDGE2_3","0b11: STS2 asserts on rising and falling edges of XBAR_OUT2"]]};

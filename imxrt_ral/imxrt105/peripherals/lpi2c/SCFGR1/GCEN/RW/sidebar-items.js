@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GCEN_0","0b0: General Call address is disabled"],["GCEN_1","0b1: General Call address is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GCEN_0","0b0: General Call address is disabled"],["GCEN_1","0b1: General Call address is enabled"]]};

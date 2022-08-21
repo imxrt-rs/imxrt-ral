@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RXEMPTY_0","0b0: RX FIFO is not empty"],["RXEMPTY_1","0b1: RX FIFO is empty"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RXEMPTY_0","0b0: RX FIFO is not empty"],["RXEMPTY_1","0b1: RX FIFO is empty"]]};

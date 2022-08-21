@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IPGOFF_0","0b0: IPG_CLK is active."],["IPGOFF_1","0b1: IPG_CLK is gated off."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IPGOFF_0","0b0: IPG_CLK is active."],["IPGOFF_1","0b1: IPG_CLK is gated off."]]};

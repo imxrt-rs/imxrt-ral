@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LAST_DMA_REQ_SEL_0","0b0: fifo_full_level"],["LAST_DMA_REQ_SEL_1","0b1: hburst_length"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LAST_DMA_REQ_SEL_0","0b0: fifo_full_level"],["LAST_DMA_REQ_SEL_1","0b1: hburst_length"]]};

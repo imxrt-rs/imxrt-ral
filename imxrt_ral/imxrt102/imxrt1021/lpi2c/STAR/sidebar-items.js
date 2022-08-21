@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TXNACK","Transmit NACK"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TXNACK","Transmit NACK"]]};

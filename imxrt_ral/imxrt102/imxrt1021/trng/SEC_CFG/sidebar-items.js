@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["NO_PRGM","If set, the TRNG registers cannot be programmed"],["UNUSED0","This bit is unused. Ignore."],["UNUSED2","This bit is unused. Ignore."]]});
+window.SIDEBAR_ITEMS = {"mod":[["NO_PRGM","If set, the TRNG registers cannot be programmed"],["UNUSED0","This bit is unused. Ignore."],["UNUSED2","This bit is unused. Ignore."]]};

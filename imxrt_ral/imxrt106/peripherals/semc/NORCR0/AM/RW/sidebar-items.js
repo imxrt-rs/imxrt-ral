@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AM_0","0b00: Address/Data MUX mode"],["AM_1","0b01: Advanced Address/Data MUX mode"],["AM_2","0b10: Address/Data non-MUX mode"],["AM_3","0b11: Address/Data non-MUX mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AM_0","0b00: Address/Data MUX mode"],["AM_1","0b01: Advanced Address/Data MUX mode"],["AM_2","0b10: Address/Data non-MUX mode"],["AM_3","0b11: Address/Data non-MUX mode"]]};

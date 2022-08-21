@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SSDE","Shifter Status DMA Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SSDE","Shifter Status DMA Enable"]]};

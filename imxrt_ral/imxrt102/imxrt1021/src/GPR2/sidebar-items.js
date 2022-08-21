@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PERSISTENT_ARG0","Holds argument of entry function for core0 for waking-up from low power mode"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PERSISTENT_ARG0","Holds argument of entry function for core0 for waking-up from low power mode"]]};

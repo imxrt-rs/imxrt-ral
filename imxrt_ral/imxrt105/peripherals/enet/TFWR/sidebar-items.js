@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["STRFWD","Store And Forward Enable"],["TFWR","Transmit FIFO Write"]]});
+window.SIDEBAR_ITEMS = {"mod":[["STRFWD","Store And Forward Enable"],["TFWR","Transmit FIFO Write"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PRES_0","0b0: 256 prescaler disabled."],["PRES_1","0b1: 256 prescaler enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PRES_0","0b0: 256 prescaler disabled."],["PRES_1","0b1: 256 prescaler enabled."]]};

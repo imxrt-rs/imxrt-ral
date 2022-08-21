@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["OPAC32","Off-platform Peripheral Access Control 32"],["OPAC33","Off-platform Peripheral Access Control 33"]]});
+window.SIDEBAR_ITEMS = {"mod":[["OPAC32","Off-platform Peripheral Access Control 32"],["OPAC33","Off-platform Peripheral Access Control 33"]]};

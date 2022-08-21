@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TXWRN_0","0b0: No such occurrence."],["TXWRN_1","0b1: TXERRCNT is greater than or equal to 96."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TXWRN_0","0b0: No such occurrence."],["TXWRN_1","0b1: TXERRCNT is greater than or equal to 96."]]};

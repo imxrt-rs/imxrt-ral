@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["COSC_EN_0","0b0: disable on chip oscillator"],["COSC_EN_1","0b1: enable on chip oscillator"]]});
+window.SIDEBAR_ITEMS = {"constant":[["COSC_EN_0","0b0: disable on chip oscillator"],["COSC_EN_1","0b1: enable on chip oscillator"]]};

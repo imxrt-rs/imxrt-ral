@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DMA_START_ADDR_FB2","DMA Start Address in Frame Buffer2"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DMA_START_ADDR_FB2","DMA Start Address in Frame Buffer2"]]};

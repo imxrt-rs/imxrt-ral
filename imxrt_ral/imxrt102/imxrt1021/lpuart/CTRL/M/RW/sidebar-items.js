@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["M_0","0b0: Receiver and transmitter use 8-bit data characters."],["M_1","0b1: Receiver and transmitter use 9-bit data characters."]]});
+window.SIDEBAR_ITEMS = {"constant":[["M_0","0b0: Receiver and transmitter use 8-bit data characters."],["M_1","0b1: Receiver and transmitter use 9-bit data characters."]]};

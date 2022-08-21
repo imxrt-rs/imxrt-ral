@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FSD_0","0b0: Frame sync is generated externally in Slave mode."],["FSD_1","0b1: Frame sync is generated internally in Master mode."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FSD_0","0b0: Frame sync is generated externally in Slave mode."],["FSD_1","0b1: Frame sync is generated internally in Master mode."]]};

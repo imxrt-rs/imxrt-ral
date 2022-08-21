@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IPCHK_0","0b0: Checksum is not inserted."],["IPCHK_1","0b1: If an IP frame is transmitted, the checksum is inserted automatically. The IP header checksum field must be cleared. If a non-IP frame is transmitted the frame is not modified."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IPCHK_0","0b0: Checksum is not inserted."],["IPCHK_1","0b1: If an IP frame is transmitted, the checksum is inserted automatically. The IP header checksum field must be cleared. If a non-IP frame is transmitted the frame is not modified."]]};

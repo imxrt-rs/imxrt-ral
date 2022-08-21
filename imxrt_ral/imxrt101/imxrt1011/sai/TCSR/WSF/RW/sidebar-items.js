@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WSF_0","0b0: Start of word not detected."],["WSF_1","0b1: Start of word detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WSF_0","0b0: Start of word not detected."],["WSF_1","0b1: Start of word detected."]]};

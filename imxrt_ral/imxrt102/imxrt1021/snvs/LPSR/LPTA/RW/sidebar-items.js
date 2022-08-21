@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPTA_0","0b0: No time alarm interrupt occurred."],["LPTA_1","0b1: A time alarm interrupt occurred."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPTA_0","0b0: No time alarm interrupt occurred."],["LPTA_1","0b1: A time alarm interrupt occurred."]]};

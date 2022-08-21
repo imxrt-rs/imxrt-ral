@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TOP_0","0b0: Leave system power on."],["TOP_1","0b1: Turn off system power."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TOP_0","0b0: Leave system power on."],["TOP_1","0b1: Turn off system power."]]};

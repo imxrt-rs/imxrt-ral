@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USE_TUNING_SDR50_0","0b0: SDR does not require tuning"],["USE_TUNING_SDR50_1","0b1: SDR50 requires tuning"]]});
+window.SIDEBAR_ITEMS = {"constant":[["USE_TUNING_SDR50_0","0b0: SDR does not require tuning"],["USE_TUNING_SDR50_1","0b1: SDR50 requires tuning"]]};

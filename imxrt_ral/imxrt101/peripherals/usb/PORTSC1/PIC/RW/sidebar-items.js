@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PIC_0","0b00: Port indicators are off"],["PIC_1","0b01: Amber"],["PIC_2","0b10: Green"],["PIC_3","0b11: Undefined"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PIC_0","0b00: Port indicators are off"],["PIC_1","0b01: Amber"],["PIC_2","0b10: Green"],["PIC_3","0b11: Undefined"]]};

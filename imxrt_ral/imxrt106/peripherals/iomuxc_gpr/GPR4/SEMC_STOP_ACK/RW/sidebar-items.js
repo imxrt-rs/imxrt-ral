@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SEMC_STOP_ACK_0","0b0: SEMC stop acknowledge is not asserted"],["SEMC_STOP_ACK_1","0b1: SEMC stop acknowledge is asserted"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SEMC_STOP_ACK_0","0b0: SEMC stop acknowledge is not asserted"],["SEMC_STOP_ACK_1","0b1: SEMC stop acknowledge is asserted"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CEBE_0","0b0: No Error"],["CEBE_1","0b1: End Bit Error Generated"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CEBE_0","0b0: No Error"],["CEBE_1","0b1: End Bit Error Generated"]]};

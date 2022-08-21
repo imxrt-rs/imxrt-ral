@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SV5_0","0b0: No Security Violation 5 security violation was detected."],["SV5_1","0b1: Security Violation 5 security violation was detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SV5_0","0b0: No Security Violation 5 security violation was detected."],["SV5_1","0b1: Security Violation 5 security violation was detected."]]};

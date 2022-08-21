@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ITCM_WR_RD_SEL_0","0b0: When ITCM read access hits magic address, it will generate interrupt."],["ITCM_WR_RD_SEL_1","0b1: When ITCM write access hits magic address, it will generate interrupt."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ITCM_WR_RD_SEL_0","0b0: When ITCM read access hits magic address, it will generate interrupt."],["ITCM_WR_RD_SEL_1","0b1: When ITCM write access hits magic address, it will generate interrupt."]]};

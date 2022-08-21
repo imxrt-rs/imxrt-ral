@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SRTADDR","Start Address"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SRTADDR","Start Address"]]};

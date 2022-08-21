@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPNS_0","0b0: LP section was not programmed in the non-secure state."],["LPNS_1","0b1: LP section was programmed in the non-secure state."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPNS_0","0b0: LP section was not programmed in the non-secure state."],["LPNS_1","0b1: LP section was programmed in the non-secure state."]]};

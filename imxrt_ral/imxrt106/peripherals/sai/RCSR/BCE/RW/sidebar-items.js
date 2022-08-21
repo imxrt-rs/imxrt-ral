@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BCE_0","0b0: Receive bit clock is disabled."],["BCE_1","0b1: Receive bit clock is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BCE_0","0b0: Receive bit clock is disabled."],["BCE_1","0b1: Receive bit clock is enabled."]]};

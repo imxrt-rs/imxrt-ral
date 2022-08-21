@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WMENA_0","0b0: Write mask is disabled, DQS(RWDS) pin will be un-driven when writing to external device."],["WMENA_1","0b1: Write mask is enabled, DQS(RWDS) pin will be driven by FlexSPI as write mask output when writing to external device."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WMENA_0","0b0: Write mask is disabled, DQS(RWDS) pin will be un-driven when writing to external device."],["WMENA_1","0b1: Write mask is enabled, DQS(RWDS) pin will be driven by FlexSPI as write mask output when writing to external device."]]};

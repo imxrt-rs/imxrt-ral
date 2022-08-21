@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TE_0","0b0: Transmitter is disabled."],["TE_1","0b1: Transmitter is enabled, or transmitter has been disabled and has not yet reached end of frame."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TE_0","0b0: Transmitter is disabled."],["TE_1","0b1: Transmitter is enabled, or transmitter has been disabled and has not yet reached end of frame."]]};

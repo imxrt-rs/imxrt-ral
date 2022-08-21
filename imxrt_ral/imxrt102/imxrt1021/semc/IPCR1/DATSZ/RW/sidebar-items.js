@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DATSZ_0","0b000: 4"],["DATSZ_1","0b001: 1"],["DATSZ_2","0b010: 2"],["DATSZ_3","0b011: 3"],["DATSZ_4","0b100: 4"],["DATSZ_5","0b101: 4"],["DATSZ_6","0b110: 4"],["DATSZ_7","0b111: 4"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DATSZ_0","0b000: 4"],["DATSZ_1","0b001: 1"],["DATSZ_2","0b010: 2"],["DATSZ_3","0b011: 3"],["DATSZ_4","0b100: 4"],["DATSZ_5","0b101: 4"],["DATSZ_6","0b110: 4"],["DATSZ_7","0b111: 4"]]};

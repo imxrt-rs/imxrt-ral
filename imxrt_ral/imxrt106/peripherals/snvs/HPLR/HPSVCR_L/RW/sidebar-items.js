@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HPSVCR_L_0","0b0: Write access is allowed"],["HPSVCR_L_1","0b1: Write access is not allowed"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HPSVCR_L_0","0b0: Write access is allowed"],["HPSVCR_L_1","0b1: Write access is not allowed"]]};

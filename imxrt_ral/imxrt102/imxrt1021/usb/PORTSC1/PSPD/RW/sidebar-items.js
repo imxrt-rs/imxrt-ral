@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PSPD_0","0b00: Full Speed"],["PSPD_1","0b01: Low Speed"],["PSPD_2","0b10: High Speed"],["PSPD_3","0b11: Undefined"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PSPD_0","0b00: Full Speed"],["PSPD_1","0b01: Low Speed"],["PSPD_2","0b10: High Speed"],["PSPD_3","0b11: Undefined"]]};

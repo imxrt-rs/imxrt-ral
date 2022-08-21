@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DBGEN","Debug Enable"],["DBSWP","Descriptor Byte Swapping Enable"],["EN1588","EN1588 Enable"],["ETHEREN","Ethernet Enable"],["MAGICEN","Magic Packet Detection Enable"],["RESET","Ethernet MAC Reset"],["SLEEP","Sleep Mode Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DBGEN","Debug Enable"],["DBSWP","Descriptor Byte Swapping Enable"],["EN1588","EN1588 Enable"],["ETHEREN","Ethernet Enable"],["MAGICEN","Magic Packet Detection Enable"],["RESET","Ethernet MAC Reset"],["SLEEP","Sleep Mode Enable"]]};

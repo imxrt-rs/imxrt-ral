@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERFDAIE_0","0b0: Enhanced Rx FIFO Data Available Interrupt is disabled"],["ERFDAIE_1","0b1: Enhanced Rx FIFO Data Available Interrupt is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERFDAIE_0","0b0: Enhanced Rx FIFO Data Available Interrupt is disabled"],["ERFDAIE_1","0b1: Enhanced Rx FIFO Data Available Interrupt is enabled"]]};

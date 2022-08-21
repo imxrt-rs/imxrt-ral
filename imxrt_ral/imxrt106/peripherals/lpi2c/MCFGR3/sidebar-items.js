@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PINLOW","Pin Low Timeout"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PINLOW","Pin Low Timeout"]]};

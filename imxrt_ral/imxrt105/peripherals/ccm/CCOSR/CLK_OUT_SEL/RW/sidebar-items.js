@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CLK_OUT_SEL_0","0b0: CCM_CLKO1 output drives CCM_CLKO1 clock"],["CLK_OUT_SEL_1","0b1: CCM_CLKO1 output drives CCM_CLKO2 clock"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CLK_OUT_SEL_0","0b0: CCM_CLKO1 output drives CCM_CLKO1 clock"],["CLK_OUT_SEL_1","0b1: CCM_CLKO1 output drives CCM_CLKO2 clock"]]};

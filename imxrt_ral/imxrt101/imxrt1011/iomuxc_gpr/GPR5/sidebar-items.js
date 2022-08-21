@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["VREF_1M_CLK_GPT1","GPT1 1 MHz clock source select"],["VREF_1M_CLK_GPT2","GPT2 1 MHz clock source select"],["WDOG1_MASK","WDOG1 Timeout Mask"],["WDOG2_MASK","WDOG2 Timeout Mask"]]});
+window.SIDEBAR_ITEMS = {"mod":[["VREF_1M_CLK_GPT1","GPT1 1 MHz clock source select"],["VREF_1M_CLK_GPT2","GPT2 1 MHz clock source select"],["WDOG1_MASK","WDOG1 Timeout Mask"],["WDOG2_MASK","WDOG2 Timeout Mask"]]};

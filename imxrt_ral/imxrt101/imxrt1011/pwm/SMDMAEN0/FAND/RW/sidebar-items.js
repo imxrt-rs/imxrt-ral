@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FAND_0","0b0: Selected FIFO watermarks are OR’ed together."],["FAND_1","0b1: Selected FIFO watermarks are AND’ed together."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FAND_0","0b0: Selected FIFO watermarks are OR’ed together."],["FAND_1","0b1: Selected FIFO watermarks are AND’ed together."]]};

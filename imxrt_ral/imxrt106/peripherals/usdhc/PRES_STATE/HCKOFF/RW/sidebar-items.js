@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HCKOFF_0","0b0: HCLK is active."],["HCKOFF_1","0b1: HCLK is gated off."]]});
+window.SIDEBAR_ITEMS = {"constant":[["HCKOFF_0","0b0: HCLK is active."],["HCKOFF_1","0b1: HCLK is gated off."]]};

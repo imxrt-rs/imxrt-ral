@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["dbg_rst_msk_pg_0","0b0: do not mask core debug resets (debug resets will be asserted after power gating event)"],["dbg_rst_msk_pg_1","0b1: mask core debug resets (debug resets won’t be asserted after power gating event)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["dbg_rst_msk_pg_0","0b0: do not mask core debug resets (debug resets will be asserted after power gating event)"],["dbg_rst_msk_pg_1","0b1: mask core debug resets (debug resets won’t be asserted after power gating event)"]]};

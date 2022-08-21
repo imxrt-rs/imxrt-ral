@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SR_0","0b0: No effect."],["SR_1","0b1: Software reset."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SR_0","0b0: No effect."],["SR_1","0b1: Software reset."]]};

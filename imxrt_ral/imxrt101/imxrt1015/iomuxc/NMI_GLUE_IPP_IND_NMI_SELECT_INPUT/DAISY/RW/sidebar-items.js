@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GPIO_AD_B0_05_ALT7","0b0: Selecting Pad: GPIO_AD_B0_05 for Mode: ALT7"],["WAKEUP_ALT7","0b1: Selecting Pad: WAKEUP for Mode: ALT7"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GPIO_AD_B0_05_ALT7","0b0: Selecting Pad: GPIO_AD_B0_05 for Mode: ALT7"],["WAKEUP_ALT7","0b1: Selecting Pad: WAKEUP for Mode: ALT7"]]};

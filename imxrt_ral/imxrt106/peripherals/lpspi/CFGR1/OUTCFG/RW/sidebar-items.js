@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OUTCFG_0","0b0: Output data retains last value when chip select is negated"],["OUTCFG_1","0b1: Output data is tristated when chip select is negated"]]});
+window.SIDEBAR_ITEMS = {"constant":[["OUTCFG_0","0b0: Output data retains last value when chip select is negated"],["OUTCFG_1","0b1: Output data is tristated when chip select is negated"]]};

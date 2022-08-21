@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EMI_0","0b0: Master ID replication is disabled"],["EMI_1","0b1: Master ID replication is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["EMI_0","0b0: Master ID replication is disabled"],["EMI_1","0b1: Master ID replication is enabled"]]};

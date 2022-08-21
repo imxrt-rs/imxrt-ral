@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HAC_CLEAR_0","0b0: No Action"],["HAC_CLEAR_1","0b1: Clear the HAC"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HAC_CLEAR_0","0b0: No Action"],["HAC_CLEAR_1","0b1: Clear the HAC"]]};

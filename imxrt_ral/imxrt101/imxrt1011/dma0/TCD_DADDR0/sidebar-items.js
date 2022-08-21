@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DADDR","Destination Address"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DADDR","Destination Address"]]};

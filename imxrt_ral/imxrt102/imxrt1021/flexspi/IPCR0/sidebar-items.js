@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SFAR","Serial Flash Address for IP command."]]});
+window.SIDEBAR_ITEMS = {"mod":[["SFAR","Serial Flash Address for IP command."]]};

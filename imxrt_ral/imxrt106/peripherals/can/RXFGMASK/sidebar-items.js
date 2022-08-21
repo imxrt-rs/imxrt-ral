@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FGM","These bits mask the ID Filter Table elements bits in a perfect alignment"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FGM","These bits mask the ID Filter Table elements bits in a perfect alignment"]]};

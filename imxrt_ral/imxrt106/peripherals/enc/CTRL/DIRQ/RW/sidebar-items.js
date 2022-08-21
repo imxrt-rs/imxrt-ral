@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DIRQ_0","0b0: No interrupt has occurred"],["DIRQ_1","0b1: Watchdog timeout interrupt has occurred"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DIRQ_0","0b0: No interrupt has occurred"],["DIRQ_1","0b1: Watchdog timeout interrupt has occurred"]]};

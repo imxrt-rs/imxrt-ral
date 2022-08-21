@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CSI","Raw pointer to CSI"]],"struct":[["CSI","The CSI peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CSI","Raw pointer to CSI"]],"struct":[["CSI","The CSI peripheral instance."]]};

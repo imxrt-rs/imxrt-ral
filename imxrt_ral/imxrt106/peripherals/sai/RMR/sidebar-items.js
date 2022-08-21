@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RWM","Receive Word Mask"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RWM","Receive Word Mask"]]};

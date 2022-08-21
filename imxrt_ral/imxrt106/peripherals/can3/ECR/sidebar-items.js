@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RXERRCNT","Receive Error Counter"],["RXERRCNT_FAST","Receive Error Counter for fast bits"],["TXERRCNT","Transmit Error Counter"],["TXERRCNT_FAST","Transmit Error Counter for fast bits"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RXERRCNT","Receive Error Counter"],["RXERRCNT_FAST","Receive Error Counter for fast bits"],["TXERRCNT","Transmit Error Counter"],["TXERRCNT_FAST","Transmit Error Counter for fast bits"]]};

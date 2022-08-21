@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TXFIFOTHRES","FIFO Burst Threshold"],["TXSCHHEALTH","Scheduler Health Counter"],["TXSCHOH","Scheduler Overhead"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TXFIFOTHRES","FIFO Burst Threshold"],["TXSCHHEALTH","Scheduler Health Counter"],["TXSCHOH","Scheduler Overhead"]]};

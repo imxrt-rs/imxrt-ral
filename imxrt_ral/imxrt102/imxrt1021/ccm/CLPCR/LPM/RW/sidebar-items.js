@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPM_0","0b00: Remain in run mode"],["LPM_1","0b01: Transfer to wait mode"],["LPM_2","0b10: Transfer to stop mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPM_0","0b00: Remain in run mode"],["LPM_1","0b01: Transfer to wait mode"],["LPM_2","0b10: Transfer to stop mode"]]};

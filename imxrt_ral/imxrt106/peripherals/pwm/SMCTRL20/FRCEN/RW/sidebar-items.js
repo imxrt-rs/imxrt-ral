@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRCEN_0","0b0: Initialization from a FORCE_OUT is disabled."],["FRCEN_1","0b1: Initialization from a FORCE_OUT is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRCEN_0","0b0: Initialization from a FORCE_OUT is disabled."],["FRCEN_1","0b1: Initialization from a FORCE_OUT is enabled."]]};

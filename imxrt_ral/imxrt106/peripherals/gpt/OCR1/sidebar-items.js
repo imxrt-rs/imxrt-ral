@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["COMP","Compare Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["COMP","Compare Value"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["MI","These bits mask both Mailbox filter and Rx FIFO ID Filter Table element in distinct ways"]]});
+window.SIDEBAR_ITEMS = {"mod":[["MI","These bits mask both Mailbox filter and Rx FIFO ID Filter Table element in distinct ways"]]};

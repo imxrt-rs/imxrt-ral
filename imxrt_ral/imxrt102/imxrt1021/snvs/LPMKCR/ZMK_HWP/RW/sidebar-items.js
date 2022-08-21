@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ZMK_HWP_0","0b0: ZMK is in the software programming mode."],["ZMK_HWP_1","0b1: ZMK is in the hardware programming mode."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ZMK_HWP_0","0b0: ZMK is in the software programming mode."],["ZMK_HWP_1","0b1: ZMK is in the hardware programming mode."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CTRL_AES_MODE_R1_0","0b0: ECB"],["CTRL_AES_MODE_R1_1","0b1: CTR"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CTRL_AES_MODE_R1_0","0b0: ECB"],["CTRL_AES_MODE_R1_1","0b1: CTR"]]};

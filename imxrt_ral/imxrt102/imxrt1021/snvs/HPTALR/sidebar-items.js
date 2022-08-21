@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["HPTA_LS","HP Time Alarm, 32 least-significant bits"]]});
+window.SIDEBAR_ITEMS = {"mod":[["HPTA_LS","HP Time Alarm, 32 least-significant bits"]]};

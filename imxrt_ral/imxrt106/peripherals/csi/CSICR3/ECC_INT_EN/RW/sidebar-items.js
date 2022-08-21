@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ECC_INT_EN_0","0b0: No interrupt is generated when error is detected. Only the status bit ECC_INT is set."],["ECC_INT_EN_1","0b1: Interrupt is generated when error is detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ECC_INT_EN_0","0b0: No interrupt is generated when error is detected. Only the status bit ECC_INT is set."],["ECC_INT_EN_1","0b1: Interrupt is generated when error is detected."]]};

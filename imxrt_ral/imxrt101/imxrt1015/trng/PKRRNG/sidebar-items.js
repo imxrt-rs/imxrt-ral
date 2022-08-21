@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PKR_RNG","Poker Range"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PKR_RNG","Poker Range"]]};

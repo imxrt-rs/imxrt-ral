@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["F2_INT_0","0b0: Field 2 of video is not detected"],["F2_INT_1","0b1: Field 2 of video is about to start"]]});
+window.SIDEBAR_ITEMS = {"constant":[["F2_INT_0","0b0: Field 2 of video is not detected"],["F2_INT_1","0b1: Field 2 of video is about to start"]]};

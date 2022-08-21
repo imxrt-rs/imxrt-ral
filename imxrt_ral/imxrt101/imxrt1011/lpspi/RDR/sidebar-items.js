@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DATA","Receive Data"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DATA","Receive Data"]]};

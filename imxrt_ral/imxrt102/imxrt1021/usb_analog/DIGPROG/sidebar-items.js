@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SILICON_REVISION","Chip silicon revision"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SILICON_REVISION","Chip silicon revision"]]};

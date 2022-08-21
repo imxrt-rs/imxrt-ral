@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["COMPAREH","COMPAREH"]]});
+window.SIDEBAR_ITEMS = {"mod":[["COMPAREH","COMPAREH"]]};

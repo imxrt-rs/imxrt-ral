@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RxDataRight","Processor receive SPDIF data right"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RxDataRight","Processor receive SPDIF data right"]]};

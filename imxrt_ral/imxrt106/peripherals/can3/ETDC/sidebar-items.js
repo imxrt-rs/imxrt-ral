@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ETDCOFF","Enhanced Transceiver Delay Compensation Offset"],["ETDCVAL","Enhanced Transceiver Delay Compensation Value"],["TDMDIS","Transceiver Delay Measurement Disable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ETDCOFF","Enhanced Transceiver Delay Compensation Offset"],["ETDCVAL","Enhanced Transceiver Delay Compensation Value"],["TDMDIS","Transceiver Delay Measurement Disable"]]};

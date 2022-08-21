@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BANK2_0","0b0: SDRAM device has 4 banks."],["BANK2_1","0b1: SDRAM device has 2 banks."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BANK2_0","0b0: SDRAM device has 4 banks."],["BANK2_1","0b1: SDRAM device has 2 banks."]]};

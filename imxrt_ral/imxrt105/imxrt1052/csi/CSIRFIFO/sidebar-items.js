@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["IMAGE","Received image data"]]});
+window.SIDEBAR_ITEMS = {"mod":[["IMAGE","Received image data"]]};

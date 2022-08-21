@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BABT_0","0b0: The corresponding interrupt source is masked."],["BABT_1","0b1: The corresponding interrupt source is not masked."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BABT_0","0b0: The corresponding interrupt source is masked."],["BABT_1","0b1: The corresponding interrupt source is not masked."]]};

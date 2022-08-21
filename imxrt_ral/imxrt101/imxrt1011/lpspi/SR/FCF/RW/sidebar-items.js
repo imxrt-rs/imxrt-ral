@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FCF_0","0b0: Frame transfer has not completed"],["FCF_1","0b1: Frame transfer has completed"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FCF_0","0b0: Frame transfer has not completed"],["FCF_1","0b1: Frame transfer has completed"]]};

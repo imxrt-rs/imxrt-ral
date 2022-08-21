@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CLKHOLD","Clock Hold Time"],["DATAVD","Data Valid Delay"],["FILTSCL","Glitch Filter SCL"],["FILTSDA","Glitch Filter SDA"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CLKHOLD","Clock Hold Time"],["DATAVD","Data Valid Delay"],["FILTSCL","Glitch Filter SCL"],["FILTSDA","Glitch Filter SDA"]]};

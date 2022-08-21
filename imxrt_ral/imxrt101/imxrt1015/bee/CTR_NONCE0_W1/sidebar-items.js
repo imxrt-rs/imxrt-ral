@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["NONCE01","Nonce0 from software for CTR, for region0. Nonce0={Nonce03,Nonce02,Nonce01,Nonce00}"]]});
+window.SIDEBAR_ITEMS = {"mod":[["NONCE01","Nonce0 from software for CTR, for region0. Nonce0={Nonce03,Nonce02,Nonce01,Nonce00}"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DTCM_ERR_STATUS","DTCM Access Error Status"],["ITCM_ERR_STATUS","ITCM Access Error Status"],["OCRAM_ERR_STATUS","OCRAM Access Error Status"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DTCM_ERR_STATUS","DTCM Access Error Status"],["ITCM_ERR_STATUS","ITCM Access Error Status"],["OCRAM_ERR_STATUS","OCRAM Access Error Status"]]};

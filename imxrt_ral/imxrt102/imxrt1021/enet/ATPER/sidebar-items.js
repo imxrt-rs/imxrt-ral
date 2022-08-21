@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PERIOD","Value for generating periodic events"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PERIOD","Value for generating periodic events"]]};

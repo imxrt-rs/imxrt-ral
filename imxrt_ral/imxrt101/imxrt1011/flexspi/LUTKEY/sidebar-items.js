@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["KEY","The Key to lock or unlock LUT."]]});
+window.SIDEBAR_ITEMS = {"mod":[["KEY","The Key to lock or unlock LUT."]]};

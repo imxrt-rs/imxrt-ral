@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PCR","Power Control PCR must not change from power-down request (pdn_req) assertion until the target subsystem is completely powered up"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PCR","Power Control PCR must not change from power-down request (pdn_req) assertion until the target subsystem is completely powered up"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["LOCK_M7_APC_AC_R2_BOT","lock M7_APC_AC_R2_BOT field for changes"],["M7_APC_AC_R2_BOT","APC end address of memory region-2"]]});
+window.SIDEBAR_ITEMS = {"mod":[["LOCK_M7_APC_AC_R2_BOT","lock M7_APC_AC_R2_BOT field for changes"],["M7_APC_AC_R2_BOT","APC end address of memory region-2"]]};

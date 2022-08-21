@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AES128","0b0000000000000001: AES128"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AES128","0b0000000000000001: AES128"]]};

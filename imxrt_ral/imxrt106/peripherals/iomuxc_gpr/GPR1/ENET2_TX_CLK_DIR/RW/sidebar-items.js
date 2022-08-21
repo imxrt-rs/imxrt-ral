@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET2_TX_CLK_DIR_0","0b0: ENET2_TX_CLK output driver is disabled"],["ENET2_TX_CLK_DIR_1","0b1: ENET2_TX_CLK output driver is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENET2_TX_CLK_DIR_0","0b0: ENET2_TX_CLK output driver is disabled"],["ENET2_TX_CLK_DIR_1","0b1: ENET2_TX_CLK output driver is enabled"]]};

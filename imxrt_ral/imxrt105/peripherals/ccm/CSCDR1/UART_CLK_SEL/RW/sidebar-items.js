@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["UART_CLK_SEL_0","0b0: derive clock from pll3_80m"],["UART_CLK_SEL_1","0b1: derive clock from osc_clk"]]});
+window.SIDEBAR_ITEMS = {"constant":[["UART_CLK_SEL_0","0b0: derive clock from pll3_80m"],["UART_CLK_SEL_1","0b1: derive clock from osc_clk"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMASEL_0","0b00: No DMA or Simple DMA is selected"],["DMASEL_1","0b01: ADMA1 is selected"],["DMASEL_2","0b10: ADMA2 is selected"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DMASEL_0","0b00: No DMA or Simple DMA is selected"],["DMASEL_1","0b01: ADMA1 is selected"],["DMASEL_2","0b10: ADMA2 is selected"]]};

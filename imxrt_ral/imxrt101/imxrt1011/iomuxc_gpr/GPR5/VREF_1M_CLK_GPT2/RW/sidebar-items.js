@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["VREF_1M_CLK_GPT2_0","0b0: GPT2 ipg_clk_highfreq driven by IPG_PERCLK"],["VREF_1M_CLK_GPT2_1","0b1: GPT2 ipg_clk_highfreq driven by anatop 1 MHz clock"]]});
+window.SIDEBAR_ITEMS = {"constant":[["VREF_1M_CLK_GPT2_0","0b0: GPT2 ipg_clk_highfreq driven by IPG_PERCLK"],["VREF_1M_CLK_GPT2_1","0b1: GPT2 ipg_clk_highfreq driven by anatop 1 MHz clock"]]};

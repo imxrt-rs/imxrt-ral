@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PADREM_0","0b0: Padding not removed."],["PADREM_1","0b1: Any bytes following the IP payload section of the frame are removed from the frame."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PADREM_0","0b0: Padding not removed."],["PADREM_1","0b1: Any bytes following the IP payload section of the frame are removed from the frame."]]};

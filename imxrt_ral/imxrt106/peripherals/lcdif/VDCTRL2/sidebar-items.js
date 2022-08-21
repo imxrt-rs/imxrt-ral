@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["HSYNC_PERIOD","Total number of DISPLAY CLOCK (pix_clk) cycles between two positive or two negative edges of the HSYNC signal"],["HSYNC_PULSE_WIDTH","Number of DISPLAY CLOCK (pix_clk) cycles for which HSYNC signal is active."]]});
+window.SIDEBAR_ITEMS = {"mod":[["HSYNC_PERIOD","Total number of DISPLAY CLOCK (pix_clk) cycles between two positive or two negative edges of the HSYNC signal"],["HSYNC_PULSE_WIDTH","Number of DISPLAY CLOCK (pix_clk) cycles for which HSYNC signal is active."]]};

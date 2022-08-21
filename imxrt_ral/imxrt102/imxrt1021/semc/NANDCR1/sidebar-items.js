@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CEH","CE hold time"],["CEITV","CE# interval time"],["CES","CE setup time"],["REH","RE# HIGH time"],["REL","RE# LOW time"],["TA","Turnaround time"],["WEH","WE# HIGH time"],["WEL","WE# LOW time"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CEH","CE hold time"],["CEITV","CE# interval time"],["CES","CE setup time"],["REH","RE# HIGH time"],["REL","RE# LOW time"],["TA","Turnaround time"],["WEH","WE# HIGH time"],["WEL","WE# LOW time"]]};

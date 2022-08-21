@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["jtag_sw_rst_0","0b0: Reset is not a result of software reset from JTAG."],["jtag_sw_rst_1","0b1: Reset is a result of software reset from JTAG."]]});
+window.SIDEBAR_ITEMS = {"constant":[["jtag_sw_rst_0","0b0: Reset is not a result of software reset from JTAG."],["jtag_sw_rst_1","0b1: Reset is a result of software reset from JTAG."]]};

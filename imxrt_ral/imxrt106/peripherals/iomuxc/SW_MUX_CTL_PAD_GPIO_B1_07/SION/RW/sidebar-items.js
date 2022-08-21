@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DISABLED","0b0: Input Path is determined by functionality"],["ENABLED","0b1: Force input path of pad GPIO_B1_07"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DISABLED","0b0: Input Path is determined by functionality"],["ENABLED","0b1: Force input path of pad GPIO_B1_07"]]};

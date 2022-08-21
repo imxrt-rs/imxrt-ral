@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TXBURST","Default burst size for memory to TX buffer transfer"],["TXCHANADD","TX FIFO Buffer size is: (2^TXCHANADD) * 4 Bytes"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TXBURST","Default burst size for memory to TX buffer transfer"],["TXCHANADD","TX FIFO Buffer size is: (2^TXCHANADD) * 4 Bytes"]]};

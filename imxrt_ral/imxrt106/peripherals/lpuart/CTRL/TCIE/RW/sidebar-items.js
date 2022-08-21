@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TCIE_0","0b0: Hardware interrupts from TC disabled; use polling."],["TCIE_1","0b1: Hardware interrupt requested when TC flag is 1."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TCIE_0","0b0: Hardware interrupts from TC disabled; use polling."],["TCIE_1","0b1: Hardware interrupt requested when TC flag is 1."]]};

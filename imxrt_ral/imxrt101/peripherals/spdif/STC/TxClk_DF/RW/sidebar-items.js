@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TxClk_DF_0","0b0000000: divider factor is 1"],["TxClk_DF_1","0b0000001: divider factor is 2"],["TxClk_DF_127","0b1111111: divider factor is 128"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TxClk_DF_0","0b0000000: divider factor is 1"],["TxClk_DF_1","0b0000001: divider factor is 2"],["TxClk_DF_127","0b1111111: divider factor is 128"]]};

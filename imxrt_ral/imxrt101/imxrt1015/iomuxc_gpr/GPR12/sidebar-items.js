@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FLEXIO1_IPG_DOZE","FLEXIO1 ipg_doze mode"],["FLEXIO1_IPG_STOP_MODE","FlexIO1 stop mode selection. Cannot change when ipg_stop is asserted."]]});
+window.SIDEBAR_ITEMS = {"mod":[["FLEXIO1_IPG_DOZE","FLEXIO1 ipg_doze mode"],["FLEXIO1_IPG_STOP_MODE","FlexIO1 stop mode selection. Cannot change when ipg_stop is asserted."]]};

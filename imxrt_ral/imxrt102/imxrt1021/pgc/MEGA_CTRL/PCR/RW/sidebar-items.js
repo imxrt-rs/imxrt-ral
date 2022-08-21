@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PCR_0","0b0: Do not switch off power even if pdn_req is asserted."],["PCR_1","0b1: Switch off power when pdn_req is asserted."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PCR_0","0b0: Do not switch off power even if pdn_req is asserted."],["PCR_1","0b1: Switch off power when pdn_req is asserted."]]};

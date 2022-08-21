@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["BUF31TO0M","Buffer MB i Mask"]]});
+window.SIDEBAR_ITEMS = {"mod":[["BUF31TO0M","Buffer MB i Mask"]]};

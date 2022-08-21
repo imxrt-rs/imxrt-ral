@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PRESCALER24M_0","0b0000: Divide by 1"],["PRESCALER24M_1","0b0001: Divide by 2"],["PRESCALER24M_15","0b1111: Divide by 16"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PRESCALER24M_0","0b0000: Divide by 1"],["PRESCALER24M_1","0b0001: Divide by 2"],["PRESCALER24M_15","0b1111: Divide by 16"]]};

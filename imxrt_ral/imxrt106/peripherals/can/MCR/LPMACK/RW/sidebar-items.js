@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPMACK_0","0b0: FLEXCAN not in any of the low power modes"],["LPMACK_1","0b1: FLEXCAN is either in Disable Mode, or Stop mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPMACK_0","0b0: FLEXCAN not in any of the low power modes"],["LPMACK_1","0b1: FLEXCAN is either in Disable Mode, or Stop mode"]]};

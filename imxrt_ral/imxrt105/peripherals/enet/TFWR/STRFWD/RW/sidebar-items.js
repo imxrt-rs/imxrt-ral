@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["STRFWD_0","0b0: Reset. The transmission start threshold is programmed in TFWR[TFWR]."],["STRFWD_1","0b1: Enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["STRFWD_0","0b0: Reset. The transmission start threshold is programmed in TFWR[TFWR]."],["STRFWD_1","0b1: Enabled."]]};

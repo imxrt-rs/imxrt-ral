@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PINPER_0","0b0: Disable."],["PINPER_1","0b1: Enable."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PINPER_0","0b0: Disable."],["PINPER_1","0b1: Enable."]]};

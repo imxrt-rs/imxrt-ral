@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EPF_0","0b0: Master has not generated a STOP or Repeated START condition"],["EPF_1","0b1: Master has generated a STOP or Repeated START condition"]]});
+window.SIDEBAR_ITEMS = {"constant":[["EPF_0","0b0: Master has not generated a STOP or Repeated START condition"],["EPF_1","0b1: Master has generated a STOP or Repeated START condition"]]};

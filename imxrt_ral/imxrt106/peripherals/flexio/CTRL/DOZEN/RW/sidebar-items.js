@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DOZEN_0","0b0: FlexIO enabled in Doze modes."],["DOZEN_1","0b1: FlexIO disabled in Doze modes."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DOZEN_0","0b0: FlexIO enabled in Doze modes."],["DOZEN_1","0b1: FlexIO disabled in Doze modes."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CCSEN_0","0b0: Masked"],["CCSEN_1","0b1: Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CCSEN_0","0b0: Masked"],["CCSEN_1","0b1: Enabled"]]};

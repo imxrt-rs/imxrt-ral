@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SEF","Shifter Error Flags"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SEF","Shifter Error Flags"]]};

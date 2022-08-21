@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CH0","0b00000001: CH0"],["CH1","0b00000010: CH1"],["CH2","0b00000100: CH2"],["CH3","0b00001000: CH3"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CH0","0b00000001: CH0"],["CH1","0b00000010: CH1"],["CH2","0b00000100: CH2"],["CH3","0b00001000: CH3"]]};

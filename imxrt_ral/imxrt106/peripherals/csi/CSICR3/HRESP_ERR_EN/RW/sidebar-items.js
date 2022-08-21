@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HRESP_ERR_EN_0","0b0: Disable hresponse error interrupt"],["HRESP_ERR_EN_1","0b1: Enable hresponse error interrupt"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HRESP_ERR_EN_0","0b0: Disable hresponse error interrupt"],["HRESP_ERR_EN_1","0b1: Enable hresponse error interrupt"]]};

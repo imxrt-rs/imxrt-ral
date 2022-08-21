@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["POLB_0","0b0: PWM_B output not inverted. A high level on the PWM_B pin represents the “on” or “active” state."],["POLB_1","0b1: PWM_B output inverted. A low level on the PWM_B pin represents the “on” or “active” state."]]});
+window.SIDEBAR_ITEMS = {"constant":[["POLB_0","0b0: PWM_B output not inverted. A high level on the PWM_B pin represents the “on” or “active” state."],["POLB_1","0b1: PWM_B output inverted. A low level on the PWM_B pin represents the “on” or “active” state."]]};

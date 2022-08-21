@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SAMPLE_0","0b0: Input data is sampled on SCK edge"],["SAMPLE_1","0b1: Input data is sampled on delayed SCK edge"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SAMPLE_0","0b0: Input data is sampled on SCK edge"],["SAMPLE_1","0b1: Input data is sampled on delayed SCK edge"]]};

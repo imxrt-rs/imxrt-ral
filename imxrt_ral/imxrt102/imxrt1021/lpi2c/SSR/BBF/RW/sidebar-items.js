@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BBF_0","0b0: I2C Bus is idle"],["BBF_1","0b1: I2C Bus is busy"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BBF_0","0b0: I2C Bus is idle"],["BBF_1","0b1: I2C Bus is busy"]]};

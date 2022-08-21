@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["IMR5","IRQ[159:128] masking bits: 1-irq masked, 0-irq is not masked"]]});
+window.SIDEBAR_ITEMS = {"mod":[["IMR5","IRQ[159:128] masking bits: 1-irq masked, 0-irq is not masked"]]};

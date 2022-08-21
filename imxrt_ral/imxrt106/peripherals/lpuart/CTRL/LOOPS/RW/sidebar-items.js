@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LOOPS_0","0b0: Normal operation - RXD and TXD use separate pins."],["LOOPS_1","0b1: Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LOOPS_0","0b0: Normal operation - RXD and TXD use separate pins."],["LOOPS_1","0b1: Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit)."]]};

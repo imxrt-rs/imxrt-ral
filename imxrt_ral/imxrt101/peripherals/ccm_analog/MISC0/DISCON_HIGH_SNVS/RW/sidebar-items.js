@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DISCON_HIGH_SNVS_0","0b0: Turn on the switch"],["DISCON_HIGH_SNVS_1","0b1: Turn off the switch"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DISCON_HIGH_SNVS_0","0b0: Turn on the switch"],["DISCON_HIGH_SNVS_1","0b1: Turn off the switch"]]};

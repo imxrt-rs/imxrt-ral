@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CSU","Raw pointer to CSU"]],"struct":[["CSU","The CSU peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CSU","Raw pointer to CSU"]],"struct":[["CSU","The CSU peripheral instance."]]};

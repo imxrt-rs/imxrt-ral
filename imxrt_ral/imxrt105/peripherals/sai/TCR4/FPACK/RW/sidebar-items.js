@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FPACK_0","0b00: FIFO packing is disabled"],["FPACK_2","0b10: 8-bit FIFO packing is enabled"],["FPACK_3","0b11: 16-bit FIFO packing is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FPACK_0","0b00: FIFO packing is disabled"],["FPACK_2","0b10: 8-bit FIFO packing is enabled"],["FPACK_3","0b11: 16-bit FIFO packing is enabled"]]};

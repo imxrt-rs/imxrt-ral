@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SPEED_0_low_50MHz","0b00: low(50MHz)"],["SPEED_1_medium_100MHz","0b01: medium(100MHz)"],["SPEED_2_medium_100MHz","0b10: medium(100MHz)"],["SPEED_3_max_200MHz","0b11: max(200MHz)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SPEED_0_low_50MHz","0b00: low(50MHz)"],["SPEED_1_medium_100MHz","0b01: medium(100MHz)"],["SPEED_2_medium_100MHz","0b10: medium(100MHz)"],["SPEED_3_max_200MHz","0b11: max(200MHz)"]]};

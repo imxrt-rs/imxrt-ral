@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PIT","Raw pointer to PIT"]],"struct":[["PIT","The PIT peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PIT","Raw pointer to PIT"]],"struct":[["PIT","The PIT peripheral instance."]]};

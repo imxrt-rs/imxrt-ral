@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SEC_ERR_RESP_0","0b0: OKEY response"],["SEC_ERR_RESP_1","0b1: SLVError (default)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SEC_ERR_RESP_0","0b0: OKEY response"],["SEC_ERR_RESP_1","0b1: SLVError (default)"]]};

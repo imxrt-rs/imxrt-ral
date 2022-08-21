@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IP_ID_48","0b0000000000110000: ID for TRNG."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IP_ID_48","0b0000000000110000: ID for TRNG."]]};

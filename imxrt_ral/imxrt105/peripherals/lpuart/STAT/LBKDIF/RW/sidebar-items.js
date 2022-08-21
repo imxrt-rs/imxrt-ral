@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LBKDIF_0","0b0: No LIN break character has been detected."],["LBKDIF_1","0b1: LIN break character has been detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LBKDIF_0","0b0: No LIN break character has been detected."],["LBKDIF_1","0b1: LIN break character has been detected."]]};

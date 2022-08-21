@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SSM_SFNS_DIS_0","0b0: Soft Fail to Non-Secure State transition is enabled"],["SSM_SFNS_DIS_1","0b1: Soft Fail to Non-Secure State transition is disabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SSM_SFNS_DIS_0","0b0: Soft Fail to Non-Secure State transition is enabled"],["SSM_SFNS_DIS_1","0b1: Soft Fail to Non-Secure State transition is disabled"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["STFERR_0","0b0: No such occurrence."],["STFERR_1","0b1: A Stuffing Error occurred since last read of this register."]]});
+window.SIDEBAR_ITEMS = {"constant":[["STFERR_0","0b0: No such occurrence."],["STFERR_1","0b1: A Stuffing Error occurred since last read of this register."]]};

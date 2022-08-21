@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HRPOL_0","0b0: Active low"],["HRPOL_1","0b1: Active high"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HRPOL_0","0b0: Active low"],["HRPOL_1","0b1: Active high"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["GFWR","It determines the Glitch Filter Width"]]});
+window.SIDEBAR_ITEMS = {"mod":[["GFWR","It determines the Glitch Filter Width"]]};

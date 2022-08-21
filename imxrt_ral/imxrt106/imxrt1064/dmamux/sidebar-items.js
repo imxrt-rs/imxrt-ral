@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMAMUX","Raw pointer to DMAMUX"]],"struct":[["DMAMUX","The DMAMUX peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DMAMUX","Raw pointer to DMAMUX"]],"struct":[["DMAMUX","The DMAMUX peripheral instance."]]};

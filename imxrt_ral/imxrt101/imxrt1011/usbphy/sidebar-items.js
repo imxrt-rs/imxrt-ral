@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USBPHY","Raw pointer to USBPHY"]],"struct":[["USBPHY","The USBPHY peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["USBPHY","Raw pointer to USBPHY"]],"struct":[["USBPHY","The USBPHY peripheral instance."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LDOK_0","0b0000: Do not load new values."],["LDOK_1","0b0001: Load prescaler, modulus, and PWM values of the corresponding submodule."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LDOK_0","0b0000: Do not load new values."],["LDOK_1","0b0001: Load prescaler, modulus, and PWM values of the corresponding submodule."]]};

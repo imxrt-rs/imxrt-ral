@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RXMSK_0","0b0: Normal transfer"],["RXMSK_1","0b1: Receive data is masked"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RXMSK_0","0b0: Normal transfer"],["RXMSK_1","0b1: Receive data is masked"]]};

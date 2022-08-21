@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ISR2","IRQ[63:32] status, read only"]]});
+window.SIDEBAR_ITEMS = {"mod":[["ISR2","IRQ[63:32] status, read only"]]};

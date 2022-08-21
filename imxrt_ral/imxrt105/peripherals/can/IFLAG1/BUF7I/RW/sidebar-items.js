@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BUF7I_0","0b0: No such occurrence"],["BUF7I_1","0b1: MB7 completed transmission/reception or FIFO overflow"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BUF7I_0","0b0: No such occurrence"],["BUF7I_1","0b1: MB7 completed transmission/reception or FIFO overflow"]]};

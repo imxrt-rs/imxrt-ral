@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["Absent","0b0: Absent"],["Present","0b1: Present"]]});
+window.SIDEBAR_ITEMS = {"constant":[["Absent","0b0: Absent"],["Present","0b1: Present"]]};

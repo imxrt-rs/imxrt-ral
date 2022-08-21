@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SRTC","LP Secure Real Time Counter least-significant 32 bits This register can be programmed only when SRTC is not active and not locked, meaning the SRTC_ENV, SRTC_SL, and SRTC_HL bits are not set"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SRTC","LP Secure Real Time Counter least-significant 32 bits This register can be programmed only when SRTC is not active and not locked, meaning the SRTC_ENV, SRTC_SL, and SRTC_HL bits are not set"]]};

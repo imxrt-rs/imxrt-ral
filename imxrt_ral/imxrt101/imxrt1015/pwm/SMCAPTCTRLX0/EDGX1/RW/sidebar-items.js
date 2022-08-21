@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EDGX1_0","0b00: Disabled"],["EDGX1_1","0b01: Capture falling edges"],["EDGX1_2","0b10: Capture rising edges"],["EDGX1_3","0b11: Capture any edge"]]});
+window.SIDEBAR_ITEMS = {"constant":[["EDGX1_0","0b00: Disabled"],["EDGX1_1","0b01: Capture falling edges"],["EDGX1_2","0b10: Capture rising edges"],["EDGX1_3","0b11: Capture any edge"]]};

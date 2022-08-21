@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WDOG1","Raw pointer to WDOG1"],["WDOG2","Raw pointer to WDOG2"]],"struct":[["WDOG1","The WDOG1 peripheral instance."],["WDOG2","The WDOG2 peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WDOG1","Raw pointer to WDOG1"],["WDOG2","Raw pointer to WDOG2"]],"struct":[["WDOG1","The WDOG1 peripheral instance."],["WDOG2","The WDOG2 peripheral instance."]]};

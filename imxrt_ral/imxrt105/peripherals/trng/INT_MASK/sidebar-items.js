@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ENT_VAL","Same behavior as bit 0 of this register."],["FRQ_CT_FAIL","Same behavior as bit 0 of this register."],["HW_ERR","Bit position that can be cleared if corresponding bit of INT_STATUS has been asserted."]]});
+window.SIDEBAR_ITEMS = {"mod":[["ENT_VAL","Same behavior as bit 0 of this register."],["FRQ_CT_FAIL","Same behavior as bit 0 of this register."],["HW_ERR","Bit position that can be cleared if corresponding bit of INT_STATUS has been asserted."]]};

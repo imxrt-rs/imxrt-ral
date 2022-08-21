@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OVER_CUR_DIS_0","0b0: Enables overcurrent detection"],["OVER_CUR_DIS_1","0b1: Disables overcurrent detection"]]});
+window.SIDEBAR_ITEMS = {"constant":[["OVER_CUR_DIS_0","0b0: Enables overcurrent detection"],["OVER_CUR_DIS_1","0b1: Disables overcurrent detection"]]};

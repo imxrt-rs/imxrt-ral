@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RXADD","Buffer total size for all receive endpoints is (2^RXADD)"],["RXBURST","Default burst size for memory to RX buffer transfer"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RXADD","Buffer total size for all receive endpoints is (2^RXADD)"],["RXBURST","Default burst size for memory to RX buffer transfer"]]};

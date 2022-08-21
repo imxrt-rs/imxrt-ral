@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TCC","Timer Capture Compare"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TCC","Timer Capture Compare"]]};

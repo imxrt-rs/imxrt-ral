@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["VS30_0","0b0: 3.0V not supported"],["VS30_1","0b1: 3.0V supported"]]});
+window.SIDEBAR_ITEMS = {"constant":[["VS30_0","0b0: 3.0V not supported"],["VS30_1","0b1: 3.0V supported"]]};

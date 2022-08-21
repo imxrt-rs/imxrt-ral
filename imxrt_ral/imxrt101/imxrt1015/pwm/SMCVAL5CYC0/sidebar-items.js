@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CVAL5CYC","CVAL5CYC"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CVAL5CYC","CVAL5CYC"]]};

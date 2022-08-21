@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["BA","Base Address"],["MS","Memory size"],["VLD","Valid"]]});
+window.SIDEBAR_ITEMS = {"mod":[["BA","Base Address"],["MS","Memory size"],["VLD","Valid"]]};

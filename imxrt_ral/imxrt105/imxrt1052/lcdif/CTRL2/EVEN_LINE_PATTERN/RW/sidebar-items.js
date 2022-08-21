@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BGR","0b101: BGR"],["BRG","0b100: BRG"],["GBR","0b010: GBR"],["GRB","0b011: GRB"],["RBG","0b001: RBG"],["RGB","0b000: RGB"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BGR","0b101: BGR"],["BRG","0b100: BRG"],["GBR","0b010: GBR"],["GRB","0b011: GRB"],["RBG","0b001: RBG"],["RGB","0b000: RGB"]]};

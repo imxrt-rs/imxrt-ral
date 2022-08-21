@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HPC_USDHC1_0","0b0: User mode for the corresponding master"],["HPC_USDHC1_1","0b1: Supervisor mode for the corresponding master"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HPC_USDHC1_0","0b0: User mode for the corresponding master"],["HPC_USDHC1_1","0b1: Supervisor mode for the corresponding master"]]};

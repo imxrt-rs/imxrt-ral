@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["imxrt1011","Register access layer for imxrt1011"],["imxrt1015","Register access layer for imxrt1015"],["peripherals","Peripherals shared by multiple devices"]]});
+window.SIDEBAR_ITEMS = {"mod":[["imxrt1011","Register access layer for imxrt1011"],["imxrt1015","Register access layer for imxrt1015"],["peripherals","Peripherals shared by multiple devices"]]};

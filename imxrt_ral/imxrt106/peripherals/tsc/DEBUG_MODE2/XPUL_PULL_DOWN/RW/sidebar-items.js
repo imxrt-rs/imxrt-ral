@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["XPUL_PULL_DOWN_0","0b0: Close the switch"],["XPUL_PULL_DOWN_1","0b1: Open up the switch"]]});
+window.SIDEBAR_ITEMS = {"constant":[["XPUL_PULL_DOWN_0","0b0: Close the switch"],["XPUL_PULL_DOWN_1","0b1: Open up the switch"]]};

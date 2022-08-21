@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GPIO_EMC_02_ALT4","0b00: Selecting Pad: GPIO_EMC_02 for Mode: ALT4"],["GPIO_EMC_12_ALT4","0b01: Selecting Pad: GPIO_EMC_12 for Mode: ALT4"],["GPIO_SD_B1_08_ALT4","0b10: Selecting Pad: GPIO_SD_B1_08 for Mode: ALT4"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GPIO_EMC_02_ALT4","0b00: Selecting Pad: GPIO_EMC_02 for Mode: ALT4"],["GPIO_EMC_12_ALT4","0b01: Selecting Pad: GPIO_EMC_12 for Mode: ALT4"],["GPIO_SD_B1_08_ALT4","0b10: Selecting Pad: GPIO_SD_B1_08 for Mode: ALT4"]]};

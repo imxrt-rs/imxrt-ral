@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CIPHER_ALGORITHMS","One-hot field indicating which cipher algorithms are available"],["HASH_ALGORITHMS","One-hot field indicating which hashing features are implemented in the hardware"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CIPHER_ALGORITHMS","One-hot field indicating which cipher algorithms are available"],["HASH_ALGORITHMS","One-hot field indicating which hashing features are implemented in the hardware"]]};

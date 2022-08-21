@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BOTHEDGE_0","0b0: Receiver samples input data using the rising edge of the baud rate clock."],["BOTHEDGE_1","0b1: Receiver samples input data using the rising and falling edge of the baud rate clock."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BOTHEDGE_0","0b0: Receiver samples input data using the rising edge of the baud rate clock."],["BOTHEDGE_1","0b1: Receiver samples input data using the rising and falling edge of the baud rate clock."]]};

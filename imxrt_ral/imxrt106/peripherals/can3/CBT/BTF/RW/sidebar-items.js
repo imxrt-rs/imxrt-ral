@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BTF_0","0b0: Extended bit time definitions disabled."],["BTF_1","0b1: Extended bit time definitions enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BTF_0","0b0: Extended bit time definitions disabled."],["BTF_1","0b1: Extended bit time definitions enabled."]]};

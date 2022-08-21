@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PKR_C_CT","Poker Ch Count"],["PKR_D_CT","Poker Dh Count"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PKR_C_CT","Poker Ch Count"],["PKR_D_CT","Poker Dh Count"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["GDIR","GDIR"]]});
+window.SIDEBAR_ITEMS = {"mod":[["GDIR","GDIR"]]};

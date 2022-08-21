@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SAI2_CLK_PODF","Divider for sai2 clock podf. The input clock to this divider should be lower than 300Mhz, the predivider can be used to achieve this."],["SAI2_CLK_PRED","Divider for sai2 clock pred.Divider should be updated when output clock is gated."]]});
+window.SIDEBAR_ITEMS = {"mod":[["SAI2_CLK_PODF","Divider for sai2 clock podf. The input clock to this divider should be lower than 300Mhz, the predivider can be used to achieve this."],["SAI2_CLK_PRED","Divider for sai2 clock pred.Divider should be updated when output clock is gated."]]};

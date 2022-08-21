@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PDRAM0_PGE_0","0b0: FlexRAM PDRAM0 domain will keep power even if the CPU core is powered down."],["PDRAM0_PGE_1","0b1: FlexRAM PDRAM0 domain will be powered down when the CPU core is powered down.."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PDRAM0_PGE_0","0b0: FlexRAM PDRAM0 domain will keep power even if the CPU core is powered down."],["PDRAM0_PGE_1","0b1: FlexRAM PDRAM0 domain will be powered down when the CPU core is powered down.."]]};

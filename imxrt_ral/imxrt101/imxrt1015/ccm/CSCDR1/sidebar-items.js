@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TRACE_PODF","Divider for trace clock. Divider should be updated when output clock is gated."],["UART_CLK_PODF","Divider for uart clock podf."],["UART_CLK_SEL","Selector for the UART clock multiplexor"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TRACE_PODF","Divider for trace clock. Divider should be updated when output clock is gated."],["UART_CLK_PODF","Divider for uart clock podf."],["UART_CLK_SEL","Selector for the UART clock multiplexor"]]};

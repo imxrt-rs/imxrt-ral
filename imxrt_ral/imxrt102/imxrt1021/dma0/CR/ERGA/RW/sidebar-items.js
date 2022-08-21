@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ERGA_0","0b0: Fixed priority arbitration is used for selection among the groups."],["ERGA_1","0b1: Round robin arbitration is used for selection among the groups."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ERGA_0","0b0: Fixed priority arbitration is used for selection among the groups."],["ERGA_1","0b1: Round robin arbitration is used for selection among the groups."]]};

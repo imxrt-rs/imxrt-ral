@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["INIT","Initial Count Register Bits"]]});
+window.SIDEBAR_ITEMS = {"mod":[["INIT","Initial Count Register Bits"]]};

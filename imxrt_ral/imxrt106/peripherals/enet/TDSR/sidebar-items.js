@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["X_DES_START","Pointer to the beginning of the transmit buffer descriptor queue."]]});
+window.SIDEBAR_ITEMS = {"mod":[["X_DES_START","Pointer to the beginning of the transmit buffer descriptor queue."]]};

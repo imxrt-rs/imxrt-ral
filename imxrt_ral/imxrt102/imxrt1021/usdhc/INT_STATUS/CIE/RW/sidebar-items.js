@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CIE_0","0b0: No Error"],["CIE_1","0b1: Error"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CIE_0","0b0: No Error"],["CIE_1","0b1: Error"]]};

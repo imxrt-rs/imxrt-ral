@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["mask","Mask (5 bits: 0b11111 << 27)"],["offset","Offset (27 bits)"]],"mod":[["R","Read-only values (empty)"],["RW","Read-write values (empty)"],["W","Write-only values (empty)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["mask","Mask (5 bits: 0b11111 << 27)"],["offset","Offset (27 bits)"]],"mod":[["R","Read-only values (empty)"],["RW","Read-write values (empty)"],["W","Write-only values (empty)"]]};

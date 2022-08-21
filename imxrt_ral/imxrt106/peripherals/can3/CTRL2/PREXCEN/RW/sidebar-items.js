@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PREXCEN_0","0b0: Protocol Exception is disabled."],["PREXCEN_1","0b1: Protocol Exception is enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PREXCEN_0","0b0: Protocol Exception is disabled."],["PREXCEN_1","0b1: Protocol Exception is enabled."]]};

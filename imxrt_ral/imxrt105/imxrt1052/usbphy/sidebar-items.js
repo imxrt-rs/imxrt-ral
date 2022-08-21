@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USBPHY1","Raw pointer to USBPHY1"],["USBPHY2","Raw pointer to USBPHY2"]],"struct":[["USBPHY1","The USBPHY1 peripheral instance."],["USBPHY2","The USBPHY2 peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["USBPHY1","Raw pointer to USBPHY1"],["USBPHY2","Raw pointer to USBPHY2"]],"struct":[["USBPHY1","The USBPHY1 peripheral instance."],["USBPHY2","The USBPHY2 peripheral instance."]]};

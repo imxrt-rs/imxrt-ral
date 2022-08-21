@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IDLE_0","0b0: No such occurrence."],["IDLE_1","0b1: CAN bus is now IDLE."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IDLE_0","0b0: No such occurrence."],["IDLE_1","0b1: CAN bus is now IDLE."]]};

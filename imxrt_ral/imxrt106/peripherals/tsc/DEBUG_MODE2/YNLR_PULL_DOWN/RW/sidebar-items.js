@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["YNLR_PULL_DOWN_0","0b0: Close the switch"],["YNLR_PULL_DOWN_1","0b1: Open up the switch"]]});
+window.SIDEBAR_ITEMS = {"constant":[["YNLR_PULL_DOWN_0","0b0: Close the switch"],["YNLR_PULL_DOWN_1","0b1: Open up the switch"]]};

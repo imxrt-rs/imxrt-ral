@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IDLE_0","0b0: No idle line detected."],["IDLE_1","0b1: Idle line was detected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IDLE_0","0b0: No idle line detected."],["IDLE_1","0b1: Idle line was detected."]]};

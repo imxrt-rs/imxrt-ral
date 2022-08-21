@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CHN","Chain Mode"],["TEN","Timer Enable"],["TIE","Timer Interrupt Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CHN","Chain Mode"],["TEN","Timer Enable"],["TIE","Timer Interrupt Enable"]]};

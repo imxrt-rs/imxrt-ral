@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TXINV_0","0b0: Transmit data not inverted."],["TXINV_1","0b1: Transmit data inverted."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TXINV_0","0b0: Transmit data not inverted."],["TXINV_1","0b1: Transmit data inverted."]]};

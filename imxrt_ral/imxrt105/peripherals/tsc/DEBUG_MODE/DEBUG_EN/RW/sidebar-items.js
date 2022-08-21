@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DEBUG_EN_0","0b0: Enable debug mode"],["DEBUG_EN_1","0b1: Disable debug mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DEBUG_EN_0","0b0: Enable debug mode"],["DEBUG_EN_1","0b1: Disable debug mode"]]};

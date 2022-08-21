@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ACMP2_CMP_IGEN_TRIM_DN_0","0b0: no reduce"],["ACMP2_CMP_IGEN_TRIM_DN_1","0b1: reduces"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ACMP2_CMP_IGEN_TRIM_DN_0","0b0: no reduce"],["ACMP2_CMP_IGEN_TRIM_DN_1","0b1: reduces"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MA2F_0","0b0: Received data is not equal to MA2"],["MA2F_1","0b1: Received data is equal to MA2"]]});
+window.SIDEBAR_ITEMS = {"constant":[["MA2F_0","0b0: Received data is not equal to MA2"],["MA2F_1","0b1: Received data is equal to MA2"]]};

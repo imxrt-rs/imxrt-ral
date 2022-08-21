@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DBE_0","0b0: No destination bus error"],["DBE_1","0b1: The last recorded error was a bus error on a destination write"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DBE_0","0b0: No destination bus error"],["DBE_1","0b1: The last recorded error was a bus error on a destination write"]]};

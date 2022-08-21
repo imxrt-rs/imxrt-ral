@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DR_SET","DR_SET"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DR_SET","DR_SET"]]};

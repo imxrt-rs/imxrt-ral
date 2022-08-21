@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OCRAM_WR_RD_SEL_0","0b0: When OCRAM read access hits magic address, it will generate interrupt."],["OCRAM_WR_RD_SEL_1","0b1: When OCRAM write access hits magic address, it will generate interrupt."]]});
+window.SIDEBAR_ITEMS = {"constant":[["OCRAM_WR_RD_SEL_0","0b0: When OCRAM read access hits magic address, it will generate interrupt."],["OCRAM_WR_RD_SEL_1","0b1: When OCRAM write access hits magic address, it will generate interrupt."]]};

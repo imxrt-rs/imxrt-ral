@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["WAGE","Weight of Aging"],["WBR","Weight of Bank Rotation"],["WPH","Weight of Page Hit"],["WQOS","Weight of QoS"],["WRWS","Weight of Read/Write switch"]]});
+window.SIDEBAR_ITEMS = {"mod":[["WAGE","Weight of Aging"],["WBR","Weight of Bank Rotation"],["WPH","Weight of Page Hit"],["WQOS","Weight of QoS"],["WRWS","Weight of Read/Write switch"]]};

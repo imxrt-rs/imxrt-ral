@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PEIE_0","0b0: PF interrupts disabled; use polling)."],["PEIE_1","0b1: Hardware interrupt requested when PF is set."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PEIE_0","0b0: PF interrupts disabled; use polling)."],["PEIE_1","0b1: Hardware interrupt requested when PF is set."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["INC","Clock Period Of The Timestamping Clock (ts_clk) In Nanoseconds"],["INC_CORR","Correction Increment Value"]]});
+window.SIDEBAR_ITEMS = {"mod":[["INC","Clock Period Of The Timestamping Clock (ts_clk) In Nanoseconds"],["INC_CORR","Correction Increment Value"]]};

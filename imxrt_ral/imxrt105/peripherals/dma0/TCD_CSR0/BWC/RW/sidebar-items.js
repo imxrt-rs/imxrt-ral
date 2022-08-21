@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BWC_0","0b00: No eDMA engine stalls."],["BWC_2","0b10: eDMA engine stalls for 4 cycles after each R/W."],["BWC_3","0b11: eDMA engine stalls for 8 cycles after each R/W."]]});
+window.SIDEBAR_ITEMS = {"constant":[["BWC_0","0b00: No eDMA engine stalls."],["BWC_2","0b10: eDMA engine stalls for 4 cycles after each R/W."],["BWC_3","0b11: eDMA engine stalls for 8 cycles after each R/W."]]};

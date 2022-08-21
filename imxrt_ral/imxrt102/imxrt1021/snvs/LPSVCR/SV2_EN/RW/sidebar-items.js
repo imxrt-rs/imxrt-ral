@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SV2_EN_0","0b0: Security Violation 2 is disabled in the LP domain."],["SV2_EN_1","0b1: Security Violation 2 is enabled in the LP domain."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SV2_EN_0","0b0: Security Violation 2 is disabled in the LP domain."],["SV2_EN_1","0b1: Security Violation 2 is enabled in the LP domain."]]};

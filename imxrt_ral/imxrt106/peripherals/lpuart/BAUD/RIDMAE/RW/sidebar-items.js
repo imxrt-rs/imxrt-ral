@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RIDMAE_0","0b0: DMA request disabled."],["RIDMAE_1","0b1: DMA request enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["RIDMAE_0","0b0: DMA request disabled."],["RIDMAE_1","0b1: DMA request enabled."]]};

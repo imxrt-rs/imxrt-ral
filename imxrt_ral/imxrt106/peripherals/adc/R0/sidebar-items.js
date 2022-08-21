@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CDATA","Data (result of an ADC conversion)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CDATA","Data (result of an ADC conversion)"]]};

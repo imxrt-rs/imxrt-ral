@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["REGION1_TOP","Address upper limit of region1"]]});
+window.SIDEBAR_ITEMS = {"mod":[["REGION1_TOP","Address upper limit of region1"]]};

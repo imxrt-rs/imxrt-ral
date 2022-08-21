@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["REGION1_BOT","Address lower limit of region1"]]});
+window.SIDEBAR_ITEMS = {"mod":[["REGION1_BOT","Address lower limit of region1"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXIO1_STOP_ACK_0","0b0: FLEXIO1 stop acknowledge is not asserted"],["FLEXIO1_STOP_ACK_1","0b1: FLEXIO1 stop acknowledge is asserted"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLEXIO1_STOP_ACK_0","0b0: FLEXIO1 stop acknowledge is not asserted"],["FLEXIO1_STOP_ACK_1","0b1: FLEXIO1 stop acknowledge is asserted"]]};

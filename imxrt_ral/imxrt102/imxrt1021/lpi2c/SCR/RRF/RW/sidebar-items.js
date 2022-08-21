@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RRF_0","0b0: No effect"],["RRF_1","0b1: Receive Data Register is now empty"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RRF_0","0b0: No effect"],["RRF_1","0b1: Receive Data Register is now empty"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PKR_MAX","Poker Maximum Limit."],["PKR_SQ","Poker Square Calculation Result."]]});
+window.SIDEBAR_ITEMS = {"mod":[["PKR_MAX","Poker Maximum Limit."],["PKR_SQ","Poker Square Calculation Result."]]};

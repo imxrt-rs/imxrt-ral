@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RSVD1","Reserved, always set to zero."],["RSVD2","Reserved, always set to zero."],["XSCALE","This is a two bit integer and 12 bit fractional representation (##"],["YSCALE","This is a two bit integer and 12 bit fractional representation (##"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RSVD1","Reserved, always set to zero."],["RSVD2","Reserved, always set to zero."],["XSCALE","This is a two bit integer and 12 bit fractional representation (##"],["YSCALE","This is a two bit integer and 12 bit fractional representation (##"]]};

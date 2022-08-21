@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ALT1","0b001: Select mux mode: ALT1 mux port: FLEXSPI_B_SCLK of instance: flexspi"],["ALT3","0b011: Select mux mode: ALT3 mux port: FLEXSPI_A_SS1_B of instance: flexspi"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO3_IO21 of instance: gpio3"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ALT1","0b001: Select mux mode: ALT1 mux port: FLEXSPI_B_SCLK of instance: flexspi"],["ALT3","0b011: Select mux mode: ALT3 mux port: FLEXSPI_A_SS1_B of instance: flexspi"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO3_IO21 of instance: gpio3"]]};

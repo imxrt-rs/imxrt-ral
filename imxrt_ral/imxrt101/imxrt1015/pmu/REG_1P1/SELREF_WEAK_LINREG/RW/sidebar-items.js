@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SELREF_WEAK_LINREG_0","0b0: Weak-linreg output tracks low-power-bandgap voltage"],["SELREF_WEAK_LINREG_1","0b1: Weak-linreg output tracks VDD_SOC_IN voltage"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SELREF_WEAK_LINREG_0","0b0: Weak-linreg output tracks low-power-bandgap voltage"],["SELREF_WEAK_LINREG_1","0b1: Weak-linreg output tracks VDD_SOC_IN voltage"]]};

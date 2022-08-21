@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["BCD","Bit Clock Direction"],["BCI","Bit Clock Input"],["BCP","Bit Clock Polarity"],["BCS","Bit Clock Swap"],["DIV","Bit Clock Divide"],["MSEL","MCLK Select"],["SYNC","Synchronous Mode"]]});
+window.SIDEBAR_ITEMS = {"mod":[["BCD","Bit Clock Direction"],["BCI","Bit Clock Input"],["BCP","Bit Clock Polarity"],["BCS","Bit Clock Swap"],["DIV","Bit Clock Divide"],["MSEL","MCLK Select"],["SYNC","Synchronous Mode"]]};

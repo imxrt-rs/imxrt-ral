@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FILTEN_0","0b0: Disable digital filter and output delay counter for slave mode"],["FILTEN_1","0b1: Enable digital filter and output delay counter for slave mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FILTEN_0","0b0: Disable digital filter and output delay counter for slave mode"],["FILTEN_1","0b1: Enable digital filter and output delay counter for slave mode"]]};

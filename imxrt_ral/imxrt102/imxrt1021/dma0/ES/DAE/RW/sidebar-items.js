@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DAE_0","0b0: No destination address configuration error"],["DAE_1","0b1: The last recorded error was a configuration error detected in the TCDn_DADDR field. TCDn_DADDR is inconsistent with TCDn_ATTR[DSIZE]."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DAE_0","0b0: No destination address configuration error"],["DAE_1","0b1: The last recorded error was a configuration error detected in the TCDn_DADDR field. TCDn_DADDR is inconsistent with TCDn_ATTR[DSIZE]."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MOD_EN_USDHC_0","0b0: don’t override module enable signal"],["MOD_EN_USDHC_1","0b1: override module enable signal"]]});
+window.SIDEBAR_ITEMS = {"constant":[["MOD_EN_USDHC_0","0b0: don’t override module enable signal"],["MOD_EN_USDHC_1","0b1: override module enable signal"]]};

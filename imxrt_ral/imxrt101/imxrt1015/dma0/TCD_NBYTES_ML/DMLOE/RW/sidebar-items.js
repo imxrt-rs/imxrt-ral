@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMLOE_0","0b0: The minor loop offset is not applied to the DADDR"],["DMLOE_1","0b1: The minor loop offset is applied to the DADDR"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DMLOE_0","0b0: The minor loop offset is not applied to the DADDR"],["DMLOE_1","0b1: The minor loop offset is applied to the DADDR"]]};

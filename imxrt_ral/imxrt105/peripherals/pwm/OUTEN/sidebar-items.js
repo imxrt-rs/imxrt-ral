@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PWMA_EN","PWM_A Output Enables"],["PWMB_EN","PWM_B Output Enables"],["PWMX_EN","PWM_X Output Enables"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PWMA_EN","PWM_A Output Enables"],["PWMB_EN","PWM_B Output Enables"],["PWMX_EN","PWM_X Output Enables"]]};

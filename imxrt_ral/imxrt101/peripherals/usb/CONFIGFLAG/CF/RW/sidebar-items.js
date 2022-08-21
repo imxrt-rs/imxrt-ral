@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CF_0","0b0: Port routing control logic default-routes each port to an implementation dependent classic host controller."],["CF_1","0b1: Port routing control logic default-routes all ports to this host controller."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CF_0","0b0: Port routing control logic default-routes each port to an implementation dependent classic host controller."],["CF_1","0b1: Port routing control logic default-routes all ports to this host controller."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TXCFG_0","0b0: Transmit Data Flag will only assert during a slave-transmit transfer when the Transmit Data register is empty"],["TXCFG_1","0b1: Transmit Data Flag will assert whenever the Transmit Data register is empty"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TXCFG_0","0b0: Transmit Data Flag will only assert during a slave-transmit transfer when the Transmit Data register is empty"],["TXCFG_1","0b1: Transmit Data Flag will assert whenever the Transmit Data register is empty"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRZACK_0","0b0: FlexCAN not in Freeze mode, prescaler running."],["FRZACK_1","0b1: FlexCAN in Freeze mode, prescaler stopped."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRZACK_0","0b0: FlexCAN not in Freeze mode, prescaler running."],["FRZACK_1","0b1: FlexCAN in Freeze mode, prescaler stopped."]]};

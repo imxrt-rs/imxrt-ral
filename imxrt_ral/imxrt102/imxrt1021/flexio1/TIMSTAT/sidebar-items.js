@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TSF","Timer Status Flags"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TSF","Timer Status Flags"]]};

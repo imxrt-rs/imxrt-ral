@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SAI3_MCLK3_SEL_0","0b00: ccm.spdif0_clk_root"],["SAI3_MCLK3_SEL_1","0b01: SPDIF_EXT_CLK"],["SAI3_MCLK3_SEL_2","0b10: spdif.spdif_srclk"],["SAI3_MCLK3_SEL_3","0b11: spdif.spdif_outclock"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SAI3_MCLK3_SEL_0","0b00: ccm.spdif0_clk_root"],["SAI3_MCLK3_SEL_1","0b01: SPDIF_EXT_CLK"],["SAI3_MCLK3_SEL_2","0b10: spdif.spdif_srclk"],["SAI3_MCLK3_SEL_3","0b11: spdif.spdif_outclock"]]};

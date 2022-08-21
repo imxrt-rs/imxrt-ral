@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BUF31TO8I_0","0b000000000000000000000000: No such occurrence"],["BUF31TO8I_1","0b000000000000000000000001: The corresponding MB has successfully completed transmission or reception"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BUF31TO8I_0","0b000000000000000000000000: No such occurrence"],["BUF31TO8I_1","0b000000000000000000000001: The corresponding MB has successfully completed transmission or reception"]]};

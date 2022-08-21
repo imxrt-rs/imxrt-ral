@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CAMP2_READY","Status indication of CAMP2."],["COSC_READY","Status indication of on board oscillator"],["REF_EN_B","Status of the value of CCM_REF_EN_B output of ccm"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CAMP2_READY","Status indication of CAMP2."],["COSC_READY","Status indication of on board oscillator"],["REF_EN_B","Status of the value of CCM_REF_EN_B output of ccm"]]};

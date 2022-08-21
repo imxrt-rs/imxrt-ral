@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FE_0","0b0: No framing error detected. This does not guarantee the framing is correct."],["FE_1","0b1: Framing error."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FE_0","0b0: No framing error detected. This does not guarantee the framing is correct."],["FE_1","0b1: Framing error."]]};

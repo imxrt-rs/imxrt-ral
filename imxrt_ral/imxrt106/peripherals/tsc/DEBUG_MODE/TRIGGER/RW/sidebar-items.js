@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TRIGGER_0","0b0: No hardware trigger signal"],["TRIGGER_1","0b1: Hardware trigger signal, the signal must last at least 1 ips clock period"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TRIGGER_0","0b0: No hardware trigger signal"],["TRIGGER_1","0b1: Hardware trigger signal, the signal must last at least 1 ips clock period"]]};

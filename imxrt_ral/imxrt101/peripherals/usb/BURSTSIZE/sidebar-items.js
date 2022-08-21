@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RXPBURST","Programmable RX Burst Size"],["TXPBURST","Programmable TX Burst Size"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RXPBURST","Programmable RX Burst Size"],["TXPBURST","Programmable TX Burst Size"]]};

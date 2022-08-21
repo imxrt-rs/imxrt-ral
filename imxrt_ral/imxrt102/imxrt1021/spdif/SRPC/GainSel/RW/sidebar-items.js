@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GainSel_0","0b000: 24*(2**10)"],["GainSel_1","0b001: 16*(2**10)"],["GainSel_2","0b010: 12*(2**10)"],["GainSel_3","0b011: 8*(2**10)"],["GainSel_4","0b100: 6*(2**10)"],["GainSel_5","0b101: 4*(2**10)"],["GainSel_6","0b110: 3*(2**10)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GainSel_0","0b000: 24*(2**10)"],["GainSel_1","0b001: 16*(2**10)"],["GainSel_2","0b010: 12*(2**10)"],["GainSel_3","0b011: 8*(2**10)"],["GainSel_4","0b100: 6*(2**10)"],["GainSel_5","0b101: 4*(2**10)"],["GainSel_6","0b110: 3*(2**10)"]]};

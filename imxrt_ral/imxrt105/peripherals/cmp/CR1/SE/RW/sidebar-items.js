@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SE_0","0b0: Sampling mode is not selected."],["SE_1","0b1: Sampling mode is selected."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SE_0","0b0: Sampling mode is not selected."],["SE_1","0b1: Sampling mode is selected."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BEF_0","0b0: Slave has not detected a bit error"],["BEF_1","0b1: Slave has detected a bit error"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BEF_0","0b0: Slave has not detected a bit error"],["BEF_1","0b1: Slave has detected a bit error"]]};

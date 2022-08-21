@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["STATE","Current State Pointer"]]});
+window.SIDEBAR_ITEMS = {"mod":[["STATE","Current State Pointer"]]};

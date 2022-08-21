@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IEN0_0","0b0: Interrupt disabled"],["IEN0_1","0b1: Interrupt enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["IEN0_0","0b0: Interrupt disabled"],["IEN0_1","0b1: Interrupt enabled"]]};

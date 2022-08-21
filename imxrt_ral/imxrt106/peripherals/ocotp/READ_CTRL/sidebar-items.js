@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["READ_FUSE","READ_FUSE"],["RSVD0","RSVD0"]]});
+window.SIDEBAR_ITEMS = {"mod":[["READ_FUSE","READ_FUSE"],["RSVD0","RSVD0"]]};

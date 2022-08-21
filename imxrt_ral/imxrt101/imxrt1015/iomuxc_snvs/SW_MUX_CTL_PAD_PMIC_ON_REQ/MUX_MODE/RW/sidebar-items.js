@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ALT0","0b000: Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: snvs_lp"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO5_IO01 of instance: gpio5"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ALT0","0b000: Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: snvs_lp"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO5_IO01 of instance: gpio5"]]};

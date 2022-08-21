@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["OCRAM_MAGIC_ADDR","OCRAM Magic Address"],["OCRAM_WR_RD_SEL","OCRAM Write Read Select"]]});
+window.SIDEBAR_ITEMS = {"mod":[["OCRAM_MAGIC_ADDR","OCRAM Magic Address"],["OCRAM_WR_RD_SEL","OCRAM Write Read Select"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SCKFREERUNEN_0","0b0: Disable."],["SCKFREERUNEN_1","0b1: Enable."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SCKFREERUNEN_0","0b0: Disable."],["SCKFREERUNEN_1","0b1: Enable."]]};

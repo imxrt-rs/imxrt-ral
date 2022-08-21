@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TSTOP_0","0b00: Stop bit disabled"],["TSTOP_1","0b01: Stop bit is enabled on timer compare"],["TSTOP_2","0b10: Stop bit is enabled on timer disable"],["TSTOP_3","0b11: Stop bit is enabled on timer compare and timer disable"]]});
+window.SIDEBAR_ITEMS = {"constant":[["TSTOP_0","0b00: Stop bit disabled"],["TSTOP_1","0b01: Stop bit is enabled on timer compare"],["TSTOP_2","0b10: Stop bit is enabled on timer disable"],["TSTOP_3","0b11: Stop bit is enabled on timer compare and timer disable"]]};

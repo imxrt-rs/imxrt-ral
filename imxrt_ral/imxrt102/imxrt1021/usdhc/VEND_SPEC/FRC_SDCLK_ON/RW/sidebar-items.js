@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRC_SDCLK_ON_0","0b0: CLK active or inactive is fully controlled by the hardware."],["FRC_SDCLK_ON_1","0b1: Force CLK active."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRC_SDCLK_ON_0","0b0: CLK active or inactive is fully controlled by the hardware."],["FRC_SDCLK_ON_1","0b1: Force CLK active."]]};

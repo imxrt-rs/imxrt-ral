@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SSF","Shifter Status Flag"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SSF","Shifter Status Flag"]]};

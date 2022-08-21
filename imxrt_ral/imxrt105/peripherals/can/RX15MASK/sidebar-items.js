@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RX15M","These bits mask Mailbox 15 filter bits in the same fashion as RXMGMASK masks other Mailboxes filters (see RXMGMASKRx Mailboxes Global Mask Register )"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RX15M","These bits mask Mailbox 15 filter bits in the same fashion as RXMGMASK masks other Mailboxes filters (see RXMGMASKRx Mailboxes Global Mask Register )"]]};

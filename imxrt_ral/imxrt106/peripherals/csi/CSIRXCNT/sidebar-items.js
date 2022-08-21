@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RXCNT","RxFIFO Count"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RXCNT","RxFIFO Count"]]};

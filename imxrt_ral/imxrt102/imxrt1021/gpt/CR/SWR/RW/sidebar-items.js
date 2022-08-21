@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SWR_0","0b0: GPT is not in reset state"],["SWR_1","0b1: GPT is in reset state"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SWR_0","0b0: GPT is not in reset state"],["SWR_1","0b1: GPT is in reset state"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DR_TOGGLE","DR_TOGGLE"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DR_TOGGLE","DR_TOGGLE"]]};

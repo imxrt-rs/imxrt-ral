@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DLASTSGA","DLASTSGA"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DLASTSGA","DLASTSGA"]]};

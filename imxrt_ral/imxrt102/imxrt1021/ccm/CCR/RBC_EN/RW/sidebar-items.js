@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RBC_EN_0","0b0: REG_BYPASS_COUNTER disabled"],["RBC_EN_1","0b1: REG_BYPASS_COUNTER enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["RBC_EN_0","0b0: REG_BYPASS_COUNTER disabled"],["RBC_EN_1","0b1: REG_BYPASS_COUNTER enabled."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MOD_EN_OV_CAN1_CPI_0","0b0: don’t overide module enable signal"],["MOD_EN_OV_CAN1_CPI_1","0b1: overide module enable signal"]]});
+window.SIDEBAR_ITEMS = {"constant":[["MOD_EN_OV_CAN1_CPI_0","0b0: don’t overide module enable signal"],["MOD_EN_OV_CAN1_CPI_1","0b1: overide module enable signal"]]};

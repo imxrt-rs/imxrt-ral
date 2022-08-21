@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["VSYNC_PERIOD","Total number of units between two positive or two negative edges of the VSYNC signal"]]});
+window.SIDEBAR_ITEMS = {"mod":[["VSYNC_PERIOD","Total number of units between two positive or two negative edges of the VSYNC signal"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TX_ALMOST_EMPTY","Value of Transmit FIFO Almost Empty Threshold"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TX_ALMOST_EMPTY","Value of Transmit FIFO Almost Empty Threshold"]]};

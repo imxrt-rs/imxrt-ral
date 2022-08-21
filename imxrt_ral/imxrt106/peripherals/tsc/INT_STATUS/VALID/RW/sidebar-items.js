@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["VALID_0","0b0: There is no touch detected after measurement, indicates that the measured value is not valid"],["VALID_1","0b1: There is touch detection after measurement, indicates that the measure is valid"]]});
+window.SIDEBAR_ITEMS = {"constant":[["VALID_0","0b0: There is no touch detected after measurement, indicates that the measured value is not valid"],["VALID_1","0b1: There is touch detection after measurement, indicates that the measure is valid"]]};

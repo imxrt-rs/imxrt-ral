@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PKE_0_Pull_Keeper_Disabled","0b0: Pull/Keeper Disabled"],["PKE_1_Pull_Keeper_Enabled","0b1: Pull/Keeper Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PKE_0_Pull_Keeper_Disabled","0b0: Pull/Keeper Disabled"],["PKE_1_Pull_Keeper_Enabled","0b1: Pull/Keeper Enabled"]]};

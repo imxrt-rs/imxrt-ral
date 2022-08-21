@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["REFTOP_SELFBIASOFF_0","0b0: Uses coarse bias currents for startup"],["REFTOP_SELFBIASOFF_1","0b1: Uses bandgap-based bias currents for best performance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["REFTOP_SELFBIASOFF_0","0b0: Uses coarse bias currents for startup"],["REFTOP_SELFBIASOFF_1","0b1: Uses bandgap-based bias currents for best performance."]]};

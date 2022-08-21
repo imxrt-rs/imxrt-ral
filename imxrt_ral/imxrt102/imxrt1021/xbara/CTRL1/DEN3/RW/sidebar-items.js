@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DEN3_0","0b0: DMA disabled"],["DEN3_1","0b1: DMA enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DEN3_0","0b0: DMA disabled"],["DEN3_1","0b1: DMA enabled"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CAN_CLK_SEL_0","0b00: derive clock from pll3_sw_clk divided clock (60M)"],["CAN_CLK_SEL_1","0b01: derive clock from osc_clk (24M)"],["CAN_CLK_SEL_2","0b10: derive clock from pll3_sw_clk divided clock (80M)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CAN_CLK_SEL_0","0b00: derive clock from pll3_sw_clk divided clock (60M)"],["CAN_CLK_SEL_1","0b01: derive clock from osc_clk (24M)"],["CAN_CLK_SEL_2","0b10: derive clock from pll3_sw_clk divided clock (80M)"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["EEI19_0","0b0: The error signal for corresponding channel does not generate an error interrupt"],["EEI19_1","0b1: The assertion of the error signal for corresponding channel generates an error interrupt request"]]});
+window.SIDEBAR_ITEMS = {"constant":[["EEI19_0","0b0: The error signal for corresponding channel does not generate an error interrupt"],["EEI19_1","0b1: The assertion of the error signal for corresponding channel generates an error interrupt request"]]};

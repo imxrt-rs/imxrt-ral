@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OVER_CUR_POL_0","0b0: High active (high on this signal represents an overcurrent condition)"],["OVER_CUR_POL_1","0b1: Low active (low on this signal represents an overcurrent condition)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["OVER_CUR_POL_0","0b0: High active (high on this signal represents an overcurrent condition)"],["OVER_CUR_POL_1","0b1: Low active (low on this signal represents an overcurrent condition)"]]};

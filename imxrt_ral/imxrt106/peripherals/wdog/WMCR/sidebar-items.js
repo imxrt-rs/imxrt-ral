@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PDE","PDE"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PDE","PDE"]]};

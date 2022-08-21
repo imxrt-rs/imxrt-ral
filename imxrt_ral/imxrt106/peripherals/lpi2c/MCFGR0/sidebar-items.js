@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CIRFIFO","Circular FIFO Enable"],["HREN","Host Request Enable"],["HRPOL","Host Request Polarity"],["HRSEL","Host Request Select"],["RDMO","Receive Data Match Only"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CIRFIFO","Circular FIFO Enable"],["HREN","Host Request Enable"],["HRPOL","Host Request Polarity"],["HRSEL","Host Request Select"],["RDMO","Receive Data Match Only"]]};

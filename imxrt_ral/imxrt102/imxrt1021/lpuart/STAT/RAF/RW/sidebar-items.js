@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RAF_0","0b0: LPUART receiver idle waiting for a start bit."],["RAF_1","0b1: LPUART receiver active (RXD input not idle)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["RAF_0","0b0: LPUART receiver idle waiting for a start bit."],["RAF_1","0b1: LPUART receiver active (RXD input not idle)."]]};

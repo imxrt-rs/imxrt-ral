@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SDIE_0","0b0: Disabled"],["SDIE_1","0b1: Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SDIE_0","0b0: Disabled"],["SDIE_1","0b1: Enabled"]]};

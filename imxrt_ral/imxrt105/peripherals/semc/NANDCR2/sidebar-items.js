@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["TADL","ALE to WRITE Data start wait time"],["TRHW","RE# HIGH to WE# LOW wait time"],["TRR","Ready to RE# LOW min wait time"],["TWB","WE# HIGH to busy wait time"],["TWHR","WE# HIGH to RE# LOW wait time"]]});
+window.SIDEBAR_ITEMS = {"mod":[["TADL","ALE to WRITE Data start wait time"],["TRHW","RE# HIGH to WE# LOW wait time"],["TRR","Ready to RE# LOW min wait time"],["TWB","WE# HIGH to busy wait time"],["TWHR","WE# HIGH to RE# LOW wait time"]]};

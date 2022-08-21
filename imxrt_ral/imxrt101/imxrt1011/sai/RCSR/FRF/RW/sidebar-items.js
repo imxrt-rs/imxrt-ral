@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRF_0","0b0: Receive FIFO watermark not reached."],["FRF_1","0b1: Receive FIFO watermark has been reached."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRF_0","0b0: Receive FIFO watermark not reached."],["FRF_1","0b1: Receive FIFO watermark has been reached."]]};

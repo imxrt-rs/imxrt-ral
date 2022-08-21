@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DR_CLEAR","DR_CLEAR"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DR_CLEAR","DR_CLEAR"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["IMR2","IRQ[63:32] masking bits: 1-irq masked, 0-irq is not masked"]]});
+window.SIDEBAR_ITEMS = {"mod":[["IMR2","IRQ[63:32] masking bits: 1-irq masked, 0-irq is not masked"]]};

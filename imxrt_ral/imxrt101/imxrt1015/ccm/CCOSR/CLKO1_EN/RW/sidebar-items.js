@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CLKO1_EN_0","0b0: CCM_CLKO1 disabled."],["CLKO1_EN_1","0b1: CCM_CLKO1 enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CLKO1_EN_0","0b0: CCM_CLKO1 disabled."],["CLKO1_EN_1","0b1: CCM_CLKO1 enabled."]]};

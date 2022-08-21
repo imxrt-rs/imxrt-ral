@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LBUF_0","0b0: Buffer with highest priority is transmitted first."],["LBUF_1","0b1: Lowest number buffer is transmitted first."]]});
+window.SIDEBAR_ITEMS = {"constant":[["LBUF_0","0b0: Buffer with highest priority is transmitted first."],["LBUF_1","0b1: Lowest number buffer is transmitted first."]]};

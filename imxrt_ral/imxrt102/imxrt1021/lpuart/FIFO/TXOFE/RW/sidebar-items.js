@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["TXOFE_0","0b0: TXOF flag does not generate an interrupt to the host."],["TXOFE_1","0b1: TXOF flag generates an interrupt to the host."]]});
+window.SIDEBAR_ITEMS = {"constant":[["TXOFE_0","0b0: TXOF flag does not generate an interrupt to the host."],["TXOFE_1","0b1: TXOF flag generates an interrupt to the host."]]};

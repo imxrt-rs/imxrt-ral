@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LP_SWR_DIS_0","0b0: LP software reset is enabled"],["LP_SWR_DIS_1","0b1: LP software reset is disabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LP_SWR_DIS_0","0b0: LP software reset is enabled"],["LP_SWR_DIS_1","0b1: LP software reset is disabled"]]};

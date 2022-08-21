@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["L_ENET_0","0b0: No lock-the adjacent (next lower) bit can be written by the software."],["L_ENET_1","0b1: Lock-the adjacent (next lower) bit can’t be written by the software."]]});
+window.SIDEBAR_ITEMS = {"constant":[["L_ENET_0","0b0: No lock-the adjacent (next lower) bit can be written by the software."],["L_ENET_1","0b1: Lock-the adjacent (next lower) bit can’t be written by the software."]]};

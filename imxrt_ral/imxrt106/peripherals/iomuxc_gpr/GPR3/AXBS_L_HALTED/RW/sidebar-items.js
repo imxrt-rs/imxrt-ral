@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AXBS_L_HALTED_0","0b0: axbs_l is not halted"],["AXBS_L_HALTED_1","0b1: axbs_l is in halted status"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AXBS_L_HALTED_0","0b0: axbs_l is not halted"],["AXBS_L_HALTED_1","0b1: axbs_l is in halted status"]]};

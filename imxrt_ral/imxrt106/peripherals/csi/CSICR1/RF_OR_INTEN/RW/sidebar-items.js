@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RF_OR_INTEN_0","0b0: RxFIFO overrun interrupt is disabled"],["RF_OR_INTEN_1","0b1: RxFIFO overrun interrupt is enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RF_OR_INTEN_0","0b0: RxFIFO overrun interrupt is disabled"],["RF_OR_INTEN_1","0b1: RxFIFO overrun interrupt is enabled"]]};

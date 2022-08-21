@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DATA_BYTE_0","Data byte 0 of Rx/Tx frame."],["DATA_BYTE_1","Data byte 1 of Rx/Tx frame."],["DATA_BYTE_2","Data byte 2 of Rx/Tx frame."],["DATA_BYTE_3","Data byte 3 of Rx/Tx frame."]]});
+window.SIDEBAR_ITEMS = {"mod":[["DATA_BYTE_0","Data byte 0 of Rx/Tx frame."],["DATA_BYTE_1","Data byte 1 of Rx/Tx frame."],["DATA_BYTE_2","Data byte 2 of Rx/Tx frame."],["DATA_BYTE_3","Data byte 3 of Rx/Tx frame."]]};

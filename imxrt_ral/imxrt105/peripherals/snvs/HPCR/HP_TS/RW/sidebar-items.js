@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HP_TS_0","0b0: No Action"],["HP_TS_1","0b1: Synchronize the HP Time Counter to the LP Time Counter"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HP_TS_0","0b0: No Action"],["HP_TS_1","0b1: Synchronize the HP Time Counter to the LP Time Counter"]]};

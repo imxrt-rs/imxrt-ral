@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["RCP","Receive Channel Pointer"],["RFP","Read FIFO Pointer"],["WFP","Write FIFO Pointer"]]});
+window.SIDEBAR_ITEMS = {"mod":[["RCP","Receive Channel Pointer"],["RFP","Read FIFO Pointer"],["WFP","Write FIFO Pointer"]]};

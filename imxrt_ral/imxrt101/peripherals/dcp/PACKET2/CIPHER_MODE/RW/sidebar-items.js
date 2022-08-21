@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CBC","0b0001: CBC"],["ECB","0b0000: ECB"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CBC","0b0001: CBC"],["ECB","0b0000: ECB"]]};

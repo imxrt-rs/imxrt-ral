@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["USrc_Sel_0","0b00: No embedded U channel"],["USrc_Sel_1","0b01: U channel from SPDIF receive block (CD mode)"],["USrc_Sel_3","0b11: U channel from on chip transmitter"]]});
+window.SIDEBAR_ITEMS = {"constant":[["USrc_Sel_0","0b00: No embedded U channel"],["USrc_Sel_1","0b01: U channel from SPDIF receive block (CD mode)"],["USrc_Sel_3","0b11: U channel from on chip transmitter"]]};

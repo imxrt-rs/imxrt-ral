@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["AVALID","Indicates VBus is valid for a A-peripheral"],["BVALID","Indicates VBus is valid for a B-peripheral"],["SESSEND","Session End for USB OTG"],["VBUS_VALID","VBus valid for USB OTG"]]});
+window.SIDEBAR_ITEMS = {"mod":[["AVALID","Indicates VBus is valid for a A-peripheral"],["BVALID","Indicates VBus is valid for a B-peripheral"],["SESSEND","Session End for USB OTG"],["VBUS_VALID","VBus valid for USB OTG"]]};

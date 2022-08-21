@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLEXSPI_PODF_LOADED_0","0b0: interrupt is not generated due to frequency change of flexspi_podf"],["FLEXSPI_PODF_LOADED_1","0b1: interrupt generated due to frequency change of flexspi_podf"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI_PODF_LOADED_0","0b0: interrupt is not generated due to frequency change of flexspi_podf"],["FLEXSPI_PODF_LOADED_1","0b1: interrupt generated due to frequency change of flexspi_podf"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PLL3_disable_0","0b0: PLL3 is being used by peripherals and is enabled when SoC is not in any low power mode"],["PLL3_disable_1","0b1: PLL3 can be disabled when the SoC is not in any low power mode"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PLL3_disable_0","0b0: PLL3 is being used by peripherals and is enabled when SoC is not in any low power mode"],["PLL3_disable_1","0b1: PLL3 can be disabled when the SoC is not in any low power mode"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DTCNT0","DTCNT0"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DTCNT0","DTCNT0"]]};

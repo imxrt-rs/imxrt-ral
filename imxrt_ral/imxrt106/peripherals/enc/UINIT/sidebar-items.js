@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["INIT","This read/write register contains the value to be used to initialize the upper half of the position counter (UPOS)"]]});
+window.SIDEBAR_ITEMS = {"mod":[["INIT","This read/write register contains the value to be used to initialize the upper half of the position counter (UPOS)"]]};

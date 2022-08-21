@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["DBGEN","Debug Enable"],["DOZEN","Doze Mode Enable"],["MEN","Module Enable"],["RRF","Reset Receive FIFO"],["RST","Software Reset"],["RTF","Reset Transmit FIFO"]]});
+window.SIDEBAR_ITEMS = {"mod":[["DBGEN","Debug Enable"],["DOZEN","Doze Mode Enable"],["MEN","Module Enable"],["RRF","Reset Receive FIFO"],["RST","Software Reset"],["RTF","Reset Transmit FIFO"]]};

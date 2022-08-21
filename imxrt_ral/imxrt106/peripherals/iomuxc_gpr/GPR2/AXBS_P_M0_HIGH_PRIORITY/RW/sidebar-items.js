@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AXBS_P_M0_HIGH_PRIORITY_0","0b0: AXBS_P M0 master doesn’t have high priority"],["AXBS_P_M0_HIGH_PRIORITY_1","0b1: AXBS_P M0 master has high priority"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AXBS_P_M0_HIGH_PRIORITY_0","0b0: AXBS_P M0 master doesn’t have high priority"],["AXBS_P_M0_HIGH_PRIORITY_1","0b1: AXBS_P M0 master has high priority"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENET_IPG_CLK_S_EN_0","0b0: ipg_clk_s is gated when there is no IPS access"],["ENET_IPG_CLK_S_EN_1","0b1: ipg_clk_s is always on"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENET_IPG_CLK_S_EN_0","0b0: ipg_clk_s is gated when there is no IPS access"],["ENET_IPG_CLK_S_EN_1","0b1: ipg_clk_s is always on"]]};

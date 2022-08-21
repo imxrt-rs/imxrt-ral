@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SEMC_CLK_SEL_0","0b0: Periph_clk output will be used as SEMC clock root"],["SEMC_CLK_SEL_1","0b1: SEMC alternative clock will be used as SEMC clock root"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SEMC_CLK_SEL_0","0b0: Periph_clk output will be used as SEMC clock root"],["SEMC_CLK_SEL_1","0b1: SEMC alternative clock will be used as SEMC clock root"]]};

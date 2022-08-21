@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ACTIVE_HIGH","0b0: Normal Signal (Active high)"],["ACTIVE_LOW","0b1: Inverted signal (Active low)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ACTIVE_HIGH","0b0: Normal Signal (Active high)"],["ACTIVE_LOW","0b1: Inverted signal (Active low)"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ALT1","0b001: Select mux mode: ALT1 mux port: LPSPI1_PCS0 of instance: lpspi1"],["ALT3","0b011: Select mux mode: ALT3 mux port: KPP_ROW01 of instance: kpp"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO1_IO11 of instance: gpio1"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ALT1","0b001: Select mux mode: ALT1 mux port: LPSPI1_PCS0 of instance: lpspi1"],["ALT3","0b011: Select mux mode: ALT3 mux port: KPP_ROW01 of instance: kpp"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO1_IO11 of instance: gpio1"]]};

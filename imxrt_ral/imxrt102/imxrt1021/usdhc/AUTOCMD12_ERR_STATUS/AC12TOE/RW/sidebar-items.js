@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["AC12TOE_0","0b0: No error"],["AC12TOE_1","0b1: Time out"]]});
+window.SIDEBAR_ITEMS = {"constant":[["AC12TOE_0","0b0: No error"],["AC12TOE_1","0b1: Time out"]]};

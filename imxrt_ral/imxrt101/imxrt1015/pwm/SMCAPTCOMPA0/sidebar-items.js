@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["EDGCMPA","Edge Compare A"],["EDGCNTA","Edge Counter A"]]});
+window.SIDEBAR_ITEMS = {"mod":[["EDGCMPA","Edge Compare A"],["EDGCNTA","Edge Counter A"]]};

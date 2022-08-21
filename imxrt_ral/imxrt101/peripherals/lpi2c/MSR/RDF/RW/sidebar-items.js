@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["RDF_0","0b0: Receive Data is not ready"],["RDF_1","0b1: Receive data is ready"]]});
+window.SIDEBAR_ITEMS = {"constant":[["RDF_0","0b0: Receive Data is not ready"],["RDF_1","0b1: Receive data is ready"]]};

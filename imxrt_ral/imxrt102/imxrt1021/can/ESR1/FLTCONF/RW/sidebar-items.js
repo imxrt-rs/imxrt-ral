@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FLTCONF_0","0b00: Error Active"],["FLTCONF_1","0b01: Error Passive"],["FLTCONF_2","0b00: Bus off"]]});
+window.SIDEBAR_ITEMS = {"constant":[["FLTCONF_0","0b00: Error Active"],["FLTCONF_1","0b01: Error Passive"],["FLTCONF_2","0b10: Bus off"]]};

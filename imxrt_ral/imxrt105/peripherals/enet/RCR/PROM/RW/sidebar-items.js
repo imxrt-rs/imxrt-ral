@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PROM_0","0b0: Disabled."],["PROM_1","0b1: Enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PROM_0","0b0: Disabled."],["PROM_1","0b1: Enabled."]]};

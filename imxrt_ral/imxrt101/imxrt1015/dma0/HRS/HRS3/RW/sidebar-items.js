@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["HRS3_0","0b0: A hardware service request for channel 3 is not present"],["HRS3_1","0b1: A hardware service request for channel 3 is present"]]});
+window.SIDEBAR_ITEMS = {"constant":[["HRS3_0","0b0: A hardware service request for channel 3 is not present"],["HRS3_1","0b1: A hardware service request for channel 3 is present"]]};

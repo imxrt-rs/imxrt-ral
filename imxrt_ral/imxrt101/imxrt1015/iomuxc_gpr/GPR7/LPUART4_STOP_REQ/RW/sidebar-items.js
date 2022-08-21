@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["LPUART4_STOP_REQ_0","0b0: stop request off"],["LPUART4_STOP_REQ_1","0b1: stop request on"]]});
+window.SIDEBAR_ITEMS = {"constant":[["LPUART4_STOP_REQ_0","0b0: stop request off"],["LPUART4_STOP_REQ_1","0b1: stop request on"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MEASURE_INT_EN_0","0b0: Disable measure interrupt"],["MEASURE_INT_EN_1","0b1: Enable measure interrupt"]]});
+window.SIDEBAR_ITEMS = {"constant":[["MEASURE_INT_EN_0","0b0: Disable measure interrupt"],["MEASURE_INT_EN_1","0b1: Enable measure interrupt"]]};

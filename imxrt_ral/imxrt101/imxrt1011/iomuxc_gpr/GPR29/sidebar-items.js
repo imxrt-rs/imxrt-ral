@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["FLEXSPI_REMAP_ADDR_OFFSET","Offset address of flexspi1"]]});
+window.SIDEBAR_ITEMS = {"mod":[["FLEXSPI_REMAP_ADDR_OFFSET","Offset address of flexspi1"]]};

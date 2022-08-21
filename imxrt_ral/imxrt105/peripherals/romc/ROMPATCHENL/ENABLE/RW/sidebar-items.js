@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ENABLE_0","0b0000000000000000: Address comparator disabled"],["ENABLE_1","0b0000000000000001: Address comparator enabled, ROMC will trigger a opcode patch or data fix event upon matching of the associated address"]]});
+window.SIDEBAR_ITEMS = {"constant":[["ENABLE_0","0b0000000000000000: Address comparator disabled"],["ENABLE_1","0b0000000000000001: Address comparator enabled, ROMC will trigger a opcode patch or data fix event upon matching of the associated address"]]};

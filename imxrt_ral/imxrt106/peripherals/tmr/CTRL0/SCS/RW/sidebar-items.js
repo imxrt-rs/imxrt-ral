@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SCS_0","0b00: Counter 0 input pin"],["SCS_1","0b01: Counter 1 input pin"],["SCS_2","0b10: Counter 2 input pin"],["SCS_3","0b11: Counter 3 input pin"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SCS_0","0b00: Counter 0 input pin"],["SCS_1","0b01: Counter 1 input pin"],["SCS_2","0b10: Counter 2 input pin"],["SCS_3","0b11: Counter 3 input pin"]]};

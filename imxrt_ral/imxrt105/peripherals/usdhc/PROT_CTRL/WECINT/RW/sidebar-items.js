@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WECINT_0","0b0: Disable"],["WECINT_1","0b1: Enable"]]});
+window.SIDEBAR_ITEMS = {"constant":[["WECINT_0","0b0: Disable"],["WECINT_1","0b1: Enable"]]};

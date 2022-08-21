@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SV4_EN_0","0b0: Security Violation 4 Interrupt is Disabled"],["SV4_EN_1","0b1: Security Violation 4 Interrupt is Enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["SV4_EN_0","0b0: Security Violation 4 Interrupt is Disabled"],["SV4_EN_1","0b1: Security Violation 4 Interrupt is Enabled"]]};

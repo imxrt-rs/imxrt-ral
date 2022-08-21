@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["ET1P_0","0b0: External tamper 1 is active low."],["ET1P_1","0b1: External tamper 1 is active high."]]});
+window.SIDEBAR_ITEMS = {"constant":[["ET1P_0","0b0: External tamper 1 is active low."],["ET1P_1","0b1: External tamper 1 is active high."]]};

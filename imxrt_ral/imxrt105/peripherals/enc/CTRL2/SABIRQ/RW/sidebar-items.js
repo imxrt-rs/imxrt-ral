@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SABIRQ_0","0b0: No simultaneous change of PHASEA and PHASEB has occurred."],["SABIRQ_1","0b1: A simultaneous change of PHASEA and PHASEB has occurred."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SABIRQ_0","0b0: No simultaneous change of PHASEA and PHASEB has occurred."],["SABIRQ_1","0b1: A simultaneous change of PHASEA and PHASEB has occurred."]]};

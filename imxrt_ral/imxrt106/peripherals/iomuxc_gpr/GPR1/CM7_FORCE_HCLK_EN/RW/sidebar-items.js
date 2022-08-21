@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CM7_FORCE_HCLK_EN_0","0b0: AHB clock is not running (gated)"],["CM7_FORCE_HCLK_EN_1","0b1: AHB clock is running (enabled)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CM7_FORCE_HCLK_EN_0","0b0: AHB clock is not running (gated)"],["CM7_FORCE_HCLK_EN_1","0b1: AHB clock is running (enabled)"]]};

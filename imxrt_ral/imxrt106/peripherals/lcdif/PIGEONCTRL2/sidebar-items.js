@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["PIGEON_CLK_GATE","Pigeon mode dot clock gate enable"],["PIGEON_DATA_EN","Pigeon mode data enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["PIGEON_CLK_GATE","Pigeon mode dot clock gate enable"],["PIGEON_DATA_EN","Pigeon mode data enable"]]};

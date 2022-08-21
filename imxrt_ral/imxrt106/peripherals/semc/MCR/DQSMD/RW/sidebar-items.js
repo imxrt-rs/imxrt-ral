@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DQSMD_0","0b0: Dummy read strobe loopbacked internally"],["DQSMD_1","0b1: Dummy read strobe loopbacked from DQS pad or DLL delay chain. Details information at descriptions of DQSSEL bit."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DQSMD_0","0b0: Dummy read strobe loopbacked internally"],["DQSMD_1","0b1: Dummy read strobe loopbacked from DQS pad or DLL delay chain. Details information at descriptions of DQSSEL bit."]]};

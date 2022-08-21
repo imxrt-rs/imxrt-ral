@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["READSZALIGN_0","0b0: AHB read size will be decided by other register setting like PREFETCH_EN,OTFAD_EN…"],["READSZALIGN_1","0b1: AHB read size to up size to 8 bytes aligned, no prefetching"]]});
+window.SIDEBAR_ITEMS = {"constant":[["READSZALIGN_0","0b0: AHB read size will be decided by other register setting like PREFETCH_EN,OTFAD_EN…"],["READSZALIGN_1","0b1: AHB read size to up size to 8 bytes aligned, no prefetching"]]};

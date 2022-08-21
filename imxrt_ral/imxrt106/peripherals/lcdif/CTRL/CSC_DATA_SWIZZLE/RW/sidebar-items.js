@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BIG_ENDIAN_SWAP","0b01: Big Endian swap (swap bytes 0,3 and 1,2)."],["HWD_BYTE_SWAP","0b11: Swap bytes within each half-word."],["HWD_SWAP","0b10: Swap half-words."],["NO_SWAP","0b00: No byte swapping.(Little endian)"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BIG_ENDIAN_SWAP","0b01: Big Endian swap (swap bytes 0,3 and 1,2)."],["HWD_BYTE_SWAP","0b11: Swap bytes within each half-word."],["HWD_SWAP","0b10: Swap half-words."],["NO_SWAP","0b00: No byte swapping.(Little endian)"]]};

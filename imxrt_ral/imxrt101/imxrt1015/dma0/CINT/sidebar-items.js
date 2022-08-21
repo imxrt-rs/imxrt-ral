@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CAIR","Clear All Interrupt Requests"],["CINT","Clear Interrupt Request"],["NOP","No Op enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CAIR","Clear All Interrupt Requests"],["CINT","Clear Interrupt Request"],["NOP","No Op enable"]]};

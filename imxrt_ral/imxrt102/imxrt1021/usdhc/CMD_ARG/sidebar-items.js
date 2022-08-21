@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CMDARG","Command Argument"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CMDARG","Command Argument"]]};

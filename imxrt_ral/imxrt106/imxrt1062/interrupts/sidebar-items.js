@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Interrupt","Available interrupts for this device"]]});
+window.SIDEBAR_ITEMS = {"enum":[["Interrupt","Available interrupts for this device"]]};

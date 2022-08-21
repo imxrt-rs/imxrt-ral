@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["BGE_0","0b0: No block gap event"],["BGE_1","0b1: Transaction stopped at block gap"]]});
+window.SIDEBAR_ITEMS = {"constant":[["BGE_0","0b0: No block gap event"],["BGE_1","0b1: Transaction stopped at block gap"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FRIE_0","0b0: Disables the interrupt."],["FRIE_1","0b1: Enables the interrupt."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FRIE_0","0b0: Disables the interrupt."],["FRIE_1","0b1: Enables the interrupt."]]};

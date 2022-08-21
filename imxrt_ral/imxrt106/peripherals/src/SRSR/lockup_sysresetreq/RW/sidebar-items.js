@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["lockup_sysresetreq_0","0b0: Reset is not a result of the mentioned case."],["lockup_sysresetreq_1","0b1: Reset is a result of the mentioned case."]]});
+window.SIDEBAR_ITEMS = {"constant":[["lockup_sysresetreq_0","0b0: Reset is not a result of the mentioned case."],["lockup_sysresetreq_1","0b1: Reset is a result of the mentioned case."]]};

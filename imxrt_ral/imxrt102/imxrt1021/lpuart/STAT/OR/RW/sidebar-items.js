@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["OR_0","0b0: No overrun."],["OR_1","0b1: Receive overrun (new LPUART data lost)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["OR_0","0b0: No overrun."],["OR_1","0b1: Receive overrun (new LPUART data lost)."]]};

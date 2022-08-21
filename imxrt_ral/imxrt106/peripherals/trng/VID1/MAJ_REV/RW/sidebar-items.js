@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["MAJ_REV_1","0b00000001: Major revision number for TRNG."]]});
+window.SIDEBAR_ITEMS = {"constant":[["MAJ_REV_1","0b00000001: Major revision number for TRNG."]]};

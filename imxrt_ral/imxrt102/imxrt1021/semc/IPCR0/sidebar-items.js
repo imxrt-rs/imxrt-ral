@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["SA","Slave address"]]});
+window.SIDEBAR_ITEMS = {"mod":[["SA","Slave address"]]};

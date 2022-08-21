@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SSR_S1_0","0b0: The secure supervisor read access is disabled for the first slave."],["SSR_S1_1","0b1: The secure supervisor read access is enabled for the first slave."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SSR_S1_0","0b0: The secure supervisor read access is disabled for the first slave."],["SSR_S1_1","0b1: The secure supervisor read access is enabled for the first slave."]]};

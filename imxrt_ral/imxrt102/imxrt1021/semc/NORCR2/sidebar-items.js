@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["AWDH","Address to write data hold time cycle"],["CEITV","CE# interval min time"],["LC","Latency count"],["RD","Read cycle time"],["TA","Turnaround time cycle"],["WDH","Write Data hold time (WDH+1) cycle"],["WDS","Write Data setup time (WDS+1) cycle"]]});
+window.SIDEBAR_ITEMS = {"mod":[["AWDH","Address to write data hold time cycle"],["CEITV","CE# interval min time"],["LC","Latency count"],["RD","Read cycle time"],["TA","Turnaround time cycle"],["WDH","Write Data hold time (WDH+1) cycle"],["WDS","Write Data setup time (WDS+1) cycle"]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CFEN_0","0b0: MAC control frames with any opcode other than 0x0001 (pause frame) are accepted and forwarded to the client interface."],["CFEN_1","0b1: MAC control frames with any opcode other than 0x0001 (pause frame) are silently discarded."]]});
+window.SIDEBAR_ITEMS = {"constant":[["CFEN_0","0b0: MAC control frames with any opcode other than 0x0001 (pause frame) are accepted and forwarded to the client interface."],["CFEN_1","0b1: MAC control frames with any opcode other than 0x0001 (pause frame) are silently discarded."]]};

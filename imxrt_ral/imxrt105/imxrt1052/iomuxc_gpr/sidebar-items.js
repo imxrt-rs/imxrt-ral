@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["IOMUXC_GPR","Raw pointer to IOMUXC_GPR"]],"struct":[["IOMUXC_GPR","The IOMUXC_GPR peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["IOMUXC_GPR","Raw pointer to IOMUXC_GPR"]],"struct":[["IOMUXC_GPR","The IOMUXC_GPR peripheral instance."]]};

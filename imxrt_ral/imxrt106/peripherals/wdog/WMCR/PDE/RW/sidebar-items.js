@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PDE_0","0b0: Power Down Counter of WDOG is disabled."],["PDE_1","0b1: Power Down Counter of WDOG is enabled (Default)."]]});
+window.SIDEBAR_ITEMS = {"constant":[["PDE_0","0b0: Power Down Counter of WDOG is disabled."],["PDE_1","0b1: Power Down Counter of WDOG is enabled (Default)."]]};

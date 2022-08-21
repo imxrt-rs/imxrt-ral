@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["A_ON","DMA Channel Always Enable"],["ENBL","DMA Mux Channel Enable"],["SOURCE","DMA Channel Source (Slot Number)"],["TRIG","DMA Channel Trigger Enable"]]});
+window.SIDEBAR_ITEMS = {"mod":[["A_ON","DMA Channel Always Enable"],["ENBL","DMA Mux Channel Enable"],["SOURCE","DMA Channel Source (Slot Number)"],["TRIG","DMA Channel Trigger Enable"]]};

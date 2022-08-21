@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FWF_0","0b0: No enabled transmit FIFO is empty."],["FWF_1","0b1: Enabled transmit FIFO is empty."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FWF_0","0b0: No enabled transmit FIFO is empty."],["FWF_1","0b1: Enabled transmit FIFO is empty."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["SHIFT16_0","0b0: Disabled."],["SHIFT16_1","0b1: Instructs the MAC to write two additional bytes in front of each frame received into the RX FIFO."]]});
+window.SIDEBAR_ITEMS = {"constant":[["SHIFT16_0","0b0: Disabled."],["SHIFT16_1","0b1: Instructs the MAC to write two additional bytes in front of each frame received into the RX FIFO."]]};

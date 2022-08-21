@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DEINTERLACE_EN_0","0b0: Deinterlace disabled"],["DEINTERLACE_EN_1","0b1: Deinterlace enabled"]]});
+window.SIDEBAR_ITEMS = {"constant":[["DEINTERLACE_EN_0","0b0: Deinterlace disabled"],["DEINTERLACE_EN_1","0b1: Deinterlace enabled"]]};

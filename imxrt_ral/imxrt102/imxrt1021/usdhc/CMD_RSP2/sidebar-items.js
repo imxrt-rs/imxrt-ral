@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["CMDRSP2","Command Response 2"]]});
+window.SIDEBAR_ITEMS = {"mod":[["CMDRSP2","Command Response 2"]]};

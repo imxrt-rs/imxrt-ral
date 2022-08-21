@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["XBARB2","Raw pointer to XBARB2"],["XBARB3","Raw pointer to XBARB3"]],"struct":[["XBARB2","The XBARB2 peripheral instance."],["XBARB3","The XBARB3 peripheral instance."]]});
+window.SIDEBAR_ITEMS = {"constant":[["XBARB2","Raw pointer to XBARB2"],["XBARB3","Raw pointer to XBARB3"]],"struct":[["XBARB2","The XBARB2 peripheral instance."],["XBARB3","The XBARB3 peripheral instance."]]};

@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["DMA_TSF_DONE_FB1_0","0b0: DMA transfer is not completed."],["DMA_TSF_DONE_FB1_1","0b1: DMA transfer is completed."]]});
+window.SIDEBAR_ITEMS = {"constant":[["DMA_TSF_DONE_FB1_0","0b0: DMA transfer is not completed."],["DMA_TSF_DONE_FB1_1","0b1: DMA transfer is completed."]]};

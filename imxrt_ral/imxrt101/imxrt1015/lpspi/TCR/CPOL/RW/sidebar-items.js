@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CPOL_0","0b0: The inactive state value of SCK is low"],["CPOL_1","0b1: The inactive state value of SCK is high"]]});
+window.SIDEBAR_ITEMS = {"constant":[["CPOL_0","0b0: The inactive state value of SCK is low"],["CPOL_1","0b1: The inactive state value of SCK is high"]]};

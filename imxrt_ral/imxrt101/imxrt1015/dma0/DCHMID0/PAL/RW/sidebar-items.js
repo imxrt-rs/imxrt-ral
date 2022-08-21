@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["PAL_0","0b0: User protection level for DMA transfers"],["PAL_1","0b1: Privileged protection level for DMA transfers"]]});
+window.SIDEBAR_ITEMS = {"constant":[["PAL_0","0b0: User protection level for DMA transfers"],["PAL_1","0b1: Privileged protection level for DMA transfers"]]};

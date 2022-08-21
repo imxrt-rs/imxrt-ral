@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["GPIO_AD_B0_11_ALT8","0b10: Selecting Pad: GPIO_AD_B0_11 for Mode: ALT8"],["GPIO_AD_B0_15_ALT8","0b01: Selecting Pad: GPIO_AD_B0_15 for Mode: ALT8"],["GPIO_EMC_37_ALT9","0b00: Selecting Pad: GPIO_EMC_37 for Mode: ALT9"]]});
+window.SIDEBAR_ITEMS = {"constant":[["GPIO_AD_B0_11_ALT8","0b10: Selecting Pad: GPIO_AD_B0_11 for Mode: ALT8"],["GPIO_AD_B0_15_ALT8","0b01: Selecting Pad: GPIO_AD_B0_15 for Mode: ALT8"],["GPIO_EMC_37_ALT9","0b00: Selecting Pad: GPIO_EMC_37 for Mode: ALT9"]]};

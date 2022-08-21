@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["WIN_0","0b0: Window mode disabled."],["WIN_1","0b1: Window mode enabled."]]});
+window.SIDEBAR_ITEMS = {"constant":[["WIN_0","0b0: Window mode disabled."],["WIN_1","0b1: Window mode enabled."]]};

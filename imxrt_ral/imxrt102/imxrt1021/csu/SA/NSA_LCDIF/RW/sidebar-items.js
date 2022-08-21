@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["NSA_LCDIF_0","0b0: Secure access for the corresponding type-1 master"],["NSA_LCDIF_1","0b1: Non-secure access for the corresponding type-1 master"]]});
+window.SIDEBAR_ITEMS = {"constant":[["NSA_LCDIF_0","0b0: Secure access for the corresponding type-1 master"],["NSA_LCDIF_1","0b1: Non-secure access for the corresponding type-1 master"]]};

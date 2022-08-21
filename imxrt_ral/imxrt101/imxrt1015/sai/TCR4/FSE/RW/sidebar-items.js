@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FSE_0","0b0: Frame sync asserts with the first bit of the frame."],["FSE_1","0b1: Frame sync asserts one bit before the first bit of the frame."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FSE_0","0b0: Frame sync asserts with the first bit of the frame."],["FSE_1","0b1: Frame sync asserts one bit before the first bit of the frame."]]};

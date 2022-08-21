@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["NOP","No Op enable"],["SAST","Set All START Bits (activates all channels)"],["SSRT","Set START Bit"]]});
+window.SIDEBAR_ITEMS = {"mod":[["NOP","No Op enable"],["SAST","Set All START Bits (activates all channels)"],["SSRT","Set START Bit"]]};

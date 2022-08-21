@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["FPL_0","0b0: Engage PLL enable default way."],["FPL_1","0b1: Engage PLL enable 3 CKIL clocks earlier at exiting low power mode (STOP). Should be used only if 24MHz OSC was active in low power mode."]]});
+window.SIDEBAR_ITEMS = {"constant":[["FPL_0","0b0: Engage PLL enable default way."],["FPL_1","0b1: Engage PLL enable 3 CKIL clocks earlier at exiting low power mode (STOP). Should be used only if 24MHz OSC was active in low power mode."]]};
