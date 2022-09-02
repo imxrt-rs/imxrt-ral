@@ -33,7 +33,7 @@ pub(crate) fn check_mergeable_enums_inner(
     level: CheckLevel,
 ) -> anyhow::Result<()> {
     if a.bit_size != b.bit_size {
-        bail!("Different bit size: {} vs {}", a.bit_size, b.bit_size)
+        bail!("Different bit size: {} vs {}", a.bit_size.0, b.bit_size.0)
     }
 
     if level >= CheckLevel::Layout {
@@ -123,7 +123,7 @@ pub(crate) fn check_mergeable_fieldsets_inner(
     level: CheckLevel,
 ) -> anyhow::Result<()> {
     if a.bit_size != b.bit_size {
-        bail!("Different bit size: {} vs {}", a.bit_size, b.bit_size)
+        bail!("Different bit size: {} vs {}", a.bit_size.0, b.bit_size.0)
     }
 
     if level >= CheckLevel::Layout {

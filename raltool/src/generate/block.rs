@@ -25,11 +25,11 @@ pub fn render(opts: &super::Options, ir: &IR, b: &Block, path: &str) -> Result<T
                     util::relative_path(fieldset_path, path)
                 } else {
                     match r.bit_size {
-                        8 => quote!(u8),
-                        16 => quote!(u16),
-                        32 => quote!(u32),
-                        64 => quote!(u64),
-                        _ => panic!("Invalid register bit size {}", r.bit_size),
+                        BitSize(8) => quote!(u8),
+                        BitSize(16) => quote!(u16),
+                        BitSize(32) => quote!(u32),
+                        BitSize(64) => quote!(u64),
+                        BitSize(invalid) => panic!("Invalid register bit size {invalid}"),
                     }
                 };
 

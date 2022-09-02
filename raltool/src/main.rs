@@ -297,8 +297,8 @@ fn check(args: Check) -> Result<()> {
 
         for (name, f) in &ir.fieldsets {
             for (i1, i2) in Pairs::new(f.fields.iter()) {
-                if i2.bit_offset + i2.bit_size > i1.bit_offset
-                    && i1.bit_offset + i1.bit_size > i2.bit_offset
+                if i2.bit_offset + i2.bit_size.0 > i1.bit_offset
+                    && i1.bit_offset + i1.bit_size.0 > i2.bit_offset
                 {
                     error(format!(
                         "fieldset {}: fields overlap: {} {}",

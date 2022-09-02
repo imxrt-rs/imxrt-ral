@@ -112,12 +112,14 @@ pub struct CursedArray {
     pub offsets: Vec<u32>,
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Serialize, Deserialize)]
+pub struct BitSize(pub u32);
+
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Register {
     #[serde(default = "default_readwrite", skip_serializing_if = "is_readwrite")]
     pub access: Access,
-    #[serde(default = "default_32", skip_serializing_if = "is_32")]
-    pub bit_size: u32,
+    pub bit_size: BitSize,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub fieldset: Option<String>,
 }
@@ -140,8 +142,7 @@ pub struct FieldSet {
 
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(default = "default_32", skip_serializing_if = "is_32")]
-    pub bit_size: u32,
+    pub bit_size: BitSize,
     pub fields: Vec<Field>,
 }
 
@@ -152,7 +153,7 @@ pub struct Field {
     pub description: Option<String>,
 
     pub bit_offset: u32,
-    pub bit_size: u32,
+    pub bit_size: BitSize,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub array: Option<Array>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -167,7 +168,7 @@ pub struct Field {
 pub struct Enum {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    pub bit_size: u32,
+    pub bit_size: BitSize,
     pub variants: Vec<EnumVariant>,
 }
 
@@ -177,13 +178,6 @@ pub struct EnumVariant {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     pub value: u64,
-}
-
-fn default_32() -> u32 {
-    32
-}
-fn is_32(x: &u32) -> bool {
-    *x == 32
 }
 
 fn default_readwrite() -> Access {

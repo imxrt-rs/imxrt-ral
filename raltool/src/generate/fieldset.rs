@@ -11,19 +11,18 @@ pub fn render(_opts: &super::Options, ir: &IR, fs: &FieldSet, path: &str) -> Res
     let mut items = TokenStream::new();
 
     let ty = match fs.bit_size {
-        1..=8 => quote!(u8),
-        9..=16 => quote!(u16),
-        17..=32 => quote!(u32),
-        33..=64 => quote!(u64),
-        _ => panic!("Invalid bit_size {}", fs.bit_size),
+        BitSize(1..=8) => quote!(u8),
+        BitSize(9..=16) => quote!(u16),
+        BitSize(17..=32) => quote!(u32),
+        BitSize(33..=64) => quote!(u64),
+        BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
     };
 
     for f in &fs.fields {
         let name = Ident::new(&f.name, span);
         let name_set = Ident::new(&format!("set_{}", f.name), span);
         let bit_offset = f.bit_offset as usize;
-        let _bit_size = f.bit_size as usize;
-        let mask = util::hex(1u64.wrapping_shl(f.bit_size).wrapping_sub(1));
+        let mask = util::hex(1u64.wrapping_shl(f.bit_size.0).wrapping_sub(1));
         let doc = util::doc(&f.description);
         let field_ty: TokenStream;
         let to_bits: TokenStream;
@@ -33,11 +32,11 @@ pub fn render(_opts: &super::Options, ir: &IR, fs: &FieldSet, path: &str) -> Res
             let e = ir.enums.get(e_path).unwrap();
 
             let enum_ty = match e.bit_size {
-                1..=8 => quote!(u8),
-                9..=16 => quote!(u16),
-                17..=32 => quote!(u32),
-                33..=64 => quote!(u64),
-                _ => panic!("Invalid bit_size {}", e.bit_size),
+                BitSize(1..=8) => quote!(u8),
+                BitSize(9..=16) => quote!(u16),
+                BitSize(17..=32) => quote!(u32),
+                BitSize(33..=64) => quote!(u64),
+                BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
             };
 
             field_ty = util::relative_path(e_path, path);
@@ -45,15 +44,15 @@ pub fn render(_opts: &super::Options, ir: &IR, fs: &FieldSet, path: &str) -> Res
             from_bits = quote!(#field_ty(val as #enum_ty));
         } else {
             field_ty = match f.bit_size {
-                1 => quote!(bool),
-                2..=8 => quote!(u8),
-                9..=16 => quote!(u16),
-                17..=32 => quote!(u32),
-                33..=64 => quote!(u64),
-                _ => panic!("Invalid bit_size {}", f.bit_size),
+                BitSize(1) => quote!(bool),
+                BitSize(2..=8) => quote!(u8),
+                BitSize(9..=16) => quote!(u16),
+                BitSize(17..=32) => quote!(u32),
+                BitSize(33..=64) => quote!(u64),
+                BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
             };
             to_bits = quote!(val as #ty);
-            from_bits = if f.bit_size == 1 {
+            from_bits = if f.bit_size == BitSize(1) {
                 quote!(val != 0)
             } else {
                 quote!(val as #field_ty)

@@ -11,11 +11,11 @@ pub fn render(_opts: &super::Options, _ir: &IR, e: &Enum, path: &str) -> Result<
     let mut items = TokenStream::new();
 
     let ty = match e.bit_size {
-        1..=8 => quote!(u8),
-        9..=16 => quote!(u16),
-        17..=32 => quote!(u32),
-        33..=64 => quote!(u64),
-        _ => panic!("Invalid bit_size {}", e.bit_size),
+        BitSize(1..=8) => quote!(u8),
+        BitSize(9..=16) => quote!(u16),
+        BitSize(17..=32) => quote!(u32),
+        BitSize(33..=64) => quote!(u64),
+        BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
     };
 
     for f in &e.variants {

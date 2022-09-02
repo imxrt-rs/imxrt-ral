@@ -210,11 +210,11 @@ pub mod make_register_array;
 pub mod merge_blocks;
 pub mod merge_enums;
 pub mod merge_fieldsets;
+pub mod modify_byte_offset;
 pub mod rename;
 pub mod rename_fields;
 pub mod rename_registers;
 pub mod sort;
-pub mod modify_byte_offset;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub enum Transform {

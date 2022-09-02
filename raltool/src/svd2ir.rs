@@ -14,14 +14,14 @@ struct ProtoBlock {
 struct ProtoFieldset {
     name: Vec<String>,
     description: Option<String>,
-    bit_size: u32,
+    bit_size: BitSize,
     fields: Vec<svd::Field>,
 }
 
 struct ProtoEnum {
     name: Vec<String>,
     usage: Option<svd::Usage>,
-    bit_size: u32,
+    bit_size: BitSize,
     variants: Vec<svd::EnumeratedValue>,
 }
 
@@ -44,13 +44,20 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                     continue;
                 }
 
+                let fieldset_bitsize = match r {
+                    svd::Register::Single(info) => info.size,
+                    svd::Register::Array(info, _) => info.size,
+                }
+                .map(BitSize)
+                .expect("Unsized register is not supported");
+
                 if let Some(fields) = &r.fields {
                     let mut fieldset_name = block.name.clone();
                     fieldset_name.push(util::replace_suffix(&r.name, ""));
                     fieldsets.push(ProtoFieldset {
                         name: fieldset_name.clone(),
                         description: r.description.clone(),
-                        bit_size: 32, // todo
+                        bit_size: fieldset_bitsize,
                         fields: fields.clone(),
                     });
 
@@ -73,7 +80,7 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                             enums.push(ProtoEnum {
                                 name: enum_name,
                                 usage: e.usage,
-                                bit_size: f.bit_range.width,
+                                bit_size: fieldset_bitsize,
                                 variants: e.values.clone(),
                             });
                         }
@@ -137,7 +144,7 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                         byte_offset: r.address_offset,
                         inner: BlockItemInner::Register(Register {
                             access, // todo
-                            bit_size: r.size.unwrap_or(32),
+                            bit_size: BitSize(r.size.expect("Must have a bitsize")),
                             fieldset: fieldset_name.clone(),
                         }),
                     };
@@ -198,7 +205,7 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                 name: f.name.clone(),
                 description: f.description.clone(),
                 bit_offset: f.bit_range.offset,
-                bit_size: f.bit_range.width,
+                bit_size: BitSize(f.bit_range.width),
                 array: None,
                 enum_read: None,
                 enum_write: None,

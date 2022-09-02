@@ -8,7 +8,7 @@ use crate::ir::*;
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DeleteEnums {
     pub from: String,
-    pub bit_size: Option<u32>,
+    pub bit_size: Option<BitSize>,
     #[serde(default)]
     pub soft: bool,
 }
