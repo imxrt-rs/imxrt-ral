@@ -30,9 +30,16 @@ impl IR {
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+pub struct Cpu {
+    pub nvic_priority_bits: u32,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Device {
     pub peripherals: Vec<Peripheral>,
     pub interrupts: Vec<Interrupt>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub cpu: Option<Cpu>,
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -128,7 +135,7 @@ pub struct BlockItemBlock {
     pub block: String,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize, PartialOrd, Ord)]
 pub enum Access {
     ReadWrite,
     Read,

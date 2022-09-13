@@ -1,12 +1,14 @@
 #![recursion_limit = "128"]
 
 use anyhow::{bail, Context, Result};
-use chiptool::{generate, svd2ir};
+use chiptool::{combine, generate, svd2ir};
 use clap::Parser;
 use log::*;
+use rayon::prelude::*;
 use regex::Regex;
 use std::fs;
 use std::io::Read;
+use std::path::PathBuf;
 use std::{fs::File, io::stdout};
 
 use chiptool::ir::IR;
@@ -59,12 +61,14 @@ struct Transform {
 /// Generate a PAC directly from a SVD
 #[derive(Parser)]
 struct Generate {
-    /// SVD file path
-    #[clap(long)]
-    svd: String,
+    /// SVD file path(s)
+    svds: Vec<String>,
     /// Transforms file path
     #[clap(long)]
     transform: Option<String>,
+    /// Directory for the output.
+    #[clap(long, default_value_t = String::from("src"))]
+    output_directory: String,
 }
 
 /// Reformat a YAML
@@ -168,29 +172,40 @@ fn extract_peripheral(args: ExtractPeripheral) -> Result<()> {
     Ok(())
 }
 
-fn gen(args: Generate) -> Result<()> {
+fn gen(mut args: Generate) -> Result<()> {
     let config = match args.transform {
         Some(s) => load_config(&s)?,
         None => Config::default(),
     };
 
-    let svd = load_svd(&args.svd)?;
-    let mut ir = svd2ir::convert_svd(&svd)?;
-
     // Fix weird newline spam in descriptions.
     let re = Regex::new("[ \n]+").unwrap();
-    chiptool::transform::map_descriptions(&mut ir, |d| re.replace_all(d, " ").into_owned())?;
 
-    for t in &config.transforms {
-        info!("running: {:?}", t);
-        t.run(&mut ir)?;
-    }
+    args.svds.sort_unstable();
+    let irs: Vec<IR> = args
+        .svds
+        .par_iter()
+        .map(|svd| -> Result<IR> {
+            let svd = load_svd(&svd)?;
+            let mut ir = svd2ir::convert_svd(&svd)?;
+
+            chiptool::transform::map_descriptions(&mut ir, |d| {
+                re.replace_all(d, " ").into_owned()
+            })?;
+
+            for t in &config.transforms {
+                t.run(&mut ir)?;
+            }
+            Ok(ir)
+        })
+        .collect::<Result<_>>()?;
 
     let generate_opts = generate::Options {
-        common_module: generate::CommonModule::Builtin,
+        module_root: PathBuf::from(args.output_directory).join("lib.rs"),
     };
-    let items = generate::render(&ir, &generate_opts).unwrap();
-    fs::write("lib.rs", items.to_string())?;
+
+    let combination = combine::combine(&irs);
+    generate::render(&combination, &generate_opts)?;
 
     Ok(())
 }
@@ -321,11 +336,9 @@ fn gen_block(args: GenBlock) -> Result<()> {
     chiptool::transform::sort::Sort {}.run(&mut ir).unwrap();
 
     let generate_opts = generate::Options {
-        common_module: generate::CommonModule::Builtin,
+        module_root: std::path::PathBuf::from(&args.output),
     };
-    let items = generate::render(&ir, &generate_opts).unwrap();
-    fs::write(&args.output, items.to_string())?;
-
+    generate::render(&ir, &generate_opts)?;
     Ok(())
 }
 #[derive(serde::Serialize, serde::Deserialize)]

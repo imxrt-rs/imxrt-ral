@@ -267,10 +267,13 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
 
 pub fn convert_svd(svd: &svd::Device) -> anyhow::Result<IR> {
     let mut ir = IR::new();
-
+    let cpu = svd.cpu.as_ref().map(|cpu| Cpu {
+        nvic_priority_bits: cpu.nvic_priority_bits,
+    });
     let mut device = Device {
         peripherals: vec![],
         interrupts: vec![],
+        cpu,
     };
 
     for p in &svd.peripherals {

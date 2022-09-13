@@ -57,6 +57,7 @@ dependencies = [
  "log",
  "proc-macro2",
  "quote",
+ "rayon",
  "regex",
  "serde",
  "serde_yaml",

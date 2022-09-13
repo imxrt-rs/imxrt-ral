@@ -1,21 +1,23 @@
 mod block;
 mod device;
-mod enumm;
 mod fieldset;
 
 use anyhow::Result;
 use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
-use std::collections::HashMap;
-use std::str::FromStr;
+use std::collections::{BTreeMap, HashSet};
+use std::fs;
+use std::path::{Path, PathBuf};
 
 use crate::ir::*;
 
-pub const COMMON_MODULE: &[u8] = include_bytes!("common.rs");
-
 struct Module {
     items: TokenStream,
-    children: HashMap<String, Module>,
+    children: BTreeMap<String, Module>,
+    public: bool,
+    fs_only: bool,
+    reexport: bool,
+    conditional_feature: Option<String>,
 }
 
 impl Module {
@@ -23,8 +25,32 @@ impl Module {
         Self {
             // Default mod contents
             items: quote!(),
-            children: HashMap::new(),
+            children: BTreeMap::new(),
+            public: true,
+            fs_only: false,
+            reexport: false,
+            conditional_feature: None,
         }
+    }
+
+    fn mark_private(&mut self) -> &mut Module {
+        self.public = false;
+        self
+    }
+
+    fn mark_fs_only(&mut self) -> &mut Module {
+        self.fs_only = true;
+        self
+    }
+
+    fn mark_reexport(&mut self) -> &mut Module {
+        self.reexport = true;
+        self
+    }
+
+    fn conditional_on(&mut self, feature: &str) -> &mut Module {
+        self.conditional_feature = Some(feature.into());
+        self
     }
 
     fn get_by_path(&mut self, path: &[&str]) -> &mut Module {
@@ -38,7 +64,7 @@ impl Module {
             .get_by_path(&path[1..])
     }
 
-    fn render(self) -> Result<TokenStream> {
+    fn render(self, path: &Path) -> Result<()> {
         let span = Span::call_site();
 
         let mut res = TokenStream::new();
@@ -46,14 +72,52 @@ impl Module {
 
         for (name, module) in self.children.into_iter() {
             let name = Ident::new(&name, span);
-            let contents = module.render()?;
-            res.extend(quote! {
-                pub mod #name {
-                    #contents
+
+            let subpath = if let Some(parent) = path.parent() {
+                if path.file_name() == Some(std::ffi::OsStr::new("lib.rs")) {
+                    parent.join(format! {"{name}.rs"})
+                } else {
+                    parent
+                        .join(path.file_stem().unwrap())
+                        .join(format!("{name}.rs"))
                 }
-            });
+            } else {
+                PathBuf::from(format!("{name}.rs"))
+            };
+
+            if !module.fs_only {
+                let privacy = if module.public { quote!(pub) } else { quote!() };
+                let conditional = if let Some(feature) = &module.conditional_feature {
+                    quote!(#[cfg(feature = #feature)])
+                } else {
+                    quote!()
+                };
+                let reexport = if module.reexport {
+                    quote!(pub use #name::*;)
+                } else {
+                    quote!()
+                };
+                module.render(&subpath)?;
+                let file_path = format!("{name}.rs");
+                res.extend(quote! {
+                    #conditional
+                    #[path = #file_path]
+                    #privacy mod #name;
+                    #conditional
+                    #reexport
+                });
+            } else {
+                module.render(&subpath)?;
+            }
         }
-        Ok(res)
+
+        if let Some(parent) = path.parent() {
+            fs::create_dir_all(parent)?;
+        }
+        if !self.fs_only {
+            fs::write(path, res.to_string().as_bytes())?;
+        }
+        Ok(())
     }
 }
 
@@ -63,109 +127,85 @@ pub enum CommonModule {
 }
 
 pub struct Options {
-    pub common_module: CommonModule,
+    pub module_root: PathBuf,
 }
 
-impl Options {
-    fn common_path(&self) -> TokenStream {
-        match &self.common_module {
-            CommonModule::Builtin => TokenStream::from_str("crate::common").unwrap(),
-            CommonModule::External(path) => path.clone(),
-        }
-    }
-}
+const BLOCK_MOD: &str = "blocks";
 
-pub fn render(ir: &IR, opts: &Options) -> Result<TokenStream> {
+pub fn render(ir: &IR, opts: &Options) -> Result<()> {
     let mut root = Module::new();
     root.items = TokenStream::new(); // Remove default contents
-
-    let commit_info = {
-        let tmp = include_str!(concat!(env!("OUT_DIR"), "/commit-info.txt"));
-
-        if tmp.is_empty() {
-            " (untracked)"
-        } else {
-            tmp
-        }
-    };
-
-    let doc = format!(
-        "Peripheral access API (generated using chiptool v{}{})",
-        env!("CARGO_PKG_VERSION"),
-        commit_info
-    );
+    root.get_by_path(&[BLOCK_MOD]).mark_fs_only();
 
     root.items.extend(quote!(
         #![no_std]
-        #![doc=#doc]
+        #![allow(non_camel_case_types, non_snake_case, non_upper_case_globals)]
+
+        pub use ral_registers::{RWRegister, RORegister, WORegister, read_reg, write_reg, modify_reg};
+
+        pub struct Instance<T, const N: u8> {
+            ptr: *const T,
+        }
+
+        impl<T, const N: u8> core::ops::Deref for Instance<T, N> {
+            type Target = T;
+            fn deref(&self) -> &Self::Target {
+                unsafe { &*self.ptr }
+            }
+        }
+
+        impl<T, const N: u8> Instance<T, N> {
+            pub const unsafe fn new(ptr: *const T) -> Self {
+                Self { ptr }
+            }
+        }
+
+        unsafe impl<T, const N: u8> Send for Instance<T, N> {}
+
+        pub const SOLE_INSTANCE: u8 = 0u8;
+        mod private {
+            pub trait Sealed {}
+        }
+        pub trait Valid : private::Sealed {}
     ));
 
+    let mut root_blocks = HashSet::new();
     for (p, d) in ir.devices.iter() {
-        let (mods, _) = split_path(p);
+        root_blocks.extend(
+            d.peripherals
+                .iter()
+                .filter_map(|peripheral| peripheral.block.as_ref()),
+        );
+        let mods = p.split("::").collect::<Vec<_>>();
         root.get_by_path(&mods)
             .items
-            .extend(device::render(opts, ir, d, p)?);
+            .extend(device::render(opts, ir, d)?);
     }
 
-    for (p, b) in ir.blocks.iter() {
-        let (mods, _) = split_path(p);
-        root.get_by_path(&mods)
+    for root_block in root_blocks {
+        let b = ir.blocks.get(root_block).unwrap();
+        let (mods, _) = split_path(root_block);
+        root.get_by_path(&[BLOCK_MOD])
+            .get_by_path(&mods)
             .items
-            .extend(block::render(opts, ir, b, p)?);
+            .extend(block::render(ir, b, root_block)?);
     }
 
-    for (p, fs) in ir.fieldsets.iter() {
-        let (mods, _) = split_path(p);
-        root.get_by_path(&mods)
-            .items
-            .extend(fieldset::render(opts, ir, fs, p)?);
+    for (dev_mod_name, dev_mod) in root.children.iter_mut().filter(|(k, _)| *k != BLOCK_MOD) {
+        dev_mod
+            .mark_private()
+            .conditional_on(dev_mod_name)
+            .mark_reexport();
+    }
+    for block_dev_mod in root.get_by_path(&[BLOCK_MOD]).children.values_mut() {
+        block_dev_mod.mark_fs_only();
     }
 
-    for (p, e) in ir.enums.iter() {
-        let (mods, _) = split_path(p);
-        root.get_by_path(&mods)
-            .items
-            .extend(enumm::render(opts, ir, e, p)?);
-    }
-
-    match &opts.common_module {
-        CommonModule::Builtin => {
-            let tokens =
-                TokenStream::from_str(std::str::from_utf8(COMMON_MODULE).unwrap()).unwrap();
-
-            let module = root.get_by_path(&["common"]);
-            module.items = TokenStream::new(); // Remove default contents
-            module.items.extend(tokens);
-        }
-        CommonModule::External(_) => {}
-    }
-
-    root.render()
+    root.render(&opts.module_root)
 }
 
 fn split_path(s: &str) -> (Vec<&str>, &str) {
     let mut v: Vec<&str> = s.split("::").collect();
     let n = v.pop().unwrap();
     (v, n)
-}
-
-fn process_array(array: &Array) -> (usize, TokenStream) {
-    match array {
-        Array::Regular(array) => {
-            let len = array.len as usize;
-            let stride = array.stride as usize;
-            let offs_expr = quote!(n*#stride);
-            (len, offs_expr)
-        }
-        Array::Cursed(array) => {
-            let len = array.offsets.len();
-            let offsets = array
-                .offsets
-                .iter()
-                .map(|&x| x as usize)
-                .collect::<Vec<_>>();
-            let offs_expr = quote!(([#(#offsets),*][n] as usize));
-            (len, offs_expr)
-        }
-    }
 }

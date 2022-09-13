@@ -1,3 +1,5 @@
+use std::collections::BTreeMap;
+
 use anyhow::Result;
 use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
@@ -5,7 +7,8 @@ use quote::quote;
 use crate::ir::*;
 use crate::util::{self, ToSanitizedUpperCase};
 
-pub fn render(_opts: &super::Options, ir: &IR, d: &Device, path: &str) -> Result<TokenStream> {
+pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStream> {
+    let num_endings = regex::Regex::new(r"(\d+)$").unwrap();
     let mut out = TokenStream::new();
     let span = Span::call_site();
 
@@ -47,25 +50,110 @@ pub fn render(_opts: &super::Options, ir: &IR, d: &Device, path: &str) -> Result
         names.push(name_uc);
     }
 
-    for p in &d.peripherals {
-        let name = Ident::new(&p.name, span);
-        let address = util::hex(p.base_address as u64);
-        let doc = util::doc(&p.description);
+    let mut block_to_peripherals = BTreeMap::new();
+    for peripheral in &d.peripherals {
+        let block_name = peripheral
+            .block
+            .as_ref()
+            .expect("All peripherals must have a block");
+        let (block_path, _) = super::split_path(block_name);
+        let mod_name = block_path
+            .last()
+            .expect("There's a final component")
+            .to_string();
+        block_to_peripherals
+            .entry(mod_name)
+            .or_insert_with(|| (block_path, Vec::new()))
+            .1
+            .push(peripheral)
+    }
 
-        if let Some(block_name) = &p.block {
-            let _b = ir.blocks.get(block_name);
-            let path = util::relative_path(block_name, path);
+    for (mod_name, (block_path, periphs)) in block_to_peripherals {
+        let mut consts = TokenStream::new();
+        for peripheral in periphs.iter() {
+            let name = Ident::new(&peripheral.name, span);
+            let address = util::hex(peripheral.base_address as u64);
+            let doc = util::doc(&peripheral.description);
 
-            peripherals.extend(quote! {
+            consts.extend(quote! {
                 #doc
-                pub const #name: #path = #path(#address as u32 as _);
-            });
-        } else {
-            peripherals.extend(quote! {
-                #doc
-                pub const #name: *mut () = #address as u32 as _;
+                pub const #name: *const RegisterBlock = #address as *const RegisterBlock;
             });
         }
+
+        let import = {
+            let block_path = block_path.join("/");
+            const BLOCK_MOD: &str = super::BLOCK_MOD;
+            let module_path = format!("{BLOCK_MOD}/{block_path}.rs");
+            quote! {
+                #[path = #module_path]
+                mod blocks;
+                pub use blocks::*;
+            }
+        };
+
+        let instances = if periphs.len() > 1
+            && periphs
+                .iter()
+                .all(|periph| num_endings.is_match(&periph.name))
+        {
+            let mut instances = TokenStream::new();
+            for peripheral in periphs.iter() {
+                let name = Ident::new(&peripheral.name, span);
+                let num = num_endings.captures(&peripheral.name).unwrap();
+                let num = util::unsuffixed(
+                    num.get(1)
+                        .and_then(|num| str::parse(num.as_str()).ok())
+                        .unwrap(),
+                );
+
+                instances.extend(quote! {
+                    pub type #name = Instance<#num>;
+                    impl crate::private::Sealed for #name {}
+                    impl crate::Valid for #name {}
+
+                    impl #name {
+                        pub const unsafe fn instance() -> Self {
+                            Instance::new(#name)
+                        }
+                    }
+                });
+            }
+            instances
+        } else {
+            assert!(
+                periphs.len() == 1,
+                r#"{periphs:#?}
+Cannot generate this constified API when there's multiple, un-numbered peripherals.
+The implementation doesn't automagically handle this right now. Until this is implemented,
+you should use transforms to rename peripherals, putting numbers at the end of the peripheral
+name."#
+            );
+            let peripheral = periphs.first().unwrap();
+            let name = Ident::new(&peripheral.name, span);
+            quote! {
+                pub type #name = Instance<{crate::SOLE_INSTANCE}>;
+                impl crate::private::Sealed for #name {}
+                impl crate::Valid for #name {}
+                impl #name {
+                    pub const unsafe fn instance() -> Self {
+                        Instance::new(#name)
+                    }
+                }
+            }
+        };
+
+        let mod_name = Ident::new(&mod_name, span);
+        peripherals.extend(quote! {
+            #[path = "."]
+            pub mod #mod_name {
+                #consts
+                #import
+
+                pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
+                #instances
+            }
+        })
     }
 
     let n = util::unsuffixed(pos as u64);
@@ -74,6 +162,7 @@ pub fn render(_opts: &super::Options, ir: &IR, d: &Device, path: &str) -> Result
         pub enum Interrupt {
             #interrupts
         }
+        pub type interrupt = Interrupt;
 
         unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
             #[inline(always)]
@@ -103,16 +192,13 @@ pub fn render(_opts: &super::Options, ir: &IR, d: &Device, path: &str) -> Result
         #peripherals
     ));
 
-    /*
-    if let Some(cpu) = d.cpu.as_ref() {
-        let bits = util::unsuffixed(u64::from(cpu.nvic_priority_bits));
+    let cpu = d.cpu.as_ref().expect("There must be a CPU.");
+    let bits = util::unsuffixed(u64::from(cpu.nvic_priority_bits));
 
-        out.extend(quote! {
-            ///Number available in the NVIC for configuring priority
-            pub const NVIC_PRIO_BITS: u8 = #bits;
-        });
-    }
-     */
+    out.extend(quote! {
+        ///Number available in the NVIC for configuring priority
+        pub const NVIC_PRIO_BITS: u8 = #bits;
+    });
 
     Ok(out)
 }

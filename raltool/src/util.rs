@@ -272,7 +272,6 @@ pub fn build_rs() -> TokenStream {
         }
     }
 }
-
 /// Return a relative path to access a from b.
 pub fn relative_path(a: &str, b: &str) -> TokenStream {
     let a: Vec<&str> = a.split("::").collect();
@@ -302,6 +301,15 @@ pub fn relative_path(a: &str, b: &str) -> TokenStream {
     res.extend(quote!(#ident));
 
     res
+}
+
+pub fn absolute_path(path: &str) -> TokenStream {
+    path.split("::")
+        .map(|part| Ident::new(part, Span::call_site()))
+        .fold(quote!(crate), |mut path, ident| {
+            path.extend(quote!(::#ident));
+            path
+        })
 }
 
 pub fn doc(doc: &Option<String>) -> TokenStream {

@@ -16,8 +16,8 @@ impl Sanitize {
             NameKind::Block => *p = sanitize_path(p),
             NameKind::Fieldset => *p = sanitize_path(p),
             NameKind::Enum => *p = sanitize_path(p),
-            NameKind::BlockItem => *p = p.to_sanitized_snake_case().to_string(),
-            NameKind::Field => *p = p.to_sanitized_snake_case().to_string(),
+            NameKind::BlockItem => *p = p.to_sanitized_upper_case().to_string(),
+            NameKind::Field => *p = p.to_sanitized_upper_case().to_string(),
             NameKind::EnumVariant => *p = p.to_sanitized_upper_case().to_string(),
         });
         Ok(())

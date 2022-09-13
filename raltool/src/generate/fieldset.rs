@@ -6,7 +6,7 @@ use quote::quote;
 use crate::ir::*;
 use crate::util;
 
-pub fn render(_opts: &super::Options, ir: &IR, fs: &FieldSet, path: &str) -> Result<TokenStream> {
+pub fn render(ir: &IR, fs: &FieldSet) -> Result<TokenStream> {
     let span = Span::call_site();
     let mut items = TokenStream::new();
 
@@ -15,107 +15,55 @@ pub fn render(_opts: &super::Options, ir: &IR, fs: &FieldSet, path: &str) -> Res
         BitSize(9..=16) => quote!(u16),
         BitSize(17..=32) => quote!(u32),
         BitSize(33..=64) => quote!(u64),
-        BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
+        BitSize(invalid) => anyhow::bail!("Invalid bit_size {invalid}"),
     };
 
     for f in &fs.fields {
+        anyhow::ensure!(
+            f.array.is_none(),
+            "Field {} is an array, and that's not supported",
+            f.name
+        );
+
         let name = Ident::new(&f.name, span);
-        let name_set = Ident::new(&format!("set_{}", f.name), span);
-        let bit_offset = f.bit_offset as usize;
+        let bit_offset = proc_macro2::Literal::u32_unsuffixed(f.bit_offset);
         let mask = util::hex(1u64.wrapping_shl(f.bit_size.0).wrapping_sub(1));
         let doc = util::doc(&f.description);
-        let field_ty: TokenStream;
-        let to_bits: TokenStream;
-        let from_bits: TokenStream;
 
-        if let Some(e_path) = &f.enum_readwrite {
-            let e = ir.enums.get(e_path).unwrap();
+        let enum_tokenize = |enm: &Option<String>| -> TokenStream {
+            enm.as_ref()
+                .and_then(|path| ir.enums.get(path))
+                .map(|enm| {
+                    let mut items = TokenStream::new();
+                    for e in &enm.variants {
+                        let name = Ident::new(&e.name, span);
+                        let value = util::hex(e.value);
+                        let doc = util::doc(&e.description);
+                        items.extend(quote!(
+                            #doc
+                            pub const #name: #ty = #value;
+                        ));
+                    }
+                    items
+                })
+                .unwrap_or_else(TokenStream::new)
+        };
 
-            let enum_ty = match e.bit_size {
-                BitSize(1..=8) => quote!(u8),
-                BitSize(9..=16) => quote!(u16),
-                BitSize(17..=32) => quote!(u32),
-                BitSize(33..=64) => quote!(u64),
-                BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
-            };
+        let reads = enum_tokenize(&f.enum_read);
+        let writes = enum_tokenize(&f.enum_write);
+        let reads_writes = enum_tokenize(&f.enum_readwrite);
 
-            field_ty = util::relative_path(e_path, path);
-            to_bits = quote!(val.0 as #ty);
-            from_bits = quote!(#field_ty(val as #enum_ty));
-        } else {
-            field_ty = match f.bit_size {
-                BitSize(1) => quote!(bool),
-                BitSize(2..=8) => quote!(u8),
-                BitSize(9..=16) => quote!(u16),
-                BitSize(17..=32) => quote!(u32),
-                BitSize(33..=64) => quote!(u64),
-                BitSize(invalid) => panic!("Invalid bit_size {invalid}"),
-            };
-            to_bits = quote!(val as #ty);
-            from_bits = if f.bit_size == BitSize(1) {
-                quote!(val != 0)
-            } else {
-                quote!(val as #field_ty)
+        items.extend(quote! {
+            #doc
+            pub mod #name {
+                pub const offset: #ty = #bit_offset;
+                pub const mask: #ty = #mask << offset;
+                pub mod R { #reads }
+                pub mod W { #writes }
+                pub mod RW { #reads_writes }
             }
-        }
-
-        if let Some(array) = &f.array {
-            let (len, offs_expr) = super::process_array(array);
-            items.extend(quote!(
-                #doc
-                #[inline(always)]
-                pub fn #name(&self, n: usize) -> #field_ty{
-                    assert!(n < #len);
-                    let offs = #bit_offset + #offs_expr;
-                    let val = (self.0 >> offs) & #mask;
-                    #from_bits
-                }
-                #doc
-                #[inline(always)]
-                pub fn #name_set(&mut self, n: usize, val: #field_ty) {
-                    assert!(n < #len);
-                    let offs = #bit_offset + #offs_expr;
-                    self.0 = (self.0 & !(#mask << offs)) | (((#to_bits) & #mask) << offs);
-                }
-            ));
-        } else {
-            items.extend(quote!(
-                #doc
-                #[inline(always)]
-                pub const fn #name(&self) -> #field_ty{
-                    let val = (self.0 >> #bit_offset) & #mask;
-                    #from_bits
-                }
-                #doc
-                #[inline(always)]
-                pub fn #name_set(&mut self, val: #field_ty) {
-                    self.0 = (self.0 & !(#mask << #bit_offset)) | (((#to_bits) & #mask) << #bit_offset);
-                }
-            ));
-        }
+        });
     }
 
-    let (_, name) = super::split_path(path);
-    let name = Ident::new(name, span);
-    let doc = util::doc(&fs.description);
-
-    let out = quote! {
-        #doc
-        #[repr(transparent)]
-        #[derive(Copy, Clone, Eq, PartialEq)]
-        pub struct #name (pub #ty);
-
-        impl #name {
-            #items
-        }
-
-        impl Default for #name {
-            #[inline(always)]
-            fn default() -> #name {
-                #name(0)
-            }
-        }
-    };
-
-    Ok(out)
+    Ok(quote! { #items })
 }

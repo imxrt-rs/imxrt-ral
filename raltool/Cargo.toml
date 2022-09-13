@@ -12,6 +12,7 @@ log = { version = "~0.4", features = ["std"] }
 quote = "1.0"
 proc-macro2 = "1.0"
 anyhow = "1.0.19"
+rayon = "1.5"
 regex = "1.4.3"
 serde = { version = "1.0.123", features = [ "derive" ]}
 serde_yaml = "0.8.15"
