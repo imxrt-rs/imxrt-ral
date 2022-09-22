@@ -182,7 +182,7 @@ name."#
                 _reserved: u32,
             }
 
-            #[link_section = ".vector_table.interrupts"]
+            #[cfg_attr(target_os = "none", link_section = ".vector_table.interrupts")]
             #[no_mangle]
             pub static __INTERRUPTS: [Vector; #n] = [
                 #vectors
