@@ -342,6 +342,7 @@ pub fn convert_svd(svd: &svd::Device) -> anyhow::Result<IR> {
 
     transform::sort::Sort {}.run(&mut ir).unwrap();
     transform::Sanitize {}.run(&mut ir).unwrap();
+    transform::SimplifyPaths::new().run(&mut ir).unwrap();
 
     Ok(ir)
 }

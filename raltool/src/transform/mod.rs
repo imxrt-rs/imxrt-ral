@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use crate::ir::*;
 use crate::util::{ToSanitizedPascalCase, ToSanitizedSnakeCase, ToSanitizedUpperCase};
@@ -24,6 +24,7 @@ impl Sanitize {
     }
 }
 
+#[derive(PartialEq, Eq)]
 pub enum NameKind {
     Device,
     DevicePeripheral,
@@ -258,5 +259,66 @@ impl Transform {
             //Self::FindDuplicateEnums(t) => t.run(ir),
             //Self::FindDuplicateFieldsets(t) => t.run(ir),
         }
+    }
+}
+
+/// A transform that removes extraneous numbers
+/// from block paths that have multiple instances.
+///
+/// If the IR uses paths that look like
+///
+/// - `lpuart1::Lpuart2`
+/// - `lpuart1::Lpuart7`
+/// - etc.
+///
+/// this transformer changes `lpuart1` to `lpuart`,
+/// dropping the '1'.
+pub struct SimplifyPaths(());
+impl SimplifyPaths {
+    pub fn new() -> Self {
+        SimplifyPaths(())
+    }
+    pub fn run(&self, ir: &mut IR) -> anyhow::Result<()> {
+        let re = regex::Regex::new(r"\d+$")?;
+
+        let mut block_to_peripherals: HashMap<&str, usize> = HashMap::new();
+        for device in ir.devices.values() {
+            for peripheral in &device.peripherals {
+                *block_to_peripherals
+                    .entry(peripheral.block.as_ref().unwrap())
+                    .or_insert(0) += 1;
+            }
+        }
+
+        let renames: HashSet<String> = block_to_peripherals
+            .into_iter()
+            .filter(|(_, count)| *count > 1)
+            .filter(|(path, _)| {
+                let root = path.split("::").next().unwrap();
+                re.is_match(root)
+            })
+            .map(|(path, _)| path.split("::").next().unwrap().into())
+            .collect();
+
+        map_names(ir, |_, name| {
+            let mut parts = name.split("::");
+            if let Some(root) = parts.next() {
+                if renames.contains(root) {
+                    let new_root = re.replace(root, "");
+                    *name = std::iter::once(&*new_root)
+                        .chain(parts)
+                        .collect::<Vec<_>>()
+                        .join("::");
+                }
+            }
+        });
+
+        Ok(())
+    }
+}
+
+impl Default for SimplifyPaths {
+    fn default() -> Self {
+        Self::new()
     }
 }
