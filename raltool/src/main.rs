@@ -202,6 +202,7 @@ fn gen(mut args: Generate) -> Result<()> {
 
     let generate_opts = generate::Options {
         module_root: PathBuf::from(args.output_directory).join("lib.rs"),
+        weak_syms: true,
     };
 
     let combination = combine::combine(&irs);
@@ -337,6 +338,7 @@ fn gen_block(args: GenBlock) -> Result<()> {
 
     let generate_opts = generate::Options {
         module_root: std::path::PathBuf::from(&args.output),
+        weak_syms: false,
     };
     generate::render(&ir, &generate_opts)?;
     Ok(())

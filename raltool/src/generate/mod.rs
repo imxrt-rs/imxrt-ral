@@ -6,8 +6,9 @@ use anyhow::Result;
 use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
 use std::collections::{BTreeMap, HashSet};
-use std::fs;
+use std::io::Write;
 use std::path::{Path, PathBuf};
+use std::{fs, io};
 
 use crate::ir::*;
 
@@ -128,6 +129,7 @@ pub enum CommonModule {
 
 pub struct Options {
     pub module_root: PathBuf,
+    pub weak_syms: bool,
 }
 
 const BLOCK_MOD: &str = "blocks";
@@ -201,11 +203,41 @@ pub fn render(ir: &IR, opts: &Options) -> Result<()> {
         block_dev_mod.mark_fs_only();
     }
 
-    root.render(&opts.module_root)
+    root.render(&opts.module_root)?;
+    weak_syms(opts, ir)?;
+    Ok(())
 }
 
 fn split_path(s: &str) -> (Vec<&str>, &str) {
     let mut v: Vec<&str> = s.split("::").collect();
     let n = v.pop().unwrap();
     (v, n)
+}
+
+/// Generate a linker script of weak symbols for interrupt handlers.
+fn weak_syms(opts: &Options, ir: &IR) -> Result<()> {
+    if !opts.weak_syms {
+        return Ok(());
+    }
+
+    for (name, device) in &ir.devices {
+        if name.is_empty() {
+            continue;
+        }
+
+        let mut interrupts = device.interrupts.clone();
+        interrupts.sort_by_key(|intr| intr.value);
+
+        let mut path = opts.module_root.parent().unwrap().join(name);
+        path.set_extension("x");
+
+        let file = fs::File::create(path)?;
+        let mut file = io::BufWriter::new(file);
+
+        for intr in interrupts {
+            writeln!(file, "PROVIDE({} = DefaultHandler);", intr.name)?;
+        }
+    }
+
+    Ok(())
 }
