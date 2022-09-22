@@ -1,0 +1,75 @@
+transforms:
+  # Transform device names, keeping the RAL convention.
+  - Rename:
+      from: Mimxrt1011
+      to: imxrt1011
+  - Rename:
+      from: Mimxrt1015
+      to: imxrt1015
+  - Rename:
+      from: Mimxrt1021
+      to: imxrt1021
+  - Rename:
+      from: Mimxrt1051
+      to: imxrt1051
+  - Rename:
+      from: Mimxrt1052
+      to: imxrt1052
+  - Rename:
+      from: Mimxrt1061
+      to: imxrt1061
+  - Rename:
+      from: Mimxrt1062
+      to: imxrt1062
+  - Rename:
+      from: Mimxrt1064
+      to: imxrt1064
+  - Rename:
+      from: Mimxrt1176Cm7
+      to: imxrt1170_cm7
+  - Rename:
+      from: Mimxrt1176Cm4
+      to: imxrt1170_cm4
+  - Rename:
+      from: pit1::Pit1
+      to: pit::Pit
+  # Combine GPT OCR and ICR registrers for 10xx MCUs.
+  # This allows it to match the 11xx MCUs, and reduce
+  # code bloat.
+  - MakeRegisterArray:
+      blocks: gpt::Gpt(\d)
+      from: OCR(\d)
+      to: OCR
+  - MakeRegisterArray:
+      blocks: gpt::Gpt(\d)
+      from: ICR(\d)
+      to: ICR
+  # Drop select enums from GPT fields. These extra enums
+  # are present in 11xx SVDs and prevent the tool from
+  # combining with the 10xx GPT definition.
+  - DeleteEnums:
+      from: gpt::vals::Im(\d)
+  - DeleteEnums:
+      from: gpt::vals::Om(\d)
+  - DeleteEnums:
+      from: gpt::vals::Fo(\d)
+  - DeleteEnums:
+      from: gpt::vals::Sr(\d)
+  - DeleteEnums:
+      from: gpt::vals::Of(\d)
+  - DeleteEnums:
+      from: gpt::vals::If(\d)
+  - DeleteEnums:
+      from: gpt::vals::Of(\d)ie
+  - DeleteEnums:
+      from: gpt::vals::If(\d)ie
+  # Move the CAN wrapper instance number to the far right
+  # so it's properly parsed.
+  - Rename:
+      from: CAN(\d)_WRAPPER
+      to: CAN_WRAPPER$1
+  # This resembles a XECC_FLEXSPI peripheral.
+  # It consolidates when there's a number at the end.
+  - Rename:
+      from: XECC_SEMC
+      to: XECC_SEMC0

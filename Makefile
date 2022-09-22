@@ -77,7 +77,7 @@ update-venv:
 	python3 scripts/makedeps.py $< > $@
 
 crate: patch
-	python3 imxrtral.py . svd/imxrt*.svd.patched
+	raltool generate svd/imxrt10*.svd.patched --transform raltool-cfg.yaml
 
 rustfmt:
 	cargo fmt
