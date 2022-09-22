@@ -1,9 +1,9 @@
 #![recursion_limit = "128"]
 
 use anyhow::{bail, Context, Result};
-use chiptool::{combine, generate, svd2ir};
 use clap::Parser;
 use log::*;
+use raltool::{combine, generate, svd2ir};
 use rayon::prelude::*;
 use regex::Regex;
 use std::fs;
@@ -11,10 +11,9 @@ use std::io::Read;
 use std::path::PathBuf;
 use std::{fs::File, io::stdout};
 
-use chiptool::ir::IR;
+use raltool::ir::IR;
 
 #[derive(Parser)]
-#[clap(version = "1.0", author = "Dirbaio <dirbaio@dirbaio.net>")]
 struct Opts {
     #[clap(subcommand)]
     subcommand: Subcommand,
@@ -154,11 +153,11 @@ fn extract_peripheral(args: ExtractPeripheral) -> Result<()> {
             .expect("derivedFrom peripheral not found");
     }
 
-    chiptool::svd2ir::convert_peripheral(&mut ir, p)?;
+    raltool::svd2ir::convert_peripheral(&mut ir, p)?;
 
     // Fix weird newline spam in descriptions.
     let re = Regex::new("[ \n]+").unwrap();
-    chiptool::transform::map_descriptions(&mut ir, |d| re.replace_all(d, " ").into_owned())?;
+    raltool::transform::map_descriptions(&mut ir, |d| re.replace_all(d, " ").into_owned())?;
 
     for t in &config.transforms {
         info!("running: {:?}", t);
@@ -166,7 +165,7 @@ fn extract_peripheral(args: ExtractPeripheral) -> Result<()> {
     }
 
     // Ensure consistent sort order in the YAML.
-    chiptool::transform::sort::Sort {}.run(&mut ir).unwrap();
+    raltool::transform::sort::Sort {}.run(&mut ir).unwrap();
 
     serde_yaml::to_writer(stdout(), &ir).unwrap();
     Ok(())
@@ -189,9 +188,7 @@ fn gen(mut args: Generate) -> Result<()> {
             let svd = load_svd(&svd)?;
             let mut ir = svd2ir::convert_svd(&svd)?;
 
-            chiptool::transform::map_descriptions(&mut ir, |d| {
-                re.replace_all(d, " ").into_owned()
-            })?;
+            raltool::transform::map_descriptions(&mut ir, |d| re.replace_all(d, " ").into_owned())?;
 
             for t in &config.transforms {
                 t.run(&mut ir)?;
@@ -231,7 +228,7 @@ fn fmt(args: Fmt) -> Result<()> {
         let mut ir: IR = serde_yaml::from_slice(&got_data)?;
 
         // Ensure consistent sort order in the YAML.
-        chiptool::transform::sort::Sort {}.run(&mut ir).unwrap();
+        raltool::transform::sort::Sort {}.run(&mut ir).unwrap();
 
         // Trim all descriptions
 
@@ -331,10 +328,10 @@ fn gen_block(args: GenBlock) -> Result<()> {
     let data = fs::read(&args.input)?;
     let mut ir: IR = serde_yaml::from_slice(&data)?;
 
-    chiptool::transform::Sanitize {}.run(&mut ir).unwrap();
+    raltool::transform::Sanitize {}.run(&mut ir).unwrap();
 
     // Ensure consistent sort order in the YAML.
-    chiptool::transform::sort::Sort {}.run(&mut ir).unwrap();
+    raltool::transform::sort::Sort {}.run(&mut ir).unwrap();
 
     let generate_opts = generate::Options {
         module_root: std::path::PathBuf::from(&args.output),
@@ -345,7 +342,7 @@ fn gen_block(args: GenBlock) -> Result<()> {
 }
 #[derive(serde::Serialize, serde::Deserialize)]
 struct Config {
-    transforms: Vec<chiptool::transform::Transform>,
+    transforms: Vec<raltool::transform::Transform>,
 }
 
 impl Default for Config {
