@@ -2,6 +2,7 @@ _svd: "../svd/imxrt1176_cm4.svd"
 
 _include:
   - "common_patches/usb1.yaml"
+  - "common_patches/lpuart_ridmae.yaml"
 
 DMA1:
   _cluster:

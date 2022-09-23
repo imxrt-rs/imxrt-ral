@@ -13,6 +13,7 @@ _delete:
 _include:
   - "common_patches/dma0/tcd_cluster.yaml"
   - "common_patches/usb1.yaml"
+  - "common_patches/lpuart_ridmae.yaml"
 
 # Rename USB to match 10xx families.
 # This requires that we remove USB2 peripherals,
