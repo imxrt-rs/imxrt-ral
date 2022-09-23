@@ -73,3 +73,44 @@ transforms:
   - Rename:
       from: XECC_SEMC
       to: XECC_SEMC0
+  # This peripheral is tricky to support.
+  #
+  # - It has clusters in clusters. While we can generate code for this,
+  #   we can't easily add macro support for this.
+  # - It has clusters that alias each other. This is trickier to support
+  #   in today's codegen tool, so we're punting.
+  - Delete:
+      from: caam::Caam
+  # 1176 CM7 has GPIO blocks under a "cm7_gpio" module. Change this
+  # so that they're under a "gpio" module. Also, rename the block so
+  # that it matches the 10xx GPIO block name, and can be combined.
+  - Rename:
+      from: cm7_gpio::Cm7Gpio2
+      to: gpio::Gpio1
+  # Same goes for the 1176 CM4: rename for combining.
+  - Rename:
+      from: gpio::Gpio2
+      to: gpio::Gpio1
+  # Change the fast GPIO numbers on the 1176 CM7 so that they have a
+  # unique instance number. Add 10 to make it distinct. This is faily hacky,
+  # so TODO make this better.
+  - Rename:
+      from: CM7_GPIO2
+      to: FAST_GPIO20
+  - Rename:
+      from: CM7_GPIO3
+      to: FAST_GPIO30
+  # Similar number suffixes result in duplicate instance types. Define unique
+  # numbers (that are a bit less hacky, maybe).
+  - Rename:
+      from: PGMC_CPC0_MIF0
+      to: PGMC_CPC_MIF00
+  - Rename:
+      from: PGMC_CPC0_MIF1
+      to: PGMC_CPC_MIF01
+  - Rename:
+      from: PGMC_CPC1_MIF0
+      to: PGMC_CPC_MIF10
+  - Rename:
+      from: PGMC_CPC1_MIF1
+      to: PGMC_CPC_MIF11
