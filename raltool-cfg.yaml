@@ -31,7 +31,7 @@ transforms:
       from: Mimxrt1176Cm4
       to: imxrt1176_cm4
   - Rename:
-      from: pit1::Pit1
+      from: pit::Pit1
       to: pit::Pit
   # Combine GPT OCR and ICR registrers for 10xx MCUs.
   # This allows it to match the 11xx MCUs, and reduce
