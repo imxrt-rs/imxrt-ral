@@ -114,3 +114,14 @@ transforms:
   - Rename:
       from: PGMC_CPC1_MIF1
       to: PGMC_CPC_MIF11
+  # 1176 LPSPI has fewer enums which prevent combining. Remove them from
+  # the 10xx variants. They're simple, intuitive bool fields, so it's no
+  # bit deal to remove.
+  - DeleteEnums:
+      from: lpspi::vals::Hren
+  - DeleteEnums:
+      from: lpspi::vals::Hrpol
+  - DeleteEnums:
+      from: lpspi::vals::Hrsel
+  - DeleteEnums:
+      from: lpspi::vals::Pcspol

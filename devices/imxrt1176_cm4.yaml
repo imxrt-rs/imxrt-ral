@@ -173,3 +173,20 @@ PWM?:
       - PWMAFS
 
 # End directives to remove duplicated enumeratedValues.
+
+# Add extra enums to LPSPI so it easily combines with the 10xx peripherals.
+"LPSPI*":
+  CFGR0:
+    _add:
+      HREN:
+        bitOffset: 0
+        bitWidth: 1
+        access: read-write
+      HRPOL:
+        bitOffset: 1
+        bitWidth: 1
+        access: read-write
+      HRSEL:
+        bitOffset: 2
+        bitWidth: 1
+        access: read-write
