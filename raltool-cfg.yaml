@@ -125,3 +125,19 @@ transforms:
       from: lpspi::vals::Hrsel
   - DeleteEnums:
       from: lpspi::vals::Pcspol
+  # DMA and DMAMUX are suffixed with numbers on the 1176, since each core
+  # has its own instance. They're also suffixed on 10xx chips, even though
+  # there's just one instnace. Rename them so that the names are the same across
+  # all chips.
+  - Rename:
+      from: dma(\d)::Dma(\d)
+      to: dma::Dma
+  - Rename:
+      from: DMA(\d)
+      to: DMA
+  - Rename:
+      from: dmamux(\d)::Dmamux(\d)
+      to: dmamux::Dmamux
+  - Rename:
+      from: DMAMUX(\d)
+      to: DMAMUX
