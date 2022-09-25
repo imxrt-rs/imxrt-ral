@@ -21,6 +21,8 @@ DEVICE_PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(DEVICE_YA
 
 DEVICE_FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(DEVICE_YAMLS))
 
+RALTOOL := target/release/raltool
+
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
 	svd patch $<
@@ -62,6 +64,7 @@ clean-html:
 
 clean: clean-patch clean-html clean-check
 	rm -rf .deps
+	cargo clean
 
 # As alternative to `pip install --user svdtools`:
 # run `make venv update-venv` and `source venv/bin/activate'
@@ -77,10 +80,14 @@ update-venv:
 	@mkdir -p .deps
 	python3 scripts/makedeps.py $< > $@
 
-crate: patch
-	raltool generate svd/imxrt*.svd.patched --transform raltool-cfg.yaml
+crate: patch $(RALTOOL)
+	$(RALTOOL) generate svd/imxrt*.svd.patched --transform raltool-cfg.yaml
 
 rustfmt:
-	cargo fmt
+	cargo fmt --package=imxrt-ral
 	
 -include .deps/*
+-include target/release/raltool.d
+
+$(RALTOOL):
+	cargo build --release --package=raltool

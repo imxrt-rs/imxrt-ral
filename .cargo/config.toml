@@ -1,0 +1,5 @@
+[build]
+# If raltool changes, re-compile raltool when building a make target. See
+# https://doc.rust-lang.org/cargo/reference/config.html#builddep-info-basedir
+# https://doc.rust-lang.org/cargo/guide/build-cache.html#dep-info-files
+dep-info-basedir = "."

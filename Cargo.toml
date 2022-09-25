@@ -48,3 +48,8 @@ imxrt1062 = ["cortex-m"]
 imxrt1064 = ["cortex-m"]
 imxrt1176_cm4 = ["cortex-m"]
 imxrt1176_cm7 = ["cortex-m"]
+
+[workspace]
+members = [
+    "raltool",
+]
