@@ -3,7 +3,7 @@ use serde::{de, de::Visitor, ser::SerializeMap, Deserialize, Deserializer, Seria
 use std::collections::{BTreeMap, HashMap};
 use std::fmt;
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IR {
     pub devices: HashMap<String, Device>,
     pub blocks: HashMap<String, Block>,
@@ -29,12 +29,18 @@ impl IR {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+impl Default for IR {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Cpu {
     pub nvic_priority_bits: u32,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Device {
     pub peripherals: Vec<Peripheral>,
     pub interrupts: Vec<Interrupt>,
@@ -42,7 +48,7 @@ pub struct Device {
     pub cpu: Option<Cpu>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Peripheral {
     pub name: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -62,7 +68,7 @@ pub struct Peripheral {
     pub interrupts: HashMap<String, String>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Interrupt {
     pub name: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -70,7 +76,7 @@ pub struct Interrupt {
     pub value: u32,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Block {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub extends: Option<String>,
@@ -80,7 +86,7 @@ pub struct Block {
     pub items: Vec<BlockItem>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BlockItem {
     pub name: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -94,35 +100,35 @@ pub struct BlockItem {
     pub inner: BlockItemInner,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BlockItemInner {
     Block(BlockItemBlock),
     Register(Register),
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Array {
     Regular(RegularArray),
     Cursed(CursedArray),
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct RegularArray {
     pub len: u32,
     pub stride: u32,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct CursedArray {
     pub offsets: Vec<u32>,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BitSize(pub u32);
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Register {
     #[serde(default = "default_readwrite", skip_serializing_if = "is_readwrite")]
     pub access: Access,
@@ -130,7 +136,7 @@ pub struct Register {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub fieldset: Option<String>,
 }
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BlockItemBlock {
     pub block: String,
 }
@@ -142,7 +148,7 @@ pub enum Access {
     Write,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct FieldSet {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub extends: Option<String>,
@@ -153,7 +159,7 @@ pub struct FieldSet {
     pub fields: Vec<Field>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Field {
     pub name: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -171,7 +177,7 @@ pub struct Field {
     pub enum_readwrite: Option<String>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Enum {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
@@ -179,7 +185,7 @@ pub struct Enum {
     pub variants: Vec<EnumVariant>,
 }
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct EnumVariant {
     pub name: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -266,7 +272,7 @@ impl<'de> Visitor<'de> for IRVisitor {
         // into our map.
         while let Some(key) = access.next_key()? {
             let key: String = key;
-            let (kind, name) = key.split_once("/").ok_or(de::Error::custom("item names must be in form `kind/name`, where kind is `block`, `fieldset` or `enum`"))?;
+            let (kind, name) = key.split_once('/').ok_or_else(|| de::Error::custom("item names must be in form `kind/name`, where kind is `block`, `fieldset` or `enum`"))?;
             match kind {
                 "block" => {
                     let val: Block = access.next_value()?;

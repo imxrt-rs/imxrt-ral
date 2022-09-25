@@ -185,7 +185,7 @@ fn gen(mut args: Generate) -> Result<()> {
         .svds
         .par_iter()
         .map(|svd| -> Result<IR> {
-            let svd = load_svd(&svd)?;
+            let svd = load_svd(svd)?;
             let mut ir = svd2ir::convert_svd(&svd)?;
 
             raltool::transform::map_descriptions(&mut ir, |d| re.replace_all(d, " ").into_owned())?;
@@ -238,21 +238,21 @@ fn fmt(args: Fmt) -> Result<()> {
             }
         };
 
-        for (_, b) in &mut ir.blocks {
+        for b in ir.blocks.values_mut() {
             cleanup(&mut b.description);
             for i in &mut b.items {
                 cleanup(&mut i.description);
             }
         }
 
-        for (_, b) in &mut ir.fieldsets {
+        for b in ir.fieldsets.values_mut() {
             cleanup(&mut b.description);
             for i in &mut b.fields {
                 cleanup(&mut i.description);
             }
         }
 
-        for (_, b) in &mut ir.enums {
+        for b in ir.enums.values_mut() {
             cleanup(&mut b.description);
             for i in &mut b.variants {
                 cleanup(&mut i.description);
@@ -340,15 +340,9 @@ fn gen_block(args: GenBlock) -> Result<()> {
     generate::render(&ir, &generate_opts)?;
     Ok(())
 }
-#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(serde::Serialize, serde::Deserialize, Default)]
 struct Config {
     transforms: Vec<raltool::transform::Transform>,
-}
-
-impl Default for Config {
-    fn default() -> Self {
-        Self { transforms: vec![] }
-    }
 }
 
 // ==============
