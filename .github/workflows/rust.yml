@@ -7,18 +7,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install virtualenv
-        uses: actions/setup-python@v1
+      - name: Install a stable Rust toolchain
+        uses: actions-rs/toolchain@v1
         with:
-          python-version: 3.7
-      - name: Install Python dependencies
-        run: pip install -U -r requirements.txt
+          toolchain: stable
+          profile: minimal
+      # Not using actions-rs/install, since it's experimental.
+      # Guessing that this tool isn't in the tool cache, so
+      # there's no benefit.
+      - name: Install svdtools
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: svdtools --version=0.2.6
       - name: Generate RAL
         run: make ci
       - name: Ensure RAL is consistent with checked-in code
         run: git update-index --refresh && git diff-index --quiet HEAD
       - name: Check format for RAL
-        run: cargo fmt --all -- --check
+        uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
 
   build-ral-core:
     runs-on: ubuntu-latest
