@@ -17,8 +17,7 @@ include = [
 version = "0.5.0"
 
 [package.metadata.docs.rs]
-features = ["doc"]
-no-default-features = true
+features = ["imxrt1062"]
 default-target = "thumbv7em-none-eabihf"
 
 [dependencies.cortex-m]
@@ -34,11 +33,6 @@ test = false
 
 [features]
 rt = []
-inline-asm = ["cortex-m/inline-asm"]
-rtic = []
-default = []
-nosync = []
-doc = ["cortex-m"]
 imxrt1011 = ["cortex-m"]
 imxrt1015 = ["cortex-m"]
 imxrt1021 = ["cortex-m"]
