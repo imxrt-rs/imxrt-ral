@@ -1,3 +1,74 @@
+This package provides a register access layer (RAL) for i.MX RT processors.
+For more information, see [the README][README].
+
+[README]: https://github.com/imxrt-rs/imxrt-ral
+
+# Getting started
+
+Select your chip and enable its feature flag. See [the README][README] for more
+information on available chip features.
+
+There are two ways to interact with peripherals and registers:
+
+1. Fabricate a peripheral _instance_ with the unsafe `instance()` method.
+2. Interact directly with the peripheral pointers, and mark all accesses as `unsafe`.
+
+## Fabricate a peripheral instance
+
+```no_run
+use imxrt_ral as ral;
+use ral::lpuart;
+
+let mut lpuart2 = unsafe { lpuart::LPUART2::instance() };
+let version = ral::read_reg!(lpuart, lpuart2, VERID);
+# let byte = 0;
+ral::modify_reg!(lpuart, lpuart2, CTRL, TE: 1, RE: 1);
+ral::write_reg!(lpuart, lpuart2, DATA, byte);
+```
+
+Fabricating an instance is always `unsafe`. There are no checks that prevent
+aliases to the same peripheral memory. If you're using this API, you need to
+make sure that creating an instance is appropriate in your program's context.
+
+It's helpful to design drivers to peripheral instances, since register accesses do
+not need an `unsafe` block. The driver assumes that it has complete ownership
+of the instance, and uses the instance to manage the hardware. See the [Usage](#usage) section
+for more ideas.
+
+## Interact directly with pointers
+
+```no_run
+use imxrt_ral as ral;
+use ral::lpuart;
+
+let version = unsafe { ral::read_reg!(lpuart, lpuart::LPUART2, VERID) };
+# let byte = 0;
+unsafe { ral::modify_reg!(lpuart, lpuart::LPUART2, CTRL, TE: 1, RE: 1) };
+unsafe { ral::write_reg!(lpuart, lpuart::LPUART2, DATA, byte) };
+```
+
+If you're familiar with using C for embedded code, this is C mode. You're
+responsible for making sure that register accesses are coordinated across all contexts.
+You also need to coordinate with anyone who's using the instance API.
+
+## Register access macros
+
+`imxrt-ral` re-exports the [ral-registers](https://docs.rs/ral-registers/0.1.1/ral_registers/)
+API. These macros make it easy to access register and register fields. For more information,
+see [`read_reg`], [`write_reg`], and [`modify_reg`]. Note that the documentation assumes an
+STM32 processor, and may demonstrate a different API for accessing instances.
+
+> Note: `imxrt-ral` does not yet support the `reset_reg` macro, and it does not expose reset
+structs.
+
+## Resource management
+
+Unlike some peripheral access crates (PACs) or register access layers, `imxrt-ral` does not
+provide a resource management policy for register blocks. Instead, the API uses `unsafe`
+to signal that you may be mutably aliasing peripheral registers. This package expects
+peripheral resource management to be handled by a higher-level crate, like a BSP or a custom
+package that's aware of multi-core execution and resource management.
+
 # Usage
 
 imxrt-ral APIs use const generics to differentiate different peripheral instances.
@@ -6,13 +77,13 @@ hints.
 
 A function that accepts any GPIO instance:
 
-```no_run
+```
 use imxrt_ral::gpio;
 
 fn any_gpio<const N: u8>(gpio: gpio::Instance<N>) { /* ... */ }
 
-let gpio1 = gpio::GPIO1::take().unwrap();
-let gpio2 = gpio::GPIO2::take().unwrap();
+let gpio1 = unsafe { gpio::GPIO1::instance() };
+let gpio2 = unsafe { gpio::GPIO2::instance() };
 
 any_gpio(gpio1);
 any_gpio(gpio2);
@@ -20,35 +91,29 @@ any_gpio(gpio2);
 
 A function that *only* accepts GPIO1:
 
-```no_run
+```
 use imxrt_ral::gpio;
 
-fn only_gpio1(gpio: gpio::Instance<1>) { /* ... */ }
+fn only_gpio1(gpio: &gpio::Instance<1>) { /* ... */ }
+fn only_gpio1_alias(gpio: &gpio::GPIO1) { /* ... */ }
 
-let gpio1 = gpio::GPIO1::take().unwrap();
+let gpio1 = unsafe { gpio::GPIO1::instance() };
 
-only_gpio1(gpio1);
+only_gpio1(&gpio1);
+only_gpio1_alias(&gpio1);
 ```
 
 `only_gpio1` rejects GPIO2 at compile time:
 
 ```compile_fail
-# use imxrt_ral::gpio; fn only_gpio1(gpio: gpio::Instance<1>) { /* ... */ }
-let gpio2 = gpio::GPIO2::take().unwrap();
-only_gpio1(gpio2);
-```
-
-In fact, rejection applies to the `release` functions, too:
-
-```compile_fail
-# use imxrt_ral::gpio;
-let gpio2 = gpio::GPIO2::take().unwrap();
-gpio::GPIO1::release(gpio2);
+# use imxrt_ral::gpio; fn only_gpio1(gpio: &gpio::Instance<1>) { /* ... */ }
+let gpio2 = unsafe { gpio::GPIO2::instance() };
+only_gpio1(&gpio2);
 ```
 
 These function designs apply to structures, too:
 
-```no_run
+```
 use imxrt_ral::gpio;
 
 struct GpioDriver<const N: u8> {
@@ -63,13 +128,13 @@ impl<const N: u8> GpioDriver<N> {
     }
 }
 
-let gpio1_driver = GpioDriver::new(gpio::GPIO1::take().unwrap());
+let gpio1_driver = GpioDriver::new(unsafe { gpio::GPIO1::instance() });
 ```
 
 Require that other resources, which are tagged with instance identifiers,
 match their peripheral instance:
 
-```no_run
+```
 use imxrt_ral::gpio;
 
 /// Type-level constant...
@@ -103,7 +168,7 @@ impl<const N: u8> GpioDriver<N> {
     }
 }
 
-let mut gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
+let mut gpio2 = GpioDriver::new(unsafe { gpio::GPIO2::instance() });
 let mut ad_b1_00 = // Ownership of pin...
     # AD_B1_00 {};
 gpio2.set_high(&mut ad_b1_00);
@@ -140,7 +205,7 @@ impl GpioPin for SD_B0_03 {
 #     }
 # }
 
-let mut gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
+let mut gpio2 = GpioDriver::new(unsafe { gpio::GPIO2::instance() });
 let mut sd_b0_03 = // Ownership of pin...
     # SD_B0_03 {};
 // Incorrect: GPIO1 pin with GPIO2 driver
@@ -150,7 +215,7 @@ gpio2.set_high(&mut sd_b0_03);
 If you would like such a statement to compile, remove the `GpioPin` constraint
 on the `set_high` function:
 
-```no_run
+```
 # use imxrt_ral::gpio;
 # enum Const<const N: u8> {}
 # trait GpioPin {
@@ -177,7 +242,7 @@ impl<const N: u8> GpioDriver<N> {
     }
 }
 
-let mut gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
+let mut gpio2 = GpioDriver::new(unsafe { gpio::GPIO2::instance() });
 let mut sd_b0_03 = // Ownership of pin...
     # SD_B0_03 {};
 // Now OK: GPIO1 pin with GPIO2 driver
@@ -188,7 +253,7 @@ If you don't want to carry around a generic type for your driver struct,
 you can still model peripheral ownership, and work with a pointer to the
 register block. You'll need to use some `unsafe` code, as shown below:
 
-```no_run
+```
 use imxrt_ral::gpio;
 
 struct GpioDriver {
@@ -203,15 +268,10 @@ impl GpioDriver {
         // which will outlive the gpio Instance.
         let register = unsafe { &*register };
         GpioDriver { gpio: register }
-        // gpio::Instance dropped, but it's still maked as
-        // "taken." So it appears that we own it.
     }
 }
 
-let gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
-// This would fail, since the instance is still "taken" by the
-// driver. Users would need an unsafe steal() to get another handle.
-// gpio::GPIO2::take().unwrap();
+let gpio2 = GpioDriver::new(unsafe { gpio::GPIO2::instance() });
 ```
 
 This approach loses some of the compile-time checks, but may be simpler
@@ -224,7 +284,7 @@ of that peripheral across all chips. This simplifies your driver API while still
 supporting all i.MX RT chips. The CCM peripheral is an example of a peripheral with
 one instance across all i.MX RT chips.
 
-```no_run
+```
 use imxrt_ral::ccm;
 
 // A truly single instance:
@@ -234,7 +294,7 @@ fn new_ccm(_: &ccm::CCM) { /* ... */ }
 // necessary, since there's only one CCM instance)
 fn new_ccm_explicit<const N: u8>(_: &ccm::Instance<N>) { /* ... */ }
 
-let ccm = ccm::CCM::take().unwrap();
+let ccm = unsafe { ccm::CCM::instance() };
 new_ccm(&ccm);
 new_ccm_explicit(&ccm);
 ```
@@ -248,18 +308,18 @@ are generic, the same function should work no matter how many peripheral
 instances exist on your chip. For example, this same function works for 1021
 chips -- having only one USB instance -- and 1062 chips -- having two USB instances.
 
-```no_run
+```
 use imxrt_ral::usb;
 
 fn new_usb_driver<const N: u8>(_: usb::Instance<N>) { /* ... */ }
 
 #[cfg(feature = "imxrt1021")]
-new_usb_driver(usb::USB::take().unwrap());
+new_usb_driver(unsafe { usb::USB::instance() });
 
 #[cfg(feature = "imxrt1062")]
 {
-    new_usb_driver(usb::USB1::take().unwrap());
-    new_usb_driver(usb::USB2::take().unwrap());
+    new_usb_driver(unsafe { usb::USB1::instance() });
+    new_usb_driver(unsafe { usb::USB2::instance() });
 }
 ```
 
@@ -270,14 +330,14 @@ USB instances:
 ```compile_fail
 use imxrt_ral::usb;
 
-/// A function that only takes the sole USB instance, Instance<0>.
-fn new_usb_driver(_: usb::USB) { /* ... */ }
+/// A function that only takes the sole USB instance.
+fn new_usb_driver(_: usb::Instance<0>) { /* ... */ }
 
 #[cfg(feature = "imxrt1062")]
-new_usb_driver(usb::USB1::take().unwrap()); // <-- Fails to compile! Instance<1> != Instance<0>
+new_usb_driver(unsafe { usb::USB1::instance() }); // <-- Fails to compile! Instance<1> != Instance<0>
 
 #[cfg(feature = "imxrt1021")]
-new_usb_driver(usb::USB::take().unwrap()); // <-- Doesn't work here, either! USB == Instance<0> != Instance<1>
+new_usb_driver(unsafe { usb::USB::instance() }); // <-- Doesn't work here, either! USB == Instance<0> != Instance<1>
 # #[cfg(feature = "imxrt1021")]
 # compile_error!("Forced failure to meet test requirements");
 ```
@@ -306,7 +366,7 @@ fn ccm_enable_lpuart_clock_gate<const LPUART_N: u8>(ccm: &mut ccm::CCM) {
 }
 
 # || -> Option<()> {
-let mut ccm = ccm::CCM::take()?;
+let mut ccm = unsafe { ccm::CCM::instance() };
 ccm_enable_lpuart_clock_gate::<3>(&mut ccm); // OK: LPUART3 is valid.
 ccm_enable_lpuart_clock_gate::<9>(&mut ccm); // panic! LPUART9 isn't valid
 # Some(()) }();
@@ -333,7 +393,7 @@ where
 }
 
 # || -> Option<()> {
-let mut ccm = ccm::CCM::take()?;
+let mut ccm = unsafe { ccm::CCM::instance() };
 ccm_enable_lpuart_clock_gate::<3>(&mut ccm); // OK: LPUART3 is valid.
 # Some(()) }();
 ```
@@ -345,41 +405,80 @@ ccm_enable_lpuart_clock_gate::<3>(&mut ccm); // OK: LPUART3 is valid.
 #     lpuart::Instance<LPUART_N>: imxrt_ral::Valid,
 # {}
 # || -> Option<()> {
-# let mut ccm = ccm::CCM::take()?;
+# let mut ccm = unsafe { ccm::CCM::instance() };
 ccm_enable_lpuart_clock_gate::<9>(&mut ccm); // Does not compile!
 # Some(()) }();
 ```
 
-## Disable strongly-typed instances
+## Advanced usage
 
-If you don't want strongly-typed peripheral instances, enable the `nosync` feature.
-`nosync` disables all synchronised access functions, like `take()` and `release()`,
-as well as all the types associated with that API. `nosync` requires direct, unsafe
-access to peripherals. This is "C" mode, where you're responsible for maintaining
-synchronization. `nosync` is a negative feature; enabling the feature may cause other
-dependencies to break, especially if they rely on owning strongly-typed instances.
+You can `unsafe`ly instantiate any `Instance` from a pointer using `new`. This
+is helpful if your strongly-numbered adapter is only using a pointer / static
+reference to a register block, yet you need to reconstruct the `Instance`
+for a user.
 
 ```
-use imxrt_ral::gpio;
-use core::sync::atomic::{AtomicBool, Ordering};
+use imxrt_ral::lpuart;
 
-struct GpioDriver {
-    gpio: &'static gpio::RegisterBlock,
+pub struct Lpuart<const N: u8> {
+    /// Not holding lpuart::Instance<N>.
+    /// Instead, we're just keeping a reference
+    /// after taking ownership of the instance.
+    ptr: &'static lpuart::RegisterBlock,
 }
 
-impl GpioDriver {
-    /// Acquire the GPIO1 driver, if it exists
-    pub fn gpio1() -> Option<GpioDriver> {
-        static TAKEN: AtomicBool = AtomicBool::new(false);
-        if !TAKEN.swap(true, Ordering::SeqCst) {
-            // Safety: GPIO1 pointes to static memory
-            Some(unsafe { Self { gpio: &*gpio::GPIO1 } })
-        } else {
-            None
-        }
+impl<const N: u8> Lpuart<N> {
+    pub fn new(inst: lpuart::Instance<N>) -> Self {
+        let ptr: *const lpuart::RegisterBlock = &*inst;
+        // Safety: pointer truly points to static memory.
+        Self { ptr: unsafe { &*ptr }}
+    }
+    pub fn release(self) -> lpuart::Instance<N> {
+        // Safety: The N associated with this type
+        // is still associated with its register block.
+        // We're not accidentally returning Instance<1>
+        // when we have a reference to Instance<2>.
+        //
+        // The pointer points to valid LPUART memory.
+        unsafe { lpuart::Instance::new(self.ptr) }
     }
 }
+```
 
-let gpio1 = GpioDriver::gpio1().unwrap();
-assert!(GpioDriver::gpio1().is_none());
+If you're fully discarding all type information, you can use
+the `number` function in each peripheral module to acquire the
+instance number for a register block. Note that this incurs a
+small runtime cost of up to `N` pointer compares, where `N` is
+the number of valid instances.
+
+```
+use imxrt_ral::lpuart;
+
+/// Note that there's no `N` const generic,
+/// so that information isn't in the type system.
+pub struct AnyLpuart {
+    ptr: &'static lpuart::RegisterBlock,
+}
+
+impl AnyLpuart {
+    pub fn new<const N: u8>(inst: lpuart::Instance<N>) -> Self {
+        let ptr: *const lpuart::RegisterBlock = &*inst;
+        // Safety: pointer truly points to static memory.
+        Self { ptr: unsafe { &*ptr }}
+    }
+
+    pub fn instance(&self) -> u8 {
+        // Unwrap OK; `new` guarantees that it's one of
+        // the N LPUART instances.
+        lpuart::number(self.ptr).unwrap()
+    }
+}
+```
+
+```
+use imxrt_ral::{ccm, lpuart};
+
+assert_eq!(ccm::number(ccm::CCM), Some(0));
+assert_eq!(lpuart::number(lpuart::LPUART2), Some(2));
+assert_eq!(lpuart::number(ccm::CCM as _), None);
 ```
