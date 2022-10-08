@@ -68,7 +68,7 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
             .push(peripheral)
     }
 
-    for (mod_name, (block_path, periphs)) in block_to_peripherals {
+    for (mod_name, (block_path, periphs)) in &block_to_peripherals {
         let mut consts = TokenStream::new();
         for peripheral in periphs.iter() {
             let name = Ident::new(&peripheral.name, span);
@@ -171,7 +171,7 @@ name."#
             }
         };
 
-        let mod_name = Ident::new(&mod_name, span);
+        let mod_name = Ident::new(mod_name, span);
         peripherals.extend(quote! {
             #[path = "."]
             pub mod #mod_name {
@@ -227,6 +227,55 @@ name."#
     out.extend(quote! {
         ///Number available in the NVIC for configuring priority
         pub const NVIC_PRIO_BITS: u8 = #bits;
+    });
+
+    //
+    // Emit RTIC peripheral struct.
+    //
+    let mut member_decls = TokenStream::new();
+    let mut member_inits = TokenStream::new();
+    for (mod_name, (_, peripherals)) in &block_to_peripherals {
+        for peripheral in peripherals {
+            let name = Ident::new(&peripheral.name, span);
+            let mod_name = Ident::new(mod_name, span);
+            member_decls.extend(quote! {
+                pub #name: #mod_name::#name,
+            });
+            member_inits.extend(quote! {
+                #name: #mod_name::#name::instance(),
+            });
+        }
+    }
+    out.extend(quote! {
+        /// Instances for all of this device's peripherals.
+        ///
+        /// This is exposed for the RTIC framework. RTIC knows how
+        /// to safely acquire all instances so that you don't have
+        /// to use `unsafe`. See the RTIC documentation for more
+        /// information.
+        pub struct Peripherals {
+            #member_decls
+        }
+        impl Peripherals {
+            /// "Steal" all instances.
+            ///
+            /// The name `steal()` is to meet RTIC requirements. Internally,
+            /// this constructor calls `instance()` on each member.
+            ///
+            /// You shouldn't call this; let RTIC call this function.
+            ///
+            /// # Safety
+            ///
+            /// Since this calls `instance()` to initialize each of its members,
+            /// the `instance()` safety contract applies. See [the `Instance` safety
+            /// documentation](crate::Instance) for more information.
+            #[doc(hidden)] // This is only for RTIC.
+            pub const unsafe fn steal() -> Self {
+                Self {
+                    #member_inits
+                }
+            }
+        }
     });
 
     Ok(out)
