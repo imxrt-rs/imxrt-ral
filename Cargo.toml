@@ -7,7 +7,7 @@ readme = "README.md"
 keywords = ["imxrt", "nxp", "embedded", "no_std"]
 categories = ["embedded", "no-std"]
 license = "MIT/Apache-2.0"
-edition = "2018"
+edition = "2021"
 include = [
     "src/*",
     "build.rs",
