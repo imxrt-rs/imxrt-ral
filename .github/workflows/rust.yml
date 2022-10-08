@@ -30,22 +30,39 @@ jobs:
           command: fmt
           args: --all -- --check
 
+  lints:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
+        components: clippy
+    - name: Lint raltool
+      uses: actions-rs/clippy-check@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        args: --package=raltool
+    - name: Lint imxrt-ral
+      uses: actions-rs/clippy-check@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        args: --package=imxrt-ral --features=imxrt1062,rt
+
   build-ral-core:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build imxrt-ral for core features
-      run: cargo build --verbose
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
     - name: Test imxrt-ral for core features
-      run: cargo test --verbose --tests --lib
-
-  # Ensure valid code for documentation generation
-  check-ral-doc:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build imxrt-ral documentation
-      run: cargo check --no-default-features --features doc --verbose
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --tests --lib
 
   build-ral:
     runs-on: ubuntu-latest
@@ -53,26 +70,16 @@ jobs:
       matrix:
         feature:
           # Individual chips
-          - "imxrt1011"
-          - "imxrt1015"
-          - "imxrt1021"
-          - "imxrt1051"
-          - "imxrt1052"
-          - "imxrt1061"
-          - "imxrt1062"
-          - "imxrt1064"
-          # Chip + other features
-          #
-          # A chip that's combined into a chip family...
-          - "imxrt1062,nosync"
-          - "imxrt1062,rt"
-          - "imxrt1062,rtic"
-          - "imxrt1062,rt,rtic,nosync"
-          # A chip that's not combined into a family...
-          - "imxrt1021,nosync"
+          - "imxrt1011,rt"
+          - "imxrt1015,rt"
           - "imxrt1021,rt"
-          - "imxrt1021,rtic"
-          - "imxrt1021,rt,rtic,nosync"
+          - "imxrt1051,rt"
+          - "imxrt1052,rt"
+          - "imxrt1061,rt"
+          - "imxrt1062,rt"
+          - "imxrt1064,rt"
+          - "imxrt1176_cm4,rt"
+          - "imxrt1176_cm7,rt"
     steps:
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
@@ -88,21 +95,25 @@ jobs:
 
   # Run documentation tests
   #
-  # Doctests might not work for all features. For example,
-  # documentation might assume that the "nosync" feature isn't enabled.
+  # Doctests might not work for all features.
   doctest-ral:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         feature:
-          - "imxrt1021"
-          - "imxrt1062"
-          - "imxrt1062,rt,rtic"
-          - "imxrt1021,rt,rtic"
+          - "imxrt1062,rt"
+          - "imxrt1021,rt"
     steps:
     - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
     - name: Run doctests for (${{ matrix.feature }}) RAL
-      run: cargo test --doc --verbose --features ${{ matrix.feature }}
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --doc --verbose --features ${{ matrix.feature }}
 
   # Run unit, integration tests
   test-ral:
@@ -112,13 +123,19 @@ jobs:
         feature:
           - "imxrt1011"
           - "imxrt1021"
-          - "imxrt1062"
-          - "imxrt1062,nosync"
-          - "imxrt1062,rt,rtic"
+          - "imxrt1062,rt"
+          - "imxrt1176_cm4"
     steps:
     - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
     - name: Run unit, integration tests for ${{ matrix.feature }}
-      run: cargo test --tests --lib --verbose --features ${{ matrix.feature }}
+      uses: actions-rs/cargo@v1
+      with:
+        command: test
+        args: --tests --lib --verbose --features ${{ matrix.feature }}
 
   examples-teensy4:
     runs-on: ubuntu-latest
@@ -130,31 +147,8 @@ jobs:
           target: thumbv7em-none-eabihf
           override: true
           profile: minimal
-      - name: Build examples/teensy4 - blink
+      - name: Build examples/teensy4
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --bin blink
-      - name: Build examples/teensy4 - blink-nosync
-        uses: actions-rs/cargo@v1
-        with:
-          command: build
-          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --features imxrt-ral/nosync --bin blink-nosync
-      - name: Build examples/teensy4 - rtic-blink
-        uses: actions-rs/cargo@v1
-        with:
-          command: build
-          args: --manifest-path examples/teensy4/Cargo.toml --target thumbv7em-none-eabihf --features imxrt-ral/rtic --bin rtic-blink
-
-  check-imxrtral:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install virtualenv
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7
-    - name: Install Python dependencies
-      run: pip install -U -r requirements.txt
-    - name: Run Python doctests in imxrtral.py
-      run: python -m doctest -v imxrtral.py
+          args: --package=imxrt-ral-examples-teensy4 --target thumbv7em-none-eabihf

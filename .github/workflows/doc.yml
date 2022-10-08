@@ -19,7 +19,7 @@ jobs:
         toolchain: stable
 
     - name: Generate docs
-      run: cargo rustdoc --target thumbv7em-none-eabihf --no-default-features --features doc
+      run: cargo rustdoc --target thumbv7em-none-eabihf --no-default-features --features imxrt1062
 
     - name: Write redirect
       run: echo "<meta http-equiv=\"refresh\" content=\"0;url=imxrt_ral\">" > target/thumbv7em-none-eabihf/doc/index.html
