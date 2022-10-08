@@ -115,6 +115,12 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
                     impl crate::Valid for #name {}
 
                     impl #name {
+                        /// Acquire a vaild, but possibly aliased, instance.
+                        ///
+                        /// # Safety
+                        ///
+                        /// See [the struct-level safety documentation](crate::Instance).
+                        #[inline]
                         pub const unsafe fn instance() -> Self {
                             Instance::new(#name)
                         }
@@ -152,6 +158,12 @@ name."#
                 impl crate::private::Sealed for #name {}
                 impl crate::Valid for #name {}
                 impl #name {
+                    /// Acquire a vaild, but possibly aliased, instance.
+                    ///
+                    /// # Safety
+                    ///
+                    /// See [the struct-level safety documentation](crate::Instance).
+                    #[inline]
                     pub const unsafe fn instance() -> Self {
                         Instance::new(#name)
                     }
