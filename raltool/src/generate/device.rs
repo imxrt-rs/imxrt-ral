@@ -92,12 +92,14 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
             }
         };
 
+        let number_fn: TokenStream;
         let instances = if periphs.len() > 1
             && periphs
                 .iter()
                 .all(|periph| num_endings.is_match(&periph.name))
         {
             let mut instances = TokenStream::new();
+            let mut const_to_num: Vec<TokenStream> = Vec::new();
             for peripheral in periphs.iter() {
                 let name = Ident::new(&peripheral.name, span);
                 let num = num_endings.captures(&peripheral.name).unwrap();
@@ -106,7 +108,7 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
                         .and_then(|num| str::parse(num.as_str()).ok())
                         .unwrap(),
                 );
-
+                const_to_num.push(quote! { (#name, #num), });
                 instances.extend(quote! {
                     pub type #name = Instance<#num>;
                     impl crate::private::Sealed for #name {}
@@ -119,6 +121,14 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
                     }
                 });
             }
+            number_fn = quote! {
+                /// Returns the instance number `N` for a peripheral instance.
+                pub fn number(rb: *const RegisterBlock) -> Option<u8> {
+                    [#(#const_to_num)*].into_iter()
+                        .find(|(ptr, _)| core::ptr::eq(rb, *ptr))
+                        .map(|(_, inst)| inst)
+                }
+            };
             instances
         } else {
             assert!(
@@ -131,6 +141,12 @@ name."#
             );
             let peripheral = periphs.first().unwrap();
             let name = Ident::new(&peripheral.name, span);
+            number_fn = quote! {
+                /// Returns the instance number `N` for a peripheral instance.
+                pub fn number(rb: *const RegisterBlock) -> Option<u8> {
+                    core::ptr::eq(rb, #name).then_some(0)
+                }
+            };
             quote! {
                 pub type #name = Instance<{crate::SOLE_INSTANCE}>;
                 impl crate::private::Sealed for #name {}
@@ -152,6 +168,7 @@ name."#
 
                 pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
                 #instances
+                #number_fn
             }
         })
     }
