@@ -23,7 +23,7 @@ const PIT_PERIOD_US: u32 = 1_000_000;
 
 #[cortex_m_rt::entry]
 fn main() -> ! {
-    let iomuxc = ral::iomuxc::IOMUXC::take().unwrap();
+    let iomuxc = unsafe { ral::iomuxc::IOMUXC::instance() };
     // Set the GPIO pad to a GPIO function (ALT 5)
     ral::write_reg!(ral::iomuxc, iomuxc, SW_MUX_CTL_PAD_GPIO_B0_03, 5);
     // Increase drive strength, but leave other fields at their current value...
@@ -34,11 +34,11 @@ fn main() -> ! {
         DSE: DSE_7_R0_7
     );
 
-    let gpio2 = ral::gpio::GPIO2::take().unwrap();
+    let gpio2 = unsafe { ral::gpio::GPIO2::instance() };
     // Set GPIO2[3] to an output
     ral::modify_reg!(ral::gpio, gpio2, GDIR, |gdir| gdir | LED);
 
-    let ccm = ral::ccm::CCM::take().unwrap();
+    let ccm = unsafe { ral::ccm::CCM::instance() };
     // Disable the PIT clock gate while we change the clock...
     ral::modify_reg!(ral::ccm, ccm, CCGR1, CG6: 0b00);
     // Set the periodic clock divider, selection.
@@ -53,13 +53,13 @@ fn main() -> ! {
     // Re-enable PIT clock
     ral::modify_reg!(ral::ccm, ccm, CCGR1, CG6: 0b11);
 
-    let pit = ral::pit::PIT::take().unwrap();
+    let pit = unsafe { ral::pit::PIT::instance() };
     // Disable the PIT, just in case it was used by the boot ROM
     ral::write_reg!(ral::pit, pit, MCR, MDIS: MDIS_1);
     // Reset channel 0 control; we'll use channel 0 for our timer
-    ral::write_reg!(ral::pit, pit, TCTRL0, 0);
+    ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, 0);
     // Set the counter value
-    ral::write_reg!(ral::pit, pit, LDVAL0, PIT_PERIOD_US);
+    ral::write_reg!(ral::pit::timer, &pit.TIMER[0], LDVAL, PIT_PERIOD_US);
     // Enable the PIT timer
     ral::modify_reg!(ral::pit, pit, MCR, MDIS: MDIS_0);
 
@@ -73,12 +73,12 @@ fn main() -> ! {
         }
 
         // Start counting!
-        ral::write_reg!(ral::pit, pit, TCTRL0, TEN: 1);
+        ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, TEN: 1);
         // Are we done?
-        while ral::read_reg!(ral::pit, pit, TFLG0, TIF == 0) {}
+        while ral::read_reg!(ral::pit::timer, &pit.TIMER[0], TFLG, TIF == 0) {}
         // We're done; clear the flag
-        ral::write_reg!(ral::pit, pit, TFLG0, TIF: 1);
+        ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TFLG, TIF: 1);
         // Turn off the timer
-        ral::write_reg!(ral::pit, pit, TCTRL0, TEN: 0);
+        ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, TEN: 0);
     }
 }

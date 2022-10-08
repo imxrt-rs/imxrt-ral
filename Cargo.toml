@@ -46,5 +46,6 @@ imxrt1176_cm7 = ["cortex-m"]
 
 [workspace]
 members = [
+    "examples/teensy4",
     "raltool",
 ]

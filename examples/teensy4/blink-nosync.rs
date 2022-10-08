@@ -1,8 +1,8 @@
 //! An imxrt-ral example that blinks the Teensy 4's LED
 //!
 //! This example is equivalent to 'blink.rs', but it demonstrates
-//! the "nosync" imxrt-ral feature. There's much more unsafe in this
-//! example; note that `main` is unsafe.
+//! how you can use pointers to instances to read, modify, and write
+//! registers.
 
 #![no_std]
 #![no_main]
@@ -55,9 +55,14 @@ unsafe fn main() -> ! {
     // Disable the PIT, just in case it was used by the boot ROM
     ral::write_reg!(ral::pit, ral::pit::PIT, MCR, MDIS: MDIS_1);
     // Reset channel 0 control; we'll use channel 0 for our timer
-    ral::write_reg!(ral::pit, ral::pit::PIT, TCTRL0, 0);
+    ral::write_reg!(ral::pit::timer, &(*ral::pit::PIT).TIMER[0], TCTRL, 0);
     // Set the counter value
-    ral::write_reg!(ral::pit, ral::pit::PIT, LDVAL0, PIT_PERIOD_US);
+    ral::write_reg!(
+        ral::pit::timer,
+        &(*ral::pit::PIT).TIMER[0],
+        LDVAL,
+        PIT_PERIOD_US
+    );
     // Enable the PIT timer
     ral::modify_reg!(ral::pit, ral::pit::PIT, MCR, MDIS: MDIS_0);
 
@@ -71,12 +76,12 @@ unsafe fn main() -> ! {
         }
 
         // Start counting!
-        ral::write_reg!(ral::pit, ral::pit::PIT, TCTRL0, TEN: 1);
+        ral::write_reg!(ral::pit::timer, &(*ral::pit::PIT).TIMER[0], TCTRL, TEN: 1);
         // Are we done?
-        while ral::read_reg!(ral::pit, ral::pit::PIT, TFLG0, TIF == 0) {}
+        while ral::read_reg!(ral::pit::timer, &(*ral::pit::PIT).TIMER[0], TFLG, TIF == 0) {}
         // We're done; clear the flag
-        ral::write_reg!(ral::pit, ral::pit::PIT, TFLG0, TIF: 1);
+        ral::write_reg!(ral::pit::timer, &(*ral::pit::PIT).TIMER[0], TFLG, TIF: 1);
         // Turn off the timer
-        ral::write_reg!(ral::pit, ral::pit::PIT, TCTRL0, TEN: 0);
+        ral::write_reg!(ral::pit::timer, &(*ral::pit::PIT).TIMER[0], TCTRL, TEN: 0);
     }
 }
