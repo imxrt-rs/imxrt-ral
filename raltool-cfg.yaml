@@ -141,3 +141,7 @@ transforms:
   - Rename:
       from: DMAMUX(\d)
       to: DMAMUX
+  - RenameRegisters:
+      block: ocotp::Ocotp
+      from: HW_OCOTP_(.*)
+      to: $1
