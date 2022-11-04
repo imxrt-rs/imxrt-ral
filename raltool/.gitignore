@@ -1,0 +1,4 @@
+[._]*.sw[a-p]
+*.org
+*.rs.bk
+target
