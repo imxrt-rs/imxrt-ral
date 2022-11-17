@@ -33,6 +33,11 @@ transforms:
   - Rename:
       from: pit::Pit1
       to: pit::Pit
+  - Rename:
+      from: usb::Usb1
+      to: usb::Usb
+  - DeleteEnums:
+      from: usb::vals::Fs2
   # Combine GPT OCR and ICR registrers for 10xx MCUs.
   # This allows it to match the 11xx MCUs, and reduce
   # code bloat.
