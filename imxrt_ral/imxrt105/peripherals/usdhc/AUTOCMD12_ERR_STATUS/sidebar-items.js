@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["AC12CE","Auto CMD12 / 23 CRC Error"],["AC12EBE","Auto CMD12 / 23 End Bit Error"],["AC12IE","Auto CMD12 / 23 Index Error"],["AC12NE","Auto CMD12 Not Executed"],["AC12TOE","Auto CMD12 / 23 Timeout Error"],["CNIBAC12E","Command Not Issued By Auto CMD12 Error"],["EXECUTE_TUNING","Execute Tuning"],["SMP_CLK_SEL","Sample Clock Select"]]};

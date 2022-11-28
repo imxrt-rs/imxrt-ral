@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["XIP_0","No action"],["XIP_1","INDEX pulse initializes the position counter"]]};

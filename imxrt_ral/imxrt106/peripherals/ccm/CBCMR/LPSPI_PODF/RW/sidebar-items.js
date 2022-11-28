@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPSPI_PODF_0","0b000: divide by 1"],["LPSPI_PODF_1","0b001: divide by 2"],["LPSPI_PODF_2","0b010: divide by 3"],["LPSPI_PODF_3","0b011: divide by 4"],["LPSPI_PODF_4","0b100: divide by 5"],["LPSPI_PODF_5","0b101: divide by 6"],["LPSPI_PODF_6","0b110: divide by 7"],["LPSPI_PODF_7","0b111: divide by 8"]]};

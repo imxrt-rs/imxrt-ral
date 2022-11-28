@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FRZ_0","Not enabled to enter Freeze Mode"],["FRZ_1","Enabled to enter Freeze Mode"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DECX2","0b01: Decimate PS by 2."],["DECX4","0b10: Decimate PS by 4."],["DECX8","0b11: Decimate PS by 8."],["DISABLE","0b00: Disable pre-decimation filter."]]};

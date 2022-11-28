@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IPGOFF_0","IPG_CLK is active."],["IPGOFF_1","IPG_CLK is gated off."]]};

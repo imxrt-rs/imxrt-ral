@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FLVL_0","A logic 0 on the fault input indicates a fault condition."],["FLVL_1","A logic 1 on the fault input indicates a fault condition."]]};

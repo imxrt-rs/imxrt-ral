@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SDF_0","0b0: Slave has not detected a STOP condition"],["SDF_1","0b1: Slave has detected a STOP condition"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OFFRST_0","The timer is not affected and no action occurs, besides clearing OFFEN, when the offset is reached."],["OFFRST_1","If OFFEN is set, the timer resets to zero when the offset setting is reached. The offset event does not cause a timer interrupt."]]};

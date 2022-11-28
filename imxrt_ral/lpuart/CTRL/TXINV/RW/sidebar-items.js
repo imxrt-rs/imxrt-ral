@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TXINV_0","Transmit data not inverted."],["TXINV_1","Transmit data inverted."]]};

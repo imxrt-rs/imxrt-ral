@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["M7_APC_AC_R1_CTRL_0","0b00: No access protection"],["M7_APC_AC_R1_CTRL_1","0b01: M7 debug protection enabled"]]};

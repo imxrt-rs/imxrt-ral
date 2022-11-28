@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CAN_CLK_PODF","Divider for CAN clock podf."],["CAN_CLK_SEL","Selector for CAN clock multiplexer"],["FLEXIO2_CLK_SEL","Selector for flexio2 clock multiplexer"]]};

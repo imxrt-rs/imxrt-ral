@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PLL3_SW_CLK_SEL_0","pll3_main_clk"],["PLL3_SW_CLK_SEL_1","pll3 bypass clock"]]};

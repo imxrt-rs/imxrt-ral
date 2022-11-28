@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AUTOSTOP_0","No effect"],["AUTOSTOP_1","STOP condition is automatically generated whenever the transmit FIFO is empty and the LPI2C master is busy"]]};

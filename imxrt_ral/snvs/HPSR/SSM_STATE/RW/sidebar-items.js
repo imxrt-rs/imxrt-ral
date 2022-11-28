@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SSM_STATE_0","Init"],["SSM_STATE_1","Hard Fail"],["SSM_STATE_11","Non-Secure"],["SSM_STATE_13","Trusted"],["SSM_STATE_15","Secure"],["SSM_STATE_3","Soft Fail"],["SSM_STATE_8","Init Intermediate (transition state between Init and Check - SSM stays in this state only one clock cycle)"],["SSM_STATE_9","Check"]]};

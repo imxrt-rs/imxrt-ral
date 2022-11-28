@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["L2_MEM_DEEPSLEEP_0","0b0: No force sleep control supported, memory deep sleep mode only entered when whole system in stop mode (OCRAM in normal mode)"],["L2_MEM_DEEPSLEEP_1","0b1: Force memory into deep sleep mode (OCRAM in power saving mode)"]]};

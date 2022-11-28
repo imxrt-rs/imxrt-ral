@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SEMC","Raw pointer to SEMC"]],"struct":[["SEMC","The SEMC peripheral instance."]]};

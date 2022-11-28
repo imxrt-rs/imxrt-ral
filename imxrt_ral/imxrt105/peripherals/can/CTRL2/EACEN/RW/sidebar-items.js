@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EACEN_0","0b0: Rx Mailbox filter’s IDE bit is always compared and RTR is never compared despite mask bits."],["EACEN_1","0b1: Enables the comparison of both Rx Mailbox filter’s IDE and RTR bit with their corresponding bits within the incoming frame. Mask bits do apply."]]};

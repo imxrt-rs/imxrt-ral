@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BUF7I_0","No occurrence of MB7 completing transmission/reception when CAN_MCR[RFEN]=0, or of Legacy Rx FIFO overflow when CAN_MCR[RFEN]=1"],["BUF7I_1","MB7 completed transmission/reception when CAN_MCR[RFEN]=0, or Legacy Rx FIFO overflow when CAN_MCR[RFEN]=1"]]};

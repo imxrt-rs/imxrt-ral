@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EDREQ_16_0","Disable asynchronous DMA request for channel 16"],["EDREQ_16_1","Enable asynchronous DMA request for channel 16"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MAJOR","MAJOR"],["MINOR","MINOR"],["STEP","STEP"]]};

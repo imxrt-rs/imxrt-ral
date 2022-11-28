@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DIS1A","PWM_A Fault Disable Mask 1"],["DIS1B","PWM_B Fault Disable Mask 1"],["DIS1X","PWM_X Fault Disable Mask 1"]]};

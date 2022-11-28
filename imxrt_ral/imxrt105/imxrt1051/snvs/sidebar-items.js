@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SNVS","Raw pointer to SNVS"]],"struct":[["SNVS","The SNVS peripheral instance."]]};

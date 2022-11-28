@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["POWER_DOWN","Power down the temperature sensor."],["POWER_UP","Enable power to the temperature sensor."]]};

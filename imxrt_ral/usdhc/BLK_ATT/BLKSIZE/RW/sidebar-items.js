@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BLKSIZE_0","No data transfer"],["BLKSIZE_1","1 Byte"],["BLKSIZE_2","2 Bytes"],["BLKSIZE_2048","2048 Bytes"],["BLKSIZE_3","3 Bytes"],["BLKSIZE_4","4 Bytes"],["BLKSIZE_4096","4096 Bytes"],["BLKSIZE_511","511 Bytes"],["BLKSIZE_512","512 Bytes"]]};

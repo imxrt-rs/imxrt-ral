@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["_4_5_WIRE_0","4-Wire Detection Mode"],["_4_5_WIRE_1","5-Wire Detection Mode"]]};

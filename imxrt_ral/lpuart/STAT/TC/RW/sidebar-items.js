@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TC_0","Transmitter active (sending data, a preamble, or a break)."],["TC_1","Transmitter idle (transmission activity complete)."]]};

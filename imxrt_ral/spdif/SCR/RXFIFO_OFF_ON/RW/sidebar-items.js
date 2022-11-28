@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXFIFO_OFF_ON_0","SPDIF Rx FIFO is on"],["RXFIFO_OFF_ON_1","SPDIF Rx FIFO is off. Does not accept data from interface"]]};

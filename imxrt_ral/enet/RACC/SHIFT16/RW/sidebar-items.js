@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SHIFT16_0","Disabled."],["SHIFT16_1","Instructs the MAC to write two additional bytes in front of each frame received into the RX FIFO."]]};

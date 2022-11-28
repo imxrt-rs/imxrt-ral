@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FBCLK_SEL_0","0b0: Feedback clock comes from the loopback CLK"],["FBCLK_SEL_1","0b1: Feedback clock comes from the ipp_card_clk_out"]]};

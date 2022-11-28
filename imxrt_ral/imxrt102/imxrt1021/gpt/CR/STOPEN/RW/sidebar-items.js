@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["STOPEN_0","0b0: GPT is disabled in Stop mode."],["STOPEN_1","0b1: GPT is enabled in Stop mode."]]};

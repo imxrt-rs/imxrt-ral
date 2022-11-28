@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MASK_AHB_PODF_LOADED_0","don’t mask interrupt due to frequency change of ahb_podf - interrupt will be created"],["MASK_AHB_PODF_LOADED_1","mask interrupt due to frequency change of ahb_podf"]]};

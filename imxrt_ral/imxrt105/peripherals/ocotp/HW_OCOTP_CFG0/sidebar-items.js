@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BITS","This register contains 32 bits of the Unique ID and SJC_CHALLENGE field"]]};

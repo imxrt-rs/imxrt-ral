@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AWCACHE_USDHC_0","0b0: Cacheable attribute is off for write transactions."],["AWCACHE_USDHC_1","0b1: Cacheable attribute is on for write transactions."]]};

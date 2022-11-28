@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["KDIE","Keypad Key Depress Interrupt Enable"],["KDSC","Key Depress Synchronizer Clear"],["KPKD","Keypad Key Depress"],["KPKR","Keypad Key Release"],["KRIE","Keypad Release Interrupt Enable"],["KRSS","Key Release Synchronizer Set"]]};

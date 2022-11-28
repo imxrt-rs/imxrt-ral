@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BUF6I_0","No occurrence of MB6 completing transmission/reception when CAN_MCR[RFEN]=0, or of Legacy Rx FIFO almost full when CAN_MCR[RFEN]=1"],["BUF6I_1","MB6 completed transmission/reception when CAN_MCR[RFEN]=0, or Legacy Rx FIFO almost full when CAN_MCR[RFEN]=1"]]};

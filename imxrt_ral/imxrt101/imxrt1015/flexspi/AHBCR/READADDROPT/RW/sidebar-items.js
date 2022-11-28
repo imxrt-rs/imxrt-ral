@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["READADDROPT_0","0b0: There is AHB read burst start address alignment limitation when flash is accessed in parallel mode or flash is wordaddressable."],["READADDROPT_1","0b1: There is no AHB read burst start address alignment limitation. FlexSPI will fetch more datas than AHB burst required to meet the alignment requirement."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CAPTURE_0","No effect."],["CAPTURE_1","The current time is captured and can be read from the ATVR register."]]};

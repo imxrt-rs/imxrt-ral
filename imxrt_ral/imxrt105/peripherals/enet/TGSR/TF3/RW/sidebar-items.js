@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TF3_0","0b0: Timer Flag for Channel 3 is clear"],["TF3_1","0b1: Timer Flag for Channel 3 is set"]]};

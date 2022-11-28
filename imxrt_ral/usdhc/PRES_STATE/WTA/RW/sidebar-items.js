@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WTA_0","No valid data"],["WTA_1","Transferring data"]]};

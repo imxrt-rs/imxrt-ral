@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MBTSBASE_0","Message Buffer Time Stamp base is CAN_TIMER"],["MBTSBASE_1","Message Buffer Time Stamp base is lower 16-bits of high resolution timer"],["MBTSBASE_2","Message Buffer Time Stamp base is upper 16-bits of high resolution timerT"]]};

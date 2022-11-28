@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LP_SWR_0","No Action"],["LP_SWR_1","Reset LP section"]]};

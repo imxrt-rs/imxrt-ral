@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["POR_0","Reset is not the result of a power on reset."],["POR_1","Reset is the result of a power on reset."]]};

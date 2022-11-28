@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HALT_0","Normal operation"],["HALT_1","Stall the start of any new channels. Executing channels are allowed to complete. Channel execution resumes when this bit is cleared."]]};

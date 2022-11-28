@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["GPIO_MUX2_GPIO_SEL","GPIO2 and GPIO7 share same IO MUX function, GPIO_MUX2 selects one GPIO function."]]};

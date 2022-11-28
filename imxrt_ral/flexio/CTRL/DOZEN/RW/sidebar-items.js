@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DOZEN_0","FlexIO enabled in Doze modes."],["DOZEN_1","FlexIO disabled in Doze modes."]]};

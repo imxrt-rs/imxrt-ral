@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENET2_TX_CLK_DIR_0","ENET2_TX_CLK output driver is disabled"],["ENET2_TX_CLK_DIR_1","ENET2_TX_CLK output driver is enabled"]]};

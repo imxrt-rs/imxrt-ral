@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RDMO_0","Received data is stored in the receive FIFO as in normal operations"],["RDMO_1","Received data is discarded unless the Data Match Flag (DMF) is set"]]};

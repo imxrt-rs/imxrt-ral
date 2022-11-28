@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HIP_0","0b0: No action"],["HIP_1","0b1: HOME signal initializes the position counter"]]};

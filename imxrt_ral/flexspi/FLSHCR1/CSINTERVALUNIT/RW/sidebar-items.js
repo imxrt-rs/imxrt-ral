@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CSINTERVALUNIT_0","The CS interval unit is 1 serial clock cycle"],["CSINTERVALUNIT_1","The CS interval unit is 256 serial clock cycle"]]};

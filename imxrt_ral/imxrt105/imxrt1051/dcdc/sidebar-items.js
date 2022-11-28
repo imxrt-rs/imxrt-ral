@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DCDC","Raw pointer to DCDC"]],"struct":[["DCDC","The DCDC peripheral instance."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPTA_EN_0","0b0: LP time alarm interrupt is disabled."],["LPTA_EN_1","0b1: LP time alarm interrupt is enabled."]]};

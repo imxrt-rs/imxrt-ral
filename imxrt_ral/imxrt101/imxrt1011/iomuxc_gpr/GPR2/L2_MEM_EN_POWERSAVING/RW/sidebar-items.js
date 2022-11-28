@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["L2_MEM_EN_POWERSAVING_0","0b0: Enters power saving mode only when chip is in SUSPEND mode"],["L2_MEM_EN_POWERSAVING_1","0b1: Controlled by L2_MEM_DEEPSLEEP bitfield"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ADDR","Address of the current frame being transmitted by LCDIF."]]};

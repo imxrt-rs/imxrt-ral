@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SAE_0","No source address configuration error."],["SAE_1","The last recorded error was a configuration error detected in the TCDn_SADDR field. TCDn_SADDR is inconsistent with TCDn_ATTR[SSIZE]."]]};

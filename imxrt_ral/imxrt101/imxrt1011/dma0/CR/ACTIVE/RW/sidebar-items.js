@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACTIVE_0","0b0: eDMA is idle."],["ACTIVE_1","0b1: eDMA is executing a channel."]]};

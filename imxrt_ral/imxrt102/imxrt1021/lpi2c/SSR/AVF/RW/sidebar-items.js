@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AVF_0","0b0: Address Status Register is not valid"],["AVF_1","0b1: Address Status Register is valid"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MPP_0","0b0: No matching process ongoing."],["MPP_1","0b1: Matching process is in progress."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RFP","Read FIFO Pointer"],["WCP","Write Channel Pointer"],["WFP","Write FIFO Pointer"]]};

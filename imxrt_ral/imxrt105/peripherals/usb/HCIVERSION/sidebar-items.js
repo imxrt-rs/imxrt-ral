@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["HCIVERSION","Host Controller Interface Version Number Default value is ‘10h’, which means EHCI rev1.0."]]};

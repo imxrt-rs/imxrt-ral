@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["USDHC1","Raw pointer to USDHC1"],["USDHC2","Raw pointer to USDHC2"]],"struct":[["USDHC1","The USDHC1 peripheral instance."],["USDHC2","The USDHC2 peripheral instance."]]};

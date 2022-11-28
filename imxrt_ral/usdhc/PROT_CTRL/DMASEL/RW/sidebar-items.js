@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DMASEL_0","No DMA or Simple DMA is selected"],["DMASEL_1","ADMA1 is selected"],["DMASEL_2","ADMA2 is selected"]]};

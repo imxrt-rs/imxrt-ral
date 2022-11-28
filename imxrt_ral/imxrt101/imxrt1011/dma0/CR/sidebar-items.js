@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ACTIVE","DMA Active Status"],["CLM","Continuous Link Mode"],["CX","Cancel Transfer"],["ECX","Error Cancel Transfer"],["EDBG","Enable Debug"],["EMLM","Enable Minor Loop Mapping"],["ERCA","Enable Round Robin Channel Arbitration"],["HALT","Halt DMA Operations"],["HOE","Halt On Error"]]};

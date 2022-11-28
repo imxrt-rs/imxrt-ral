@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RXCOUNT","Receive FIFO Count"],["TXCOUNT","Transmit FIFO Count"]]};

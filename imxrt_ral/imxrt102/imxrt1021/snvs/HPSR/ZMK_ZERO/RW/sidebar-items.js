@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ZMK_ZERO_0","0b0: The ZMK is not zero."],["ZMK_ZERO_1","0b1: The ZMK is zero."]]};

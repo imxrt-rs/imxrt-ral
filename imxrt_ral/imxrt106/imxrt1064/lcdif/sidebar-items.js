@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LCDIF","Raw pointer to LCDIF"]],"struct":[["LCDIF","The LCDIF peripheral instance."]]};

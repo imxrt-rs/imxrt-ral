@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CINS_0","0b0: Card state unstable or removed"],["CINS_1","0b1: Card inserted"]]};

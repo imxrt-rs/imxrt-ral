@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DINT_0","0b0: No DMA Interrupt"],["DINT_1","0b1: DMA Interrupt is generated"]]};

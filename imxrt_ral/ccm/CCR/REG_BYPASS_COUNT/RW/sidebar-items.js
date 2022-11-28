@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REG_BYPASS_COUNT_0","no delay"],["REG_BYPASS_COUNT_1","1 CKIL clock period delay"],["REG_BYPASS_COUNT_63","63 CKIL clock periods delay"]]};

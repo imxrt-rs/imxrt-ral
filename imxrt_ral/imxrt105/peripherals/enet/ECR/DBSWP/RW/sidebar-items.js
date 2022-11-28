@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBSWP_0","0b0: The buffer descriptor bytes are not swapped to support big-endian devices."],["DBSWP_1","0b1: The buffer descriptor bytes are swapped to support little-endian devices."]]};

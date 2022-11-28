@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CALF_0","Calibration completed normally."],["CALF_1","Calibration failed. ADC accuracy specifications are not guaranteed."]]};

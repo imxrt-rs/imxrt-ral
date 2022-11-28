@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MC_SL_0","Write access (increment) is allowed"],["MC_SL_1","Write access (increment) is not allowed"]]};

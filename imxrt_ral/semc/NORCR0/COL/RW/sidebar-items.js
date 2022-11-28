@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["COL_0","12 Bits"],["COL_1","11 Bits"],["COL_10","2 Bits"],["COL_11","12 Bits"],["COL_12","12 Bits"],["COL_13","12 Bits"],["COL_14","12 Bits"],["COL_15","12 Bits"],["COL_2","10 Bits"],["COL_3","9 Bits"],["COL_4","8 Bits"],["COL_5","7 Bits"],["COL_6","6 Bits"],["COL_7","5 Bits"],["COL_8","4 Bits"],["COL_9","3 Bits"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PHYW_0","0b00: 8 bit wide data bus Software non-programmable"],["PHYW_1","0b01: 16 bit wide data bus Software non-programmable"],["PHYW_2","0b10: Reset to 8 bit wide data bus Software programmable"],["PHYW_3","0b11: Reset to 16 bit wide data bus Software programmable"]]};

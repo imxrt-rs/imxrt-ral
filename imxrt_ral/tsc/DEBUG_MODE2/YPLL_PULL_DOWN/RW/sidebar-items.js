@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["YPLL_PULL_DOWN_0","Close the switch"],["YPLL_PULL_DOWN_1","Open up the switch"]]};

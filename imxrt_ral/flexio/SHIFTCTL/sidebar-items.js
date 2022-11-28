@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PINCFG","Shifter Pin Configuration"],["PINPOL","Shifter Pin Polarity"],["PINSEL","Shifter Pin Select"],["SMOD","Shifter Mode"],["TIMPOL","Timer Polarity"],["TIMSEL","Timer Select"]]};

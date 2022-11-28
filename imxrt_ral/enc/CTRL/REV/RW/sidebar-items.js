@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REV_0","Count normally"],["REV_1","Count in the reverse direction"]]};

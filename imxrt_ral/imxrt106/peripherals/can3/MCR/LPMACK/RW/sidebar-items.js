@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPMACK_0","0b0: FlexCAN is not in a low-power mode."],["LPMACK_1","0b1: FlexCAN is in a low-power mode."]]};

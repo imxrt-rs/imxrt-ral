@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACMP2_CMP_IGEN_TRIM_UP_0","0b0: no increase"],["ACMP2_CMP_IGEN_TRIM_UP_1","0b1: increases"]]};

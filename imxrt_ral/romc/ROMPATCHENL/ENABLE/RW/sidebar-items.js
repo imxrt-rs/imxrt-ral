@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENABLE_0","Address comparator disabled"],["ENABLE_1","Address comparator enabled, ROMC will trigger a opcode patch or data fix event upon matching of the associated address"]]};

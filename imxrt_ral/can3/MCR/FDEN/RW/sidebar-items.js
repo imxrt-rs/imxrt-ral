@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FDEN_0","CAN FD is disabled. FlexCAN is able to receive and transmit messages in CAN 2.0 format."],["FDEN_1","CAN FD is enabled. FlexCAN is able to receive and transmit messages in both CAN FD and CAN 2.0 formats."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BITER","Starting Major Iteration Count"],["ELINK","Enables channel-to-channel linking on minor loop complete"],["LINKCH","Link Channel Number"]]};

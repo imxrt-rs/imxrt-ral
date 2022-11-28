@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ITC_0","Immediate (no threshold)"],["ITC_1","1 micro-frame"],["ITC_16","16 micro-frames"],["ITC_2","2 micro-frames"],["ITC_32","32 micro-frames"],["ITC_4","4 micro-frames"],["ITC_64","64 micro-frames"],["ITC_8","8 micro-frames"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["C1","Two’s compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)"],["C4","Two’s compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)"],["RSVD0","Reserved, always set to zero."],["RSVD1","Reserved, always set to zero."]]};

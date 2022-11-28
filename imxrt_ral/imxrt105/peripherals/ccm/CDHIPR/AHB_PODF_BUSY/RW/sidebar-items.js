@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AHB_PODF_BUSY_0","0b0: divider is not busy and its value represents the actual division."],["AHB_PODF_BUSY_1","0b1: divider is busy with handshake process with module. The value read in the divider represents the previous value of the division factor, and after the handshake the written value of the ahb_podf will be applied."]]};

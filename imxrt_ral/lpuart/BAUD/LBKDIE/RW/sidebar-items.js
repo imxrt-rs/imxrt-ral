@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LBKDIE_0","Hardware interrupts from STAT[LBKDIF] flag are disabled (use polling)."],["LBKDIE_1","Hardware interrupt requested when STAT[LBKDIF] flag is 1."]]};

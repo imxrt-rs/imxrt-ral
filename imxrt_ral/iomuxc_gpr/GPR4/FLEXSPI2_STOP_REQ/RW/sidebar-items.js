@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI2_STOP_REQ_0","stop request off"],["FLEXSPI2_STOP_REQ_1","stop request on"]]};

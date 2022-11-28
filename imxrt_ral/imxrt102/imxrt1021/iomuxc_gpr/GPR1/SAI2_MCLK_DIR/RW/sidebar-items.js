@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI2_MCLK_DIR_0","0b0: sai2.MCLK is input signal"],["SAI2_MCLK_DIR_1","0b1: sai2.MCLK is output signal"]]};

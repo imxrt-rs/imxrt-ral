@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ETHEREN_0","0b0: Reception immediately stops and transmission stops after a bad CRC is appended to any currently transmitted frame."],["ETHEREN_1","0b1: MAC is enabled, and reception and transmission are possible."]]};

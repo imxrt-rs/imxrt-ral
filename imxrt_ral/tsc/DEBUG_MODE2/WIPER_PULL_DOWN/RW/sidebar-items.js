@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WIPER_PULL_DOWN_0","Close the switch"],["WIPER_PULL_DOWN_1","Open up the switch"]]};

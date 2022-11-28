@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ICCS_0","Use MII/GMII TX clocks."],["ICCS_1","Use ENET system clock."]]};

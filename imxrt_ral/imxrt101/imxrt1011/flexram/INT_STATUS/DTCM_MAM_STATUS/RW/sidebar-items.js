@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTCM_MAM_STATUS_0","0b0: DTCM did not access magic address."],["DTCM_MAM_STATUS_1","0b1: DTCM accessed magic address."]]};

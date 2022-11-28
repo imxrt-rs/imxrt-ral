@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ILT_0","Idle character bit count starts after start bit."],["ILT_1","Idle character bit count starts after stop bit."]]};

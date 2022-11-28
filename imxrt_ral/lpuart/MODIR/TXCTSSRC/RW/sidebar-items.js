@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TXCTSSRC_0","CTS input is the CTS_B pin."],["TXCTSSRC_1","CTS input is the inverted Receiver Match result."]]};

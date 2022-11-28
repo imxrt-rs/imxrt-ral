@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CM7_INIT_VTOR","Vector table offset register out of reset"],["FLEXRAM_BANK_CFG_SEL","FlexRAM bank config source select"],["INIT_DTCM_EN","DTCM enable initialization out of reset"],["INIT_ITCM_EN","ITCM enable initialization out of reset"],["LOCK_VTOR","Lock CM7_INIT_VTOR field for changes"]]};

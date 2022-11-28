@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MKS_EN_0","OTP master key is selected as an SNVS master key"],["MKS_EN_1","SNVS master key is selected according to the setting of the MASTER_KEY_SEL field of LPMKCR"]]};

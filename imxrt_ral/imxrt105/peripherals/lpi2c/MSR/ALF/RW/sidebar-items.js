@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ALF_0","0b0: Master has not lost arbitration"],["ALF_1","0b1: Master has lost arbitration"]]};

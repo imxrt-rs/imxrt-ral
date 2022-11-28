@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ELINK_0","The channel-to-channel linking is disabled"],["ELINK_1","The channel-to-channel linking is enabled"]]};

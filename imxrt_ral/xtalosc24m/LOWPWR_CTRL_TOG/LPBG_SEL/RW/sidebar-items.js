@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPBG_SEL_0","Normal power bandgap"],["LPBG_SEL_1","Low power bandgap"]]};

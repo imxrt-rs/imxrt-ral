@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PADREM_0","Padding not removed."],["PADREM_1","Any bytes following the IP payload section of the frame are removed from the frame."]]};

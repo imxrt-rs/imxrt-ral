@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACMD23_ARGU2_EN_0","0b0: Disable"],["ACMD23_ARGU2_EN_1","0b1: Argument2 register enable for ACMD23 sharing with SDMA system address register. Default is enable."]]};

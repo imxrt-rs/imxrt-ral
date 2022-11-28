@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["EMI","Enable Master ID replication"],["MID","Master ID"],["PAL","Privileged Access Level"]]};

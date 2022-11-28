@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLG_0","0b0: No interrupt occurred."],["FLG_1","0b1: An interrupt occurred."]]};

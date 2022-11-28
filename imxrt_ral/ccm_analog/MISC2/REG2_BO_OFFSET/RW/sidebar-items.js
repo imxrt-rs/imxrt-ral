@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REG2_BO_OFFSET_4","Brownout offset = 0.100V"],["REG2_BO_OFFSET_7","Brownout offset = 0.175V"]]};

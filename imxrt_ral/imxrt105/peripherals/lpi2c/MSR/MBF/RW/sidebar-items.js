@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MBF_0","0b0: I2C Master is idle"],["MBF_1","0b1: I2C Master is busy"]]};

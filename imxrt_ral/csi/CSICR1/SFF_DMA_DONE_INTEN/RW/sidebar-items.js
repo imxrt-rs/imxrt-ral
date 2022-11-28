@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SFF_DMA_DONE_INTEN_0","STATFIFO DMA Transfer Done interrupt disable"],["SFF_DMA_DONE_INTEN_1","STATFIFO DMA Transfer Done interrupt enable"]]};

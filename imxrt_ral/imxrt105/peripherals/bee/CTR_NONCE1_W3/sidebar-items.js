@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["NONCE13","Nonce1 from software for CTR, for region1. Nonce1={Nonce13,Nonce12,Nonce11,Nonce10}"]]};

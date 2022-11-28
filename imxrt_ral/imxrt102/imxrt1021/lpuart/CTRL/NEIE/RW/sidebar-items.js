@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NEIE_0","0b0: NF interrupts disabled; use polling."],["NEIE_1","0b1: Hardware interrupt requested when NF is set."]]};

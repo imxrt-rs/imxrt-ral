@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FFULL_0","0b0000: PWM outputs are not re-enabled at the start of a full cycle"],["FFULL_1","0b0001: PWM outputs are re-enabled at the start of a full cycle"]]};

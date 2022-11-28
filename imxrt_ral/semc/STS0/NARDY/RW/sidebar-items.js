@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NARDY_0","NAND device is not ready"],["NARDY_1","NAND device is ready"]]};

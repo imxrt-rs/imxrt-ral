@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BOOT_ACK_0","No ack"],["BOOT_ACK_1","Ack"]]};

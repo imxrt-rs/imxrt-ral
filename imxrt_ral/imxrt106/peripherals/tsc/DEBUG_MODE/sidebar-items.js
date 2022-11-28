@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADC_COCO","ADC COCO Signal"],["ADC_COCO_CLEAR","ADC Coco Clear"],["ADC_COCO_CLEAR_DISABLE","ADC COCO Clear Disable"],["ADC_CONV_VALUE","ADC Conversion Value"],["DEBUG_EN","Debug Enable"],["EXT_HWTS","Hardware Trigger Select Signal"],["TRIGGER","Trigger"]]};

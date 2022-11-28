@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["XTALOSC_PWRUP_STAT_0","Not stable"],["XTALOSC_PWRUP_STAT_1","Stable and ready to use"]]};

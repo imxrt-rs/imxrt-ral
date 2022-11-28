@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DIRQ_0","No interrupt has occurred"],["DIRQ_1","Watchdog timeout interrupt has occurred"]]};

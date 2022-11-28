@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REG0_BO_STATUS_1","Brownout, supply is below target minus brownout offset."]]};

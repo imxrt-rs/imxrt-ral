@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SEMC_PODF_0","divide by 1"],["SEMC_PODF_1","divide by 2"],["SEMC_PODF_2","divide by 3"],["SEMC_PODF_3","divide by 4"],["SEMC_PODF_4","divide by 5"],["SEMC_PODF_5","divide by 6"],["SEMC_PODF_6","divide by 7"],["SEMC_PODF_7","divide by 8"]]};

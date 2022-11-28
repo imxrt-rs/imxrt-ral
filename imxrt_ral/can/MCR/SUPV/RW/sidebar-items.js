@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SUPV_0","FlexCAN is in User Mode. Affected registers allow both Supervisor and Unrestricted accesses"],["SUPV_1","FlexCAN is in Supervisor Mode. Affected registers allow only Supervisor access. Unrestricted access behaves as though the access was done to an unimplemented register location"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["R2_0_CT","Runs of Zero, Length 2 Count"],["R2_1_CT","Runs of One, Length 2 Count"],["RUN2_MAX","Run Length 2 Maximum Limit"],["RUN2_RNG","Run Length 2 Range"]]};

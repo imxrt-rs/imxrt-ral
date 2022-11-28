@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PINCFG_0","Timer pin output disabled"],["PINCFG_1","Timer pin open drain or bidirectional output enable"],["PINCFG_2","Timer pin bidirectional output data"],["PINCFG_3","Timer pin output"]]};

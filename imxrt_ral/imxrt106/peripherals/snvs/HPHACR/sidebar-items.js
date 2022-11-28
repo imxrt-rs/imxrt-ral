@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["HAC_COUNTER","High Assurance Counter When the HAC_EN bit is set and the SSM is in the soft fail state, this counter starts to count down with the system clock"]]};

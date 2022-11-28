@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DATA","Word 0 data for the key. This is the least-significant word."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CPHA_0","0b0: Data is captured on the leading edge of SCK and changed on the following edge of SCK"],["CPHA_1","0b1: Data is changed on the leading edge of SCK and captured on the following edge of SCK"]]};

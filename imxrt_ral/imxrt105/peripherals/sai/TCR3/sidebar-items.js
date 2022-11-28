@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CFR","Channel FIFO Reset"],["TCE","Transmit Channel Enable"],["WDFL","Word Flag Configuration"]]};

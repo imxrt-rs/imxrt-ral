@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DIS_0","0b0: Does not affect any ROMC functions (default)"],["DIS_1","0b1: Disable all ROMC functions: data fixing, and opcode patching"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLDM_0","0b0: No effect on the operating mode."],["FLDM_1","0b1: Force entry into LDM after a write with this data bit set. SR[MODE] signals the operating mode."]]};

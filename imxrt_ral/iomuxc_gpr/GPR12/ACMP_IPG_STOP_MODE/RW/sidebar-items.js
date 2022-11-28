@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ACMP_IPG_STOP_MODE_0","ACMP is functional in Stop mode."],["ACMP_IPG_STOP_MODE_1","When this bit is equal to 1’b1 and ipg_stop is asserted, ACMP is not functional in Stop mode."]]};

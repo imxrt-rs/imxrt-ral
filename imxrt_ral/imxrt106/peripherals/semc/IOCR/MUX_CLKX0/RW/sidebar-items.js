@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MUX_CLKX0_0","0b0: NOR clock"],["MUX_CLKX0_1","0b1: SRAM clock"]]};

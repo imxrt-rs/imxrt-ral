@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TCM_RWAIT_EN_0","TCM read fast mode: Read RAM accesses are expected to be finished in 1-cycle."],["TCM_RWAIT_EN_1","TCM read wait mode: Read RAM accesses are expected to be finished in 2-cycles."]]};

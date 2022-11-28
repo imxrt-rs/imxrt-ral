@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ERCE","Endpoint Receive Complete Event - RW/C"],["ETCE","Endpoint Transmit Complete Event - R/WC"]]};

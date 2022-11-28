@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CPOL_0","The inactive state value of SCK is low"],["CPOL_1","The inactive state value of SCK is high"]]};

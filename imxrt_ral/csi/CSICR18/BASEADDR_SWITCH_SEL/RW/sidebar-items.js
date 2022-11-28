@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BASEADDR_SWITCH_SEL_0","Switching base address at the edge of the vsync"],["BASEADDR_SWITCH_SEL_1","Switching base address at the edge of the first data of each frame"]]};

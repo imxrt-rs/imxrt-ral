@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TRIG_0","Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)"],["TRIG_1","Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode."]]};

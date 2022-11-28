@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRQ_CT_FAIL_0","0b0: Same behavior as bit 0 of this register."],["FRQ_CT_FAIL_1","0b1: Same behavior as bit 0 of this register."]]};

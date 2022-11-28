@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SIGN_0","The offset value is added with the raw result"],["SIGN_1","The offset value is subtracted from the raw converted value"]]};

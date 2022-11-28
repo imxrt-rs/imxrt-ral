@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOCK_S1_0","Not locked. The bits 16-23 can be written by the software."],["LOCK_S1_1","The bits 16-23 are locked and can’t be written by the software."]]};

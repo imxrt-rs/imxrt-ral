@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ARBCMDSRC_0","Triggered by AHB read command (triggered by AHB read)."],["ARBCMDSRC_1","Triggered by AHB write command (triggered by AHB Write)."],["ARBCMDSRC_2","Triggered by IP command (triggered by setting register bit IPCMD.TRG)."],["ARBCMDSRC_3","Triggered by suspended command (resumed)."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PERIPH2_CLK_SEL_LOADED_0","interrupt is not generated due to frequency change of periph2_clk_sel"],["PERIPH2_CLK_SEL_LOADED_1","interrupt generated due to frequency change of periph2_clk_sel"]]};

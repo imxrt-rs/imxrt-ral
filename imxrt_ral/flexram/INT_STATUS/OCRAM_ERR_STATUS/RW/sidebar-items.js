@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OCRAM_ERR_STATUS_0","OCRAM access error does not happen"],["OCRAM_ERR_STATUS_1","OCRAM access error happens."]]};

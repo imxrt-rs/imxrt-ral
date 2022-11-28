@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MODE_0","0b00: Operating in Normal mode (NRM)"],["MODE_1","0b01: Unused (reserved)"],["MODE_2","0b10: Operating in Security Violation Mode (SVM)"],["MODE_3","0b11: Operating in Logically Disabled Mode (LDM)"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTCM_WR_RD_SEL_0","0b0: When DTCM read access hits magic address, it will generate interrupt."],["DTCM_WR_RD_SEL_1","0b1: When DTCM write access hits magic address, it will generate interrupt."]]};

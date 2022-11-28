@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CAN1_STOP_ACK_0","CAN1 stop acknowledge is not asserted"],["CAN1_STOP_ACK_1","CAN1 stop acknowledge is asserted"]]};

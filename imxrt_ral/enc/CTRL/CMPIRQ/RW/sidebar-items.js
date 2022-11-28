@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CMPIRQ_0","No match has occurred"],["CMPIRQ_1","COMP match has occurred"]]};

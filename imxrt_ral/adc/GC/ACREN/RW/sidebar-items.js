@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ACREN_0","Range function disabled. Only the compare value 1 of ADC_CV register (CV1) is compared."],["ACREN_1","Range function enabled. Both compare values of ADC_CV registers (CV1 and CV2) are compared."]]};

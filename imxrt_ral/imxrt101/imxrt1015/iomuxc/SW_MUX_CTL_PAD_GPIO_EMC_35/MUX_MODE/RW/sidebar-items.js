@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ALT1","0b001: Select mux mode: ALT1 mux port: QTIMER1_TIMER3 of instance: qtimer1"],["ALT5","0b101: Select mux mode: ALT5 mux port: GPIO3_IO03 of instance: gpio3"]]};

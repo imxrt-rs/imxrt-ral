@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DRT_0","Receive path operates independently of transmit (i.e., full-duplex mode). Can also be used to monitor transmit activity in half-duplex mode."],["DRT_1","Disable reception of frames while transmitting. (Normally used for half-duplex mode.)"]]};

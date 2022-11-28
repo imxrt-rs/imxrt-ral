@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PT3_DC_0","Force the D input in this product term to a logical zero"],["PT3_DC_1","Pass the D input in this product term"],["PT3_DC_2","Complement the D input in this product term"],["PT3_DC_3","Force the D input in this product term to a logical one"]]};

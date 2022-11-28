@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DOZEN_0","0b0: Module is enabled in Doze mode"],["DOZEN_1","0b1: Module is disabled in Doze mode"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HIE_0","0b0: Disable HOME interrupts"],["HIE_1","0b1: Enable HOME interrupts"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPUART2_STOP_REQ_0","stop request off"],["LPUART2_STOP_REQ_1","stop request on"]]};

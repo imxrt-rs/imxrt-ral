@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI_PODF_0","divide by 1"],["FLEXSPI_PODF_1","divide by 2"],["FLEXSPI_PODF_2","divide by 3"],["FLEXSPI_PODF_3","divide by 4"],["FLEXSPI_PODF_4","divide by 5"],["FLEXSPI_PODF_5","divide by 6"],["FLEXSPI_PODF_6","divide by 7"],["FLEXSPI_PODF_7","divide by 8"]]};

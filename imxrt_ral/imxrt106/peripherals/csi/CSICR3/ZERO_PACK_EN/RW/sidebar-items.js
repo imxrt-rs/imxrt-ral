@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ZERO_PACK_EN_0","0b0: Zero packing disabled"],["ZERO_PACK_EN_1","0b1: Zero packing enabled"]]};

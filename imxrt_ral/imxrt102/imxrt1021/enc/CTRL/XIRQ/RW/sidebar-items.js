@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["XIRQ_0","0b0: No interrupt has occurred"],["XIRQ_1","0b1: INDEX pulse interrupt has occurred"]]};

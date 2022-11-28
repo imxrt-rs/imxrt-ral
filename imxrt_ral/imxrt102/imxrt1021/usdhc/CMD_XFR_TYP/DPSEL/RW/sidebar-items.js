@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DPSEL_0","0b0: No Data Present"],["DPSEL_1","0b1: Data Present"]]};

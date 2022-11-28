@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADC_ETC","Raw pointer to ADC_ETC"]],"struct":[["ADC_ETC","The ADC_ETC peripheral instance."]]};

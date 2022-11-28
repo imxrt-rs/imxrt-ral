@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RSPTYP_0","0b00: No Response"],["RSPTYP_1","0b01: Response Length 136"],["RSPTYP_2","0b10: Response Length 48"],["RSPTYP_3","0b11: Response Length 48, check Busy after response"]]};

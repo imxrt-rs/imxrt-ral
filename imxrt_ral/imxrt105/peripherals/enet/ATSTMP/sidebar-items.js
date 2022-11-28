@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TIMESTAMP","Timestamp of the last frame transmitted by the core that had TxBD[TS] set"]]};

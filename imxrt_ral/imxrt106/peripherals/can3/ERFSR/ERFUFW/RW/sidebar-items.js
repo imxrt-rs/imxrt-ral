@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERFUFW_0","0b0: No such occurrence"],["ERFUFW_1","0b1: Enhanced Rx FIFO underflow"]]};

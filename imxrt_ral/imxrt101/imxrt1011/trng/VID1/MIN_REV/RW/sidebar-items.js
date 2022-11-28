@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MIN_REV_0","0b00000000: Minor revision number for TRNG."]]};

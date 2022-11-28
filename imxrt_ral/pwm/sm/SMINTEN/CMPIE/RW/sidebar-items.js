@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CMPIE_0","The corresponding STS[CMPF] bit will not cause an interrupt request."],["CMPIE_1","The corresponding STS[CMPF] bit will cause an interrupt request."]]};

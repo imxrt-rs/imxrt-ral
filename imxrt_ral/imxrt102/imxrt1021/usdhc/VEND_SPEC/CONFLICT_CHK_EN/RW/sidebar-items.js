@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CONFLICT_CHK_EN_0","0b0: Conflict check disable"],["CONFLICT_CHK_EN_1","0b1: Conflict check enable"]]};

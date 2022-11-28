@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ESG_0","0b0: The current channel’s TCD is normal format."],["ESG_1","0b1: The current channel’s TCD specifies a scatter gather format. The DLASTSGA field provides a memory pointer to the next TCD to be loaded into this channel after the major loop completes its execution."]]};

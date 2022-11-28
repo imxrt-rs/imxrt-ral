@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TP0","Accesses from an untrusted master are allowed."],["TP1","Accesses from an untrusted master are not allowed. If an access is attempted by an untrusted master, the access is terminated with an error response and no peripheral access is initiated on the IPS bus."]]};

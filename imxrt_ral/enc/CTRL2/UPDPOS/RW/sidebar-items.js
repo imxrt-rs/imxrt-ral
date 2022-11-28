@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UPDPOS_0","No action for POSD, REV, UPOS and LPOS on rising edge of TRIGGER"],["UPDPOS_1","Clear POSD, REV, UPOS and LPOS on rising edge of TRIGGER"]]};

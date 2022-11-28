@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RTC","HP Real Time Counter least-significant 32 bits"]]};

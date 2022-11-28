@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SRXDIS_0","Self reception enabled"],["SRXDIS_1","Self reception disabled"]]};

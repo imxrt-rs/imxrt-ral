@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MUX_RDY_0","0b000: NAND Ready/Wait# input"],["MUX_RDY_1","0b001: SDRAM CS1"],["MUX_RDY_2","0b010: SDRAM CS2"],["MUX_RDY_3","0b011: SDRAM CS3"],["MUX_RDY_4","0b100: NOR CE#"],["MUX_RDY_5","0b101: PSRAM CE#"],["MUX_RDY_6","0b110: DBI CSX"],["MUX_RDY_7","0b111: NOR/PSRAM Address bit 27"]]};

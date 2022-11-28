@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ATDFEN_0","0b0: IP TX FIFO should be written by IP Bus. AHB Bus write access to IP TX FIFO memory space will get bus error response."],["ATDFEN_1","0b1: IP TX FIFO should be written by AHB Bus. IP Bus write access to IP TX FIFO memory space will be ignored but no bus error response."]]};

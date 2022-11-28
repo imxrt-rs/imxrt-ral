@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DCE_0","0b0: No Error"],["DCE_1","0b1: Error"]]};

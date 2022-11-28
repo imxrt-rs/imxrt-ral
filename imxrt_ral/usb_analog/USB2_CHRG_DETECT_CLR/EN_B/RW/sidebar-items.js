@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DISABLE","Disable the charger detector."],["ENABLE","Enable the charger detector."]]};

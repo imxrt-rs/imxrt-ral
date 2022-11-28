@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BUFHI","Each bit flags the respective FLEXCAN Message Buffer (MB32 to MB63) interrupt."]]};

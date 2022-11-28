@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADRSTALL_0","Clock stretching is disabled"],["ADRSTALL_1","Clock stretching is enabled"]]};

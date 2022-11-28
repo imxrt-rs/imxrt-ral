@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AUTO_MEASURE_0","Disable Auto Measure"],["AUTO_MEASURE_1","Auto Measure"]]};

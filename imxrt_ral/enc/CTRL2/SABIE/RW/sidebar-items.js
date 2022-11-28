@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SABIE_0","Simultaneous PHASEA and PHASEB change interrupt disabled."],["SABIE_1","Simultaneous PHASEA and PHASEB change interrupt enabled."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NOISY_0","0b0: The dataword was received without noise."],["NOISY_1","0b1: The data was received with noise."]]};

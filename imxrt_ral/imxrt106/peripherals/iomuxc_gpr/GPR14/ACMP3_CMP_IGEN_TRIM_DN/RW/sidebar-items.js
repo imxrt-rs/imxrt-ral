@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACMP3_CMP_IGEN_TRIM_DN_0","0b0: no reduce"],["ACMP3_CMP_IGEN_TRIM_DN_1","0b1: reduces"]]};

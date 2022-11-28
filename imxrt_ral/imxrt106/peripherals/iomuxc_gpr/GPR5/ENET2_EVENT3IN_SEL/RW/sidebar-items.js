@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ENET2_EVENT3IN_SEL_0","0b0: event3 source input from ENET2_1588_EVENT3_IN"],["ENET2_EVENT3IN_SEL_1","0b1: event3 source input from GPT2.GPT_COMPARE2"]]};

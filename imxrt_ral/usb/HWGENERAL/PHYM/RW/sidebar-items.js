@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PHYM_0","UTMI/UMTI+"],["PHYM_1","ULPI DDR"],["PHYM_2","ULPI"],["PHYM_3","Serial Only"],["PHYM_4","Software programmable - reset to UTMI/UTMI+"],["PHYM_5","Software programmable - reset to ULPI DDR"],["PHYM_6","Software programmable - reset to ULPI"],["PHYM_7","Software programmable - reset to Serial"]]};

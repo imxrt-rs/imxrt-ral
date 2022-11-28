@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SM1SEL23_0","Generated SM1PWM23 signal is used by the deadtime logic."],["SM1SEL23_1","Inverted generated SM1PWM23 signal is used by the deadtime logic."],["SM1SEL23_2","SWCOUT[SM1OUT23] is used by the deadtime logic."],["SM1SEL23_3","PWM1_EXTA signal is used by the deadtime logic."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PADEN_0","0b0: No padding is removed on receive by the MAC."],["PADEN_1","0b1: Padding is removed from received frames."]]};

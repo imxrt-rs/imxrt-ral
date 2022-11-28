@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SRE","software reset extension, an option way to generate software reset"],["SRS","SRS"],["WDA","WDA"],["WDBG","WDBG"],["WDE","WDE"],["WDT","WDT"],["WDW","WDW"],["WDZST","WDZST"],["WT","WT"]]};

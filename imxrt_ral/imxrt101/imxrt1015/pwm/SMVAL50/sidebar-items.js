@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["VAL5","Value Register 5"]]};

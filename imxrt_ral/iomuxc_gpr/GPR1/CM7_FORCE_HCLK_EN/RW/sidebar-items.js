@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CM7_FORCE_HCLK_EN_0","AHB clock is not running (gated) when CM7 is sleeping and TCM is not accessible."],["CM7_FORCE_HCLK_EN_1","AHB clock is running (enabled) when CM7 is sleeping and TCM is accessible."]]};

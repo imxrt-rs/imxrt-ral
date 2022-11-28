@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["INPUT","ROWn pin configured as an input."],["OUTPUT","ROWn pin configured as an output."]]};

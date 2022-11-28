@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DATAFIX_0","0b00000000: Address comparator triggers a opcode patch"],["DATAFIX_1","0b00000001: Address comparator triggers a data fix"]]};

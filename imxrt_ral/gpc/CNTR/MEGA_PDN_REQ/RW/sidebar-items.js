@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MEGA_PDN_REQ_0","No Request"],["MEGA_PDN_REQ_1","Request power down sequence"]]};

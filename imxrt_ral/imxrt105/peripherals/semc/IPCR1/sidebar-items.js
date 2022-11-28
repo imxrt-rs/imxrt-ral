@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DATSZ","Data Size in Byte"]]};

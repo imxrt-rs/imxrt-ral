@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXMSK_0","Normal transfer"],["RXMSK_1","Receive data is masked"]]};

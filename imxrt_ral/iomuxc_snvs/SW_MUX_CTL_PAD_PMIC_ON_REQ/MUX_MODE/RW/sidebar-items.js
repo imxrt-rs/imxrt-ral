@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ALT0","Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: snvs_lp"],["ALT5","Select mux mode: ALT5 mux port: GPIO5_IO00 of instance: gpio5"]]};

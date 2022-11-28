@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FLEXIO2_IPG_DOZE_0","FLEXIO2 is not in doze mode"],["FLEXIO2_IPG_DOZE_1","FLEXIO2 is in doze mode"]]};

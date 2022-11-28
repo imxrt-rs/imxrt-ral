@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AXBS_L_DMA_HIGH_PRIORITY_0","AXBS_L DMA master does not have high priority"],["AXBS_L_DMA_HIGH_PRIORITY_1","AXBS_L DMA master has high priority"]]};

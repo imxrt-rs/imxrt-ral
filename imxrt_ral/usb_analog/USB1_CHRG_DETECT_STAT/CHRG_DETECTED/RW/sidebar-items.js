@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CHARGER_NOT_PRESENT","The USB port is not connected to a charger."],["CHARGER_PRESENT","A charger (either a dedicated charger or a host charger) is connected to the USB port."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADDINS_0","The source MAC address is not modified by the MAC."],["ADDINS_1","The MAC overwrites the source MAC address with the programmed MAC address according to ADDSEL."]]};

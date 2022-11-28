@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INIT_DTCM_EN_0","0b0: DTCM is disabled"],["INIT_DTCM_EN_1","0b1: DTCM is enabled"]]};

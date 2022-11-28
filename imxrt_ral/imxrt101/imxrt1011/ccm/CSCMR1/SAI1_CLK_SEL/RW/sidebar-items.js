@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI1_CLK_SEL_0","0b00: derive clock from PLL3 PFD2"],["SAI1_CLK_SEL_1","0b01: derive from pll3_sw_clk"],["SAI1_CLK_SEL_2","0b10: derive clock from PLL4"]]};

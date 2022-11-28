@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPI2C4_STOP_REQ_0","stop request off"],["LPI2C4_STOP_REQ_1","stop request on"]]};

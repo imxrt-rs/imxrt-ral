@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HP_USDHC2_0","The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."],["HP_USDHC2_1","The HP register bit is routed to the csu_hprot1 output for the corresponding master."]]};

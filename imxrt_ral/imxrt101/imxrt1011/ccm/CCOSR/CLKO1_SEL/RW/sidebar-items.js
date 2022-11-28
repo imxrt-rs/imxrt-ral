@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLKO1_SEL_0","0b0000: pll3_sw_clk (divided by 2)"],["CLKO1_SEL_1","0b0001: PLL2 (divided by 2)"],["CLKO1_SEL_11","0b1011: core_clk_root"],["CLKO1_SEL_12","0b1100: ipg_clk_root"],["CLKO1_SEL_13","0b1101: perclk_root"],["CLKO1_SEL_15","0b1111: pll4_main_clk"],["CLKO1_SEL_2","0b0010: ENET PLL (divided by 2)"]]};

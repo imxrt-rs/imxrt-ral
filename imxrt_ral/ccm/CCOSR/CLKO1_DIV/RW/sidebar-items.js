@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLKO1_DIV_0","divide by 1"],["CLKO1_DIV_1","divide by 2"],["CLKO1_DIV_2","divide by 3"],["CLKO1_DIV_3","divide by 4"],["CLKO1_DIV_4","divide by 5"],["CLKO1_DIV_5","divide by 6"],["CLKO1_DIV_6","divide by 7"],["CLKO1_DIV_7","divide by 8"]]};

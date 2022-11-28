@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["IMB_0","0b0: If ESR2[VPS] is asserted, the ESR2[LPTM] is not an inactive Mailbox."],["IMB_1","0b1: If ESR2[VPS] is asserted, there is at least one inactive Mailbox. LPTM content is the number of the first one."]]};

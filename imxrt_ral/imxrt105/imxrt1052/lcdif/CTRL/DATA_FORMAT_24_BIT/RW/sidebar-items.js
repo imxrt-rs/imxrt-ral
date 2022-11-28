@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ALL_24_BITS_VALID","0b0: Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits."],["DROP_UPPER_2_BITS_PER_BYTE","0b1: Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped."]]};

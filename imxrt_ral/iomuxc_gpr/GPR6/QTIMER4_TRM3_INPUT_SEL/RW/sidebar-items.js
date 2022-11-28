@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["QTIMER4_TRM3_INPUT_SEL_0","input from IOMUX"],["QTIMER4_TRM3_INPUT_SEL_1","input from XBAR"]]};

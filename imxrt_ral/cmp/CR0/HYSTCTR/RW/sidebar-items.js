@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HYSTCTR_0","Level 0"],["HYSTCTR_1","Level 1"],["HYSTCTR_2","Level 2"],["HYSTCTR_3","Level 3"]]};

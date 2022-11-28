@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FFLAG_0","No fault on the FAULTx pin."],["FFLAG_1","Fault on the FAULTx pin."]]};

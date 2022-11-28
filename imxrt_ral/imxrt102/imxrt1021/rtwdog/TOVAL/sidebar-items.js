@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TOVALHIGH","High byte of the timeout value"],["TOVALLOW","Low byte of the timeout value"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OSC_SEL_0","XTAL OSC"],["OSC_SEL_1","RC OSC"]]};

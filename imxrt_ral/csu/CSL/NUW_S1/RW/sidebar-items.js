@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NUW_S1_0","The non-secure user write access is disabled for the first slave."],["NUW_S1_1","The non-secure user write access is enabled for the first slave."]]};

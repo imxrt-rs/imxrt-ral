@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MQS_OVERSAMPLE_0","32"],["MQS_OVERSAMPLE_1","64"]]};

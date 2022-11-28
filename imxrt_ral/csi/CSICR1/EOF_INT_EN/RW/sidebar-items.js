@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EOF_INT_EN_0","EOF interrupt is disabled."],["EOF_INT_EN_1","EOF interrupt is generated when RX count value is reached."]]};

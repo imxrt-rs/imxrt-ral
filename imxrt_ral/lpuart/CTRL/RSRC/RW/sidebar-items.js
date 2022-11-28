@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RSRC_0","Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin."],["RSRC_1","Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input."]]};

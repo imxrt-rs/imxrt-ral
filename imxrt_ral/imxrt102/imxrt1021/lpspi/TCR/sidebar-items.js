@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BYSW","Byte Swap"],["CONT","Continuous Transfer"],["CONTC","Continuing Command"],["CPHA","Clock Phase"],["CPOL","Clock Polarity"],["FRAMESZ","Frame Size"],["LSBF","LSB First"],["PCS","Peripheral Chip Select"],["PRESCALE","Prescaler Value"],["RXMSK","Receive Data Mask"],["TXMSK","Transmit Data Mask"],["WIDTH","Transfer Width"]]};

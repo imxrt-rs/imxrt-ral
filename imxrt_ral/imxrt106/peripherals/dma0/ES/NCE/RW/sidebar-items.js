@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NCE_0","0b0: No NBYTES/CITER configuration error"],["NCE_1","0b1: The last recorded error was a configuration error detected in the TCDn_NBYTES or TCDn_CITER fields. TCDn_NBYTES is not a multiple of TCDn_ATTR[SSIZE] and TCDn_ATTR[DSIZE], or TCDn_CITER[CITER] is equal to zero, or TCDn_CITER[ELINK] is not equal to TCDn_BITER[ELINK]"]]};

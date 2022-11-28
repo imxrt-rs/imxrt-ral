@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CAEI_0","Clear only the ERR bit specified in the CERR field"],["CAEI_1","Clear all bits in ERR"]]};

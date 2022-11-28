@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["STFERR_FAST_0","0b0: No such occurrence."],["STFERR_FAST_1","0b1: A Stuffing Error occurred since last read of this register."]]};

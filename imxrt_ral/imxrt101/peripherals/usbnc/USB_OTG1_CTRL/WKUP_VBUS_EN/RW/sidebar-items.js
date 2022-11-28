@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WKUP_VBUS_EN_0","0b0: Disable"],["WKUP_VBUS_EN_1","0b1: Enable"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["GPR0","GPR0 General Purpose Register"],["GPR1","GPR1 General Purpose Register"],["GPR2","GPR2 General Purpose Register"],["GPR3","GPR3 General Purpose Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

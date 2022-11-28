@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DBG_RST_MSK_PG_0","do not mask core debug resets (debug resets will be asserted after power gating event)"],["DBG_RST_MSK_PG_1","mask core debug resets (debug resets won’t be asserted after power gating event)"]]};

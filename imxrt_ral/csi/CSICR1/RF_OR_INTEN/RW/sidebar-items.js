@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RF_OR_INTEN_0","RxFIFO overrun interrupt is disabled"],["RF_OR_INTEN_1","RxFIFO overrun interrupt is enabled"]]};

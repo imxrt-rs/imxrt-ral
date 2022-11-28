@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BOFFREC_0","Automatic recovering from Bus Off state enabled, according to CAN Spec 2.0 part B"],["BOFFREC_1","Automatic recovering from Bus Off state disabled"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENET_EVENT3IN_SEL","ENET input timer event3 source select"],["GPT2_CAPIN1_SEL","GPT2 input capture channel 1 source select"],["VREF_1M_CLK_GPT1","GPT1 1 MHz clock source select"],["VREF_1M_CLK_GPT2","GPT2 1 MHz clock source select"],["WDOG1_MASK","WDOG1 Timeout Mask"],["WDOG2_MASK","WDOG2 Timeout Mask"]]};

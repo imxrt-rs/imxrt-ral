@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HRPOL_0","Active low"],["HRPOL_1","Active high"]]};

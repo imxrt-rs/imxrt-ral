@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["FERB","Flush Endpoint Receive Buffer - R/WS"],["FETB","Flush Endpoint Transmit Buffer - R/WS"]]};

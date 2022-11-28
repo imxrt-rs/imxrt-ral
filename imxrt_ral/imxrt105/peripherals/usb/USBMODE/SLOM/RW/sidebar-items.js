@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SLOM_0","0b0: Setup Lockouts On (default);"],["SLOM_1","0b1: Setup Lockouts Off (DCD requires use of Setup Data Buffer Tripwire in USBCMDUSB Command Register ."]]};

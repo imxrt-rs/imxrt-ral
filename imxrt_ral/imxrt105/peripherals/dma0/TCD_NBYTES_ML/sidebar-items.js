@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DMLOE","Destination Minor Loop Offset enable"],["MLOFF","If SMLOE or DMLOE is set, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes."],["NBYTES","Minor Byte Transfer Count"],["SMLOE","Source Minor Loop Offset Enable"]]};

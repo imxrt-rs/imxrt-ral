@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PERIPH_CLK_SEL_LOADED_0","0b0: interrupt is not generated due to update of periph_clk_sel."],["PERIPH_CLK_SEL_LOADED_1","0b1: interrupt generated due to update of periph_clk_sel."]]};

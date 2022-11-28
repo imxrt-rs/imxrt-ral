@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OCA_0","This port does not have an over-current condition."],["OCA_1","This port currently has an over-current condition"]]};

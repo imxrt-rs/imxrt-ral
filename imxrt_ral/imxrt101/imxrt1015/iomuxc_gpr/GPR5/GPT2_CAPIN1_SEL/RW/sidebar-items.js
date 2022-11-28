@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GPT2_CAPIN1_SEL_0","0b0: source from GPT2_CAPTURE1"],["GPT2_CAPIN1_SEL_1","0b1: source from ENET_1588_EVENT3_OUT (chnnal 3 of IEEE 1588 timer)"]]};

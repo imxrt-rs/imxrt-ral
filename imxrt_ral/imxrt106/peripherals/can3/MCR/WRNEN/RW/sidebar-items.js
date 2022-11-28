@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WRNEN_0","0b0: TWRNINT and RWRNINT bits are zero, independent of the values in the error counters."],["WRNEN_1","0b1: TWRNINT and RWRNINT bits are set when the respective error counter transitions from less than 96 to greater than or equal to 96."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SOFTRST_0","No reset request"],["SOFTRST_1","Reset the registers"]]};

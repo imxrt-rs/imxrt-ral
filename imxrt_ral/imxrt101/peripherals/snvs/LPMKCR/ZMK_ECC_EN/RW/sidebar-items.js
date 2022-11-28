@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ZMK_ECC_EN_0","0b0: ZMK ECC check is disabled."],["ZMK_ECC_EN_1","0b1: ZMK ECC check is enabled."]]};

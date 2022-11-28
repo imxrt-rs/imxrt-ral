@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RELAX1","This count value specifies time interval between auto read and write access in one time program"],["RELAX_PROG","This count value specifies the strobe period in one time write OTP"],["RELAX_READ","This count value specifies the strobe period in one time read OTP"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RAMP_RATE_0","0b00: Fast"],["RAMP_RATE_1","0b01: Medium Fast"],["RAMP_RATE_2","0b10: Medium Slow"],["RAMP_RATE_3","0b11: Slow"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["VRSEL_0","Vin1 is selected as resistor ladder network supply reference."],["VRSEL_1","Vin2 is selected as resistor ladder network supply reference."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GPTMODE_0","One Shot Mode"],["GPTMODE_1","Repeat Mode"]]};

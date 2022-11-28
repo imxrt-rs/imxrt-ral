@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DIS_REF_OSC_0","0b0: external high frequency oscillator will be enabled, i.e. CCM_REF_EN_B = ‘0’."],["DIS_REF_OSC_1","0b1: external high frequency oscillator will be disabled, i.e. CCM_REF_EN_B = ‘1’"]]};

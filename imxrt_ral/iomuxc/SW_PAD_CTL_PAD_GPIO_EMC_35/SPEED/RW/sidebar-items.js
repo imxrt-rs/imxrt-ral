@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SPEED_0_LOW_50MHZ_","low(50MHz)"],["SPEED_1_MEDIUM_100MHZ_","medium(100MHz)"],["SPEED_2_MEDIUM_100MHZ_","medium(100MHz)"],["SPEED_3_MAX_200MHZ_","max(200MHz)"]]};

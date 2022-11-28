@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTCM_ERR_STATUS_0","0b0: DTCM access error does not happen"],["DTCM_ERR_STATUS_1","0b1: DTCM access error happens."]]};

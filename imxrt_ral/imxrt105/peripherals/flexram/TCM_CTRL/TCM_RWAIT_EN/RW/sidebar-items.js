@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TCM_RWAIT_EN_0","0b0: TCM read fast mode: Read RAM accesses are expected to be finished in 1-cycle."],["TCM_RWAIT_EN_1","0b1: TCM read wait mode: Read RAM accesses are expected to be finished in 2-cycles."]]};

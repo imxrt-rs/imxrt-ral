@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["AHB_PODF","Divider for AHB PODF"],["IPG_PODF","Divider for ipg podf."],["PERIPH_CLK_SEL","Selector for peripheral main clock"]]};

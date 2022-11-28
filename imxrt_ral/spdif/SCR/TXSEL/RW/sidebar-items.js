@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TXSEL_0","Off and output 0"],["TXSEL_1","Feed-through SPDIFIN"],["TXSEL_5","Tx Normal operation"]]};

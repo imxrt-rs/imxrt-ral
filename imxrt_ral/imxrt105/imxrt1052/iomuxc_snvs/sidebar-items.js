@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["IOMUXC_SNVS","Raw pointer to IOMUXC_SNVS"]],"struct":[["IOMUXC_SNVS","The IOMUXC_SNVS peripheral instance."]]};

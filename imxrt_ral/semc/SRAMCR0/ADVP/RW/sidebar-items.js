@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADVP_0","ADV# is Low Active. In ASYNC mode, device sample address with ADV# rise edge; In SYNC mode, device sample address when ADV# is LOW."],["ADVP_1","ADV# is High Active. In ASYNC mode, device sample address with ADV# fall edge; In SYNC mode, device sample address when ADV# is HIGH."]]};

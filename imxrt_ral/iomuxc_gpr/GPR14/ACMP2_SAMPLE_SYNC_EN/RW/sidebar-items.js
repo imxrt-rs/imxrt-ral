@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ACMP2_SAMPLE_SYNC_EN_0","select XBAR output"],["ACMP2_SAMPLE_SYNC_EN_1","select synced sample_lv"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PINCFG_0","SIN is used for input data and SOUT is used for output data"],["PINCFG_1","SIN is used for both input and output data"],["PINCFG_2","SOUT is used for both input and output data"],["PINCFG_3","SOUT is used for input data and SIN is used for output data"]]};

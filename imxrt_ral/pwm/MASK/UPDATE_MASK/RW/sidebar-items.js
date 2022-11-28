@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UPDATE_MASK_0","Normal operation. MASK* bits within the corresponding submodule are not updated until a FORCE_OUT event occurs within the submodule."],["UPDATE_MASK_1","Immediate operation. MASK* bits within the corresponding submodule are updated on the following clock edge after setting this bit."]]};

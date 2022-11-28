@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["LOCK_OCRAM2_TZ_ADDR","Lock OCRAM2_TZ_ADDR field for changes"],["LOCK_OCRAM2_TZ_EN","Lock OCRAM2_TZ_EN field for changes"],["OCRAM2_TZ_ADDR","OCRAM2 TrustZone (TZ) start address"],["OCRAM2_TZ_EN","OCRAM2 TrustZone (TZ) enable."]]};

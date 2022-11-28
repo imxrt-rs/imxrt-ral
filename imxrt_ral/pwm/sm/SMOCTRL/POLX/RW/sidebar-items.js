@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["POLX_0","PWM_X output not inverted. A high level on the PWM_X pin represents the “on” or “active” state."],["POLX_1","PWM_X output inverted. A low level on the PWM_X pin represents the “on” or “active” state."]]};

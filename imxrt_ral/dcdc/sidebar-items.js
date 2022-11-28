@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DCDC","DCDC"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["REG0","DCDC Register 0"],["REG1","DCDC Register 1"],["REG2","DCDC Register 2"],["REG3","DCDC Register 3"]],"struct":[["RegisterBlock","DCDC"]],"type":[["DCDC",""],["Instance",""]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADC_COCO_CLEAR_DISABLE_0","0b0: Allow TSC hardware generates ADC COCO clear"],["ADC_COCO_CLEAR_DISABLE_1","0b1: Prevent TSC from generate ADC COCO clear signal"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PFSC_0","Normal operation"],["PFSC_1","Forced to full speed"]]};

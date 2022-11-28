@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DOE_0","0b0: No destination offset configuration error"],["DOE_1","0b1: The last recorded error was a configuration error detected in the TCDn_DOFF field. TCDn_DOFF is inconsistent with TCDn_ATTR[DSIZE]."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SM2OUT23_0","0b0: A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM23."],["SM2OUT23_1","0b1: A logic 1 is supplied to the deadtime generator of submodule 2 instead of PWM23."]]};

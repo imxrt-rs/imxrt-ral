@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPSPI3_STOP_REQ_0","0b0: stop request off"],["LPSPI3_STOP_REQ_1","0b1: stop request on"]]};

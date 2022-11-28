@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PRODIS_0","Frames with wrong checksum are not discarded."],["PRODIS_1","If a TCP/IP, UDP/IP, or ICMP/IP frame is received that has a wrong TCP, UDP, or ICMP checksum, the frame is discarded. Discarding is only available when the RX FIFO operates in store and forward mode (RSFL cleared)."]]};

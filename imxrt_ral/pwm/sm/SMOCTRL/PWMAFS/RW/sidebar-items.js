@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PWMAFS_0","Output is forced to logic 0 state prior to consideration of output polarity control."],["PWMAFS_1","Output is forced to logic 1 state prior to consideration of output polarity control."],["PWMAFS_2","Output is tristated."],["PWMAFS_3","Output is tristated."]]};

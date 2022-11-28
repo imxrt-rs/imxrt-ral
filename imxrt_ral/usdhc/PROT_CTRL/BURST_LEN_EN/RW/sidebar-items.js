@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BURST_LEN_EN_1","Burst length is enabled for INCR"]]};

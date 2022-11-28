@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PERCLK_CLK_SEL_0","derive clock from ipg clk root"],["PERCLK_CLK_SEL_1","derive clock from osc_clk"]]};

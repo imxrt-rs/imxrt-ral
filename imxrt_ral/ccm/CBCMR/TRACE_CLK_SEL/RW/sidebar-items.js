@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TRACE_CLK_SEL_0","derive clock from PLL2"],["TRACE_CLK_SEL_1","derive clock from PLL2 PFD2"],["TRACE_CLK_SEL_2","derive clock from PLL2 PFD0"],["TRACE_CLK_SEL_3","derive clock from PLL2 PFD1"]]};

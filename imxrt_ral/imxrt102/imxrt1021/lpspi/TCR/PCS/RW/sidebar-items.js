@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PCS_0","0b00: Transfer using LPSPI_PCS[0]"],["PCS_1","0b01: Transfer using LPSPI_PCS[1]"],["PCS_2","0b10: Transfer using LPSPI_PCS[2]"],["PCS_3","0b11: Transfer using LPSPI_PCS[3]"]]};

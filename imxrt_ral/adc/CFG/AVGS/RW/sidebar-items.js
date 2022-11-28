@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AVGS_0","4 samples averaged"],["AVGS_1","8 samples averaged"],["AVGS_2","16 samples averaged"],["AVGS_3","32 samples averaged"]]};

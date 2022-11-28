@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MODE_0","8-bit conversion"],["MODE_1","10-bit conversion"],["MODE_2","12-bit conversion"]]};

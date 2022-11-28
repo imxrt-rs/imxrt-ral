@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CHPRI","Channel n Arbitration Priority"],["DPA","Disable Preempt Ability. This field resets to 0."],["ECP","Enable Channel Preemption. This field resets to 0."],["GRPPRI","Channel n Current Group Priority"]]};

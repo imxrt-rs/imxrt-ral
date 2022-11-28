@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TIMRST_0","Timer never reset"],["TIMRST_2","Timer reset on Timer Pin equal to Timer Output"],["TIMRST_3","Timer reset on Timer Trigger equal to Timer Output"],["TIMRST_4","Timer reset on Timer Pin rising edge"],["TIMRST_6","Timer reset on Trigger rising edge"],["TIMRST_7","Timer reset on Trigger rising or falling edge"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TMR1","Raw pointer to TMR1"],["TMR2","Raw pointer to TMR2"],["TMR3","Raw pointer to TMR3"],["TMR4","Raw pointer to TMR4"]],"struct":[["TMR1","The TMR1 peripheral instance."],["TMR2","The TMR2 peripheral instance."],["TMR3","The TMR3 peripheral instance."],["TMR4","The TMR4 peripheral instance."]]};

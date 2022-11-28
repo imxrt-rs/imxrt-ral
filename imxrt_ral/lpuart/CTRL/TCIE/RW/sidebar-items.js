@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TCIE_0","Hardware interrupts from TC disabled; use polling."],["TCIE_1","Hardware interrupt requested when TC flag is 1."]]};

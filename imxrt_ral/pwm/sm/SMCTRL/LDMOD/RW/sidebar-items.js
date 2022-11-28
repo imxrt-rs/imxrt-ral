@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LDMOD_0","Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set."],["LDMOD_1","Buffered registers of this submodule are loaded and take effect immediately upon MCTRL[LDOK] being set. In this case it is not necessary to set CTRL[FULL] or CTRL[HALF]."]]};

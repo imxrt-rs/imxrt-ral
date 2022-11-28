@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RxFIFO_Off_On_0","0b0: SPDIF Rx FIFO is on"],["RxFIFO_Off_On_1","0b1: SPDIF Rx FIFO is off. Does not accept data from interface"]]};

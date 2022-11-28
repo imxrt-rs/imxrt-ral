@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CRCFWD_0","0b0: TxBD[TC] controls whether the frame has a CRC from the application."],["CRCFWD_1","0b1: The transmitter does not append any CRC to transmitted frames, as it is expecting a frame with CRC from the application."]]};

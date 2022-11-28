@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OPS_0","True polarity."],["OPS_1","Inverted polarity."]]};

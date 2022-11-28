@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["LOCK","Lock LUT"],["UNLOCK","Unlock LUT"]]};

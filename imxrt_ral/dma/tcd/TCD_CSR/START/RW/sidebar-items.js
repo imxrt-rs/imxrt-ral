@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["START_0","The channel is not explicitly started."],["START_1","The channel is explicitly started via a software initiated service request."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WCF_0","Transfer of a received word has not yet completed"],["WCF_1","Transfer of a received word has completed"]]};

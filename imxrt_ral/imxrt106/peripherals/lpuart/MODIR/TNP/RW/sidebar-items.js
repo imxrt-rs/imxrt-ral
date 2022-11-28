@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TNP_0","0b00: 1/OSR."],["TNP_1","0b01: 2/OSR."],["TNP_2","0b10: 3/OSR."],["TNP_3","0b11: 4/OSR."]]};

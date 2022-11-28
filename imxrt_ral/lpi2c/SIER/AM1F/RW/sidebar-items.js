@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AM1F_0","Disabled"],["AM1F_1","Enabled"]]};

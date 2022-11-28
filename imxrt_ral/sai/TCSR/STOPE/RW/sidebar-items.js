@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["STOPE_0","Transmitter disabled in Stop mode."],["STOPE_1","Transmitter enabled in Stop mode."]]};

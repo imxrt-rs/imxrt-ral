@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RESYNCDIS_0","Resynchronization during received data word is supported"],["RESYNCDIS_1","Resynchronization during received data word is disabled"]]};

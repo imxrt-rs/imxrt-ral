@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SMP_CLK_SEL_0","0b0: Fixed clock is used to sample data / cmd"],["SMP_CLK_SEL_1","0b1: Tuned clock is used to sample data / cmd"]]};

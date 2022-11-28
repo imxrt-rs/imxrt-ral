@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KBCE_0","0b0: CRC-32 during key blob processing is disabled."],["KBCE_1","0b1: CRC-32 during key blob processing is enabled."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["VID_PLL_PREDIV_0","0b0: Divide by 1"],["VID_PLL_PREDIV_1","0b1: Divide by 2"]]};

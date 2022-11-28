@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SB_LIM","Sparse Bit Limit"],["TOT_SAM","Total Samples"]]};

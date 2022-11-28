@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PROCHK_0","Checksum not inserted."],["PROCHK_1","If an IP frame with a known protocol is transmitted, the checksum is inserted automatically into the frame. The checksum field must be cleared. The other frames are not modified."]]};

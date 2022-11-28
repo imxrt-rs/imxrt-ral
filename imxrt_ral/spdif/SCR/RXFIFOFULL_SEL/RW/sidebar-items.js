@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXFIFOFULL_SEL_0","Full interrupt if at least 1 sample in Rx left and right FIFOs"],["RXFIFOFULL_SEL_1","Full interrupt if at least 4 sample in Rx left and right FIFOs"],["RXFIFOFULL_SEL_2","Full interrupt if at least 8 sample in Rx left and right FIFOs"],["RXFIFOFULL_SEL_3","Full interrupt if at least 16 sample in Rx left and right FIFO"]]};

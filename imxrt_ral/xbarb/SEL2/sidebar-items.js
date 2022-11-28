@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["SEL4","Input (XBARB_INn) to be muxed to XBARB_OUT4 (refer to Functional Description section for input/output assignment)"],["SEL5","Input (XBARB_INn) to be muxed to XBARB_OUT5 (refer to Functional Description section for input/output assignment)"]]};

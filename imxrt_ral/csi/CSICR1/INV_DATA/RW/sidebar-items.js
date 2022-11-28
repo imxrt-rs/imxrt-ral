@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["INV_DATA_0","CSI_D[7:0] data lines are directly applied to internal circuitry"],["INV_DATA_1","CSI_D[7:0] data lines are inverted before applied to internal circuitry"]]};

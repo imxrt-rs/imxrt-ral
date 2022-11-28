@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GPR_SL_0","Write access is allowed"],["GPR_SL_1","Write access is not allowed"]]};

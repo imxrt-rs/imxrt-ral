@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["OPCODE","Opcode Field In PAUSE Frames"],["PAUSE_DUR","Pause Duration"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TXFIFOEMPTY_SEL_0","Empty interrupt if 0 sample in Tx left and right FIFOs"],["TXFIFOEMPTY_SEL_1","Empty interrupt if at most 4 sample in Tx left and right FIFOs"],["TXFIFOEMPTY_SEL_2","Empty interrupt if at most 8 sample in Tx left and right FIFOs"],["TXFIFOEMPTY_SEL_3","Empty interrupt if at most 12 sample in Tx left and right FIFOs"]]};

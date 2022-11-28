@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SCS_0","Counter 0 input pin"],["SCS_1","Counter 1 input pin"],["SCS_2","Counter 2 input pin"],["SCS_3","Counter 3 input pin"]]};

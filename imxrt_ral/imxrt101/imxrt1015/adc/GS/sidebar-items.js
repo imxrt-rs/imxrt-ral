@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADACT","Conversion Active"],["AWKST","Asynchronous wakeup interrupt status"],["CALF","Calibration Failed Flag"]]};

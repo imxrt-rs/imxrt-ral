@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DRJW","Data Phase Resynchronization Jump Width"],["DTSEG1","Data Phase Segment 1"],["DTSEG2","Data Phase Time Segment 2"]]};

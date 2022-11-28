@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HYS_0_HYSTERESIS_DISABLED","Hysteresis Disabled"],["HYS_1_HYSTERESIS_ENABLED","Hysteresis Enabled"]]};

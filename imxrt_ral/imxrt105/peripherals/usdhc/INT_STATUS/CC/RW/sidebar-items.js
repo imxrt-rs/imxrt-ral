@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CC_0","0b0: Command not complete"],["CC_1","0b1: Command complete"]]};

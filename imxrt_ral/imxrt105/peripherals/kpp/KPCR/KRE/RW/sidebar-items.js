@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KRE_0","0b00000000: Row is not included in the keypad key press detect."],["KRE_1","0b00000001: Row is included in the keypad key press detect."]]};

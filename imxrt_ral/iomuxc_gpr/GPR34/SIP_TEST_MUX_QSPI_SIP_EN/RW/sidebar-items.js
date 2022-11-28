@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SIP_TEST_MUX_QSPI_SIP_EN_0","SIP_TEST_MUX is disabled"],["SIP_TEST_MUX_QSPI_SIP_EN_1","SIP_TEST_MUX is enabled"]]};

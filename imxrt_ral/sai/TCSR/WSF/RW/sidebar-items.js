@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WSF_0","Start of word not detected."],["WSF_1","Start of word detected."]]};

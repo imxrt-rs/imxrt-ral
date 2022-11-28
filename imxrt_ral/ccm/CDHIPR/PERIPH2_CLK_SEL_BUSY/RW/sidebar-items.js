@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PERIPH2_CLK_SEL_BUSY_0","mux is not busy and its value represents the actual division."],["PERIPH2_CLK_SEL_BUSY_1","mux is busy with handshake process with module. The value read in the periph2_clk_sel represents the previous value of select, and after the handshake periph2_clk_sel value will be applied."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADHSC_0","Normal conversion selected."],["ADHSC_1","High speed conversion selected."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PINPOL_0","Pin is active high"],["PINPOL_1","Pin is active low"]]};

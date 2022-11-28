@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXFIFO_CTRL_0","Normal operation"],["RXFIFO_CTRL_1","Always read zero from Rx data register"]]};

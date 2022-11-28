@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AXBS_L_HALT_REQ_0","axbs_l normal run"],["AXBS_L_HALT_REQ_1","request to halt axbs_l"]]};

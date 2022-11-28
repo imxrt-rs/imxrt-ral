@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FRINDEX_0","(1024) 12"],["FRINDEX_1","(512) 11"],["FRINDEX_2","(256) 10"],["FRINDEX_3","(128) 9"],["FRINDEX_4","(64) 8"],["FRINDEX_5","(32) 7"],["FRINDEX_6","(16) 6"],["FRINDEX_7","(8) 5"]]};

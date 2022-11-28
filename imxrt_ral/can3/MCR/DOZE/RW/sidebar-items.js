@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DOZE_0","FlexCAN is not enabled to enter low-power mode when Doze mode is requested."],["DOZE_1","FlexCAN is enabled to enter low-power mode when Doze mode is requested."]]};

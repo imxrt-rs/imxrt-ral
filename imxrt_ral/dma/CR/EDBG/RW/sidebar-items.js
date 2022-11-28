@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EDBG_0","When in debug mode, the DMA continues to operate."],["EDBG_1","When in debug mode, the DMA stalls the start of a new channel. Executing channels are allowed to complete. Channel execution resumes when the system exits debug mode or the EDBG bit is cleared."]]};

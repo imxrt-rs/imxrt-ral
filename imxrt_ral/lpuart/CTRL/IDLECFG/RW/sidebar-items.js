@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IDLECFG_0","1 idle character"],["IDLECFG_1","2 idle characters"],["IDLECFG_2","4 idle characters"],["IDLECFG_3","8 idle characters"],["IDLECFG_4","16 idle characters"],["IDLECFG_5","32 idle characters"],["IDLECFG_6","64 idle characters"],["IDLECFG_7","128 idle characters"]]};

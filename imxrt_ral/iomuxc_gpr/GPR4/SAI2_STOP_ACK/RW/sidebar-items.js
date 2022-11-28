@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SAI2_STOP_ACK_0","SAI2 stop acknowledge is not asserted"],["SAI2_STOP_ACK_1","SAI2 stop acknowledge is asserted"]]};

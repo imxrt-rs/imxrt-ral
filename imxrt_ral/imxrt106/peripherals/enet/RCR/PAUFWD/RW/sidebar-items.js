@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PAUFWD_0","0b0: Pause frames are terminated and discarded in the MAC."],["PAUFWD_1","0b1: Pause frames are forwarded to the user application."]]};

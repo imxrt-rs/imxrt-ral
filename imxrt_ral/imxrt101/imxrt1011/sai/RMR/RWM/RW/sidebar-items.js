@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RWM_0","0b00000000000000000000000000000000: Word N is enabled."],["RWM_1","0b00000000000000000000000000000001: Word N is masked."]]};

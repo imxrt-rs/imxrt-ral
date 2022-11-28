@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FILTDZ_0","0b0: Filter remains enabled in Doze mode"],["FILTDZ_1","0b1: Filter is disabled in Doze mode"]]};

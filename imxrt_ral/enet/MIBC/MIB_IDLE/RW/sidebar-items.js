@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MIB_IDLE_0","The MIB block is updating MIB counters."],["MIB_IDLE_1","The MIB block is not currently updating any MIB counters."]]};

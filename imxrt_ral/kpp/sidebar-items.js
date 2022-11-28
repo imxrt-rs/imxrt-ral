@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KPP","KPP Registers"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["KDDR","Keypad Data Direction Register"],["KPCR","Keypad Control Register"],["KPDR","Keypad Data Register"],["KPSR","Keypad Status Register"]],"struct":[["RegisterBlock","KPP Registers"]],"type":[["Instance",""],["KPP",""]]};

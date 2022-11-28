@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MUX_A8_0","SDRAM Address bit (A8)"],["MUX_A8_1","NAND CE#"],["MUX_A8_2","NOR CE#"],["MUX_A8_3","PSRAM CE#"],["MUX_A8_4","DBI CSX"],["MUX_A8_5","SDRAM Address bit (A8)"],["MUX_A8_6","SDRAM Address bit (A8)"],["MUX_A8_7","SDRAM Address bit (A8)"]]};

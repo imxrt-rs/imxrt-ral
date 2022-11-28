@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["OF3_0","0b0: Compare event has not occurred."],["OF3_1","0b1: Compare event has occurred."]]};

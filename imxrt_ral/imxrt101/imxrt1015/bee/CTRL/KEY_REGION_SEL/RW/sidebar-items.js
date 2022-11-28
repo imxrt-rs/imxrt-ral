@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KEY_REGION_SEL_0","0b0: Load AES key for region0"],["KEY_REGION_SEL_1","0b1: Load AES key for region1"]]};

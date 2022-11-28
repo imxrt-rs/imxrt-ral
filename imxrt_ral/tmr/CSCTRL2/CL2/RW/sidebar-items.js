@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CL2_0","Never preload"],["CL2_1","Load upon successful compare with the value in COMP1"],["CL2_2","Load upon successful compare with the value in COMP2"]]};

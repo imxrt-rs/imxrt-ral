@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXAUTOSYNC_0","Rx FIFO auto sync off"],["RXAUTOSYNC_1","RxFIFO auto sync on"]]};

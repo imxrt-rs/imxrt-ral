@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["NDOPT1","NAND option bit 1"],["NDOPT2","NAND option bit 2"],["NDOPT3","NAND option bit 3"]]};

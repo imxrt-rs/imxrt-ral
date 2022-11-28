@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LBKDE_0","LIN break detect is disabled, normal break character can be detected."],["LBKDE_1","LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1)."]]};

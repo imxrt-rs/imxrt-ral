@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["_16_BIT","0b00: 16-bit data bus mode."],["_18_BIT","0b10: 18-bit data bus mode."],["_24_BIT","0b11: 24-bit data bus mode."],["_8_BIT","0b01: 8-bit data bus mode."]]};

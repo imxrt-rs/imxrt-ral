@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SAI1_MCLK2_SEL_0","ccm.ssi1_clk_root"],["SAI1_MCLK2_SEL_1","ccm.ssi2_clk_root"],["SAI1_MCLK2_SEL_2","ccm.ssi3_clk_root"],["SAI1_MCLK2_SEL_3","iomux.sai1_ipg_clk_sai_mclk"],["SAI1_MCLK2_SEL_4","iomux.sai2_ipg_clk_sai_mclk"],["SAI1_MCLK2_SEL_5","iomux.sai3_ipg_clk_sai_mclk"]]};

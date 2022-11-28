@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FILTEN_0","Disable digital filter and output delay counter for slave mode"],["FILTEN_1","Enable digital filter and output delay counter for slave mode"]]};

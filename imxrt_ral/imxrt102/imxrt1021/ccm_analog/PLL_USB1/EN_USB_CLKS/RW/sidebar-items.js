@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EN_USB_CLKS_0","0b0: PLL outputs for USBPHYn off."],["EN_USB_CLKS_1","0b1: PLL outputs for USBPHYn on."]]};

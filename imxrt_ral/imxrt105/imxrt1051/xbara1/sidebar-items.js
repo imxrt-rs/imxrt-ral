@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["XBARA1","Raw pointer to XBARA1"]],"struct":[["XBARA1","The XBARA1 peripheral instance."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ARCACHE_USDHC","uSDHC block cacheable attribute value of AXI read transactions"],["AWCACHE_USDHC","uSDHC block cacheable attribute value of AXI write transactions"],["CACHE_ENET","ENET block cacheable attribute value of AXI transactions"],["CACHE_USB","USB block cacheable attribute value of AXI transactions"]]};

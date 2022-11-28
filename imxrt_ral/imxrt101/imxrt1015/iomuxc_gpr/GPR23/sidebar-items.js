@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["LOCK_M7_APC_AC_R2_TOP","lock M7_APC_AC_R2_TOP field for changes"],["M7_APC_AC_R2_TOP","APC start address of memory region-2"]]};

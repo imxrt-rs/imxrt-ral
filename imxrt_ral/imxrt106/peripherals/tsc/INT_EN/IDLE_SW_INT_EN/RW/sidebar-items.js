@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["IDLE_SW_INT_EN_0","0b0: Disable idle software interrupt"],["IDLE_SW_INT_EN_1","0b1: Enable idle software interrupt"]]};

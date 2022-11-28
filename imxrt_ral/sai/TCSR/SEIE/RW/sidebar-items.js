@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SEIE_0","Disables interrupt."],["SEIE_1","Enables interrupt."]]};

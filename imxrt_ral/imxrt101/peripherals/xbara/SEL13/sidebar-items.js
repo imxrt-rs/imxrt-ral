@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SEL26","Input (XBARA_INn) to be muxed to XBARA_OUT26 (refer to Functional Description section for input/output assignment)"],["SEL27","Input (XBARA_INn) to be muxed to XBARA_OUT27 (refer to Functional Description section for input/output assignment)"]]};

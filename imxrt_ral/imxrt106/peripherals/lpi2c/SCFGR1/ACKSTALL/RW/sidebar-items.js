@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACKSTALL_0","0b0: Clock stretching is disabled"],["ACKSTALL_1","0b1: Clock stretching is enabled"]]};

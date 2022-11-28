@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NON_EXACT_BLK_RD_0","The block read is exact block read. Host driver doesn’t need to issue abort command to terminate this multi-block read."],["NON_EXACT_BLK_RD_1","The block read is non-exact block read. Host driver needs to issue abort command to terminate this multi-block read."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BCP_0","0b0: Bit Clock is active high with drive outputs on rising edge and sample inputs on falling edge."],["BCP_1","0b1: Bit Clock is active low with drive outputs on falling edge and sample inputs on rising edge."]]};

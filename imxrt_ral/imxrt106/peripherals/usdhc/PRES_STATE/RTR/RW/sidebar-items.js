@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTR_0","0b0: Fixed or well tuned sampling clock"],["RTR_1","0b1: Sampling clock needs re-tuning"]]};

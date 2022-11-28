@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SRTC","LP Secure Real Time Counter The most-significant 15 bits of the SRTC"]]};

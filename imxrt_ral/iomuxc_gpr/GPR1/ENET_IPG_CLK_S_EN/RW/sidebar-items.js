@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENET_IPG_CLK_S_EN_0","ipg_clk_s is gated when there is no IPS access"],["ENET_IPG_CLK_S_EN_1","ipg_clk_s is always on"]]};

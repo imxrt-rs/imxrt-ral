@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NLC_0","The payload length check is disabled."],["NLC_1","The core checks the frame’s payload length with the frame length/type field. Errors are indicated in the EIR[PLR] field."]]};

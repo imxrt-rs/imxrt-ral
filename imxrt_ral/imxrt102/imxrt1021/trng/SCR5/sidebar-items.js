@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["R5_0_CT","Runs of Zero, Length 5 Count"],["R5_1_CT","Runs of One, Length 5 Count"],["RUN5_MAX","Run Length 5 Maximum Limit"],["RUN5_RNG","Run Length 5 Range"]]};

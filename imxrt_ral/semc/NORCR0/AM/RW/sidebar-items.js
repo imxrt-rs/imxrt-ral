@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AM_0","Address/Data MUX mode"],["AM_1","Advanced Address/Data MUX mode"],["AM_2","Address/Data non-MUX mode"],["AM_3","Address/Data non-MUX mode"]]};

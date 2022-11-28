@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RTWDOG","WDOG"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["CNT","Watchdog Counter Register"],["CS","Watchdog Control and Status Register"],["TOVAL","Watchdog Timeout Value Register"],["WIN","Watchdog Window Register"]],"struct":[["RegisterBlock","WDOG"]],"type":[["Instance",""],["RTWDOG",""]]};

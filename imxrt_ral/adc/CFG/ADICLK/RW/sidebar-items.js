@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADICLK_0","IPG clock"],["ADICLK_1","IPG clock divided by 2"],["ADICLK_3","Asynchronous clock (ADACK)"]]};

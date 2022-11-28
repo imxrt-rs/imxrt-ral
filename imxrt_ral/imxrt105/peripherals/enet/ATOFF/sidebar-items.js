@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["OFFSET","Offset value for one-shot event generation"]]};

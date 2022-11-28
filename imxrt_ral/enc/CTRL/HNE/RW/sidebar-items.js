@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HNE_0","Use positive going edge-to-trigger initialization of position counters UPOS and LPOS"],["HNE_1","Use negative going edge-to-trigger initialization of position counters UPOS and LPOS"]]};

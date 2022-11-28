@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERFOVFIE_0","Enhanced Rx FIFO Overflow is disabled"],["ERFOVFIE_1","Enhanced Rx FIFO Overflow is enabled"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["UP_0","0b0: The last count was in the DOWN direction."],["UP_1","0b1: The last count was in the UP direction."]]};

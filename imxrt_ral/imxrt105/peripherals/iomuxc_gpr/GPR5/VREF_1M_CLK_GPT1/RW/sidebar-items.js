@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["VREF_1M_CLK_GPT1_0","0b0: GPT1 ipg_clk_highfreq driven by IPG_PERCLK"],["VREF_1M_CLK_GPT1_1","0b1: GPT1 ipg_clk_highfreq driven by anatop 1 MHz clock"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REFTOP_SELFBIASOFF_0","Uses coarse bias currents for startup"],["REFTOP_SELFBIASOFF_1","Uses bandgap-based bias currents for best performance."]]};

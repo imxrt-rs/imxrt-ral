@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CAER_0","0b0: Clear only the ERQ bit specified in the CERQ field"],["CAER_1","0b1: Clear all bits in ERQ"]]};

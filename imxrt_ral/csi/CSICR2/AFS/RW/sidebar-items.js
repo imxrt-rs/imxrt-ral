@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AFS_0","Abs Diff on consecutive green pixels"],["AFS_1","Abs Diff on every third green pixels"],["AFS_2","Abs Diff on every four green pixels"]]};

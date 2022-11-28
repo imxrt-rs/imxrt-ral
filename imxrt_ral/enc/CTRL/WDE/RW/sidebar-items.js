@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WDE_0","Watchdog timer is disabled"],["WDE_1","Watchdog timer is enabled"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TSCD_0","0b0: Delay cell select change is not finished."],["TSCD_1","0b1: Delay cell select change is finished."]]};

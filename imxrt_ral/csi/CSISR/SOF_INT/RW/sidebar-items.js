@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SOF_INT_0","SOF is not detected."],["SOF_INT_1","SOF is detected."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IDAM_0","Format A One full ID (standard or extended) per ID filter Table element."],["IDAM_1","Format B Two full standard IDs or two partial 14-bit extended IDs per ID filter Table element."],["IDAM_2","Format C Four partial 8-bit IDs (standard or extended) per ID filter Table element."],["IDAM_3","Format D All frames rejected."]]};

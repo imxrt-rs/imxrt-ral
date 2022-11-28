@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PTC_0","TEST_MODE_DISABLE"],["PTC_1","J_STATE"],["PTC_2","K_STATE"],["PTC_3","SE0 (host) / NAK (device)"],["PTC_4","Packet"],["PTC_5","FORCE_ENABLE_HS"],["PTC_6","FORCE_ENABLE_FS"],["PTC_7","FORCE_ENABLE_LS"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HPC_DMA_0","User mode for the corresponding master"],["HPC_DMA_1","Supervisor mode for the corresponding master"]]};

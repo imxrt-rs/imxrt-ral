@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SYSCLK_DF","system clock divider factor, 2~512."],["TxClk_DF","Divider factor (1-128)"],["TxClk_Source","no description available"],["tx_all_clk_en","Spdif transfer clock enable. When data is going to be transfered, this bit should be set to1."]]};

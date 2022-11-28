@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SDF_0","Slave has not detected a STOP condition"],["SDF_1","Slave has detected a STOP condition"]]};

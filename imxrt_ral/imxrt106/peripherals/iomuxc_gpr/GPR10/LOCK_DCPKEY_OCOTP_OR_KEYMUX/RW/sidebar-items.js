@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LOCK_DCPKEY_OCOTP_OR_KEYMUX_0","0b0: Field is not locked"],["LOCK_DCPKEY_OCOTP_OR_KEYMUX_1","0b1: Field is locked (read access only)"]]};

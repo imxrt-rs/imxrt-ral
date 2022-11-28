@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IOMUXC_XBAR_DIR_SEL_5_0","XBAR_INOUT as input"],["IOMUXC_XBAR_DIR_SEL_5_1","XBAR_INOUT as output"]]};

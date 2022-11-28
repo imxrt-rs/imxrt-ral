@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ACTIVE_HIGH","Normal Signal (Active high)"],["ACTIVE_LOW","Inverted signal (Active low)"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TCM_WWAIT_EN_0","TCM write fast mode: Write RAM accesses are expected to be finished in 1-cycle."],["TCM_WWAIT_EN_1","TCM write wait mode: Write RAM accesses are expected to be finished in 2-cycles."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DVS_0","0b0000: Divide-by-1"],["DVS_1","0b0001: Divide-by-2"],["DVS_14","0b1110: Divide-by-15"],["DVS_15","0b1111: Divide-by-16"]]};

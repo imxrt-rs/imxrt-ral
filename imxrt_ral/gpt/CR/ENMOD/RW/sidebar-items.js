@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENMOD_0","GPT counter will retain its value when it is disabled."],["ENMOD_1","GPT counter value is reset to 0 when it is disabled."]]};

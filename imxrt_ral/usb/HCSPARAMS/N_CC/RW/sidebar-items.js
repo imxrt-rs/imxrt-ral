@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["N_CC_0","There is no internal Companion Controller and port-ownership hand-off is not supported."],["N_CC_1","There are internal companion controller(s) and port-ownership hand-offs is supported."]]};

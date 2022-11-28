@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["OUT_TRIG_EN","Output Trigger Enables"],["PWAOT0","Output Trigger 0 Source Select"],["PWBOT1","Output Trigger 1 Source Select"],["TRGFRQ","Trigger frequency"]]};

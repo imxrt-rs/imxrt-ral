@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["COS_0","Set the filtered comparator output (CMPO) to equal COUT."],["COS_1","Set the unfiltered comparator output (CMPO) to equal COUTA."]]};

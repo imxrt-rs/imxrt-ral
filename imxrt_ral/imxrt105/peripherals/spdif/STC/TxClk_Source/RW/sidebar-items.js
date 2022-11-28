@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TxClk_Source_0","0b000: REF_CLK_32K input (XTALOSC 32 kHz clock)"],["TxClk_Source_1","0b001: tx_clk input (from SPDIF0_CLK_ROOT. See CCM.)"],["TxClk_Source_3","0b011: SPDIF_EXT_CLK, from pads"],["TxClk_Source_5","0b101: ipg_clk input (frequency divided)"]]};

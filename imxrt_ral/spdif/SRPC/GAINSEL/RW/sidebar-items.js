@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GAINSEL_0","24*(2**10)"],["GAINSEL_1","16*(2**10)"],["GAINSEL_2","12*(2**10)"],["GAINSEL_3","8*(2**10)"],["GAINSEL_4","6*(2**10)"],["GAINSEL_5","4*(2**10)"],["GAINSEL_6","3*(2**10)"]]};

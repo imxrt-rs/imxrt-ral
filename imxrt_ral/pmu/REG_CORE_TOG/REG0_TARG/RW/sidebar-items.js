@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REG0_TARG_0","Power gated off"],["REG0_TARG_1","Target core voltage = 0.725V"],["REG0_TARG_16","Target core voltage = 1.100V"],["REG0_TARG_2","Target core voltage = 0.750V"],["REG0_TARG_3","Target core voltage = 0.775V"],["REG0_TARG_30","Target core voltage = 1.450V"],["REG0_TARG_31","Power FET switched full on. No regulation."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FDRATE","Bit Rate Switch Enable"],["MBDSR0","Message Buffer Data Size for Region 0"],["MBDSR1","Message Buffer Data Size for Region 1"],["TDCEN","Transceiver Delay Compensation Enable"],["TDCFAIL","Transceiver Delay Compensation Fail"],["TDCOFF","Transceiver Delay Compensation Offset"],["TDCVAL","Transceiver Delay Compensation Value"]]};

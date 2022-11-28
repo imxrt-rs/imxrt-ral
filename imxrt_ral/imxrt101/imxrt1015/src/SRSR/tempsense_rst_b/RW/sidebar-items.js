@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["tempsense_rst_b_0","0b0: Reset is not a result of software reset from Temperature Sensor."],["tempsense_rst_b_1","0b1: Reset is a result of software reset from Temperature Sensor."]]};

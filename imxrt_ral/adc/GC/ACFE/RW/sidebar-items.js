@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ACFE_0","Compare function disabled"],["ACFE_1","Compare function enabled"]]};

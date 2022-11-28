@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FILTDZ_0","Filter remains enabled in Doze mode"],["FILTDZ_1","Filter is disabled in Doze mode"]]};

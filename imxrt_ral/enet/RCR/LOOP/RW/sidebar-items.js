@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOOP_0","Loopback disabled."],["LOOP_1","Transmitted frames are looped back internal to the device and transmit MII output signals are not asserted. DRT must be cleared."]]};

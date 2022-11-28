@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["RSVD0","Reserved, always set to zero."],["RSVD1","Reserved, always set to zero."],["X","This field indicates the upper left X-coordinate (in pixels) of the processed surface (PS) in the output buffer"],["Y","This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output buffer"]]};

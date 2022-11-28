@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MAGICEN_0","Magic detection logic disabled."],["MAGICEN_1","The MAC core detects magic packets and asserts EIR[WAKEUP] when a frame is detected."]]};

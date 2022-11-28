@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BOOT_ACK_0","0b0: No ack"],["BOOT_ACK_1","0b1: Ack"]]};

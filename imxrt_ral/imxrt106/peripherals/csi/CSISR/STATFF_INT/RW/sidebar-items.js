@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["STATFF_INT_0","0b0: STATFIFO is not full."],["STATFF_INT_1","0b1: STATFIFO is full."]]};

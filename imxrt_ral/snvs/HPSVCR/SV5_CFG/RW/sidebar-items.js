@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SV5_CFG_0","Security Violation 5 is disabled"],["SV5_CFG_1","Security Violation 5 is a non-fatal violation"],["SV5_CFG_2","Security Violation 5 is a fatal violation"]]};

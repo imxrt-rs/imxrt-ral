@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SUW_S1_0","0b0: The secure user write access is disabled for the first slave."],["SUW_S1_1","0b1: The secure user write access is enabled for the first slave."]]};

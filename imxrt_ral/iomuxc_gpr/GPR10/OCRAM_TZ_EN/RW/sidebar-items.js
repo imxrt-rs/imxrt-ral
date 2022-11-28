@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OCRAM_TZ_EN_0","The TrustZone feature is disabled. Entire OCRAM space is available for all access types (secure/non-secure/user/supervisor)."],["OCRAM_TZ_EN_1","The TrustZone feature is enabled. Access to address in the range specified by [ENDADDR:STARTADDR] follows the execution mode access policy described in CSU chapter."]]};

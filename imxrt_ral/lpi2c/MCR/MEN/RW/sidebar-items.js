@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MEN_0","Master logic is disabled"],["MEN_1","Master logic is enabled"]]};

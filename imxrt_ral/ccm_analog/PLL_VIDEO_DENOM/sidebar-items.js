@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["B","30 bit Denominator of fractional loop divider."]]};

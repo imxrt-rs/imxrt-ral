@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["PGD","Power Glitch Detector Value"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DIVIDE_1","Divide by 1"],["DIVIDE_2","Divide by 2"],["DIVIDE_3","Divide by 3"],["DIVIDE_4","Divide by 4"],["DIVIDE_5","Divide by 5"],["DIVIDE_6","Divide by 6"],["DIVIDE_7","Divide by 7"],["DIVIDE_8","Divide by 8"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IP_ID_48","ID for TRNG."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LCDIF_PRE_CLK_SEL_0","derive clock from PLL2"],["LCDIF_PRE_CLK_SEL_1","derive clock from PLL3 PFD3"],["LCDIF_PRE_CLK_SEL_2","derive clock from PLL5"],["LCDIF_PRE_CLK_SEL_3","derive clock from PLL2 PFD0"],["LCDIF_PRE_CLK_SEL_4","derive clock from PLL2 PFD1"],["LCDIF_PRE_CLK_SEL_5","derive clock from PLL3 PFD1"]]};

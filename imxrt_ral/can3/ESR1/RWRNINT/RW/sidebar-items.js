@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RWRNINT_0","No such occurrence."],["RWRNINT_1","The Rx error counter transitioned from less than 96 to greater than or equal to 96."]]};

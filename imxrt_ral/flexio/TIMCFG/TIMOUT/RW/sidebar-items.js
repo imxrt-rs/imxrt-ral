@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TIMOUT_0","Timer output is logic one when enabled and is not affected by timer reset"],["TIMOUT_1","Timer output is logic zero when enabled and is not affected by timer reset"],["TIMOUT_2","Timer output is logic one when enabled and on timer reset"],["TIMOUT_3","Timer output is logic zero when enabled and on timer reset"]]};

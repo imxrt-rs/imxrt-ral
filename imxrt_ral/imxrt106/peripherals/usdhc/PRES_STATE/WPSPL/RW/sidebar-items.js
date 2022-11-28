@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WPSPL_0","0b0: Write protected (WP = 1)"],["WPSPL_1","0b1: Write enabled (WP = 0)"]]};

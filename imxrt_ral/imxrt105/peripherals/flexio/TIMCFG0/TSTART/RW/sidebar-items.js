@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TSTART_0","0b0: Start bit disabled"],["TSTART_1","0b1: Start bit enabled"]]};

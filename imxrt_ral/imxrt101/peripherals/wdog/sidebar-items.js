@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["WCR","Watchdog Control Register"],["WICR","Watchdog Interrupt Control Register"],["WMCR","Watchdog Miscellaneous Control Register"],["WRSR","Watchdog Reset Status Register"],["WSR","Watchdog Service Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

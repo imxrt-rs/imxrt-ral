@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DBGEN_0","LPSPI module is disabled in debug mode"],["DBGEN_1","LPSPI module is enabled in debug mode"]]};

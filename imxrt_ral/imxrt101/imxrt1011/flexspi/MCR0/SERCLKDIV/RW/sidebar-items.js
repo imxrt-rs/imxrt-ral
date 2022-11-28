@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SERCLKDIV_0","0b000: Divided by 1"],["SERCLKDIV_1","0b001: Divided by 2"],["SERCLKDIV_2","0b010: Divided by 3"],["SERCLKDIV_3","0b011: Divided by 4"],["SERCLKDIV_4","0b100: Divided by 5"],["SERCLKDIV_5","0b101: Divided by 6"],["SERCLKDIV_6","0b110: Divided by 7"],["SERCLKDIV_7","0b111: Divided by 8"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXIO1","Raw pointer to FLEXIO1"],["FLEXIO2","Raw pointer to FLEXIO2"],["FLEXIO3","Raw pointer to FLEXIO3"]],"struct":[["FLEXIO1","The FLEXIO1 peripheral instance."],["FLEXIO2","The FLEXIO2 peripheral instance."],["FLEXIO3","The FLEXIO3 peripheral instance."]]};

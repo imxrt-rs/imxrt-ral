@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RST_0","0b0: Module is not reset"],["RST_1","0b1: Module is reset"]]};

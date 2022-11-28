@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BCS_0","Use the normal bit clock source."],["BCS_1","Swap the bit clock source."]]};

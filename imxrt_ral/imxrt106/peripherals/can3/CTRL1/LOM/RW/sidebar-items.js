@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LOM_0","0b0: Listen-Only mode is deactivated."],["LOM_1","0b1: FlexCAN module operates in Listen-Only mode."]]};

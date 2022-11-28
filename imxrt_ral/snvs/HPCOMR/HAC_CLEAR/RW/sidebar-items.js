@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HAC_CLEAR_0","No Action"],["HAC_CLEAR_1","Clear the HAC"]]};

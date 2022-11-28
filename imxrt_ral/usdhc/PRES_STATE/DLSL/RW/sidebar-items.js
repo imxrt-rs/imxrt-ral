@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DATA0","Data 0 line signal level"],["DATA1","Data 1 line signal level"],["DATA2","Data 2 line signal level"],["DATA3","Data 3 line signal level"],["DATA4","Data 4 line signal level"],["DATA5","Data 5 line signal level"],["DATA6","Data 6 line signal level"],["DATA7","Data 7 line signal level"]]};

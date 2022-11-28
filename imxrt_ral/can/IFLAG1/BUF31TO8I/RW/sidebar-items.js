@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BUF31TO8I_0","No such occurrence"],["BUF31TO8I_1","The corresponding MB has successfully completed transmission or reception"]]};

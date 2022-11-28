@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CMD32EN_0","Disables support for 32-bit refresh/unlock command write words. Only 16-bit or 8-bit is supported."],["CMD32EN_1","Enables support for 32-bit refresh/unlock command write words. 16-bit or 8-bit is NOT supported."]]};

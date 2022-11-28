@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PTW_0","Select the 8-bit UTMI interface [60MHz]"],["PTW_1","Select the 16-bit UTMI interface [30MHz]"]]};

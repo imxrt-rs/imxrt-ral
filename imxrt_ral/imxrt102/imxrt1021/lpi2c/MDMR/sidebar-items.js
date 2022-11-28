@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["MATCH0","Match 0 Value"],["MATCH1","Match 1 Value"]]};

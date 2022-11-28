@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TDF_0","Transmit data is not requested"],["TDF_1","Transmit data is requested"]]};

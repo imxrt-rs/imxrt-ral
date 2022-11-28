@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["OCRAM_STATUS_0","0b0000: read data pipeline configuration valid"],["OCRAM_STATUS_1","0b0001: read data pipeline control bit changed"]]};

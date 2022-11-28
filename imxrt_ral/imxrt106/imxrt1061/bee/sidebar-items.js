@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BEE","Raw pointer to BEE"]],"struct":[["BEE","The BEE peripheral instance."]]};

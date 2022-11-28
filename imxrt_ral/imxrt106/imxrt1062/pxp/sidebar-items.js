@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PXP","Raw pointer to PXP"]],"struct":[["PXP","The PXP peripheral instance."]]};

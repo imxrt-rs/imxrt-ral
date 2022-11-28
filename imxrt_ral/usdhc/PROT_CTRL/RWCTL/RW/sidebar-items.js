@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RWCTL_0","Disable Read Wait Control, and stop SD Clock at block gap when SABGREQ bit is set"],["RWCTL_1","Enable Read Wait Control, and assert Read Wait without stopping SD Clock at block gap when SABGREQ bit is set"]]};

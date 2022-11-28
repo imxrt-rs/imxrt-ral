@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["UTMI_CLK_VLD","Indicating whether OTG1 UTMI PHY clock is valid"]]};

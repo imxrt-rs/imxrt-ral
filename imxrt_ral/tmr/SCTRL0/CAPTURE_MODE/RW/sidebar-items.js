@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CAPTURE_MODE_0","Capture function is disabled"],["CAPTURE_MODE_1","Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input"],["CAPTURE_MODE_2","Load capture register on falling edge (when IPS=0) or rising edge (when IPS=1) of input"],["CAPTURE_MODE_3","Load capture register on both edges of input"]]};

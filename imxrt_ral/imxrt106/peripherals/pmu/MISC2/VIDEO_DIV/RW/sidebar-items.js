@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["VIDEO_DIV_0","0b00: divide by 1 (Default)"],["VIDEO_DIV_1","0b01: divide by 2"],["VIDEO_DIV_2","0b10: divide by 1"],["VIDEO_DIV_3","0b11: divide by 4"]]};

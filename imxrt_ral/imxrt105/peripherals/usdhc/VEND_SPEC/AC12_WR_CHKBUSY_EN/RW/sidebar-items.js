@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AC12_WR_CHKBUSY_EN_0","0b0: Do not check busy after auto CMD12 for write data packet"],["AC12_WR_CHKBUSY_EN_1","0b1: Check busy after auto CMD12 for write data packet"]]};

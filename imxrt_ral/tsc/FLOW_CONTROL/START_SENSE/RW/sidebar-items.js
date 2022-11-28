@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["START_SENSE_0","Stay at idle status"],["START_SENSE_1","Start sense detection and (if auto_measure set to 1) measure after detect a touch"]]};

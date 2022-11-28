@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SRTCR_EN_0","0b0: SRTC rollover is disabled."],["SRTCR_EN_1","0b1: SRTC rollover is enabled."]]};

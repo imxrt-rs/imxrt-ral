@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RRAE_0","0b0: Register access is fully enabled. The OTFAD programming model registers can be accessed “normally”."],["RRAE_1","0b1: Register access is restricted and only the CR, SR and optional MDPC registers can be accessed; others are treated as RAZ/WI."]]};

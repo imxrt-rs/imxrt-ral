@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EEI2_0","The error signal for corresponding channel does not generate an error interrupt"],["EEI2_1","The assertion of the error signal for corresponding channel generates an error interrupt request"]]};

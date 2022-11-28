@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DTCM_ERR_SIG_EN","DTCM Access Error Interrupt Enable"],["ITCM_ERR_SIG_EN","ITCM Access Error Interrupt Enable"],["OCRAM_ERR_SIG_EN","OCRAM Access Error Interrupt Enable"]]};

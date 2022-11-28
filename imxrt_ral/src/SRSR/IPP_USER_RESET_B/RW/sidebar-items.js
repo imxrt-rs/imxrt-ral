@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IPP_USER_RESET_B_0","Reset is not a result of the ipp_user_reset_b qualified as COLD reset event."],["IPP_USER_RESET_B_1","Reset is a result of the ipp_user_reset_b qualified as COLD reset event."]]};

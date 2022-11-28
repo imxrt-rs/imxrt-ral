@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DOZEEN_0","Doze mode support disabled. AHB clock and serial clock will not be gated off when there is doze mode request from system."],["DOZEEN_1","Doze mode support enabled. AHB clock and serial clock will be gated off when there is doze mode request from system."]]};

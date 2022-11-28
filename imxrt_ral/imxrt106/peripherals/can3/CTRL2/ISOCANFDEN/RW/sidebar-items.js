@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ISOCANFDEN_0","0b0: FlexCAN operates using the non-ISO CAN FD protocol."],["ISOCANFDEN_1","0b1: FlexCAN operates using the ISO CAN FD protocol (ISO 11898-1)."]]};

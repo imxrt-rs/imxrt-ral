@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ACFE","Compare Function Enable"],["ACFGT","Compare Function Greater Than Enable"],["ACREN","Compare Function Range Enable"],["ADACKEN","Asynchronous clock output enable"],["ADCO","Continuous Conversion Enable"],["AVGE","Hardware average enable"],["CAL","Calibration"],["DMAEN","DMA Enable"]]};

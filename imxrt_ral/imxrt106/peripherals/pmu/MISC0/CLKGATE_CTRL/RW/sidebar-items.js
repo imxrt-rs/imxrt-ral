@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ALLOW_AUTO_GATE","0b0: Allow the logic to automatically gate the clock when the XTAL is powered down."],["NO_AUTO_GATE","0b1: Prevent the logic from ever gating off the clock."]]};

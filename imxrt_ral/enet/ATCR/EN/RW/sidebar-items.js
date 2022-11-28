@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EN_0","The timer stops at the current value."],["EN_1","The timer starts incrementing."]]};

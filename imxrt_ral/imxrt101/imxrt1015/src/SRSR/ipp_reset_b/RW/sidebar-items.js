@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ipp_reset_b_0","0b0: Reset is not a result of ipp_reset_b pin."],["ipp_reset_b_1","0b1: Reset is a result of ipp_reset_b pin."]]};

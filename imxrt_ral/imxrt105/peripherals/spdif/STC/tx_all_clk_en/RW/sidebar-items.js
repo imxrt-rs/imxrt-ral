@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["tx_all_clk_en_0","0b0: disable transfer clock."],["tx_all_clk_en_1","0b1: enable transfer clock."]]};

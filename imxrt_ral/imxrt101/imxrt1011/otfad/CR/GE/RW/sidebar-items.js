@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GE_0","0b0: OTFAD has decryption disabled. All data fetched by the FlexSPI bypasses OTFAD processing."],["GE_1","0b1: OTFAD has decryption enabled, and processes data fetched by the FlexSPI as defined by the hardware configuration."]]};
