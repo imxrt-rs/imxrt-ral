@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SBK_0","Normal transmitter operation."],["SBK_1","Queue break character(s) to be sent."]]};

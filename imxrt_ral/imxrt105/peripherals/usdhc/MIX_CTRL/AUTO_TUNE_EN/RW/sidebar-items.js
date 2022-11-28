@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AUTO_TUNE_EN_0","0b0: Disable auto tuning"],["AUTO_TUNE_EN_1","0b1: Enable auto tuning"]]};

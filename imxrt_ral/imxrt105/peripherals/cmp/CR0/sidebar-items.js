@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FILTER_CNT","Filter Sample Count"],["HYSTCTR","Comparator hard block hysteresis control"]]};

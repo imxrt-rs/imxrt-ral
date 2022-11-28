@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PLTF_0","Pin low timeout has not occurred or is disabled"],["PLTF_1","Pin low timeout has occurred"]]};

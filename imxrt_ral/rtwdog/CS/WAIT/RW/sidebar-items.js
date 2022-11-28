@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WAIT_0","Watchdog disabled in chip wait mode."],["WAIT_1","Watchdog enabled in chip wait mode."]]};

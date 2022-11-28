@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXAUTOSYNC_0","Tx FIFO auto sync off"],["TXAUTOSYNC_1","Tx FIFO auto sync on"]]};

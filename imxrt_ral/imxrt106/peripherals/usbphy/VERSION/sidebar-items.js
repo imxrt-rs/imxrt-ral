@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MAJOR","Fixed read-only value reflecting the MAJOR field of the RTL version."],["MINOR","Fixed read-only value reflecting the MINOR field of the RTL version."],["STEP","Fixed read-only value reflecting the stepping of the RTL version."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["SW","After a power-up request (pup_req assertion), the PGC waits a number of IPG clocks equal to the value of SW before asserting power toggle on/off signal (switch_b)"],["SW2ISO","After asserting power toggle on/off signal (switch_b), the PGC waits a number of IPG clocks equal to the value of SW2ISO before negating isolation"]]};

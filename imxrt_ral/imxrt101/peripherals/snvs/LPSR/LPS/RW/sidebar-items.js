@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPS_0","0b0: LP section was not programmed in secure or trusted state."],["LPS_1","0b1: LP section was programmed in secure or trusted state."]]};

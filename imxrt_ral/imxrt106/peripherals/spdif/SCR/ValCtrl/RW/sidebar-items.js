@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ValCtrl_0","0b0: Outgoing Validity always set"],["ValCtrl_1","0b1: Outgoing Validity always clear"]]};

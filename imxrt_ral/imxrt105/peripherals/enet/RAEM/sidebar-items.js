@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["RX_ALMOST_EMPTY","Value Of The Receive FIFO Almost Empty Threshold"]]};

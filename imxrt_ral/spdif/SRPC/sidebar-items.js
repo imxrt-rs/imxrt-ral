@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CLKSRC_SEL","Clock source selection, all other settings not shown are reserved:"],["GAINSEL","Gain selection:"],["LOCK","LOCK bit to show that the internal DPLL is locked, read only"]]};

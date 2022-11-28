@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["BM0","Byte Mask for Byte 0 (IPTXD bit 7:0)"],["BM1","Byte Mask for Byte 1 (IPTXD bit 15:8)"],["BM2","Byte Mask for Byte 2 (IPTXD bit 23:16)"],["BM3","Byte Mask for Byte 3 (IPTXD bit 31:24)"]]};

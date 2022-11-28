@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PWMB_EN_0","PWM_B output disabled."],["PWMB_EN_1","PWM_B output enabled."]]};

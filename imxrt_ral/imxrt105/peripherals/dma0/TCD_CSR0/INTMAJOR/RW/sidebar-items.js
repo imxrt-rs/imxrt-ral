@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["INTMAJOR_0","0b0: The end-of-major loop interrupt is disabled."],["INTMAJOR_1","0b1: The end-of-major loop interrupt is enabled."]]};

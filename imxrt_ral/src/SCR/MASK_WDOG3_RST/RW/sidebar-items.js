@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASK_WDOG3_RST_10","wdog3_rst_b is not masked"],["MASK_WDOG3_RST_5","wdog3_rst_b is masked"]]};

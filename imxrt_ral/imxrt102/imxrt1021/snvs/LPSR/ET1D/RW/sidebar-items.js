@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ET1D_0","0b0: External tampering 1 not detected."],["ET1D_1","0b1: External tampering 1 detected."]]};

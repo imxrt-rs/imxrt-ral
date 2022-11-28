@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DTOCV","Data Timeout Counter Value"],["DVS","Divisor"],["INITA","Initialization Active"],["IPP_RST_N","IPP_RST_N"],["RSTA","Software Reset For ALL"],["RSTC","Software Reset For CMD Line"],["RSTD","Software Reset For DATA Line"],["RSTT","Reset Tuning"],["SDCLKFS","SDCLK Frequency Select"]]};

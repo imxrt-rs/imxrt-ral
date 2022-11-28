@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SPDIF","Raw pointer to SPDIF"]],"struct":[["SPDIF","The SPDIF peripheral instance."]]};

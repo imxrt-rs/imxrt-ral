@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RSVD0","Reserved, always set to zero."],["RSVD1","Reserved, always set to zero."],["X","Indicates number of horizontal PIXELS in the output surface (non-rotated)"],["Y","Indicates the number of vertical PIXELS in the output surface (non-rotated)"]]};

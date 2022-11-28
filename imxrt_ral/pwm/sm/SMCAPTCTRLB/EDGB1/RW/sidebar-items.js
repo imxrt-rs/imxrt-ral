@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EDGB1_0","Disabled"],["EDGB1_1","Capture falling edges"],["EDGB1_2","Capture rising edges"],["EDGB1_3","Capture any edge"]]};

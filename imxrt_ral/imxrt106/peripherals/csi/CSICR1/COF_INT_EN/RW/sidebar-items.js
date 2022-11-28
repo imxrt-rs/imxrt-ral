@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["COF_INT_EN_0","0b0: COF interrupt is disabled"],["COF_INT_EN_1","0b1: COF interrupt is enabled"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["UTMI_CLK_VLD_0","Invalid"],["UTMI_CLK_VLD_1","Valid"]]};

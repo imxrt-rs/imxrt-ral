@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRR_0","Restart mode"],["FRR_1","Free-Run mode"]]};

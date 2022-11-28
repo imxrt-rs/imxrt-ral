@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["COUNT","Byte count register. This value is the working value and updates as the operation proceeds."]]};

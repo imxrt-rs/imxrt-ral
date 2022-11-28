@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WE_0","0b0: Windowing mode is not selected."],["WE_1","0b1: Windowing mode is selected."]]};

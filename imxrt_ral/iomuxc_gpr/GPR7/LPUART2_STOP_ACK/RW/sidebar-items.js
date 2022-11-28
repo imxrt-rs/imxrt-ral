@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPUART2_STOP_ACK_0","stop acknowledge is not asserted"],["LPUART2_STOP_ACK_1","stop acknowledge is asserted"]]};

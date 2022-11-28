@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ROIE_0","Roll-over interrupt is disabled"],["ROIE_1","Roll-over interrupt is enabled"]]};

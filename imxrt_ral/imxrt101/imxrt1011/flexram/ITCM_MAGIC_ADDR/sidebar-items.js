@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ITCM_MAGIC_ADDR","ITCM Magic Address"],["ITCM_WR_RD_SEL","ITCM Write Read Select"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TWM_0","Word N is enabled."],["TWM_1","Word N is masked. The transmit data pins are tri-stated or drive zero when masked."]]};

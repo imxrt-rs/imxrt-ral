@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXFF_INTEN_0","RxFIFO full interrupt disable"],["RXFF_INTEN_1","RxFIFO full interrupt enable"]]};

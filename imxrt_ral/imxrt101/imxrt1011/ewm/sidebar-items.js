@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EWM","Raw pointer to EWM"]],"struct":[["EWM","The EWM peripheral instance."]]};

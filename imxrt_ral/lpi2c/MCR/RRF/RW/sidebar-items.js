@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RRF_0","No effect"],["RRF_1","Receive FIFO is reset"]]};

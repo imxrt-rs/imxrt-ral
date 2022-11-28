@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CA0IE_0","0b0: Interrupt request disabled for STS[CFA0]."],["CA0IE_1","0b1: Interrupt request enabled for STS[CFA0]."]]};

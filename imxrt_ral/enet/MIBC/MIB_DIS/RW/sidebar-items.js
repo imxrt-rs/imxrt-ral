@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MIB_DIS_0","MIB logic is enabled."],["MIB_DIS_1","MIB logic is disabled. The MIB logic halts and does not update any MIB counters."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ROV_0","0b0: Rollover has not occurred."],["ROV_1","0b1: Rollover has occurred."]]};

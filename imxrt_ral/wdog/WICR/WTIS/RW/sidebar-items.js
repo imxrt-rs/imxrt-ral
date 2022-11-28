@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WTIS_0","No interrupt has occurred (Default)."],["WTIS_1","Interrupt has occurred"]]};

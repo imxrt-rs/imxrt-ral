@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FIELD0_DONE_IE_0","0b0: Interrupt disabled"],["FIELD0_DONE_IE_1","0b1: Interrupt enabled"]]};

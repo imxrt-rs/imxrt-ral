@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TOUT_0","Reset is not the result of a WDOG timeout."],["TOUT_1","Reset is the result of a WDOG timeout."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SLEEP_0","0b0: Normal operating mode."],["SLEEP_1","0b1: Sleep mode."]]};

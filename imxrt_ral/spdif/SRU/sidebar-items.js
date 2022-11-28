@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RXUCHANNEL","SPDIF receive U channel register, contains next 3 U channel bytes"]]};

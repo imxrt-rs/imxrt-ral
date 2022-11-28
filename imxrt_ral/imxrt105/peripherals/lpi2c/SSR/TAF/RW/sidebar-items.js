@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TAF_0","0b0: Transmit ACK/NACK is not required"],["TAF_1","0b1: Transmit ACK/NACK is required"]]};

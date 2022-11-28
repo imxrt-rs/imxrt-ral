@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLOSED_CONFIG","CLOSED Configuration"],["FAB_CONFIG","FAB Configuration"],["OPEN_CONFIG","OPEN Configuration"]]};

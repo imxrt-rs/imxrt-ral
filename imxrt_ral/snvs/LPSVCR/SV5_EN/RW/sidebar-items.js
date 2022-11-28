@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SV5_EN_0","Security Violation 5 is disabled in the LP domain."],["SV5_EN_1","Security Violation 5 is enabled in the LP domain."]]};

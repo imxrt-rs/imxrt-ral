@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KPP","Raw pointer to KPP"]],"struct":[["KPP","The KPP peripheral instance."]]};

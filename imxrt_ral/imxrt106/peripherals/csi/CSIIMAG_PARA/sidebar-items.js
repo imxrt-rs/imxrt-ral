@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["IMAGE_HEIGHT","Image Height. Indicates how many pixels in a column of the image from the sensor."],["IMAGE_WIDTH","Image Width"]]};

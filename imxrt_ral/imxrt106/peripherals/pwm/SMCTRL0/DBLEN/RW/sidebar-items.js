@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DBLEN_0","0b0: Double switching disabled."],["DBLEN_1","0b1: Double switching enabled."]]};

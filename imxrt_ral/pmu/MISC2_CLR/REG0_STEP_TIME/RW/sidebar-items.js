@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["_128_CLOCKS","128"],["_256_CLOCKS","256"],["_512_CLOCKS","512"],["_64_CLOCKS","64"]]};

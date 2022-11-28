@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRAC23_EN_0","Disable fractional cycle placement for PWM_A."],["FRAC23_EN_1","Enable fractional cycle placement for PWM_A."]]};

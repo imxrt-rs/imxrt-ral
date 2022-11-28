@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TF_0","0b0: Input Capture or Output Compare has not occurred."],["TF_1","0b1: Input Capture or Output Compare has occurred."]]};

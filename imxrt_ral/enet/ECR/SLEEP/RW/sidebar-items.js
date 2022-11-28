@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SLEEP_0","Normal operating mode."],["SLEEP_1","Sleep mode."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BRR_0","Not ready to read buffer"],["BRR_1","Ready to read buffer"]]};

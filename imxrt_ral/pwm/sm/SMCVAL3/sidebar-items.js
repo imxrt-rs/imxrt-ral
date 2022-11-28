@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CAPTVAL3","CAPTVAL3"]]};

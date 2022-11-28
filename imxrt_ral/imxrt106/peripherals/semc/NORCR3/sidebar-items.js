@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["AHSR","Address hold time for synchronous read"],["ASSR","Address setup time for synchronous read"]]};

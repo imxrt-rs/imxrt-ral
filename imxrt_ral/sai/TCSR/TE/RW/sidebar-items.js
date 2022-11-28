@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TE_0","Transmitter is disabled."],["TE_1","Transmitter is enabled, or transmitter has been disabled and has not yet reached end of frame."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FLEXRAM_BANK_CFG_SEL","FlexRAM bank config source select"],["INIT_DTCM_EN","DTCM enable initialization out of reset"],["INIT_ITCM_EN","ITCM enable initialization out of reset"]]};

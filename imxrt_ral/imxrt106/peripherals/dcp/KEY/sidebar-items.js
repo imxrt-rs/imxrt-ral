@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["INDEX","Key index pointer. The valid indices are 0-[number_keys]."],["SUBWORD","Key subword pointer"]]};

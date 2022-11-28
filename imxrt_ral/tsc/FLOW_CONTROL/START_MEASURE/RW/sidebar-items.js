@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["START_MEASURE_0","Do not start measure for now"],["START_MEASURE_1","Start measure the X/Y coordinate value"]]};

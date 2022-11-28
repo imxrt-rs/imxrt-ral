@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SOF_0","Indicates this is not the first data word since a (repeated) START or STOP condition"],["SOF_1","Indicates this is the first data word since a (repeated) START or STOP condition"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MEASURE_INT_EN_0","Disable measure interrupt"],["MEASURE_INT_EN_1","Enable measure interrupt"]]};

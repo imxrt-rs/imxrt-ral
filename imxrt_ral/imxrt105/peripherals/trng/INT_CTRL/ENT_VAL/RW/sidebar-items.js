@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENT_VAL_0","0b0: Same behavior as bit 0 of this register."],["ENT_VAL_1","0b1: Same behavior as bit 0 of this register."]]};

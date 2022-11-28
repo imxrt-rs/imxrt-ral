@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PEROFF_0","IPG_PERCLK is active."],["PEROFF_1","IPG_PERCLK is gated off."]]};

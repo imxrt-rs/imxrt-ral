@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXOFE_0","TXOF flag does not generate an interrupt to the host."],["TXOFE_1","TXOF flag generates an interrupt to the host."]]};

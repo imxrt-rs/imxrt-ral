@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BEE_ENABLE_0","0b0: Disable BEE"],["BEE_ENABLE_1","0b1: Enable BEE"]]};

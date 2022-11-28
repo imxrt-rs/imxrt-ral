@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXCFG_0","Transmit Data Flag will only assert during a slave-transmit transfer when the Transmit Data register is empty"],["TXCFG_1","Transmit Data Flag will assert whenever the Transmit Data register is empty"]]};

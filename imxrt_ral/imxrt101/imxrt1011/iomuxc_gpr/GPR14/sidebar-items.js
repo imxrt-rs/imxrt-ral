@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CM7_CFGDTCMSZ","DTCM total size configuration"],["CM7_CFGITCMSZ","ITCM total size configuration"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HPCALB_EN_0","0b0: HP Timer calibration disabled"],["HPCALB_EN_1","0b1: HP Timer calibration enabled"]]};

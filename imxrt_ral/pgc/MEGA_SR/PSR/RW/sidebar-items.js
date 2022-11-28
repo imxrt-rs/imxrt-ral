@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PSR_0","The target subsystem was not powered down for the previous power-down request."],["PSR_1","The target subsystem was powered down for the previous power-down request."]]};

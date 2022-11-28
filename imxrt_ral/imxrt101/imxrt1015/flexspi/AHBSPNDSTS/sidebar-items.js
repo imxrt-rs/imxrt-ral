@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ACTIVE","Indicates if an AHB read prefetch command sequence has been suspended."],["BUFID","AHB RX BUF ID for suspended command sequence."],["DATLFT","Left Data size for suspended command sequence (in byte)."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","Destination buffer address pointer"]]};

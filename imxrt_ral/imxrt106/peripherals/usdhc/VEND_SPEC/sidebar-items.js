@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["AC12_WR_CHKBUSY_EN","AC12_WR_CHKBUSY_EN"],["CMD_BYTE_EN","CMD_BYTE_EN"],["CONFLICT_CHK_EN","Conflict check enable."],["CRC_CHK_DIS","CRC Check Disable"],["FRC_SDCLK_ON","FRC_SDCLK_ON"],["VSELECT","Voltage Selection"]]};

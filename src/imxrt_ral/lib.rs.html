@@ -92,191 +92,99 @@
 <span id="92">92</span>
 <span id="93">93</span>
 <span id="94">94</span>
-<span id="95">95</span>
-<span id="96">96</span>
-<span id="97">97</span>
-<span id="98">98</span>
-<span id="99">99</span>
-<span id="100">100</span>
-<span id="101">101</span>
-<span id="102">102</span>
-<span id="103">103</span>
-<span id="104">104</span>
-<span id="105">105</span>
-<span id="106">106</span>
-<span id="107">107</span>
-<span id="108">108</span>
-<span id="109">109</span>
-<span id="110">110</span>
-<span id="111">111</span>
-<span id="112">112</span>
-<span id="113">113</span>
-<span id="114">114</span>
-<span id="115">115</span>
-<span id="116">116</span>
-<span id="117">117</span>
-<span id="118">118</span>
-<span id="119">119</span>
-<span id="120">120</span>
-<span id="121">121</span>
-<span id="122">122</span>
-<span id="123">123</span>
-<span id="124">124</span>
-<span id="125">125</span>
-<span id="126">126</span>
-<span id="127">127</span>
-<span id="128">128</span>
-<span id="129">129</span>
-<span id="130">130</span>
-<span id="131">131</span>
-<span id="132">132</span>
-<span id="133">133</span>
-<span id="134">134</span>
-<span id="135">135</span>
-<span id="136">136</span>
-<span id="137">137</span>
-<span id="138">138</span>
-<span id="139">139</span>
-<span id="140">140</span>
-</pre><pre class="rust"><code># ! [doc = include_str ! (<span class="string">&quot;../doc.md&quot;</span>)]
-<span class="attribute">#![no_std]
-#![allow(
-    non_camel_case_types,
-    non_snake_case,
-    non_upper_case_globals,
-    clippy::self_named_constructors,
-    clippy::module_inception
-)]
-</span><span class="kw">pub use </span>ral_registers::{modify_reg, read_reg, write_reg, RORegister, RWRegister, WORegister};
-<span class="attribute">#[doc = <span class="string">r&quot; An owned peripheral of type `T`, instance `N`.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; Fabricating an `Instance` is always `unsafe`. An owner of an&quot;</span>]
-#[doc = <span class="string">r&quot; `Instance` may assume that&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; - the underlying pointer points to a static register block of type `T`.&quot;</span>]
-#[doc = <span class="string">r&quot; - the instance number `N` properly describes the peripheral instance.&quot;</span>]
-#[doc = <span class="string">r&quot; - they own _all_ registers pointed at by `T`.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; Owners use this guarantee to safely access the peripheral registers.&quot;</span>]
-#[doc = <span class="string">r&quot; However, nothing guarantees any of these except for your diligence.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; Constructing an `Instance` is zero cost. Additionally, `Instance` is transparent&quot;</span>]
-#[doc = <span class="string">r&quot; and amenable to null-pointer optimizations.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; See the package-level documentation for more information on fabricating&quot;</span>]
-#[doc = <span class="string">r&quot; instances.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; # Safety of `new()`.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; By calling `new()`, you claim&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; 1. `ptr` points to static memory that can be described by a type `T`.&quot;</span>]
-#[doc = <span class="string">r&quot; 2. The instance number `N` correctly describes `ptr`.&quot;</span>]
-#[doc = <span class="string">r&quot; 3. You are becoming the sole owner of this instance.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; # Safety of `instance()`&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; The various `instance()` methods handle safety concerns 1 and 2 from `new()`.&quot;</span>]
-#[doc = <span class="string">r&quot; By their construction, each `instance()` implementation provides a pointer to valid&quot;</span>]
-#[doc = <span class="string">r&quot; peripheral memory, and associates the correct `N` with that pointer. Therefore,&quot;</span>]
-#[doc = <span class="string">r&quot; you&#39;re only responsible for ensuring safety concern 3 from `new()`.&quot;</span>]
-#[repr(transparent)]
-</span><span class="kw">pub struct </span>Instance&lt;T, <span class="kw">const </span>N: u8&gt; {
-    ptr: core::ptr::NonNull&lt;T&gt;,
-}
-<span class="kw">impl</span>&lt;T, <span class="kw">const </span>N: u8&gt; core::ops::Deref <span class="kw">for </span>Instance&lt;T, N&gt; {
-    <span class="kw">type </span>Target = T;
-    <span class="attribute">#[inline]
-    </span><span class="kw">fn </span>deref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span>::Target {
-        <span class="kw">unsafe </span>{ <span class="self">self</span>.ptr.as_ref() }
-    }
-}
-<span class="kw">impl</span>&lt;T, <span class="kw">const </span>N: u8&gt; Instance&lt;T, N&gt; {
-    <span class="attribute">#[doc = <span class="string">r&quot; Create an arbitrary `Instance` from a pointer to `T`.&quot;</span>]
-    #[doc = <span class="string">r&quot;&quot;</span>]
-    #[doc = <span class="string">r&quot; # Safety&quot;</span>]
-    #[doc = <span class="string">r&quot;&quot;</span>]
-    #[doc = <span class="string">r&quot; See [the struct docs](Instance) for the safety contract.&quot;</span>]
-    #[inline]
-    </span><span class="kw">pub const unsafe fn </span>new(ptr: <span class="kw-2">*const </span>T) -&gt; <span class="self">Self </span>{
-        <span class="self">Self </span>{
-            ptr: core::ptr::NonNull::new_unchecked(ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>),
-        }
-    }
-}
-<span class="kw">unsafe impl</span>&lt;T, <span class="kw">const </span>N: u8&gt; Send <span class="kw">for </span>Instance&lt;T, N&gt; {}
-<span class="attribute">#[doc = <span class="string">r&quot; The instance number for a peripheral singleton.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; If your peripheral only has one instance, it&#39;s given&quot;</span>]
-#[doc = <span class="string">r&quot; this number. The CCM peripheral is a good example of&quot;</span>]
-#[doc = <span class="string">r&quot; a peripheral that uses this constant.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; See the package documentation for more information on&quot;</span>]
-#[doc = <span class="string">r&quot; this constant.&quot;</span>]
-</span><span class="kw">pub const </span>SOLE_INSTANCE: u8 = <span class="number">0u8</span>;
+</pre><pre class="rust"><code><span class="comment">// Copyright 2020 Tom Burdick
+// See LICENSE-APACHE and LICENSE-MIT for license details.
+
+</span><span class="doccomment">//! This project provides a register access layer (RAL) for all
+//! NXP i.mx rt microcontrollers.
+//!
+//! When built, you must specify a device feature, such as `imxrt1062`.
+//! This will cause all modules in that device&#39;s module to be re-exported
+//! from the top level, so that for example `imxrt_ral::gpio` will resolve to
+//! `imxrt_ral::imxrt1062::gpio`.
+//!
+//! In the generated documentation, all devices are visible inside their family
+//! modules, but when built for a specific device, only that devices&#39; constants
+//! will be available.
+</span><span class="attribute">#![doc = <span class="macro">include_str!</span>(<span class="string">&quot;../usage.md&quot;</span>)]
+#![cfg_attr(target_arch = <span class="string">&quot;arm&quot;</span>, no_std)]
+#![allow(clippy::all)]
+
+</span><span class="kw">mod </span>register;
+
+<span class="kw">pub use </span><span class="kw">crate</span>::register::{modify_reg, read_reg, write_reg};
+<span class="kw">pub use </span><span class="kw">crate</span>::register::{RORegister, UnsafeRORegister};
+<span class="kw">pub use </span><span class="kw">crate</span>::register::{RWRegister, UnsafeRWRegister};
+<span class="kw">pub use </span><span class="kw">crate</span>::register::{UnsafeWORegister, WORegister};
+
+<span class="attribute">#[cfg(feature = <span class="string">&quot;doc&quot;</span>)]
+</span><span class="doccomment">/// Interrupt sources
+///
+/// This enum is empty when generating documentation.
+/// To see the specific interrupts for your chip, see
+/// the `Interrupt` type in your chip-specific module, like
+///
+/// - [`imxrt101::imxrt1011::Interrupt`](imxrt101::imxrt1011::Interrupt)
+/// - [`imxrt106::imxrt1062::Interrupt`](imxrt106::imxrt1062::Interrupt)
+/// - etc
+///
+/// `Interrupt` resolves to those values when building the RAL for
+/// your chip.
+</span><span class="attribute">#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+</span><span class="kw">pub enum </span>Interrupt {}
+
+<span class="doccomment">/// The constant for a peripheral with just one instance.
+///
+/// The CCM peripheral is an example of a &quot;sole instance.&quot; On the other
+/// hand, no LPUART peripheral will have this constant, since there are
+/// multiple instances.
+</span><span class="kw">pub const </span>SOLE_INSTANCE: u8 = <span class="number">0</span>;
+
 <span class="kw">mod </span>private {
     <span class="kw">pub trait </span>Sealed {}
 }
-<span class="attribute">#[doc = <span class="string">r&quot; Vouches for an `Instance&lt;T, N&gt;`&#39;s validity.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; This trait is implemented for all `Instance&lt;T, N&gt;` supported&quot;</span>]
-#[doc = <span class="string">r&quot; by your chip. Note that the implementation may change when&quot;</span>]
-#[doc = <span class="string">r&quot; selecting new chip features. For instance, i.MX RT 1011 chips&quot;</span>]
-#[doc = <span class="string">r&quot; do not have LPUART 4 through 8. So, `Valid` is _not_ implemented&quot;</span>]
-#[doc = <span class="string">r&quot; for `lpuart::Instance&lt;4&gt;` through `lpuart::Instance&lt;8&gt;`.&quot;</span>]
-#[doc = <span class="string">r&quot;&quot;</span>]
-#[doc = <span class="string">r&quot; See the package documentation for more information on how&quot;</span>]
-#[doc = <span class="string">r&quot; to use this trait in your APIs.&quot;</span>]
+
+<span class="doccomment">/// Implemented on all `Instance&lt;N&gt;` when `N` is a valid instance number.
 </span><span class="kw">pub trait </span>Valid: private::Sealed {}
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;doc&quot;</span>, feature = <span class="string">&quot;imxrt1011&quot;</span>, feature = <span class="string">&quot;imxrt1015&quot;</span>))]
+</span><span class="kw">pub mod </span>imxrt101;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1011&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1011.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1011;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1011&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1011::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt101::imxrt1011::<span class="kw-2">*</span>;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1015&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1015.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1015;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1015&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1015::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt101::imxrt1015::<span class="kw-2">*</span>;
+
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;doc&quot;</span>, feature = <span class="string">&quot;imxrt1021&quot;</span>))]
+</span><span class="kw">pub mod </span>imxrt102;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1021&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1021.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1021;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1021&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1021::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt102::imxrt1021::<span class="kw-2">*</span>;
+
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;doc&quot;</span>, feature = <span class="string">&quot;imxrt1051&quot;</span>, feature = <span class="string">&quot;imxrt1052&quot;</span>))]
+</span><span class="kw">pub mod </span>imxrt105;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1051&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1051.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1051;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1051&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1051::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt105::imxrt1051::<span class="kw-2">*</span>;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1052&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1052.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1052;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1052&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1052::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt105::imxrt1052::<span class="kw-2">*</span>;
+
+<span class="attribute">#[cfg(any(
+    feature = <span class="string">&quot;doc&quot;</span>,
+    feature = <span class="string">&quot;imxrt1061&quot;</span>,
+    feature = <span class="string">&quot;imxrt1062&quot;</span>,
+    feature = <span class="string">&quot;imxrt1064&quot;
+</span>))]
+</span><span class="kw">pub mod </span>imxrt106;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1061&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1061.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1061;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1061&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1061::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt106::imxrt1061::<span class="kw-2">*</span>;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1062&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1062.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1062;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1062&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1062::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt106::imxrt1062::<span class="kw-2">*</span>;
+
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1064&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1064.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1064;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1064&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1064::<span class="kw-2">*</span>;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1176_cm4&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1176_cm4.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1176_cm4;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1176_cm4&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1176_cm4::<span class="kw-2">*</span>;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1176_cm7&quot;</span>)]
-#[path = <span class="string">&quot;imxrt1176_cm7.rs&quot;</span>]
-</span><span class="kw">mod </span>imxrt1176_cm7;
-<span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1176_cm7&quot;</span>)]
-</span><span class="kw">pub use </span>imxrt1176_cm7::<span class="kw-2">*</span>;
+</span><span class="kw">pub use </span>imxrt106::imxrt1064::<span class="kw-2">*</span>;
 </code></pre></div>
 </section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="imxrt_ral" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>

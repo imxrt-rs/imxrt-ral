@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["XNUR_200K_PULL_UP_0","Close the switch"],["XNUR_200K_PULL_UP_1","Open up the switch"]]};

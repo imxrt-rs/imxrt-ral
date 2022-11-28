@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["BEE_DE_RX_EN","BEE data decryption of memory region-n (n = 3 to 0)"],["M7_APC_AC_R0_CTRL","Access control of memory region-0"],["M7_APC_AC_R1_CTRL","Access control of memory region-1"],["M7_APC_AC_R2_CTRL","Access control of memory region-2"],["M7_APC_AC_R3_CTRL","Access control of memory region-3"]]};

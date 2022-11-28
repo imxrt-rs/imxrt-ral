@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LINEDIS_0","Frames with errors are not discarded."],["LINEDIS_1","Any frame received with a CRC, length, or PHY error is automatically discarded and not forwarded to the user application interface."]]};

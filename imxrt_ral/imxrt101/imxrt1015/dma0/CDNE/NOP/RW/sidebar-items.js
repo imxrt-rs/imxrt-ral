@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NOP_0","0b0: Normal operation"],["NOP_1","0b1: No operation, ignore the other bits in this register"]]};

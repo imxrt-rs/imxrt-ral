@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SWR_0","GPT is not in reset state"],["SWR_1","GPT is in reset state"]]};

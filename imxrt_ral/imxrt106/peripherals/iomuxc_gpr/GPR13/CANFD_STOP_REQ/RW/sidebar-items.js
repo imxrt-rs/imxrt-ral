@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CANFD_STOP_REQ_0","0b0: stop request off"],["CANFD_STOP_REQ_1","0b1: stop request on"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DCIVERSION","Device Controller Interface Version Number Default value is ‘01h’, which means rev0.1."]]};

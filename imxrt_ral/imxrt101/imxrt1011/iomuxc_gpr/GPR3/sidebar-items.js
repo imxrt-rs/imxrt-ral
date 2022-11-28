@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DCP_KEY_SEL","Select 128-bit DCP key from 256-bit key from SNVS Master Key"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MQS_SW_RST_0","Exit software reset for MQS"],["MQS_SW_RST_1","Enable software reset for MQS"]]};

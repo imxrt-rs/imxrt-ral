@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FCOMB","FIFO Combine Mode"],["FCONT","FIFO Continue on Error"],["FPACK","FIFO Packing Mode"],["FRSZ","Frame Size"],["FSD","Frame Sync Direction"],["FSE","Frame Sync Early"],["FSP","Frame Sync Polarity"],["MF","MSB First"],["ONDEM","On Demand Mode"],["SYWD","Sync Width"]]};

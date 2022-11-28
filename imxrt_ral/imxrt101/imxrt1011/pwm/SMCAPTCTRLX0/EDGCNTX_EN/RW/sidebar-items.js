@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EDGCNTX_EN_0","0b0: Edge counter disabled and held in reset"],["EDGCNTX_EN_1","0b1: Edge counter enabled"]]};

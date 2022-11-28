@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BANK2_0","SDRAM device has 4 banks."],["BANK2_1","SDRAM device has 2 banks."]]};

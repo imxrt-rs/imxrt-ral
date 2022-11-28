@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SRE_0","0b0: using original way to generate software reset (default)"],["SRE_1","0b1: using new way to generate software reset."]]};

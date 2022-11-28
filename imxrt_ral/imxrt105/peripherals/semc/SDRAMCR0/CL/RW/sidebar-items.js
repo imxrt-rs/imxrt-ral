@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CL_0","0b00: 1"],["CL_1","0b01: 1"],["CL_2","0b10: 2"],["CL_3","0b11: 3"]]};

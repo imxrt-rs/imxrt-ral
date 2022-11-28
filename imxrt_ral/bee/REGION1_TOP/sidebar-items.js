@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["REGION1_TOP","Address upper limit of region1"]]};

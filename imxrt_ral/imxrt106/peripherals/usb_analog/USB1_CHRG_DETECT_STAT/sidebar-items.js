@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CHRG_DETECTED","State of charger detection. This bit is a read only version of the state of the analog signal."],["DM_STATE","DM line state output of the charger detector."],["DP_STATE","DP line state output of the charger detector."],["PLUG_CONTACT","State of the USB plug contact detector."]]};

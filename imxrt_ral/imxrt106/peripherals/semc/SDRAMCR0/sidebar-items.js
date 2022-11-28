@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["BANK2","2 Bank selection bit"],["BL","Burst Length"],["CL","CAS Latency"],["COL","Column address bit number"],["COL8","Column 8 selection bit"],["PS","Port Size"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["_16X16","0b1: Process 16x16 pixel blocks."],["_8X8","0b0: Process 8x8 pixel blocks."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DECRYPT","DECRYPT"],["ENCRYPT","ENCRYPT"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NO_REQUEST","0b0: No Interrupt Request Pending."],["REQUEST","0b1: Interrupt Request Pending."]]};

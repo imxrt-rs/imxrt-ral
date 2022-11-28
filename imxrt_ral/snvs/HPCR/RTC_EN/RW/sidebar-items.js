@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTC_EN_0","RTC is disabled"],["RTC_EN_1","RTC is enabled"]]};

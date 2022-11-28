@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXEN_0","FlexIO module is disabled."],["FLEXEN_1","FlexIO module is enabled."]]};

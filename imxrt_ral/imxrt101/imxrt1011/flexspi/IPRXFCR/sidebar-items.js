@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CLRIPRXF","Clear all valid data entries in IP RX FIFO."],["RXDMAEN","IP RX FIFO reading by DMA enabled."],["RXWMRK","Watermark level is (RXWMRK+1)*64 Bits."]]};

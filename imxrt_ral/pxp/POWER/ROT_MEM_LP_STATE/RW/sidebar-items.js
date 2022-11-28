@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DS","Deep Sleep Mode. Low leakage mode, maintain memory contents."],["LS","Light Sleep Mode. Low leakage mode, maintain memory contents."],["NONE","Memory is not in low power state."],["SD","Shut Down Mode. Shut Down periphery and core, no memory retention."]]};

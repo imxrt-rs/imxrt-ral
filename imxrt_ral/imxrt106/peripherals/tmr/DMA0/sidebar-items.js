@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CMPLD1DE","Comparator Preload Register 1 DMA Enable"],["CMPLD2DE","Comparator Preload Register 2 DMA Enable"],["IEFDE","Input Edge Flag DMA Enable"]]};

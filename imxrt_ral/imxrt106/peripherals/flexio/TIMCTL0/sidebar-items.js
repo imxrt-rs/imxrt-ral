@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PINCFG","Timer Pin Configuration"],["PINPOL","Timer Pin Polarity"],["PINSEL","Timer Pin Select"],["TIMOD","Timer Mode"],["TRGPOL","Trigger Polarity"],["TRGSEL","Trigger Select"],["TRGSRC","Trigger Source"]]};

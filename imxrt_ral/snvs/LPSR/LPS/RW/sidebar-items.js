@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPS_0","LP section was not programmed in secure or trusted state."],["LPS_1","LP section was programmed in secure or trusted state."]]};

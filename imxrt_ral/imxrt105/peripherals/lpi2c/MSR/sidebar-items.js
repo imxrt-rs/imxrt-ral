@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ALF","Arbitration Lost Flag"],["BBF","Bus Busy Flag"],["DMF","Data Match Flag"],["EPF","End Packet Flag"],["FEF","FIFO Error Flag"],["MBF","Master Busy Flag"],["NDF","NACK Detect Flag"],["PLTF","Pin Low Timeout Flag"],["RDF","Receive Data Flag"],["SDF","STOP Detect Flag"],["TDF","Transmit Data Flag"]]};

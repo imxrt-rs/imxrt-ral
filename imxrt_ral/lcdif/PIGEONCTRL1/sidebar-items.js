@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["FRAME_CNT_CYCLES","Max cycles of frame counter"],["FRAME_CNT_PERIOD","Period of frame counter"]]};

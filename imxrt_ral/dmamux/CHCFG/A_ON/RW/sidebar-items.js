@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["A_ON_0","DMA Channel Always ON function is disabled"],["A_ON_1","DMA Channel Always ON function is enabled"]]};

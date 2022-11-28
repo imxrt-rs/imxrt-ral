@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AUTOPCS_0","Automatic PCS generation is disabled"],["AUTOPCS_1","Automatic PCS generation is enabled"]]};

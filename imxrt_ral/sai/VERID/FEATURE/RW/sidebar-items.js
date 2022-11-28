@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEATURE_0","Standard feature set."]]};

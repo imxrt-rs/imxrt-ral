@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DETECT_FIVE_WIRE_0","No detect signal"],["DETECT_FIVE_WIRE_1","Yes, there is a detect on the touch screen."]]};

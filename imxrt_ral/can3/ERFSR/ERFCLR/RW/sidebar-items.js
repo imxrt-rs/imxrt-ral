@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERFCLR_0","No effect"],["ERFCLR_1","Clear Enhanced Rx FIFO content"]]};

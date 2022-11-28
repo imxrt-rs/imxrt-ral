@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SBK_0","0b0: Normal transmitter operation."],["SBK_1","0b1: Queue break character(s) to be sent."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SLFWAK_0","0b0: FlexCAN Self Wake Up feature is disabled."],["SLFWAK_1","0b1: FlexCAN Self Wake Up feature is enabled."]]};

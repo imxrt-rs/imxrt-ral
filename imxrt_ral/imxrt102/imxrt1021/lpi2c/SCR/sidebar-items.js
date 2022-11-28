@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FILTDZ","Filter Doze Enable"],["FILTEN","Filter Enable"],["RRF","Reset Receive FIFO"],["RST","Software Reset"],["RTF","Reset Transmit FIFO"],["SEN","Slave Enable"]]};

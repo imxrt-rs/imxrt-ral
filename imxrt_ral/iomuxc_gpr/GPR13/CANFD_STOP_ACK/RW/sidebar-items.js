@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CANFD_STOP_ACK_0","CANFD stop acknowledge is not asserted"],["CANFD_STOP_ACK_1","CANFD stop acknowledge is asserted"]]};

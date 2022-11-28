@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MAJOR","Fixed read-only value reflecting the MAJOR version of the design implementation."],["MINOR","Fixed read-only value reflecting the MINOR version of the design implementation."],["STEP","Fixed read-only value reflecting the stepping of the version of the design implementation."]]};

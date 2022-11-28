@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FEF_0","0b0: Transmit underrun not detected."],["FEF_1","0b1: Transmit underrun detected."]]};

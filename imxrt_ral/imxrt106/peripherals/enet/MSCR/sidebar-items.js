@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DIS_PRE","Disable Preamble"],["HOLDTIME","Hold time On MDIO Output"],["MII_SPEED","MII Speed"]]};

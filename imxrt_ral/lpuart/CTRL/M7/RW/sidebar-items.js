@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["M7_0","Receiver and transmitter use 8-bit to 10-bit data characters."],["M7_1","Receiver and transmitter use 7-bit data characters."]]};

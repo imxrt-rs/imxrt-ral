@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CG0","enet2_clk_enable"],["CG1","flexspi2_clk_enable"],["CG2","axbs_l_clk_enable"],["CG3","can3_clk_enable"],["CG4","can3_serial_clk_enable"],["CG5","aips_lite_clk_enable"],["CG6","flexio3_clk_enable"]]};

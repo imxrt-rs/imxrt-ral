@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TIMECFG_0","Pin Low Timeout Flag will set if SCL is low for longer than the configured timeout"],["TIMECFG_1","Pin Low Timeout Flag will set if either SCL or SDA is low for longer than the configured timeout"]]};

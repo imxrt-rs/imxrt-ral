@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RX_ALMOST_FULL","Value Of The Receive FIFO Almost Full Threshold"]]};

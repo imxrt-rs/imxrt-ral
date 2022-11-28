@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SOF_INTEN_0","0b0: SOF interrupt disable"],["SOF_INTEN_1","0b1: SOF interrupt enable"]]};

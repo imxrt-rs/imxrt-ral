@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BRR_0","0b0: Not ready to read buffer"],["BRR_1","0b1: Ready to read buffer"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CMPF_0","No compare event has occurred for a particular VALx value."],["CMPF_1","A compare event has occurred for a particular VALx value."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PLL3_SW_CLK_SEL","Selects source to generate pll3_sw_clk. This bit should only be used for testing purposes."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HSMEN_0","Disables detection of HS-mode master code"],["HSMEN_1","Enables detection of HS-mode master code"]]};

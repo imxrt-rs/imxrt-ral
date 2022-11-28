@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXPKTS","Number of packets less than 64 bytes with bad CRC"]]};

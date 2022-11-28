@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTOESEN_0","Masked"],["DTOESEN_1","Enabled"]]};

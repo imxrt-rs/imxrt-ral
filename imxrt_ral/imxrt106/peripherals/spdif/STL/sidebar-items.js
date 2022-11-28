@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["TxDataLeft","SPDIF transmit left channel data. It is write-only, and always returns zeros when read"]]};

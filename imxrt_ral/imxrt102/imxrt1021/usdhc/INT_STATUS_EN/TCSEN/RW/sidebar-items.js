@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TCSEN_0","0b0: Masked"],["TCSEN_1","0b1: Enabled"]]};

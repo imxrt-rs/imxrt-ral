@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERR29_0","An error in this channel has not occurred"],["ERR29_1","An error in this channel has occurred"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["INPUT","0b00000000: COLn pin is configured as an input."],["OUTPUT","0b00000001: COLn pin is configured as an output."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENET_STOP_ACK_0","0b0: ENET1 stop acknowledge is not asserted"],["ENET_STOP_ACK_1","0b1: ENET1 stop acknowledge is asserted"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["HPTA_MS","HP Time Alarm, most-significant 15 bits"]]};

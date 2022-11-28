@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SPEED","0b10: medium(100MHz)"]]};

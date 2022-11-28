@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BUFHI_0","No such occurrence"],["BUFHI_1","The corresponding buffer has successfully completed transmission or reception"]]};

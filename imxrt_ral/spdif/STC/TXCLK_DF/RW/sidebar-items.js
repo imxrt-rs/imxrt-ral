@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXCLK_DF_0","divider factor is 1"],["TXCLK_DF_1","divider factor is 2"],["TXCLK_DF_127","divider factor is 128"]]};

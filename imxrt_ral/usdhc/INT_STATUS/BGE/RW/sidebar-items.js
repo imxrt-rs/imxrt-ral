@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BGE_0","No block gap event"],["BGE_1","Transaction stopped at block gap"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DEINTERLACE_EN_0","Deinterlace disabled"],["DEINTERLACE_EN_1","Deinterlace enabled"]]};

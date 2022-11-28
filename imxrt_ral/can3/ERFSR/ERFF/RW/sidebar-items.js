@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERFF_0","Enhanced Rx FIFO is not full"],["ERFF_1","Enhanced Rx FIFO is full"]]};

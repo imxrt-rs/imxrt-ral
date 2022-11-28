@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXFLUSH_0","No flush operation occurs."],["TXFLUSH_1","All data in the transmit FIFO/Buffer is cleared out."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["IP_ID","Shows the IP ID."],["MAJ_REV","Shows the IP’s Major revision of the TRNG."],["MIN_REV","Shows the IP’s Minor revision of the TRNG."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["STS1_0","Active edge not yet detected on XBAR_OUT1"],["STS1_1","Active edge detected on XBAR_OUT1"]]};

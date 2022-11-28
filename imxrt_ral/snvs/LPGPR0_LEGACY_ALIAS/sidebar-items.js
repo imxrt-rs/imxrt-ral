@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["GPR","General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed."]]};

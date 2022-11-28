@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SSM_ST_DIS_0","Secure to Trusted State transition is enabled"],["SSM_ST_DIS_1","Secure to Trusted State transition is disabled"]]};

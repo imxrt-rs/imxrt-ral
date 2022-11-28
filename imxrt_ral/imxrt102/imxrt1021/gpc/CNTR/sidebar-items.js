@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MEGA_PDN_REQ","MEGA domain power down request"],["MEGA_PUP_REQ","MEGA domain power up request"],["PDRAM0_PGE","FlexRAM PDRAM0 Power Gate Enable"]]};

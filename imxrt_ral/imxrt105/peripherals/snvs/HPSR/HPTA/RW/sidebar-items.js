@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HPTA_0","0b0: No time alarm interrupt occurred."],["HPTA_1","0b1: A time alarm interrupt occurred."]]};

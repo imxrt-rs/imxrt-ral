@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXIO2_STOP_REQ_0","stop request off"],["FLEXIO2_STOP_REQ_1","stop request on"]]};

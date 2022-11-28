@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBG_EN_0","Debug turned off."],["DBG_EN_1","Debug enabled (default)."]]};

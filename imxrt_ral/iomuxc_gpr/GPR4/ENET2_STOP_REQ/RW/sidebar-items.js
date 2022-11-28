@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ENET2_STOP_REQ_0","stop request off"],["ENET2_STOP_REQ_1","stop request on"]]};

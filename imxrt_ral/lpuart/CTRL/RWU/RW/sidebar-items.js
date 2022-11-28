@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RWU_0","Normal receiver operation."],["RWU_1","LPUART receiver in standby waiting for wakeup condition."]]};

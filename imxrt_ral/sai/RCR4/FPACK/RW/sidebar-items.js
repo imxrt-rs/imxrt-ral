@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FPACK_0","FIFO packing is disabled"],["FPACK_2","8-bit FIFO packing is enabled"],["FPACK_3","16-bit FIFO packing is enabled"]]};

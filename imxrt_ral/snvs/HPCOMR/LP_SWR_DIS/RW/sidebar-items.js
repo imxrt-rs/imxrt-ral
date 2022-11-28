@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LP_SWR_DIS_0","LP software reset is enabled"],["LP_SWR_DIS_1","LP software reset is disabled"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WKUP_SW_0","0b0: Inactive"],["WKUP_SW_1","0b1: Force wake-up"]]};

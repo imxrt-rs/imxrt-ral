@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DCP","Raw pointer to DCP"]],"struct":[["DCP","The DCP peripheral instance."]]};

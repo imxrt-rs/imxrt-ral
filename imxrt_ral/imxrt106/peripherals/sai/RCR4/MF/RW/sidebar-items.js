@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MF_0","0b0: LSB is received first."],["MF_1","0b1: MSB is received first."]]};

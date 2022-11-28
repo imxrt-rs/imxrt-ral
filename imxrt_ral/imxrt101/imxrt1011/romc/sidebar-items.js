@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ROMC","Raw pointer to ROMC"]],"struct":[["ROMC","The ROMC peripheral instance."]]};

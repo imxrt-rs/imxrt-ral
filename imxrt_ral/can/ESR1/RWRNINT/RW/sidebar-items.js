@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RWRNINT_0","No such occurrence"],["RWRNINT_1","The Rx error counter transition from < 96 to >= 96"]]};

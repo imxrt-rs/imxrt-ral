@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HPC_ENET_0","User mode for the corresponding master"],["HPC_ENET_1","Supervisor mode for the corresponding master"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["STAT","Static data from sensor"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WECRM_0","Disable"],["WECRM_1","Enable"]]};

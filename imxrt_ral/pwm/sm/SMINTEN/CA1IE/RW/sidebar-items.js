@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CA1IE_0","Interrupt request disabled for STS[CFA1]."],["CA1IE_1","Interrupt request enabled for STS[CFA1]."]]};

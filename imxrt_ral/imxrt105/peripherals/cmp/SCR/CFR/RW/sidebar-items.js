@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CFR_0","0b0: Rising-edge on COUT has not been detected."],["CFR_1","0b1: Rising-edge on COUT has occurred."]]};

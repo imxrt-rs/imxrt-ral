@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AWKST_0","No asynchronous interrupt."],["AWKST_1","Asynchronous wake up interrupt occurred in stop mode."]]};

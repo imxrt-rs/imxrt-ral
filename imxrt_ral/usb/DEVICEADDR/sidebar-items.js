@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["USBADR","Device Address. These bits correspond to the USB device address"],["USBADRA","Device Address Advance"]]};

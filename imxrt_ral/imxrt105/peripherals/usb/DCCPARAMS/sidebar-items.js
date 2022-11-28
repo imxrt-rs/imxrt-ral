@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DC","Device Capable When this bit is 1, this controller is capable of operating as a USB 2.0 device."],["DEN","Device Endpoint Number This field indicates the number of endpoints built into the device controller"],["HC","Host Capable When this bit is 1, this controller is capable of operating as an EHCI compatible USB 2"]]};

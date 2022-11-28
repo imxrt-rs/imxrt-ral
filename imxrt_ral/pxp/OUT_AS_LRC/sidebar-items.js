@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RSVD0","Reserved, always set to zero."],["RSVD1","Reserved, always set to zero."],["X","This field indicates the lower right X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer"],["Y","This field indicates the lower right Y-coordinate (in pixels) of the alpha surface in the output frame buffer"]]};

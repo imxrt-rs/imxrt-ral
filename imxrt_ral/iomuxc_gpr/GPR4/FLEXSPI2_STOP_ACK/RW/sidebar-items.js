@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI2_STOP_ACK_0","FLEXSPI2 stop acknowledge is not asserted"],["FLEXSPI2_STOP_ACK_1","FLEXSPI2 stop acknowledge is asserted"]]};

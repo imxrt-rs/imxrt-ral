@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXEMPT_0","Transmit buffer is not empty."],["TXEMPT_1","Transmit buffer is empty."]]};

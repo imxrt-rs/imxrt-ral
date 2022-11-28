@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PWAOT0_0","0b0: Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port."],["PWAOT0_1","0b1: Route the PWMA output to the PWM_OUT_TRIG0 port."]]};

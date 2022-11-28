@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENBL_0","0b0: DMA Mux channel is disabled"],["ENBL_1","0b1: DMA Mux channel is enabled"]]};

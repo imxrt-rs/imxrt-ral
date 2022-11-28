@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PITCH","Indicates the number of bytes in memory between two vertically adjacent pixels."],["RSVD","Reserved, always set to zero."]]};

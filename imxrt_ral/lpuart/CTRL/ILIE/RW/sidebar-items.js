@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ILIE_0","Hardware interrupts from IDLE disabled; use polling."],["ILIE_1","Hardware interrupt requested when IDLE flag is 1."]]};

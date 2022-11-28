@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PSE_0","Do not process the Periodic Schedule"],["PSE_1","Use the PERIODICLISTBASE register to access the Periodic Schedule."]]};

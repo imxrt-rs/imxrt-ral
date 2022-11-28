@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FRACVAL3","Fractional Value 3"]]};

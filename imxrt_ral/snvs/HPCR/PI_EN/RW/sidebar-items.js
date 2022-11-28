@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PI_EN_0","HP Periodic Interrupt is disabled"],["PI_EN_1","HP Periodic Interrupt is enabled"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERROVR_0","Overrun has not occurred."],["ERROVR_1","Overrun has occurred."]]};

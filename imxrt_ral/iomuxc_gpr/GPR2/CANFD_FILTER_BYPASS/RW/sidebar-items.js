@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CANFD_FILTER_BYPASS_0","enable CANFD filter"],["CANFD_FILTER_BYPASS_1","disable CANFD filter"]]};

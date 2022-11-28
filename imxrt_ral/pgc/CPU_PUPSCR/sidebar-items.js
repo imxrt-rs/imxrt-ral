@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SW","There are two different silicon revisions: 1"],["SW2ISO","There are two different silicon revisions: 1"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BWEN_0","Write disable"],["BWEN_1","Write enable"]]};

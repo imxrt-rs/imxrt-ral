@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ZMK_WSL_0","0b0: Write access is allowed"],["ZMK_WSL_1","0b1: Write access is not allowed"]]};

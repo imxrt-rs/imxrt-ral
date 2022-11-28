@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CH0","CH0"],["CH1","CH1"],["CH2","CH2"],["CH3","CH3"]]};

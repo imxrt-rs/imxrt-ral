@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ENT_VAL","Read only: Entropy Valid"],["FRQ_CT_FAIL","Read only: Frequency Count Fail"],["HW_ERR","Read: Error status"]]};

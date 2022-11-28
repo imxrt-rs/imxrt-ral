@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BCE_0","Transmit bit clock is disabled."],["BCE_1","Transmit bit clock is enabled."]]};

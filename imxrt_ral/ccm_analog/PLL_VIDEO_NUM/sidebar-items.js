@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["A","30 bit numerator of fractional loop divider(Signed number), absolute value should be less than denominator"]]};

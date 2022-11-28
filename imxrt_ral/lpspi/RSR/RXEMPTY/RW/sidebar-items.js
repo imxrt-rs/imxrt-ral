@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXEMPTY_0","RX FIFO is not empty"],["RXEMPTY_1","RX FIFO is empty"]]};

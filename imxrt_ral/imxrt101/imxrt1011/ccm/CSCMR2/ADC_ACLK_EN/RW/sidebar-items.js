@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADC_ACLK_EN_0","0b0: ADC alt_clk source is disabled"],["ADC_ACLK_EN_1","0b1: ADC alt_clk source is enabled"]]};

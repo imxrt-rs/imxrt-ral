@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AC12EBE_0","No error"],["AC12EBE_1","End Bit Error Generated"]]};

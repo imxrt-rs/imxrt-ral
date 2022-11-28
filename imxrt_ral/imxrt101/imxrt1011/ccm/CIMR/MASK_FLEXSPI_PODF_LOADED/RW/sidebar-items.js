@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MASK_FLEXSPI_PODF_LOADED_0","0b0: don’t mask interrupt due to update of flexspi_podf"],["MASK_FLEXSPI_PODF_LOADED_1","0b1: mask interrupt due to update of flexspi_podf"]]};

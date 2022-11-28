@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CHARGE_VBUS","USB OTG charge VBUS."],["DISCHARGE_VBUS","USB OTG discharge VBUS."],["VBUSVALID_PWRUP_CMPS","Powers up comparators for vbus_valid detector."],["VBUSVALID_THRESH","Set the threshold for the VBUSVALID comparator"]]};

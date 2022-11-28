@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERFWMIIE_0","Enhanced Rx FIFO Watermark Interrupt is disabled"],["ERFWMIIE_1","Enhanced Rx FIFO Watermark Interrupt is enabled"]]};

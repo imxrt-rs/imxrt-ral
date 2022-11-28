@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERFWMI_0","0b0: No such occurrence"],["ERFWMI_1","0b1: The number of messages in FIFO is greater than the watermark"]]};

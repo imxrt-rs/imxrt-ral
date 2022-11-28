@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LOCKUP_0","Reset is not a result of the mentioned case."],["LOCKUP_1","Reset is a result of the mentioned case."]]};

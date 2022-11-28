@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPSPI_CLK_SEL_0","derive clock from PLL3 PFD1 clk"],["LPSPI_CLK_SEL_1","derive clock from PLL3 PFD0"],["LPSPI_CLK_SEL_2","derive clock from PLL2"],["LPSPI_CLK_SEL_3","derive clock from PLL2 PFD2"]]};

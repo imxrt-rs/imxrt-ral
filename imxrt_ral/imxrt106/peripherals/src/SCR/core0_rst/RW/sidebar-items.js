@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["core0_rst_0","0b0: do not assert core0 reset"],["core0_rst_1","0b1: assert core0 reset"]]};

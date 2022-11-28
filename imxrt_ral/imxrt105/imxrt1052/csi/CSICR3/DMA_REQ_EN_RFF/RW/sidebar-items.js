@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DMA_REQ_EN_RFF_0","0b0: Disable the dma request"],["DMA_REQ_EN_RFF_1","0b1: Enable the dma request"]]};

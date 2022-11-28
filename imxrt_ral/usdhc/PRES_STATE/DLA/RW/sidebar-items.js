@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DLA_0","DATA Line Inactive"],["DLA_1","DATA Line Active"]]};

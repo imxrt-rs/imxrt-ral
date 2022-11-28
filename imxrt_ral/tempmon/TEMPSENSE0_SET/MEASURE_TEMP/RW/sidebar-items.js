@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["START","Start the measurement process."],["STOP","Do not start the measurement process."]]};

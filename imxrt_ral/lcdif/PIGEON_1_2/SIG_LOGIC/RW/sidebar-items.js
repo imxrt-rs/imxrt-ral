@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AND","sigout = sig_another AND this_sig"],["DIS","No logic operation"],["MASK","mask = sig_another AND other_masks"],["OR","sigout = sig_another OR this_sig"]]};

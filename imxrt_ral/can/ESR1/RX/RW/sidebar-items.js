@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RX_0","FLEXCAN is receiving a message"],["RX_1","FLEXCAN is transmitting a message"]]};

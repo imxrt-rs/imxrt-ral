@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXPKTS","Number of transmit packets greater than MAX_FL bytes and bad CRC"]]};

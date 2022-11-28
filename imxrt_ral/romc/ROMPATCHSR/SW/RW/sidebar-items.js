@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SW_0","no event or comparator collisions"],["SW_1","a collision has occurred"]]};

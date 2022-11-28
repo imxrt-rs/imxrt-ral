@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WIR_0","0b0: No wake-up interrupt request received"],["WIR_1","0b1: Wake-up Interrupt Request received"]]};

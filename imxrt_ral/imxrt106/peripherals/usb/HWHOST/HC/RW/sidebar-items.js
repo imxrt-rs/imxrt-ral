@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HC_0","0b0: Not supported"],["HC_1","0b1: Supported"]]};

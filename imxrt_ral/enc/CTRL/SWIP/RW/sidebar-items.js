@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SWIP_0","No action"],["SWIP_1","Initialize position counter"]]};

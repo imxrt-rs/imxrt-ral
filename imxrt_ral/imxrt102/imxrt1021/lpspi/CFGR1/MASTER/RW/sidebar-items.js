@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MASTER_0","0b0: Slave mode"],["MASTER_1","0b1: Master mode"]]};

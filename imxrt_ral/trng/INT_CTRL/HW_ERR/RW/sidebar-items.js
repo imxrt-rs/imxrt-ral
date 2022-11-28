@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HW_ERR_0","Corresponding bit of INT_STATUS register cleared."],["HW_ERR_1","Corresponding bit of INT_STATUS register active."]]};

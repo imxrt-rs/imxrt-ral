@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RUN_0","PWM generator is disabled in the corresponding submodule."],["RUN_1","PWM generator is enabled in the corresponding submodule."]]};

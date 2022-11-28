@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ICEN_0","Disable Interrupt coalescing."],["ICEN_1","Enable Interrupt coalescing."]]};

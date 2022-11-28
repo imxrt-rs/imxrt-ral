@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CINST_0","Power on Reset or No Card"],["CINST_1","Card Inserted"]]};

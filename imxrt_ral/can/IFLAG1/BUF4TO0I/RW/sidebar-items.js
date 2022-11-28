@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BUF4TO0I_0","No such occurrence"],["BUF4TO0I_1","Corresponding MB completed transmission/reception"]]};

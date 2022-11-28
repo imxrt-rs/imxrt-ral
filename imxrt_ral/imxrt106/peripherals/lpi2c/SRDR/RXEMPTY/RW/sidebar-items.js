@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXEMPTY_0","0b0: The Receive Data Register is not empty"],["RXEMPTY_1","0b1: The Receive Data Register is empty"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HPSVCR_L_0","Write access is allowed"],["HPSVCR_L_1","Write access is not allowed"]]};

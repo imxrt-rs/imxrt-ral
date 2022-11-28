@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DISABLED","Input Path is determined by functionality"],["ENABLED","Force input path of pad GPIO_EMC_32"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IDLINE_0","0b0: Receiver was not idle before receiving this character."],["IDLINE_1","0b1: Receiver was idle before receiving this character."]]};

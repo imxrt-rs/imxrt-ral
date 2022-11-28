@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MUX_A8","SEMC_A8 output selection"],["MUX_CLKX0","SEMC_CLKX0 function selection"],["MUX_CLKX1","SEMC_CLKX1 function selection"],["MUX_CSX0","SEMC_CSX0 output selection"],["MUX_CSX1","SEMC_CSX1 output selection"],["MUX_CSX2","SEMC_CSX2 output selection"],["MUX_CSX3","SEMC_CSX3 output selection"],["MUX_RDY","SEMC_RDY function selection"]]};

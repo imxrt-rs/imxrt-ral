@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FULL_0","Full-cycle reloads disabled."],["FULL_1","Full-cycle reloads enabled."]]};

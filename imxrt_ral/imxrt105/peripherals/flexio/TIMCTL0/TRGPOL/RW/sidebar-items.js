@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TRGPOL_0","0b0: Trigger active high"],["TRGPOL_1","0b1: Trigger active low"]]};

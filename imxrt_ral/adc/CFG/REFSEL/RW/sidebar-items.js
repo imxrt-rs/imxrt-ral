@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["REFSEL_0","Selects VREFH/VREFL as reference voltage."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HAC_L_0","Write access is allowed"],["HAC_L_1","Write access is not allowed"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GCEN_0","General Call address is disabled"],["GCEN_1","General Call address is enabled"]]};

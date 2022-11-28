@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["COS","Comparator Output Select"],["EN","Comparator Module Enable"],["INV","Comparator INVERT"],["OPE","Comparator Output Pin Enable"],["PMODE","Power Mode Select"],["SE","Sample Enable"],["WE","Windowing Enable"]]};

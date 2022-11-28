@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXPKTS","Number of 256- to 511-byte transmit packets"]]};

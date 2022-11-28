@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FAULT_0","Fault function disabled."],["FAULT_1","Fault function enabled."]]};

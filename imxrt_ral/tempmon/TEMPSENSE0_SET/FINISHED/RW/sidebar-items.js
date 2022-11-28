@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INVALID","Last measurement is not ready yet."],["VALID","Last measurement is valid."]]};

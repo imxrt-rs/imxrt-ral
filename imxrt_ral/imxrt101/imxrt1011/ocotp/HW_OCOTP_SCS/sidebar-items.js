@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["HAB_JDE","HAB JTAG Debug Enable"],["LOCK","When set, all of the bits in this register are locked and can not be changed through SW programming"],["SPARE","Unallocated read/write bits for implementation specific software use."]]};

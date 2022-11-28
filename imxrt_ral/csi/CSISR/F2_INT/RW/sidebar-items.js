@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["F2_INT_0","Field 2 of video is not detected"],["F2_INT_1","Field 2 of video is about to start"]]};

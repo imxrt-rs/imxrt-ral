@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BIT0ERR_0","No such occurrence."],["BIT0ERR_1","At least one bit sent as dominant is received as recessive."]]};

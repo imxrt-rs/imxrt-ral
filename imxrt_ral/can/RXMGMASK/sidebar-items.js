@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["MG","These bits mask the Mailbox filter bits as shown in the figure above"]]};

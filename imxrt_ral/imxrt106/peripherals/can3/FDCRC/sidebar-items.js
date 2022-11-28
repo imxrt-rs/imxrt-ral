@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FD_MBCRC","CRC Mailbox Number for FD_TXCRC"],["FD_TXCRC","Extended Transmitted CRC value"]]};

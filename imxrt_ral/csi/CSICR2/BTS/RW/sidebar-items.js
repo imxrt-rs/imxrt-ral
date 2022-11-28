@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BTS_0","GR"],["BTS_1","RG"],["BTS_2","BG"],["BTS_3","GB"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IDLE_SW_0","0b0: Haven’t return to idle status"],["IDLE_SW_1","0b1: Already return to idle status"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TFC_PAUSE_0","No PAUSE frame transmitted."],["TFC_PAUSE_1","The MAC stops transmission of data frames after the current transmission is complete."]]};

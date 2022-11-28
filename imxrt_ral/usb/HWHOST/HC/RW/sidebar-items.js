@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HC_0","Not supported"],["HC_1","Supported"]]};

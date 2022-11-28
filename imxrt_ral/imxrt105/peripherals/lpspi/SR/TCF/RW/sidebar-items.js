@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TCF_0","0b0: All transfers have not completed"],["TCF_1","0b1: All transfers have completed"]]};

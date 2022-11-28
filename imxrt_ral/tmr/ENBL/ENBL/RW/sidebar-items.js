@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ENBL_0","Timer channel is disabled."],["ENBL_1","Timer channel is enabled. (default)"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DACEN_0","DAC is disabled."],["DACEN_1","DAC is enabled."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SYNC_0","Asynchronous mode."],["SYNC_1","Synchronous with transmitter."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["BUFHM","Each bit enables or disables the respective FLEXCAN Message Buffer (MB32 to MB63) Interrupt"]]};

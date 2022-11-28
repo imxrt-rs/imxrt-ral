@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DIE_0","Watchdog timer interrupt is disabled"],["DIE_1","Watchdog timer interrupt is enabled"]]};

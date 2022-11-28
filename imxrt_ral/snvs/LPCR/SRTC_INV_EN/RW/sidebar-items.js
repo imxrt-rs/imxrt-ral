@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SRTC_INV_EN_0","SRTC stays valid in the case of security violation."],["SRTC_INV_EN_1","SRTC is invalidated in the case of security violation."]]};

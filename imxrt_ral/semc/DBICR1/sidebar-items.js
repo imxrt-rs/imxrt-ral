@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CEH","CSX Hold Time"],["CEITV","CSX interval min time"],["CES","CSX Setup Time"],["REH","RDX High Time"],["REL","RDX Low Time"],["WEH","WRX High Time"],["WEL","WRX Low Time"]]};

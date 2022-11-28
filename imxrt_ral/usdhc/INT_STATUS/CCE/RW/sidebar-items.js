@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CCE_0","No Error"],["CCE_1","CRC Error Generated."]]};

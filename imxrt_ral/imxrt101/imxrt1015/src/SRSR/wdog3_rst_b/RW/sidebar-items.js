@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["wdog3_rst_b_0","0b0: Reset is not a result of the watchdog3 time-out event."],["wdog3_rst_b_1","0b1: Reset is a result of the watchdog3 time-out event."]]};

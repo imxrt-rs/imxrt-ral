@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BTF","Bit Timing Format Enable"],["EPRESDIV","Extended Prescaler Division Factor"],["EPROPSEG","Extended Propagation Segment"],["EPSEG1","Extended Phase Segment 1"],["EPSEG2","Extended Phase Segment 2"],["ERJW","Extended Resync Jump Width"]]};

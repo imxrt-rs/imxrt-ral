@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FCF_0","Frame transfer has not completed"],["FCF_1","Frame transfer has completed"]]};

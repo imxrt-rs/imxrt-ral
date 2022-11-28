@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WAKINT_0","0b0: No such occurrence."],["WAKINT_1","0b1: Indicates a recessive to dominant transition was received on the CAN bus."]]};

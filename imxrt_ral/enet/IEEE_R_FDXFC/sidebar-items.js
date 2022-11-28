@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of flow-control pause frames received"]]};

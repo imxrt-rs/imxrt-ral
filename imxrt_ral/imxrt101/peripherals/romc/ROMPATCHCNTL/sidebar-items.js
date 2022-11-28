@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DATAFIX","Data Fix Enable - Controls the use of the first 8 address comparators for 1-word data fix or for code patch routine"],["DIS","ROMC Disable – This bit, when set, disables all ROMC operations"]]};

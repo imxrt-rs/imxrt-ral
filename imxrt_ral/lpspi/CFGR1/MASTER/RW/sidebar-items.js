@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASTER_0","Slave mode"],["MASTER_1","Master mode"]]};

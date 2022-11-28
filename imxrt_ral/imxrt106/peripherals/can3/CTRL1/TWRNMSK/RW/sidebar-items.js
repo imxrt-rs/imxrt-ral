@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TWRNMSK_0","0b0: Tx Warning Interrupt disabled."],["TWRNMSK_1","0b1: Tx Warning Interrupt enabled."]]};

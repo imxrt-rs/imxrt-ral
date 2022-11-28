@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["COF_INT_0","Video field has no change."],["COF_INT_1","Change of video field is detected."]]};

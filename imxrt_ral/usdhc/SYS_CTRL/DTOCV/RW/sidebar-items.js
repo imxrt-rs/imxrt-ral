@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTOCV_0","SDCLK x 2 14"],["DTOCV_1","SDCLK x 2 15"],["DTOCV_13","SDCLK x 2 27"],["DTOCV_14","SDCLK x 2 28"],["DTOCV_15","SDCLK x 2 29"]]};

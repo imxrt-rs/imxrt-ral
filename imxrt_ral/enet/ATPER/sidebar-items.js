@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["PERIOD","Value for generating periodic events"]]};

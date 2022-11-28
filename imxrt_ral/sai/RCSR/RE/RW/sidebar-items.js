@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RE_0","Receiver is disabled."],["RE_1","Receiver is enabled, or receiver has been disabled and has not yet reached end of frame."]]};

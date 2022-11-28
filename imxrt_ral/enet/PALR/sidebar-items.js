@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["PADDR1","Pause Address"]]};

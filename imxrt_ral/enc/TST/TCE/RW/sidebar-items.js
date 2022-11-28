@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TCE_0","Test count is not enabled"],["TCE_1","Test count is enabled"]]};

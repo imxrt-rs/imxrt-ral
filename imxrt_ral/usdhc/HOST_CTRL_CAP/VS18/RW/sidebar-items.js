@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["VS18_0","1.8V not supported"],["VS18_1","1.8V supported"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BTE_0","CAN Bit timing expansion is disabled."],["BTE_1","CAN bit timing expansion is enabled."]]};

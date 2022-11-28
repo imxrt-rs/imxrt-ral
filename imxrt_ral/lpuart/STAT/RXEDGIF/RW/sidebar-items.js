@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXEDGIF_0","No active edge on the receive pin has occurred."],["RXEDGIF_1","An active edge on the receive pin has occurred."]]};

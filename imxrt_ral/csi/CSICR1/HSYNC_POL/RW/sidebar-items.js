@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HSYNC_POL_0","HSYNC is active low"],["HSYNC_POL_1","HSYNC is active high"]]};

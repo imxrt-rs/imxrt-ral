@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SEN_0","I2C Slave mode is disabled"],["SEN_1","I2C Slave mode is enabled"]]};

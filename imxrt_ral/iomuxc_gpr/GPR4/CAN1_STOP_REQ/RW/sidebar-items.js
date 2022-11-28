@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CAN1_STOP_REQ_0","stop request off"],["CAN1_STOP_REQ_1","stop request on"]]};

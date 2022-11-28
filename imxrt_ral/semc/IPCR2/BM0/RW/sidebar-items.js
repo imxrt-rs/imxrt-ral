@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BM0_0","Byte Unmasked"],["BM0_1","Byte Masked"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["COMPARATOR_LOAD_2","This read/write register is the comparator 2 preload value for the COMP2 register for the corresponding channel in a timer module"]]};

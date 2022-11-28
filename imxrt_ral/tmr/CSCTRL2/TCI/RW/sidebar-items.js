@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TCI_0","Stop counter upon receiving a second trigger event while still counting from the first trigger event."],["TCI_1","Reload the counter upon receiving a second trigger event while still counting from the first trigger event."]]};

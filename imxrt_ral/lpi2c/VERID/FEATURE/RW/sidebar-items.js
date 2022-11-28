@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEATURE_2","Master only, with standard feature set"],["FEATURE_3","Master and slave, with standard feature set"]]};

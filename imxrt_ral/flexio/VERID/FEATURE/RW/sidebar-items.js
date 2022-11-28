@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEATURE_0","Standard features implemented."],["FEATURE_1","Supports state, logic and parallel modes."]]};

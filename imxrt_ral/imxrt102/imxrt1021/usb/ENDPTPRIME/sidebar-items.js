@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PERB","Prime Endpoint Receive Buffer - R/WS"],["PETB","Prime Endpoint Transmit Buffer - R/WS"]]};

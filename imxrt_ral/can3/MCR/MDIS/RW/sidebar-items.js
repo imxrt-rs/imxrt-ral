@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MDIS_0","Enable the FlexCAN module."],["MDIS_1","Disable the FlexCAN module."]]};

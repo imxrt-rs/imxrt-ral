@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DMA_REFLASH_SFF_0","No reflashing"],["DMA_REFLASH_SFF_1","Reflash the embedded DMA controller"]]};

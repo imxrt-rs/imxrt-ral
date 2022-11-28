@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["LOW_ALARM_VALUE","This bit field contains the temperature count that will generate a low alarm interrupt when the field is exceeded by TEMP_CNT"],["PANIC_ALARM_VALUE","This bit field contains the temperature count that will generate a panic interrupt when TEMP_CNT is smaller than this field"]]};

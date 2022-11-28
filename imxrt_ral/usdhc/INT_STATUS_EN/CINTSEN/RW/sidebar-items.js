@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CINTSEN_0","Masked"],["CINTSEN_1","Enabled"]]};

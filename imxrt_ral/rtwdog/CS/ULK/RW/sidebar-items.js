@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ULK_0","WDOG is locked."],["ULK_1","WDOG is unlocked."]]};

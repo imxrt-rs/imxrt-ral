@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TDCFAIL_0","Measured loop delay is in range."],["TDCFAIL_1","Measured loop delay is out of range."]]};

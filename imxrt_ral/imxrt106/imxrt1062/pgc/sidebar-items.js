@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PGC","Raw pointer to PGC"]],"struct":[["PGC","The PGC peripheral instance."]]};

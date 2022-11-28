@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERR17_0","0b0: An error in this channel has not occurred"],["ERR17_1","0b1: An error in this channel has occurred"]]};

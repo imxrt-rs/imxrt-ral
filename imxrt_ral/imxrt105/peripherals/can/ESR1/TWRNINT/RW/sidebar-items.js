@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TWRNINT_0","0b0: No such occurrence"],["TWRNINT_1","0b1: The Tx error counter transition from < 96 to >= 96"]]};

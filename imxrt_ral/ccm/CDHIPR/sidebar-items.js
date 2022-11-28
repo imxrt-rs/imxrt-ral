@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["AHB_PODF_BUSY","Busy indicator for ahb_podf."],["ARM_PODF_BUSY","Busy indicator for arm_podf."],["PERIPH2_CLK_SEL_BUSY","Busy indicator for periph2_clk_sel mux control."],["PERIPH_CLK_SEL_BUSY","Busy indicator for periph_clk_sel mux control."],["SEMC_PODF_BUSY","Busy indicator for semc_podf."]]};

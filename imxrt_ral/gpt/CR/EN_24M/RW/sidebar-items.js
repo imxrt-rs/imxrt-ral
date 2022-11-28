@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EN_24M_0","24M clock disabled"],["EN_24M_1","24M clock enabled"]]};

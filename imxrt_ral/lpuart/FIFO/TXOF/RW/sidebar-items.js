@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXOF_0","No transmit buffer overflow has occurred since the last time the flag was cleared."],["TXOF_1","At least one transmit buffer overflow has occurred since the last time the flag was cleared."]]};

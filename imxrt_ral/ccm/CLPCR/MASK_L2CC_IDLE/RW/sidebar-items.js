@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASK_L2CC_IDLE_0","L2CC IDLE is not masked"],["MASK_L2CC_IDLE_1","L2CC IDLE is masked"]]};

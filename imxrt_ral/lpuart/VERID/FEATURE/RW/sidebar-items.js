@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEATURE_1","Standard feature set."],["FEATURE_3","Standard feature set with MODEM/IrDA support."]]};

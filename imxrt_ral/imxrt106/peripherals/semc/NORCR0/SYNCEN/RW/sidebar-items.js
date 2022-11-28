@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SYNCEN_0","0b0: Asynchronous mode is enabled."],["SYNCEN_1","0b1: Synchronous mode is enabled."]]};

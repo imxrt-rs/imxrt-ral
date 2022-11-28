@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEATURE_4","Standard feature set supporting a 32-bit shift register."]]};

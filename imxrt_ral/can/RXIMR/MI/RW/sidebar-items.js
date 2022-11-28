@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MI_0","the corresponding bit in the filter is “don’t care”"],["MI_1","The corresponding bit in the filter is checked"]]};

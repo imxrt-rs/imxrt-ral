@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DMF","Data Match Flag"],["FCF","Frame Complete Flag"],["MBF","Module Busy Flag"],["RDF","Receive Data Flag"],["REF","Receive Error Flag"],["TCF","Transfer Complete Flag"],["TDF","Transmit Data Flag"],["TEF","Transmit Error Flag"],["WCF","Word Complete Flag"]]};

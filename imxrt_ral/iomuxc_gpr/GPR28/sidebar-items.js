@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["GPIO_MUX3_GPIO_SEL","GPIO3 and GPIO8 share same IO MUX function, GPIO_MUX3 selects one GPIO function."]]};

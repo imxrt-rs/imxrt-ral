@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEF_0","Receive overflow not detected."],["FEF_1","Receive overflow detected."]]};

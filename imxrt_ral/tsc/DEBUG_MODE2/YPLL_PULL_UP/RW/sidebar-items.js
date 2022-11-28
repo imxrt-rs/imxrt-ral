@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["YPLL_PULL_UP_0","Close the switch"],["YPLL_PULL_UP_1","Open the switch"]]};

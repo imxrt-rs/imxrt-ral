@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TEMPMON","Raw pointer to TEMPMON"]],"struct":[["TEMPMON","The TEMPMON peripheral instance."]]};

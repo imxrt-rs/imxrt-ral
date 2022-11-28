@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CCM","Raw pointer to CCM"]],"struct":[["CCM","The CCM peripheral instance."]]};

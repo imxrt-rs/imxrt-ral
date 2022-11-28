@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EFUSE_PROG_SUPPLY_GATE_0","0b0: fuse programing supply voltage is gated off to the efuse module"],["EFUSE_PROG_SUPPLY_GATE_1","0b1: allow fuse programing."]]};

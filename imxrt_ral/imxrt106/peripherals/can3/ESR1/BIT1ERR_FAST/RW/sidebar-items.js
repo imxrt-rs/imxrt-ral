@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BIT1ERR_FAST_0","0b0: No such occurrence."],["BIT1ERR_FAST_1","0b1: At least one bit sent as recessive is received as dominant."]]};

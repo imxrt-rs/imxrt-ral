@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KPKR_0","No key release detected"],["KPKR_1","All keys have been released"]]};

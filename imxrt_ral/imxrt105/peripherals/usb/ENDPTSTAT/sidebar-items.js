@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ERBR","Endpoint Receive Buffer Ready – Read Only"],["ETBR","Endpoint Transmit Buffer Ready – Read Only"]]};

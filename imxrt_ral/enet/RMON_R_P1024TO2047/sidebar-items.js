@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of 1024- to 2047-byte recieve packets"]]};

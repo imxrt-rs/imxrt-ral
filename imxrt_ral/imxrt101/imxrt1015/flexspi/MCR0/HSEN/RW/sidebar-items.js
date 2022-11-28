@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HSEN_0","0b0: Disable divide by 2 of serial flash clock for half speed commands."],["HSEN_1","0b1: Enable divide by 2 of serial flash clock for half speed commands."]]};

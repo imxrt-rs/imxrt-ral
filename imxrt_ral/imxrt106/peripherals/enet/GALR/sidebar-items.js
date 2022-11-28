@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["GADDR2","Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address"]]};

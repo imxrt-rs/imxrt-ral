@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPUART4_STOP_REQ_0","stop request off"],["LPUART4_STOP_REQ_1","stop request on"]]};

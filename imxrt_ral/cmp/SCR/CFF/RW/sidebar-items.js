@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CFF_0","Falling-edge on COUT has not been detected."],["CFF_1","Falling-edge on COUT has occurred."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EN_0","Analog Comparator is disabled."],["EN_1","Analog Comparator is enabled."]]};

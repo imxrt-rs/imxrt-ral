@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","This regiser reflects the payload pointer for the current control packet."]]};

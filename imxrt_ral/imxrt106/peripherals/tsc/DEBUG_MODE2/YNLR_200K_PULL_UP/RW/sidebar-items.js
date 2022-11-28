@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["YNLR_200K_PULL_UP_0","0b0: Close the switch"],["YNLR_200K_PULL_UP_1","0b1: Open up the switch"]]};

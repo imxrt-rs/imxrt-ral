@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DISCONADJ","The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"],["ENVADJ","The ENVADJ field adjusts the trip point for the envelope detector"],["RSVD0","Reserved."],["RSVD1","Reserved."],["RSVD2","Reserved."],["RXDBYPASS","0 = Normal operation"]]};

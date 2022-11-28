@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FILT_PER","Filter Sample Period"]]};

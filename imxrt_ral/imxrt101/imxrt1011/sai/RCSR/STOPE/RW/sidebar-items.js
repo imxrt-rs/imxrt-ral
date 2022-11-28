@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["STOPE_0","0b0: Receiver disabled in Stop mode."],["STOPE_1","0b1: Receiver enabled in Stop mode."]]};

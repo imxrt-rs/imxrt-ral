@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BWC_0","No eDMA engine stalls."],["BWC_2","eDMA engine stalls for 4 cycles after each R/W."],["BWC_3","eDMA engine stalls for 8 cycles after each R/W."]]};

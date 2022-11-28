@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADCH_16","External channel selection from ADC_ETC"],["ADCH_25","VREFSH = internal channel, for ADC self-test, hard connected to VRH internally"],["ADCH_31","Conversion Disabled. Hardware Triggers will not initiate any conversion."]]};

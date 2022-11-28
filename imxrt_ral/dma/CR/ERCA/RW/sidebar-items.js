@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERCA_0","Fixed priority arbitration is used for channel selection ."],["ERCA_1","Round robin arbitration is used for channel selection ."]]};

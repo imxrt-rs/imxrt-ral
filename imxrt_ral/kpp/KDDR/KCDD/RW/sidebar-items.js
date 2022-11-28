@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INPUT","COLn pin is configured as an input."],["OUTPUT","COLn pin is configured as an output."]]};

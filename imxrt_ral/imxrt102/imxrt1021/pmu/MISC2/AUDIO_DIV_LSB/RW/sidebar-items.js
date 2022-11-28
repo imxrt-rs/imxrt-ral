@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AUDIO_DIV_LSB_0","0b0: divide by 1 (Default)"],["AUDIO_DIV_LSB_1","0b1: divide by 2"]]};

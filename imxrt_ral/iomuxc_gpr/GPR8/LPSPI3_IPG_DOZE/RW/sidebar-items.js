@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPSPI3_IPG_DOZE_0","not in doze mode"],["LPSPI3_IPG_DOZE_1","in doze mode"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADACT_0","Conversion not in progress."],["ADACT_1","Conversion in progress."]]};

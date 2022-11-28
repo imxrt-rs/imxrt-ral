@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PRES_0","256 prescaler disabled."],["PRES_1","256 prescaler enabled."]]};

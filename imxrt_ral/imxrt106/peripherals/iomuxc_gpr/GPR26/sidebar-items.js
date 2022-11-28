@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["GPIO_MUX1_GPIO_SEL","GPIO1 and GPIO6 share same IO MUX function, GPIO_MUX1 selects one GPIO function."]]};

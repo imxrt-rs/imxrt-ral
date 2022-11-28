@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["POS","This read/write register contains the upper (most significant) half of the position counter"]]};

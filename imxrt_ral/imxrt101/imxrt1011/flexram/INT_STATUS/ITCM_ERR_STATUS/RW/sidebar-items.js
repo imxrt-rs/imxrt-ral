@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ITCM_ERR_STATUS_0","0b0: ITCM access error does not happen"],["ITCM_ERR_STATUS_1","0b1: ITCM access error happens."]]};

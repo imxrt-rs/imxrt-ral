@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PCSNUM","PCS Number"],["RXFIFO","Receive FIFO Size"],["TXFIFO","Transmit FIFO Size"]]};

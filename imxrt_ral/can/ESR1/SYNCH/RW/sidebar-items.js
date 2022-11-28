@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SYNCH_0","FlexCAN is not synchronized to the CAN bus"],["SYNCH_1","FlexCAN is synchronized to the CAN bus"]]};

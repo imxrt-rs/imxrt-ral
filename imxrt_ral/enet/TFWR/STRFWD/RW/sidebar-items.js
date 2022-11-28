@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["STRFWD_0","Reset. The transmission start threshold is programmed in TFWR[TFWR]."],["STRFWD_1","Enabled."]]};

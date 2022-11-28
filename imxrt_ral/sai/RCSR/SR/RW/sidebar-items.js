@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SR_0","No effect."],["SR_1","Software reset."]]};

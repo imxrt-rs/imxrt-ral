@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RWRNMSK_0","Rx Warning Interrupt disabled."],["RWRNMSK_1","Rx Warning Interrupt enabled."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GOOD_CONTACT","0b1: The USB plug has made good contact."],["NO_CONTACT","0b0: The USB plug has not made contact."]]};

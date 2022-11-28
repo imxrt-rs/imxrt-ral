@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["REV","This read/write register contains the current value of the revolution counter."]]};

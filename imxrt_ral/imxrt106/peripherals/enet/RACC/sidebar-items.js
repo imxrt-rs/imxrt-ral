@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["IPDIS","Enable Discard Of Frames With Wrong IPv4 Header Checksum"],["LINEDIS","Enable Discard Of Frames With MAC Layer Errors"],["PADREM","Enable Padding Removal For Short IP Frames"],["PRODIS","Enable Discard Of Frames With Wrong Protocol Checksum"],["SHIFT16","RX FIFO Shift-16"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TWRNINT_0","No such occurrence."],["TWRNINT_1","The Tx error counter transitioned from less than 96 to greater than or equal to 96."]]};

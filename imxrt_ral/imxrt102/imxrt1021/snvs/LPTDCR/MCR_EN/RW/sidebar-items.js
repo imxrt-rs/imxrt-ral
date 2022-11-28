@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MCR_EN_0","0b0: MC rollover is disabled."],["MCR_EN_1","0b1: MC rollover is enabled."]]};

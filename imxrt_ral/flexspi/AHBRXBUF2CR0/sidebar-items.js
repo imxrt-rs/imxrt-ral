@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BUFSZ","AHB RX Buffer Size in 64 bits."],["MSTRID","This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID)."],["PREFETCHEN","AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master."],["PRIORITY","This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest."]]};

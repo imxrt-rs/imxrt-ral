@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TRGSRC_0","External trigger selected"],["TRGSRC_1","Internal trigger selected"]]};

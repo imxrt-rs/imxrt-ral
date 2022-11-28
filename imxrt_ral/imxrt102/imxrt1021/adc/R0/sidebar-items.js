@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CDATA","Data (result of an ADC conversion)"]]};

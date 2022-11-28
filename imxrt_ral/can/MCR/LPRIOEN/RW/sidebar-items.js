@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPRIOEN_0","Local Priority disabled"],["LPRIOEN_1","Local Priority enabled"]]};

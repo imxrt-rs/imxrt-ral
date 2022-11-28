@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WAKE_0","0b0: Configures RWU for idle-line wakeup."],["WAKE_1","0b1: Configures RWU with address-mark wakeup."]]};

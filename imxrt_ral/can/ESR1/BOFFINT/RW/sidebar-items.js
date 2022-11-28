@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BOFFINT_0","No such occurrence"],["BOFFINT_1","FLEXCAN module entered ‘Bus Off’ state"]]};

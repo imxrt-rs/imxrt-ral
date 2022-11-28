@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["PKR_MAX","Poker Maximum Limit."]]};

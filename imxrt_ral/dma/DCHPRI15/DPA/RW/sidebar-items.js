@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DPA_0","Channel n can suspend a lower priority channel."],["DPA_1","Channel n cannot suspend any channel, regardless of channel priority."]]};

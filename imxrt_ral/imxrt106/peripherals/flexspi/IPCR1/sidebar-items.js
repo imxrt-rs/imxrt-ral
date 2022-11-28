@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["IDATSZ","Flash Read/Program Data Size (in Bytes) for IP command."],["IPAREN","Parallel mode Enabled for IP command."],["ISEQID","Sequence Index in LUT for IP command."],["ISEQNUM","Sequence Number for IP command: ISEQNUM+1."]]};

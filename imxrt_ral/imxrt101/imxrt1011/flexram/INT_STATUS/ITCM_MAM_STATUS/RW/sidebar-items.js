@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ITCM_MAM_STATUS_0","0b0: ITCM did not access magic address."],["ITCM_MAM_STATUS_1","0b1: ITCM accessed magic address."]]};

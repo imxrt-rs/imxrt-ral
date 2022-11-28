@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MDIS_0","Module enabled"],["MDIS_1","Master disabled."]]};

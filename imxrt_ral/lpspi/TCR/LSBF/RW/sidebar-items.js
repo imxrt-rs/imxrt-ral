@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LSBF_0","Data is transferred MSB first"],["LSBF_1","Data is transferred LSB first"]]};

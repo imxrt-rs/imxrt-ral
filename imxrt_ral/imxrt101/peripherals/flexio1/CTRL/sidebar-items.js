@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DBGE","Debug Enable"],["DOZEN","Doze Enable"],["FASTACC","Fast Access"],["FLEXEN","FlexIO Enable"],["SWRST","Software Reset"]]};

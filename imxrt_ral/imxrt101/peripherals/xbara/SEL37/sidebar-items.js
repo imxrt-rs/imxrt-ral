@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["SEL74","Input (XBARA_INn) to be muxed to XBARA_OUT74 (refer to Functional Description section for input/output assignment)"],["SEL75","Input (XBARA_INn) to be muxed to XBARA_OUT75 (refer to Functional Description section for input/output assignment)"]]};

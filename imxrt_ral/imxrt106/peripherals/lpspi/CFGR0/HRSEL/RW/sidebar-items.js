@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HRSEL_0","0b0: Host request input is the LPSPI_HREQ pin"],["HRSEL_1","0b1: Host request input is the input trigger"]]};

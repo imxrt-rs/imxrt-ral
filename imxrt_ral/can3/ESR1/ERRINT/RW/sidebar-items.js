@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERRINT_0","No such occurrence."],["ERRINT_1","Indicates setting of any Error Bit in the Error and Status Register."]]};

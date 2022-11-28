@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["INSRC","Input Source"],["PWIDTH","Parallel Width"],["SSTART","Shifter Start bit"],["SSTOP","Shifter Stop bit"]]};

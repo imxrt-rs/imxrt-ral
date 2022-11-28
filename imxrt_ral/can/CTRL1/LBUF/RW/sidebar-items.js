@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LBUF_0","Buffer with highest priority is transmitted first"],["LBUF_1","Lowest number buffer is transmitted first"]]};

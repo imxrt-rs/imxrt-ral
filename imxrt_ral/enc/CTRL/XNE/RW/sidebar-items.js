@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["XNE_0","Use positive transition edge of INDEX pulse"],["XNE_1","Use negative transition edge of INDEX pulse"]]};

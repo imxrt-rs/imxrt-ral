@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ECC_AUTO_EN_0","0b0: Auto Error correction is disabled."],["ECC_AUTO_EN_1","0b1: Auto Error correction is enabled."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LOCK_NIDEN_0","Field is not locked"],["LOCK_NIDEN_1","Field is locked (read access only)"]]};

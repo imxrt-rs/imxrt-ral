@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DIR_0","Count up."],["DIR_1","Count down."]]};

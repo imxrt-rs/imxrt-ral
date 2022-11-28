@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PADDR2","Bytes 4 (bits 31:24) and 5 (bits 23:16) of the 6-byte individual address used for exact match, and the source address field in PAUSE frames"],["TYPE","Type Field In PAUSE Frames"]]};

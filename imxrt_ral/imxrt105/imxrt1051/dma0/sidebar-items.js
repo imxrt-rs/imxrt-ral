@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DMA0","Raw pointer to DMA0"]],"struct":[["DMA0","The DMA0 peripheral instance."]]};

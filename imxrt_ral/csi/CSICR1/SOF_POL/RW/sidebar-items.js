@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SOF_POL_0","SOF interrupt is generated on SOF falling edge"],["SOF_POL_1","SOF interrupt is generated on SOF rising edge"]]};

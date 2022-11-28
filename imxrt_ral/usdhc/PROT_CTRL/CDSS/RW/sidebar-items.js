@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CDSS_0","Card Detection Level is selected (for normal purpose)."],["CDSS_1","Card Detection Test Level is selected (for test purpose)."]]};

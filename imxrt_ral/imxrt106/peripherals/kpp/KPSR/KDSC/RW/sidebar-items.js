@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KDSC_0","0b0: No effect"],["KDSC_1","0b1: Set bits that clear the keypad depress synchronizer chain"]]};

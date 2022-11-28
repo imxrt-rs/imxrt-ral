@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SDOFF_0","0b0: SD Clock is active."],["SDOFF_1","0b1: SD Clock is gated off."]]};

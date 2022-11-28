@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["COSC_EN_0","disable on chip oscillator"],["COSC_EN_1","enable on chip oscillator"]]};

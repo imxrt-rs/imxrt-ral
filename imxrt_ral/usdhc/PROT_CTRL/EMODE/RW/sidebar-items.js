@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EMODE_0","Big Endian Mode"],["EMODE_1","Half Word Big Endian Mode"],["EMODE_2","Little Endian Mode"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DMF_0","0b0: Have not received matching data"],["DMF_1","0b1: Have received matching data"]]};

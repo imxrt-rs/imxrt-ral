@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["OPEN_DRAIN","Column strobe output is open drain."],["TOTEM_POLE","Column strobe output is totem pole drive."]]};

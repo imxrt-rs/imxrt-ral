@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["KCD","Keypad Column Data"],["KRD","Keypad Row Data"]]};

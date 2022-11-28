@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WDOG2_MASK_0","WDOG2 Timeout behaves normally"],["WDOG2_MASK_1","WDOG2 Timeout is masked"]]};

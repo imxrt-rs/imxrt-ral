@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CDTL_0","Card Detect Test Level is 0, no card inserted"],["CDTL_1","Card Detect Test Level is 1, card inserted"]]};
