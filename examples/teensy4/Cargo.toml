@@ -33,6 +33,10 @@ version = "0.6.0-alpha.4"
 [dependencies.cortex-m]
 version = "0.7"
 
+[lib]
+name = "rtic_safe"
+path = "lib.rs"
+
 [[bin]]
 name = "blink"
 path = "blink.rs"

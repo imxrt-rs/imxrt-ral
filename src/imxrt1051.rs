@@ -2996,11 +2996,9 @@ pub mod xtalosc24m {
 pub const NVIC_PRIO_BITS: u8 = 4;
 #[doc = r" Instances for all of this device's peripherals."]
 #[doc = r""]
-#[doc = r" This is exposed for the RTIC framework. RTIC knows how"]
-#[doc = r" to safely acquire all instances so that you don't have"]
-#[doc = r" to use `unsafe`. See the RTIC documentation for more"]
-#[doc = r" information."]
-pub struct Peripherals {
+#[doc = r" Use this if you want a single way to acquire *all* instances"]
+#[doc = r" for your device."]
+pub struct Instances {
     pub ADC1: adc::ADC1,
     pub ADC2: adc::ADC2,
     pub ADC_ETC: adc_etc::ADC_ETC,
@@ -3103,21 +3101,16 @@ pub struct Peripherals {
     pub XBARB3: xbarb::XBARB3,
     pub XTALOSC24M: xtalosc24m::XTALOSC24M,
 }
-impl Peripherals {
-    #[doc = r#" "Steal" all instances."#]
-    #[doc = r""]
-    #[doc = r" The name `steal()` is to meet RTIC requirements. Internally,"]
-    #[doc = r" this constructor calls `instance()` on each member."]
-    #[doc = r""]
-    #[doc = r" You shouldn't call this; let RTIC call this function."]
+impl Instances {
+    #[doc = r" Acquire all peripheral instances."]
     #[doc = r""]
     #[doc = r" # Safety"]
     #[doc = r""]
     #[doc = r" Since this calls `instance()` to initialize each of its members,"]
     #[doc = r" the `instance()` safety contract applies. See [the `Instance` safety"]
     #[doc = r" documentation](crate::Instance) for more information."]
-    #[doc(hidden)]
-    pub const unsafe fn steal() -> Self {
+    #[inline]
+    pub const unsafe fn instances() -> Self {
         Self {
             ADC1: adc::ADC1::instance(),
             ADC2: adc::ADC2::instance(),
