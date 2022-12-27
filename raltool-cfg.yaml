@@ -1,0 +1,152 @@
+transforms:
+  # Transform device names, keeping the RAL convention.
+  - Rename:
+      from: Mimxrt1011
+      to: imxrt1011
+  - Rename:
+      from: Mimxrt1015
+      to: imxrt1015
+  - Rename:
+      from: Mimxrt1021
+      to: imxrt1021
+  - Rename:
+      from: Mimxrt1051
+      to: imxrt1051
+  - Rename:
+      from: Mimxrt1052
+      to: imxrt1052
+  - Rename:
+      from: Mimxrt1061
+      to: imxrt1061
+  - Rename:
+      from: Mimxrt1062
+      to: imxrt1062
+  - Rename:
+      from: Mimxrt1064
+      to: imxrt1064
+  - Rename:
+      from: Mimxrt1176Cm7
+      to: imxrt1176_cm7
+  - Rename:
+      from: Mimxrt1176Cm4
+      to: imxrt1176_cm4
+  - Rename:
+      from: pit::Pit1
+      to: pit::Pit
+  - Rename:
+      from: usb::Usb1
+      to: usb::Usb
+  - DeleteEnums:
+      from: usb::vals::Fs2
+  # Combine GPT OCR and ICR registrers for 10xx MCUs.
+  # This allows it to match the 11xx MCUs, and reduce
+  # code bloat.
+  - MakeRegisterArray:
+      blocks: gpt::Gpt(\d)
+      from: OCR(\d)
+      to: OCR
+  - MakeRegisterArray:
+      blocks: gpt::Gpt(\d)
+      from: ICR(\d)
+      to: ICR
+  # Drop select enums from GPT fields. These extra enums
+  # are present in 11xx SVDs and prevent the tool from
+  # combining with the 10xx GPT definition.
+  - DeleteEnums:
+      from: gpt::vals::Im(\d)
+  - DeleteEnums:
+      from: gpt::vals::Om(\d)
+  - DeleteEnums:
+      from: gpt::vals::Fo(\d)
+  - DeleteEnums:
+      from: gpt::vals::Sr(\d)
+  - DeleteEnums:
+      from: gpt::vals::Of(\d)
+  - DeleteEnums:
+      from: gpt::vals::If(\d)
+  - DeleteEnums:
+      from: gpt::vals::Of(\d)ie
+  - DeleteEnums:
+      from: gpt::vals::If(\d)ie
+  # Move the CAN wrapper instance number to the far right
+  # so it's properly parsed.
+  - Rename:
+      from: CAN(\d)_WRAPPER
+      to: CAN_WRAPPER$1
+  # This resembles a XECC_FLEXSPI peripheral.
+  # It consolidates when there's a number at the end.
+  - Rename:
+      from: XECC_SEMC
+      to: XECC_SEMC0
+  # This peripheral is tricky to support.
+  #
+  # - It has clusters in clusters. While we can generate code for this,
+  #   we can't easily add macro support for this.
+  # - It has clusters that alias each other. This is trickier to support
+  #   in today's codegen tool, so we're punting.
+  - Delete:
+      from: caam::Caam
+  # 1176 CM7 has GPIO blocks under a "cm7_gpio" module. Change this
+  # so that they're under a "gpio" module. Also, rename the block so
+  # that it matches the 10xx GPIO block name, and can be combined.
+  - Rename:
+      from: cm7_gpio::Cm7Gpio2
+      to: gpio::Gpio1
+  # Same goes for the 1176 CM4: rename for combining.
+  - Rename:
+      from: gpio::Gpio2
+      to: gpio::Gpio1
+  # Change the fast GPIO numbers on the 1176 CM7 so that they have a
+  # unique instance number. Add 10 to make it distinct. This is faily hacky,
+  # so TODO make this better.
+  - Rename:
+      from: CM7_GPIO2
+      to: FAST_GPIO20
+  - Rename:
+      from: CM7_GPIO3
+      to: FAST_GPIO30
+  # Similar number suffixes result in duplicate instance types. Define unique
+  # numbers (that are a bit less hacky, maybe).
+  - Rename:
+      from: PGMC_CPC0_MIF0
+      to: PGMC_CPC_MIF00
+  - Rename:
+      from: PGMC_CPC0_MIF1
+      to: PGMC_CPC_MIF01
+  - Rename:
+      from: PGMC_CPC1_MIF0
+      to: PGMC_CPC_MIF10
+  - Rename:
+      from: PGMC_CPC1_MIF1
+      to: PGMC_CPC_MIF11
+  # 1176 LPSPI has fewer enums which prevent combining. Remove them from
+  # the 10xx variants. They're simple, intuitive bool fields, so it's no
+  # bit deal to remove.
+  - DeleteEnums:
+      from: lpspi::vals::Hren
+  - DeleteEnums:
+      from: lpspi::vals::Hrpol
+  - DeleteEnums:
+      from: lpspi::vals::Hrsel
+  - DeleteEnums:
+      from: lpspi::vals::Pcspol
+  # DMA and DMAMUX are suffixed with numbers on the 1176, since each core
+  # has its own instance. They're also suffixed on 10xx chips, even though
+  # there's just one instnace. Rename them so that the names are the same across
+  # all chips.
+  - Rename:
+      from: dma(\d)::Dma(\d)
+      to: dma::Dma
+  - Rename:
+      from: DMA(\d)
+      to: DMA
+  - Rename:
+      from: dmamux(\d)::Dmamux(\d)
+      to: dmamux::Dmamux
+  - Rename:
+      from: DMAMUX(\d)
+      to: DMAMUX
+  - RenameRegisters:
+      block: ocotp::Ocotp
+      from: HW_OCOTP_(.*)
+      to: $1

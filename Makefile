@@ -4,7 +4,8 @@
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
-DEVICES ?= imxrt1011 imxrt1015 imxrt1021 imxrt1051 imxrt1052 imxrt1061 imxrt1062 imxrt1064 
+DEVICES ?= imxrt1011 imxrt1015 imxrt1021 imxrt1051 imxrt1052 imxrt1061 imxrt1062 imxrt1064 \
+	imxrt1176_cm7 imxrt1176_cm4
 
 all: patch crate rustfmt check
 
@@ -20,9 +21,12 @@ DEVICE_PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(DEVICE_YA
 
 DEVICE_FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(DEVICE_YAMLS))
 
+SVDTOOL := svdtools
+RALTOOL := target/release/raltool
+
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
-	svd patch $<
+	$(SVDTOOL) patch $<
 
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
@@ -61,25 +65,21 @@ clean-html:
 
 clean: clean-patch clean-html clean-check
 	rm -rf .deps
-
-# As alternative to `pip install --user svdtools`:
-# run `make venv update-venv` and `source venv/bin/activate'
-venv:
-	python3 -m venv venv
-
-update-venv:
-	venv/bin/pip install -U pip
-	venv/bin/pip install -U -r requirements.txt
+	cargo clean
 
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml
 	@mkdir -p .deps
-	python3 scripts/makedeps.py $< > $@
+	$(SVDTOOL) makedeps $< $@
 
-crate: patch
-	python3 imxrtral.py . svd/imxrt*.svd.patched
+crate: patch $(RALTOOL)
+	$(RALTOOL) generate svd/imxrt*.svd.patched --transform raltool-cfg.yaml
 
 rustfmt:
-	cargo fmt
+	cargo fmt --package=imxrt-ral
 	
 -include .deps/*
+-include target/release/raltool.d
+
+$(RALTOOL):
+	cargo build --release --package=raltool

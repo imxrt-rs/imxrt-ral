@@ -7,3 +7,12 @@ _include:
 _delete:
   - NVIC
   - SystemControl
+
+# Ensure LPI2C (master|slave) transmit registers are
+# write-only. They're read-write in 10xx SVDs...
+"LPI2C*":
+  _modify:
+    MTDR:
+      access: write-only
+    STDR:
+      access: write-only

@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature
+targets the Cortex-M7, and an `"imxrt1176_cm4"` feature targets the Cortex-M4.
+
+**BREAKING** Peripheral instances are acquired with an unsafe `instance()`
+method, and `imxrt-ral` does not provide a resource management strategy.
+Replace usages of `take()` and `steal()` with `instance().` See the before and
+after in the next note for an example.
+
 **BREAKING** Peripherals that support multiple instances are now unique types.
 This affects APIs that accept instances. See the before and after below for
 a summary. The usage documentation contains more examples.
@@ -14,12 +22,12 @@ let _: lpuart::Instance = lpuart::LPUART4::take().unwrap();
 let _: ccm::Instance = ccm::CCM::take().unwrap();
 
 // After
-let lpuart4: lpuart::Instance<4> = lpuart::LPUART4::take().unwrap();
+let lpuart4: lpuart::Instance<4> = unsafe { lpuart::LPUART4::instance() };
 // Equivalent:
 let lpuart4: lpuart::LPUART4 = lpuart4;
 
 // Use peripheral names when naming singleton instances:
-let _: ccm::CCM = ccm::CCM::take().unwrap();
+let _: ccm::CCM = unsafe { ccm::CCM::instance() };
 ```
 
 **BREAKING** Undo an SVD patch that renamed the USB module path for 1010,

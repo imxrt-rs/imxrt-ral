@@ -140,6 +140,7 @@ pub fn render(ir: &IR, opts: &Options) -> Result<()> {
     root.get_by_path(&[BLOCK_MOD]).mark_fs_only();
 
     root.items.extend(quote!(
+        #![doc = include_str!("../doc.md")]
         #![no_std]
         #![allow(non_camel_case_types, non_snake_case, non_upper_case_globals, clippy::self_named_constructors, clippy::module_inception)]
 

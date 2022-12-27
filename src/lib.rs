@@ -1,94 +1,140 @@
-// Copyright 2020 Tom Burdick
-// See LICENSE-APACHE and LICENSE-MIT for license details.
-
-//! This project provides a register access layer (RAL) for all
-//! NXP i.mx rt microcontrollers.
-//!
-//! When built, you must specify a device feature, such as `imxrt1062`.
-//! This will cause all modules in that device's module to be re-exported
-//! from the top level, so that for example `imxrt_ral::gpio` will resolve to
-//! `imxrt_ral::imxrt1062::gpio`.
-//!
-//! In the generated documentation, all devices are visible inside their family
-//! modules, but when built for a specific device, only that devices' constants
-//! will be available.
-#![doc = include_str!("../usage.md")]
-#![cfg_attr(target_arch = "arm", no_std)]
-#![allow(clippy::all)]
-
-mod register;
-
-pub use crate::register::{modify_reg, read_reg, write_reg};
-pub use crate::register::{RORegister, UnsafeRORegister};
-pub use crate::register::{RWRegister, UnsafeRWRegister};
-pub use crate::register::{UnsafeWORegister, WORegister};
-
-#[cfg(feature = "doc")]
-/// Interrupt sources
-///
-/// This enum is empty when generating documentation.
-/// To see the specific interrupts for your chip, see
-/// the `Interrupt` type in your chip-specific module, like
-///
-/// - [`imxrt101::imxrt1011::Interrupt`](imxrt101::imxrt1011::Interrupt)
-/// - [`imxrt106::imxrt1062::Interrupt`](imxrt106::imxrt1062::Interrupt)
-/// - etc
-///
-/// `Interrupt` resolves to those values when building the RAL for
-/// your chip.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Interrupt {}
-
-/// The constant for a peripheral with just one instance.
-///
-/// The CCM peripheral is an example of a "sole instance." On the other
-/// hand, no LPUART peripheral will have this constant, since there are
-/// multiple instances.
-pub const SOLE_INSTANCE: u8 = 0;
-
+# ! [doc = include_str ! ("../doc.md")]
+#![no_std]
+#![allow(
+    non_camel_case_types,
+    non_snake_case,
+    non_upper_case_globals,
+    clippy::self_named_constructors,
+    clippy::module_inception
+)]
+pub use ral_registers::{modify_reg, read_reg, write_reg, RORegister, RWRegister, WORegister};
+#[doc = r" An owned peripheral of type `T`, instance `N`."]
+#[doc = r""]
+#[doc = r" Fabricating an `Instance` is always `unsafe`. An owner of an"]
+#[doc = r" `Instance` may assume that"]
+#[doc = r""]
+#[doc = r" - the underlying pointer points to a static register block of type `T`."]
+#[doc = r" - the instance number `N` properly describes the peripheral instance."]
+#[doc = r" - they own _all_ registers pointed at by `T`."]
+#[doc = r""]
+#[doc = r" Owners use this guarantee to safely access the peripheral registers."]
+#[doc = r" However, nothing guarantees any of these except for your diligence."]
+#[doc = r""]
+#[doc = r" Constructing an `Instance` is zero cost. Additionally, `Instance` is transparent"]
+#[doc = r" and amenable to null-pointer optimizations."]
+#[doc = r""]
+#[doc = r" See the package-level documentation for more information on fabricating"]
+#[doc = r" instances."]
+#[doc = r""]
+#[doc = r" # Safety of `new()`."]
+#[doc = r""]
+#[doc = r" By calling `new()`, you claim"]
+#[doc = r""]
+#[doc = r" 1. `ptr` points to static memory that can be described by a type `T`."]
+#[doc = r" 2. The instance number `N` correctly describes `ptr`."]
+#[doc = r" 3. You are becoming the sole owner of this instance."]
+#[doc = r""]
+#[doc = r" # Safety of `instance()`"]
+#[doc = r""]
+#[doc = r" The various `instance()` methods handle safety concerns 1 and 2 from `new()`."]
+#[doc = r" By their construction, each `instance()` implementation provides a pointer to valid"]
+#[doc = r" peripheral memory, and associates the correct `N` with that pointer. Therefore,"]
+#[doc = r" you're only responsible for ensuring safety concern 3 from `new()`."]
+#[repr(transparent)]
+pub struct Instance<T, const N: u8> {
+    ptr: core::ptr::NonNull<T>,
+}
+impl<T, const N: u8> core::ops::Deref for Instance<T, N> {
+    type Target = T;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        unsafe { self.ptr.as_ref() }
+    }
+}
+impl<T, const N: u8> Instance<T, N> {
+    #[doc = r" Create an arbitrary `Instance` from a pointer to `T`."]
+    #[doc = r""]
+    #[doc = r" # Safety"]
+    #[doc = r""]
+    #[doc = r" See [the struct docs](Instance) for the safety contract."]
+    #[inline]
+    pub const unsafe fn new(ptr: *const T) -> Self {
+        Self {
+            ptr: core::ptr::NonNull::new_unchecked(ptr as *mut _),
+        }
+    }
+}
+unsafe impl<T, const N: u8> Send for Instance<T, N> {}
+#[doc = r" The instance number for a peripheral singleton."]
+#[doc = r""]
+#[doc = r" If your peripheral only has one instance, it's given"]
+#[doc = r" this number. The CCM peripheral is a good example of"]
+#[doc = r" a peripheral that uses this constant."]
+#[doc = r""]
+#[doc = r" See the package documentation for more information on"]
+#[doc = r" this constant."]
+pub const SOLE_INSTANCE: u8 = 0u8;
 mod private {
     pub trait Sealed {}
 }
-
-/// Implemented on all `Instance<N>` when `N` is a valid instance number.
+#[doc = r" Vouches for an `Instance<T, N>`'s validity."]
+#[doc = r""]
+#[doc = r" This trait is implemented for all `Instance<T, N>` supported"]
+#[doc = r" by your chip. Note that the implementation may change when"]
+#[doc = r" selecting new chip features. For instance, i.MX RT 1011 chips"]
+#[doc = r" do not have LPUART 4 through 8. So, `Valid` is _not_ implemented"]
+#[doc = r" for `lpuart::Instance<4>` through `lpuart::Instance<8>`."]
+#[doc = r""]
+#[doc = r" See the package documentation for more information on how"]
+#[doc = r" to use this trait in your APIs."]
 pub trait Valid: private::Sealed {}
-#[cfg(any(feature = "doc", feature = "imxrt1011", feature = "imxrt1015"))]
-pub mod imxrt101;
-
 #[cfg(feature = "imxrt1011")]
-pub use imxrt101::imxrt1011::*;
-
+#[path = "imxrt1011.rs"]
+mod imxrt1011;
+#[cfg(feature = "imxrt1011")]
+pub use imxrt1011::*;
 #[cfg(feature = "imxrt1015")]
-pub use imxrt101::imxrt1015::*;
-
-#[cfg(any(feature = "doc", feature = "imxrt1021"))]
-pub mod imxrt102;
-
+#[path = "imxrt1015.rs"]
+mod imxrt1015;
+#[cfg(feature = "imxrt1015")]
+pub use imxrt1015::*;
 #[cfg(feature = "imxrt1021")]
-pub use imxrt102::imxrt1021::*;
-
-#[cfg(any(feature = "doc", feature = "imxrt1051", feature = "imxrt1052"))]
-pub mod imxrt105;
-
+#[path = "imxrt1021.rs"]
+mod imxrt1021;
+#[cfg(feature = "imxrt1021")]
+pub use imxrt1021::*;
 #[cfg(feature = "imxrt1051")]
-pub use imxrt105::imxrt1051::*;
-
+#[path = "imxrt1051.rs"]
+mod imxrt1051;
+#[cfg(feature = "imxrt1051")]
+pub use imxrt1051::*;
 #[cfg(feature = "imxrt1052")]
-pub use imxrt105::imxrt1052::*;
-
-#[cfg(any(
-    feature = "doc",
-    feature = "imxrt1061",
-    feature = "imxrt1062",
-    feature = "imxrt1064"
-))]
-pub mod imxrt106;
-
+#[path = "imxrt1052.rs"]
+mod imxrt1052;
+#[cfg(feature = "imxrt1052")]
+pub use imxrt1052::*;
 #[cfg(feature = "imxrt1061")]
-pub use imxrt106::imxrt1061::*;
-
+#[path = "imxrt1061.rs"]
+mod imxrt1061;
+#[cfg(feature = "imxrt1061")]
+pub use imxrt1061::*;
 #[cfg(feature = "imxrt1062")]
-pub use imxrt106::imxrt1062::*;
-
+#[path = "imxrt1062.rs"]
+mod imxrt1062;
+#[cfg(feature = "imxrt1062")]
+pub use imxrt1062::*;
 #[cfg(feature = "imxrt1064")]
-pub use imxrt106::imxrt1064::*;
+#[path = "imxrt1064.rs"]
+mod imxrt1064;
+#[cfg(feature = "imxrt1064")]
+pub use imxrt1064::*;
+#[cfg(feature = "imxrt1176_cm4")]
+#[path = "imxrt1176_cm4.rs"]
+mod imxrt1176_cm4;
+#[cfg(feature = "imxrt1176_cm4")]
+pub use imxrt1176_cm4::*;
+#[cfg(feature = "imxrt1176_cm7")]
+#[path = "imxrt1176_cm7.rs"]
+mod imxrt1176_cm7;
+#[cfg(feature = "imxrt1176_cm7")]
+pub use imxrt1176_cm7::*;

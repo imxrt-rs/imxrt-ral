@@ -12,28 +12,28 @@ The steps below are useful for developers who want to build and modify this repo
 
 ### Dependencies
 
-You'll need
+You'll need  a Rust installation, at least Rust 1.64, possibly later. To be safe, use the latest, stable Rust compiler.
 
-- a Rust installation, at least Rust 1.40, possibly later. To be safe, use the latest, stable Rust compiler.
-- the `thumbv7-none-eabihf` Rust target, which may be installed via `rustup`:
-
-```bash
-rustup target add thumbv7em-none-eabihf
-```
-
-### RAL
-
-The `imxrt-ral` crate is auto-generated from the checked-in SVD files, available in `svd`. It's checked into git, and you should always have whatever represents the latest auto-generated RAL. Generally, you should **not** manually change RAL source files; rather, you should describe changes in `imxrtral.py`, the Python script that auto-generates the RAL.
+### Generate
 
 To generate the RAL,
 
-- Install Python 3. You'll need at least Python 3.6.
-- Install the Python dependencies needed to generate the RAL: `pip3 install --user svdtools`. Alternatively, use the rules in the RAL's `Makefile` to create a virtual environment with the necessary dependencies: `make venv update-venv && source venv/bin/activate`.
-- Run `make`. The auto-generation script might generate warnings; that's OK.
+1. Install `svdtools`: `cargo install svdtools`.
+2. Run `make`.
 
-If everything went well, you should find that the `src` directory is populated with Rust files. If you made changes in `imxrtral.py`, you should see those changes reflected in the Rust files. The RAL can build by itself: `cargo check --features imxrt1062 --target thumbv7em-none-eabihf`.
+If everything went well, you should find that the `src` directory is updated with Rust files. If you made changes to SVD patches, `raltool` transforms, or `raltool` itself, you should see those changes reflected in the Rust files. The RAL can build by itself: `cargo check --features imxrt1062`.
 
-If you add a SVD patch, or if you change something in `imxrtral.py`, you'll need to re-generate the RAL to realize the change.
+### Modify
+
+The `imxrt-ral` crate is auto-generated from the checked-in SVD files, available in `svd`. It's checked into git, and you should always have whatever represents the latest auto-generated RAL. Generally, you should **not** manually change RAL source files; rather, you should describe changes
+
+- as patches to one or more SVDs.
+- as a `raltool` transform, described in `raltool-cfg.yaml`.
+- as a change in `raltool`.
+
+Prefer SVD patches when you're correcting a defect in the SVD, or if your change could be use beyond this project. SVD patches are located under `devices` in various YAML files.
+
+Prefer an existing or new `raltool` transform over manual `raltool` extensions, since they're easier to study and test. See `raltool/src/transform` to understand the available transforms.
 
 ### SVD Patches
 
@@ -41,7 +41,7 @@ To modify the RAL, you'll need to describe your change as an SVD patch. If you'd
 
 ### Testing
 
-Our CI system ensures that the RAL and HAL(s) build for all processor variants. But, we can't automatically test against hardware! To test your changes on hardware, you'll need to test the RAL and the HAL(s) using another project, like a Rust BSP crate. Some BSP crates that use the `imxrt1060-hal` include
+Our CI system ensures that the RAL and HAL(s) build for all processor variants. But, we can't automatically test against hardware! To test your changes on hardware, you'll need to test the RAL and the HAL(s) using another project, like a Rust BSP crate. Some BSP crates that use the `imxrt-hal` include
 
 - [the `imxrt1060evk-bsp` crate](https://github.com/imxrt-rs/imxrt1060evk-bsp)
 - [the `teensy4-bsp` crate](https://github.com/mciantyre/teensy4-rs)

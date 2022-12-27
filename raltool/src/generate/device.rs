@@ -249,28 +249,21 @@ name."#
     out.extend(quote! {
         /// Instances for all of this device's peripherals.
         ///
-        /// This is exposed for the RTIC framework. RTIC knows how
-        /// to safely acquire all instances so that you don't have
-        /// to use `unsafe`. See the RTIC documentation for more
-        /// information.
-        pub struct Peripherals {
+        /// Use this if you want a single way to acquire *all* instances
+        /// for your device.
+        pub struct Instances {
             #member_decls
         }
-        impl Peripherals {
-            /// "Steal" all instances.
-            ///
-            /// The name `steal()` is to meet RTIC requirements. Internally,
-            /// this constructor calls `instance()` on each member.
-            ///
-            /// You shouldn't call this; let RTIC call this function.
+        impl Instances {
+            /// Acquire all peripheral instances.
             ///
             /// # Safety
             ///
             /// Since this calls `instance()` to initialize each of its members,
             /// the `instance()` safety contract applies. See [the `Instance` safety
             /// documentation](crate::Instance) for more information.
-            #[doc(hidden)] // This is only for RTIC.
-            pub const unsafe fn steal() -> Self {
+            #[inline]
+            pub const unsafe fn instances() -> Self {
                 Self {
                     #member_inits
                 }

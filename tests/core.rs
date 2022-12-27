@@ -10,10 +10,8 @@
 /// time.
 mod import_test {
     #![allow(unused)]
-    use imxrt_ral::{modify_reg, read_reg, reset_reg, write_reg};
-    use imxrt_ral::{
-        RORegister, RWRegister, UnsafeRORegister, UnsafeRWRegister, UnsafeWORegister, WORegister,
-    };
+    use imxrt_ral::{modify_reg, read_reg, write_reg};
+    use imxrt_ral::{RORegister, RWRegister, WORegister};
 }
 
 use imxrt_ral as ral;

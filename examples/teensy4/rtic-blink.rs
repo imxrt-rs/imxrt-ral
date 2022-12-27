@@ -15,7 +15,7 @@
 use teensy4_fcb as _;
 use teensy4_panic as _;
 
-#[rtic::app(device = imxrt_ral, peripherals = true)]
+#[rtic::app(device = rtic_safe, peripherals = true)]
 mod app {
     use imxrt_ral as ral;
 
@@ -36,8 +36,13 @@ mod app {
     struct Shared {}
 
     #[init]
-    fn init(cx: init::Context) -> (Shared, Local, init::Monotonics) {
-        let iomuxc = cx.device.IOMUXC;
+    fn init(
+        init::Context {
+            device: rtic_safe::Peripherals(device),
+            ..
+        }: init::Context,
+    ) -> (Shared, Local, init::Monotonics) {
+        let iomuxc = device.IOMUXC;
         // Set the GPIO pad to a GPIO function (ALT 5)
         ral::write_reg!(ral::iomuxc, iomuxc, SW_MUX_CTL_PAD_GPIO_B0_03, 5);
         // Increase drive strength, but leave other fields at their current value...
@@ -48,11 +53,11 @@ mod app {
             DSE: DSE_7_R0_7
         );
 
-        let gpio2 = cx.device.GPIO2;
+        let gpio2 = device.GPIO2;
         // Set GPIO2[3] to an output
         ral::modify_reg!(ral::gpio, gpio2, GDIR, |gdir| gdir | LED);
 
-        let ccm = cx.device.CCM;
+        let ccm = device.CCM;
 
         // Disable the PIT clock gate while we change the clock...
         ral::modify_reg!(ral::ccm, ccm, CCGR1, CG6: 0b00);
@@ -68,18 +73,18 @@ mod app {
         // Re-enable PIT clock
         ral::modify_reg!(ral::ccm, ccm, CCGR1, CG6: 0b11);
 
-        let pit = cx.device.PIT;
+        let pit = device.PIT;
         // Disable the PIT, just in case it was used by the boot ROM
         ral::write_reg!(ral::pit, pit, MCR, MDIS: MDIS_1);
         // Reset channel 0 control; we'll use channel 0 for our timer
-        ral::write_reg!(ral::pit, pit, TCTRL0, 0);
+        ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, 0);
         // Set the counter value
-        ral::write_reg!(ral::pit, pit, LDVAL0, PIT_PERIOD_US);
+        ral::write_reg!(ral::pit::timer, &pit.TIMER[0], LDVAL, PIT_PERIOD_US);
         // Enable the PIT timer
         ral::modify_reg!(ral::pit, pit, MCR, MDIS: MDIS_0);
         // Enable interrupts and start counting
-        ral::write_reg!(ral::pit, pit, TCTRL0, TIE: 1);
-        ral::modify_reg!(ral::pit, pit, TCTRL0, TEN: 1);
+        ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, TIE: 1);
+        ral::modify_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, TEN: 1);
 
         ral::write_reg!(ral::gpio, gpio2, DR_SET, LED);
         (Shared {}, Local { gpio2, pit }, init::Monotonics())
@@ -90,8 +95,8 @@ mod app {
         let pit = cx.local.pit;
         let gpio2 = cx.local.gpio2;
 
-        if ral::read_reg!(ral::pit, pit, TFLG0, TIF == 1) {
-            ral::write_reg!(ral::pit, pit, TFLG0, TIF: 1);
+        if ral::read_reg!(ral::pit::timer, &pit.TIMER[0], TFLG, TIF == 1) {
+            ral::write_reg!(ral::pit::timer, &pit.TIMER[0], TFLG, TIF: 1);
             ral::write_reg!(ral::gpio, gpio2, DR_TOGGLE, LED);
         }
 

@@ -33,6 +33,10 @@ version = "0.6.0-alpha.4"
 [dependencies.cortex-m]
 version = "0.7"
 
+[lib]
+name = "rtic_safe"
+path = "lib.rs"
+
 [[bin]]
 name = "blink"
 path = "blink.rs"
@@ -40,9 +44,7 @@ path = "blink.rs"
 [[bin]]
 name = "blink-nosync"
 path = "blink-nosync.rs"
-required-features = ["imxrt-ral/nosync"]
 
 [[bin]]
 name = "rtic-blink"
 path = "rtic-blink.rs"
-required-features = ["imxrt-ral/rtic"]
