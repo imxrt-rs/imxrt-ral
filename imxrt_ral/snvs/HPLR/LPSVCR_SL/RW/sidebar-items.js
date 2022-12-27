@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPSVCR_SL_0","Write access is allowed"],["LPSVCR_SL_1","Write access is not allowed"]]};

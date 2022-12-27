@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLKSRC_0","0b0: The CAN engine clock source is the oscillator clock. Under this condition, the oscillator clock frequency must be lower than the bus clock."],["CLKSRC_1","0b1: The CAN engine clock source is the peripheral clock."]]};

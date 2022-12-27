@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SARF_0","SMBus Alert Response is disabled or not detected"],["SARF_1","SMBus Alert Response is enabled and detected"]]};

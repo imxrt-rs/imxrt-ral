@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLEAR_USING_MASK","Keep active until mask off"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WRMFRZ_0","0b0: Keep the write access restricted in some regions of FlexCAN memory"],["WRMFRZ_1","0b1: Enable unrestricted write access to FlexCAN memory"]]};

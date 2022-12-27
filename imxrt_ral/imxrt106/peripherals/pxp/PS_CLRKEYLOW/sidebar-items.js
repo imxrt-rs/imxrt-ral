@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["PIXEL","Low range of color key applied to PS buffer"],["RSVD1","Reserved, always set to zero."]]};

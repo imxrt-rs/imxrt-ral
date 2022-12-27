@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TXNACK_0","Write a Transmit ACK for each received word"],["TXNACK_1","Write a Transmit NACK for each received word"]]};

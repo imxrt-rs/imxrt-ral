@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SRE_0_Slow_Slew_Rate","0b0: Slow Slew Rate"],["SRE_1_Fast_Slew_Rate","0b1: Fast Slew Rate"]]};

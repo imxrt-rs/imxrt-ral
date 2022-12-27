@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["HRS16_0","0b0: A hardware service request for channel 16 is not present"],["HRS16_1","0b1: A hardware service request for channel 16 is present"]]};

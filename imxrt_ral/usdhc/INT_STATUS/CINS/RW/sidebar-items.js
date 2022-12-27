@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CINS_0","Card state unstable or removed"],["CINS_1","Card inserted"]]};

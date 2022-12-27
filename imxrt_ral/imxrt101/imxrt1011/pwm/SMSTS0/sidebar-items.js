@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CFA0","Capture Flag A0"],["CFA1","Capture Flag A1"],["CFB0","Capture Flag B0"],["CFB1","Capture Flag B1"],["CFX0","Capture Flag X0"],["CFX1","Capture Flag X1"],["CMPF","Compare Flags"],["REF","Reload Error Flag"],["RF","Reload Flag"],["RUF","Registers Updated Flag"]]};

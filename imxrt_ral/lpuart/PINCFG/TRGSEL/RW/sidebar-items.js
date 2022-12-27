@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TRGSEL_0","Input trigger is disabled."],["TRGSEL_1","Input trigger is used instead of RXD pin input."],["TRGSEL_2","Input trigger is used instead of CTS_B pin input."],["TRGSEL_3","Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is ANDed with the input trigger."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SV3_EN_0","0b0: Security Violation 3 Interrupt is Disabled"],["SV3_EN_1","0b1: Security Violation 3 Interrupt is Enabled"]]};

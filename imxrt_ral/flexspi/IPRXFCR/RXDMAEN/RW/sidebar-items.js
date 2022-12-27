@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXDMAEN_0","IP RX FIFO would be read by processor."],["RXDMAEN_1","IP RX FIFO would be read by DMA."]]};

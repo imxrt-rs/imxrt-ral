@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CAMP2_READY_0","0b0: CAMP2 is not ready."],["CAMP2_READY_1","0b1: CAMP2 is ready."]]};

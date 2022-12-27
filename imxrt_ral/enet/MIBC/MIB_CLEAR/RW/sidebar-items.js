@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MIB_CLEAR_0","See note above."],["MIB_CLEAR_1","All statistics counters are reset to 0."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ENABLE_0","0b0: Spread spectrum modulation disabled"],["ENABLE_1","0b1: Soread spectrum modulation enabled"]]};

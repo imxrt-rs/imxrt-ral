@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ISO","After a power-down request (pdn_req assertion), the PGC waits a number of 32k clocks equal to the value of ISO before asserting isolation"],["ISO2SW","After asserting isolation, the PGC waits a number of 32k clocks equal to the value of ISO2SW before negating"]]};

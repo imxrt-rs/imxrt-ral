@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PRESCALE_0","0b000: Divide by 1"],["PRESCALE_1","0b001: Divide by 2"],["PRESCALE_2","0b010: Divide by 4"],["PRESCALE_3","0b011: Divide by 8"],["PRESCALE_4","0b100: Divide by 16"],["PRESCALE_5","0b101: Divide by 32"],["PRESCALE_6","0b110: Divide by 64"],["PRESCALE_7","0b111: Divide by 128"]]};

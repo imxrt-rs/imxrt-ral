@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPM_0","Remain in run mode"],["LPM_1","Transfer to wait mode"],["LPM_2","Transfer to stop mode"]]};

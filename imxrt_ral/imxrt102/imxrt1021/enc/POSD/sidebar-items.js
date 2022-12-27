@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["POSD","This read/write register contains the position change in value occurring between each read of the position register"]]};

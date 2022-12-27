@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SEMC_PODF_BUSY_0","divider is not busy and its value represents the actual division."],["SEMC_PODF_BUSY_1","divider is busy with handshake process with module. The value read in the divider represents the previous value of the division factor, and after the handshake the written value of the semc_podf will be applied."]]};

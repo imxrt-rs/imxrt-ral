@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["JTAG_SW_RST_0","Reset is not a result of the mentioned case."],["JTAG_SW_RST_1","Reset is not a result of the mentioned case."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PUS_0_100K_Ohm_Pull_Down","0b00: 100K Ohm Pull Down"],["PUS_1_47K_Ohm_Pull_Up","0b01: 47K Ohm Pull Up"],["PUS_2_100K_Ohm_Pull_Up","0b10: 100K Ohm Pull Up"],["PUS_3_22K_Ohm_Pull_Up","0b11: 22K Ohm Pull Up"]]};

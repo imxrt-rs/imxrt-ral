@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SMP_0","Just one sample is used to determine the bit value"],["SMP_1","Three samples are used to determine the value of the received bit: the regular one (sample point) and 2 preceding samples, a majority rule is used"]]};

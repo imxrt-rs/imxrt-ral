@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of receive packets with less than 64 bytes and bad CRC"]]};

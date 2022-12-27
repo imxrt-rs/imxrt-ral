@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DQSMD_0","Dummy read strobe loopbacked internally"],["DQSMD_1","Dummy read strobe loopbacked from DQS pad"]]};

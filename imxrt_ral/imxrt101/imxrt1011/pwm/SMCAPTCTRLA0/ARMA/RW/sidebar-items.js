@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ARMA_0","0b0: Input capture operation is disabled."],["ARMA_1","0b1: Input capture operation as specified by CAPTCTRLA[EDGAx] is enabled."]]};

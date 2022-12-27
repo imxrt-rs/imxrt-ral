@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RUF_0","0b0: No register update has occurred since last reload."],["RUF_1","0b1: At least one of the double buffered registers has been updated since the last reload."]]};

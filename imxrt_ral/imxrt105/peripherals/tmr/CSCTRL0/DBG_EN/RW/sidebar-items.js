@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBG_EN_0","0b00: Continue with normal operation during debug mode. (default)"],["DBG_EN_1","0b01: Halt TMR counter during debug mode."],["DBG_EN_2","0b10: Force TMR output to logic 0 (prior to consideration of SCTRL[OPS])."],["DBG_EN_3","0b11: Both halt counter and force output to 0 during debug mode."]]};

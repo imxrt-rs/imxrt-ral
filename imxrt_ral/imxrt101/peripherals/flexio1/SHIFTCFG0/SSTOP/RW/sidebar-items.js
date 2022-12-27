@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SSTOP_0","0b00: Stop bit disabled for transmitter/receiver/match store"],["SSTOP_2","0b10: Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0"],["SSTOP_3","0b11: Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1"]]};

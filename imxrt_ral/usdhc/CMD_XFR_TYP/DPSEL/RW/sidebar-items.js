@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DPSEL_0","No Data Present"],["DPSEL_1","Data Present"]]};

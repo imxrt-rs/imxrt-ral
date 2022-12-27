@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CTOE_0","0b0: No Error"],["CTOE_1","0b1: Time out"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TE_0","Transmitter disabled."],["TE_1","Transmitter enabled."]]};

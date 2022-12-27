@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FRF_0","Receive FIFO watermark not reached."],["FRF_1","Receive FIFO watermark has been reached."]]};

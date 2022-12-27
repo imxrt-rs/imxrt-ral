@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PERIPH_CLK2_SEL_0","derive clock from pll3_sw_clk"],["PERIPH_CLK2_SEL_1","derive clock from osc_clk"],["PERIPH_CLK2_SEL_2","derive clock from pll2_bypass_clk"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["BUSIDLE","Bus Idle Timeout"],["FILTSCL","Glitch Filter SCL"],["FILTSDA","Glitch Filter SDA"]]};

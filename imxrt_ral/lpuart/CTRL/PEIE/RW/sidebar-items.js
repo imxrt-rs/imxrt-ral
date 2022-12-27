@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PEIE_0","PF interrupts disabled; use polling)."],["PEIE_1","Hardware interrupt requested when PF is set."]]};

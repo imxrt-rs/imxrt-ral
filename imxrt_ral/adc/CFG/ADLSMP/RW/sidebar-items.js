@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADLSMP_0","Short sample mode."],["ADLSMP_1","Long sample mode."]]};

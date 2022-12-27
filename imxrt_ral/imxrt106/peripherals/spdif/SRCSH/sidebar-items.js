@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RxCChannel_h","SPDIF receive C channel register, contains first 24 bits of C channel without interpretation"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GPIO_AD_B0_09_ALT7","0b0: Selecting Pad: GPIO_AD_B0_09 for Mode: ALT7"],["GPIO_AD_B1_02_ALT8","0b1: Selecting Pad: GPIO_AD_B1_02 for Mode: ALT8"]]};

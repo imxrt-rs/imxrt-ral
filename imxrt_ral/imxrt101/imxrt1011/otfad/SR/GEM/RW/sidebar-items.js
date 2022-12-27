@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GEM_0","0b0: OTFAD is disabled. All data fetched by the FlexSPI bypasses OTFAD processing."],["GEM_1","0b1: OTFAD is enabled, and processes data fetched by the FlexSPI as defined by the hardware configuration."]]};

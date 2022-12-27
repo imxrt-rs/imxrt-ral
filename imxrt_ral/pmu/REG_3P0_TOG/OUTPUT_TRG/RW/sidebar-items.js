@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OUTPUT_TRG_0","2.625V"],["OUTPUT_TRG_15","3.000V"],["OUTPUT_TRG_31","3.400V"]]};

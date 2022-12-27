@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PDE_0","Power Down Counter of WDOG is disabled."],["PDE_1","Power Down Counter of WDOG is enabled (Default)."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXFLUSH_0","0b0: No flush operation occurs."],["RXFLUSH_1","0b1: All data in the receive FIFO/buffer is cleared out."]]};

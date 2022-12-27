@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RF_OR_INT_0","0b0: RXFIFO has not overflowed."],["RF_OR_INT_1","0b1: RXFIFO has overflowed."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CAPTURE","Capture Timer Value"],["EN","Enable Timer"],["OFFEN","Enable One-Shot Offset Event"],["OFFRST","Reset Timer On Offset Event"],["PEREN","Enable Periodical Event"],["PINPER","Enables event signal output assertion on period event"],["RESTART","Reset Timer"],["SLAVE","Enable Timer Slave Mode"]]};

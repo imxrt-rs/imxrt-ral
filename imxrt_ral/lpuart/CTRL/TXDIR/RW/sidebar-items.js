@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TXDIR_0","TXD pin is an input in single-wire mode."],["TXDIR_1","TXD pin is an output in single-wire mode."]]};

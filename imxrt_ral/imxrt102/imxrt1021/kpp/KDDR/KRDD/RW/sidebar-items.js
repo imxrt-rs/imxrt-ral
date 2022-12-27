@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INPUT","0b00000000: ROWn pin configured as an input."],["OUTPUT","0b00000001: ROWn pin configured as an output."]]};

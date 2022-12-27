@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["EN_CLK_UTMI","Enables the clk to the UTMI block."],["EN_DEGLITCH","Enable the deglitching circuit of the USB PLL output."],["HS_USE_EXTERNAL_R","Use external resistor to generate the current bias for the high speed transmitter"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["GPIO_EDGE_SEL","GPIO_EDGE_SEL"]]};

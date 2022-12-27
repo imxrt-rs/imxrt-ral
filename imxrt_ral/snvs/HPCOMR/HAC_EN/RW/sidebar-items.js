@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HAC_EN_0","High Assurance Counter is disabled"],["HAC_EN_1","High Assurance Counter is enabled"]]};

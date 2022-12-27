@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SAEN_0","Disables match on SMBus Alert"],["SAEN_1","Enables match on SMBus Alert"]]};

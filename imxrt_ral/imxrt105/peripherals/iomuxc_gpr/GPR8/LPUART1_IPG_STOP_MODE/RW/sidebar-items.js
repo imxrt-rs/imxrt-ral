@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPUART1_IPG_STOP_MODE_0","0b0: the module is functional in Stop mode"],["LPUART1_IPG_STOP_MODE_1","0b1: the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]]};

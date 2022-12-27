@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBGEN_0","0b0: Module is disabled in debug mode"],["DBGEN_1","0b1: Module is enabled in debug mode"]]};

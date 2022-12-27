@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FDRATE_0","Transmit a frame in nominal rate. The BRS bit in the Tx MB has no effect."],["FDRATE_1","Transmit a frame with bit rate switching if the BRS bit in the Tx MB is recessive."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CDPL_0","No card present (CD_B = 1)"],["CDPL_1","Card present (CD_B = 0)"]]};

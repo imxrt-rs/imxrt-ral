@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CHECK","Check whether the USB plug has been in contact with each other"],["NO_CHECK","Do not check the contact of USB plug."]]};

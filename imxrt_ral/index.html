@@ -1,12 +1,53 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This project provides a register access layer (RAL) for all NXP i.mx rt microcontrollers."><meta name="keywords" content="rust, rustlang, rust-lang, imxrt_ral"><title>imxrt_ral - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="../crates.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../imxrt_ral/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../imxrt_ral/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"><a href="#">Crate imxrt_ral</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.5.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul></div><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li></ul></div></section></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../imxrt_ral/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">imxrt_ral</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/imxrt_ral/lib.rs.html#4-94">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>This project provides a register access layer (RAL) for all
-NXP i.mx rt microcontrollers.</p>
-<p>When built, you must specify a device feature, such as <code>imxrt1062</code>.
-This will cause all modules in that device’s module to be re-exported
-from the top level, so that for example <code>imxrt_ral::gpio</code> will resolve to
-<code>imxrt_ral::imxrt1062::gpio</code>.</p>
-<p>In the generated documentation, all devices are visible inside their family
-modules, but when built for a specific device, only that devices’ constants
-will be available.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This package provides a register access layer (RAL) for i.MX RT processors. For more information, see the README."><meta name="keywords" content="rust, rustlang, rust-lang, imxrt_ral"><title>imxrt_ral - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="../crates.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../imxrt_ral/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../imxrt_ral/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"><a href="#">Crate imxrt_ral</a></h2><div class="sidebar-elems"><ul class="block"><li class="version">Version 0.5.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul><section><ul class="block"><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></section></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn">Crate <a class="mod" href="#">imxrt_ral</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../src/imxrt_ral/lib.rs.html#1-140">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>This package provides a register access layer (RAL) for i.MX RT processors.
+For more information, see <a href="https://github.com/imxrt-rs/imxrt-ral">the README</a>.</p>
+<h2 id="getting-started"><a href="#getting-started">Getting started</a></h2>
+<p>Select your chip and enable its feature flag. See <a href="https://github.com/imxrt-rs/imxrt-ral">the README</a> for more
+information on available chip features.</p>
+<p>There are two ways to interact with peripherals and registers:</p>
+<ol>
+<li>Fabricate a peripheral <em>instance</em> with the unsafe <code>instance()</code> method.</li>
+<li>Interact directly with the peripheral pointers, and mark all accesses as <code>unsafe</code>.</li>
+</ol>
+<h3 id="fabricate-a-peripheral-instance"><a href="#fabricate-a-peripheral-instance">Fabricate a peripheral instance</a></h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral <span class="kw">as </span>ral;
+<span class="kw">use </span>ral::lpuart;
+
+<span class="kw">let </span><span class="kw-2">mut </span>lpuart2 = <span class="kw">unsafe </span>{ lpuart::LPUART2::instance() };
+<span class="kw">let </span>version = <span class="macro">ral::read_reg!</span>(lpuart, lpuart2, VERID);
+<span class="macro">ral::modify_reg!</span>(lpuart, lpuart2, CTRL, TE: <span class="number">1</span>, RE: <span class="number">1</span>);
+<span class="macro">ral::write_reg!</span>(lpuart, lpuart2, DATA, byte);</code></pre></div>
+<p>Fabricating an instance is always <code>unsafe</code>. There are no checks that prevent
+aliases to the same peripheral memory. If you’re using this API, you need to
+make sure that creating an instance is appropriate in your program’s context.</p>
+<p>It’s helpful to design drivers to peripheral instances, since register accesses do
+not need an <code>unsafe</code> block. The driver assumes that it has complete ownership
+of the instance, and uses the instance to manage the hardware. See the <a href="#usage">Usage</a> section
+for more ideas.</p>
+<h3 id="interact-directly-with-pointers"><a href="#interact-directly-with-pointers">Interact directly with pointers</a></h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral <span class="kw">as </span>ral;
+<span class="kw">use </span>ral::lpuart;
+
+<span class="kw">let </span>version = <span class="kw">unsafe </span>{ <span class="macro">ral::read_reg!</span>(lpuart, lpuart::LPUART2, VERID) };
+<span class="kw">unsafe </span>{ <span class="macro">ral::modify_reg!</span>(lpuart, lpuart::LPUART2, CTRL, TE: <span class="number">1</span>, RE: <span class="number">1</span>) };
+<span class="kw">unsafe </span>{ <span class="macro">ral::write_reg!</span>(lpuart, lpuart::LPUART2, DATA, byte) };</code></pre></div>
+<p>If you’re familiar with using C for embedded code, this is C mode. You’re
+responsible for making sure that register accesses are coordinated across all contexts.
+You also need to coordinate with anyone who’s using the instance API.</p>
+<h3 id="register-access-macros"><a href="#register-access-macros">Register access macros</a></h3>
+<p><code>imxrt-ral</code> re-exports the <a href="https://docs.rs/ral-registers/0.1.1/ral_registers/">ral-registers</a>
+API. These macros make it easy to access register and register fields. For more information,
+see <a href="macro.read_reg.html" title="read_reg"><code>read_reg</code></a>, <a href="macro.write_reg.html" title="write_reg"><code>write_reg</code></a>, and <a href="macro.modify_reg.html" title="modify_reg"><code>modify_reg</code></a>. Note that the documentation assumes an
+STM32 processor, and may demonstrate a different API for accessing instances.</p>
+<blockquote>
+<p>Note: <code>imxrt-ral</code> does not yet support the <code>reset_reg</code> macro, and it does not expose reset
+structs.</p>
+</blockquote>
+<h3 id="resource-management"><a href="#resource-management">Resource management</a></h3>
+<p>Unlike some peripheral access crates (PACs) or register access layers, <code>imxrt-ral</code> does not
+provide a resource management policy for register blocks. Instead, the API uses <code>unsafe</code>
+to signal that you may be mutably aliasing peripheral registers. This package expects
+peripheral resource management to be handled by a higher-level crate, like a BSP or a custom
+package that’s aware of multi-core execution and resource management.</p>
 <h2 id="usage"><a href="#usage">Usage</a></h2>
 <p>imxrt-ral APIs use const generics to differentiate different peripheral instances.
 This section describes some design techniques for using, or ignoring, these type
@@ -17,8 +58,8 @@ hints.</p>
 
 <span class="kw">fn </span>any_gpio&lt;<span class="kw">const </span>N: u8&gt;(gpio: gpio::Instance&lt;N&gt;) { <span class="comment">/* ... */ </span>}
 
-<span class="kw">let </span>gpio1 = gpio::GPIO1::take().unwrap();
-<span class="kw">let </span>gpio2 = gpio::GPIO2::take().unwrap();
+<span class="kw">let </span>gpio1 = <span class="kw">unsafe </span>{ gpio::GPIO1::instance() };
+<span class="kw">let </span>gpio2 = <span class="kw">unsafe </span>{ gpio::GPIO2::instance() };
 
 any_gpio(gpio1);
 any_gpio(gpio2);</code></pre></div>
@@ -26,19 +67,17 @@ any_gpio(gpio2);</code></pre></div>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::gpio;
 
-<span class="kw">fn </span>only_gpio1(gpio: gpio::Instance&lt;<span class="number">1</span>&gt;) { <span class="comment">/* ... */ </span>}
+<span class="kw">fn </span>only_gpio1(gpio: <span class="kw-2">&amp;</span>gpio::Instance&lt;<span class="number">1</span>&gt;) { <span class="comment">/* ... */ </span>}
+<span class="kw">fn </span>only_gpio1_alias(gpio: <span class="kw-2">&amp;</span>gpio::GPIO1) { <span class="comment">/* ... */ </span>}
 
-<span class="kw">let </span>gpio1 = gpio::GPIO1::take().unwrap();
+<span class="kw">let </span>gpio1 = <span class="kw">unsafe </span>{ gpio::GPIO1::instance() };
 
-only_gpio1(gpio1);</code></pre></div>
+only_gpio1(<span class="kw-2">&amp;</span>gpio1);
+only_gpio1_alias(<span class="kw-2">&amp;</span>gpio1);</code></pre></div>
 <p><code>only_gpio1</code> rejects GPIO2 at compile time:</p>
 
-<div class="example-wrap compile_fail"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">let </span>gpio2 = gpio::GPIO2::take().unwrap();
-only_gpio1(gpio2);</code></pre></div>
-<p>In fact, rejection applies to the <code>release</code> functions, too:</p>
-
-<div class="example-wrap compile_fail"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">let </span>gpio2 = gpio::GPIO2::take().unwrap();
-gpio::GPIO1::release(gpio2);</code></pre></div>
+<div class="example-wrap compile_fail"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">let </span>gpio2 = <span class="kw">unsafe </span>{ gpio::GPIO2::instance() };
+only_gpio1(<span class="kw-2">&amp;</span>gpio2);</code></pre></div>
 <p>These function designs apply to structures, too:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::gpio;
@@ -54,7 +93,7 @@ gpio::GPIO1::release(gpio2);</code></pre></div>
     </span>}
 }
 
-<span class="kw">let </span>gpio1_driver = GpioDriver::new(gpio::GPIO1::take().unwrap());</code></pre></div>
+<span class="kw">let </span>gpio1_driver = GpioDriver::new(<span class="kw">unsafe </span>{ gpio::GPIO1::instance() });</code></pre></div>
 <p>Require that other resources, which are tagged with instance identifiers,
 match their peripheral instance:</p>
 
@@ -87,7 +126,7 @@ match their peripheral instance:</p>
     </span>}
 }
 
-<span class="kw">let </span><span class="kw-2">mut </span>gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
+<span class="kw">let </span><span class="kw-2">mut </span>gpio2 = GpioDriver::new(<span class="kw">unsafe </span>{ gpio::GPIO2::instance() });
 <span class="kw">let </span><span class="kw-2">mut </span>ad_b1_00 = <span class="comment">// Ownership of pin...
 </span>gpio2.set_high(<span class="kw-2">&amp;mut </span>ad_b1_00);</code></pre></div>
 <p>If you provide a GPIO<strong>1</strong> pin to the GPIO<strong>2</strong> driver, it fails
@@ -101,7 +140,7 @@ at compile time:</p>
     <span class="kw">const </span>OFFSET: u32 = <span class="number">6</span>;
 }
 
-<span class="kw">let </span><span class="kw-2">mut </span>gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
+<span class="kw">let </span><span class="kw-2">mut </span>gpio2 = GpioDriver::new(<span class="kw">unsafe </span>{ gpio::GPIO2::instance() });
 <span class="kw">let </span><span class="kw-2">mut </span>sd_b0_03 = <span class="comment">// Ownership of pin...
 // Incorrect: GPIO1 pin with GPIO2 driver
 </span>gpio2.set_high(<span class="kw-2">&amp;mut </span>sd_b0_03);</code></pre></div>
@@ -117,7 +156,7 @@ on the <code>set_high</code> function:</p>
     </span>}
 }
 
-<span class="kw">let </span><span class="kw-2">mut </span>gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
+<span class="kw">let </span><span class="kw-2">mut </span>gpio2 = GpioDriver::new(<span class="kw">unsafe </span>{ gpio::GPIO2::instance() });
 <span class="kw">let </span><span class="kw-2">mut </span>sd_b0_03 = <span class="comment">// Ownership of pin...
 // Now OK: GPIO1 pin with GPIO2 driver
 </span>gpio2.set_high(<span class="kw-2">&amp;mut </span>sd_b0_03);</code></pre></div>
@@ -139,15 +178,10 @@ register block. You’ll need to use some <code>unsafe</code> code, as shown bel
         // which will outlive the gpio Instance.
         </span><span class="kw">let </span>register = <span class="kw">unsafe </span>{ <span class="kw-2">&amp;*</span>register };
         GpioDriver { gpio: register }
-        <span class="comment">// gpio::Instance dropped, but it&#39;s still maked as
-        // &quot;taken.&quot; So it appears that we own it.
-    </span>}
+    }
 }
 
-<span class="kw">let </span>gpio2 = GpioDriver::new(gpio::GPIO2::take().unwrap());
-<span class="comment">// This would fail, since the instance is still &quot;taken&quot; by the
-// driver. Users would need an unsafe steal() to get another handle.
-// gpio::GPIO2::take().unwrap();</span></code></pre></div>
+<span class="kw">let </span>gpio2 = GpioDriver::new(<span class="kw">unsafe </span>{ gpio::GPIO2::instance() });</code></pre></div>
 <p>This approach loses some of the compile-time checks, but may be simpler
 for others to use.</p>
 <h3 id="peripheral-name-vs-instancen"><a href="#peripheral-name-vs-instancen"><code>[Peripheral name]</code> vs <code>Instance&lt;N&gt;</code></a></h3>
@@ -165,7 +199,7 @@ one instance across all i.MX RT chips.</p>
 // necessary, since there&#39;s only one CCM instance)
 </span><span class="kw">fn </span>new_ccm_explicit&lt;<span class="kw">const </span>N: u8&gt;(<span class="kw">_</span>: <span class="kw-2">&amp;</span>ccm::Instance&lt;N&gt;) { <span class="comment">/* ... */ </span>}
 
-<span class="kw">let </span>ccm = ccm::CCM::take().unwrap();
+<span class="kw">let </span>ccm = <span class="kw">unsafe </span>{ ccm::CCM::instance() };
 new_ccm(<span class="kw-2">&amp;</span>ccm);
 new_ccm_explicit(<span class="kw-2">&amp;</span>ccm);</code></pre></div>
 <p>A <code>CCM</code> is actually an <code>Instance&lt;imxrt_ral::SOLE_INSTANCE&gt;</code>. So, you could
@@ -181,12 +215,12 @@ chips – having only one USB instance – and 1062 chips – having two USB ins
 <span class="kw">fn </span>new_usb_driver&lt;<span class="kw">const </span>N: u8&gt;(<span class="kw">_</span>: usb::Instance&lt;N&gt;) { <span class="comment">/* ... */ </span>}
 
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1021&quot;</span>)]
-</span>new_usb_driver(usb::USB::take().unwrap());
+</span>new_usb_driver(<span class="kw">unsafe </span>{ usb::USB::instance() });
 
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1062&quot;</span>)]
 </span>{
-    new_usb_driver(usb::USB1::take().unwrap());
-    new_usb_driver(usb::USB2::take().unwrap());
+    new_usb_driver(<span class="kw">unsafe </span>{ usb::USB1::instance() });
+    new_usb_driver(<span class="kw">unsafe </span>{ usb::USB2::instance() });
 }</code></pre></div>
 <p>When compared to the USB implementation, you would <em>not</em> want to use
 the a concrete USB <code>Instance</code>, since there are chips that have multiple
@@ -194,14 +228,14 @@ USB instances:</p>
 
 <div class="example-wrap compile_fail"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::usb;
 
-<span class="doccomment">/// A function that only takes the sole USB instance, Instance&lt;0&gt;.
-</span><span class="kw">fn </span>new_usb_driver(<span class="kw">_</span>: usb::USB) { <span class="comment">/* ... */ </span>}
+<span class="doccomment">/// A function that only takes the sole USB instance.
+</span><span class="kw">fn </span>new_usb_driver(<span class="kw">_</span>: usb::Instance&lt;<span class="number">0</span>&gt;) { <span class="comment">/* ... */ </span>}
 
 <span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1062&quot;</span>)]
-</span>new_usb_driver(usb::USB1::take().unwrap()); <span class="comment">// &lt;-- Fails to compile! Instance&lt;1&gt; != Instance&lt;0&gt;
+</span>new_usb_driver(<span class="kw">unsafe </span>{ usb::USB1::instance() }); <span class="comment">// &lt;-- Fails to compile! Instance&lt;1&gt; != Instance&lt;0&gt;
 
 </span><span class="attribute">#[cfg(feature = <span class="string">&quot;imxrt1021&quot;</span>)]
-</span>new_usb_driver(usb::USB::take().unwrap()); <span class="comment">// &lt;-- Doesn&#39;t work here, either! USB == Instance&lt;0&gt; != Instance&lt;1&gt;</span></code></pre></div>
+</span>new_usb_driver(<span class="kw">unsafe </span>{ usb::USB::instance() }); <span class="comment">// &lt;-- Doesn&#39;t work here, either! USB == Instance&lt;0&gt; != Instance&lt;1&gt;</span></code></pre></div>
 <h3 id="valid-instance-numbers"><a href="#valid-instance-numbers">Valid instance numbers</a></h3>
 <p>Consider a function that needs to change behavior given only the const generic instance
 number:</p>
@@ -223,7 +257,7 @@ number:</p>
     }
 }
 
-<span class="kw">let </span><span class="kw-2">mut </span>ccm = ccm::CCM::take()<span class="question-mark">?</span>;
+<span class="kw">let </span><span class="kw-2">mut </span>ccm = <span class="kw">unsafe </span>{ ccm::CCM::instance() };
 ccm_enable_lpuart_clock_gate::&lt;<span class="number">3</span>&gt;(<span class="kw-2">&amp;mut </span>ccm); <span class="comment">// OK: LPUART3 is valid.
 </span>ccm_enable_lpuart_clock_gate::&lt;<span class="number">9</span>&gt;(<span class="kw-2">&amp;mut </span>ccm); <span class="comment">// panic! LPUART9 isn&#39;t valid</span></code></pre></div>
 <p>To catch an invalid N at compile time, use <code>Valid</code>, a trait implemented on
@@ -244,38 +278,72 @@ all valid <code>Instance&lt;N&gt;</code> types.</p>
     }
 }
 
-<span class="kw">let </span><span class="kw-2">mut </span>ccm = ccm::CCM::take()<span class="question-mark">?</span>;
+<span class="kw">let </span><span class="kw-2">mut </span>ccm = <span class="kw">unsafe </span>{ ccm::CCM::instance() };
 ccm_enable_lpuart_clock_gate::&lt;<span class="number">3</span>&gt;(<span class="kw-2">&amp;mut </span>ccm); <span class="comment">// OK: LPUART3 is valid.</span></code></pre></div>
 
 <div class="example-wrap compile_fail"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code>ccm_enable_lpuart_clock_gate::&lt;<span class="number">9</span>&gt;(<span class="kw-2">&amp;mut </span>ccm); <span class="comment">// Does not compile!</span></code></pre></div>
-<h3 id="disable-strongly-typed-instances"><a href="#disable-strongly-typed-instances">Disable strongly-typed instances</a></h3>
-<p>If you don’t want strongly-typed peripheral instances, enable the <code>nosync</code> feature.
-<code>nosync</code> disables all synchronised access functions, like <code>take()</code> and <code>release()</code>,
-as well as all the types associated with that API. <code>nosync</code> requires direct, unsafe
-access to peripherals. This is “C” mode, where you’re responsible for maintaining
-synchronization. <code>nosync</code> is a negative feature; enabling the feature may cause other
-dependencies to break, especially if they rely on owning strongly-typed instances.</p>
+<h3 id="advanced-usage"><a href="#advanced-usage">Advanced usage</a></h3>
+<p>You can <code>unsafe</code>ly instantiate any <code>Instance</code> from a pointer using <code>new</code>. This
+is helpful if your strongly-numbered adapter is only using a pointer / static
+reference to a register block, yet you need to reconstruct the <code>Instance</code>
+for a user.</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::gpio;
-<span class="kw">use </span>core::sync::atomic::{AtomicBool, Ordering};
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::lpuart;
 
-<span class="kw">struct </span>GpioDriver {
-    gpio: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>gpio::RegisterBlock,
+<span class="kw">pub struct </span>Lpuart&lt;<span class="kw">const </span>N: u8&gt; {
+    <span class="doccomment">/// Not holding lpuart::Instance&lt;N&gt;.
+    /// Instead, we&#39;re just keeping a reference
+    /// after taking ownership of the instance.
+    </span>ptr: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>lpuart::RegisterBlock,
 }
 
-<span class="kw">impl </span>GpioDriver {
-    <span class="doccomment">/// Acquire the GPIO1 driver, if it exists
-    </span><span class="kw">pub fn </span>gpio1() -&gt; <span class="prelude-ty">Option</span>&lt;GpioDriver&gt; {
-        <span class="kw">static </span>TAKEN: AtomicBool = AtomicBool::new(<span class="bool-val">false</span>);
-        <span class="kw">if </span>!TAKEN.swap(<span class="bool-val">true</span>, Ordering::SeqCst) {
-            <span class="comment">// Safety: GPIO1 pointes to static memory
-            </span><span class="prelude-val">Some</span>(<span class="kw">unsafe </span>{ <span class="self">Self </span>{ gpio: <span class="kw-2">&amp;*</span>gpio::GPIO1 } })
-        } <span class="kw">else </span>{
-            <span class="prelude-val">None
-        </span>}
+<span class="kw">impl</span>&lt;<span class="kw">const </span>N: u8&gt; Lpuart&lt;N&gt; {
+    <span class="kw">pub fn </span>new(inst: lpuart::Instance&lt;N&gt;) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>ptr: <span class="kw-2">*const </span>lpuart::RegisterBlock = <span class="kw-2">&amp;*</span>inst;
+        <span class="comment">// Safety: pointer truly points to static memory.
+        </span><span class="self">Self </span>{ ptr: <span class="kw">unsafe </span>{ <span class="kw-2">&amp;*</span>ptr }}
     }
+    <span class="kw">pub fn </span>release(<span class="self">self</span>) -&gt; lpuart::Instance&lt;N&gt; {
+        <span class="comment">// Safety: The N associated with this type
+        // is still associated with its register block.
+        // We&#39;re not accidentally returning Instance&lt;1&gt;
+        // when we have a reference to Instance&lt;2&gt;.
+        //
+        // The pointer points to valid LPUART memory.
+        </span><span class="kw">unsafe </span>{ lpuart::Instance::new(<span class="self">self</span>.ptr) }
+    }
+}</code></pre></div>
+<p>If you’re fully discarding all type information, you can use
+the <code>number</code> function in each peripheral module to acquire the
+instance number for a register block. Note that this incurs a
+small runtime cost of up to <code>N</code> pointer compares, where <code>N</code> is
+the number of valid instances.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::lpuart;
+
+<span class="doccomment">/// Note that there&#39;s no `N` const generic,
+/// so that information isn&#39;t in the type system.
+</span><span class="kw">pub struct </span>AnyLpuart {
+    ptr: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>lpuart::RegisterBlock,
 }
 
-<span class="kw">let </span>gpio1 = GpioDriver::gpio1().unwrap();
-<span class="macro">assert!</span>(GpioDriver::gpio1().is_none());</code></pre></div>
-</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt101/index.html" title="imxrt_ral::imxrt101 mod">imxrt101</a></div><div class="item-right docblock-short">Parent module for all IMXRT101 devices.</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt102/index.html" title="imxrt_ral::imxrt102 mod">imxrt102</a></div><div class="item-right docblock-short">Parent module for all IMXRT102 devices.</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt105/index.html" title="imxrt_ral::imxrt105 mod">imxrt105</a></div><div class="item-right docblock-short">Parent module for all IMXRT105 devices.</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="imxrt106/index.html" title="imxrt_ral::imxrt106 mod">imxrt106</a></div><div class="item-right docblock-short">Parent module for all IMXRT106 devices.</div></div></div><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.modify_reg.html" title="imxrt_ral::modify_reg macro">modify_reg</a></div><div class="item-right docblock-short">Modify a RWRegister or UnsafeRWRegister.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.read_reg.html" title="imxrt_ral::read_reg macro">read_reg</a></div><div class="item-right docblock-short">Read the value from a RORegister, RWRegister, UnsafeRORegister, or UnsafeRWRegister.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.reset_reg.html" title="imxrt_ral::reset_reg macro">reset_reg</a></div><div class="item-right docblock-short">Reset a RWRegister, UnsafeRWRegister, WORegister, or UnsafeWORegister to its reset value.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.write_reg.html" title="imxrt_ral::write_reg macro">write_reg</a></div><div class="item-right docblock-short">Write to a RWRegister or UnsafeRWRegister.</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RORegister.html" title="imxrt_ral::RORegister struct">RORegister</a></div><div class="item-right docblock-short">A read-only register of type T.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RWRegister.html" title="imxrt_ral::RWRegister struct">RWRegister</a></div><div class="item-right docblock-short">A read-write register of type T.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.UnsafeRORegister.html" title="imxrt_ral::UnsafeRORegister struct">UnsafeRORegister</a></div><div class="item-right docblock-short">A read-only register of type T, where read access is unsafe.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.UnsafeRWRegister.html" title="imxrt_ral::UnsafeRWRegister struct">UnsafeRWRegister</a></div><div class="item-right docblock-short">A read-write register of type T, where read/write access is unsafe.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.UnsafeWORegister.html" title="imxrt_ral::UnsafeWORegister struct">UnsafeWORegister</a></div><div class="item-right docblock-short">A write-only register of type T, where write access is unsafe.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WORegister.html" title="imxrt_ral::WORegister struct">WORegister</a></div><div class="item-right docblock-short">A write-only register of type T.</div></div></div><h2 id="enums" class="small-section-header"><a href="#enums">Enums</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.Interrupt.html" title="imxrt_ral::Interrupt enum">Interrupt</a></div><div class="item-right docblock-short">Interrupt sources</div></div></div><h2 id="constants" class="small-section-header"><a href="#constants">Constants</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.SOLE_INSTANCE.html" title="imxrt_ral::SOLE_INSTANCE constant">SOLE_INSTANCE</a></div><div class="item-right docblock-short">The constant for a peripheral with just one instance.</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Valid.html" title="imxrt_ral::Valid trait">Valid</a></div><div class="item-right docblock-short">Implemented on all <code>Instance&lt;N&gt;</code> when <code>N</code> is a valid instance number.</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="imxrt_ral" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>
+<span class="kw">impl </span>AnyLpuart {
+    <span class="kw">pub fn </span>new&lt;<span class="kw">const </span>N: u8&gt;(inst: lpuart::Instance&lt;N&gt;) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>ptr: <span class="kw-2">*const </span>lpuart::RegisterBlock = <span class="kw-2">&amp;*</span>inst;
+        <span class="comment">// Safety: pointer truly points to static memory.
+        </span><span class="self">Self </span>{ ptr: <span class="kw">unsafe </span>{ <span class="kw-2">&amp;*</span>ptr }}
+    }
+
+    <span class="kw">pub fn </span>instance(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8 {
+        <span class="comment">// Unwrap OK; `new` guarantees that it&#39;s one of
+        // the N LPUART instances.
+        </span>lpuart::number(<span class="self">self</span>.ptr).unwrap()
+    }
+}</code></pre></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>imxrt_ral::{ccm, lpuart};
+
+<span class="macro">assert_eq!</span>(ccm::number(ccm::CCM), <span class="prelude-val">Some</span>(<span class="number">0</span>));
+<span class="macro">assert_eq!</span>(lpuart::number(lpuart::LPUART2), <span class="prelude-val">Some</span>(<span class="number">2</span>));
+<span class="macro">assert_eq!</span>(lpuart::number(ccm::CCM <span class="kw">as _</span>), <span class="prelude-val">None</span>);</code></pre></div>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="adc/index.html" title="imxrt_ral::adc mod">adc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="adc_etc/index.html" title="imxrt_ral::adc_etc mod">adc_etc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="aipstz/index.html" title="imxrt_ral::aipstz mod">aipstz</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="aoi/index.html" title="imxrt_ral::aoi mod">aoi</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="bee/index.html" title="imxrt_ral::bee mod">bee</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="can/index.html" title="imxrt_ral::can mod">can</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="can3/index.html" title="imxrt_ral::can3 mod">can3</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="ccm/index.html" title="imxrt_ral::ccm mod">ccm</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="ccm_analog/index.html" title="imxrt_ral::ccm_analog mod">ccm_analog</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="cmp/index.html" title="imxrt_ral::cmp mod">cmp</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="csi/index.html" title="imxrt_ral::csi mod">csi</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="csu/index.html" title="imxrt_ral::csu mod">csu</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="dcdc/index.html" title="imxrt_ral::dcdc mod">dcdc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="dcp/index.html" title="imxrt_ral::dcp mod">dcp</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="dma/index.html" title="imxrt_ral::dma mod">dma</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="dmamux/index.html" title="imxrt_ral::dmamux mod">dmamux</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="enc/index.html" title="imxrt_ral::enc mod">enc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="enet/index.html" title="imxrt_ral::enet mod">enet</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="ewm/index.html" title="imxrt_ral::ewm mod">ewm</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="flexio/index.html" title="imxrt_ral::flexio mod">flexio</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="flexram/index.html" title="imxrt_ral::flexram mod">flexram</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="flexspi/index.html" title="imxrt_ral::flexspi mod">flexspi</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="gpc/index.html" title="imxrt_ral::gpc mod">gpc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="gpio/index.html" title="imxrt_ral::gpio mod">gpio</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="gpt/index.html" title="imxrt_ral::gpt mod">gpt</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="iomuxc/index.html" title="imxrt_ral::iomuxc mod">iomuxc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="iomuxc_gpr/index.html" title="imxrt_ral::iomuxc_gpr mod">iomuxc_gpr</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="iomuxc_snvs/index.html" title="imxrt_ral::iomuxc_snvs mod">iomuxc_snvs</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="iomuxc_snvs_gpr/index.html" title="imxrt_ral::iomuxc_snvs_gpr mod">iomuxc_snvs_gpr</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="kpp/index.html" title="imxrt_ral::kpp mod">kpp</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="lcdif/index.html" title="imxrt_ral::lcdif mod">lcdif</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="lpi2c/index.html" title="imxrt_ral::lpi2c mod">lpi2c</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="lpspi/index.html" title="imxrt_ral::lpspi mod">lpspi</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="lpuart/index.html" title="imxrt_ral::lpuart mod">lpuart</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="ocotp/index.html" title="imxrt_ral::ocotp mod">ocotp</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="pgc/index.html" title="imxrt_ral::pgc mod">pgc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="pit/index.html" title="imxrt_ral::pit mod">pit</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="pmu/index.html" title="imxrt_ral::pmu mod">pmu</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="pwm/index.html" title="imxrt_ral::pwm mod">pwm</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="pxp/index.html" title="imxrt_ral::pxp mod">pxp</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="romc/index.html" title="imxrt_ral::romc mod">romc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="rtwdog/index.html" title="imxrt_ral::rtwdog mod">rtwdog</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="sai/index.html" title="imxrt_ral::sai mod">sai</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="semc/index.html" title="imxrt_ral::semc mod">semc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="snvs/index.html" title="imxrt_ral::snvs mod">snvs</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="spdif/index.html" title="imxrt_ral::spdif mod">spdif</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="src/index.html" title="imxrt_ral::src mod">src</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="tempmon/index.html" title="imxrt_ral::tempmon mod">tempmon</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="tmr/index.html" title="imxrt_ral::tmr mod">tmr</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="trng/index.html" title="imxrt_ral::trng mod">trng</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="tsc/index.html" title="imxrt_ral::tsc mod">tsc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="usb/index.html" title="imxrt_ral::usb mod">usb</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="usb_analog/index.html" title="imxrt_ral::usb_analog mod">usb_analog</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="usbnc/index.html" title="imxrt_ral::usbnc mod">usbnc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="usbphy/index.html" title="imxrt_ral::usbphy mod">usbphy</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="usdhc/index.html" title="imxrt_ral::usdhc mod">usdhc</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="wdog/index.html" title="imxrt_ral::wdog mod">wdog</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="xbara1/index.html" title="imxrt_ral::xbara1 mod">xbara1</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="xbarb/index.html" title="imxrt_ral::xbarb mod">xbarb</a></div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="xtalosc24m/index.html" title="imxrt_ral::xtalosc24m mod">xtalosc24m</a></div></div></div><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.modify_reg.html" title="imxrt_ral::modify_reg macro">modify_reg</a></div><div class="item-right docblock-short">Modify a RWRegister or UnsafeRWRegister.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.read_reg.html" title="imxrt_ral::read_reg macro">read_reg</a></div><div class="item-right docblock-short">Read the value from a RORegister, RWRegister, UnsafeRORegister, or UnsafeRWRegister.</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.write_reg.html" title="imxrt_ral::write_reg macro">write_reg</a></div><div class="item-right docblock-short">Write to a RWRegister or UnsafeRWRegister.</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Instance.html" title="imxrt_ral::Instance struct">Instance</a></div><div class="item-right docblock-short">An owned peripheral of type <code>T</code>, instance <code>N</code>.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Instances.html" title="imxrt_ral::Instances struct">Instances</a></div><div class="item-right docblock-short">Instances for all of this device’s peripherals.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RORegister.html" title="imxrt_ral::RORegister struct">RORegister</a></div><div class="item-right docblock-short">A read-only register of type T.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RWRegister.html" title="imxrt_ral::RWRegister struct">RWRegister</a></div><div class="item-right docblock-short">A read-write register of type T.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WORegister.html" title="imxrt_ral::WORegister struct">WORegister</a></div><div class="item-right docblock-short">A write-only register of type T.</div></div></div><h2 id="enums" class="small-section-header"><a href="#enums">Enums</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.Interrupt.html" title="imxrt_ral::Interrupt enum">Interrupt</a></div></div></div><h2 id="constants" class="small-section-header"><a href="#constants">Constants</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.NVIC_PRIO_BITS.html" title="imxrt_ral::NVIC_PRIO_BITS constant">NVIC_PRIO_BITS</a></div><div class="item-right docblock-short">Number available in the NVIC for configuring priority</div></div><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.SOLE_INSTANCE.html" title="imxrt_ral::SOLE_INSTANCE constant">SOLE_INSTANCE</a></div><div class="item-right docblock-short">The instance number for a peripheral singleton.</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Valid.html" title="imxrt_ral::Valid trait">Valid</a></div><div class="item-right docblock-short">Vouches for an <code>Instance&lt;T, N&gt;</code>’s validity.</div></div></div><h2 id="types" class="small-section-header"><a href="#types">Type Definitions</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="type" href="type.interrupt.html" title="imxrt_ral::interrupt type">interrupt</a></div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="imxrt_ral" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

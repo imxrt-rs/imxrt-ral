@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DP_EN_0","Smart PMIC enabled."],["DP_EN_1","Dumb PMIC enabled."]]};

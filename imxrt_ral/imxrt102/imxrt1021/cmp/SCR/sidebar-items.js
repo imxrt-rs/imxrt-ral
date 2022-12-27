@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CFF","Analog Comparator Flag Falling"],["CFR","Analog Comparator Flag Rising"],["COUT","Analog Comparator Output"],["DMAEN","DMA Enable Control"],["IEF","Comparator Interrupt Enable Falling"],["IER","Comparator Interrupt Enable Rising"]]};

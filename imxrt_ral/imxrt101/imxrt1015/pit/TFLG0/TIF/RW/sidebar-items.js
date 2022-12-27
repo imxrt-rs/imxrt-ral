@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TIF_0","0b0: Timeout has not yet occurred."],["TIF_1","0b1: Timeout has occurred."]]};

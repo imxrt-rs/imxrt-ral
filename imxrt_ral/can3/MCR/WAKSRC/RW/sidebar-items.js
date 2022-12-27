@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WAKSRC_0","FlexCAN uses the unfiltered Rx input to detect recessive to dominant edges on the CAN bus."],["WAKSRC_1","FlexCAN uses the filtered Rx input to detect recessive to dominant edges on the CAN bus."]]};

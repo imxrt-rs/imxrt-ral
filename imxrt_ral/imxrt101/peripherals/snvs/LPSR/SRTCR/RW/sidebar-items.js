@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SRTCR_0","0b0: SRTC has not reached its maximum value."],["SRTCR_1","0b1: SRTC has reached its maximum value."]]};

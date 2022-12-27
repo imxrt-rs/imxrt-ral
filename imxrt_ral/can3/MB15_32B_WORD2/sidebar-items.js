@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DATA_BYTE_10","Data byte 1 of Rx/Tx frame."],["DATA_BYTE_11","Data byte 0 of Rx/Tx frame."],["DATA_BYTE_8","Data byte 3 of Rx/Tx frame."],["DATA_BYTE_9","Data byte 2 of Rx/Tx frame."]]};

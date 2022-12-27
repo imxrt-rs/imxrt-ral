@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENET2_CLK_SEL_0","ENET2 TX reference clock driven by ref_enetpll. This clock is also output to pins via the IOMUX. ENET2_REF_CLK function."],["ENET2_CLK_SEL_1","Gets ENET2 TX reference clock from the ENET2_TX_CLK pin. In this use case, an external OSC provides the clock for both the external PHY and the internal controller."]]};

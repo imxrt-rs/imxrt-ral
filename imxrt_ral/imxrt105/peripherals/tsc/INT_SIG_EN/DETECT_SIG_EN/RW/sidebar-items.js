@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DETECT_SIG_EN_0","0b0: Disable detect signal"],["DETECT_SIG_EN_1","0b1: Enable detect signal"]]};

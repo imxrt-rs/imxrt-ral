@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WIDTH_0","1 bit transfer"],["WIDTH_1","2 bit transfer"],["WIDTH_2","4 bit transfer"]]};

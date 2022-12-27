@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["BASE","Page table base address"],["ENABLE","Page table enable control"],["FLUSH","Page table flush control. To flush the TLB, write this bit to 1 and then back to 0."]]};

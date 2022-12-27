@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DMAMUX","DMA_CH_MUX"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["CHCFG","Channel 0 Configuration Register"]],"struct":[["RegisterBlock","DMAMUX"]],"type":[["DMAMUX",""],["Instance",""]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ACMP_IPG_STOP_MODE","ACMP stop mode selection. Cannot change when ipg_stop is asserted."],["FLEXIO1_IPG_DOZE","FLEXIO1 ipg_doze mode"],["FLEXIO1_IPG_STOP_MODE","FlexIO1 stop mode selection. Cannot change when ipg_stop is asserted."]]};

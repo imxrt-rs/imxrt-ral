@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LDOK_0","Do not load new values."],["LDOK_1","Load prescaler, modulus, and PWM values of the corresponding submodule."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HCKOFF_0","HCLK is active."],["HCKOFF_1","HCLK is gated off."]]};

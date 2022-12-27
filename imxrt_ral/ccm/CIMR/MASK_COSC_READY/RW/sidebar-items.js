@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MASK_COSC_READY_0","don’t mask interrupt due to on board oscillator ready - interrupt will be created"],["MASK_COSC_READY_1","mask interrupt due to on board oscillator ready"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI1_MCLK3_SEL_0","0b00: ccm.spdif0_clk_root"],["SAI1_MCLK3_SEL_1","0b01: SPDIF_EXT_CLK"],["SAI1_MCLK3_SEL_2","0b10: spdif.spdif_srclk"],["SAI1_MCLK3_SEL_3","0b11: spdif.spdif_outclock"]]};

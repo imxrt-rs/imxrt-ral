@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PUS_0_100K_OHM_PULL_DOWN","100K Ohm Pull Down"],["PUS_1_47K_OHM_PULL_UP","47K Ohm Pull Up"],["PUS_2_100K_OHM_PULL_UP","100K Ohm Pull Up"],["PUS_3_22K_OHM_PULL_UP","22K Ohm Pull Up"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NUR_S1_0","0b0: The non-secure user read access is disabled for the first slave."],["NUR_S1_1","0b1: The non-secure user read access is enabled for the first slave."]]};

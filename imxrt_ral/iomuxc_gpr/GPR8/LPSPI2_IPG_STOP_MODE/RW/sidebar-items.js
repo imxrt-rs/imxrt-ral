@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPSPI2_IPG_STOP_MODE_0","the module is functional in Stop mode"],["LPSPI2_IPG_STOP_MODE_1","the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]]};

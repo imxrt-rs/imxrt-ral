@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CHECK","Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."],["NO_CHECK","Do not check whether a charger is connected to the USB port."]]};

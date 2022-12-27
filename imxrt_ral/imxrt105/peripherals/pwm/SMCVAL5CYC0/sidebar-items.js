@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CVAL5CYC","CVAL5CYC"]]};

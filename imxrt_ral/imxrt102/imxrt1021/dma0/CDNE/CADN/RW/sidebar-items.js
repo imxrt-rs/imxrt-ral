@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CADN_0","0b0: Clears only the TCDn_CSR[DONE] bit specified in the CDNE field"],["CADN_1","0b1: Clears all bits in TCDn_CSR[DONE]"]]};

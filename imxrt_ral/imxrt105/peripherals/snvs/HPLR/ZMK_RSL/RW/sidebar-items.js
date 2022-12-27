@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ZMK_RSL_0","0b0: Read access is allowed (only in software Programming mode)"],["ZMK_RSL_1","0b1: Read access is not allowed"]]};

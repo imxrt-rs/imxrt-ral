@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BUFLM_0","The corresponding buffer Interrupt is disabled"],["BUFLM_1","The corresponding buffer Interrupt is enabled"]]};

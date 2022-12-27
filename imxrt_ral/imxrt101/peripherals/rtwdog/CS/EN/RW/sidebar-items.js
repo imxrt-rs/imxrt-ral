@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EN_0","0b0: Watchdog disabled."],["EN_1","0b1: Watchdog enabled."]]};

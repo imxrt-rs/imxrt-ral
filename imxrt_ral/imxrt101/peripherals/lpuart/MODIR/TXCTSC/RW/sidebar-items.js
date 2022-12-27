@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXCTSC_0","0b0: CTS input is sampled at the start of each character."],["TXCTSC_1","0b1: CTS input is sampled when the transmitter is idle."]]};

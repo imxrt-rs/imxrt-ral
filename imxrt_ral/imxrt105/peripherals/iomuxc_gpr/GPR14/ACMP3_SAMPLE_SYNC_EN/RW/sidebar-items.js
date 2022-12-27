@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACMP3_SAMPLE_SYNC_EN_0","0b0: select XBAR output"],["ACMP3_SAMPLE_SYNC_EN_1","0b1: select synced sample_lv"]]};

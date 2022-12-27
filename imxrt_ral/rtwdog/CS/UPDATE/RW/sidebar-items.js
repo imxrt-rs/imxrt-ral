@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UPDATE_0","Updates not allowed. After the initial configuration, the watchdog cannot be later modified without forcing a reset."],["UPDATE_1","Updates allowed. Software can modify the watchdog configuration registers within 128 bus clocks after performing the unlock write sequence."]]};

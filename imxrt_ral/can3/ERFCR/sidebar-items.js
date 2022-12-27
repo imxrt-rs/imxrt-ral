@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DMALW","DMA Last Word"],["ERFEN","Enhanced Rx FIFO enable"],["ERFWM","Enhanced Rx FIFO Watermark"],["NEXIF","Number of Extended ID Filter Elements"],["NFE","Number of Enhanced Rx FIFO Filter Elements"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CONFIG_OPT","SNVS Configuration Options"],["ECO_REV","SNVS ECO Revision"],["INTG_OPT","SNVS Integration Options"],["IP_ERA","IP Era 00h - Era 1 or 2 03h - Era 3 04h - Era 4 05h - Era 5"]]};

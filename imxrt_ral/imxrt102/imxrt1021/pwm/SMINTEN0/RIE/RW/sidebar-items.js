@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RIE_0","0b0: STS[RF] CPU interrupt requests disabled"],["RIE_1","0b1: STS[RF] CPU interrupt requests enabled"]]};

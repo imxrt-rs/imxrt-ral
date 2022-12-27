@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OSCB_0","Normal SRTC clock oscillator not bypassed."],["OSCB_1","Normal SRTC clock oscillator bypassed. Alternate clock can drive the SRTC clock source."]]};

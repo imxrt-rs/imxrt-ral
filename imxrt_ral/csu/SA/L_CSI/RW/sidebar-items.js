@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["L_CSI_0","No lock-the adjacent (next lower) bit can be written by the software."],["L_CSI_1","Lock-the adjacent (next lower) bit can’t be written by the software."]]};

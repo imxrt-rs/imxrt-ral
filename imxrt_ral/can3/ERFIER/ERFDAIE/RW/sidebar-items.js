@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERFDAIE_0","Enhanced Rx FIFO Data Available Interrupt is disabled"],["ERFDAIE_1","Enhanced Rx FIFO Data Available Interrupt is enabled"]]};

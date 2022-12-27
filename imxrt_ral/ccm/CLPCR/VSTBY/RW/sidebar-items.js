@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["VSTBY_0","Voltage will not be changed to standby voltage after next entrance to STOP mode. ( PMIC_STBY_REQ will remain negated - ‘0’)"],["VSTBY_1","Voltage will be requested to change to standby voltage after next entrance to stop mode. ( PMIC_STBY_REQ will be asserted - ‘1’)."]]};

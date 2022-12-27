@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DISABLE_0","Leave HW state machine control"],["DISABLE_1","SW set to idle status"]]};

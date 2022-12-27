@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["_16_BIT","0b00: Input data is 16 bits per pixel."],["_18_BIT","0b10: Input data is 18 bits per pixel."],["_24_BIT","0b11: Input data is 24 bits per pixel."],["_8_BIT","0b01: Input data is 8 bits wide."]]};

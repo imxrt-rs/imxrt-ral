@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["WINHIGH","High byte of Watchdog Window"],["WINLOW","Low byte of Watchdog Window"]]};

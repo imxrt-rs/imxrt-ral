@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLK1","Select the CLK1_N / CLK1_P as source."],["REF_CLK_24M","Select the 24MHz oscillator as source."]]};

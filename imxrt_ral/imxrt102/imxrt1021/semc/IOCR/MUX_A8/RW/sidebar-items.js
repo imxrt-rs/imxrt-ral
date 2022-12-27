@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MUX_A8_0","0b000: SDRAM Address bit (A8)"],["MUX_A8_1","0b001: NAND CE#"],["MUX_A8_2","0b010: NOR CE#"],["MUX_A8_3","0b011: PSRAM CE#"],["MUX_A8_4","0b100: DBI CSX"],["MUX_A8_5","0b101: SDRAM Address bit (A8)"],["MUX_A8_6","0b110: SDRAM Address bit (A8)"],["MUX_A8_7","0b111: SDRAM Address bit (A8)"]]};

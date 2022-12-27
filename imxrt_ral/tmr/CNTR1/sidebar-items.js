@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["COUNTER","This read/write register is the counter for the corresponding channel in a timer module."]]};

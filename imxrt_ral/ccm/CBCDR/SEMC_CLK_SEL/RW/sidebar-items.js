@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SEMC_CLK_SEL_0","Periph_clk output will be used as SEMC clock root"],["SEMC_CLK_SEL_1","SEMC alternative clock will be used as SEMC clock root"]]};

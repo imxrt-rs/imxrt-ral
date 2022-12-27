@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["R3_0_CT","Runs of Zeroes, Length 3 Count"],["R3_1_CT","Runs of Ones, Length 3 Count"],["RUN3_MAX","Run Length 3 Maximum Limit"],["RUN3_RNG","Run Length 3 Range"]]};

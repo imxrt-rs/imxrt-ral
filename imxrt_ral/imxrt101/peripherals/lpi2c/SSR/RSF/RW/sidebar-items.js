@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RSF_0","0b0: Slave has not detected a Repeated START condition"],["RSF_1","0b1: Slave has detected a Repeated START condition"]]};

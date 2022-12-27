@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SYSCLK_DF_0","0b000000000: no clock signal"],["SYSCLK_DF_1","0b000000001: divider factor is 2"],["SYSCLK_DF_511","0b111111111: divider factor is 512"]]};

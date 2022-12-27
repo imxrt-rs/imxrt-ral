@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOM_0","Listen Only Mode is deactivated"],["LOM_1","FLEXCAN module operates in Listen Only Mode"]]};

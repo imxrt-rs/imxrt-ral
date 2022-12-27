@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NSW_S2_0","The non-secure supervisor write access is disabled for the second slave."],["NSW_S2_1","The non-secure supervisor write access is enabled for the second slave."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTC_XTAL_SOURCE_0","0b0: Internal ring oscillator"],["RTC_XTAL_SOURCE_1","0b1: RTC_XTAL"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["COSC_READY_0","0b0: interrupt is not generated due to on board oscillator ready"],["COSC_READY_1","0b1: interrupt generated due to on board oscillator ready"]]};

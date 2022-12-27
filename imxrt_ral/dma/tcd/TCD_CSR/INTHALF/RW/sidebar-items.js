@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["INTHALF_0","The half-point interrupt is disabled."],["INTHALF_1","The half-point interrupt is enabled."]]};

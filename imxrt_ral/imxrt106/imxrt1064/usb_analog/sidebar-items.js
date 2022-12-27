@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["USB_ANALOG","Raw pointer to USB_ANALOG"]],"struct":[["USB_ANALOG","The USB_ANALOG peripheral instance."]]};

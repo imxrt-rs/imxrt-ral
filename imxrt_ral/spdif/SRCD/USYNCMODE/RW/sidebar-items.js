@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["USYNCMODE_0","Non-CD data"],["USYNCMODE_1","CD user channel subcode"]]};

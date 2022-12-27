@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RUIE_0","Roll-under interrupt is disabled"],["RUIE_1","Roll-under interrupt is enabled"]]};

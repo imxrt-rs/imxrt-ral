@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ECX_0","0b0: No canceled transfers"],["ECX_1","0b1: The last recorded entry was a canceled transfer by the error cancel transfer input"]]};

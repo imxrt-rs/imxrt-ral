@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["INTG_OPT_0","INTG_OPT for TRNG."]]};

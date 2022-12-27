@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KRE_0","Row is not included in the keypad key press detect."],["KRE_1","Row is included in the keypad key press detect."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INT_MEM_CLK_LPM_0","0b0: Disable the clock to the ARM platform memories when entering Low Power Mode"],["INT_MEM_CLK_LPM_1","0b1: Keep the clocks to the ARM platform memories enabled only if an interrupt is pending when entering Low Power Modes (WAIT and STOP without power gating)"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["THUMBX_0","Arm patch"],["THUMBX_1","THUMB patch (ignore if data fix)"]]};

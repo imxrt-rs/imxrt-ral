@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NO_PRGM_0","0b0: Programability of registers controlled only by the Miscellaneous Control Register’s access mode bit."],["NO_PRGM_1","0b1: Overides Miscellaneous Control Register access mode and prevents TRNG register programming."]]};

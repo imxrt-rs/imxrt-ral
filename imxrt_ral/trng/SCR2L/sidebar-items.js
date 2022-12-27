@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["RUN2_MAX","Run Length 2 Maximum Limit"],["RUN2_RNG","Run Length 2 Range"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EOF_INT_0","EOF is not detected."],["EOF_INT_1","EOF is detected."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["IRMQ_0","0b0: Individual Rx masking and queue feature are disabled.For backward compatibility, the reading of C/S word locks the MB even if it is EMPTY."],["IRMQ_1","0b1: Individual Rx masking and queue feature are enabled."]]};

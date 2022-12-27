@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SEMC_ALT_CLK_SEL_0","0b0: PLL2 PFD2 will be selected as alternative clock for SEMC root clock"],["SEMC_ALT_CLK_SEL_1","0b1: PLL3 PFD1 will be selected as alternative clock for SEMC root clock"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PRP_IF_EN_0","CSI to PrP bus is disabled"],["PRP_IF_EN_1","CSI to PrP bus is enabled"]]};

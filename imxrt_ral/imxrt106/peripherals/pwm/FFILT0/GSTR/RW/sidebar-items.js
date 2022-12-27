@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GSTR_0","0b0: Fault input glitch stretching is disabled."],["GSTR_1","0b1: Input fault signals will be stretched to at least 2 IPBus clock cycles."]]};

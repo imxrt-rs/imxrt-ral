@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MBF_0","LPSPI is idle"],["MBF_1","LPSPI is busy"]]};

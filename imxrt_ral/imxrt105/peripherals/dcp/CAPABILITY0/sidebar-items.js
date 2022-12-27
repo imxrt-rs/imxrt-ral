@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DISABLE_DECRYPT","Write to 1 to disable the decryption"],["DISABLE_UNIQUE_KEY","Write to a 1 to disable the per-device unique key"],["NUM_CHANNELS","Encoded value indicating the number of channels implemented in the design"],["NUM_KEYS","Encoded value indicating the number of key-storage locations implemented in the design"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PDRAM0_PGE_0","0b0: FlexRAM PDRAM0 domain (bank1-7) will keep power on even if CPU core is power down."],["PDRAM0_PGE_1","0b1: FlexRAM PDRAM0 domain (bank1-7) will be power down once when CPU core is power down."]]};

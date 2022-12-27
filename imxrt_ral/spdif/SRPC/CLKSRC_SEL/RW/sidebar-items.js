@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLKSRC_SEL_0","if (DPLL Locked) SPDIF_RxClk else REF_CLK_32K (XTALOSC)"],["CLKSRC_SEL_1","if (DPLL Locked) SPDIF_RxClk else tx_clk (SPDIF0_CLK_ROOT)"],["CLKSRC_SEL_3","if (DPLL Locked) SPDIF_RxClk else SPDIF_EXT_CLK"],["CLKSRC_SEL_5","REF_CLK_32K (XTALOSC)"],["CLKSRC_SEL_6","tx_clk (SPDIF0_CLK_ROOT)"],["CLKSRC_SEL_8","SPDIF_EXT_CLK"]]};

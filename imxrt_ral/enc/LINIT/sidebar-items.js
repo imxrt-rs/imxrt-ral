@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["INIT","This read/write register contains the value to be used to initialize the lower half of the position counter (LPOS)"]]};

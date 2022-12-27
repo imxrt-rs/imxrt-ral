@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["_16_BIT","Input data is 16 bits per pixel."],["_18_BIT","Input data is 18 bits per pixel."],["_24_BIT","Input data is 24 bits per pixel."],["_8_BIT","Input data is 8 bits wide."]]};

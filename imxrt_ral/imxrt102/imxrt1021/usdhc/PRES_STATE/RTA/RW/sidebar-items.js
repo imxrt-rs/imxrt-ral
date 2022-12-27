@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTA_0","0b0: No valid data"],["RTA_1","0b1: Transferring data"]]};

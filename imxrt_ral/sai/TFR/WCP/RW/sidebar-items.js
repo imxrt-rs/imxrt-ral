@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WCP_0","No effect."],["WCP_1","FIFO combine is enabled for FIFO writes and this FIFO will be written on the next FIFO write."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INV_PCLK_0","0b0: CSI_PIXCLK is directly applied to internal circuitry"],["INV_PCLK_1","0b1: CSI_PIXCLK is inverted before applied to internal circuitry"]]};

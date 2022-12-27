@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["mask","Mask (2 bits: 0b11 << 3)"],["offset","Offset (3 bits)"]],"mod":[["R","Read-only values (empty)"],["RW","Read-write values"],["W","Write-only values (empty)"]]};

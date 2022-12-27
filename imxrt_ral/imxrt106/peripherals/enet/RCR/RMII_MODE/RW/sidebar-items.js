@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RMII_MODE_0","0b0: MAC configured for MII mode."],["RMII_MODE_1","0b1: MAC configured for RMII operation."]]};

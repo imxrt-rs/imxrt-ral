@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["OCRAM_MAM_STAT_EN_0","0b0: Masked"],["OCRAM_MAM_STAT_EN_1","0b1: Enabled"]]};

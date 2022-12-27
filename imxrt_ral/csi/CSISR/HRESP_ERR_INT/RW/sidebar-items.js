@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HRESP_ERR_INT_0","No hresponse error."],["HRESP_ERR_INT_1","Hresponse error is detected."]]};

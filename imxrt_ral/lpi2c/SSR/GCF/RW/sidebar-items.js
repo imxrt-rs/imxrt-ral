@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GCF_0","Slave has not detected the General Call Address or the General Call Address is disabled"],["GCF_1","Slave has detected the General Call Address"]]};

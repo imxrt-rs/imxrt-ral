@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTCM_MAM_STAT_EN_0","0b0: Masked"],["DTCM_MAM_STAT_EN_1","0b1: Enabled"]]};

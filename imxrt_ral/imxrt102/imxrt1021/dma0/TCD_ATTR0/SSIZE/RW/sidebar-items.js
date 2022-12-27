@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SSIZE_0","0b000: 8-bit"],["SSIZE_1","0b001: 16-bit"],["SSIZE_2","0b010: 32-bit"],["SSIZE_3","0b011: 64-bit"],["SSIZE_5","0b101: 32-byte burst (4 beats of 64 bits)"]]};

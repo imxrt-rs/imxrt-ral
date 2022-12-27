@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BOFFREC_0","0b0: Automatic recovering from Bus Off state enabled."],["BOFFREC_1","0b1: Automatic recovering from Bus Off state disabled."]]};

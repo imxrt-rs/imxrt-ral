@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENT_DLY","Entropy Delay"],["SAMP_SIZE","Sample Size"]]};

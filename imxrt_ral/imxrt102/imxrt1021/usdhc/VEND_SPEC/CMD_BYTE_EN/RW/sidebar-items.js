@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CMD_BYTE_EN_0","0b0: Disable"],["CMD_BYTE_EN_1","0b1: Enable"]]};

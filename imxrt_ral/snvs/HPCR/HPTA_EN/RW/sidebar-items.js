@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HPTA_EN_0","HP Time Alarm Interrupt is disabled"],["HPTA_EN_1","HP Time Alarm Interrupt is enabled"]]};

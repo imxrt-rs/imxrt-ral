@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DCP_KEY_SEL_0","0b0: Select [127:0] from snvs/ocotp key as dcp key"],["DCP_KEY_SEL_1","0b1: Select [255:128] from snvs/ocotp key as dcp key"]]};

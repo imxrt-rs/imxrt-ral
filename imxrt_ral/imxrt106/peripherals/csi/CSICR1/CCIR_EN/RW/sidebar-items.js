@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CCIR_EN_0","0b0: Traditional interface is selected. Timing interface logic is used to latch data."],["CCIR_EN_1","0b1: CCIR656 interface is selected."]]};

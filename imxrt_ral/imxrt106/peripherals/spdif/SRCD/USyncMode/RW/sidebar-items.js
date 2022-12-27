@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["USyncMode_0","0b0: Non-CD data"],["USyncMode_1","0b1: CD user channel subcode"]]};

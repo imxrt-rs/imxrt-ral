@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENTAILADJVD","Delay increment of the rise of squelch: 00 = Delay is nominal 01 = Delay is +20% 10 = Delay is -20% 11 = Delay is -40%"],["RSVD0","Reserved. Note: This bit should remain clear."],["RSVD1","Reserved."]]};

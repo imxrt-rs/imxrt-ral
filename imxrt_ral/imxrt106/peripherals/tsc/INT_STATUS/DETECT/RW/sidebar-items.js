@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DETECT_0","0b0: Does not exist a detect signal"],["DETECT_1","0b1: Exist detect signal"]]};

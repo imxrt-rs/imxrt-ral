@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UT_0","256*Prescaler period"],["UT_1","UT*Prescaler period"],["UT_2","UT*Prescaler period"],["UT_3","UT*Prescaler period"],["UT_4","UT*Prescaler period"],["UT_5","UT*Prescaler period"],["UT_6","UT*Prescaler period"],["UT_7","UT*Prescaler period"],["UT_8","UT*Prescaler period"],["UT_9","UT*Prescaler period"]]};

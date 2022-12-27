@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXRAM","Raw pointer to FLEXRAM"]],"mod":[["INT_SIG_EN","Interrupt Enable Register"],["INT_STATUS","Interrupt Status Register"],["INT_STAT_EN","Interrupt Status Enable Register"],["TCM_CTRL","TCM CRTL Register"]],"struct":[["FLEXRAM","The FLEXRAM peripheral instance."],["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

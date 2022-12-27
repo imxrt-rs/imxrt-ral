@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXFF_LEVEL_0","4 Double words"],["RXFF_LEVEL_1","8 Double words"],["RXFF_LEVEL_2","16 Double words"],["RXFF_LEVEL_3","24 Double words"],["RXFF_LEVEL_4","32 Double words"],["RXFF_LEVEL_5","48 Double words"],["RXFF_LEVEL_6","64 Double words"],["RXFF_LEVEL_7","96 Double words"]]};

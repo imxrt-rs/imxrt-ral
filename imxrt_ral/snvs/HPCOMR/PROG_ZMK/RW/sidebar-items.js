@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PROG_ZMK_0","No Action"],["PROG_ZMK_1","Activate hardware key programming mechanism"]]};

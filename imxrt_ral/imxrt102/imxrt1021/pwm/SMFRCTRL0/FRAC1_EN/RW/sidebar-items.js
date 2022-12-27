@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRAC1_EN_0","0b0: Disable fractional cycle length for the PWM period."],["FRAC1_EN_1","0b1: Enable fractional cycle length for the PWM period."]]};

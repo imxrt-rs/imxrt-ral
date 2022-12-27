@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IREN_0","IR disabled."],["IREN_1","IR enabled."]]};

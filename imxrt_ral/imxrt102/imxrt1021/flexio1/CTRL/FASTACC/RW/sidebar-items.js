@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FASTACC_0","0b0: Configures for normal register accesses to FlexIO"],["FASTACC_1","0b1: Configures for fast register accesses to FlexIO"]]};

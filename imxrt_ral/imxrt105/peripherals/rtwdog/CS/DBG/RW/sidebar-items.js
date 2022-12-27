@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBG_0","0b0: Watchdog disabled in chip debug mode."],["DBG_1","0b1: Watchdog enabled in chip debug mode."]]};

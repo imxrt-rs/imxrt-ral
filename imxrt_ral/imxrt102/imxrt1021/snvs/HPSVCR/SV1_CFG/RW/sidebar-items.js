@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SV1_CFG_0","0b0: Security Violation 1 is a non-fatal violation"],["SV1_CFG_1","0b1: Security Violation 1 is a fatal violation"]]};

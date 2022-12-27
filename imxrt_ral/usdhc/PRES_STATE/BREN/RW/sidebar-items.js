@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BREN_0","Read disable"],["BREN_1","Read enable"]]};

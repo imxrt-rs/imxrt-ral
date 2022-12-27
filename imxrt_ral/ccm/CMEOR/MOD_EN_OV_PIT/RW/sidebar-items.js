@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MOD_EN_OV_PIT_0","don’t override module enable signal"],["MOD_EN_OV_PIT_1","override module enable signal"]]};

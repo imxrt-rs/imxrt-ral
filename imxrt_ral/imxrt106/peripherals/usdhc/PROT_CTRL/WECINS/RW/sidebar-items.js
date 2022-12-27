@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WECINS_0","0b0: Disable"],["WECINS_1","0b1: Enable"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MON_COUNTER","Monotonic Counter bits The MC is incremented by one when: A write transaction to the LPSMCMR or LPSMCLR Register is detected"]]};

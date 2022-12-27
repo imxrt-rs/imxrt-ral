@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TX_SECTION_EMPTY","Value Of The Transmit FIFO Section Empty Threshold"]]};

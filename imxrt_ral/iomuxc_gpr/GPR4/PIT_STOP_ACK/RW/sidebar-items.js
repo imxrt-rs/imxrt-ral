@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PIT_STOP_ACK_0","PIT stop acknowledge is not asserted"],["PIT_STOP_ACK_1","PIT stop acknowledge is asserted"]]};

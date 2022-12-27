@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["STOP_0","Watchdog disabled in chip stop mode."],["STOP_1","Watchdog enabled in chip stop mode."]]};

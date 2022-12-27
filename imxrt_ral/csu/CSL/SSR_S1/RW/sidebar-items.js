@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SSR_S1_0","The secure supervisor read access is disabled for the first slave."],["SSR_S1_1","The secure supervisor read access is enabled for the first slave."]]};

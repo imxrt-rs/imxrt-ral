@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IPAREN_0","Flash will be accessed in Individual mode."],["IPAREN_1","Flash will be accessed in Parallel mode."]]};

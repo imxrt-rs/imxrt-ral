@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AVGE_0","0b0: Hardware average function disabled"],["AVGE_1","0b1: Hardware average function enabled"]]};

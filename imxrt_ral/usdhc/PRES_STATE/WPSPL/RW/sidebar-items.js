@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WPSPL_0","Write protected (WP = 1)"],["WPSPL_1","Write enabled (WP = 0)"]]};

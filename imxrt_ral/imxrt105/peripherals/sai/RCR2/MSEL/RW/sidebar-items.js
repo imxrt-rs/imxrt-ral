@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MSEL_0","0b00: Bus Clock selected."],["MSEL_1","0b01: Master Clock (MCLK) 1 option selected."],["MSEL_2","0b10: Master Clock (MCLK) 2 option selected."],["MSEL_3","0b11: Master Clock (MCLK) 3 option selected."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXSPI_CLK_SRC_0","0b0: derive clock selected by CCM_CSCMR1[FLEXSPI_CLK_SEL]"],["FLEXSPI_CLK_SRC_1","0b1: derive clock selected by CCM_CBCMR[PERIPH_CLK2_ SEL]"]]};

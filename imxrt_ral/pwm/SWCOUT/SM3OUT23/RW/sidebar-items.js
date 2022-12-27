@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SM3OUT23_0","A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM23."],["SM3OUT23_1","A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM23."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DETECT_INT_EN","Detect Interrupt Enable"],["IDLE_SW_INT_EN","Idle Software Interrupt Enable"],["MEASURE_INT_EN","Measure Interrupt Enable"]]};

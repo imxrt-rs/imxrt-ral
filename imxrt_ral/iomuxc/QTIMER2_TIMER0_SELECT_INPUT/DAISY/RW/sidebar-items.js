@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GPIO_B0_03_ALT1","Selecting Pad: GPIO_B0_03 for Mode: ALT1"],["GPIO_EMC_19_ALT4","Selecting Pad: GPIO_EMC_19 for Mode: ALT4"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ROC_0","Do not reload the counter on a capture event."],["ROC_1","Reload the counter on a capture event."]]};

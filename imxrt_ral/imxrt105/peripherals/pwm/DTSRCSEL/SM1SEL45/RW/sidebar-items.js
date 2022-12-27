@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SM1SEL45_0","0b00: Generated SM1PWM45 signal is used by the deadtime logic."],["SM1SEL45_1","0b01: Inverted generated SM1PWM45 signal is used by the deadtime logic."],["SM1SEL45_2","0b10: SWCOUT[SM1OUT45] is used by the deadtime logic."],["SM1SEL45_3","0b11: PWM1_EXTB signal is used by the deadtime logic."]]};

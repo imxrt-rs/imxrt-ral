@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RAM_AUTO_CLK_GATING_EN_0","0b0: disable automatically gate off RAM clock"],["RAM_AUTO_CLK_GATING_EN_1","0b1: enable automatically gate off RAM clock"]]};

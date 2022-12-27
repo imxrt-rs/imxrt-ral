@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SSIZE_0","8-bit"],["SSIZE_1","16-bit"],["SSIZE_2","32-bit"],["SSIZE_3","64-bit"],["SSIZE_5","32-byte burst (4 beats of 64 bits)"]]};

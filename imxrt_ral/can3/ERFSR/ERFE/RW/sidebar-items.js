@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERFE_0","Enhanced Rx FIFO is not empty"],["ERFE_1","Enhanced Rx FIFO is empty"]]};

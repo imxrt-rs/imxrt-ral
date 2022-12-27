@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UART_CLK_SEL_0","derive clock from pll3_80m"],["UART_CLK_SEL_1","derive clock from osc_clk"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBGE_0","0b0: Transmitter is disabled in Debug mode, after completing the current frame."],["DBGE_1","0b1: Transmitter is enabled in Debug mode."]]};

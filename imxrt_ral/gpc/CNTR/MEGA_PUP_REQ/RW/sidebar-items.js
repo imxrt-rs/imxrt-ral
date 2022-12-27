@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MEGA_PUP_REQ_0","No Request"],["MEGA_PUP_REQ_1","Request power up sequence"]]};

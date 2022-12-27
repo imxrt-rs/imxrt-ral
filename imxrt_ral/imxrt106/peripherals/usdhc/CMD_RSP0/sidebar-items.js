@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CMDRSP0","Command Response 0"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLKGATE_DELAY_0","0b000: 0.5ms"],["CLKGATE_DELAY_1","0b001: 1.0ms"],["CLKGATE_DELAY_2","0b010: 2.0ms"],["CLKGATE_DELAY_3","0b011: 3.0ms"],["CLKGATE_DELAY_4","0b100: 4.0ms"],["CLKGATE_DELAY_5","0b101: 5.0ms"],["CLKGATE_DELAY_6","0b110: 6.0ms"],["CLKGATE_DELAY_7","0b111: 7.0ms"]]};

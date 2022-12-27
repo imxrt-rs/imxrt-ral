@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["MPROT0","Master 0 Priviledge, Buffer, Read, Write Control"],["MPROT1","Master 1 Priviledge, Buffer, Read, Write Control"],["MPROT2","Master 2 Priviledge, Buffer, Read, Write Control"],["MPROT3","Master 3 Priviledge, Buffer, Read, Write Control."],["MPROT5","Master 5 Priviledge, Buffer, Read, Write Control."]]};

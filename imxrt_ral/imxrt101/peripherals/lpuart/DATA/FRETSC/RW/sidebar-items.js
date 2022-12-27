@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRETSC_0","0b0: The dataword was received without a frame error on read, or transmit a normal character on write."],["FRETSC_1","0b1: The dataword was received with a frame error, or transmit an idle or break character on transmit."]]};

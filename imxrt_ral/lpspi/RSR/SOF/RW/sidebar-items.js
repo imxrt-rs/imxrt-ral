@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SOF_0","Subsequent data word received after LPSPI_PCS assertion"],["SOF_1","First data word received after LPSPI_PCS assertion"]]};

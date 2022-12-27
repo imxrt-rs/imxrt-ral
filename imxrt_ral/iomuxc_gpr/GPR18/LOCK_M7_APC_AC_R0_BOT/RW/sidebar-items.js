@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOCK_M7_APC_AC_R0_BOT_0","Register field [31:1] is not locked"],["LOCK_M7_APC_AC_R0_BOT_1","Register field [31:1] is locked (read access only)"]]};

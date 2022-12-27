@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PERIPH_CLK2_PODF_0","divide by 1"],["PERIPH_CLK2_PODF_1","divide by 2"],["PERIPH_CLK2_PODF_2","divide by 3"],["PERIPH_CLK2_PODF_3","divide by 4"],["PERIPH_CLK2_PODF_4","divide by 5"],["PERIPH_CLK2_PODF_5","divide by 6"],["PERIPH_CLK2_PODF_6","divide by 7"],["PERIPH_CLK2_PODF_7","divide by 8"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ADTRG_0","Software trigger selected"],["ADTRG_1","Hardware trigger selected"]]};

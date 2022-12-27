@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["REF_EN_B_0","0b0: value of CCM_REF_EN_B is ‘0’"],["REF_EN_B_1","0b1: value of CCM_REF_EN_B is ‘1’"]]};

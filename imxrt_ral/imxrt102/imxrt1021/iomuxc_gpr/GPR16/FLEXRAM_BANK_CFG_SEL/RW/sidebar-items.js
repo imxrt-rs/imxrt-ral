@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXRAM_BANK_CFG_SEL_0","0b0: use fuse value to config"],["FLEXRAM_BANK_CFG_SEL_1","0b1: use FLEXRAM_BANK_CFG to config"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PRESCALER_0","Divide by 1"],["PRESCALER_1","Divide by 2"],["PRESCALER_4095","Divide by 4096"]]};

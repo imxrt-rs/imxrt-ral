@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBLX_0","0b0: PWMX double pulse disabled."],["DBLX_1","0b1: PWMX double pulse enabled."]]};

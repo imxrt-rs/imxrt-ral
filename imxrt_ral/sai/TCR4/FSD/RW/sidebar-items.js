@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FSD_0","Frame sync is generated externally in Slave mode."],["FSD_1","Frame sync is generated internally in Master mode."]]};

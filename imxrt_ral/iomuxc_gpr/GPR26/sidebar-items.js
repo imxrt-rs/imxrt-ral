@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["GPIO_SEL","Select GPIO1 or GPIO2"]]};

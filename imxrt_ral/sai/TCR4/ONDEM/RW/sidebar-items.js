@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ONDEM_0","Internal frame sync is generated continuously."],["ONDEM_1","Internal frame sync is generated when the FIFO warning flag is clear."]]};

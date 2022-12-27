@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RFEN_0","FIFO not enabled"],["RFEN_1","FIFO enabled"]]};

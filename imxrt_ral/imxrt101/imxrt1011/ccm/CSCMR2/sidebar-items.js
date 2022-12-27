@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADC_ACLK_EN","Enable ADC alt_clk, so that ADC alt_clk can be driven be divided pll3_sw_clk."],["ADC_ACLK_PODF","Divider for ADC alt_clk, as the list below (other values reserved)."],["FLEXIO1_CLK_SEL","Selector for flexio1 clock multiplexer"]]};

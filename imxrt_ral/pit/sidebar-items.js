@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PIT","PIT"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["LTMR64H","PIT Upper Lifetime Timer Register"],["LTMR64L","PIT Lower Lifetime Timer Register"],["MCR","PIT Module Control Register"],["timer",""]],"struct":[["RegisterBlock","PIT"]],"type":[["Instance",""],["PIT",""]]};

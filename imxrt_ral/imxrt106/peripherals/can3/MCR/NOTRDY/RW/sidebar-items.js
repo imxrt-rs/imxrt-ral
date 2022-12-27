@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NOTRDY_0","0b0: FlexCAN module is either in Normal mode, Listen-Only mode or Loop-Back mode."],["NOTRDY_1","0b1: FlexCAN module is either in Disable mode, Doze mode , Stop mode or Freeze mode."]]};

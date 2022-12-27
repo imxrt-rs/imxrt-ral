@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RO_0","0b0: The context registers can be accessed normally (as defined by SR[RRAM])."],["RO_1","0b1: The context registers are read-only and accesses may be further restricted based on SR[RRAM]."]]};

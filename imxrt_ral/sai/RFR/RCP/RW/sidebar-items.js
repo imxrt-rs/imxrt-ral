@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RCP_0","No effect."],["RCP_1","FIFO combine is enabled for FIFO reads and this FIFO will be read on the next FIFO read."]]};

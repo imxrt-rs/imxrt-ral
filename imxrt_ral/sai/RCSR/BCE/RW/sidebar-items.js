@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BCE_0","Receive bit clock is disabled."],["BCE_1","Receive bit clock is enabled."]]};

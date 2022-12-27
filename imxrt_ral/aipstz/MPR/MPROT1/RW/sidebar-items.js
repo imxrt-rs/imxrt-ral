@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MPL0","Accesses from this master are forced to user-mode (ips_supervisor_access is forced to zero) regardless of the hprot[1] access attribute."],["MPL1","Accesses from this master are not forced to user-mode. The hprot[1] access attribute is used directly to determine ips_supervisor_access."]]};

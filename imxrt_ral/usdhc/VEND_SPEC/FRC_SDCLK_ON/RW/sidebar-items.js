@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FRC_SDCLK_ON_0","CLK active or inactive is fully controlled by the hardware."],["FRC_SDCLK_ON_1","Force CLK active."]]};

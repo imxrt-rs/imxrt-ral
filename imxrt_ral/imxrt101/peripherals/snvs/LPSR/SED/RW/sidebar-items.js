@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SED_0","0b0: Scan exit was not detected."],["SED_1","0b1: Scan exit was detected."]]};

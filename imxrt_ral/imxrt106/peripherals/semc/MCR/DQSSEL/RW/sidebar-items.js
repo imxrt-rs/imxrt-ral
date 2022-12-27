@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DQSSEL_0","0b0: SDRAM/NOR/SRAM read clock source is from DQS pad in synchronous mode."],["DQSSEL_1","0b1: SDRAM/NOR/SRAM read clock source is from DLL delay chain in synchronous mode."]]};

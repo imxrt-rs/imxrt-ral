@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PROG_ZMK_0","0b0: No Action"],["PROG_ZMK_1","0b1: Activate hardware key programming mechanism"]]};

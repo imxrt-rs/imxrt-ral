@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SEMC_PODF_LOADED_0","0b0: interrupt is not generated due to frequency change of semc_podf"],["SEMC_PODF_LOADED_1","0b1: interrupt generated due to frequency change of semc_podf"]]};

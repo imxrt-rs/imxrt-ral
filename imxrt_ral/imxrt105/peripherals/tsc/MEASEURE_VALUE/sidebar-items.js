@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["X_VALUE","X Value"],["Y_VALUE","Y Value"]]};

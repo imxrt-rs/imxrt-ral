@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DREQ_0","The channel’s ERQ bit is not affected."],["DREQ_1","The channel’s ERQ bit is cleared when the major loop is complete."]]};

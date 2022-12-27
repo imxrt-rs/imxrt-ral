@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HOE_0","Normal operation"],["HOE_1","Any error causes the HALT bit to set. Subsequently, all service requests are ignored until the HALT bit is cleared."]]};

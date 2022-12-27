@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KPP","Raw pointer to KPP"]],"mod":[["KDDR","Keypad Data Direction Register"],["KPCR","Keypad Control Register"],["KPDR","Keypad Data Register"],["KPSR","Keypad Status Register"]],"struct":[["Instance",""],["KPP","The KPP peripheral instance."],["RegisterBlock",""],["ResetValues",""]]};

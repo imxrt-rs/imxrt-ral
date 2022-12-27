@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["STBY_COUNT_0","CCM will wait (1*pmic_delay_scaler)+1 ckil clock cycles"],["STBY_COUNT_1","CCM will wait (3*pmic_delay_scaler)+1 ckil clock cycles"],["STBY_COUNT_2","CCM will wait (7*pmic_delay_scaler)+1 ckil clock cycles"],["STBY_COUNT_3","CCM will wait (15*pmic_delay_scaler)+1 ckil clock cycles"]]};

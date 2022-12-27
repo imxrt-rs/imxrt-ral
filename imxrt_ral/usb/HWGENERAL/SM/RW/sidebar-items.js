@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SM_0","No Serial Engine, always use parallel signalling."],["SM_1","Serial Engine present, always use serial signalling for FS/LS."],["SM_2","Software programmable - Reset to use parallel signalling for FS/LS"],["SM_3","Software programmable - Reset to use serial signalling for FS/LS"]]};

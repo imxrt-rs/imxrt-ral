@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PRSC_0","PWM clock frequency = fclk"],["PRSC_1","PWM clock frequency = fclk/2"],["PRSC_2","PWM clock frequency = fclk/4"],["PRSC_3","PWM clock frequency = fclk/8"],["PRSC_4","PWM clock frequency = fclk/16"],["PRSC_5","PWM clock frequency = fclk/32"],["PRSC_6","PWM clock frequency = fclk/64"],["PRSC_7","PWM clock frequency = fclk/128"]]};

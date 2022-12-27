@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IDLE_0","No such occurrence."],["IDLE_1","CAN bus is now IDLE."]]};

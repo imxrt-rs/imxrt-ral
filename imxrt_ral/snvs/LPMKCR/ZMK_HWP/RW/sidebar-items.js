@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ZMK_HWP_0","ZMK is in the software programming mode."],["ZMK_HWP_1","ZMK is in the hardware programming mode."]]};

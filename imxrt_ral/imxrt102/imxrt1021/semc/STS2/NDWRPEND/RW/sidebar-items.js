@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NDWRPEND_0","0b0: No pending"],["NDWRPEND_1","0b1: Pending"]]};

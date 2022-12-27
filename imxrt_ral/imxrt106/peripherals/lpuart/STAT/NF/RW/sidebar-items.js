@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NF_0","0b0: No noise detected."],["NF_1","0b1: Noise detected in the received character in the DATA register."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["STATFF_INT_0","STATFIFO is not full."],["STATFF_INT_1","STATFIFO is full."]]};

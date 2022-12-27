@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BUFLM_0","0b00000000000000000000000000000000: The corresponding buffer Interrupt is disabled"],["BUFLM_1","0b00000000000000000000000000000001: The corresponding buffer Interrupt is enabled"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DOZEN_0","LPSPI module is enabled in Doze mode"],["DOZEN_1","LPSPI module is disabled in Doze mode"]]};

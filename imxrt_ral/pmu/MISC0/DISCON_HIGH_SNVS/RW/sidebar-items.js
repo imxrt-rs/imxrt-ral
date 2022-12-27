@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DISCON_HIGH_SNVS_0","Turn on the switch"],["DISCON_HIGH_SNVS_1","Turn off the switch"]]};

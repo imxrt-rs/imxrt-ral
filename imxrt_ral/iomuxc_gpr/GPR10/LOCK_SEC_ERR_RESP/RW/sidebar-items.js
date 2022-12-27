@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOCK_SEC_ERR_RESP_0","Field is not locked"],["LOCK_SEC_ERR_RESP_1","Field is locked (read access only)"]]};

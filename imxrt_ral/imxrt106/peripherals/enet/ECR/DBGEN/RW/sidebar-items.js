@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBGEN_0","0b0: MAC continues operation in debug mode."],["DBGEN_1","0b1: MAC enters hardware freeze mode when the processor is in debug mode."]]};

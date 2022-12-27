@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENABLE","Enable Address Comparator - This bit enables the corresponding address comparator to trigger an event"]]};

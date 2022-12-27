@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["FD_PERIOD","Period of line counter during FD phase"],["LD_PERIOD","Period of pclk counter during LD phase"]]};

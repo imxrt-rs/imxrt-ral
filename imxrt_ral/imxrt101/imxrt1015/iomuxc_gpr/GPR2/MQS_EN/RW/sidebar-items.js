@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MQS_EN_0","0b0: Disable MQS"],["MQS_EN_1","0b1: Enable MQS"]]};

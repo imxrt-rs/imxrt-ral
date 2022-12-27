@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RRS_0","0b0: Remote Response Frame is generated."],["RRS_1","0b1: Remote Request Frame is stored."]]};

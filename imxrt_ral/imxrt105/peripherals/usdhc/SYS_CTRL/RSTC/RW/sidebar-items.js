@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RSTC_0","0b0: No Reset"],["RSTC_1","0b1: Reset"]]};

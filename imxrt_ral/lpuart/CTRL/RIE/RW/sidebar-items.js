@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RIE_0","Hardware interrupts from RDRF disabled; use polling."],["RIE_1","Hardware interrupt requested when RDRF flag is 1."]]};

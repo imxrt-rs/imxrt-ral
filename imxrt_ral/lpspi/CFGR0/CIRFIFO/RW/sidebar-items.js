@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CIRFIFO_0","Circular FIFO is disabled"],["CIRFIFO_1","Circular FIFO is enabled"]]};

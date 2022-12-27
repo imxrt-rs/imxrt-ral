@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["EDGE3_0","0b00: STS3 never asserts"],["EDGE3_1","0b01: STS3 asserts on rising edges of XBAR_OUT3"],["EDGE3_2","0b10: STS3 asserts on falling edges of XBAR_OUT3"],["EDGE3_3","0b11: STS3 asserts on rising and falling edges of XBAR_OUT3"]]};

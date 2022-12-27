@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLK_0","Bus clock"],["CLK_1","LPO clock"],["CLK_2","INTCLK (internal clock)"],["CLK_3","ERCLK (external reference clock)"]]};

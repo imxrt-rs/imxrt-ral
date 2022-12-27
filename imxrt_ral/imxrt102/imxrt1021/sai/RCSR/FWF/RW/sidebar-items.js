@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FWF_0","0b0: No enabled receive FIFO is full."],["FWF_1","0b1: Enabled receive FIFO is full."]]};

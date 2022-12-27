@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CRCFWD_0","The CRC field of received frames is transmitted to the user application."],["CRCFWD_1","The CRC field is stripped from the frame."]]};

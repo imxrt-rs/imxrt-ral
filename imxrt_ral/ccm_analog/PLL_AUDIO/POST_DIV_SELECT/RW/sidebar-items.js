@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["POST_DIV_SELECT_0","Divide by 4."],["POST_DIV_SELECT_1","Divide by 2."],["POST_DIV_SELECT_2","Divide by 1."]]};

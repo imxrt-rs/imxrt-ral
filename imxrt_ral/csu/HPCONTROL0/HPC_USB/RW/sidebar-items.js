@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["HPC_USB_0","User mode for the corresponding master"],["HPC_USB_1","Supervisor mode for the corresponding master"]]};

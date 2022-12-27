@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["PWR_POL_0","PMIC Power Pin is Low active."],["PWR_POL_1","PMIC Power Pin is High active."]]};

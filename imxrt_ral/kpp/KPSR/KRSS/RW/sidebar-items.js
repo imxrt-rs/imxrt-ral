@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KRSS_0","No effect"],["KRSS_1","Set bits which sets keypad release synchronizer chain"]]};

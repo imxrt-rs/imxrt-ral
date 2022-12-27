@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EDGE1_0","STS1 never asserts"],["EDGE1_1","STS1 asserts on rising edges of XBAR_OUT1"],["EDGE1_2","STS1 asserts on falling edges of XBAR_OUT1"],["EDGE1_3","STS1 asserts on rising and falling edges of XBAR_OUT1"]]};

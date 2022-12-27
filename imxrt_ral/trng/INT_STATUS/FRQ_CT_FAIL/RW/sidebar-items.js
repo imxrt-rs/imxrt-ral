@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FRQ_CT_FAIL_0","No hardware nor self test frequency errors."],["FRQ_CT_FAIL_1","The frequency counter has detected a failure."]]};

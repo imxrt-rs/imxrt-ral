@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KBPE_0","0b0: Key blob processing is not enabled."],["KBPE_1","0b1: Key blob processing is enabled."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CAEE_0","0b0: Clear only the EEI bit specified in the CEEI field"],["CAEE_1","0b1: Clear all bits in EEI"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MAJORELINK_0","0b0: The channel-to-channel linking is disabled."],["MAJORELINK_1","0b1: The channel-to-channel linking is enabled."]]};

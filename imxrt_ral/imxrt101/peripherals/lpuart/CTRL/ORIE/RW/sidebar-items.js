@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ORIE_0","0b0: OR interrupts disabled; use polling."],["ORIE_1","0b1: Hardware interrupt requested when OR is set."]]};

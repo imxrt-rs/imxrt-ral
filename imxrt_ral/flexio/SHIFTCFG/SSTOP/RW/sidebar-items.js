@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SSTOP_0","Stop bit disabled for transmitter/receiver/match store"],["SSTOP_2","Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0"],["SSTOP_3","Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1"]]};

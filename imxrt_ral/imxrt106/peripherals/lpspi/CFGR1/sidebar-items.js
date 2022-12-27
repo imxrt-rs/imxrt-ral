@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["AUTOPCS","Automatic PCS"],["MASTER","Master Mode"],["MATCFG","Match Configuration"],["NOSTALL","No Stall"],["OUTCFG","Output Config"],["PCSCFG","Peripheral Chip Select Configuration"],["PCSPOL","Peripheral Chip Select Polarity"],["PINCFG","Pin Configuration"],["SAMPLE","Sample Point"]]};

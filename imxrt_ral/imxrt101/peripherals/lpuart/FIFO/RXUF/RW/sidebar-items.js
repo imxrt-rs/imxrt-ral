@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXUF_0","0b0: No receive buffer underflow has occurred since the last time the flag was cleared."],["RXUF_1","0b1: At least one receive buffer underflow has occurred since the last time the flag was cleared."]]};

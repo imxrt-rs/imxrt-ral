@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["D3CD_0","0b0: DATA3 does not monitor Card Insertion"],["D3CD_1","0b1: DATA3 as Card Detection Pin"]]};

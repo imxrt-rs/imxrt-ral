@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["SILICON_REVISION","Chip silicon revision"]]};

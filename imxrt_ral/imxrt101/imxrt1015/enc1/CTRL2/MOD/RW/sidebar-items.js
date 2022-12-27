@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MOD_0","0b0: Disable modulo counting"],["MOD_1","0b1: Enable modulo counting"]]};

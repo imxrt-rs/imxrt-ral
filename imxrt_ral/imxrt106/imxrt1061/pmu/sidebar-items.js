@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PMU","Raw pointer to PMU"]],"struct":[["PMU","The PMU peripheral instance."]]};

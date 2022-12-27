@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FERR_0","0b0: No effect on the SR[KBERE] indicator."],["FERR_1","0b1: SR[KBERR] is immediately set after a write with this data bit set."]]};

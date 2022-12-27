@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERFDA_0","No such occurrence"],["ERFDA_1","There is at least one message stored in Enhanced Rx FIFO"]]};

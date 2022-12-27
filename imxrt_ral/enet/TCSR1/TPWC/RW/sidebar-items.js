@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TPWC_0","Pulse width is one 1588-clock cycle."],["TPWC_1","Pulse width is two 1588-clock cycles."],["TPWC_2","Pulse width is three 1588-clock cycles."],["TPWC_3","Pulse width is four 1588-clock cycles."],["TPWC_31","Pulse width is 32 1588-clock cycles."]]};

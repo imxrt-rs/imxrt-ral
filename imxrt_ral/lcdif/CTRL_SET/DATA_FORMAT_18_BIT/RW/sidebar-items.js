@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOWER_18_BITS_VALID","Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data."],["UPPER_18_BITS_VALID","Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MDIS_0","0b0: Clock for standard PIT timers is enabled."],["MDIS_1","0b1: Clock for standard PIT timers is disabled."]]};

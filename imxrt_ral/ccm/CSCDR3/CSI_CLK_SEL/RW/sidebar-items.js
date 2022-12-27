@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CSI_CLK_SEL_0","derive clock from osc_clk (24M)"],["CSI_CLK_SEL_1","derive clock from PLL2 PFD2"],["CSI_CLK_SEL_2","derive clock from pll3_120M"],["CSI_CLK_SEL_3","derive clock from PLL3 PFD1"]]};

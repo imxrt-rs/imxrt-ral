@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AM0F_0","0b0: Have not received an ADDR0 matching address"],["AM0F_1","0b1: Have received an ADDR0 matching address"]]};

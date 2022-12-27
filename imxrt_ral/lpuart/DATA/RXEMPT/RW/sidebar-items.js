@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXEMPT_0","Receive buffer contains valid data."],["RXEMPT_1","Receive buffer is empty, data returned on read is not valid."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["USRC_SEL_0","No embedded U channel"],["USRC_SEL_1","U channel from SPDIF receive block (CD mode)"],["USRC_SEL_3","U channel from on chip transmitter"]]};

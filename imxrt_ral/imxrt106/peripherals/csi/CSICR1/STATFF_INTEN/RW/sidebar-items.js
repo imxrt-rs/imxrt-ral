@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["STATFF_INTEN_0","0b0: STATFIFO full interrupt disable"],["STATFF_INTEN_1","0b1: STATFIFO full interrupt enable"]]};

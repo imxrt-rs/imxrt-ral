@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENABLE","Enable bit"],["STEP","Frequency change step = step/CCM_ANALOG_PLL_SYS_DENOM[B]*24MHz."],["STOP","Frequency change = stop/CCM_ANALOG_PLL_SYS_DENOM[B]*24MHz."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IDLE_SW_SIG_EN_0","Disable idle software signal"],["IDLE_SW_SIG_EN_1","Enable idle software signal"]]};

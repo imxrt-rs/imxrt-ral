@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CMDTYP_0","Normal Other commands"],["CMDTYP_1","Suspend CMD52 for writing Bus Suspend in CCCR"],["CMDTYP_2","Resume CMD52 for writing Function Select in CCCR"],["CMDTYP_3","Abort CMD12, CMD52 for writing I/O Abort in CCCR"]]};

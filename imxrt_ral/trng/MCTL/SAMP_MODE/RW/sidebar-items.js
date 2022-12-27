@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SAMP_MODE_0","use Von Neumann data into both Entropy shifter and Statistical Checker"],["SAMP_MODE_1","use raw data into both Entropy shifter and Statistical Checker"],["SAMP_MODE_2","use Von Neumann data into Entropy shifter. Use raw data into Statistical Checker"],["SAMP_MODE_3","undefined/reserved."]]};

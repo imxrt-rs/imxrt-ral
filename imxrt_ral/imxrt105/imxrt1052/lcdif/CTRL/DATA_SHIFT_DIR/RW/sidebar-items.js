@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXDATA_SHIFT_LEFT","0b0: Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits."],["TXDATA_SHIFT_RIGHT","0b1: Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits."]]};

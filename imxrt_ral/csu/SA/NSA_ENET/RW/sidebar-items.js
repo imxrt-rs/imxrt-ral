@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NSA_ENET_0","Secure access for the corresponding type-1 master"],["NSA_ENET_1","Non-secure access for the corresponding type-1 master"]]};

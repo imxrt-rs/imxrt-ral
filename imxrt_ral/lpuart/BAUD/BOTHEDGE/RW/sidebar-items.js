@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BOTHEDGE_0","Receiver samples input data using the rising edge of the baud rate clock."],["BOTHEDGE_1","Receiver samples input data using the rising and falling edge of the baud rate clock."]]};

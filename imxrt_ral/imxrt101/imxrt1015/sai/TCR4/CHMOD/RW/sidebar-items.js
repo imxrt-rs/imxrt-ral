@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CHMOD_0","0b0: TDM mode, transmit data pins are tri-stated when slots are masked or channels are disabled."],["CHMOD_1","0b1: Output mode, transmit data pins are never tri-stated and will output zero when slots are masked or channels are disabled."]]};

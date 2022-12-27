@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["NSA_PXP_0","Secure access for the corresponding type-1 master"],["NSA_PXP_1","Non-secure access for the corresponding type-1 master"]]};

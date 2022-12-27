@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DSE_0_output_driver_disabled_","0b000: output driver disabled;"],["DSE_1_R0_150_Ohm___3_3V__260_Ohm_1_8V_","0b001: R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)"],["DSE_2_R0_2","0b010: R0/2"],["DSE_3_R0_3","0b011: R0/3"],["DSE_4_R0_4","0b100: R0/4"],["DSE_5_R0_5","0b101: R0/5"],["DSE_6_R0_6","0b110: R0/6"],["DSE_7_R0_7","0b111: R0/7"]]};

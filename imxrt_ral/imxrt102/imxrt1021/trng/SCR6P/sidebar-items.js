@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["R6P_0_CT","Runs of Zero, Length 6+ Count"],["R6P_1_CT","Runs of One, Length 6+ Count"],["RUN6P_MAX","Run Length 6+ Maximum Limit"],["RUN6P_RNG","Run Length 6+ Range"]]};

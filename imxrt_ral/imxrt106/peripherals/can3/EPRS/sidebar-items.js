@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["EDPRESDIV","Extended Data Phase Prescaler Division Factor"],["ENPRESDIV","Extended Nominal Prescaler Division Factor"]]};

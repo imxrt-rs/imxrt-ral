@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TRUNC_FL","Frame Truncation Length"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BUF5I_0","No such occurrence"],["BUF5I_1","MB5 completed transmission/reception or frames available in the FIFO"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["PRE_CHARGE_TIME","Before detection, the top screen needs some time before being pulled up to a high voltage."]]};

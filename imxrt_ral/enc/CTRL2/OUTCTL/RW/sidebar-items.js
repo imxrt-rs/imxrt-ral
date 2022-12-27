@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OUTCTL_0","POSMATCH pulses when a match occurs between the position counters (POS) and the compare value (COMP)."],["OUTCTL_1","POSMATCH pulses when the UPOS, LPOS, REV, or POSD registers are read."]]};

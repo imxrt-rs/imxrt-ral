@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RDRF_0","0b0: Receive data buffer empty."],["RDRF_1","0b1: Receive data buffer full."]]};

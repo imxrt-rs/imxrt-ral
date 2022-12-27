@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CHECK","0b0: Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."],["NO_CHECK","0b1: Do not check whether a charger is connected to the USB port."]]};

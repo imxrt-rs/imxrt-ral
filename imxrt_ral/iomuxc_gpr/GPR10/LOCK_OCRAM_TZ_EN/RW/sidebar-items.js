@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOCK_OCRAM_TZ_EN_0","Field is not locked"],["LOCK_OCRAM_TZ_EN_1","Field is locked (read access only)"]]};

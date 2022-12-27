@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ACMP4_CMP_IGEN_TRIM_DN_0","no reduce"],["ACMP4_CMP_IGEN_TRIM_DN_1","reduces"]]};

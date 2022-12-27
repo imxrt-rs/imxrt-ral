@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MEASURE_0","0b0: Does not exist a measure signal"],["MEASURE_1","0b1: Exist a measure signal"]]};

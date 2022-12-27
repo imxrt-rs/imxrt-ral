@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CORE0_DBG_RST","Software reset for core0 debug only"],["CORE0_RST","Software reset for core0 only"],["DBG_RST_MSK_PG","Do not assert debug resets after power gating event of core"],["MASK_WDOG3_RST","Mask wdog3_rst_b source"],["MASK_WDOG_RST","Mask wdog_rst_b source"]]};

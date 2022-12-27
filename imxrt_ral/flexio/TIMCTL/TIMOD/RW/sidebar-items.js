@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TIMOD_0","Timer Disabled."],["TIMOD_1","Dual 8-bit counters baud mode."],["TIMOD_2","Dual 8-bit counters PWM high mode."],["TIMOD_3","Single 16-bit counter mode."]]};

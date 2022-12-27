@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENET2_DIV_SELECT_0","25MHz"],["ENET2_DIV_SELECT_1","50MHz"],["ENET2_DIV_SELECT_2","100MHz (not 50% duty cycle)"],["ENET2_DIV_SELECT_3","125MHz"]]};

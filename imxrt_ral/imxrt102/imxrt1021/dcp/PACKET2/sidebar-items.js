@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CIPHER_CFG","Cipher configuration bits. Optional configuration bits are required for the ciphers."],["CIPHER_MODE","Cipher mode selection field. Reflects the mode of operation for the cipher operations."],["CIPHER_SELECT","Cipher selection field"],["HASH_SELECT","Hash Selection Field"],["KEY_SELECT","Key selection field"]]};

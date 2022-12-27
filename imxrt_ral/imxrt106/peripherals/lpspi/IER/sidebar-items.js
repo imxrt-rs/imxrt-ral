@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DMIE","Data Match Interrupt Enable"],["FCIE","Frame Complete Interrupt Enable"],["RDIE","Receive Data Interrupt Enable"],["REIE","Receive Error Interrupt Enable"],["TCIE","Transfer Complete Interrupt Enable"],["TDIE","Transmit Data Interrupt Enable"],["TEIE","Transmit Error Interrupt Enable"],["WCIE","Word Complete Interrupt Enable"]]};

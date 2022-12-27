@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RMII_10T_0","100-Mbit/s operation."],["RMII_10T_1","10-Mbit/s operation."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AFS_0","0b00: Abs Diff on consecutive green pixels"],["AFS_1","0b01: Abs Diff on every third green pixels"],["AFS_2","0b10: Abs Diff on every four green pixels"]]};

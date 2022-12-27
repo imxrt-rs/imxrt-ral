@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RXEMPTY_0","Receive FIFO is not empty"],["RXEMPTY_1","Receive FIFO is empty"]]};

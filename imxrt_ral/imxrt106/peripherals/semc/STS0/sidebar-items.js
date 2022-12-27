@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["IDLE","Indicating whether SEMC is in IDLE state."],["NARDY","Indicating NAND device Ready/WAIT# pin level."]]};

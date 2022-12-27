@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEF_0","0b0: No error"],["FEF_1","0b1: Master sending or receiving data without a START condition"]]};

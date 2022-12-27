@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MBDSR1_0","Selects 8 bytes per Message Buffer."],["MBDSR1_1","Selects 16 bytes per Message Buffer."],["MBDSR1_2","Selects 32 bytes per Message Buffer."],["MBDSR1_3","Selects 64 bytes per Message Buffer."]]};

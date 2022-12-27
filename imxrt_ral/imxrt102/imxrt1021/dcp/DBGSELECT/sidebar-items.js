@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["INDEX","Selects a value to read via the debug data register."]]};

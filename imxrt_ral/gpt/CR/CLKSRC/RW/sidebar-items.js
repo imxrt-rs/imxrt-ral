@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLKSRC_0","No clock"],["CLKSRC_1","Peripheral Clock (ipg_clk)"],["CLKSRC_2","High Frequency Reference Clock (ipg_clk_highfreq)"],["CLKSRC_3","External Clock"],["CLKSRC_4","Low Frequency Reference Clock (ipg_clk_32k)"],["CLKSRC_5","Crystal oscillator as Reference Clock (ipg_clk_24M)"]]};

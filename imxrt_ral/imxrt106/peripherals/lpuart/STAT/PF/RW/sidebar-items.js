@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PF_0","0b0: No parity error."],["PF_1","0b1: Parity error."]]};

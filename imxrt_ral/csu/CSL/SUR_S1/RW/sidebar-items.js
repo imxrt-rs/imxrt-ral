@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SUR_S1_0","The secure user read access is disabled for the first slave."],["SUR_S1_1","The secure user read access is enabled for the first slave."]]};

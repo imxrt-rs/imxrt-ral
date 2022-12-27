@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["USE_TUNING_SDR50_0","SDR does not require tuning"],["USE_TUNING_SDR50_1","SDR50 requires tuning"]]};

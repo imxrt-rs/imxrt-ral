@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["DATA6","Result DATA6"],["DATA7","Result DATA7"]]};

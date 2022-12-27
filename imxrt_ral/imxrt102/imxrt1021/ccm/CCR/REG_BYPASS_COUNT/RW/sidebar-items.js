@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["REG_BYPASS_COUNT_0","0b000000: no delay"],["REG_BYPASS_COUNT_1","0b000001: 1 CKIL clock period delay"],["REG_BYPASS_COUNT_63","0b111111: 63 CKIL clock periods delay"]]};

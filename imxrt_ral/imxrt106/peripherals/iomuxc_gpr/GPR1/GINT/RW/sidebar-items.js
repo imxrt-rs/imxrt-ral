@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GINT_0","0b0: Global interrupt request is not asserted."],["GINT_1","0b1: Global interrupt request is asserted."]]};

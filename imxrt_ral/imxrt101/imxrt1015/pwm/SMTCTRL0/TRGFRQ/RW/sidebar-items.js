@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TRGFRQ_0","0b0: Trigger outputs are generated during every PWM period even if the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero."],["TRGFRQ_1","0b1: Trigger outputs are generated only during the final PWM period prior to a reload opportunity when the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FSP_0","Frame sync is active high."],["FSP_1","Frame sync is active low."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IPCHK_0","Checksum is not inserted."],["IPCHK_1","If an IP frame is transmitted, the checksum is inserted automatically. The IP header checksum field must be cleared. If a non-IP frame is transmitted the frame is not modified."]]};

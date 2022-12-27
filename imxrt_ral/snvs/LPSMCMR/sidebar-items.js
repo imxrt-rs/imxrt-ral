@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["MC_ERA_BITS","Monotonic Counter Era Bits These bits are inputs to the module and typically connect to fuses"],["MON_COUNTER","Monotonic Counter most-significant 16 Bits The MC is incremented by one when: A write transaction to the LPSMCMR or LPSMCLR register is detected"]]};

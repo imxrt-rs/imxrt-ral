@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["JTAG_RST_B_0","Reset is not a result of HIGH-Z reset from JTAG."],["JTAG_RST_B_1","Reset is a result of HIGH-Z reset from JTAG."]]};

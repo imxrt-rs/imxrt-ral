@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAER_0","0b0: Set only the ERQ bit specified in the SERQ field"],["SAER_1","0b1: Set all bits in ERQ"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["COINIT_0","0b0: Co-channel counter/timers cannot force a re-initialization of this counter/timer"],["COINIT_1","0b1: Co-channel counter/timers may force a re-initialization of this counter/timer"]]};

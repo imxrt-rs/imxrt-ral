@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["imxrt1051","Register access layer for imxrt1051"],["imxrt1052","Register access layer for imxrt1052"],["peripherals","Peripherals shared by multiple devices"]]};

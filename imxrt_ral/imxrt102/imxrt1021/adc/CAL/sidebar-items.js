@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CAL_CODE","Calibration Result Value"]]};

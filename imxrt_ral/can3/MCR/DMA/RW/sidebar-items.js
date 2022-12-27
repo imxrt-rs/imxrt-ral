@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DMA_0","DMA feature for Legacy RX FIFO or Enhanced Rx FIFO are disabled."],["DMA_1","DMA feature for Legacy RX FIFO or Enhanced Rx FIFO are enabled."]]};

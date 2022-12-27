@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["HAC_COUNTER_IV","High Assurance Counter Initial Value This register is used to set the starting count value to the high assurance counter"]]};

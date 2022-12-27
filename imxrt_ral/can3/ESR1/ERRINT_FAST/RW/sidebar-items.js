@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERRINT_FAST_0","No such occurrence."],["ERRINT_FAST_1","Indicates setting of any Error Bit detected in the Data Phase of CAN FD frames with the BRS bit set."]]};

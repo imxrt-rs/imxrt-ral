@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IGNACK_0","LPI2C Master will receive ACK and NACK normally"],["IGNACK_1","LPI2C Master will treat a received NACK as if it (NACK) was an ACK"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CLRAHBBUFOPT_0","AHB RX/TX Buffer will not be cleaned automatically when FlexSPI return Stop mode ACK."],["CLRAHBBUFOPT_1","AHB RX/TX Buffer will be cleaned automatically when FlexSPI return Stop mode ACK."]]};

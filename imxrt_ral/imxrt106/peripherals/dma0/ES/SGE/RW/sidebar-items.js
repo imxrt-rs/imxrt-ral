@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SGE_0","0b0: No scatter/gather configuration error"],["SGE_1","0b1: The last recorded error was a configuration error detected in the TCDn_DLASTSGA field. This field is checked at the beginning of a scatter/gather operation after major loop completion if TCDn_CSR[ESG] is enabled. TCDn_DLASTSGA is not on a 32 byte boundary."]]};

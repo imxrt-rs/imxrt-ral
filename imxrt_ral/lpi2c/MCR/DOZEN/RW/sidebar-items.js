@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DOZEN_0","Master is enabled in Doze mode"],["DOZEN_1","Master is disabled in Doze mode"]]};

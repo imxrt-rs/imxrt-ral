@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AIPSTZ1","Raw pointer to AIPSTZ1"],["AIPSTZ2","Raw pointer to AIPSTZ2"]],"struct":[["AIPSTZ1","The AIPSTZ1 peripheral instance."],["AIPSTZ2","The AIPSTZ2 peripheral instance."]]};

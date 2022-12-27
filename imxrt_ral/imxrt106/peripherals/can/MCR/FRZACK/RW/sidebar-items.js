@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRZACK_0","0b0: FLEXCAN not in Freeze Mode, prescaler running"],["FRZACK_1","0b1: FLEXCAN in Freeze Mode, prescaler stopped"]]};

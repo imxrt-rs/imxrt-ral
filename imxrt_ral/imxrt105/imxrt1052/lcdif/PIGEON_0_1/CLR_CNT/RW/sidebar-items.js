@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLEAR_USING_MASK","0b0000000000000000: Keep active until mask off"]]};

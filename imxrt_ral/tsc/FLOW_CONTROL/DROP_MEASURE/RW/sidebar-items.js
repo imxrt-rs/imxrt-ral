@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DROP_MEASURE_0","Do not drop measure for now"],["DROP_MEASURE_1","Drop the measure and controller return to idle status"]]};

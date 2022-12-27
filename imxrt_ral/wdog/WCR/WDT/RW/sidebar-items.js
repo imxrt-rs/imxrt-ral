@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WDT_0","No effect on WDOG_B (Default)."],["WDT_1","Assert WDOG_B upon a Watchdog Time-out event."]]};

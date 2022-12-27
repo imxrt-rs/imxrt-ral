@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SLAVE_0","The timer is active and all configuration fields in this register are relevant."],["SLAVE_1","The internal timer is disabled and the externally provided timer value is used. All other fields, except CAPTURE, in this register have no effect. CAPTURE can still be used to capture the current timer value."]]};

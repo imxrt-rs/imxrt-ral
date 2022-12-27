@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DETECT_ENABLE_FOUR_WIRE_0","0b0: Do not read four wire detect value, read default value from analogue"],["DETECT_ENABLE_FOUR_WIRE_1","0b1: Read four wire detect status from analogue"]]};

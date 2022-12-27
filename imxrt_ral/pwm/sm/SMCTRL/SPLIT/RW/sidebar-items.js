@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SPLIT_0","DBLPWM is not split. PWMA and PWMB each have double pulses."],["SPLIT_1","DBLPWM is split to PWMA and PWMB."]]};

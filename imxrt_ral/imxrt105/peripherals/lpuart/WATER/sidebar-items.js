@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["RXCOUNT","Receive Counter"],["RXWATER","Receive Watermark"],["TXCOUNT","Transmit Counter"],["TXWATER","Transmit Watermark"]]};

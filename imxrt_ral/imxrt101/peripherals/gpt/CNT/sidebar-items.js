@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Counter Value. The COUNT bits show the current count value of the GPT counter."]]};

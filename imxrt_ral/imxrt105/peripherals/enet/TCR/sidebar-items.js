@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDINS","Set MAC Address On Transmit"],["ADDSEL","Source MAC Address Select On Transmit"],["CRCFWD","Forward Frame From Application With CRC"],["FDEN","Full-Duplex Enable"],["GTS","Graceful Transmit Stop"],["RFC_PAUSE","Receive Frame Control Pause"],["TFC_PAUSE","Transmit Frame Control Pause"]]};

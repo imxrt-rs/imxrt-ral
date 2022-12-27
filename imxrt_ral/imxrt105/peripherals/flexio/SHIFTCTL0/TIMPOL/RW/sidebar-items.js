@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TIMPOL_0","0b0: Shift on posedge of Shift clock"],["TIMPOL_1","0b1: Shift on negedge of Shift clock"]]};

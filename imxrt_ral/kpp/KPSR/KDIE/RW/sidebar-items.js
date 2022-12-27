@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KDIE_0","No interrupt request is generated when KPKD is set."],["KDIE_1","An interrupt request is generated when KPKD is set."]]};

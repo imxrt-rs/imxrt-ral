@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPI2C1_STOP_ACK_0","0b0: stop acknowledge is not asserted"],["LPI2C1_STOP_ACK_1","0b1: stop acknowledge is asserted (the module is in Stop mode)"]]};

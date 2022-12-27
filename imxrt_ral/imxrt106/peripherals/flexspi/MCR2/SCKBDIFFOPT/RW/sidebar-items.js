@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SCKBDIFFOPT_0","0b0: SCKB pad is used as port B SCK clock output. Port B flash access is available."],["SCKBDIFFOPT_1","0b1: SCKB pad is used as port A SCK inverted clock output (Differential clock to SCKA). Port B flash access is not available."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FEF_0","0b0: FIFO underflow or overflow was not detected"],["FEF_1","0b1: FIFO underflow or overflow was detected"]]};

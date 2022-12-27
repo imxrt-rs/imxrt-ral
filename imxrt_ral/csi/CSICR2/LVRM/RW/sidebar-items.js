@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LVRM_0","512 x 384"],["LVRM_1","448 x 336"],["LVRM_2","384 x 288"],["LVRM_3","384 x 256"],["LVRM_4","320 x 240"],["LVRM_5","288 x 216"],["LVRM_6","400 x 300"]]};

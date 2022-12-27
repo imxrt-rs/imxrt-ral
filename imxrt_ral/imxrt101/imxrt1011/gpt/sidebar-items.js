@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["GPT1","Raw pointer to GPT1"],["GPT2","Raw pointer to GPT2"]],"struct":[["GPT1","The GPT1 peripheral instance."],["GPT2","The GPT2 peripheral instance."]]};

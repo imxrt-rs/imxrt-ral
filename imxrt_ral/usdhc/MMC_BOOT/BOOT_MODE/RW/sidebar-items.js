@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BOOT_MODE_0","Normal boot"],["BOOT_MODE_1","Alternative boot"]]};

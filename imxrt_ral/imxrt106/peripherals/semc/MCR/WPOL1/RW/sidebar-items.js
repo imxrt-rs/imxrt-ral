@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WPOL1_0","0b0: Low active"],["WPOL1_1","0b1: High active"]]};

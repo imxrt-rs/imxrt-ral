@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LCDIF_PODF_0","divide by 1"],["LCDIF_PODF_1","divide by 2"],["LCDIF_PODF_2","divide by 3"],["LCDIF_PODF_3","divide by 4"],["LCDIF_PODF_4","divide by 5"],["LCDIF_PODF_5","divide by 6"],["LCDIF_PODF_6","divide by 7"],["LCDIF_PODF_7","divide by 8"]]};

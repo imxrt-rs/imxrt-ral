@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DRM_0","Stats grid of 8 x 6"],["DRM_1","Stats grid of 8 x 12"]]};

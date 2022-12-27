@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ENT_VAL_0","0b0: Busy generation entropy. Any value read is invalid."],["ENT_VAL_1","0b1: TRNG can be stopped and entropy is valid if read."]]};

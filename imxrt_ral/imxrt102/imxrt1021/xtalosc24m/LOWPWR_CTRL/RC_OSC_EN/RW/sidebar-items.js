@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["RC_OSC_EN_0","0b0: Use XTAL OSC to source the 24MHz clock"],["RC_OSC_EN_1","0b1: Use RC OSC"]]};

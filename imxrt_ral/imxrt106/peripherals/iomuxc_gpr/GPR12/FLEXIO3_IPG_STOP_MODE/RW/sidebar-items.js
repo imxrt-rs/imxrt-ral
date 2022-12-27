@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXIO3_IPG_STOP_MODE_0","0b0: FlexIO3 is functional in Stop mode."],["FLEXIO3_IPG_STOP_MODE_1","0b1: When this bit is equal to 1’b1 and ipg_stop is asserted, FlexIO3 is not functional in Stop mode."]]};

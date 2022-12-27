@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["M7_APC_AC_R0_CTRL_0","No access protection"],["M7_APC_AC_R0_CTRL_1","M7 debug protection enabled"],["M7_APC_AC_R0_CTRL_2","FlexSPI access protection"],["M7_APC_AC_R0_CTRL_3","Both M7 debug and FlexSPI access are protected"]]};

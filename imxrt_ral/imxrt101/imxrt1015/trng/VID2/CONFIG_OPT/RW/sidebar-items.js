@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CONFIG_OPT_0","0b00000000: TRNG_CONFIG_OPT for TRNG."]]};

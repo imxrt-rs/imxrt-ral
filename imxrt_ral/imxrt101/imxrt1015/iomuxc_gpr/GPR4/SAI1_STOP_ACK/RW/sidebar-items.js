@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI1_STOP_ACK_0","0b0: SAI1 stop acknowledge is not asserted"],["SAI1_STOP_ACK_1","0b1: SAI1 stop acknowledge is asserted"]]};

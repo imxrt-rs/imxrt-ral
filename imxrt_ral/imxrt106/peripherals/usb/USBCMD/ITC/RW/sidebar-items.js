@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["ITC_0","0b00000000: Immediate (no threshold)"],["ITC_1","0b00000001: 1 micro-frame"],["ITC_16","0b00010000: 16 micro-frames"],["ITC_2","0b00000010: 2 micro-frames"],["ITC_32","0b00100000: 32 micro-frames"],["ITC_4","0b00000100: 4 micro-frames"],["ITC_64","0b01000000: 64 micro-frames"],["ITC_8","0b00001000: 8 micro-frames"]]};

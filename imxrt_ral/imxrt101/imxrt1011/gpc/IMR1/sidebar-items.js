@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["IMR1","IRQ[31:0] masking bits: 1-irq masked, 0-irq is not masked"]]};

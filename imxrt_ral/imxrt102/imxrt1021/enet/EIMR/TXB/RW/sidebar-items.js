@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXB_0","0b0: The corresponding interrupt source is masked."],["TXB_1","0b1: The corresponding interrupt source is not masked."]]};

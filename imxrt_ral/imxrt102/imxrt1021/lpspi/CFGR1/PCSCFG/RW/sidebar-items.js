@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PCSCFG_0","0b0: PCS[3:2] are enabled"],["PCSCFG_1","0b1: PCS[3:2] are disabled"]]};

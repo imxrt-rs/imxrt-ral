@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CACHABLEEN_0","Disabled. When there is AHB bus cachable read access, FlexSPI will not check whether it hit AHB TX Buffer."],["CACHABLEEN_1","Enabled. When there is AHB bus cachable read access, FlexSPI will check whether it hit AHB TX Buffer first."]]};

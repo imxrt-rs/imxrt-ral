@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AXBS_L_FORCE_ROUND_ROBIN_0","AXBS_L masters are not arbitored in round robin, depending on DMA and AHBXL master priority settings."],["AXBS_L_FORCE_ROUND_ROBIN_1","AXBS_L masters are arbitored in round robin"]]};

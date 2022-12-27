@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["AOI","Raw pointer to AOI"]],"struct":[["AOI","The AOI peripheral instance."]]};

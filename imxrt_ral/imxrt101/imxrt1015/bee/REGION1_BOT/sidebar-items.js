@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["REGION1_BOT","Address lower limit of region1"]]};

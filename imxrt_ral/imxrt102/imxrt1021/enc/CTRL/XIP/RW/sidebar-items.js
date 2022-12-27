@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["XIP_0","0b0: No action"],["XIP_1","0b1: INDEX pulse initializes the position counter"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["STOPEN_0","GPT is disabled in Stop mode."],["STOPEN_1","GPT is enabled in Stop mode."]]};

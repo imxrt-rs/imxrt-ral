@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["COMP","This read/write register contains the lower (least significant) half of the position compare register"]]};

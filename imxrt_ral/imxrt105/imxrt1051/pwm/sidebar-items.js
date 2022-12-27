@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PWM1","Raw pointer to PWM1"],["PWM2","Raw pointer to PWM2"],["PWM3","Raw pointer to PWM3"],["PWM4","Raw pointer to PWM4"]],"struct":[["PWM1","The PWM1 peripheral instance."],["PWM2","The PWM2 peripheral instance."],["PWM3","The PWM3 peripheral instance."],["PWM4","The PWM4 peripheral instance."]]};

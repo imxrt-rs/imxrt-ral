@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OEN_0","The external pin is configured as an input."],["OEN_1","The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS."]]};

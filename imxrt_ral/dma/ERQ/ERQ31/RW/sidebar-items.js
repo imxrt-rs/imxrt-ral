@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ERQ31_0","The DMA request signal for the corresponding channel is disabled"],["ERQ31_1","The DMA request signal for the corresponding channel is enabled"]]};

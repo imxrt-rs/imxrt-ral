@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BRK13_0","Break character is transmitted with length of 9 to 13 bit times."],["BRK13_1","Break character is transmitted with length of 12 to 15 bit times."]]};

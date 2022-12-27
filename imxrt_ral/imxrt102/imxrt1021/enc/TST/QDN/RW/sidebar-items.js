@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["QDN_0","0b0: Leaves quadrature decoder signal in a positive direction"],["QDN_1","0b1: Generates a negative quadrature decoder signal"]]};

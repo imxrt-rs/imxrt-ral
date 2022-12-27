@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLKO2_EN_0","0b0: CCM_CLKO2 disabled."],["CLKO2_EN_1","0b1: CCM_CLKO2 enabled."]]};

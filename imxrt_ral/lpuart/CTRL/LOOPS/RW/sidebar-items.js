@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LOOPS_0","Normal operation - RXD and TXD use separate pins."],["LOOPS_1","Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit)."]]};

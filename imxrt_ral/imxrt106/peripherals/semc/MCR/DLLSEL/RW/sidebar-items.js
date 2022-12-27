@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DLLSEL_0","0b0: DLL delay chain clock input is from NAND device’s DQS pad. For NAND synchronous mode only."],["DLLSEL_1","0b1: DLL delay chain clock input is from internal clock. For SDRAM, NOR and SRAM synchronous mode only."]]};

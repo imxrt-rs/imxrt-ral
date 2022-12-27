@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["INSRC_0","0b0: Pin"],["INSRC_1","0b1: Shifter N+1 Output"]]};

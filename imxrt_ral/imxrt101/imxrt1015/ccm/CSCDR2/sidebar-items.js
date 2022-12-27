@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["LPI2C_CLK_PODF","Divider for lpi2c clock podf. Divider should be updated when output clock is gated. The input clock to this divider should be lower than 300Mhz, the predivider can be used to achieve this."],["LPI2C_CLK_SEL","Selector for the LPI2C clock multiplexor"]]};

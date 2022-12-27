@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BOFFMSK_0","Bus Off interrupt disabled."],["BOFFMSK_1","Bus Off interrupt enabled."]]};

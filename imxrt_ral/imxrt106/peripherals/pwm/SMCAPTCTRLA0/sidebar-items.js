@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["ARMA","Arm A"],["CA0CNT","Capture A0 FIFO Word Count"],["CA1CNT","Capture A1 FIFO Word Count"],["CFAWM","Capture A FIFOs Water Mark"],["EDGA0","Edge A 0"],["EDGA1","Edge A 1"],["EDGCNTA_EN","Edge Counter A Enable"],["INP_SELA","Input Select A"],["ONESHOTA","One Shot Mode A"]]};

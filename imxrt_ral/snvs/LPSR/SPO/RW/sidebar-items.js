@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SPO_0","Set Power Off was not detected."],["SPO_1","Set Power Off was detected."]]};

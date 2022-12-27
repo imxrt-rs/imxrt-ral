@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["MA1","Match Address 1"],["MA2","Match Address 2"]]};

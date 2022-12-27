@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPSPI4_STOP_ACK_0","stop acknowledge is not asserted"],["LPSPI4_STOP_ACK_1","stop acknowledge is asserted"]]};

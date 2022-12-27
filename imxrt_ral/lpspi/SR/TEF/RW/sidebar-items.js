@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TEF_0","Transmit FIFO underrun has not occurred"],["TEF_1","Transmit FIFO underrun has occurred"]]};

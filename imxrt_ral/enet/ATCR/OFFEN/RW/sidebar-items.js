@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OFFEN_0","Disable."],["OFFEN_1","The timer can be reset to zero when the given offset time is reached (offset event). The field is cleared when the offset event is reached, so no further event occurs until the field is set again. The timer offset value must be set before setting this field."]]};

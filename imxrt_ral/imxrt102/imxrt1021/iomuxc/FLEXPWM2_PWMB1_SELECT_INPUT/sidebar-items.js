@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["DAISY","Selecting Pads Involved in Daisy Chain."]]};

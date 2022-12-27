@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CRCERR_FAST_0","0b0: No such occurrence."],["CRCERR_FAST_1","0b1: A CRC error occurred since last read of this register."]]};

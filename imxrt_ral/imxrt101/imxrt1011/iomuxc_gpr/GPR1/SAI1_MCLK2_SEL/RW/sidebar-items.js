@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI1_MCLK2_SEL_0","0b000: ccm.ssi1_clk_root"],["SAI1_MCLK2_SEL_2","0b010: ccm.ssi3_clk_root"],["SAI1_MCLK2_SEL_3","0b011: iomux.sai1_ipg_clk_sai_mclk"],["SAI1_MCLK2_SEL_5","0b101: iomux.sai3_ipg_clk_sai_mclk"]]};

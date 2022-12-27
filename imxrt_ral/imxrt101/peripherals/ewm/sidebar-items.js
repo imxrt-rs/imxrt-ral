@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["CLKCTRL","Clock Control Register"],["CLKPRESCALER","Clock Prescaler Register"],["CMPH","Compare High Register"],["CMPL","Compare Low Register"],["CTRL","Control Register"],["SERV","Service Register"]],"struct":[["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

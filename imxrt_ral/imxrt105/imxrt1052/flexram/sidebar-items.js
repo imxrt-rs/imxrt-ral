@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXRAM","Raw pointer to FLEXRAM"]],"struct":[["FLEXRAM","The FLEXRAM peripheral instance."]]};

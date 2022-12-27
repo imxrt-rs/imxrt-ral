@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["KEY","0b0011111001110111: Key needed to unlock HW_OCOTP_DATA register."]]};

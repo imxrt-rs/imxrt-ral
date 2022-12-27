@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["LPSV_CFG_0","LP security violation is disabled"],["LPSV_CFG_1","LP security violation is a non-fatal violation"],["LPSV_CFG_2","LP security violation is a fatal violation"]]};

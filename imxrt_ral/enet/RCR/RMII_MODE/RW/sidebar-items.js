@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RMII_MODE_0","MAC configured for MII mode."],["RMII_MODE_1","MAC configured for RMII operation."]]};

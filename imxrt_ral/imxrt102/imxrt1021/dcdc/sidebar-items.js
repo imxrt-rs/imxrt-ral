@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DCDC","Raw pointer to DCDC"]],"mod":[["REG0","DCDC Register 0"],["REG1","DCDC Register 1"],["REG2","DCDC Register 2"],["REG3","DCDC Register 3"]],"struct":[["DCDC","The DCDC peripheral instance."],["Instance",""],["RegisterBlock",""],["ResetValues",""]]};

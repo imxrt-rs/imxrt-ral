@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["USBNC1","USB"],["USBNC2","USB"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["USB_OTG1_CTRL","USB OTG1 Control Register"],["USB_OTG1_PHY_CTRL_0","OTG1 UTMI PHY Control 0 Register"]],"struct":[["RegisterBlock","USB"]],"type":[["Instance",""],["USBNC1",""],["USBNC2",""]]};

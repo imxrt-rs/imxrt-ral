@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PT1_AC_0","0b00: Force the A input in this product term to a logical zero"],["PT1_AC_1","0b01: Pass the A input in this product term"],["PT1_AC_2","0b10: Complement the A input in this product term"],["PT1_AC_3","0b11: Force the A input in this product term to a logical one"]]};

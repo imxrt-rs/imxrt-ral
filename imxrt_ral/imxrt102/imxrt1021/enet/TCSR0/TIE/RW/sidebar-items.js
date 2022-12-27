@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["TIE_0","0b0: Interrupt is disabled"],["TIE_1","0b1: Interrupt is enabled"]]};

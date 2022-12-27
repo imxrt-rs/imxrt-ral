@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IPOL_0","PWM23 is used to generate complementary PWM pair in the corresponding submodule."],["IPOL_1","PWM45 is used to generate complementary PWM pair in the corresponding submodule."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["IPAREN_0","0b0: Flash will be accessed in Individual mode."],["IPAREN_1","0b1: Flash will be accessed in Parallel mode."]]};

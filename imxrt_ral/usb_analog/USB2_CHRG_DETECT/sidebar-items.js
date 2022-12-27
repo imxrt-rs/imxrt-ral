@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["CHK_CHRG_B","Check the charger connection"],["CHK_CONTACT","Check the contact of USB plug"],["EN_B","Control the charger detector."]]};

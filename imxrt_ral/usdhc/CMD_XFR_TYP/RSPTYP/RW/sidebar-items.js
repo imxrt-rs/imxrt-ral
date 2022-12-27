@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["RSPTYP_0","No Response"],["RSPTYP_1","Response Length 136"],["RSPTYP_2","Response Length 48"],["RSPTYP_3","Response Length 48, check Busy after response"]]};

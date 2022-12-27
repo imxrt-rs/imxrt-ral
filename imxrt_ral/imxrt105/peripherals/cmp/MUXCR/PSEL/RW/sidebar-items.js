@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PSEL_0","0b000: IN0"],["PSEL_1","0b001: IN1"],["PSEL_2","0b010: IN2"],["PSEL_3","0b011: IN3"],["PSEL_4","0b100: IN4"],["PSEL_5","0b101: IN5"],["PSEL_6","0b110: IN6"],["PSEL_7","0b111: IN7"]]};

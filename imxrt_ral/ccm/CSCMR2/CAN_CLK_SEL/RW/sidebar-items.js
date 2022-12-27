@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CAN_CLK_SEL_0","derive clock from pll3_sw_clk divided clock (60M)"],["CAN_CLK_SEL_1","derive clock from osc_clk (24M)"],["CAN_CLK_SEL_2","derive clock from pll3_sw_clk divided clock (80M)"],["CAN_CLK_SEL_3","Disable FlexCAN clock"]]};

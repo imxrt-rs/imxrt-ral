@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SYS_MEM_DS_CTRL_0","Disable memory DS mode always"],["SYS_MEM_DS_CTRL_1","Enable memory (outside ARM platform) DS mode when system STOP and PLL are disabled"],["SYS_MEM_DS_CTRL_2","enable memory (outside ARM platform) DS mode when system is in STOP mode"]]};

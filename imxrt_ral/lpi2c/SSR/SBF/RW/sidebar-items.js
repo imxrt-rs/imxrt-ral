@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SBF_0","I2C Slave is idle"],["SBF_1","I2C Slave is busy"]]};

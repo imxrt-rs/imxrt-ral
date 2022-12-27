@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TSTOP_0","Stop bit disabled"],["TSTOP_1","Stop bit is enabled on timer compare"],["TSTOP_2","Stop bit is enabled on timer disable"],["TSTOP_3","Stop bit is enabled on timer compare and timer disable"]]};

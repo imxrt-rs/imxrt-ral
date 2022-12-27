@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CACHE_ENET_0","Cacheable attribute is off for read/write transactions."],["CACHE_ENET_1","Cacheable attribute is on for read/write transactions."]]};

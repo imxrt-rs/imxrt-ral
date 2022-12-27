@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DOZEEN_0","0b0: GPT is disabled in doze mode."],["DOZEEN_1","0b1: GPT is enabled in doze mode."]]};

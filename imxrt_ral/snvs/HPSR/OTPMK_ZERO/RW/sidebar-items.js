@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OTPMK_ZERO_0","The OTPMK is not zero."],["OTPMK_ZERO_1","The OTPMK is zero."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DIS_PRE_0","Preamble enabled."],["DIS_PRE_1","Preamble (32 ones) is not prepended to the MII management frame."]]};

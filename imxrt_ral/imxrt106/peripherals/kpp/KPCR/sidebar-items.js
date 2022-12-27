@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["KCO","Keypad Column Strobe Open-Drain Enable"],["KRE","Keypad Row Enable"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ENABLE_0","Spread spectrum modulation disabled"],["ENABLE_1","Soread spectrum modulation enabled"]]};

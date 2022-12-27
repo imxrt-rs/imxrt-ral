@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["ODE_0_OPEN_DRAIN_DISABLED","Open Drain Disabled"],["ODE_1_OPEN_DRAIN_ENABLED","Open Drain Enabled"]]};

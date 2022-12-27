@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CCM_ANALOG","Raw pointer to CCM_ANALOG"]],"struct":[["CCM_ANALOG","The CCM_ANALOG peripheral instance."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["KPKD_0","No key presses detected"],["KPKD_1","A key has been depressed"]]};

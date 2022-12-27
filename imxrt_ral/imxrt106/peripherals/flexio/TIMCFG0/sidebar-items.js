@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["TIMDEC","Timer Decrement"],["TIMDIS","Timer Disable"],["TIMENA","Timer Enable"],["TIMOUT","Timer Output"],["TIMRST","Timer Reset"],["TSTART","Timer Start Bit"],["TSTOP","Timer Stop Bit"]]};

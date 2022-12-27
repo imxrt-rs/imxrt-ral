@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SLFWAK_0","0b0: FLEXCAN Self Wake Up feature is disabled"],["SLFWAK_1","0b1: FLEXCAN Self Wake Up feature is enabled"]]};

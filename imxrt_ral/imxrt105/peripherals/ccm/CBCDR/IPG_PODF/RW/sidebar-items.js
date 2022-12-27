@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["IPG_PODF_0","0b00: divide by 1"],["IPG_PODF_1","0b01: divide by 2"],["IPG_PODF_2","0b10: divide by 3"],["IPG_PODF_3","0b11: divide by 4"]]};

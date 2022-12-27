@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CSU","CSU registers"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["CSL","Config security level register"],["HP0","HP0 register"],["HPCONTROL0","HPCONTROL0 register"],["SA","Secure access register"]],"struct":[["RegisterBlock","CSU registers"]],"type":[["CSU",""],["Instance",""]]};

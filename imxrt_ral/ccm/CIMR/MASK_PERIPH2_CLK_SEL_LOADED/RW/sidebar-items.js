@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MASK_PERIPH2_CLK_SEL_LOADED_0","don’t mask interrupt due to update of periph2_clk_sel - interrupt will be created"],["MASK_PERIPH2_CLK_SEL_LOADED_1","mask interrupt due to update of periph2_clk_sel"]]};

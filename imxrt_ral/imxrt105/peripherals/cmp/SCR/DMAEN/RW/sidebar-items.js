@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["DMAEN_0","0b0: DMA is disabled."],["DMAEN_1","0b1: DMA is enabled."]]};

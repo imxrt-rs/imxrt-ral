@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FCONT_0","On FIFO error, the SAI will continue from the start of the next frame after the FIFO error flag has been cleared."],["FCONT_1","On FIFO error, the SAI will continue from the same word that caused the FIFO error to set after the FIFO warning flag has been cleared."]]};

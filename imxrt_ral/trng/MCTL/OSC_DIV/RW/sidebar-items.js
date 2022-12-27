@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["OSC_DIV_0","use ring oscillator with no divide"],["OSC_DIV_1","use ring oscillator divided-by-2"],["OSC_DIV_2","use ring oscillator divided-by-4"],["OSC_DIV_3","use ring oscillator divided-by-8"]]};

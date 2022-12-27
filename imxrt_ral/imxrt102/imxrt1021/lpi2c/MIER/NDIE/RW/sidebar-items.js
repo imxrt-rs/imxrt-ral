@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["NDIE_0","0b0: Disabled"],["NDIE_1","0b1: Enabled"]]};

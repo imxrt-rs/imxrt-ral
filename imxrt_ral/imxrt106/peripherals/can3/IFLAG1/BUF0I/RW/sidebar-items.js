@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["BUF0I_0","0b0: The corresponding buffer has no occurrence of successfully completed transmission or reception when CAN_MCR[RFEN]=0."],["BUF0I_1","0b1: The corresponding buffer has successfully completed transmission or reception when CAN_MCR[RFEN]=0."]]};

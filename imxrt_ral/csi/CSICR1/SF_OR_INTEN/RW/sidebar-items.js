@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SF_OR_INTEN_0","STATFIFO overrun interrupt is disabled"],["SF_OR_INTEN_1","STATFIFO overrun interrupt is enabled"]]};

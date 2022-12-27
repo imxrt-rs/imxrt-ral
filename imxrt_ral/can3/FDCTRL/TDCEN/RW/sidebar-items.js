@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["TDCEN_0","TDC is disabled"],["TDCEN_1","TDC is enabled"]]};

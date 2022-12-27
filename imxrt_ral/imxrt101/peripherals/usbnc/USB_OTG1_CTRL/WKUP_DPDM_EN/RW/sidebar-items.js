@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["WKUP_DPDM_EN_0","0b0: DPDM changes wake-up to be disabled only when VBUS is 0."],["WKUP_DPDM_EN_1","0b1: (Default) DPDM changes wake-up to be enabled, it is for device only."]]};

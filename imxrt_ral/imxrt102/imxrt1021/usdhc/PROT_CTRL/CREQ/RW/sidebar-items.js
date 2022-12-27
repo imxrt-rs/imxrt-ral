@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["CREQ_0","0b0: No effect"],["CREQ_1","0b1: Restart"]]};

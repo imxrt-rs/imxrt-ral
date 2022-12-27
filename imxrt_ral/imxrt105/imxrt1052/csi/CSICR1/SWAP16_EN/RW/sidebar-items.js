@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SWAP16_EN_0","0b0: Disable swapping"],["SWAP16_EN_1","0b1: Enable swapping"]]};

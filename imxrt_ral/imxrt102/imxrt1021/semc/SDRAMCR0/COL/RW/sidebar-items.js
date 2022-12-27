@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["COL_0","0b00: 12 bit"],["COL_1","0b01: 11 bit"],["COL_2","0b10: 10 bit"],["COL_3","0b11: 9 bit"]]};

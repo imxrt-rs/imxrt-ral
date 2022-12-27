@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["REVMOD_0","Use INDEX pulse to increment/decrement revolution counter (REV)."],["REVMOD_1","Use modulus counting roll-over/under to increment/decrement revolution counter (REV)."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SWAP16_EN_0","Disable swapping"],["SWAP16_EN_1","Enable swapping"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["USBNC1","Raw pointer to USBNC1"],["USBNC2","Raw pointer to USBNC2"]],"struct":[["USBNC1","The USBNC1 peripheral instance."],["USBNC2","The USBNC2 peripheral instance."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["WAITEN_0","GPT is disabled in wait mode."],["WAITEN_1","GPT is enabled in wait mode."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["DIR_0","Last count was in the down direction"],["DIR_1","Last count was in the up direction"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["EDMA_STOP_ACK_0","EDMA stop acknowledge is not asserted"],["EDMA_STOP_ACK_1","EDMA stop acknowledge is asserted (EDMA is in STOP mode)."]]};

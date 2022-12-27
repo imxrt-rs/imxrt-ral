@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FLEXIO2_IPG_STOP_MODE_0","FlexIO2 is functional in Stop mode."],["FLEXIO2_IPG_STOP_MODE_1","When this bit is equal to 1’b1 and ipg_stop is asserted, FlexIO2 is not functional in Stop mode."]]};

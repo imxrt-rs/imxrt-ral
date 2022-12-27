@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["LOCK_VTOR_0","0b0: CM7_INIT_VTOR field is not locked."],["LOCK_VTOR_1","0b1: CM7_INIT_VTOR field is locked (read access only)."]]};

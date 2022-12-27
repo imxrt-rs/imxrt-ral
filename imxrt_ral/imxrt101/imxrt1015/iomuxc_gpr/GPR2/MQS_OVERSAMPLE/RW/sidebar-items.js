@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["MQS_OVERSAMPLE_0","0b0: 32"],["MQS_OVERSAMPLE_1","0b1: 64"]]};

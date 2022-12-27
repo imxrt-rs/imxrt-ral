@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FLEXIO2_STOP_ACK_0","FLEXIO2 stop acknowledge is not asserted"],["FLEXIO2_STOP_ACK_1","FLEXIO2 stop acknowledge is asserted (FLEXIO2 is in STOP mode)"]]};

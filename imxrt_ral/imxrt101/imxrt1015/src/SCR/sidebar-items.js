@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["core0_dbg_rst","Software reset for core0 debug only"],["core0_rst","Software reset for core0 only"],["dbg_rst_msk_pg","Do not assert debug resets after power gating event of core"],["lockup_rst","lockup reset enable bit"],["mask_wdog3_rst","Mask wdog3_rst_b source"],["mask_wdog_rst","Mask wdog_rst_b source"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FCOMB_0","FIFO combine mode disabled."],["FCOMB_1","FIFO combine mode enabled on FIFO reads (from transmit shift registers)."],["FCOMB_2","FIFO combine mode enabled on FIFO writes (by software)."],["FCOMB_3","FIFO combine mode enabled on FIFO reads (from transmit shift registers) and writes (by software)."]]};

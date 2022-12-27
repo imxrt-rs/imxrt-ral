@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IPDIS_0","Frames with wrong IPv4 header checksum are not discarded."],["IPDIS_1","If an IPv4 frame is received with a mismatching header checksum, the frame is discarded. IPv6 has no header checksum and is not affected by this setting. Discarding is only available when the RX FIFO operates in store and forward mode (RSFL cleared)."]]};

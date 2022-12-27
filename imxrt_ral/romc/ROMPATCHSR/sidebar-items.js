@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["SOURCE","ROMC Source Number - Binary encoding of the number of the address comparator which has an address match in the most recent patch event on ROMC AHB"],["SW","ROMC AHB Multiple Address Comparator matches Indicator - Indicates that multiple address comparator matches occurred"]]};

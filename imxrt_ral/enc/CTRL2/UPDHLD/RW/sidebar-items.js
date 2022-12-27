@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UPDHLD_0","Disable updates of hold registers on rising edge of TRIGGER"],["UPDHLD_1","Enable updates of hold registers on rising edge of TRIGGER"]]};
