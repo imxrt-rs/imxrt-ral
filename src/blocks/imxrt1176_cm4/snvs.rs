@@ -1433,8 +1433,8 @@ pub mod LPCR {
             pub const TOP_1: u32 = 0x01;
         }
     }
-    #[doc = "Power Glitch Enable By default the detection of a power glitch does not cause the pmic_en_b signal to be asserted"]
-    pub mod PWR_GLITCH_EN {
+    #[doc = "Digital Low-Voltage Event Enable By default the detection of a low-voltage event does not cause the pmic_en_b signal to be asserted"]
+    pub mod LVD_EN {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}

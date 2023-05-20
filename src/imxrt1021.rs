@@ -2355,7 +2355,7 @@ pub mod tmr {
 pub mod trng {
     #[doc = "TRNG"]
     pub const TRNG: *const RegisterBlock = 0x400c_c000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1011/trng.rs"]
+    #[path = "blocks/imxrt1015/trng.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;

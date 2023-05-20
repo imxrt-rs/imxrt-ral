@@ -19,6 +19,17 @@ to all available components.
 **BREAKING** Rename SRC.SRSR field "LOCKUP" to "LOCKUP_SYSRESETREQ" for 1011,
 1015, and 1051 MCUs.
 
+**BREAKING** Rename CCM.CS1CDR field "FLEXIO1" to "FLEXIO2" for the 1050 and
+1060 families.
+
+**BREAKING** Expose the "TRNG_ACC" field in TRNG.MCTL on the 1015, 1021 MCUs.
+
+**BREAKING** Rename IOMUXC_GPR.GPR26 field "GPIO_SEL" to "GPIO_MUX1_GPIO_SEL,"
+and correct the documentation.
+
+**BREAKING** Correct the name, documentation of the SNVS.LPCR field "LVD_EN" on
+the 1176.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature

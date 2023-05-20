@@ -1278,29 +1278,29 @@ pub mod CS1CDR {
             pub const SAI1_CLK_PRED_7: u32 = 0x07;
         }
     }
-    #[doc = "Divider for flexio1 clock."]
-    pub mod FLEXIO1_CLK_PRED {
+    #[doc = "Divider for flexio2 clock."]
+    pub mod FLEXIO2_CLK_PRED {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
             #[doc = "divide by 1"]
-            pub const FLEXIO1_CLK_PRED_0: u32 = 0;
+            pub const FLEXIO2_CLK_PRED_0: u32 = 0;
             #[doc = "divide by 2"]
-            pub const FLEXIO1_CLK_PRED_1: u32 = 0x01;
+            pub const FLEXIO2_CLK_PRED_1: u32 = 0x01;
             #[doc = "divide by 3"]
-            pub const FLEXIO1_CLK_PRED_2: u32 = 0x02;
+            pub const FLEXIO2_CLK_PRED_2: u32 = 0x02;
             #[doc = "divide by 4"]
-            pub const FLEXIO1_CLK_PRED_3: u32 = 0x03;
+            pub const FLEXIO2_CLK_PRED_3: u32 = 0x03;
             #[doc = "divide by 5"]
-            pub const FLEXIO1_CLK_PRED_4: u32 = 0x04;
+            pub const FLEXIO2_CLK_PRED_4: u32 = 0x04;
             #[doc = "divide by 6"]
-            pub const FLEXIO1_CLK_PRED_5: u32 = 0x05;
+            pub const FLEXIO2_CLK_PRED_5: u32 = 0x05;
             #[doc = "divide by 7"]
-            pub const FLEXIO1_CLK_PRED_6: u32 = 0x06;
+            pub const FLEXIO2_CLK_PRED_6: u32 = 0x06;
             #[doc = "divide by 8"]
-            pub const FLEXIO1_CLK_PRED_7: u32 = 0x07;
+            pub const FLEXIO2_CLK_PRED_7: u32 = 0x07;
         }
     }
     #[doc = "Divider for sai3 clock podf. The input clock to this divider should be lower than 300Mhz, the predivider can be used to achieve this."]
@@ -1465,8 +1465,8 @@ pub mod CS1CDR {
             pub const SAI3_CLK_PRED_7: u32 = 0x07;
         }
     }
-    #[doc = "Divider for flexio1 clock. Divider should be updated when output clock is gated."]
-    pub mod FLEXIO1_CLK_PODF {
+    #[doc = "Divider for flexio2 clock. Divider should be updated when output clock is gated."]
+    pub mod FLEXIO2_CLK_PODF {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
