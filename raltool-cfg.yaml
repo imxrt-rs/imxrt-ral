@@ -150,3 +150,11 @@ transforms:
       block: ocotp::Ocotp
       from: HW_OCOTP_(.*)
       to: $1
+  # Field is needlessly named 'AM1F' on the 1176.
+  # All 1000-series use AM1IE. The field meaning
+  # is the same regardless, and this lets us combine
+  # the LPI2C blocks.
+  - RenameFields:
+      fieldset: lpi2c::regs::Sier
+      from: AM1F
+      to: AM1IE

@@ -14,6 +14,8 @@ such fields.
 Fix the FlexIO timer and shifter counts from four to eight, permitting access
 to all available components.
 
+**BREAKING** Rename LPI2C.SIER field "AM1F" to "AM1IE".
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature
