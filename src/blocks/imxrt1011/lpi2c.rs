@@ -1291,7 +1291,12 @@ pub mod SIER {
         }
     }
     #[doc = "Address Match 1 Interrupt Enable"]
+    #[deprecated(since = "0.5.1", note = "Use AM1IE")]
     pub mod AM1F {
+        pub use super::AM1IE::*;
+    }
+    #[doc = "Address Match 1 Interrupt Enable"]
+    pub mod AM1IE {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}

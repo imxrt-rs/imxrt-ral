@@ -2,9 +2,12 @@
 
 ## [Unreleased]
 
-*Deprecated* The `flexio1` module is now called `flexio` for the 1010,
-1015, and 1020 families. The `flexio1` module still exists for backwards
-compatibility.
+*Deprecated* The following items will be renamed in the next breaking release:
+
+| Deprecated item | New item | Notes                          |
+| --------------- | -------- | -------------------------------|
+|   `flexio1`     | `flexio` | 1010, 1015, and 1020 families. |
+|   `AM1F`        | `AM1IE`  | LPI2C.SIER field.              |
 
 ## [0.5.0] 2022-12-27
 
