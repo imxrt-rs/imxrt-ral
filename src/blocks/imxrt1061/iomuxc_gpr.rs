@@ -3794,8 +3794,13 @@ pub mod GPR25 {
 }
 #[doc = "GPR26 General Purpose Register"]
 pub mod GPR26 {
-    #[doc = "Select GPIO1 or GPIO2"]
+    #[doc = "GPIO1 and GPIO6 share same IO MUX function, GPIO_MUX1 selects one GPIO function."]
+    #[deprecated(since = "0.5.1", note = "Use GPIO_MUX1_GPIO_SEL")]
     pub mod GPIO_SEL {
+        pub use super::GPIO_MUX1_GPIO_SEL::*;
+    }
+    #[doc = "GPIO1 and GPIO6 share same IO MUX function, GPIO_MUX1 selects one GPIO function."]
+    pub mod GPIO_MUX1_GPIO_SEL {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
         pub mod R {}

@@ -9,6 +9,11 @@
 |   `flexio1`     | `flexio`             | 1010, 1015, and 1020 families. |
 |   `AM1F`        | `AM1IE`              | LPI2C.SIER field.              |
 |   `LOCKUP`      | `LOCKUP_SYSRESETREQ` | SRC.SRSR field.                |
+|   `FLEXIO1_*`   | `FLEXIO2_*`          | CCM.CS1CDR fields.             |
+|   `GPIO_SEL`    | `GPIO_MUX1_GPIO_SEL` | 1060 IOMUXC_GPR.GPR26 field.   |
+| `PWR_GLITCH_EN` | `LVD_EN`             | 1170 SNVS.LPCR field.          |
+
+Fix the TRNG peripheral block for the 1015, 1021 families.
 
 ## [0.5.0] 2022-12-27
 
