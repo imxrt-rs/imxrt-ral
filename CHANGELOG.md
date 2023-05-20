@@ -4,10 +4,11 @@
 
 *Deprecated* The following items will be renamed in the next breaking release:
 
-| Deprecated item | New item | Notes                          |
-| --------------- | -------- | -------------------------------|
-|   `flexio1`     | `flexio` | 1010, 1015, and 1020 families. |
-|   `AM1F`        | `AM1IE`  | LPI2C.SIER field.              |
+| Deprecated item | New item             | Notes                          |
+| --------------- | -------------------- | -------------------------------|
+|   `flexio1`     | `flexio`             | 1010, 1015, and 1020 families. |
+|   `AM1F`        | `AM1IE`              | LPI2C.SIER field.              |
+|   `LOCKUP`      | `LOCKUP_SYSRESETREQ` | SRC.SRSR field.                |
 
 ## [0.5.0] 2022-12-27
 

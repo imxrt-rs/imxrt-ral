@@ -150,7 +150,12 @@ pub mod SRSR {
         }
     }
     #[doc = "Indicates a reset has been caused by CPU lockup."]
+    #[deprecated(since = "0.5.1", note = "Use LOCKUP_SYSRESETREQ")]
     pub mod LOCKUP {
+        pub use super::LOCKUP_SYSRESETREQ::*;
+    }
+    #[doc = "Indicates a reset has been caused by CPU lockup."]
+    pub mod LOCKUP_SYSRESETREQ {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
