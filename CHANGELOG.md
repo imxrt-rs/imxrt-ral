@@ -16,6 +16,9 @@ to all available components.
 
 **BREAKING** Rename LPI2C.SIER field "AM1F" to "AM1IE".
 
+**BREAKING** Rename SRC.SRSR field "LOCKUP" to "LOCKUP_SYSRESETREQ" for 1011,
+1015, and 1051 MCUs.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature

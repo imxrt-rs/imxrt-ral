@@ -150,7 +150,7 @@ pub mod SRSR {
         }
     }
     #[doc = "Indicates a reset has been caused by CPU lockup."]
-    pub mod LOCKUP {
+    pub mod LOCKUP_SYSRESETREQ {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
