@@ -126,7 +126,8 @@ fn equivalent_fieldsets(
 
     a.bit_size == b.bit_size
         && equivalent_slices(&a.fields, &b.fields, |q, r| {
-            q.bit_offset == r.bit_offset
+            q.name == r.name
+                && q.bit_offset == r.bit_offset
                 && q.array == r.array
                 && q.bit_size == r.bit_size
                 && try_equivalent_enum(&q.enum_read, &r.enum_read)
