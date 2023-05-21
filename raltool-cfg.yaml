@@ -187,3 +187,11 @@ combines:
     - iomuxc
     - iomuxc_gpr
     - iomuxc_snvs
+  # IR paths that should never be combined.
+  #
+  # These regexes match IR paths. If there's a match, that element is *never* considered for
+  # combination by the combiner. When applied to blocks, this is a stronger "never combine"
+  # guarantee than StrictEnumNames. In particular, if an IOMUXC block were in this list, this
+  # would prevent the 1061 IOMUXC from being combined with the 1062 IOMUXC.
+  - NeverCombine:
+    - ccm::regs::Ccgr\d+

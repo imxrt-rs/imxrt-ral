@@ -2749,7 +2749,7 @@ pub mod CCGR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "sim_m_clk_r_clk_enable"]
+    #[doc = "sim_m or sim_main register access clock (sim_m_mainclk_r_enable)"]
     pub mod CG4 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x03 << offset;
@@ -3214,7 +3214,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ocram clock (ocram_clk_enable)"]
+    #[doc = "The OCRAM clock cannot be turned off when the CM cache is running on this device."]
     pub mod CG14 {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x03 << offset;
@@ -3575,7 +3575,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "sim_per clock (sim_per_clk_enable)"]
+    #[doc = "sim_axbs_p_clk_enable"]
     pub mod CG10 {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x03 << offset;

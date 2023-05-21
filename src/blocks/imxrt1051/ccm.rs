@@ -2708,7 +2708,7 @@ pub mod CCGR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "sim_m_clk_r_clk_enable"]
+    #[doc = "sim_m or sim_main register access clock (sim_m_mainclk_r_enable)"]
     pub mod CG4 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x03 << offset;
