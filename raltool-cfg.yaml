@@ -187,6 +187,10 @@ combines:
     - iomuxc
     - iomuxc_gpr
     - iomuxc_snvs
+  - StrictEnumDescs:
+    - iomuxc
+    - iomuxc_gpr
+    - iomuxc_snvs
   # IR paths that should never be combined.
   #
   # These regexes match IR paths. If there's a match, that element is *never* considered for
