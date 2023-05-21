@@ -125,7 +125,7 @@ pub mod GPR1 {
         pub mod RW {
             #[doc = "ccm.spdif0_clk_root"]
             pub const SAI1_MCLK3_SEL_0: u32 = 0;
-            #[doc = "SPDIF_EXT_CLK"]
+            #[doc = "iomux.spdif_tx_clk2"]
             pub const SAI1_MCLK3_SEL_1: u32 = 0x01;
             #[doc = "spdif.spdif_srclk"]
             pub const SAI1_MCLK3_SEL_2: u32 = 0x02;
@@ -142,7 +142,7 @@ pub mod GPR1 {
         pub mod RW {
             #[doc = "ccm.spdif0_clk_root"]
             pub const SAI2_MCLK3_SEL_0: u32 = 0;
-            #[doc = "SPDIF_EXT_CLK"]
+            #[doc = "iomux.spdif_tx_clk2"]
             pub const SAI2_MCLK3_SEL_1: u32 = 0x01;
             #[doc = "spdif.spdif_srclk"]
             pub const SAI2_MCLK3_SEL_2: u32 = 0x02;
@@ -159,7 +159,7 @@ pub mod GPR1 {
         pub mod RW {
             #[doc = "ccm.spdif0_clk_root"]
             pub const SAI3_MCLK3_SEL_0: u32 = 0;
-            #[doc = "SPDIF_EXT_CLK"]
+            #[doc = "iomux.spdif_tx_clk2"]
             pub const SAI3_MCLK3_SEL_1: u32 = 0x01;
             #[doc = "spdif.spdif_srclk"]
             pub const SAI3_MCLK3_SEL_2: u32 = 0x02;
@@ -187,7 +187,7 @@ pub mod GPR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ENET1 TX reference clock driven by ref_enetpll."]
+            #[doc = "ENET1 TX reference clock driven by ref_enetpll. This clock is also output to pins via the IOMUX. ENET_REF_CLK1 function."]
             pub const ENET1_CLK_SEL_0: u32 = 0;
             #[doc = "Gets ENET1 TX reference clock from the ENET1_TX_CLK pin. In this use case, an external OSC provides the clock for both the external PHY and the internal controller."]
             pub const ENET1_CLK_SEL_1: u32 = 0x01;
@@ -293,7 +293,7 @@ pub mod GPR1 {
         pub mod RW {
             #[doc = "OKAY response"]
             pub const EXC_MON_0: u32 = 0;
-            #[doc = "SLVError response"]
+            #[doc = "SLVError response (default)"]
             pub const EXC_MON_1: u32 = 0x01;
         }
     }
@@ -317,9 +317,9 @@ pub mod GPR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "AHB clock is not running (gated) when CM7 is sleeping and TCM is not accessible."]
+            #[doc = "AHB clock is not running (gated)"]
             pub const CM7_FORCE_HCLK_EN_0: u32 = 0;
-            #[doc = "AHB clock is running (enabled) when CM7 is sleeping and TCM is accessible."]
+            #[doc = "AHB clock is running (enabled)"]
             pub const CM7_FORCE_HCLK_EN_1: u32 = 0x01;
         }
     }
@@ -424,9 +424,9 @@ pub mod GPR2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Enters power saving mode only when chip is in SUSPEND mode"]
+            #[doc = "none memory power saving features enabled, SHUTDOWN/DEEPSLEEP/LIGHTSLEEP will have no effect"]
             pub const L2_MEM_EN_POWERSAVING_0: u32 = 0;
-            #[doc = "Controlled by L2_MEM_DEEPSLEEP bitfield"]
+            #[doc = "memory power saving features enabled, set SHUTDOWN/DEEPSLEEP/LIGHTSLEEP (priority high to low) to enable power saving levels"]
             pub const L2_MEM_EN_POWERSAVING_1: u32 = 0x01;
         }
     }
@@ -450,9 +450,9 @@ pub mod GPR2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No force sleep control supported, memory deep sleep mode only entered when whole system in stop mode (OCRAM in normal mode)"]
+            #[doc = "no force sleep control supported, memory deep sleep mode only entered when whole system in stop mode"]
             pub const L2_MEM_DEEPSLEEP_0: u32 = 0;
-            #[doc = "Force memory into deep sleep mode (OCRAM in power saving mode)"]
+            #[doc = "force memory into deep sleep mode"]
             pub const L2_MEM_DEEPSLEEP_1: u32 = 0x01;
         }
     }
@@ -1023,9 +1023,9 @@ pub mod GPR2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Timer counter works normally"]
+            #[doc = "timer counter work normally"]
             pub const QTIMER1_TMR_CNTS_FREEZE_0: u32 = 0;
-            #[doc = "Reset counter and ouput flags"]
+            #[doc = "reset counter and ouput flags"]
             pub const QTIMER1_TMR_CNTS_FREEZE_1: u32 = 0x01;
         }
     }
@@ -1086,9 +1086,9 @@ pub mod GPR3 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select \\[127:0\\] from SNVS Master Key as DCP key"]
+            #[doc = "Select \\[127:0\\] from snvs/ocotp key as dcp key"]
             pub const DCP_KEY_SEL_0: u32 = 0;
-            #[doc = "Select \\[255:128\\] from SNVS Master Key as DCP key"]
+            #[doc = "Select \\[255:128\\] from snvs/ocotp key as dcp key"]
             pub const DCP_KEY_SEL_1: u32 = 0x01;
         }
     }
@@ -1412,9 +1412,9 @@ pub mod GPR4 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ENET stop acknowledge is not asserted"]
+            #[doc = "ENET1 stop acknowledge is not asserted"]
             pub const ENET_STOP_ACK_0: u32 = 0;
-            #[doc = "ENET stop acknowledge is asserted"]
+            #[doc = "ENET1 stop acknowledge is asserted"]
             pub const ENET_STOP_ACK_1: u32 = 0x01;
         }
     }
@@ -2974,7 +2974,7 @@ pub mod GPR10 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select key from SNVS Master Key."]
+            #[doc = "Select key from Key MUX (SNVS/OTPMK)."]
             pub const DCPKEY_OCOTP_OR_KEYMUX_0: u32 = 0;
             #[doc = "Select key from OCOTP (SW_GP2)."]
             pub const DCPKEY_OCOTP_OR_KEYMUX_1: u32 = 0x01;

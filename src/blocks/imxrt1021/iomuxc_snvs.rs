@@ -60,7 +60,7 @@ pub mod SW_MUX_CTL_PAD_PMIC_ON_REQ {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: snvs_lp"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO5_IO00 of instance: gpio5"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO5_IO01 of instance: gpio5"]
             pub const ALT5: u32 = 0x05;
         }
     }

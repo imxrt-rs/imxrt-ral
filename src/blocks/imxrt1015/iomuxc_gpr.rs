@@ -845,16 +845,16 @@ pub mod GPR2 {
 }
 #[doc = "GPR3 General Purpose Register"]
 pub mod GPR3 {
-    #[doc = "Select 128-bit DCP key from 256-bit key from SNVS Master Key"]
+    #[doc = "Select 128-bit DCP key from 256-bit key from SNVS/OCOTP"]
     pub mod DCP_KEY_SEL {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select \\[127:0\\] from SNVS Master Key as DCP key"]
+            #[doc = "Select \\[127:0\\] from SNVS/OCOTP key as DCP key"]
             pub const DCP_KEY_SEL_0: u32 = 0;
-            #[doc = "Select \\[255:128\\] from SNVS Master Key as DCP key"]
+            #[doc = "Select \\[255:128\\] from SNVS/OCOTP key as DCP key"]
             pub const DCP_KEY_SEL_1: u32 = 0x01;
         }
     }
@@ -1871,7 +1871,7 @@ pub mod GPR10 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select key from SNVS Master Key."]
+            #[doc = "Select key from Key MUX (SNVS/OTPMK)."]
             pub const DCPKEY_OCOTP_OR_KEYMUX_0: u32 = 0;
             #[doc = "Select key from OCOTP (SW_GP2)."]
             pub const DCPKEY_OCOTP_OR_KEYMUX_1: u32 = 0x01;
