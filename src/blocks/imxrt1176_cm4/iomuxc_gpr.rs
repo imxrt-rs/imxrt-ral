@@ -4579,10 +4579,10 @@ pub mod GPR71 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPI2C1_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPI2C1_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPI2C2 doze mode"]
@@ -4608,10 +4608,10 @@ pub mod GPR71 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPI2C2_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPI2C2_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPI2C3 doze mode"]
@@ -4637,10 +4637,10 @@ pub mod GPR71 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPI2C3_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPI2C3_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPI2C4 doze mode"]
@@ -4666,10 +4666,10 @@ pub mod GPR71 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPI2C4_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPI2C4_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPI2C5 doze mode"]
@@ -4753,10 +4753,10 @@ pub mod GPR71 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPSPI1_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPSPI1_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -4819,10 +4819,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPSPI2_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPSPI2_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPSPI3 doze mode"]
@@ -4848,10 +4848,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPSPI3_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPSPI3_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPSPI4 doze mode"]
@@ -4877,10 +4877,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPSPI4_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPSPI4_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPSPI5 doze mode"]
@@ -4964,10 +4964,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART1_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART1_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART2 doze mode"]
@@ -4993,10 +4993,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART2_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART2_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART3 doze mode"]
@@ -5022,10 +5022,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART3_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART3_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART4 doze mode"]
@@ -5051,10 +5051,10 @@ pub mod GPR72 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART4_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART4_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -5117,10 +5117,10 @@ pub mod GPR73 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART5_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART5_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART6 doze mode"]
@@ -5146,10 +5146,10 @@ pub mod GPR73 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART6_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART6_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART7 doze mode"]
@@ -5175,10 +5175,10 @@ pub mod GPR73 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART7_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART7_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART8 doze mode"]
@@ -5204,10 +5204,10 @@ pub mod GPR73 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "the module is functional in Stop mode"]
-            pub const LPUART8_IPG_STOP_MODE_0: u32 = 0;
-            #[doc = "the module is NOT functional in Stop mode, when this bit is equal to 1 and ipg_stop is asserted"]
-            pub const LPUART8_IPG_STOP_MODE_1: u32 = 0x01;
+            #[doc = "This module is functional in Stop Mode"]
+            pub const FUNC: u32 = 0;
+            #[doc = "This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'."]
+            pub const NONFUNC: u32 = 0x01;
         }
     }
     #[doc = "LPUART9 doze mode"]
