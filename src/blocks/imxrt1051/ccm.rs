@@ -2732,7 +2732,7 @@ pub mod CCGR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "can1 clock (can1_clk_enable)"]
     pub mod CG7 {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x03 << offset;
@@ -2740,7 +2740,7 @@ pub mod CCGR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "can1_serial clock (can1_serial_clk_enable)"]
     pub mod CG8 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x03 << offset;
@@ -2748,7 +2748,7 @@ pub mod CCGR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "can2 clock (can2_clk_enable)"]
     pub mod CG9 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -2756,7 +2756,7 @@ pub mod CCGR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "can2_serial clock (can2_serial_clk_enable)"]
     pub mod CG10 {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x03 << offset;
@@ -2823,7 +2823,7 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpspi3 clocks (lpspi3_clk_enable)"]
     pub mod CG2 {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -2831,7 +2831,7 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpspi4 clocks (lpspi4_clk_enable)"]
     pub mod CG3 {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x03 << offset;
@@ -2839,7 +2839,7 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "adc2 clock (adc2_clk_enable)"]
     pub mod CG4 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x03 << offset;
@@ -2847,7 +2847,7 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "enet clock (enet_clk_enable)"]
     pub mod CG5 {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x03 << offset;
@@ -2863,7 +2863,7 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "aoi2 clocks (aoi2_clk_enable)"]
     pub mod CG7 {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x03 << offset;
@@ -2879,7 +2879,7 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "semc_exsc clock (semc_exsc_clk_enable)"]
     pub mod CG9 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -2927,14 +2927,6 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "gpio5 clock (gpio5_clk_enable)"]
-    pub mod CG15 {
-        pub const offset: u32 = 30;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "CCM Clock Gating Register 2"]
 pub mod CCGR2 {
@@ -2946,7 +2938,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "csi clock (csi_clk_enable)"]
     pub mod CG1 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -2978,7 +2970,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpi2c3 clock (lpi2c3_clk_enable)"]
     pub mod CG5 {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x03 << offset;
@@ -2994,7 +2986,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "xbar3 clock (xbar3_clk_enable)"]
     pub mod CG7 {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x03 << offset;
@@ -3002,7 +2994,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "ipmux1 clock (ipmux1_clk_enable)"]
     pub mod CG8 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x03 << offset;
@@ -3010,7 +3002,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "ipmux2 clock (ipmux2_clk_enable)"]
     pub mod CG9 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -3018,7 +3010,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "ipmux3 clock (ipmux3_clk_enable)"]
     pub mod CG10 {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x03 << offset;
@@ -3034,7 +3026,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "xbar2 clock (xbar2_clk_enable)"]
     pub mod CG12 {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x03 << offset;
@@ -3042,7 +3034,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "gpio3 clock (gpio3_clk_enable)"]
     pub mod CG13 {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x03 << offset;
@@ -3050,7 +3042,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lcd clocks (lcd_clk_enable)"]
     pub mod CG14 {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x03 << offset;
@@ -3058,7 +3050,7 @@ pub mod CCGR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "pxp clocks (pxp_clk_enable)"]
     pub mod CG15 {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x03 << offset;
@@ -3069,7 +3061,7 @@ pub mod CCGR2 {
 }
 #[doc = "CCM Clock Gating Register 3"]
 pub mod CCGR3 {
-    #[doc = "Reserved"]
+    #[doc = "flexio2 clocks (flexio2_clk_enable)"]
     pub mod CG0 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x03 << offset;
@@ -3077,7 +3069,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpuart5 clock (lpuart5_clk_enable)"]
     pub mod CG1 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -3085,7 +3077,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "semc clocks (semc_clk_enable)"]
     pub mod CG2 {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -3093,7 +3085,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpuart6 clock (lpuart6_clk_enable)"]
     pub mod CG3 {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x03 << offset;
@@ -3109,7 +3101,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lcdif pix clock (lcdif_pix_clk_enable)"]
     pub mod CG5 {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x03 << offset;
@@ -3117,7 +3109,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "gpio4 clock (gpio4_clk_enable)"]
     pub mod CG6 {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x03 << offset;
@@ -3149,7 +3141,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "acmp1 clocks (acmp1_clk_enable)"]
     pub mod CG10 {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x03 << offset;
@@ -3157,7 +3149,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "acmp2 clocks (acmp2_clk_enable)"]
     pub mod CG11 {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x03 << offset;
@@ -3165,7 +3157,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "acmp3 clocks (acmp3_clk_enable)"]
     pub mod CG12 {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x03 << offset;
@@ -3173,7 +3165,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "acmp4 clocks (acmp4_clk_enable)"]
     pub mod CG13 {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x03 << offset;
@@ -3181,7 +3173,7 @@ pub mod CCGR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "The OCRAM clock cannot be turned off when the CM cache is running on this device."]
+    #[doc = "ocram clock (ocram_clk_enable)"]
     pub mod CG14 {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x03 << offset;
@@ -3200,7 +3192,7 @@ pub mod CCGR3 {
 }
 #[doc = "CCM Clock Gating Register 4"]
 pub mod CCGR4 {
-    #[doc = "sim_m7_clk_r_enable"]
+    #[doc = "sim_m7 register access clock (sim_m7_mainclk_r_enable)"]
     pub mod CG0 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x03 << offset;
@@ -3224,7 +3216,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "bee clock(bee_clk_enable)"]
     pub mod CG3 {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x03 << offset;
@@ -3240,7 +3232,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "tsc_dig clock (tsc_clk_enable)"]
     pub mod CG5 {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x03 << offset;
@@ -3272,7 +3264,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "pwm2 clocks (pwm2_clk_enable)"]
     pub mod CG9 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -3280,7 +3272,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "pwm3 clocks (pwm3_clk_enable)"]
     pub mod CG10 {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x03 << offset;
@@ -3288,7 +3280,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "pwm4 clocks (pwm4_clk_enable)"]
     pub mod CG11 {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x03 << offset;
@@ -3296,7 +3288,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "enc1 clocks (enc1_clk_enable)"]
     pub mod CG12 {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x03 << offset;
@@ -3304,7 +3296,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "enc2 clocks (enc2_clk_enable)"]
     pub mod CG13 {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x03 << offset;
@@ -3312,7 +3304,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "enc3 clocks (enc3_clk_enable)"]
     pub mod CG14 {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x03 << offset;
@@ -3320,7 +3312,7 @@ pub mod CCGR4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "dma_ps clocks (dma_ps_clk_enable)"]
+    #[doc = "enc4 clocks (enc4_clk_enable)"]
     pub mod CG15 {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x03 << offset;
@@ -3379,7 +3371,7 @@ pub mod CCGR5 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "aipstz4 clocks (aips_tz4_clk_enable)"]
     pub mod CG6 {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x03 << offset;
@@ -3395,7 +3387,7 @@ pub mod CCGR5 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "sim_main clock (sim_main_clk_enable)"]
     pub mod CG8 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x03 << offset;
@@ -3411,7 +3403,7 @@ pub mod CCGR5 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "sai2 clock (sai2_clk_enable)"]
     pub mod CG10 {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x03 << offset;
@@ -3435,7 +3427,7 @@ pub mod CCGR5 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpuart7 clock (lpuart7_clk_enable)"]
     pub mod CG13 {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x03 << offset;
@@ -3470,7 +3462,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "usdhc1 clocks (usdhc1_clk_enable)"]
     pub mod CG1 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -3478,7 +3470,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "usdhc2 clocks (usdhc2_clk_enable)"]
     pub mod CG2 {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -3494,7 +3486,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "ipmux4 clock (ipmux4_clk_enable)"]
     pub mod CG4 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x03 << offset;
@@ -3518,7 +3510,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpuart8 clocks (lpuart8_clk_enable)"]
     pub mod CG7 {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x03 << offset;
@@ -3526,7 +3518,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "timer4 clocks (timer4_clk_enable)"]
     pub mod CG8 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x03 << offset;
@@ -3534,7 +3526,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "aips_tz3 clock (aips_tz3_clk_enable)"]
     pub mod CG9 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -3558,7 +3550,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "lpi2c4 serial clock (lpi2c4_serial_clk_enable)"]
     pub mod CG12 {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x03 << offset;
@@ -3566,7 +3558,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "timer1 clocks (timer1_clk_enable)"]
     pub mod CG13 {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x03 << offset;
@@ -3574,7 +3566,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "timer2 clocks (timer2_clk_enable)"]
     pub mod CG14 {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x03 << offset;
@@ -3582,7 +3574,7 @@ pub mod CCGR6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
+    #[doc = "timer3 clocks (timer3_clk_enable)"]
     pub mod CG15 {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x03 << offset;

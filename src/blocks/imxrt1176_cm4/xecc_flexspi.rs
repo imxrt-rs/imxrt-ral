@@ -131,14 +131,6 @@ pub mod ERR_STATUS {
             pub const MULTI_ERR_1: u32 = 0x01;
         }
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED1 {
-        pub const offset: u32 = 2;
-        pub const mask: u32 = 0x3fff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Error Interrupt Status Enable Register"]
 pub mod ERR_STAT_EN {
@@ -168,14 +160,6 @@ pub mod ERR_STAT_EN {
             pub const MULIT_ERR_STAT_EN_1: u32 = 0x01;
         }
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED1 {
-        pub const offset: u32 = 2;
-        pub const mask: u32 = 0x3fff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Error Interrupt Enable Register"]
 pub mod ERR_SIG_EN {
@@ -204,14 +188,6 @@ pub mod ERR_SIG_EN {
             #[doc = "Enabled"]
             pub const MULTI_ERR_SIG_EN_1: u32 = 0x01;
         }
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED1 {
-        pub const offset: u32 = 2;
-        pub const mask: u32 = 0x3fff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
 }
 #[doc = "Error Injection On Write Data"]
@@ -290,14 +266,6 @@ pub mod SINGLE_ERR_BIT_FIELD {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED1 {
-        pub const offset: u32 = 8;
-        pub const mask: u32 = 0x00ff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Multiple Error Address"]
 pub mod MULTI_ERR_ADDR {
@@ -338,14 +306,6 @@ pub mod MULTI_ERR_BIT_FIELD {
     pub mod MULTI_ERR_BIT_FIELD {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED1 {
-        pub const offset: u32 = 8;
-        pub const mask: u32 = 0x00ff_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}

@@ -34,6 +34,11 @@ the 1176.
 As a result of this change, symbols for IOMUXC `SW_MUX_CTL*` and `*SW_PAD_CTL*`
 enum variants may have also changed.
 
+Drop all register fields that are documented as "reserved" (first word of the
+description, all lowercase). Dropping these fields changes the combiner's
+approach for combining fieldsets, enabling correct documentation for non-
+reserved fields.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature
