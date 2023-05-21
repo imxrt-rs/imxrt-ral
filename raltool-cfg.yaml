@@ -162,3 +162,28 @@ transforms:
       fieldset: src::regs::Srsr
       from: LOCKUP
       to: LOCKUP_SYSRESETREQ
+
+# Settings for the combine pass.
+combines:
+  # By default, the combiner will claim that field's enums are equivalent if their
+  # plurality, bit size, and values are the same. It does not consider the enum name.
+  # Once they're deemed equivalent, the combiner is allowed to consolidate these enums
+  # across all fields and devices. This default behavior lets us consolidate enum variants
+  # that are written like "OFF / ON" in one SVD, and "DISABLED / ENABLED" in another SVD.
+  # Those variants have the same meaning, so it makes sense to combine these differences.
+  #
+  # This behavior isn't always appropriate. For example, an IOMUXC field LPSPI1_SCK_SELECT_INPUT
+  # on the 1021 might have enum variants named GPIO_SD_B0_02_ALT4 and GPIO_AD_B0_10_ALT1.
+  # The same field on the 1011 might have enum variants named GPIO_AD_06_ALT0 and
+  # GPIO_SD_08_ALT2 with the same respective values. If the combiner does not check
+  # the names, its allowed to replace the 1021 enum variants with the 1011 names. That's
+  # confusing and misleading. So in cases where this behavior shouldn't happen, we add
+  # those peripherals to this list, and we force the combiner to consider the enum variant
+  # names.
+  #
+  # It's always safe to add to this list. By adding peripherals to this list, you make it harder
+  # to develop drivers that work across all MCUs.
+  - StrictEnumNames:
+    - iomuxc
+    - iomuxc_gpr
+    - iomuxc_snvs

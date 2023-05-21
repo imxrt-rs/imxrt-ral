@@ -202,7 +202,7 @@ fn gen(mut args: Generate) -> Result<()> {
         weak_syms: true,
     };
 
-    let combination = combine::combine(&irs);
+    let combination = combine::combine(&irs, &config.combines.into());
     generate::render(&combination, &generate_opts)?;
 
     Ok(())
@@ -343,6 +343,7 @@ fn gen_block(args: GenBlock) -> Result<()> {
 #[derive(serde::Serialize, serde::Deserialize, Default)]
 struct Config {
     transforms: Vec<raltool::transform::Transform>,
+    combines: Vec<raltool::combine::Combine>,
 }
 
 // ==============

@@ -1,6 +1,7 @@
 //! Helper types to combine and consolidate IRs across devices.
 
 use crate::ir;
+use serde::{Deserialize, Serialize};
 use std::{
     cmp::Ordering,
     collections::{hash_map::Entry, HashMap, HashSet},
@@ -121,11 +122,12 @@ fn equivalent_options<E>(
     }
 }
 
-struct EquivalentEnums {
-    peripherals: HashSet<String>,
+#[derive(Clone, Copy)]
+struct EquivalentEnums<'a> {
+    peripherals: &'a HashSet<String>,
 }
 
-impl Equivalence<ir::Enum> for EquivalentEnums {
+impl Equivalence<ir::Enum> for EquivalentEnums<'_> {
     fn compare(
         &self,
         CompareIr { elem: a, .. }: CompareIr<ir::Enum>,
@@ -142,7 +144,7 @@ impl Equivalence<ir::Enum> for EquivalentEnums {
 
 #[derive(Clone, Copy)]
 struct EquivalentFieldSets<'a> {
-    enums: &'a EquivalentEnums,
+    enums: EquivalentEnums<'a>,
 }
 
 impl Equivalence<ir::FieldSet> for EquivalentFieldSets<'_> {
@@ -314,9 +316,9 @@ pub struct IrVersions<'ir> {
 
 impl<'ir> IrVersions<'ir> {
     /// Define versions of IR elements from the collection of IRs.
-    pub fn from_irs(irs: &'ir [ir::IR]) -> Self {
-        let enums = &EquivalentEnums {
-            peripherals: HashSet::new(),
+    pub fn from_irs(irs: &'ir [ir::IR], config: &Config) -> Self {
+        let enums = EquivalentEnums {
+            peripherals: &config.strict_enum_names,
         };
         let fieldsets = EquivalentFieldSets { enums };
         let blocks = EquivalentBlocks { fieldsets };
@@ -367,8 +369,13 @@ impl<T> Copy for RefHash<'_, T> {}
 
 type RefMap<'a, K, V> = HashMap<RefHash<'a, K>, V>;
 
+#[derive(Default)]
+pub struct Config {
+    strict_enum_names: HashSet<String>,
+}
+
 /// Combine all IRs into a single IR.
-pub fn combine(irs: &[ir::IR]) -> ir::IR {
+pub fn combine(irs: &[ir::IR], config: &Config) -> ir::IR {
     assert!(
         irs.iter().all(|ir| !ir.devices.is_empty()),
         "Cannot combine an IR with empty devices."
@@ -392,7 +399,7 @@ pub fn combine(irs: &[ir::IR]) -> ir::IR {
         );
     }
 
-    let versions = IrVersions::from_irs(irs);
+    let versions = IrVersions::from_irs(irs, config);
 
     let mut consolidated = ir::IR::new();
 
@@ -512,4 +519,41 @@ pub fn combine(irs: &[ir::IR]) -> ir::IR {
     }
 
     consolidated
+}
+
+/// Configurations for the combiner pass.
+#[derive(Debug, Serialize, Deserialize)]
+pub enum Combine {
+    /// The list of peripheral names that require strict enum name
+    /// checks.
+    ///
+    /// By default, the combiner will not check the names of enum variants
+    /// when evaluating enum equivalence. This allows the combiner treat
+    /// superficial name differense, like "OFF / ON" and "DISABLE / ENABLE,"
+    /// as equivalent.
+    ///
+    /// To enable strict name checking, add a peripheral name to this list.
+    /// This means "OFF / ON" and "DISABLE / ENABLE" are not equivalent. It's
+    /// always safe to add to this list; however, it means there may be more
+    /// code generated.
+    StrictEnumNames(Vec<String>),
+}
+
+impl<I> From<I> for Config
+where
+    I: IntoIterator<Item = Combine>,
+{
+    fn from(combines: I) -> Self {
+        let mut config = Config::default();
+
+        for combine in combines {
+            match combine {
+                Combine::StrictEnumNames(peripherals) => {
+                    config.strict_enum_names.extend(peripherals);
+                }
+            }
+        }
+
+        config
+    }
 }
