@@ -966,15 +966,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_04 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA04 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT04 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM4_PWMA02 of instance: flexpwm4"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: SPDIF_OUT of instance: spdif"]
+            #[doc = "Select mux mode: ALT2 mux port: SAI2_TX_DATA of instance: sai2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_BCLK of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT06 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO16 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO04 of instance: flexio1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO04 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO04 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -1003,15 +1003,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_05 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA05 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT05 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM4_PWMB02 of instance: flexpwm4"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: SPDIF_IN of instance: spdif"]
+            #[doc = "Select mux mode: ALT2 mux port: SAI2_TX_SYNC of instance: sai2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_SYNC of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT07 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO17 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO05 of instance: flexio1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO05 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO05 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -1040,15 +1040,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_06 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA06 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT06 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM2_PWMA00 of instance: flexpwm2"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART3_TX of instance: lpuart3"]
+            #[doc = "Select mux mode: ALT2 mux port: SAI2_TX_BCLK of instance: sai2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_DATA of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT08 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO18 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO06 of instance: flexio1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO06 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO06 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -1077,15 +1077,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_07 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA07 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT07 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM2_PWMB00 of instance: flexpwm2"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART3_RX of instance: lpuart3"]
+            #[doc = "Select mux mode: ALT2 mux port: SAI2_MCLK of instance: sai2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_RX_SYNC of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT09 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO19 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO07 of instance: flexio1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO07 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO07 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -1114,15 +1114,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_08 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: SEMC_DM00 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT08 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM2_PWMA01 of instance: flexpwm2"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: FLEXCAN2_TX of instance: flexcan2"]
+            #[doc = "Select mux mode: ALT2 mux port: SAI2_RX_DATA of instance: sai2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_RX_DATA of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT17 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO20 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO08 of instance: flexio1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO08 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO08 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -1149,17 +1149,17 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_09 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_WE of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: SEMC_ADDR00 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT09 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM2_PWMB01 of instance: flexpwm2"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: FLEXCAN2_RX of instance: flexcan2"]
+            #[doc = "Select mux mode: ALT2 mux port: SAI2_RX_SYNC of instance: sai2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_RX_BCLK of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: FLEXCAN2_TX of instance: flexcan2"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO21 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO09 of instance: flexio1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO09 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO09 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -1482,19 +1482,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_18 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_ADDR02 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: SEMC_ADDR09 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT16 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM4_PWMB03 of instance: flexpwm4"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPI2C2_SDA of instance: lpi2c2"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART4_RTS_B of instance: lpuart4"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_RX_SYNC of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: FLEXCAN1_RX of instance: flexcan1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO22 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: QTIMER3_TIMER3 of instance: qtimer3"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO18 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO18 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: SRC_BT_CFG00 of instance: src"]
+            #[doc = "Select mux mode: ALT6 mux port: SNVS_VIO_5_CTL of instance: snvs_hp"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -1521,19 +1521,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_19 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_ADDR03 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: SEMC_ADDR11 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT17 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM2_PWMA03 of instance: flexpwm2"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPI2C2_SCL of instance: lpi2c2"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART4_TX of instance: lpuart4"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_RX_BCLK of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: ENET_RDATA01 of instance: enet"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO23 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: QTIMER2_TIMER0 of instance: qtimer2"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO2_IO19 of instance: gpio2"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO4_IO19 of instance: gpio4"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: SRC_BT_CFG01 of instance: src"]
+            #[doc = "Select mux mode: ALT6 mux port: SNVS_VIO_5 of instance: snvs_hp"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -2041,17 +2041,17 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_33 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA09 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA11 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: QTIMER1_TIMER1 of instance: qtimer1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM3_PWMA02 of instance: flexpwm3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART4_RX of instance: lpuart4"]
+            #[doc = "Select mux mode: ALT2 mux port: USDHC1_RESET_B of instance: usdhc1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI3_TX_BCLK of instance: sai3"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI3_RX_DATA of instance: sai3"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: LPSPI4_PCS0 of instance: lpspi4"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_DATA20 of instance: csi"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO01 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO19 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -2115,19 +2115,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_EMC_35 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA11 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: SEMC_DATA13 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: QTIMER1_TIMER3 of instance: qtimer1"]
+            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT18 of instance: xbar1"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART7_RX of instance: lpuart7"]
+            #[doc = "Select mux mode: ALT2 mux port: GPT1_COMPARE1 of instance: gpt1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: USDHC2_WP of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI3_RX_BCLK of instance: sai3"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: LPSPI4_SDI of instance: lpspi4"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_DATA18 of instance: csi"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO03 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO21 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ENET_COL of instance: enet"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC1_CD_B of instance: usdhc1"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -2511,21 +2511,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_03 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: JTAG_TDI of instance: jtag_mux"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXCAN2_RX of instance: flexcan2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: USDHC2_CD_B of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT1 mux port: XBAR1_INOUT17 of instance: xbar1"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: WDOG1_B of instance: wdog1"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART6_RX of instance: lpuart6"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_MCLK of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: USB_OTG1_OC of instance: usb"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: USDHC1_WP of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXPWM1_PWMX01 of instance: flexpwm1"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO03 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: USB_OTG1_OC of instance: usb"]
+            #[doc = "Select mux mode: ALT6 mux port: REF_CLK_24M of instance: anatop"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: CCM_PMIC_RDY of instance: ccm"]
+            #[doc = "Select mux mode: ALT7 mux port: LPSPI3_PCS0 of instance: lpspi3"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -2552,21 +2552,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: JTAG_TDO of instance: jtag_mux"]
+            #[doc = "Select mux mode: ALT0 mux port: SRC_BOOT_MODE00 of instance: src"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXCAN1_TX of instance: flexcan1"]
+            #[doc = "Select mux mode: ALT1 mux port: MQS_RIGHT of instance: mqs"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: USDHC1_WP of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT2 mux port: ENET_TX_DATA03 of instance: enet"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: QTIMER2_TIMER0 of instance: qtimer2"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_SYNC of instance: sai2"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: ENET_MDIO of instance: enet"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_DATA09 of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO04 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: USB_OTG1_PWR of instance: usb"]
+            #[doc = "Select mux mode: ALT6 mux port: PIT_TRIGGER00 of instance: pit"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: EWM_OUT_B of instance: ewm"]
+            #[doc = "Select mux mode: ALT7 mux port: LPSPI3_PCS1 of instance: lpspi3"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -2593,21 +2593,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_05 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: JTAG_TRSTB of instance: jtag_mux"]
+            #[doc = "Select mux mode: ALT0 mux port: SRC_BOOT_MODE01 of instance: src"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXCAN1_RX of instance: flexcan1"]
+            #[doc = "Select mux mode: ALT1 mux port: MQS_LEFT of instance: mqs"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: USDHC1_CD_B of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT2 mux port: ENET_TX_DATA02 of instance: enet"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: QTIMER2_TIMER1 of instance: qtimer2"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_BCLK of instance: sai2"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: ENET_MDC of instance: enet"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_DATA08 of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO05 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: USB_OTG1_ID of instance: anatop"]
+            #[doc = "Select mux mode: ALT6 mux port: XBAR1_INOUT17 of instance: xbar1"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: NMI_GLUE_NMI of instance: nmi_glue"]
+            #[doc = "Select mux mode: ALT7 mux port: LPSPI3_PCS2 of instance: lpspi3"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -2880,21 +2880,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_12 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: ENET_RX_ER of instance: enet"]
+            #[doc = "Select mux mode: ALT0 mux port: LPI2C4_SCL of instance: lpi2c4"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: LPSPI1_SDO of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT1 mux port: CCM_PMIC_READY of instance: ccm"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART3_CTS_B of instance: lpuart3"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART1_TX of instance: lpuart1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: KPP_COL02 of instance: kpp"]
+            #[doc = "Select mux mode: ALT3 mux port: WDOG2_WDOG_B of instance: wdog2"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXPWM2_PWMA01 of instance: flexpwm2"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXPWM1_PWMX02 of instance: flexpwm1"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO12 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ARM_CM7_TRACE00 of instance: cm7_mxrt"]
+            #[doc = "Select mux mode: ALT6 mux port: ENET_1588_EVENT1_OUT of instance: enet"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: SNVS_HP_VIO_5_CTL of instance: snvs_hp"]
+            #[doc = "Select mux mode: ALT7 mux port: NMI_GLUE_NMI of instance: nmi_glue"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -2921,21 +2921,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_13 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: ENET_TX_EN of instance: enet"]
+            #[doc = "Select mux mode: ALT0 mux port: LPI2C4_SDA of instance: lpi2c4"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: LPSPI1_SDI of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT1 mux port: GPT1_CLK of instance: gpt1"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART3_RTS_B of instance: lpuart3"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART1_RX of instance: lpuart1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: KPP_ROW02 of instance: kpp"]
+            #[doc = "Select mux mode: ALT3 mux port: EWM_OUT_B of instance: ewm"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXPWM2_PWMB01 of instance: flexpwm2"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXPWM1_PWMX03 of instance: flexpwm1"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO13 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ARM_CM7_TRACE01 of instance: cm7_mxrt"]
+            #[doc = "Select mux mode: ALT6 mux port: ENET_1588_EVENT1_IN of instance: enet"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: SNVS_HP_VIO_5_B of instance: snvs_hp"]
+            #[doc = "Select mux mode: ALT7 mux port: REF_CLK_24M of instance: anatop"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3042,21 +3042,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_00 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_READY of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: USB_OTG2_ID of instance: anatop"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_DATA03 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: QTIMER3_TIMER0 of instance: qtimer3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: FLEXCAN2_TX of instance: flexcan2"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART2_CTS_B of instance: lpuart2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_MCLK of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: LPI2C1_SCL of instance: lpi2c1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO15 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: WDOG1_B of instance: wdog1"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO16 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ENET_1588_EVENT2_OUT of instance: enet"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC1_WP of instance: usdhc1"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_COL04 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW07 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3083,21 +3083,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_01 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_CSX00 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: USB_OTG1_PWR of instance: usb"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_SCLK of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: QTIMER3_TIMER1 of instance: qtimer3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: FLEXCAN2_RX of instance: flexcan2"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART2_RTS_B of instance: lpuart2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_BCLK of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: LPI2C1_SDA of instance: lpi2c1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO14 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CCM_PMIC_READY of instance: ccm"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO17 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ENET_1588_EVENT2_IN of instance: enet"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC1_VSELECT of instance: usdhc1"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW04 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_COL07 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3124,21 +3124,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_02 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_CSX01 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: USB_OTG1_ID of instance: anatop"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_DATA00 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: QTIMER3_TIMER2 of instance: qtimer3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPSPI4_SCK of instance: lpspi4"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART2_TX of instance: lpuart2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_SYNC of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SPDIF_OUT of instance: spdif"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO13 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: ENET_1588_EVENT2_OUT of instance: enet"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO18 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ENET_1588_EVENT3_OUT of instance: enet"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC1_CD_B of instance: usdhc1"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_COL05 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW06 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3165,21 +3165,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_03 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_CSX02 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: USB_OTG1_OC of instance: usb"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_DATA02 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: QTIMER3_TIMER3 of instance: qtimer3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPSPI4_PCS0 of instance: lpspi4"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART2_RX of instance: lpuart2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA00 of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SPDIF_IN of instance: spdif"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO12 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: ENET_1588_EVENT2_IN of instance: enet"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO19 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: ENET_1588_EVENT3_IN of instance: enet"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_CD_B of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW05 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_COL06 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3206,21 +3206,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: SEMC_CSX03 of instance: semc"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXSPIB_DATA03 of instance: flexspi"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_DATA01 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: ENET_MDC of instance: enet"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPSPI4_SDO of instance: lpspi4"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART3_CTS_B of instance: lpuart3"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_RX_SYNC of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SPDIF_SR_CLK of instance: spdif"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO11 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_PIXCLK of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO20 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: LPSPI1_PCS1 of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_DATA0 of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_COL06 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW05 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3247,21 +3247,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_05 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC1_WP of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXSPIB_DATA02 of instance: flexspi"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_SS0_B of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: ENET_MDIO of instance: enet"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPSPI4_SDI of instance: lpspi4"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART3_RTS_B of instance: lpuart3"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_RX_DATA00 of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SPDIF_OUT of instance: spdif"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO10 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_MCLK of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO21 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: LPSPI1_PCS2 of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_DATA1 of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW06 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_COL05 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3288,21 +3288,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_06 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC1_RESET_B of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXSPIB_DATA01 of instance: flexspi"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM1_PWMA00 of instance: flexpwm1"]
+            #[doc = "Select mux mode: ALT1 mux port: LPI2C3_SDA of instance: lpi2c3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART2_CTS_B of instance: lpuart2"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART3_TX of instance: lpuart3"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_RX_BCLK of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SPDIF_LOCK of instance: spdif"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO09 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_VSYNC of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO22 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: LPSPI1_PCS3 of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_DATA2 of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_COL07 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW04 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3329,21 +3329,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_07 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC1_VSELECT of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXSPIB_DATA00 of instance: flexspi"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM1_PWMB00 of instance: flexpwm1"]
+            #[doc = "Select mux mode: ALT1 mux port: LPI2C3_SCL of instance: lpi2c3"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART2_RTS_B of instance: lpuart2"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART3_RX of instance: lpuart3"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA01 of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SPDIF_EXT_CLK of instance: spdif"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO08 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_HSYNC of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO23 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: LPSPI3_PCS3 of instance: lpspi3"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_DATA3 of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW07 of instance: kpp"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_COL04 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3370,21 +3370,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_08 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: LPI2C2_SCL of instance: lpi2c2"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXSPIA_SS1_B of instance: flexspi"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM1_PWMA01 of instance: flexpwm1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM4_PWMA00 of instance: flexpwm4"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART2_TX of instance: lpuart2"]
+            #[doc = "Select mux mode: ALT2 mux port: FLEXCAN1_TX of instance: flexcan1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA02 of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: CCM_PMIC_READY of instance: ccm"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO07 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_DATA09 of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO24 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: LPSPI3_PCS2 of instance: lpspi3"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_CMD of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: XBAR1_INOUT12 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_ROW03 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -3411,21 +3411,21 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B1_09 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: LPI2C2_SDA of instance: lpi2c2"]
+            #[doc = "Select mux mode: ALT0 mux port: FLEXSPIA_DQS of instance: flexspi"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM1_PWMB01 of instance: flexpwm1"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM4_PWMA01 of instance: flexpwm4"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART2_RX of instance: lpuart2"]
+            #[doc = "Select mux mode: ALT2 mux port: FLEXCAN1_RX of instance: flexcan1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA03 of instance: sai1"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_MCLK of instance: sai1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXIO1_FLEXIO06 of instance: flexio1"]
+            #[doc = "Select mux mode: ALT4 mux port: CSI_DATA08 of instance: csi"]
             pub const ALT4: u32 = 0x04;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO25 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: LPSPI3_PCS1 of instance: lpspi3"]
+            #[doc = "Select mux mode: ALT6 mux port: USDHC2_CLK of instance: usdhc2"]
             pub const ALT6: u32 = 0x06;
-            #[doc = "Select mux mode: ALT7 mux port: XBAR1_INOUT13 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT7 mux port: KPP_COL03 of instance: kpp"]
             pub const ALT7: u32 = 0x07;
         }
     }
@@ -5088,19 +5088,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B0_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC1_DATA0 of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC1_DATA2 of instance: usdhc1"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXCAN2_TX of instance: flexcan2"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM1_PWMA02 of instance: flexpwm1"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART7_TX of instance: lpuart7"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART8_TX of instance: lpuart8"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_DATA of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT08 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: LPSPI1_SDO of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXSPIB_SS0_B of instance: flexspi"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO17 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO16 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: FLEXSPI_B_SS0_B of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT6 mux port: CCM_CLKO1 of instance: ccm"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -5127,19 +5127,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B0_05 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC1_DATA1 of instance: usdhc1"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC1_DATA3 of instance: usdhc1"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXCAN2_RX of instance: flexcan2"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXPWM1_PWMB02 of instance: flexpwm1"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART7_RX of instance: lpuart7"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART8_RX of instance: lpuart8"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI2_TX_BCLK of instance: sai2"]
+            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT09 of instance: xbar1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: LPSPI1_SDI of instance: lpspi1"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXSPIB_DQS of instance: flexspi"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO18 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO17 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: FLEXSPI_B_DQS of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT6 mux port: CCM_CLKO2 of instance: ccm"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -5166,17 +5166,17 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_00 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA2 of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA3 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_B_DATA03 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIB_DATA03 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART6_TX of instance: lpuart6"]
+            #[doc = "Select mux mode: ALT2 mux port: FLEXPWM1_PWMA03 of instance: flexpwm1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: XBAR1_INOUT10 of instance: xbar1"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA03 of instance: sai1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXCAN1_TX of instance: flexcan1"]
+            #[doc = "Select mux mode: ALT4 mux port: LPUART4_TX of instance: lpuart4"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO20 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO00 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -5203,17 +5203,17 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_01 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA3 of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA2 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_B_SCLK of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIB_DATA02 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART6_RX of instance: lpuart6"]
+            #[doc = "Select mux mode: ALT2 mux port: FLEXPWM1_PWMB03 of instance: flexpwm1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: FLEXSPI_A_SS1_B of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA02 of instance: sai1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: FLEXCAN1_RX of instance: flexcan1"]
+            #[doc = "Select mux mode: ALT4 mux port: LPUART4_RX of instance: lpuart4"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO21 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO01 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -5240,19 +5240,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_02 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC2_CMD of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA1 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_B_DATA00 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIB_DATA01 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART8_TX of instance: lpuart8"]
+            #[doc = "Select mux mode: ALT2 mux port: FLEXPWM2_PWMA03 of instance: flexpwm2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: LPI2C4_SCL of instance: lpi2c4"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA01 of instance: sai1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: ENET_1588_EVENT1_OUT of instance: enet"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXCAN1_TX of instance: flexcan1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO22 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO02 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: CCM_CLKO1 of instance: ccm"]
+            #[doc = "Select mux mode: ALT6 mux port: CCM_WAIT of instance: ccm"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -5279,19 +5279,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_03 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC2_CLK of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA0 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_B_DATA02 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIB_DATA00 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: LPUART8_RX of instance: lpuart8"]
+            #[doc = "Select mux mode: ALT2 mux port: FLEXPWM2_PWMB03 of instance: flexpwm2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: LPI2C4_SDA of instance: lpi2c4"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_MCLK of instance: sai1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: ENET_1588_EVENT1_IN of instance: enet"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXCAN1_RX of instance: flexcan1"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO23 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO03 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: CCM_CLKO2 of instance: ccm"]
+            #[doc = "Select mux mode: ALT6 mux port: CCM_PMIC_READY of instance: ccm"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -5318,19 +5318,19 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA0 of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT0 mux port: USDHC2_CLK of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_B_DATA01 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIB_SCLK of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: ENET_TX_CLK of instance: enet"]
+            #[doc = "Select mux mode: ALT2 mux port: LPI2C1_SCL of instance: lpi2c1"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: ENET_REF_CLK1 of instance: enet"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_RX_SYNC of instance: sai1"]
             pub const ALT3: u32 = 0x03;
-            #[doc = "Select mux mode: ALT4 mux port: EWM_OUT_B of instance: ewm"]
+            #[doc = "Select mux mode: ALT4 mux port: FLEXSPIA_SS1_B of instance: flexspi"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO24 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO04 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
-            #[doc = "Select mux mode: ALT6 mux port: CCM_WAIT of instance: ccm"]
+            #[doc = "Select mux mode: ALT6 mux port: CCM_STOP of instance: ccm"]
             pub const ALT6: u32 = 0x06;
         }
     }
@@ -5431,17 +5431,17 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_07 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: USDHC2_RESET_B of instance: usdhc2"]
+            #[doc = "Select mux mode: ALT0 mux port: SEMC_CSX01 of instance: semc"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_SCLK of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIA_SCLK of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: ENET_RX_EN of instance: enet"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART7_RTS_B of instance: lpuart7"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI3_TX_SYNC of instance: sai3"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_DATA00 of instance: sai1"]
             pub const ALT3: u32 = 0x03;
             #[doc = "Select mux mode: ALT4 mux port: LPSPI2_SCK of instance: lpspi2"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO27 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO07 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -5509,15 +5509,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_09 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA5 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_DATA02 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIA_DATA01 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: ENET_TX_EN of instance: enet"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART7_RX of instance: lpuart7"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI3_RX_BCLK of instance: sai3"]
+            #[doc = "Select mux mode: ALT3 mux port: SAI1_TX_SYNC of instance: sai1"]
             pub const ALT3: u32 = 0x03;
             #[doc = "Select mux mode: ALT4 mux port: LPSPI2_SDI of instance: lpspi2"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO29 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO09 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -5546,15 +5546,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_10 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA6 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_DATA01 of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIA_DATA02 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: ENET_TDATA00 of instance: enet"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART2_RX of instance: lpuart2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI3_RX_SYNC of instance: sai3"]
+            #[doc = "Select mux mode: ALT3 mux port: LPI2C2_SDA of instance: lpi2c2"]
             pub const ALT3: u32 = 0x03;
             #[doc = "Select mux mode: ALT4 mux port: LPSPI2_PCS2 of instance: lpspi2"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO30 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO10 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }
@@ -5583,15 +5583,15 @@ pub mod SW_MUX_CTL_PAD_GPIO_SD_B1_11 {
         pub mod RW {
             #[doc = "Select mux mode: ALT0 mux port: USDHC2_DATA7 of instance: usdhc2"]
             pub const ALT0: u32 = 0;
-            #[doc = "Select mux mode: ALT1 mux port: FLEXSPI_A_SS0_B of instance: flexspi_bus2bit"]
+            #[doc = "Select mux mode: ALT1 mux port: FLEXSPIA_DATA03 of instance: flexspi"]
             pub const ALT1: u32 = 0x01;
-            #[doc = "Select mux mode: ALT2 mux port: ENET_TDATA01 of instance: enet"]
+            #[doc = "Select mux mode: ALT2 mux port: LPUART2_TX of instance: lpuart2"]
             pub const ALT2: u32 = 0x02;
-            #[doc = "Select mux mode: ALT3 mux port: SAI3_RX_DATA of instance: sai3"]
+            #[doc = "Select mux mode: ALT3 mux port: LPI2C2_SCL of instance: lpi2c2"]
             pub const ALT3: u32 = 0x03;
             #[doc = "Select mux mode: ALT4 mux port: LPSPI2_PCS3 of instance: lpspi2"]
             pub const ALT4: u32 = 0x04;
-            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO31 of instance: gpio3"]
+            #[doc = "Select mux mode: ALT5 mux port: GPIO3_IO11 of instance: gpio3"]
             pub const ALT5: u32 = 0x05;
         }
     }

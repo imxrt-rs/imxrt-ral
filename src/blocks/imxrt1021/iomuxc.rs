@@ -2254,7 +2254,7 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_00 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: JTAG_MUX_TMS of instance: jtag_mux"]
+            #[doc = "Select mux mode: ALT0 mux port: JTAG_TMS of instance: jtag_mux"]
             pub const ALT0: u32 = 0;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO00 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
@@ -2285,7 +2285,7 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_01 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: JTAG_MUX_TCK of instance: jtag_mux"]
+            #[doc = "Select mux mode: ALT0 mux port: JTAG_TCK of instance: jtag_mux"]
             pub const ALT0: u32 = 0;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO01 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
@@ -2316,7 +2316,7 @@ pub mod SW_MUX_CTL_PAD_GPIO_AD_B0_02 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Select mux mode: ALT0 mux port: JTAG_MUX_MOD of instance: jtag_mux"]
+            #[doc = "Select mux mode: ALT0 mux port: JTAG_MOD of instance: jtag_mux"]
             pub const ALT0: u32 = 0;
             #[doc = "Select mux mode: ALT5 mux port: GPIO1_IO02 of instance: gpio1"]
             pub const ALT5: u32 = 0x05;
