@@ -35,6 +35,10 @@ and correct the documentation.
 **BREAKING** Correct the name, documentation of the SNVS.LPCR field "LVD_EN" on
 the 1176.
 
+**BREAKING** Correct the symbols for most IOMUXC `*SELECT_INPUT*` enum variants.
+As a result of this change, symbols for IOMUXC `SW_MUX_CTL*` and `*SW_PAD_CTL*`
+enum variants may have also changed.
+
 Add missing register fields:
 
 - SERCLKDIV in FlexSPI MCR0.

@@ -68,8 +68,8 @@ pub mod SW_PAD_CTL_PAD_TEST_MODE {
         pub mod RW {
             #[doc = "output driver disabled;"]
             pub const DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = 0;
-            #[doc = "R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)"]
-            pub const DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = 0x01;
+            #[doc = "R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"]
+            pub const DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = 0x01;
             #[doc = "R0/2"]
             pub const DSE_2_R0_2: u32 = 0x02;
             #[doc = "R0/3"]
@@ -189,8 +189,8 @@ pub mod SW_PAD_CTL_PAD_POR_B {
         pub mod RW {
             #[doc = "output driver disabled;"]
             pub const DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = 0;
-            #[doc = "R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)"]
-            pub const DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = 0x01;
+            #[doc = "R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"]
+            pub const DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = 0x01;
             #[doc = "R0/2"]
             pub const DSE_2_R0_2: u32 = 0x02;
             #[doc = "R0/3"]
@@ -310,8 +310,8 @@ pub mod SW_PAD_CTL_PAD_ONOFF {
         pub mod RW {
             #[doc = "output driver disabled;"]
             pub const DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = 0;
-            #[doc = "R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)"]
-            pub const DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = 0x01;
+            #[doc = "R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"]
+            pub const DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = 0x01;
             #[doc = "R0/2"]
             pub const DSE_2_R0_2: u32 = 0x02;
             #[doc = "R0/3"]
@@ -431,8 +431,8 @@ pub mod SW_PAD_CTL_PAD_PMIC_ON_REQ {
         pub mod RW {
             #[doc = "output driver disabled;"]
             pub const DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = 0;
-            #[doc = "R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)"]
-            pub const DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = 0x01;
+            #[doc = "R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"]
+            pub const DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = 0x01;
             #[doc = "R0/2"]
             pub const DSE_2_R0_2: u32 = 0x02;
             #[doc = "R0/3"]

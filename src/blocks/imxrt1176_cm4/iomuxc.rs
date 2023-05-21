@@ -12010,10 +12010,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_00 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12036,10 +12036,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_00 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12112,10 +12112,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_01 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12138,10 +12138,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_01 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12214,10 +12214,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_02 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12240,10 +12240,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_02 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12316,10 +12316,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_03 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12342,10 +12342,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_03 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12418,10 +12418,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12444,10 +12444,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12520,10 +12520,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_05 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12546,10 +12546,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_05 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12622,10 +12622,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_06 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12648,10 +12648,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_06 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12724,10 +12724,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_07 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12750,10 +12750,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_07 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12826,10 +12826,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_08 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12852,10 +12852,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_08 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -12928,10 +12928,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_09 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -12954,10 +12954,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_09 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -13030,10 +13030,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_10 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -13056,10 +13056,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_10 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -13132,10 +13132,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_11 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -13158,10 +13158,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_11 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -13234,10 +13234,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_12 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -13260,10 +13260,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_12 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -13336,10 +13336,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_13 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -13362,10 +13362,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_13 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -13438,10 +13438,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_14 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keeper"]
-            pub const PUE_0_KEEPER: u32 = 0;
-            #[doc = "Pull"]
-            pub const PUE_1_PULL: u32 = 0x01;
+            #[doc = "Pull Disable, Highz"]
+            pub const PUE_0_PULL_DISABLE__HIGHZ: u32 = 0;
+            #[doc = "Pull Enable"]
+            pub const PUE_1_PULL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Pull Up / Down Config. Field"]
@@ -13464,10 +13464,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_AD_14 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -15686,10 +15686,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_SD_B1_00 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -15766,10 +15766,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_SD_B1_01 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -15846,10 +15846,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_SD_B1_02 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -15926,10 +15926,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_SD_B1_03 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -16006,10 +16006,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_SD_B1_04 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -16086,10 +16086,10 @@ pub mod SW_PAD_CTL_PAD_GPIO_SD_B1_05 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Open Drain Disabled"]
-            pub const ODE_0_OPEN_DRAIN_DISABLED: u32 = 0;
-            #[doc = "Open Drain Enabled"]
-            pub const ODE_1_OPEN_DRAIN_ENABLED: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ODE_0_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ODE_1_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Domain write protection"]
@@ -20134,10 +20134,10 @@ pub mod FLEXPWM1_PWMA_SELECT_INPUT_0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_SD_02 for Mode: ALT2"]
-            pub const GPIO_SD_02_ALT2: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_02 for Mode: ALT2"]
-            pub const GPIO_02_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_EMC_B1_23 for Mode: ALT1"]
+            pub const SELECT_GPIO_EMC_B1_23_ALT1: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_00 for Mode: ALT4"]
+            pub const SELECT_GPIO_AD_00_ALT4: u32 = 0x01;
         }
     }
 }
@@ -20150,10 +20150,10 @@ pub mod FLEXPWM1_PWMA_SELECT_INPUT_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_SD_04 for Mode: ALT2"]
-            pub const GPIO_SD_04_ALT2: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_04 for Mode: ALT2"]
-            pub const GPIO_04_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_EMC_B1_25 for Mode: ALT1"]
+            pub const SELECT_GPIO_EMC_B1_25_ALT1: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_02 for Mode: ALT4"]
+            pub const SELECT_GPIO_AD_02_ALT4: u32 = 0x01;
         }
     }
 }
@@ -20166,10 +20166,10 @@ pub mod FLEXPWM1_PWMA_SELECT_INPUT_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_04 for Mode: ALT2"]
-            pub const GPIO_AD_04_ALT2: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_06 for Mode: ALT2"]
-            pub const GPIO_06_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_EMC_B1_27 for Mode: ALT1"]
+            pub const SELECT_GPIO_EMC_B1_27_ALT1: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_04 for Mode: ALT4"]
+            pub const SELECT_GPIO_AD_04_ALT4: u32 = 0x01;
         }
     }
 }
@@ -20182,10 +20182,10 @@ pub mod FLEXPWM1_PWMB_SELECT_INPUT_0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_SD_01 for Mode: ALT2"]
-            pub const GPIO_SD_01_ALT2: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_01 for Mode: ALT2"]
-            pub const GPIO_01_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_EMC_B1_24 for Mode: ALT1"]
+            pub const SELECT_GPIO_EMC_B1_24_ALT1: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_01 for Mode: ALT4"]
+            pub const SELECT_GPIO_AD_01_ALT4: u32 = 0x01;
         }
     }
 }
@@ -20198,10 +20198,10 @@ pub mod FLEXPWM1_PWMB_SELECT_INPUT_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_SD_03 for Mode: ALT2"]
-            pub const GPIO_SD_03_ALT2: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_03 for Mode: ALT2"]
-            pub const GPIO_03_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_EMC_B1_26 for Mode: ALT1"]
+            pub const SELECT_GPIO_EMC_B1_26_ALT1: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_03 for Mode: ALT4"]
+            pub const SELECT_GPIO_AD_03_ALT4: u32 = 0x01;
         }
     }
 }
@@ -20214,10 +20214,10 @@ pub mod FLEXPWM1_PWMB_SELECT_INPUT_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_03 for Mode: ALT2"]
-            pub const GPIO_AD_03_ALT2: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_05 for Mode: ALT2"]
-            pub const GPIO_05_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_EMC_B1_28 for Mode: ALT1"]
+            pub const SELECT_GPIO_EMC_B1_28_ALT1: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_05 for Mode: ALT4"]
+            pub const SELECT_GPIO_AD_05_ALT4: u32 = 0x01;
         }
     }
 }
@@ -21822,10 +21822,10 @@ pub mod USB_OTG2_OC_SELECT_INPUT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_B0_14 for Mode: ALT0"]
-            pub const GPIO_AD_B0_14_ALT0: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_EMC_40 for Mode: ALT3"]
-            pub const GPIO_EMC_40_ALT3: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_AD_06 for Mode: ALT0"]
+            pub const SELECT_GPIO_AD_06_ALT0: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_30 for Mode: ALT1"]
+            pub const SELECT_GPIO_AD_30_ALT1: u32 = 0x01;
         }
     }
 }
@@ -21838,10 +21838,10 @@ pub mod USB_OTG_OC_SELECT_INPUT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_01 for Mode: ALT6"]
-            pub const GPIO_AD_01_ALT6: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_12 for Mode: ALT3"]
-            pub const GPIO_12_ALT3: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_AD_11 for Mode: ALT0"]
+            pub const SELECT_GPIO_AD_11_ALT0: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_35 for Mode: ALT1"]
+            pub const SELECT_GPIO_AD_35_ALT1: u32 = 0x01;
         }
     }
 }
