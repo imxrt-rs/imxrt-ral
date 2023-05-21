@@ -218,7 +218,7 @@ pub mod PWD {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD_SET {
-    #[doc = "TXPWDFS"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -226,7 +226,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXPWDIBIAS"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -234,7 +234,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXPWDV2I"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -242,7 +242,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDENV"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -250,7 +250,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWD1PT1"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -258,7 +258,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDDIFF"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -266,7 +266,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDRX"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -277,7 +277,7 @@ pub mod PWD_SET {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD_CLR {
-    #[doc = "TXPWDFS"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -285,7 +285,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXPWDIBIAS"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -293,7 +293,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXPWDV2I"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -301,7 +301,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDENV"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -309,7 +309,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWD1PT1"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -317,7 +317,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDDIFF"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -325,7 +325,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDRX"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -336,7 +336,7 @@ pub mod PWD_CLR {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD_TOG {
-    #[doc = "TXPWDFS"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -344,7 +344,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXPWDIBIAS"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -352,7 +352,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXPWDV2I"]
+    #[doc = "0 = Normal operation"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -360,7 +360,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDENV"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -368,7 +368,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWD1PT1"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -376,7 +376,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDDIFF"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -384,7 +384,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXPWDRX"]
+    #[doc = "0 = Normal operation"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -560,7 +560,7 @@ pub mod RX {
 }
 #[doc = "USB PHY Receiver Control Register"]
 pub mod RX_SET {
-    #[doc = "ENVADJ"]
+    #[doc = "The ENVADJ field adjusts the trip point for the envelope detector"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -568,7 +568,7 @@ pub mod RX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DISCONADJ"]
+    #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
@@ -576,7 +576,7 @@ pub mod RX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXDBYPASS"]
+    #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -587,7 +587,7 @@ pub mod RX_SET {
 }
 #[doc = "USB PHY Receiver Control Register"]
 pub mod RX_CLR {
-    #[doc = "ENVADJ"]
+    #[doc = "The ENVADJ field adjusts the trip point for the envelope detector"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -595,7 +595,7 @@ pub mod RX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DISCONADJ"]
+    #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
@@ -603,7 +603,7 @@ pub mod RX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXDBYPASS"]
+    #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -614,7 +614,7 @@ pub mod RX_CLR {
 }
 #[doc = "USB PHY Receiver Control Register"]
 pub mod RX_TOG {
-    #[doc = "ENVADJ"]
+    #[doc = "The ENVADJ field adjusts the trip point for the envelope detector"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -622,7 +622,7 @@ pub mod RX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DISCONADJ"]
+    #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
@@ -630,7 +630,7 @@ pub mod RX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RXDBYPASS"]
+    #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -1631,7 +1631,7 @@ pub mod STATUS {
 }
 #[doc = "USB PHY Debug Register"]
 pub mod DEBUG {
-    #[doc = "OTGIDPIOLOCK"]
+    #[doc = "Once OTG ID from USBPHYx_STATUS_OTGID_STATUS, use this to hold the value"]
     pub mod OTGIDPIOLOCK {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -1639,7 +1639,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DEBUG_INTERFACE_HOLD"]
+    #[doc = "Use holding registers to assist in timing for external UTMI interface."]
     pub mod DEBUG_INTERFACE_HOLD {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -1647,7 +1647,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HSTPULLDOWN"]
+    #[doc = "Set bit 3 to 1 to pull down 15-KOhm on USB_DP line"]
     pub mod HSTPULLDOWN {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -1655,7 +1655,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENHSTPULLDOWN"]
+    #[doc = "Set bit 5 to 1 to override the control of the USB_DP 15-KOhm pulldown"]
     pub mod ENHSTPULLDOWN {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -1663,7 +1663,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TX2RXCOUNT"]
+    #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1671,7 +1671,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENTX2RXCOUNT"]
+    #[doc = "Set this bit to allow a countdown to transition in between TX and RX."]
     pub mod ENTX2RXCOUNT {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -1679,7 +1679,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETCOUNT"]
+    #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
@@ -1687,7 +1687,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENSQUELCHRESET"]
+    #[doc = "Set bit to allow squelch to reset high-speed receive."]
     pub mod ENSQUELCHRESET {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
@@ -1695,7 +1695,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETLENGTH"]
+    #[doc = "Duration of RESET in terms of the number of 480-MHz cycles."]
     pub mod SQUELCHRESETLENGTH {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x0f << offset;
@@ -1703,7 +1703,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HOST_RESUME_DEBUG"]
+    #[doc = "Choose to trigger the host resume SE0 with HOST_FORCE_LS_SE0 = 0 or UTMI_SUSPEND = 1."]
     pub mod HOST_RESUME_DEBUG {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
@@ -1711,7 +1711,7 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CLKGATE"]
+    #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
@@ -1722,7 +1722,7 @@ pub mod DEBUG {
 }
 #[doc = "USB PHY Debug Register"]
 pub mod DEBUG_SET {
-    #[doc = "OTGIDPIOLOCK"]
+    #[doc = "Once OTG ID from USBPHYx_STATUS_OTGID_STATUS, use this to hold the value"]
     pub mod OTGIDPIOLOCK {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -1730,7 +1730,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DEBUG_INTERFACE_HOLD"]
+    #[doc = "Use holding registers to assist in timing for external UTMI interface."]
     pub mod DEBUG_INTERFACE_HOLD {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -1738,7 +1738,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HSTPULLDOWN"]
+    #[doc = "Set bit 3 to 1 to pull down 15-KOhm on USB_DP line"]
     pub mod HSTPULLDOWN {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -1746,7 +1746,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENHSTPULLDOWN"]
+    #[doc = "Set bit 5 to 1 to override the control of the USB_DP 15-KOhm pulldown"]
     pub mod ENHSTPULLDOWN {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -1754,7 +1754,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TX2RXCOUNT"]
+    #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1762,7 +1762,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENTX2RXCOUNT"]
+    #[doc = "Set this bit to allow a countdown to transition in between TX and RX."]
     pub mod ENTX2RXCOUNT {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -1770,7 +1770,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETCOUNT"]
+    #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
@@ -1778,7 +1778,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENSQUELCHRESET"]
+    #[doc = "Set bit to allow squelch to reset high-speed receive."]
     pub mod ENSQUELCHRESET {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
@@ -1786,7 +1786,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETLENGTH"]
+    #[doc = "Duration of RESET in terms of the number of 480-MHz cycles."]
     pub mod SQUELCHRESETLENGTH {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x0f << offset;
@@ -1794,7 +1794,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HOST_RESUME_DEBUG"]
+    #[doc = "Choose to trigger the host resume SE0 with HOST_FORCE_LS_SE0 = 0 or UTMI_SUSPEND = 1."]
     pub mod HOST_RESUME_DEBUG {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
@@ -1802,7 +1802,7 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CLKGATE"]
+    #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
@@ -1813,7 +1813,7 @@ pub mod DEBUG_SET {
 }
 #[doc = "USB PHY Debug Register"]
 pub mod DEBUG_CLR {
-    #[doc = "OTGIDPIOLOCK"]
+    #[doc = "Once OTG ID from USBPHYx_STATUS_OTGID_STATUS, use this to hold the value"]
     pub mod OTGIDPIOLOCK {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -1821,7 +1821,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DEBUG_INTERFACE_HOLD"]
+    #[doc = "Use holding registers to assist in timing for external UTMI interface."]
     pub mod DEBUG_INTERFACE_HOLD {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -1829,7 +1829,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HSTPULLDOWN"]
+    #[doc = "Set bit 3 to 1 to pull down 15-KOhm on USB_DP line"]
     pub mod HSTPULLDOWN {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -1837,7 +1837,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENHSTPULLDOWN"]
+    #[doc = "Set bit 5 to 1 to override the control of the USB_DP 15-KOhm pulldown"]
     pub mod ENHSTPULLDOWN {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -1845,7 +1845,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TX2RXCOUNT"]
+    #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1853,7 +1853,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENTX2RXCOUNT"]
+    #[doc = "Set this bit to allow a countdown to transition in between TX and RX."]
     pub mod ENTX2RXCOUNT {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -1861,7 +1861,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETCOUNT"]
+    #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
@@ -1869,7 +1869,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENSQUELCHRESET"]
+    #[doc = "Set bit to allow squelch to reset high-speed receive."]
     pub mod ENSQUELCHRESET {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
@@ -1877,7 +1877,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETLENGTH"]
+    #[doc = "Duration of RESET in terms of the number of 480-MHz cycles."]
     pub mod SQUELCHRESETLENGTH {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x0f << offset;
@@ -1885,7 +1885,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HOST_RESUME_DEBUG"]
+    #[doc = "Choose to trigger the host resume SE0 with HOST_FORCE_LS_SE0 = 0 or UTMI_SUSPEND = 1."]
     pub mod HOST_RESUME_DEBUG {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
@@ -1893,7 +1893,7 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CLKGATE"]
+    #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
@@ -1904,7 +1904,7 @@ pub mod DEBUG_CLR {
 }
 #[doc = "USB PHY Debug Register"]
 pub mod DEBUG_TOG {
-    #[doc = "OTGIDPIOLOCK"]
+    #[doc = "Once OTG ID from USBPHYx_STATUS_OTGID_STATUS, use this to hold the value"]
     pub mod OTGIDPIOLOCK {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -1912,7 +1912,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "DEBUG_INTERFACE_HOLD"]
+    #[doc = "Use holding registers to assist in timing for external UTMI interface."]
     pub mod DEBUG_INTERFACE_HOLD {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -1920,7 +1920,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HSTPULLDOWN"]
+    #[doc = "Set bit 3 to 1 to pull down 15-KOhm on USB_DP line"]
     pub mod HSTPULLDOWN {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x03 << offset;
@@ -1928,7 +1928,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENHSTPULLDOWN"]
+    #[doc = "Set bit 5 to 1 to override the control of the USB_DP 15-KOhm pulldown"]
     pub mod ENHSTPULLDOWN {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x03 << offset;
@@ -1936,7 +1936,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TX2RXCOUNT"]
+    #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1944,7 +1944,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENTX2RXCOUNT"]
+    #[doc = "Set this bit to allow a countdown to transition in between TX and RX."]
     pub mod ENTX2RXCOUNT {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -1952,7 +1952,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETCOUNT"]
+    #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
@@ -1960,7 +1960,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ENSQUELCHRESET"]
+    #[doc = "Set bit to allow squelch to reset high-speed receive."]
     pub mod ENSQUELCHRESET {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
@@ -1968,7 +1968,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SQUELCHRESETLENGTH"]
+    #[doc = "Duration of RESET in terms of the number of 480-MHz cycles."]
     pub mod SQUELCHRESETLENGTH {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x0f << offset;
@@ -1976,7 +1976,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "HOST_RESUME_DEBUG"]
+    #[doc = "Choose to trigger the host resume SE0 with HOST_FORCE_LS_SE0 = 0 or UTMI_SUSPEND = 1."]
     pub mod HOST_RESUME_DEBUG {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
@@ -1984,7 +1984,7 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CLKGATE"]
+    #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;

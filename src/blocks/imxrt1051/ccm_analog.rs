@@ -167,14 +167,6 @@ pub mod PLL_ARM {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod PLL_SEL {
-        pub const offset: u32 = 19;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "1 - PLL is currently locked. 0 - PLL is not currently locked."]
     pub mod LOCK {
         pub const offset: u32 = 31;
@@ -226,14 +218,6 @@ pub mod PLL_ARM_SET {
     #[doc = "Bypass the PLL."]
     pub mod BYPASS {
         pub const offset: u32 = 16;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod PLL_SEL {
-        pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -295,14 +279,6 @@ pub mod PLL_ARM_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod PLL_SEL {
-        pub const offset: u32 = 19;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "1 - PLL is currently locked. 0 - PLL is not currently locked."]
     pub mod LOCK {
         pub const offset: u32 = 31;
@@ -354,14 +330,6 @@ pub mod PLL_ARM_TOG {
     #[doc = "Bypass the PLL."]
     pub mod BYPASS {
         pub const offset: u32 = 16;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod PLL_SEL {
-        pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}

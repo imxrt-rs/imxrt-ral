@@ -707,14 +707,6 @@ pub mod LOCK {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod FIELD_RETURN {
-        pub const offset: u32 = 28;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Value of OTP Bank0 Word1 (Configuration and Manufacturing Info.)"]
 pub mod CFG0 {

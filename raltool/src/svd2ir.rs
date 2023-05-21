@@ -201,6 +201,12 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                 warn!("unsupported derived_from in fieldset");
             }
 
+            if let Some(desc) = &f.description {
+                if desc.to_lowercase().starts_with("reserved") {
+                    continue;
+                }
+            }
+
             let mut field = Field {
                 name: f.name.clone(),
                 description: f.description.clone(),

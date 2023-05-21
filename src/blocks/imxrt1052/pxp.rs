@@ -151,14 +151,6 @@ pub mod CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the clockwise rotation to be applied at the output buffer"]
     pub mod ROTATE {
         pub const offset: u32 = 8;
@@ -192,14 +184,6 @@ pub mod CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This bit controls where rotation will occur in the PXP datapath"]
     pub mod ROT_POS {
         pub const offset: u32 = 22;
@@ -221,25 +205,9 @@ pub mod CTRL {
             pub const _16X16: u32 = 0x01;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Enable the PXP to run continuously"]
     pub mod EN_REPEAT {
         pub const offset: u32 = 28;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD4 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -296,14 +264,6 @@ pub mod CTRL_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the clockwise rotation to be applied at the output buffer"]
     pub mod ROTATE {
         pub const offset: u32 = 8;
@@ -337,14 +297,6 @@ pub mod CTRL_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This bit controls where rotation will occur in the PXP datapath"]
     pub mod ROT_POS {
         pub const offset: u32 = 22;
@@ -366,25 +318,9 @@ pub mod CTRL_SET {
             pub const _16X16: u32 = 0x01;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Enable the PXP to run continuously"]
     pub mod EN_REPEAT {
         pub const offset: u32 = 28;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD4 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -441,14 +377,6 @@ pub mod CTRL_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the clockwise rotation to be applied at the output buffer"]
     pub mod ROTATE {
         pub const offset: u32 = 8;
@@ -482,14 +410,6 @@ pub mod CTRL_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This bit controls where rotation will occur in the PXP datapath"]
     pub mod ROT_POS {
         pub const offset: u32 = 22;
@@ -511,25 +431,9 @@ pub mod CTRL_CLR {
             pub const _16X16: u32 = 0x01;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Enable the PXP to run continuously"]
     pub mod EN_REPEAT {
         pub const offset: u32 = 28;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD4 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -586,14 +490,6 @@ pub mod CTRL_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the clockwise rotation to be applied at the output buffer"]
     pub mod ROTATE {
         pub const offset: u32 = 8;
@@ -627,14 +523,6 @@ pub mod CTRL_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This bit controls where rotation will occur in the PXP datapath"]
     pub mod ROT_POS {
         pub const offset: u32 = 22;
@@ -656,25 +544,9 @@ pub mod CTRL_TOG {
             pub const _16X16: u32 = 0x01;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Enable the PXP to run continuously"]
     pub mod EN_REPEAT {
         pub const offset: u32 = 28;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD4 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -747,14 +619,6 @@ pub mod STAT {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 9;
-        pub const mask: u32 = 0x7f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the X coordinate of the block currently being rendered."]
     pub mod BLOCKY {
         pub const offset: u32 = 16;
@@ -818,14 +682,6 @@ pub mod STAT_SET {
     pub mod LUT_DMA_LOAD_DONE_IRQ {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 9;
-        pub const mask: u32 = 0x7f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -897,14 +753,6 @@ pub mod STAT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 9;
-        pub const mask: u32 = 0x7f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the X coordinate of the block currently being rendered."]
     pub mod BLOCKY {
         pub const offset: u32 = 16;
@@ -972,14 +820,6 @@ pub mod STAT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 9;
-        pub const mask: u32 = 0x7f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates the X coordinate of the block currently being rendered."]
     pub mod BLOCKY {
         pub const offset: u32 = 16;
@@ -1042,14 +882,6 @@ pub mod OUT_CTRL {
             pub const YVU2P420: u32 = 0x1b;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Determines how the PXP writes it's output data"]
     pub mod INTERLACED_OUTPUT {
         pub const offset: u32 = 8;
@@ -1066,14 +898,6 @@ pub mod OUT_CTRL {
             #[doc = "Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2."]
             pub const INTERLACED: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 10;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
     #[doc = "Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL\\[ALPHA\\]"]
     pub mod ALPHA_OUTPUT {
@@ -1137,14 +961,6 @@ pub mod OUT_CTRL_SET {
             pub const YVU2P420: u32 = 0x1b;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Determines how the PXP writes it's output data"]
     pub mod INTERLACED_OUTPUT {
         pub const offset: u32 = 8;
@@ -1161,14 +977,6 @@ pub mod OUT_CTRL_SET {
             #[doc = "Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2."]
             pub const INTERLACED: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 10;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
     #[doc = "Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL\\[ALPHA\\]"]
     pub mod ALPHA_OUTPUT {
@@ -1232,14 +1040,6 @@ pub mod OUT_CTRL_CLR {
             pub const YVU2P420: u32 = 0x1b;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Determines how the PXP writes it's output data"]
     pub mod INTERLACED_OUTPUT {
         pub const offset: u32 = 8;
@@ -1256,14 +1056,6 @@ pub mod OUT_CTRL_CLR {
             #[doc = "Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2."]
             pub const INTERLACED: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 10;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
     #[doc = "Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL\\[ALPHA\\]"]
     pub mod ALPHA_OUTPUT {
@@ -1327,14 +1119,6 @@ pub mod OUT_CTRL_TOG {
             pub const YVU2P420: u32 = 0x1b;
         }
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 5;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Determines how the PXP writes it's output data"]
     pub mod INTERLACED_OUTPUT {
         pub const offset: u32 = 8;
@@ -1351,14 +1135,6 @@ pub mod OUT_CTRL_TOG {
             #[doc = "Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2."]
             pub const INTERLACED: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 10;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
     #[doc = "Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL\\[ALPHA\\]"]
     pub mod ALPHA_OUTPUT {
@@ -1409,14 +1185,6 @@ pub mod OUT_PITCH {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD {
-        pub const offset: u32 = 16;
-        pub const mask: u32 = 0xffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Output Surface Lower Right Coordinate"]
 pub mod OUT_LRC {
@@ -1428,26 +1196,10 @@ pub mod OUT_LRC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 14;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates number of horizontal PIXELS in the output surface (non-rotated)"]
     pub mod X {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 30;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1463,26 +1215,10 @@ pub mod OUT_PS_ULC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 14;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This field indicates the upper left X-coordinate (in pixels) of the processed surface (PS) in the output buffer"]
     pub mod X {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 30;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1498,26 +1234,10 @@ pub mod OUT_PS_LRC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 14;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This field indicates the lower right X-coordinate (in pixels) of the processed surface (PS) in the output frame buffer"]
     pub mod X {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 30;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1533,26 +1253,10 @@ pub mod OUT_AS_ULC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 14;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This field indicates the upper left X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer"]
     pub mod X {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 30;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1568,26 +1272,10 @@ pub mod OUT_AS_LRC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 14;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This field indicates the lower right X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer"]
     pub mod X {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 30;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1642,14 +1330,6 @@ pub mod PS_CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Verticle pre decimation filter control."]
     pub mod DECY {
         pub const offset: u32 = 8;
@@ -1683,14 +1363,6 @@ pub mod PS_CTRL {
             #[doc = "Decimate PS by 8."]
             pub const DECX8: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x000f_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
 }
 #[doc = "Processed Surface (PS) Control Register"]
@@ -1742,14 +1414,6 @@ pub mod PS_CTRL_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Verticle pre decimation filter control."]
     pub mod DECY {
         pub const offset: u32 = 8;
@@ -1783,14 +1447,6 @@ pub mod PS_CTRL_SET {
             #[doc = "Decimate PS by 8."]
             pub const DECX8: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x000f_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
 }
 #[doc = "Processed Surface (PS) Control Register"]
@@ -1842,14 +1498,6 @@ pub mod PS_CTRL_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Verticle pre decimation filter control."]
     pub mod DECY {
         pub const offset: u32 = 8;
@@ -1883,14 +1531,6 @@ pub mod PS_CTRL_CLR {
             #[doc = "Decimate PS by 8."]
             pub const DECX8: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x000f_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
 }
 #[doc = "Processed Surface (PS) Control Register"]
@@ -1942,14 +1582,6 @@ pub mod PS_CTRL_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Verticle pre decimation filter control."]
     pub mod DECY {
         pub const offset: u32 = 8;
@@ -1983,14 +1615,6 @@ pub mod PS_CTRL_TOG {
             #[doc = "Decimate PS by 8."]
             pub const DECX8: u32 = 0x03;
         }
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x000f_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
 }
 #[doc = "PS Input Buffer Address"]
@@ -2036,14 +1660,6 @@ pub mod PS_PITCH {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD {
-        pub const offset: u32 = 16;
-        pub const mask: u32 = 0xffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "PS Background Color"]
 pub mod PS_BACKGROUND {
@@ -2051,14 +1667,6 @@ pub mod PS_BACKGROUND {
     pub mod COLOR {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2074,26 +1682,10 @@ pub mod PS_SCALE {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 15;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This is a two bit integer and 12 bit fractional representation (##"]
     pub mod YSCALE {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x7fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 31;
-        pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2109,26 +1701,10 @@ pub mod PS_OFFSET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "This is a 12 bit fractional representation (0"]
     pub mod YOFFSET {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 28;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2144,14 +1720,6 @@ pub mod PS_CLRKEYLOW {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "PS Color Key High"]
 pub mod PS_CLRKEYHIGH {
@@ -2163,25 +1731,9 @@ pub mod PS_CLRKEYHIGH {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Alpha Surface Control"]
 pub mod AS_CTRL {
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Determines how the alpha value is constructed for this alpha surface"]
     pub mod ALPHA_CTRL {
         pub const offset: u32 = 1;
@@ -2279,14 +1831,6 @@ pub mod AS_CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Alpha Surface Buffer Pointer"]
 pub mod AS_BUF {
@@ -2309,14 +1853,6 @@ pub mod AS_PITCH {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD {
-        pub const offset: u32 = 16;
-        pub const mask: u32 = 0xffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Overlay Color Key Low"]
 pub mod AS_CLRKEYLOW {
@@ -2328,14 +1864,6 @@ pub mod AS_CLRKEYLOW {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Overlay Color Key High"]
 pub mod AS_CLRKEYHIGH {
@@ -2343,14 +1871,6 @@ pub mod AS_CLRKEYHIGH {
     pub mod PIXEL {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2382,14 +1902,6 @@ pub mod CSC1_COEF0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 29;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Bypass the CSC unit in the scaling engine"]
     pub mod BYPASS {
         pub const offset: u32 = 30;
@@ -2417,26 +1929,10 @@ pub mod CSC1_COEF1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 11;
-        pub const mask: u32 = 0x1f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)"]
     pub mod C1 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x07ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 27;
-        pub const mask: u32 = 0x1f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2452,26 +1948,10 @@ pub mod CSC1_COEF2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 11;
-        pub const mask: u32 = 0x1f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Two's complement Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)"]
     pub mod C2 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x07ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 27;
-        pub const mask: u32 = 0x1f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2510,14 +1990,6 @@ pub mod NEXT {
     #[doc = "Indicates that the \"next frame\" functionality has been enabled"]
     pub mod ENABLED {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved, always set to zero."]
-    pub mod RSVD {
-        pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}

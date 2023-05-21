@@ -113,14 +113,6 @@ pub mod TCM_CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 3;
-        pub const mask: u32 = 0x1fff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "OCRAM Magic Address Register"]
 pub mod OCRAM_MAGIC_ADDR {
@@ -141,14 +133,6 @@ pub mod OCRAM_MAGIC_ADDR {
     pub mod OCRAM_MAGIC_ADDR {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x0001_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 18;
-        pub const mask: u32 = 0x3fff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -177,14 +161,6 @@ pub mod DTCM_MAGIC_ADDR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 17;
-        pub const mask: u32 = 0x7fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "ITCM Magic Address Register"]
 pub mod ITCM_MAGIC_ADDR {
@@ -205,14 +181,6 @@ pub mod ITCM_MAGIC_ADDR {
     pub mod ITCM_MAGIC_ADDR {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0xffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 17;
-        pub const mask: u32 = 0x7fff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -454,14 +422,6 @@ pub mod INT_STATUS {
             pub const OCRAM_PARTIAL_WR_INT_S_1: u32 = 0x01;
         }
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 18;
-        pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Interrupt Status Enable Register"]
 pub mod INT_STAT_EN {
@@ -698,14 +658,6 @@ pub mod INT_STAT_EN {
             #[doc = "Enabled"]
             pub const OCRAM_PARTIAL_WR_INT_S_EN_1: u32 = 0x01;
         }
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 18;
-        pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
     }
 }
 #[doc = "Interrupt Enable Register"]
@@ -944,14 +896,6 @@ pub mod INT_SIG_EN {
             pub const OCRAM_PARTIAL_WR_INT_SIG_EN_1: u32 = 0x01;
         }
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 18;
-        pub const mask: u32 = 0x3fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "OCRAM single-bit ECC Error Information Register"]
 pub mod OCRAM_ECC_SINGLE_ERROR_INFO {
@@ -967,14 +911,6 @@ pub mod OCRAM_ECC_SINGLE_ERROR_INFO {
     pub mod OCRAM_ECCS_ERRED_SYN {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 16;
-        pub const mask: u32 = 0xffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1019,14 +955,6 @@ pub mod OCRAM_ECC_MULTI_ERROR_INFO {
     pub mod OCRAM_ECCM_ERRED_ECC {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 8;
-        pub const mask: u32 = 0x00ff_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1107,14 +1035,6 @@ pub mod ITCM_ECC_SINGLE_ERROR_INFO {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 20;
-        pub const mask: u32 = 0x0fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "ITCM single-bit ECC Error Address Register"]
 pub mod ITCM_ECC_SINGLE_ERROR_ADDR {
@@ -1187,14 +1107,6 @@ pub mod ITCM_ECC_MULTI_ERROR_INFO {
     pub mod ITCM_ECCM_EFSYN {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0xff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 20;
-        pub const mask: u32 = 0x0fff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1275,14 +1187,6 @@ pub mod D0TCM_ECC_SINGLE_ERROR_INFO {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 19;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "D0TCM single-bit ECC Error Address Register"]
 pub mod D0TCM_ECC_SINGLE_ERROR_ADDR {
@@ -1344,14 +1248,6 @@ pub mod D0TCM_ECC_MULTI_ERROR_INFO {
     pub mod D0TCM_ECCM_EFSYN {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x7f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 19;
-        pub const mask: u32 = 0x1fff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1421,14 +1317,6 @@ pub mod D1TCM_ECC_SINGLE_ERROR_INFO {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 19;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "D1TCM single-bit ECC Error Address Register"]
 pub mod D1TCM_ECC_SINGLE_ERROR_ADDR {
@@ -1490,14 +1378,6 @@ pub mod D1TCM_ECC_MULTI_ERROR_INFO {
     pub mod D1TCM_ECCM_EFSYN {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x7f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 19;
-        pub const mask: u32 = 0x1fff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1575,14 +1455,6 @@ pub mod FLEXRAM_CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03ff_ffff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "OCRAM Pipeline Status register"]
 pub mod OCRAM_PIPELINE_STATUS {
@@ -1614,14 +1486,6 @@ pub mod OCRAM_PIPELINE_STATUS {
     pub mod OCRAM_WRADDR_PIPELINE_EN_UPDATA_PENDING {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod RESERVED {
-        pub const offset: u32 = 4;
-        pub const mask: u32 = 0x0fff_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
