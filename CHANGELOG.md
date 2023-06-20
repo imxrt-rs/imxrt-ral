@@ -5,6 +5,15 @@
 **BREAKING** The `flexio1` module is now called `flexio` for the 1010,
 1015, and 1020 families.
 
+Fix FlexIO register fields that describe pin counts, ensuring that they can
+represent the 32 pins available for FlexIO2 and FlexIO3. Note that this
+increases the field width for FlexIO1, even though this instance only supports
+16 pins. FlexIO1 users should take care to only access the lower four bits of
+such fields.
+
+Fix the FlexIO timer and shifter counts from four to eight, permitting access
+to all available components.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature

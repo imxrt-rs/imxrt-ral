@@ -1,0 +1,59 @@
+# Fix FlexIO bit widths.
+#
+# In the 1061 SVD, FLEXIO1 PINSEL has 4 bits, and FLEXIO2 and FLEXIO3
+# are derived from it.
+# In reality, FLEXIO2 and FLEXIO3 PINSEL have 5 bits.
+# It shouldn't hurt to make FLEXIO1 5 bits as well.
+#
+# The same is true for the other registers.
+#
+# The second problem with FlexIO is that all the register arrays have
+# a dimension of 4, while they should have a dimension of 8.
+FLEXIO*:
+  _modify:
+    _registers:
+      SHIFTCTL*:
+        dim: 8
+      SHIFTCFG*:
+        dim: 8
+      SHIFTBUF*:
+        dim: 8
+      SHIFTBUFBIS*:
+        dim: 8
+      SHIFTBUFBYS*:
+        dim: 8
+      SHIFTBUFBBS*:
+        dim: 8
+      SHIFTBUFNBS*:
+        dim: 8
+      SHIFTBUFHWS*:
+        dim: 8
+      SHIFTBUFNIS*:
+        dim: 8
+      TIMCTL*:
+        dim: 8
+      TIMCFG*:
+        dim: 8
+      TIMCMP*:
+        dim: 8
+
+  SHIFTCFG*:
+    _modify:
+      PWIDTH:
+        bitWidth: 5
+  SHIFTCTL*:
+    _modify:
+      PINSEL:
+        bitWidth: 5
+      TIMSEL:
+        bitWidth: 3
+  TIMCTL*:
+    _modify:
+      PINSEL:
+        bitWidth: 5
+      TRGSEL:
+        bitWidth: 6
+  PIN:
+    _modify:
+      PDI:
+        bitWidth: 32

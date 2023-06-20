@@ -18,7 +18,7 @@ You'll need  a Rust installation, at least Rust 1.64, possibly later. To be safe
 
 To generate the RAL,
 
-1. Install `svdtools`: `cargo install svdtools`.
+1. Install `svdtools`: `cargo install svdtools --version=0.2.8`.
 2. Run `make`.
 
 If everything went well, you should find that the `src` directory is updated with Rust files. If you made changes to SVD patches, `raltool` transforms, or `raltool` itself, you should see those changes reflected in the Rust files. The RAL can build by itself: `cargo check --features imxrt1062`.

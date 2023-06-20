@@ -19,7 +19,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: install
-          args: svdtools --version=0.2.6
+          args: svdtools --version=0.2.8
       - name: Generate RAL
         run: make ci
       - name: Ensure RAL is consistent with checked-in code

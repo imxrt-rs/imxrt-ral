@@ -30,40 +30,40 @@ pub struct RegisterBlock {
     pub SHIFTSTATE: crate::RWRegister<u32>,
     _reserved3: [u8; 0x3c],
     #[doc = "Shifter Control N Register"]
-    pub SHIFTCTL: [crate::RWRegister<u32>; 4usize],
-    _reserved4: [u8; 0x70],
+    pub SHIFTCTL: [crate::RWRegister<u32>; 8usize],
+    _reserved4: [u8; 0x60],
     #[doc = "Shifter Configuration N Register"]
-    pub SHIFTCFG: [crate::RWRegister<u32>; 4usize],
-    _reserved5: [u8; 0xf0],
+    pub SHIFTCFG: [crate::RWRegister<u32>; 8usize],
+    _reserved5: [u8; 0xe0],
     #[doc = "Shifter Buffer N Register"]
-    pub SHIFTBUF: [crate::RWRegister<u32>; 4usize],
-    _reserved6: [u8; 0x70],
+    pub SHIFTBUF: [crate::RWRegister<u32>; 8usize],
+    _reserved6: [u8; 0x60],
     #[doc = "Shifter Buffer N Bit Swapped Register"]
-    pub SHIFTBUFBIS: [crate::RWRegister<u32>; 4usize],
-    _reserved7: [u8; 0x70],
+    pub SHIFTBUFBIS: [crate::RWRegister<u32>; 8usize],
+    _reserved7: [u8; 0x60],
     #[doc = "Shifter Buffer N Byte Swapped Register"]
-    pub SHIFTBUFBYS: [crate::RWRegister<u32>; 4usize],
-    _reserved8: [u8; 0x70],
+    pub SHIFTBUFBYS: [crate::RWRegister<u32>; 8usize],
+    _reserved8: [u8; 0x60],
     #[doc = "Shifter Buffer N Bit Byte Swapped Register"]
-    pub SHIFTBUFBBS: [crate::RWRegister<u32>; 4usize],
-    _reserved9: [u8; 0x70],
+    pub SHIFTBUFBBS: [crate::RWRegister<u32>; 8usize],
+    _reserved9: [u8; 0x60],
     #[doc = "Timer Control N Register"]
-    pub TIMCTL: [crate::RWRegister<u32>; 4usize],
-    _reserved10: [u8; 0x70],
+    pub TIMCTL: [crate::RWRegister<u32>; 8usize],
+    _reserved10: [u8; 0x60],
     #[doc = "Timer Configuration N Register"]
-    pub TIMCFG: [crate::RWRegister<u32>; 4usize],
-    _reserved11: [u8; 0x70],
+    pub TIMCFG: [crate::RWRegister<u32>; 8usize],
+    _reserved11: [u8; 0x60],
     #[doc = "Timer Compare N Register"]
-    pub TIMCMP: [crate::RWRegister<u32>; 4usize],
-    _reserved12: [u8; 0x0170],
+    pub TIMCMP: [crate::RWRegister<u32>; 8usize],
+    _reserved12: [u8; 0x0160],
     #[doc = "Shifter Buffer N Nibble Byte Swapped Register"]
-    pub SHIFTBUFNBS: [crate::RWRegister<u32>; 4usize],
-    _reserved13: [u8; 0x70],
+    pub SHIFTBUFNBS: [crate::RWRegister<u32>; 8usize],
+    _reserved13: [u8; 0x60],
     #[doc = "Shifter Buffer N Half Word Swapped Register"]
-    pub SHIFTBUFHWS: [crate::RWRegister<u32>; 4usize],
-    _reserved14: [u8; 0x70],
+    pub SHIFTBUFHWS: [crate::RWRegister<u32>; 8usize],
+    _reserved14: [u8; 0x60],
     #[doc = "Shifter Buffer N Nibble Swapped Register"]
-    pub SHIFTBUFNIS: [crate::RWRegister<u32>; 4usize],
+    pub SHIFTBUFNIS: [crate::RWRegister<u32>; 8usize],
 }
 #[doc = "Version ID Register"]
 pub mod VERID {
@@ -205,7 +205,7 @@ pub mod PIN {
     #[doc = "Pin Data Input"]
     pub mod PDI {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0xffff << offset;
+        pub const mask: u32 = 0xffff_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -340,7 +340,7 @@ pub mod SHIFTCTL {
     #[doc = "Shifter Pin Select"]
     pub mod PINSEL {
         pub const offset: u32 = 8;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0x1f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -378,7 +378,7 @@ pub mod SHIFTCTL {
     #[doc = "Timer Select"]
     pub mod TIMSEL {
         pub const offset: u32 = 24;
-        pub const mask: u32 = 0x03 << offset;
+        pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -434,7 +434,7 @@ pub mod SHIFTCFG {
     #[doc = "Parallel Width"]
     pub mod PWIDTH {
         pub const offset: u32 = 16;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0x1f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -519,7 +519,7 @@ pub mod TIMCTL {
     #[doc = "Timer Pin Select"]
     pub mod PINSEL {
         pub const offset: u32 = 8;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0x1f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -570,7 +570,7 @@ pub mod TIMCTL {
     #[doc = "Trigger Select"]
     pub mod TRGSEL {
         pub const offset: u32 = 24;
-        pub const mask: u32 = 0x1f << offset;
+        pub const mask: u32 = 0x3f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
