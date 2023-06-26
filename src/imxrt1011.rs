@@ -701,17 +701,17 @@ pub mod ewm {
     }
 }
 #[path = "."]
-pub mod flexio1 {
+pub mod flexio {
     #[doc = "FLEXIO"]
-    pub const FLEXIO1: *const RegisterBlock = 0x401a_c000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1011/flexio1.rs"]
+    pub const FLEXIO: *const RegisterBlock = 0x401a_c000 as *const RegisterBlock;
+    #[path = "blocks/imxrt1011/flexio.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type FLEXIO1 = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for FLEXIO1 {}
-    impl crate::Valid for FLEXIO1 {}
-    impl FLEXIO1 {
+    pub type FLEXIO = Instance<{ crate::SOLE_INSTANCE }>;
+    impl crate::private::Sealed for FLEXIO {}
+    impl crate::Valid for FLEXIO {}
+    impl FLEXIO {
         #[doc = r" Acquire a vaild, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
@@ -719,12 +719,12 @@ pub mod flexio1 {
         #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
         #[inline]
         pub const unsafe fn instance() -> Self {
-            Instance::new(FLEXIO1)
+            Instance::new(FLEXIO)
         }
     }
     #[doc = r" Returns the instance number `N` for a peripheral instance."]
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, FLEXIO1).then_some(0)
+        core::ptr::eq(rb, FLEXIO).then_some(0)
     }
 }
 #[path = "."]
@@ -1846,7 +1846,7 @@ pub struct Instances {
     pub DMA: dma::DMA,
     pub DMAMUX: dmamux::DMAMUX,
     pub EWM: ewm::EWM,
-    pub FLEXIO1: flexio1::FLEXIO1,
+    pub FLEXIO: flexio::FLEXIO,
     pub FLEXRAM: flexram::FLEXRAM,
     pub FLEXSPI: flexspi::FLEXSPI,
     pub GPC: gpc::GPC,
@@ -1916,7 +1916,7 @@ impl Instances {
             DMA: dma::DMA::instance(),
             DMAMUX: dmamux::DMAMUX::instance(),
             EWM: ewm::EWM::instance(),
-            FLEXIO1: flexio1::FLEXIO1::instance(),
+            FLEXIO: flexio::FLEXIO::instance(),
             FLEXRAM: flexram::FLEXRAM::instance(),
             FLEXSPI: flexspi::FLEXSPI::instance(),
             GPC: gpc::GPC::instance(),

@@ -1,6 +1,6 @@
 _svd: "../svd/imxrt1021.svd"
 
-_include: 
+_include:
   - "common.yaml"
   - "common_patches/pwm1/submodule_cluster.yaml"
   - "common_patches/usb.yaml"
@@ -8,3 +8,8 @@ _include:
   - "common_patches/lpuart_ridmae.yaml"
   - "common_patches/pit.yaml"
   - "common_patches/xbara.yaml"
+
+# See rationale in imxrt1011.yaml
+_modify:
+  FLEXIO1:
+    name: FLEXIO
