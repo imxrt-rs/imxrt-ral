@@ -1,6 +1,6 @@
 _svd: "../svd/imxrt1011.svd"
 
-_include: 
+_include:
   - "common.yaml"
   - "common_patches/pwm1/submodule_cluster_1011.yaml"
   - "common_patches/usb.yaml"
@@ -22,9 +22,11 @@ XBARA:
 # // After
 # use imxrt_ral::adc;
 #
-# Same for PWM.
+# Same for PWM and FLEXIO.
 _modify:
   ADC1:
     name: ADC
   PWM1:
     name: PWM
+  FLEXIO1:
+    name: FLEXIO

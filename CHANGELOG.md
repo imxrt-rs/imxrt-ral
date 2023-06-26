@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+**BREAKING** The `flexio1` module is now called `flexio` for the 1010,
+1015, and 1020 families.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature
