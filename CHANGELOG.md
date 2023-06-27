@@ -2,8 +2,9 @@
 
 ## [Unreleased]
 
-**BREAKING** The `flexio1` module is now called `flexio` for the 1010,
-1015, and 1020 families.
+*Deprecated* The `flexio1` module is now called `flexio` for the 1010,
+1015, and 1020 families. The `flexio1` module still exists for backwards
+compatibility.
 
 ## [0.5.0] 2022-12-27
 

@@ -705,7 +705,7 @@ pub mod flexio {
     #[doc = "FLEXIO"]
     pub const FLEXIO: *const RegisterBlock = 0x401a_c000 as *const RegisterBlock;
     #[path = "blocks/imxrt1011/flexio.rs"]
-    mod blocks;
+    pub(super) mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
     pub type FLEXIO = Instance<{ crate::SOLE_INSTANCE }>;
@@ -726,6 +726,10 @@ pub mod flexio {
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
         core::ptr::eq(rb, FLEXIO).then_some(0)
     }
+}
+#[deprecated(since = "0.5.1", note = "Use 'flexio'")]
+pub mod flexio1 {
+    pub use super::flexio::{blocks::*, number, Instance, FLEXIO as FLEXIO1};
 }
 #[path = "."]
 pub mod flexram {
@@ -1846,7 +1850,7 @@ pub struct Instances {
     pub DMA: dma::DMA,
     pub DMAMUX: dmamux::DMAMUX,
     pub EWM: ewm::EWM,
-    pub FLEXIO: flexio::FLEXIO,
+    pub FLEXIO1: flexio1::FLEXIO1,
     pub FLEXRAM: flexram::FLEXRAM,
     pub FLEXSPI: flexspi::FLEXSPI,
     pub GPC: gpc::GPC,
@@ -1916,7 +1920,7 @@ impl Instances {
             DMA: dma::DMA::instance(),
             DMAMUX: dmamux::DMAMUX::instance(),
             EWM: ewm::EWM::instance(),
-            FLEXIO: flexio::FLEXIO::instance(),
+            FLEXIO1: flexio1::FLEXIO1::instance(),
             FLEXRAM: flexram::FLEXRAM::instance(),
             FLEXSPI: flexspi::FLEXSPI::instance(),
             GPC: gpc::GPC::instance(),
