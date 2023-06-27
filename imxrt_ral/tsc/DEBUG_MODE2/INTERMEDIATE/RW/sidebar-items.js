@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["INTERMEDIATE_0","Not in intermedia"],["INTERMEDIATE_1","Intermedia"]]};
+window.SIDEBAR_ITEMS = {"constant":["INTERMEDIATE_0","INTERMEDIATE_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of frames received with CRC error"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

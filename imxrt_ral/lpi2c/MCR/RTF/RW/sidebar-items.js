@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTF_0","No effect"],["RTF_1","Transmit FIFO is reset"]]};
+window.SIDEBAR_ITEMS = {"constant":["RTF_0","RTF_1"]};

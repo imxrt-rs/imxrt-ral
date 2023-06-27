@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CNT","Counter Register Bits"]]};
+window.SIDEBAR_ITEMS = {"mod":["CNT"]};

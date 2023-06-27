@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PS_0","8bit"],["PS_1","16bit"]]};
+window.SIDEBAR_ITEMS = {"constant":["PS_0","PS_1"]};

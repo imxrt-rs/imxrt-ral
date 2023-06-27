@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TDRE_0","Transmit data buffer full."],["TDRE_1","Transmit data buffer empty."]]};
+window.SIDEBAR_ITEMS = {"constant":["TDRE_0","TDRE_1"]};

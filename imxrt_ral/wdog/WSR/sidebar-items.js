@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["WSR","WSR"]]};
+window.SIDEBAR_ITEMS = {"mod":["WSR"]};

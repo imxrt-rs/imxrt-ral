@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CM","Controller Mode - R/WO"],["ES","Endian Select - Read/Write"],["SDIS","Stream Disable Mode"],["SLOM","Setup Lockout Mode"]]};
+window.SIDEBAR_ITEMS = {"mod":["CM","ES","SDIS","SLOM"]};

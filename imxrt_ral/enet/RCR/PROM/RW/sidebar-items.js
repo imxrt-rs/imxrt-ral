@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PROM_0","Disabled."],["PROM_1","Enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["PROM_0","PROM_1"]};

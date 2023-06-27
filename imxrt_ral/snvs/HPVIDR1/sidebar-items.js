@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["IP_ID","SNVS block ID"],["MAJOR_REV","SNVS block major version number"],["MINOR_REV","SNVS block minor version number"]]};
+window.SIDEBAR_ITEMS = {"mod":["IP_ID","MAJOR_REV","MINOR_REV"]};

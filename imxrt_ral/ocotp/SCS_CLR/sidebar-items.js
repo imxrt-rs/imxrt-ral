@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["HAB_JDE","HAB_JDE"],["LOCK","LOCK"],["SPARE","SPARE"]]};
+window.SIDEBAR_ITEMS = {"mod":["HAB_JDE","LOCK","SPARE"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DAT","no description available"]]};
+window.SIDEBAR_ITEMS = {"mod":["DAT"]};

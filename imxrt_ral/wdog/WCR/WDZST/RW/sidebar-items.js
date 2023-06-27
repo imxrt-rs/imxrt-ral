@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WDZST_0","Continue timer operation (Default)."],["WDZST_1","Suspend the watchdog timer."]]};
+window.SIDEBAR_ITEMS = {"constant":["WDZST_0","WDZST_1"]};

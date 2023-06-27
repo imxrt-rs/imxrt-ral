@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXMSK_0","Normal transfer"],["TXMSK_1","Mask transmit data"]]};
+window.SIDEBAR_ITEMS = {"constant":["TXMSK_0","TXMSK_1"]};

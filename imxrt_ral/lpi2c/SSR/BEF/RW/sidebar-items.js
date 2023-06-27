@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BEF_0","Slave has not detected a bit error"],["BEF_1","Slave has detected a bit error"]]};
+window.SIDEBAR_ITEMS = {"constant":["BEF_0","BEF_1"]};

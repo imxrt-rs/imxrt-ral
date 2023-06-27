@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["IMR","IMR"]]};
+window.SIDEBAR_ITEMS = {"mod":["IMR"]};

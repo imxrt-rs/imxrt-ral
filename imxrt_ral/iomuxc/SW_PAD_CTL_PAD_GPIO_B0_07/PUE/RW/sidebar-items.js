@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PUE_0_KEEPER","Keeper"],["PUE_1_PULL","Pull"]]};
+window.SIDEBAR_ITEMS = {"constant":["PUE_0_KEEPER","PUE_1_PULL"]};

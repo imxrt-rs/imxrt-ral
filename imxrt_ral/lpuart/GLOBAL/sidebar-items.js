@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["RST","Software Reset"]]};
+window.SIDEBAR_ITEMS = {"mod":["RST"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["FEL","Filter Element Bits"]]};
+window.SIDEBAR_ITEMS = {"mod":["FEL"]};

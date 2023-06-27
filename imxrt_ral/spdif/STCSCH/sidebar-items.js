@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXCCHANNELCONS_H","SPDIF transmit Cons"]]};
+window.SIDEBAR_ITEMS = {"mod":["TXCCHANNELCONS_H"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CAEI","Clear All Error Indicators"],["CERR","Clear Error Indicator"],["NOP","No Op enable"]]};
+window.SIDEBAR_ITEMS = {"mod":["CAEI","CERR","NOP"]};

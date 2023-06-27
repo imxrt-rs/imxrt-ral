@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["IEF_0","Interrupt is disabled."],["IEF_1","Interrupt is enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["IEF_0","IEF_1"]};

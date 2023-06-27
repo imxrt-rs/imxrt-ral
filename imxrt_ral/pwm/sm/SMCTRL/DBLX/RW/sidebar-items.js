@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DBLX_0","PWMX double pulse disabled."],["DBLX_1","PWMX double pulse enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["DBLX_0","DBLX_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CIHB_0","Can issue command using only CMD line"],["CIHB_1","Cannot issue command"]]};
+window.SIDEBAR_ITEMS = {"constant":["CIHB_0","CIHB_1"]};

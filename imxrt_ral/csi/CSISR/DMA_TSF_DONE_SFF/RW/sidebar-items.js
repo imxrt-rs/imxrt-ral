@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DMA_TSF_DONE_SFF_0","DMA transfer is not completed."],["DMA_TSF_DONE_SFF_1","DMA transfer is completed."]]};
+window.SIDEBAR_ITEMS = {"constant":["DMA_TSF_DONE_SFF_0","DMA_TSF_DONE_SFF_1"]};

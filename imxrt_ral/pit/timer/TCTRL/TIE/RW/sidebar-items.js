@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TIE_0","Interrupt requests from Timer n are disabled."],["TIE_1","Interrupt is requested whenever TIF is set."]]};
+window.SIDEBAR_ITEMS = {"constant":["TIE_0","TIE_1"]};

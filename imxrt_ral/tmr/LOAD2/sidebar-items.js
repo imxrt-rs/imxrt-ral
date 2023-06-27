@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["LOAD","Timer Load Register"]]};
+window.SIDEBAR_ITEMS = {"mod":["LOAD"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["NOSTALL_0","Transfers will stall when the transmit FIFO is empty or the receive FIFO is full"],["NOSTALL_1","Transfers will not stall, allowing transmit FIFO underruns or receive FIFO overruns to occur"]]};
+window.SIDEBAR_ITEMS = {"constant":["NOSTALL_0","NOSTALL_1"]};

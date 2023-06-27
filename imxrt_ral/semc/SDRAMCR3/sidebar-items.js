@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["PRESCALE","Prescaler timer period"],["REBL","Refresh burst length"],["REN","Refresh enable"],["RT","Refresh timer period"],["UT","Refresh urgent threshold"]]};
+window.SIDEBAR_ITEMS = {"mod":["PRESCALE","REBL","REN","RT","UT"]};

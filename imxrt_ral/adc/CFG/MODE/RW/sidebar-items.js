@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MODE_0","8-bit conversion"],["MODE_1","10-bit conversion"],["MODE_2","12-bit conversion"]]};
+window.SIDEBAR_ITEMS = {"constant":["MODE_0","MODE_1","MODE_2"]};

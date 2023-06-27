@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WSIE_0","Disables interrupt."],["WSIE_1","Enables interrupt."]]};
+window.SIDEBAR_ITEMS = {"constant":["WSIE_0","WSIE_1"]};

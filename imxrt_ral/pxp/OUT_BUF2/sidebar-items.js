@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","Current address pointer for the output frame buffer"]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR"]};

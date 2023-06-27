@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DATSZ_0","4"],["DATSZ_1","1"],["DATSZ_2","2"],["DATSZ_3","3"],["DATSZ_4","4"],["DATSZ_5","4"],["DATSZ_6","4"],["DATSZ_7","4"]]};
+window.SIDEBAR_ITEMS = {"constant":["DATSZ_0","DATSZ_1","DATSZ_2","DATSZ_3","DATSZ_4","DATSZ_5","DATSZ_6","DATSZ_7"]};

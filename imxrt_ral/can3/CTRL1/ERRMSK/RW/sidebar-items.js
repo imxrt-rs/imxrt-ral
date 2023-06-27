@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERRMSK_0","Error interrupt disabled."],["ERRMSK_1","Error interrupt enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["ERRMSK_0","ERRMSK_1"]};

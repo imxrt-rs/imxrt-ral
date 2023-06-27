@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DISABLED","Input Path is determined by functionality"],["ENABLED","Force input path of pad GPIO_AD_B0_05"]]};
+window.SIDEBAR_ITEMS = {"constant":["DISABLED","ENABLED"]};

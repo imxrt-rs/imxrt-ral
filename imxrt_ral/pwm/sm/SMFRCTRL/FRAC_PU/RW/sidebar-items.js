@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRAC_PU_0","Turn off fractional delay logic."],["FRAC_PU_1","Power up fractional delay logic."]]};
+window.SIDEBAR_ITEMS = {"constant":["FRAC_PU_0","FRAC_PU_1"]};

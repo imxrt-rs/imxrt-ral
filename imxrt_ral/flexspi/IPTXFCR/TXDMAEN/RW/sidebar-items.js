@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXDMAEN_0","IP TX FIFO would be filled by processor."],["TXDMAEN_1","IP TX FIFO would be filled by DMA."]]};
+window.SIDEBAR_ITEMS = {"constant":["TXDMAEN_0","TXDMAEN_1"]};

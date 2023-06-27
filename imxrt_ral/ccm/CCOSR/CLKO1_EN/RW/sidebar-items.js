@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CLKO1_EN_0","CCM_CLKO1 disabled."],["CLKO1_EN_1","CCM_CLKO1 enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["CLKO1_EN_0","CLKO1_EN_1"]};

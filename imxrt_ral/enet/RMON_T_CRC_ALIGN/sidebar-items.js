@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXPKTS","Packets with CRC/align error"]]};
+window.SIDEBAR_ITEMS = {"mod":["TXPKTS"]};

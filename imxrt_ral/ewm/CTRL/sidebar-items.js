@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ASSIN","EWM_in’s Assertion State Select."],["EWMEN","EWM enable."],["INEN","Input Enable."],["INTEN","Interrupt Enable."]]};
+window.SIDEBAR_ITEMS = {"mod":["ASSIN","EWMEN","INEN","INTEN"]};

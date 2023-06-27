@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TSV","Timer Start Value"]]};
+window.SIDEBAR_ITEMS = {"mod":["TSV"]};

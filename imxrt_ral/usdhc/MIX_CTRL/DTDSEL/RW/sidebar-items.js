@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTDSEL_0","Write (Host to Card)"],["DTDSEL_1","Read (Card to Host)"]]};
+window.SIDEBAR_ITEMS = {"constant":["DTDSEL_0","DTDSEL_1"]};

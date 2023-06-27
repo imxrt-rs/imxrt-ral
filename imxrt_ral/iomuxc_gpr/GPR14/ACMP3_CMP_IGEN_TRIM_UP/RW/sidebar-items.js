@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACMP3_CMP_IGEN_TRIM_UP_0","no increase"],["ACMP3_CMP_IGEN_TRIM_UP_1","increases"]]};
+window.SIDEBAR_ITEMS = {"constant":["ACMP3_CMP_IGEN_TRIM_UP_0","ACMP3_CMP_IGEN_TRIM_UP_1"]};

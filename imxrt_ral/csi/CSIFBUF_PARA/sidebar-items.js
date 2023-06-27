@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DEINTERLACE_STRIDE","DEINTERLACE_STRIDE is only used in the deinterlace mode"],["FBUF_STRIDE","Frame Buffer Parameter"]]};
+window.SIDEBAR_ITEMS = {"mod":["DEINTERLACE_STRIDE","FBUF_STRIDE"]};

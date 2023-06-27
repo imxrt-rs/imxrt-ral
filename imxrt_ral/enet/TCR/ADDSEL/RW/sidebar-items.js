@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADDSEL_0","Node MAC address programmed on PADDR1/2 registers."]]};
+window.SIDEBAR_ITEMS = {"constant":["ADDSEL_0"]};

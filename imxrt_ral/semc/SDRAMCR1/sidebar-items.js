@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ACT2PRE","ACT to Precharge minimum time"],["ACT2RW","ACT to Read/Write wait time"],["CKEOFF","CKE OFF minimum time"],["PRE2ACT","PRECHARGE to ACT/Refresh wait time"],["RFRC","Refresh recovery time"],["WRC","Write recovery time"]]};
+window.SIDEBAR_ITEMS = {"mod":["ACT2PRE","ACT2RW","CKEOFF","PRE2ACT","RFRC","WRC"]};

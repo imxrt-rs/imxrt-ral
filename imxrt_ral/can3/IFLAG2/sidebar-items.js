@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["BUF63TO32I","Buffer MB i Interrupt"]]};
+window.SIDEBAR_ITEMS = {"mod":["BUF63TO32I"]};

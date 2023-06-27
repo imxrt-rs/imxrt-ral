@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DATA","Receive Data"],["RXEMPTY","RX Empty"],["SOF","Start Of Frame"]]};
+window.SIDEBAR_ITEMS = {"mod":["DATA","RXEMPTY","SOF"]};

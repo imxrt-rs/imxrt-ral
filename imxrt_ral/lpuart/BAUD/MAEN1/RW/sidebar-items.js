@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MAEN1_0","Normal operation."],["MAEN1_1","Enables automatic address matching or data matching mode for MATCH[MA1]."]]};
+window.SIDEBAR_ITEMS = {"constant":["MAEN1_0","MAEN1_1"]};

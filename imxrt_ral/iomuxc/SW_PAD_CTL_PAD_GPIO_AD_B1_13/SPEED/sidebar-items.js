@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["mask",""],["offset",""]],"mod":[["R",""],["RW",""],["W",""]]};
+window.SIDEBAR_ITEMS = {"constant":["mask","offset"],"mod":["R","RW","W"]};

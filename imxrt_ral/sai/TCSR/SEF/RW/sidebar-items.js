@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SEF_0","Sync error not detected."],["SEF_1","Frame sync error detected."]]};
+window.SIDEBAR_ITEMS = {"constant":["SEF_0","SEF_1"]};

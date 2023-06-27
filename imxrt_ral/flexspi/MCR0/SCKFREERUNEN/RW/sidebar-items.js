@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SCKFREERUNEN_0","Disable."],["SCKFREERUNEN_1","Enable."]]};
+window.SIDEBAR_ITEMS = {"constant":["SCKFREERUNEN_0","SCKFREERUNEN_1"]};

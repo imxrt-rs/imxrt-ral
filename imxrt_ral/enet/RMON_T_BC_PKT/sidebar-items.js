@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXPKTS","Broadcast packets"]]};
+window.SIDEBAR_ITEMS = {"mod":["TXPKTS"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FLEXRAM","FLEXRAM"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["INT_SIG_EN","Interrupt Enable Register"],["INT_STATUS","Interrupt Status Register"],["INT_STAT_EN","Interrupt Status Enable Register"],["TCM_CTRL","TCM CRTL Register"]],"struct":[["RegisterBlock","FLEXRAM"]],"type":[["FLEXRAM",""],["Instance",""]]};
+window.SIDEBAR_ITEMS = {"constant":["FLEXRAM"],"fn":["number"],"mod":["INT_SIG_EN","INT_STATUS","INT_STAT_EN","TCM_CTRL"],"struct":["RegisterBlock"],"type":["FLEXRAM","Instance"]};

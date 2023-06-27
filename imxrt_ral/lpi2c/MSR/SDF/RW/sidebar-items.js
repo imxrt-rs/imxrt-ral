@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SDF_0","Master has not generated a STOP condition"],["SDF_1","Master has generated a STOP condition"]]};
+window.SIDEBAR_ITEMS = {"constant":["SDF_0","SDF_1"]};

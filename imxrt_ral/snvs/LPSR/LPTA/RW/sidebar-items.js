@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPTA_0","No time alarm interrupt occurred."],["LPTA_1","A time alarm interrupt occurred."]]};
+window.SIDEBAR_ITEMS = {"constant":["LPTA_0","LPTA_1"]};

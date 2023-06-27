@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CMDRSP3","Command Response 3"]]};
+window.SIDEBAR_ITEMS = {"mod":["CMDRSP3"]};

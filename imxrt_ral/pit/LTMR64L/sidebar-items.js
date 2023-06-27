@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["LTL","Life Timer value"]]};
+window.SIDEBAR_ITEMS = {"mod":["LTL"]};

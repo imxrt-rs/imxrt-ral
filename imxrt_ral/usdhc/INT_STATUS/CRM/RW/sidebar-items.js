@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CRM_0","Card state unstable or inserted"],["CRM_1","Card removed"]]};
+window.SIDEBAR_ITEMS = {"constant":["CRM_0","CRM_1"]};

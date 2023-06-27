@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["OPAC24","Off-platform Peripheral Access Control 24"],["OPAC25","Off-platform Peripheral Access Control 25"],["OPAC26","Off-platform Peripheral Access Control 26"],["OPAC27","Off-platform Peripheral Access Control 27"],["OPAC28","Off-platform Peripheral Access Control 28"],["OPAC29","Off-platform Peripheral Access Control 29"],["OPAC30","Off-platform Peripheral Access Control 30"],["OPAC31","Off-platform Peripheral Access Control 31"]]};
+window.SIDEBAR_ITEMS = {"mod":["OPAC24","OPAC25","OPAC26","OPAC27","OPAC28","OPAC29","OPAC30","OPAC31"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASK_SCU_IDLE_0","SCU IDLE is not masked"],["MASK_SCU_IDLE_1","SCU IDLE is masked"]]};
+window.SIDEBAR_ITEMS = {"constant":["MASK_SCU_IDLE_0","MASK_SCU_IDLE_1"]};

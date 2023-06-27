@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TIMENA_0","Timer always enabled"],["TIMENA_1","Timer enabled on Timer N-1 enable"],["TIMENA_2","Timer enabled on Trigger high"],["TIMENA_3","Timer enabled on Trigger high and Pin high"],["TIMENA_4","Timer enabled on Pin rising edge"],["TIMENA_5","Timer enabled on Pin rising edge and Trigger high"],["TIMENA_6","Timer enabled on Trigger rising edge"],["TIMENA_7","Timer enabled on Trigger rising or falling edge"]]};
+window.SIDEBAR_ITEMS = {"constant":["TIMENA_0","TIMENA_1","TIMENA_2","TIMENA_3","TIMENA_4","TIMENA_5","TIMENA_6","TIMENA_7"]};

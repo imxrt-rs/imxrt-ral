@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","Pointer to the descriptor structure to be processed for channel 3."]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR"]};

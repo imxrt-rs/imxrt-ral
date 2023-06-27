@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["VPS_0","Contents of IMB and LPTM are invalid."],["VPS_1","Contents of IMB and LPTM are valid."]]};
+window.SIDEBAR_ITEMS = {"constant":["VPS_0","VPS_1"]};

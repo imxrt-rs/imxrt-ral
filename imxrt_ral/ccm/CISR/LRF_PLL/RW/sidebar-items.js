@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["LRF_PLL_0","interrupt is not generated due to lock ready of all enabled and not bypaseed PLLs"],["LRF_PLL_1","interrupt generated due to lock ready of all enabled and not bypaseed PLLs"]]};
+window.SIDEBAR_ITEMS = {"constant":["LRF_PLL_0","LRF_PLL_1"]};

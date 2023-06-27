@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CLK_DIV","CLK_DIV"]]};
+window.SIDEBAR_ITEMS = {"mod":["CLK_DIV"]};

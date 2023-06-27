@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXFIFO_CTRL_0","Send out digital zero on SPDIF Tx"],["TXFIFO_CTRL_1","Tx Normal operation"],["TXFIFO_CTRL_2","Reset to 1 sample remaining"]]};
+window.SIDEBAR_ITEMS = {"constant":["TXFIFO_CTRL_0","TXFIFO_CTRL_1","TXFIFO_CTRL_2"]};

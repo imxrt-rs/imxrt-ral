@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASTER_KEY_SEL_0","Select one time programmable master key."],["MASTER_KEY_SEL_2","Select zeroizable master key when MKS_EN bit is set ."],["MASTER_KEY_SEL_3","Select combined master key when MKS_EN bit is set ."]]};
+window.SIDEBAR_ITEMS = {"constant":["MASTER_KEY_SEL_0","MASTER_KEY_SEL_2","MASTER_KEY_SEL_3"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MAJOR","MAJOR"],["MINOR","MINOR"],["STEP","STEP"]]};
+window.SIDEBAR_ITEMS = {"mod":["MAJOR","MINOR","STEP"]};

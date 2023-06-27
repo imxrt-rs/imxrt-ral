@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","LUT indexed address pointer"]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR"]};

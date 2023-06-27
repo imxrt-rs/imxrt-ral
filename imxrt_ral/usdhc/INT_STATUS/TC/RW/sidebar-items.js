@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TC_0","Transfer not complete"],["TC_1","Transfer complete"]]};
+window.SIDEBAR_ITEMS = {"constant":["TC_0","TC_1"]};

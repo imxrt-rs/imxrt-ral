@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["SSIE","Shifter Status Interrupt Enable"]]};
+window.SIDEBAR_ITEMS = {"mod":["SSIE"]};

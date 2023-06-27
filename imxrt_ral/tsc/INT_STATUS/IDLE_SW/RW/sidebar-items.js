@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["IDLE_SW_0","Haven’t return to idle status"],["IDLE_SW_1","Already return to idle status"]]};
+window.SIDEBAR_ITEMS = {"constant":["IDLE_SW_0","IDLE_SW_1"]};

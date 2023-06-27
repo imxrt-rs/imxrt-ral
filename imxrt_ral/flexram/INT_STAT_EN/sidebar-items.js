@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DTCM_ERR_STAT_EN","DTCM Access Error Status Enable"],["ITCM_ERR_STAT_EN","ITCM Access Error Status Enable"],["OCRAM_ERR_STAT_EN","OCRAM Access Error Status Enable"]]};
+window.SIDEBAR_ITEMS = {"mod":["DTCM_ERR_STAT_EN","ITCM_ERR_STAT_EN","OCRAM_ERR_STAT_EN"]};

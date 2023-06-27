@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["POSH","This read-only register contains a snapshot of the LPOS register."]]};
+window.SIDEBAR_ITEMS = {"mod":["POSH"]};

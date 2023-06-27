@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ALIE","Arbitration Lost Interrupt Enable"],["DMIE","Data Match Interrupt Enable"],["EPIE","End Packet Interrupt Enable"],["FEIE","FIFO Error Interrupt Enable"],["NDIE","NACK Detect Interrupt Enable"],["PLTIE","Pin Low Timeout Interrupt Enable"],["RDIE","Receive Data Interrupt Enable"],["SDIE","STOP Detect Interrupt Enable"],["TDIE","Transmit Data Interrupt Enable"]]};
+window.SIDEBAR_ITEMS = {"mod":["ALIE","DMIE","EPIE","FEIE","NDIE","PLTIE","RDIE","SDIE","TDIE"]};

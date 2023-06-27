@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DCPKEY_OCOTP_OR_KEYMUX_0","Select key from SNVS Master Key."],["DCPKEY_OCOTP_OR_KEYMUX_1","Select key from OCOTP (SW_GP2)."]]};
+window.SIDEBAR_ITEMS = {"constant":["DCPKEY_OCOTP_OR_KEYMUX_0","DCPKEY_OCOTP_OR_KEYMUX_1"]};

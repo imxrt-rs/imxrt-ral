@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADCO_0","One conversion or one set of conversions if the hardware average function is enabled (AVGE=1) after initiating a conversion."],["ADCO_1","Continuous conversions or sets of conversions if the hardware average function is enabled (AVGE=1) after initiating a conversion."]]};
+window.SIDEBAR_ITEMS = {"constant":["ADCO_0","ADCO_1"]};

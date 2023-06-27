@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["OR_0","No overrun."],["OR_1","Receive overrun (new LPUART data lost)."]]};
+window.SIDEBAR_ITEMS = {"constant":["OR_0","OR_1"]};

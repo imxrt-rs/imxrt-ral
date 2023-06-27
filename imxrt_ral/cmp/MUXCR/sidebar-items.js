@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MSEL","Minus Input Mux Control"],["PSEL","Plus Input Mux Control"]]};
+window.SIDEBAR_ITEMS = {"mod":["MSEL","PSEL"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASKB_0","PWM_B output normal."],["MASKB_1","PWM_B output masked."]]};
+window.SIDEBAR_ITEMS = {"constant":["MASKB_0","MASKB_1"]};

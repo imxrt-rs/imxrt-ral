@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","Address of the next frame that will be transmitted by LCDIF."]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR"]};

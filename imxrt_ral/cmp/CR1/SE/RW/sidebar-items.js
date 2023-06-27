@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SE_0","Sampling mode is not selected."],["SE_1","Sampling mode is selected."]]};
+window.SIDEBAR_ITEMS = {"constant":["SE_0","SE_1"]};

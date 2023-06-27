@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["INV_0","Does not invert the comparator output."],["INV_1","Inverts the comparator output."]]};
+window.SIDEBAR_ITEMS = {"constant":["INV_0","INV_1"]};

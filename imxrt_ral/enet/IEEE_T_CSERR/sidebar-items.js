@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of frames transmitted with carrier sense error"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["FORCE_CLK_ON","Force RAM Clock Always On"],["TCM_RWAIT_EN","TCM Read Wait Mode Enable"],["TCM_WWAIT_EN","TCM Write Wait Mode Enable"]]};
+window.SIDEBAR_ITEMS = {"mod":["FORCE_CLK_ON","TCM_RWAIT_EN","TCM_WWAIT_EN"]};

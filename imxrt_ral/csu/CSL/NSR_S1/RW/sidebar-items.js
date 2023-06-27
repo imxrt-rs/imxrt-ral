@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["NSR_S1_0","The non-secure supervisor read access is disabled for the first slave."],["NSR_S1_1","The non-secure supervisor read access is enabled for the first slave."]]};
+window.SIDEBAR_ITEMS = {"constant":["NSR_S1_0","NSR_S1_1"]};

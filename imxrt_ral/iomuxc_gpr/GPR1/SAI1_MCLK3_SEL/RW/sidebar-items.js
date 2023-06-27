@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI1_MCLK3_SEL_0","ccm.spdif0_clk_root"],["SAI1_MCLK3_SEL_1","SPDIF_EXT_CLK"],["SAI1_MCLK3_SEL_2","spdif.spdif_srclk"],["SAI1_MCLK3_SEL_3","spdif.spdif_outclock"]]};
+window.SIDEBAR_ITEMS = {"constant":["SAI1_MCLK3_SEL_0","SAI1_MCLK3_SEL_1","SAI1_MCLK3_SEL_2","SAI1_MCLK3_SEL_3"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SSW_S2_0","The secure supervisor write access is disabled for the second slave."],["SSW_S2_1","The secure supervisor write access is enabled for the second slave."]]};
+window.SIDEBAR_ITEMS = {"constant":["SSW_S2_0","SSW_S2_1"]};

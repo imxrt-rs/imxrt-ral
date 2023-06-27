@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PT_0","Even parity."],["PT_1","Odd parity."]]};
+window.SIDEBAR_ITEMS = {"constant":["PT_0","PT_1"]};

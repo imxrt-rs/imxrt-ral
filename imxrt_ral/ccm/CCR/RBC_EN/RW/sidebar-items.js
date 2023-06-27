@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RBC_EN_0","REG_BYPASS_COUNTER disabled"],["RBC_EN_1","REG_BYPASS_COUNTER enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["RBC_EN_0","RBC_EN_1"]};

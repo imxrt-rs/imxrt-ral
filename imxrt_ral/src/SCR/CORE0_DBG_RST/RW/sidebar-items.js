@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CORE0_DBG_RST_0","do not assert core0 debug reset"],["CORE0_DBG_RST_1","assert core0 debug reset"]]};
+window.SIDEBAR_ITEMS = {"constant":["CORE0_DBG_RST_0","CORE0_DBG_RST_1"]};

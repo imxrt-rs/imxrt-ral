@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CVAL","Current Timer Value Register"],["LDVAL","Timer Load Value Register"],["TCTRL","Timer Control Register"],["TFLG","Timer Flag Register"]],"struct":[["RegisterBlock","no description available"]]};
+window.SIDEBAR_ITEMS = {"mod":["CVAL","LDVAL","TCTRL","TFLG"],"struct":["RegisterBlock"]};

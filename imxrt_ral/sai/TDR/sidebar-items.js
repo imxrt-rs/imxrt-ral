@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TDR","Transmit Data Register"]]};
+window.SIDEBAR_ITEMS = {"mod":["TDR"]};

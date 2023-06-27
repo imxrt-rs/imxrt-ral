@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DOFF","Destination Address Signed Offset"]]};
+window.SIDEBAR_ITEMS = {"mod":["DOFF"]};

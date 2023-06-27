@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of frames transmitted with transmit FIFO underrun"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

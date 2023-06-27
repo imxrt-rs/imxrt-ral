@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of receive octets"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

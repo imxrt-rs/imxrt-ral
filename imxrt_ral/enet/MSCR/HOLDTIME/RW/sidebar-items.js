@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["HOLDTIME_0","1 internal module clock cycle"],["HOLDTIME_1","2 internal module clock cycles"],["HOLDTIME_2","3 internal module clock cycles"],["HOLDTIME_7","8 internal module clock cycles"]]};
+window.SIDEBAR_ITEMS = {"constant":["HOLDTIME_0","HOLDTIME_1","HOLDTIME_2","HOLDTIME_7"]};

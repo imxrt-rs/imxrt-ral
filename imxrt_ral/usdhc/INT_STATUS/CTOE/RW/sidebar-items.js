@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CTOE_0","No Error"],["CTOE_1","Time out"]]};
+window.SIDEBAR_ITEMS = {"constant":["CTOE_0","CTOE_1"]};

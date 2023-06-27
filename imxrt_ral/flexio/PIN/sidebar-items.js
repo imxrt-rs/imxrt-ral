@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["PDI","Pin Data Input"]]};
+window.SIDEBAR_ITEMS = {"mod":["PDI"]};

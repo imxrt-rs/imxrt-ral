@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TFWR_0","64 bytes written."],["TFWR_1","64 bytes written."],["TFWR_2","128 bytes written."],["TFWR_3","192 bytes written."],["TFWR_31","1984 bytes written."]]};
+window.SIDEBAR_ITEMS = {"constant":["TFWR_0","TFWR_1","TFWR_2","TFWR_3","TFWR_31"]};

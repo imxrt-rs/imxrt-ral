@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["INT15_0","The interrupt request for corresponding channel is cleared"],["INT15_1","The interrupt request for corresponding channel is active"]]};
+window.SIDEBAR_ITEMS = {"constant":["INT15_0","INT15_1"]};

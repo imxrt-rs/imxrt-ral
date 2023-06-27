@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTA_0","No valid data"],["RTA_1","Transferring data"]]};
+window.SIDEBAR_ITEMS = {"constant":["RTA_0","RTA_1"]};

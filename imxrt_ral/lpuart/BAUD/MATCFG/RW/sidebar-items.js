@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MATCFG_0","Address Match Wakeup"],["MATCFG_1","Idle Match Wakeup"],["MATCFG_2","Match On and Match Off"],["MATCFG_3","Enables RWU on Data Match and Match On/Off for transmitter CTS input"]]};
+window.SIDEBAR_ITEMS = {"constant":["MATCFG_0","MATCFG_1","MATCFG_2","MATCFG_3"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BBF_0","I2C Bus is idle"],["BBF_1","I2C Bus is busy"]]};
+window.SIDEBAR_ITEMS = {"constant":["BBF_0","BBF_1"]};

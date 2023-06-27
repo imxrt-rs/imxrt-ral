@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CLDOK","Clear Load Okay"],["IPOL","Current Polarity"],["LDOK","Load Okay"],["RUN","Run"]]};
+window.SIDEBAR_ITEMS = {"mod":["CLDOK","IPOL","LDOK","RUN"]};

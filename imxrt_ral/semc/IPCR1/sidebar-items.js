@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DATSZ","Data Size in Byte"],["NAND_EXT_ADDR","NAND Extended Address"]]};
+window.SIDEBAR_ITEMS = {"mod":["DATSZ","NAND_EXT_ADDR"]};

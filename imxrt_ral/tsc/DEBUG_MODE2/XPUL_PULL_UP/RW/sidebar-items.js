@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["XPUL_PULL_UP_0","Close the switch"],["XPUL_PULL_UP_1","Open up the switch"]]};
+window.SIDEBAR_ITEMS = {"constant":["XPUL_PULL_UP_0","XPUL_PULL_UP_1"]};

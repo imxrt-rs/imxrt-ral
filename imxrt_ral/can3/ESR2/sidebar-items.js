@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["IMB","Inactive Mailbox"],["LPTM","Lowest Priority Tx Mailbox"],["VPS","Valid Priority Status"]]};
+window.SIDEBAR_ITEMS = {"mod":["IMB","LPTM","VPS"]};

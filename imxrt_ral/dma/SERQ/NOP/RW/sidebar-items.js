@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["NOP_0","Normal operation"],["NOP_1","No operation, ignore the other bits in this register"]]};
+window.SIDEBAR_ITEMS = {"constant":["NOP_0","NOP_1"]};

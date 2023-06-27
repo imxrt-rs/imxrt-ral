@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PE_0","No hardware parity generation or checking."],["PE_1","Parity enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["PE_0","PE_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CEBEIEN_0","Masked"],["CEBEIEN_1","Enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["CEBEIEN_0","CEBEIEN_1"]};

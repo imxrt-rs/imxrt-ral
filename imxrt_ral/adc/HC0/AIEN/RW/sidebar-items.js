@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["AIEN_0","Conversion complete interrupt disabled"],["AIEN_1","Conversion complete interrupt enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["AIEN_0","AIEN_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TF2_0","Timer Flag for Channel 2 is clear"],["TF2_1","Timer Flag for Channel 2 is set"]]};
+window.SIDEBAR_ITEMS = {"constant":["TF2_0","TF2_1"]};

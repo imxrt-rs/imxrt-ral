@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PREXCEN_0","Protocol Exception is disabled."],["PREXCEN_1","Protocol Exception is enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["PREXCEN_0","PREXCEN_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["AVDE_0","DMA request is disabled"],["AVDE_1","DMA request is enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["AVDE_0","AVDE_1"]};

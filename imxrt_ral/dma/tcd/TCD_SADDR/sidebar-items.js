@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["SADDR","Source Address"]]};
+window.SIDEBAR_ITEMS = {"mod":["SADDR"]};

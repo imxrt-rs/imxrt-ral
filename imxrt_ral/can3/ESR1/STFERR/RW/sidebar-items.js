@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["STFERR_0","No such occurrence."],["STFERR_1","A Stuffing Error occurred since last read of this register."]]};
+window.SIDEBAR_ITEMS = {"constant":["STFERR_0","STFERR_1"]};

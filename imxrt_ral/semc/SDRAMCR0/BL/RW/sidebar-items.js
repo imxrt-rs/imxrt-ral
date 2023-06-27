@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BL_0","1"],["BL_1","2"],["BL_2","4"],["BL_3","8"],["BL_4","8"],["BL_5","8"],["BL_6","8"],["BL_7","8"]]};
+window.SIDEBAR_ITEMS = {"constant":["BL_0","BL_1","BL_2","BL_3","BL_4","BL_5","BL_6","BL_7"]};

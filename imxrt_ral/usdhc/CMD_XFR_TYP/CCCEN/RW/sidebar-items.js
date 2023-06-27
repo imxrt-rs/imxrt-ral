@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CCCEN_0","Disable"],["CCCEN_1","Enable"]]};
+window.SIDEBAR_ITEMS = {"constant":["CCCEN_0","CCCEN_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of frames transmitted with excessive collisions"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

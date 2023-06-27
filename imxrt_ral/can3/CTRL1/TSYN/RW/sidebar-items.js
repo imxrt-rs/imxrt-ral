@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TSYN_0","Timer Sync feature disabled"],["TSYN_1","Timer Sync feature enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["TSYN_0","TSYN_1"]};

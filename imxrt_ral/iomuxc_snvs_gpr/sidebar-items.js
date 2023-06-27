@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["IOMUXC_SNVS_GPR","IOMUXC"]],"fn":[["number","Returns the instance number `N` for a peripheral instance."]],"mod":[["GPR3","GPR3 General Purpose Register"]],"struct":[["RegisterBlock","IOMUXC"]],"type":[["IOMUXC_SNVS_GPR",""],["Instance",""]]};
+window.SIDEBAR_ITEMS = {"constant":["IOMUXC_SNVS_GPR"],"fn":["number"],"mod":["GPR3"],"struct":["RegisterBlock"],"type":["IOMUXC_SNVS_GPR","Instance"]};

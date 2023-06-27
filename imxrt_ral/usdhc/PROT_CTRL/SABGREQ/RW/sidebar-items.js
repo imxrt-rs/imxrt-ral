@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SABGREQ_0","Transfer"],["SABGREQ_1","Stop"]]};
+window.SIDEBAR_ITEMS = {"constant":["SABGREQ_0","SABGREQ_1"]};

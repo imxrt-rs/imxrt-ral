@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["OUTPUT_TRG_16","1.1V"],["OUTPUT_TRG_4","0.8V"]]};
+window.SIDEBAR_ITEMS = {"constant":["OUTPUT_TRG_16","OUTPUT_TRG_4"]};

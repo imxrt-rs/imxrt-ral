@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PHCD_0","Enable PHY clock"],["PHCD_1","Disable PHY clock"]]};
+window.SIDEBAR_ITEMS = {"constant":["PHCD_0","PHCD_1"]};

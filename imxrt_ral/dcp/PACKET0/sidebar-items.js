@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","Next pointer register"]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR"]};

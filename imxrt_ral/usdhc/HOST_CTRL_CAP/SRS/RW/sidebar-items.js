@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SRS_0","Not supported"],["SRS_1","Supported"]]};
+window.SIDEBAR_ITEMS = {"constant":["SRS_0","SRS_1"]};

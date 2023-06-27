@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BREN_0","Read disable"],["BREN_1","Read enable"]]};
+window.SIDEBAR_ITEMS = {"constant":["BREN_0","BREN_1"]};

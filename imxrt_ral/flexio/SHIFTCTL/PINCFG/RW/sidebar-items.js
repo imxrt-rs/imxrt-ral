@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PINCFG_0","Shifter pin output disabled"],["PINCFG_1","Shifter pin open drain or bidirectional output enable"],["PINCFG_2","Shifter pin bidirectional output data"],["PINCFG_3","Shifter pin output"]]};
+window.SIDEBAR_ITEMS = {"constant":["PINCFG_0","PINCFG_1","PINCFG_2","PINCFG_3"]};

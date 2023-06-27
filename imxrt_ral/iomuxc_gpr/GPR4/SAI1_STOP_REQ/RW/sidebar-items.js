@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SAI1_STOP_REQ_0","stop request off"],["SAI1_STOP_REQ_1","stop request on"]]};
+window.SIDEBAR_ITEMS = {"constant":["SAI1_STOP_REQ_0","SAI1_STOP_REQ_1"]};

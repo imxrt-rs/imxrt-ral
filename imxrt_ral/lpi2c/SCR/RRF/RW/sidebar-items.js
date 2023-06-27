@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RRF_0","No effect"],["RRF_1","Receive Data Register is now empty"]]};
+window.SIDEBAR_ITEMS = {"constant":["RRF_0","RRF_1"]};

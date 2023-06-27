@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PIC_0","Port indicators are off"],["PIC_1","Amber"],["PIC_2","Green"],["PIC_3","Undefined"]]};
+window.SIDEBAR_ITEMS = {"constant":["PIC_0","PIC_1","PIC_2","PIC_3"]};

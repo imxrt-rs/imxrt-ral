@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CLKSEL","CLKSEL"]]};
+window.SIDEBAR_ITEMS = {"mod":["CLKSEL"]};

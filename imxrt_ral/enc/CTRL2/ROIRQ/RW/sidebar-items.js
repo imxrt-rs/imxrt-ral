@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ROIRQ_0","No roll-over has occurred"],["ROIRQ_1","Roll-over has occurred"]]};
+window.SIDEBAR_ITEMS = {"constant":["ROIRQ_0","ROIRQ_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["HALT_0","No Freeze mode request."],["HALT_1","Enters Freeze mode if the FRZ bit is asserted."]]};
+window.SIDEBAR_ITEMS = {"constant":["HALT_0","HALT_1"]};

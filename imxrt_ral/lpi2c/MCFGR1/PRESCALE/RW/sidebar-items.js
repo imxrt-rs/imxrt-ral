@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PRESCALE_0","Divide by 1"],["PRESCALE_1","Divide by 2"],["PRESCALE_2","Divide by 4"],["PRESCALE_3","Divide by 8"],["PRESCALE_4","Divide by 16"],["PRESCALE_5","Divide by 32"],["PRESCALE_6","Divide by 64"],["PRESCALE_7","Divide by 128"]]};
+window.SIDEBAR_ITEMS = {"constant":["PRESCALE_0","PRESCALE_1","PRESCALE_2","PRESCALE_3","PRESCALE_4","PRESCALE_5","PRESCALE_6","PRESCALE_7"]};

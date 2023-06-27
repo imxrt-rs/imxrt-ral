@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXF_0","The corresponding interrupt source is masked."],["TXF_1","The corresponding interrupt source is not masked."]]};
+window.SIDEBAR_ITEMS = {"constant":["TXF_0","TXF_1"]};

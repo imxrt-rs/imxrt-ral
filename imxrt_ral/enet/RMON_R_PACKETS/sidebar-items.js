@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of packets received"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

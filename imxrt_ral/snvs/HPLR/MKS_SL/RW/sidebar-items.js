@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MKS_SL_0","Write access is allowed"],["MKS_SL_1","Write access is not allowed"]]};
+window.SIDEBAR_ITEMS = {"constant":["MKS_SL_0","MKS_SL_1"]};

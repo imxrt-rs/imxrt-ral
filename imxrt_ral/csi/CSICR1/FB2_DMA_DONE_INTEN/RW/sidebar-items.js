@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FB2_DMA_DONE_INTEN_0","Frame Buffer2 DMA Transfer Done interrupt disable"],["FB2_DMA_DONE_INTEN_1","Frame Buffer2 DMA Transfer Done interrupt enable"]]};
+window.SIDEBAR_ITEMS = {"constant":["FB2_DMA_DONE_INTEN_0","FB2_DMA_DONE_INTEN_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["EN_USB_CLKS_0","PLL outputs for USBPHYn off."],["EN_USB_CLKS_1","PLL outputs for USBPHYn on."]]};
+window.SIDEBAR_ITEMS = {"constant":["EN_USB_CLKS_0","EN_USB_CLKS_1"]};

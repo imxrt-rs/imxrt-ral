@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BIG_ENDIAN_SWAP","Big Endian swap (swap bytes 0,3 and 1,2)."],["HWD_BYTE_SWAP","Swap bytes within each half-word."],["HWD_SWAP","Swap half-words."],["NO_SWAP","No byte swapping.(Little endian)"]]};
+window.SIDEBAR_ITEMS = {"constant":["BIG_ENDIAN_SWAP","HWD_BYTE_SWAP","HWD_SWAP","NO_SWAP"]};

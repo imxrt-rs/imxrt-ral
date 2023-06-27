@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TDMDIS_0","TDC measurement is enabled"],["TDMDIS_1","TDC measurement is disabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["TDMDIS_0","TDMDIS_1"]};

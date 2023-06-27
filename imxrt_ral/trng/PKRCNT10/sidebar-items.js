@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["PKR_0_CT","Poker 0h Count"],["PKR_1_CT","Poker 1h Count"]]};
+window.SIDEBAR_ITEMS = {"mod":["PKR_0_CT","PKR_1_CT"]};

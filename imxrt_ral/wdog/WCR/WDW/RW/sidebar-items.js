@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WDW_0","Continue WDOG timer operation (Default)."],["WDW_1","Suspend WDOG timer operation."]]};
+window.SIDEBAR_ITEMS = {"constant":["WDW_0","WDW_1"]};

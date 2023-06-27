@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["COL8_0","Column address bit number is decided by COL field."],["COL8_1","Column address bit number is 8. COL field is ignored."]]};
+window.SIDEBAR_ITEMS = {"constant":["COL8_0","COL8_1"]};

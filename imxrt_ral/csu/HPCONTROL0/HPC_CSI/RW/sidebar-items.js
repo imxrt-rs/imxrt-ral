@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["HPC_CSI_0","User mode for the corresponding master"],["HPC_CSI_1","Supervisor mode for the corresponding master"]]};
+window.SIDEBAR_ITEMS = {"constant":["HPC_CSI_0","HPC_CSI_1"]};

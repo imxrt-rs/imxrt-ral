@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of receive packets with CRC or align error"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

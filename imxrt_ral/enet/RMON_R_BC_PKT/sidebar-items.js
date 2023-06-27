@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of receive broadcast packets"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["HRS5_0","A hardware service request for channel 5 is not present"],["HRS5_1","A hardware service request for channel 5 is present"]]};
+window.SIDEBAR_ITEMS = {"constant":["HRS5_0","HRS5_1"]};

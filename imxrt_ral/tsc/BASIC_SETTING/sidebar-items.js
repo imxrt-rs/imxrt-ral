@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["AUTO_MEASURE","Auto Measure"],["MEASURE_DELAY_TIME","Measure Delay Time"],["_4_5_WIRE","4/5 Wire detection"]]};
+window.SIDEBAR_ITEMS = {"mod":["AUTO_MEASURE","MEASURE_DELAY_TIME","_4_5_WIRE"]};

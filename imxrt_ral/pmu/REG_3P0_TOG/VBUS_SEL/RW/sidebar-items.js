@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["USB_OTG1_VBUS","Utilize VBUS OTG1 power"],["USB_OTG2_VBUS","Utilize VBUS OTG2 power"]]};
+window.SIDEBAR_ITEMS = {"constant":["USB_OTG1_VBUS","USB_OTG2_VBUS"]};

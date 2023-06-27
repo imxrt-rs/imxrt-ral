@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["RXDATA","RX Data"]]};
+window.SIDEBAR_ITEMS = {"mod":["RXDATA"]};

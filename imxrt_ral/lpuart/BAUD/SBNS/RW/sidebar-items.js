@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SBNS_0","One stop bit."],["SBNS_1","Two stop bits."]]};
+window.SIDEBAR_ITEMS = {"constant":["SBNS_0","SBNS_1"]};

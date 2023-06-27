@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["COL_0","12 Bits"],["COL_1","11 Bits"],["COL_10","2 Bits"],["COL_11","12 Bits"],["COL_12","12 Bits"],["COL_13","12 Bits"],["COL_14","12 Bits"],["COL_15","12 Bits"],["COL_2","10 Bits"],["COL_3","9 Bits"],["COL_4","8 Bits"],["COL_5","7 Bits"],["COL_6","6 Bits"],["COL_7","5 Bits"],["COL_8","4 Bits"],["COL_9","3 Bits"]]};
+window.SIDEBAR_ITEMS = {"constant":["COL_0","COL_1","COL_10","COL_11","COL_12","COL_13","COL_14","COL_15","COL_2","COL_3","COL_4","COL_5","COL_6","COL_7","COL_8","COL_9"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXEMPTY_0","The Receive Data Register is not empty"],["RXEMPTY_1","The Receive Data Register is empty"]]};
+window.SIDEBAR_ITEMS = {"constant":["RXEMPTY_0","RXEMPTY_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PARITYE_0","The dataword was received without a parity error."],["PARITYE_1","The dataword was received with a parity error."]]};
+window.SIDEBAR_ITEMS = {"constant":["PARITYE_0","PARITYE_1"]};

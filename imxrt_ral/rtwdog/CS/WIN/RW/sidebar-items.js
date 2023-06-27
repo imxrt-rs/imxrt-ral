@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WIN_0","Window mode disabled."],["WIN_1","Window mode enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["WIN_0","WIN_1"]};

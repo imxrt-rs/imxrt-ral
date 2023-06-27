@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["QTIMER4_TMR_CNTS_FREEZE_0","timer counter work normally"],["QTIMER4_TMR_CNTS_FREEZE_1","reset counter and ouput flags"]]};
+window.SIDEBAR_ITEMS = {"constant":["QTIMER4_TMR_CNTS_FREEZE_0","QTIMER4_TMR_CNTS_FREEZE_1"]};

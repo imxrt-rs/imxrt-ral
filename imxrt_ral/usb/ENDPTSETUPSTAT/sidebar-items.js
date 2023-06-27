@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENDPTSETUPSTAT","Setup Endpoint Status"]]};
+window.SIDEBAR_ITEMS = {"mod":["ENDPTSETUPSTAT"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RWM_0","Word N is enabled."],["RWM_1","Word N is masked."]]};
+window.SIDEBAR_ITEMS = {"constant":["RWM_0","RWM_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MI","Individual Mask Bits"]]};
+window.SIDEBAR_ITEMS = {"mod":["MI"]};

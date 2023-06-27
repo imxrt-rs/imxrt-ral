@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ATIME","A write sets the timer"]]};
+window.SIDEBAR_ITEMS = {"mod":["ATIME"]};

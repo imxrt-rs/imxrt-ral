@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR0","Address 0 Value"],["ADDR1","Address 1 Value"]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR0","ADDR1"]};

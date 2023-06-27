@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["FRINDEX","Frame Index"]]};
+window.SIDEBAR_ITEMS = {"mod":["FRINDEX"]};

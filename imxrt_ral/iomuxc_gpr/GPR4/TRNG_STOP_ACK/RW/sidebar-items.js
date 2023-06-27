@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TRNG_STOP_ACK_0","TRNG stop acknowledge is not asserted"],["TRNG_STOP_ACK_1","TRNG stop acknowledge is asserted"]]};
+window.SIDEBAR_ITEMS = {"constant":["TRNG_STOP_ACK_0","TRNG_STOP_ACK_1"]};

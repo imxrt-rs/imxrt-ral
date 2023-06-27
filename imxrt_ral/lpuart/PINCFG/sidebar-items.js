@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TRGSEL","Trigger Select"]]};
+window.SIDEBAR_ITEMS = {"mod":["TRGSEL"]};

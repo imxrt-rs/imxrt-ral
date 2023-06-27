@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["USYNCMODE","no description available"]]};
+window.SIDEBAR_ITEMS = {"mod":["USYNCMODE"]};

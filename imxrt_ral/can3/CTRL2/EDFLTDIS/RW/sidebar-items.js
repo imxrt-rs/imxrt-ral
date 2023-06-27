@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["EDFLTDIS_0","Edge Filter is enabled"],["EDFLTDIS_1","Edge Filter is disabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["EDFLTDIS_0","EDFLTDIS_1"]};

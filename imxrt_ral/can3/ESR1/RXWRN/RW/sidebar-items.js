@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXWRN_0","No such occurrence."],["RXWRN_1","RXERRCNT is greater than or equal to 96."]]};
+window.SIDEBAR_ITEMS = {"constant":["RXWRN_0","RXWRN_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ABSENT","Absent"],["PRESENT","Present"]]};
+window.SIDEBAR_ITEMS = {"constant":["ABSENT","PRESENT"]};

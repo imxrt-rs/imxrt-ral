@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRMCNT_RST_0","Do not reset"],["FRMCNT_RST_1","Reset frame counter immediately"]]};
+window.SIDEBAR_ITEMS = {"constant":["FRMCNT_RST_0","FRMCNT_RST_1"]};

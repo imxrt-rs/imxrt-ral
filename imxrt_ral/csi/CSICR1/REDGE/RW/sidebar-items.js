@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["REDGE_0","Pixel data is latched at the falling edge of CSI_PIXCLK"],["REDGE_1","Pixel data is latched at the rising edge of CSI_PIXCLK"]]};
+window.SIDEBAR_ITEMS = {"constant":["REDGE_0","REDGE_1"]};

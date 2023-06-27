@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PIXEL_BIT_0","8-bit data for each pixel"],["PIXEL_BIT_1","10-bit data for each pixel"]]};
+window.SIDEBAR_ITEMS = {"constant":["PIXEL_BIT_0","PIXEL_BIT_1"]};

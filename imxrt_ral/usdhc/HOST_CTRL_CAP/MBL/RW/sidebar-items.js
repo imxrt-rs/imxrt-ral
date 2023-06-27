@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MBL_0","512 bytes"],["MBL_1","1024 bytes"],["MBL_2","2048 bytes"],["MBL_3","4096 bytes"]]};
+window.SIDEBAR_ITEMS = {"constant":["MBL_0","MBL_1","MBL_2","MBL_3"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["STATE_MACHINE_0","Idle"],["STATE_MACHINE_1","Pre-charge"],["STATE_MACHINE_2","Detect"],["STATE_MACHINE_3","X-measure"],["STATE_MACHINE_4","Y-measure"],["STATE_MACHINE_5","Pre-charge"],["STATE_MACHINE_6","Detect"]]};
+window.SIDEBAR_ITEMS = {"constant":["STATE_MACHINE_0","STATE_MACHINE_1","STATE_MACHINE_2","STATE_MACHINE_3","STATE_MACHINE_4","STATE_MACHINE_5","STATE_MACHINE_6"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TIMER","TIMER"]]};
+window.SIDEBAR_ITEMS = {"mod":["TIMER"]};

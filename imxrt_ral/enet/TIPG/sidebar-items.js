@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["IPG","Transmit Inter-Packet Gap"]]};
+window.SIDEBAR_ITEMS = {"mod":["IPG"]};

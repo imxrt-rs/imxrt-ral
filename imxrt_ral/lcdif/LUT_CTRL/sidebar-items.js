@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["LUT_BYPASS","Setting this bit will bypass the LUT memory resource completely"]]};
+window.SIDEBAR_ITEMS = {"mod":["LUT_BYPASS"]};

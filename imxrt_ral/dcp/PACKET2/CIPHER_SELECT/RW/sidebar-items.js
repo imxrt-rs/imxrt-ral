@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["AES128","AES128"]]};
+window.SIDEBAR_ITEMS = {"constant":["AES128"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CITER","Current Major Iteration Count"],["ELINK","Enable channel-to-channel linking on minor-loop complete"]]};
+window.SIDEBAR_ITEMS = {"mod":["CITER","ELINK"]};

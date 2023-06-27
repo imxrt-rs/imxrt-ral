@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BGR","BGR"],["BRG","BRG"],["GBR","GBR"],["GRB","GRB"],["RBG","RBG"],["RGB","RGB"]]};
+window.SIDEBAR_ITEMS = {"constant":["BGR","BRG","GBR","GRB","RBG","RGB"]};

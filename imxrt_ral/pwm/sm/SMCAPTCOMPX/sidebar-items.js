@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["EDGCMPX","Edge Compare X"],["EDGCNTX","Edge Counter X"]]};
+window.SIDEBAR_ITEMS = {"mod":["EDGCMPX","EDGCNTX"]};

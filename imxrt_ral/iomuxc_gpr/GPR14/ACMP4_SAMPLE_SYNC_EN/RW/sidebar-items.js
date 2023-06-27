@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACMP4_SAMPLE_SYNC_EN_0","select XBAR output"],["ACMP4_SAMPLE_SYNC_EN_1","select synced sample_lv"]]};
+window.SIDEBAR_ITEMS = {"constant":["ACMP4_SAMPLE_SYNC_EN_0","ACMP4_SAMPLE_SYNC_EN_1"]};

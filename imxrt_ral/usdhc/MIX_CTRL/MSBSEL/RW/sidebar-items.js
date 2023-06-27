@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MSBSEL_0","Single Block"],["MSBSEL_1","Multiple Blocks"]]};
+window.SIDEBAR_ITEMS = {"constant":["MSBSEL_0","MSBSEL_1"]};

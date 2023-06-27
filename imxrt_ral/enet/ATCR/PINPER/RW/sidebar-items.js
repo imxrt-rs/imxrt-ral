@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PINPER_0","Disable."],["PINPER_1","Enable."]]};
+window.SIDEBAR_ITEMS = {"constant":["PINPER_0","PINPER_1"]};

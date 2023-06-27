@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MBCRC","CRC Mailbox"],["TXCRC","Transmitted CRC value"]]};
+window.SIDEBAR_ITEMS = {"mod":["MBCRC","TXCRC"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERFUFW_0","No such occurrence"],["ERFUFW_1","Enhanced Rx FIFO underflow"]]};
+window.SIDEBAR_ITEMS = {"constant":["ERFUFW_0","ERFUFW_1"]};

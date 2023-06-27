@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["PIN","Pin Number"],["SHIFTER","Shifter Number"],["TIMER","Timer Number"],["TRIGGER","Trigger Number"]]};
+window.SIDEBAR_ITEMS = {"mod":["PIN","SHIFTER","TIMER","TRIGGER"]};

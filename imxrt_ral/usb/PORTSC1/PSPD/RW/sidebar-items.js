@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PSPD_0","Full Speed"],["PSPD_1","Low Speed"],["PSPD_2","High Speed"],["PSPD_3","Undefined"]]};
+window.SIDEBAR_ITEMS = {"constant":["PSPD_0","PSPD_1","PSPD_2","PSPD_3"]};

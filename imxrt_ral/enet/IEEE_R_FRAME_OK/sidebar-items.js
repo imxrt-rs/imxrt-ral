@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of frames received OK"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

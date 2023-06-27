@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["SOFF","Source address signed offset"]]};
+window.SIDEBAR_ITEMS = {"mod":["SOFF"]};

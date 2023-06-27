@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["EN1588_0","Legacy FEC buffer descriptors and functions enabled."],["EN1588_1","Enhanced frame time-stamping functions enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["EN1588_0","EN1588_1"]};

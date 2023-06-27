@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["AUDIO_DIV_LSB_0","divide by 1 (Default)"],["AUDIO_DIV_LSB_1","divide by 2"]]};
+window.SIDEBAR_ITEMS = {"constant":["AUDIO_DIV_LSB_0","AUDIO_DIV_LSB_1"]};

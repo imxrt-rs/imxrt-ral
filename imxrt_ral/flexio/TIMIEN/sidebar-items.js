@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TEIE","Timer Status Interrupt Enable"]]};
+window.SIDEBAR_ITEMS = {"mod":["TEIE"]};

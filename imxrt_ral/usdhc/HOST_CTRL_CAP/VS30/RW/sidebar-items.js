@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["VS30_0","3.0V not supported"],["VS30_1","3.0V supported"]]};
+window.SIDEBAR_ITEMS = {"constant":["VS30_0","VS30_1"]};

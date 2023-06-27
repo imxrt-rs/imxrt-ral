@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ADDR","Address pointer for the PS RGB or Y (luma) input buffer."]]};
+window.SIDEBAR_ITEMS = {"mod":["ADDR"]};

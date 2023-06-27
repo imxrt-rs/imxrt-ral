@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Frame count"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

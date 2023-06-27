@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TEN_0","Test module is not enabled"],["TEN_1","Test module is enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["TEN_0","TEN_1"]};

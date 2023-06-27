@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPCALB_HL_0","Write access is allowed."],["LPCALB_HL_1","Write access is not allowed."]]};
+window.SIDEBAR_ITEMS = {"constant":["LPCALB_HL_0","LPCALB_HL_1"]};

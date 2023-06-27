@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FRAME","Frame start pulse"],["LINE","Line start pulse"],["PCLK","pclk"],["SIG_ANOTHER","Use another signal as tick event"]]};
+window.SIDEBAR_ITEMS = {"constant":["FRAME","LINE","PCLK","SIG_ANOTHER"]};

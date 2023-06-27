@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["SB_LIM","Sparse Bit Limit"]]};
+window.SIDEBAR_ITEMS = {"mod":["SB_LIM"]};

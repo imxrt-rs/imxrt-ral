@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["COF_INT_EN_0","COF interrupt is disabled"],["COF_INT_EN_1","COF interrupt is enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["COF_INT_EN_0","COF_INT_EN_1"]};

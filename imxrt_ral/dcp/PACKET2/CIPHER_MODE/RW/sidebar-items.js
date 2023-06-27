@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CBC","CBC"],["ECB","ECB"]]};
+window.SIDEBAR_ITEMS = {"constant":["CBC","ECB"]};

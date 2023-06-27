@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MF_0","LSB is received first."],["MF_1","MSB is received first."]]};
+window.SIDEBAR_ITEMS = {"constant":["MF_0","MF_1"]};

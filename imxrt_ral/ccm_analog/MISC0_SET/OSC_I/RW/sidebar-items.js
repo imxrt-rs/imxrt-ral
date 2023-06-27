@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MINUS_12_5_PERCENT","Decrease current by 12.5%"],["MINUS_25_PERCENT","Decrease current by 25.0%"],["MINUS_37_5_PERCENT","Decrease current by 37.5%"],["NOMINAL","Nominal"]]};
+window.SIDEBAR_ITEMS = {"constant":["MINUS_12_5_PERCENT","MINUS_25_PERCENT","MINUS_37_5_PERCENT","NOMINAL"]};

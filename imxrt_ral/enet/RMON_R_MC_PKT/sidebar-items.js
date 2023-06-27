@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of receive multicast packets"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

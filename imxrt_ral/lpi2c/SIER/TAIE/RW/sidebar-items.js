@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TAIE_0","Disabled"],["TAIE_1","Enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["TAIE_0","TAIE_1"]};

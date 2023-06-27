@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DVS_0","Divide-by-1"],["DVS_1","Divide-by-2"],["DVS_14","Divide-by-15"],["DVS_15","Divide-by-16"]]};
+window.SIDEBAR_ITEMS = {"constant":["DVS_0","DVS_1","DVS_14","DVS_15"]};

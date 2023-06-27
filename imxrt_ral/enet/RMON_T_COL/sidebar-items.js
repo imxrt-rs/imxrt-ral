@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXPKTS","Number of transmit collisions"]]};
+window.SIDEBAR_ITEMS = {"mod":["TXPKTS"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TF_0","Input Capture or Output Compare has not occurred."],["TF_1","Input Capture or Output Compare has occurred."]]};
+window.SIDEBAR_ITEMS = {"constant":["TF_0","TF_1"]};

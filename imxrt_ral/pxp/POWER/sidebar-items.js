@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CTRL","Power control for the PXP."],["ROT_MEM_LP_STATE","Select the low power state of the ROT memory."]]};
+window.SIDEBAR_ITEMS = {"mod":["CTRL","ROT_MEM_LP_STATE"]};

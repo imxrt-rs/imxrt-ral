@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["OVER_CUR_DIS_0","Enables overcurrent detection"],["OVER_CUR_DIS_1","Disables overcurrent detection"]]};
+window.SIDEBAR_ITEMS = {"constant":["OVER_CUR_DIS_0","OVER_CUR_DIS_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["POLA","PWM_A Output Polarity"],["POLB","PWM_B Output Polarity"],["POLX","PWM_X Output Polarity"],["PWMAFS","PWM_A Fault State"],["PWMA_IN","PWM_A Input"],["PWMBFS","PWM_B Fault State"],["PWMB_IN","PWM_B Input"],["PWMXFS","PWM_X Fault State"],["PWMX_IN","PWM_X Input"]]};
+window.SIDEBAR_ITEMS = {"mod":["POLA","POLB","POLX","PWMAFS","PWMA_IN","PWMBFS","PWMB_IN","PWMXFS","PWMX_IN"]};

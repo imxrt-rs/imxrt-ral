@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["INIT_DELAY","TRIGGER initial delay counter"],["SAMPLE_INTERVAL","TRIGGER sampling interval counter"]]};
+window.SIDEBAR_ITEMS = {"mod":["INIT_DELAY","SAMPLE_INTERVAL"]};

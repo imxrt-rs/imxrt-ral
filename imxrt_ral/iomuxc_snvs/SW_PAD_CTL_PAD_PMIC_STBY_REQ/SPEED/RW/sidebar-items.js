@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SPEED","medium(100MHz)"]]};
+window.SIDEBAR_ITEMS = {"constant":["SPEED"]};

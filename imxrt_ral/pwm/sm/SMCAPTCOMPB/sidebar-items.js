@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["EDGCMPB","Edge Compare B"],["EDGCNTB","Edge Counter B"]]};
+window.SIDEBAR_ITEMS = {"mod":["EDGCMPB","EDGCNTB"]};

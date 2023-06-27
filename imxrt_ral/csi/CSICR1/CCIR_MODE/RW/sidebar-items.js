@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CCIR_MODE_0","Progressive mode is selected"],["CCIR_MODE_1","Interlace mode is selected"]]};
+window.SIDEBAR_ITEMS = {"constant":["CCIR_MODE_0","CCIR_MODE_1"]};

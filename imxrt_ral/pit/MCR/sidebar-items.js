@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["FRZ","Freeze"],["MDIS","Module Disable for PIT"]]};
+window.SIDEBAR_ITEMS = {"mod":["FRZ","MDIS"]};

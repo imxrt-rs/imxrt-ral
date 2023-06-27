@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CCCEN","Command CRC Check Enable"],["CICEN","Command Index Check Enable"],["CMDINX","Command Index"],["CMDTYP","Command Type"],["DPSEL","Data Present Select"],["RSPTYP","Response Type Select"]]};
+window.SIDEBAR_ITEMS = {"mod":["CCCEN","CICEN","CMDINX","CMDTYP","DPSEL","RSPTYP"]};

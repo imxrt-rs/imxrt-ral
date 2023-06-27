@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CAPTVAL2","CAPTVAL2"]]};
+window.SIDEBAR_ITEMS = {"mod":["CAPTVAL2"]};

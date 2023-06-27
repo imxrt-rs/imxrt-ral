@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RSTA_0","No Reset"],["RSTA_1","Reset"]]};
+window.SIDEBAR_ITEMS = {"constant":["RSTA_0","RSTA_1"]};

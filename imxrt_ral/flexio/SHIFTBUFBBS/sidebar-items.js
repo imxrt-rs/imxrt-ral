@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["SHIFTBUFBBS","Shift Buffer"]]};
+window.SIDEBAR_ITEMS = {"mod":["SHIFTBUFBBS"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["PSR","PSR"]]};
+window.SIDEBAR_ITEMS = {"mod":["PSR"]};

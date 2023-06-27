@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADMAS_0","Advanced DMA Not supported"],["ADMAS_1","Advanced DMA Supported"]]};
+window.SIDEBAR_ITEMS = {"constant":["ADMAS_0","ADMAS_1"]};

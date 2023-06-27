@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SSM_SFNS_DIS_0","Soft Fail to Non-Secure State transition is enabled"],["SSM_SFNS_DIS_1","Soft Fail to Non-Secure State transition is disabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["SSM_SFNS_DIS_0","SSM_SFNS_DIS_1"]};

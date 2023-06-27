@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["RUN3_MAX","Run Length 3 Maximum Limit"],["RUN3_RNG","Run Length 3 Range"]]};
+window.SIDEBAR_ITEMS = {"mod":["RUN3_MAX","RUN3_RNG"]};

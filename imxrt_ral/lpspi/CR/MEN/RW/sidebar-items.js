@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MEN_0","Module is disabled"],["MEN_1","Module is enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["MEN_0","MEN_1"]};

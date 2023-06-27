@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BOOT_EN_0","Fast boot disable"],["BOOT_EN_1","Fast boot enable"]]};
+window.SIDEBAR_ITEMS = {"constant":["BOOT_EN_0","BOOT_EN_1"]};

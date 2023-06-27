@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXFIFO_RST_0","Normal operation"],["RXFIFO_RST_1","Reset register to 1 sample remaining"]]};
+window.SIDEBAR_ITEMS = {"constant":["RXFIFO_RST_0","RXFIFO_RST_1"]};

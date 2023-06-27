@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SRTCR_0","SRTC has not reached its maximum value."],["SRTCR_1","SRTC has reached its maximum value."]]};
+window.SIDEBAR_ITEMS = {"constant":["SRTCR_0","SRTCR_1"]};

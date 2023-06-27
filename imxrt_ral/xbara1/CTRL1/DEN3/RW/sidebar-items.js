@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DEN3_0","DMA disabled"],["DEN3_1","DMA enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["DEN3_0","DEN3_1"]};

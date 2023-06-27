@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RTF_0","No effect"],["RTF_1","Transmit Data Register is now empty"]]};
+window.SIDEBAR_ITEMS = {"constant":["RTF_0","RTF_1"]};

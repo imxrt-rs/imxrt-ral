@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PMIC_DELAY_SCALER_0","clock is not divided"],["PMIC_DELAY_SCALER_1","clock is divided /8"]]};
+window.SIDEBAR_ITEMS = {"constant":["PMIC_DELAY_SCALER_0","PMIC_DELAY_SCALER_1"]};

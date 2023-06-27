@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["EDGCNTX_EN_0","Edge counter disabled and held in reset"],["EDGCNTX_EN_1","Edge counter enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["EDGCNTX_EN_0","EDGCNTX_EN_1"]};

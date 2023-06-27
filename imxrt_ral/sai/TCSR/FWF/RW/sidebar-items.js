@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FWF_0","No enabled transmit FIFO is empty."],["FWF_1","Enabled transmit FIFO is empty."]]};
+window.SIDEBAR_ITEMS = {"constant":["FWF_0","FWF_1"]};

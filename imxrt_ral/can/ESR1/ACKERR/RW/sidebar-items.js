@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ACKERR_0","No such occurrence"],["ACKERR_1","An ACK error occurred since last read of this register"]]};
+window.SIDEBAR_ITEMS = {"constant":["ACKERR_0","ACKERR_1"]};

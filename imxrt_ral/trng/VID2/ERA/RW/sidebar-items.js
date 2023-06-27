@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ERA_0","COMPILE_OPT for TRNG."]]};
+window.SIDEBAR_ITEMS = {"constant":["ERA_0"]};

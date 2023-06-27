@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["NRJW","Nominal Resynchronization Jump Width"],["NTSEG1","Nominal Time Segment 1"],["NTSEG2","Nominal Time Segment 2"]]};
+window.SIDEBAR_ITEMS = {"mod":["NRJW","NTSEG1","NTSEG2"]};

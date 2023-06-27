@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DOZEEN_0","LPUART is enabled in Doze mode."],["DOZEEN_1","LPUART is disabled in Doze mode."]]};
+window.SIDEBAR_ITEMS = {"constant":["DOZEEN_0","DOZEEN_1"]};

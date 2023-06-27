@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["REF_0","Receive FIFO has not overflowed"],["REF_1","Receive FIFO has overflowed"]]};
+window.SIDEBAR_ITEMS = {"constant":["REF_0","REF_1"]};

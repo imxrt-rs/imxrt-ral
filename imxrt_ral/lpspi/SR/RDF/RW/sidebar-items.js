@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RDF_0","Receive Data is not ready"],["RDF_1","Receive data is ready"]]};
+window.SIDEBAR_ITEMS = {"constant":["RDF_0","RDF_1"]};

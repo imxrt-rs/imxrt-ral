@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WDA_0","Assert WDOG_B output."],["WDA_1","No effect on system (Default)."]]};
+window.SIDEBAR_ITEMS = {"constant":["WDA_0","WDA_1"]};

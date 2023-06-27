@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["AEN_0","Abort disabled."],["AEN_1","Abort enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["AEN_0","AEN_1"]};

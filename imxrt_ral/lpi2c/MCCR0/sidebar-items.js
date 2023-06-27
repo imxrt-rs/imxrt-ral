@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["CLKHI","Clock High Period"],["CLKLO","Clock Low Period"],["DATAVD","Data Valid Delay"],["SETHOLD","Setup Hold Delay"]]};
+window.SIDEBAR_ITEMS = {"mod":["CLKHI","CLKLO","DATAVD","SETHOLD"]};

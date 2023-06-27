@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ARCACHE_USDHC_0","Cacheable attribute is off for read transactions."],["ARCACHE_USDHC_1","Cacheable attribute is on for read transactions."]]};
+window.SIDEBAR_ITEMS = {"constant":["ARCACHE_USDHC_0","ARCACHE_USDHC_1"]};

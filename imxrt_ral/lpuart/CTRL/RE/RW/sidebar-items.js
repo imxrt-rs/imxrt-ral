@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RE_0","Receiver disabled."],["RE_1","Receiver enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["RE_0","RE_1"]};

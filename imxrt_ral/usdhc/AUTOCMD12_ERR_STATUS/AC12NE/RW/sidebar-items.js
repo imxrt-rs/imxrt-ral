@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["AC12NE_0","Executed"],["AC12NE_1","Not executed"]]};
+window.SIDEBAR_ITEMS = {"constant":["AC12NE_0","AC12NE_1"]};

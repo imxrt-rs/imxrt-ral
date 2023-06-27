@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["LCTL_0","LED off"],["LCTL_1","LED on"]]};
+window.SIDEBAR_ITEMS = {"constant":["LCTL_0","LCTL_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DTCM_ERR_STAT_EN_0","Masked"],["DTCM_ERR_STAT_EN_1","Enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["DTCM_ERR_STAT_EN_0","DTCM_ERR_STAT_EN_1"]};

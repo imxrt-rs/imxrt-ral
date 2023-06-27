@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["BTO","Bus timeout cycles"],["CTO","Command Execution timeout cycles"],["DLLSEL","Select DLL delay chain clock input."],["DQSMD","DQS (read strobe) mode"],["DQSSEL","Select DQS source when DQSMD and DLLSEL both set."],["MDIS","Module Disable"],["SWRST","Software Reset"],["WPOL0","WAIT/RDY# polarity for NOR/PSRAM"],["WPOL1","WAIT/RDY# polarity for NAND"]]};
+window.SIDEBAR_ITEMS = {"mod":["BTO","CTO","DLLSEL","DQSMD","DQSSEL","MDIS","SWRST","WPOL0","WPOL1"]};

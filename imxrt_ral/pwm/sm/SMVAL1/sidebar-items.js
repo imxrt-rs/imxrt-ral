@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["VAL1","Value Register 1"]]};
+window.SIDEBAR_ITEMS = {"mod":["VAL1"]};

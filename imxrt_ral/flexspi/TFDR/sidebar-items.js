@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TXDATA","TX Data"]]};
+window.SIDEBAR_ITEMS = {"mod":["TXDATA"]};

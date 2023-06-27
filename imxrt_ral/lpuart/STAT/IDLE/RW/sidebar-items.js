@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["IDLE_0","No idle line detected."],["IDLE_1","Idle line was detected."]]};
+window.SIDEBAR_ITEMS = {"constant":["IDLE_0","IDLE_1"]};

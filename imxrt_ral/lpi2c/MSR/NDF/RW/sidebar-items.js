@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["NDF_0","Unexpected NACK was not detected"],["NDF_1","Unexpected NACK was detected"]]};
+window.SIDEBAR_ITEMS = {"constant":["NDF_0","NDF_1"]};

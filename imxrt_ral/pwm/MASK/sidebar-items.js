@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MASKA","PWM_A Masks"],["MASKB","PWM_B Masks"],["MASKX","PWM_X Masks"],["UPDATE_MASK","Update Mask Bits Immediately"]]};
+window.SIDEBAR_ITEMS = {"mod":["MASKA","MASKB","MASKX","UPDATE_MASK"]};

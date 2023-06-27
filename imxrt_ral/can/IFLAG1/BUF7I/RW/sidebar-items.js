@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BUF7I_0","No such occurrence"],["BUF7I_1","MB7 completed transmission/reception or FIFO overflow"]]};
+window.SIDEBAR_ITEMS = {"constant":["BUF7I_0","BUF7I_1"]};

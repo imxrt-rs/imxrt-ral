@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ENT","Entropy Value"]]};
+window.SIDEBAR_ITEMS = {"mod":["ENT"]};

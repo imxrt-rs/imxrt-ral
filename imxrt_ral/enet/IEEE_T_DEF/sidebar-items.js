@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of frames transmitted with deferral delay"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

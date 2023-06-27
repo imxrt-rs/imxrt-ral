@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TVL","Current Timer Value"]]};
+window.SIDEBAR_ITEMS = {"mod":["TVL"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SOURCE_0","Address Comparator 0 matched"],["SOURCE_1","Address Comparator 1 matched"],["SOURCE_15","Address Comparator 15 matched"]]};
+window.SIDEBAR_ITEMS = {"constant":["SOURCE_0","SOURCE_1","SOURCE_15"]};

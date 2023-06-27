@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["WAGE","Weight of Aging"],["WQOS","Weight of QoS"],["WRWS","Weight of Slave Hit (Read/Write switch)"],["WSH","Weight of Slave Hit (no read/write switch)"]]};
+window.SIDEBAR_ITEMS = {"mod":["WAGE","WQOS","WRWS","WSH"]};

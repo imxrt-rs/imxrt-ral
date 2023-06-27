@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DMAESEN_0","Masked"],["DMAESEN_1","Enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["DMAESEN_0","DMAESEN_1"]};

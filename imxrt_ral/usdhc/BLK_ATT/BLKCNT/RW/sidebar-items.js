@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BLKCNT_0","Stop Count"],["BLKCNT_1","1 block"],["BLKCNT_2","2 blocks"],["BLKCNT_65535","65535 blocks"]]};
+window.SIDEBAR_ITEMS = {"constant":["BLKCNT_0","BLKCNT_1","BLKCNT_2","BLKCNT_65535"]};

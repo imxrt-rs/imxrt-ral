@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COMPAREL","COMPAREL"]]};
+window.SIDEBAR_ITEMS = {"mod":["COMPAREL"]};

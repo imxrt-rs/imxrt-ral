@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["HIRQ_0","No interrupt"],["HIRQ_1","HOME signal transition interrupt request"]]};
+window.SIDEBAR_ITEMS = {"constant":["HIRQ_0","HIRQ_1"]};

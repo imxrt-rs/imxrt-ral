@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ANV","Address Not Valid"],["RADDR","Received Address"]]};
+window.SIDEBAR_ITEMS = {"mod":["ANV","RADDR"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["GOOD_CONTACT","The USB plug has made good contact."],["NO_CONTACT","The USB plug has not made contact."]]};
+window.SIDEBAR_ITEMS = {"constant":["GOOD_CONTACT","NO_CONTACT"]};

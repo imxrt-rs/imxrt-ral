@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["MASK_CORE0_WFI_0","WFI of core0 is not masked"],["MASK_CORE0_WFI_1","WFI of core0 is masked"]]};
+window.SIDEBAR_ITEMS = {"constant":["MASK_CORE0_WFI_0","MASK_CORE0_WFI_1"]};

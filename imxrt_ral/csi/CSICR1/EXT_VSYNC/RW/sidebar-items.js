@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["EXT_VSYNC_0","Internal VSYNC mode"],["EXT_VSYNC_1","External VSYNC mode"]]};
+window.SIDEBAR_ITEMS = {"constant":["EXT_VSYNC_0","EXT_VSYNC_1"]};

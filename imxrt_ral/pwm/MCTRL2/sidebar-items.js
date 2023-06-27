@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MONPLL","Monitor PLL State"]]};
+window.SIDEBAR_ITEMS = {"mod":["MONPLL"]};

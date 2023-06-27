@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SWRST_0","Software reset is disabled"],["SWRST_1","Software reset is enabled, all FlexIO registers except the Control Register are reset."]]};
+window.SIDEBAR_ITEMS = {"constant":["SWRST_0","SWRST_1"]};

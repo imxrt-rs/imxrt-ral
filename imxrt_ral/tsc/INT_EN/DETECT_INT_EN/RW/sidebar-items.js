@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DETECT_INT_EN_0","Disable detect interrupt"],["DETECT_INT_EN_1","Enable detect interrupt"]]};
+window.SIDEBAR_ITEMS = {"constant":["DETECT_INT_EN_0","DETECT_INT_EN_1"]};

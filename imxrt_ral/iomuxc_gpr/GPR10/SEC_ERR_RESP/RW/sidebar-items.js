@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["SEC_ERR_RESP_0","OKEY response"],["SEC_ERR_RESP_1","SLVError (default)"]]};
+window.SIDEBAR_ITEMS = {"constant":["SEC_ERR_RESP_0","SEC_ERR_RESP_1"]};

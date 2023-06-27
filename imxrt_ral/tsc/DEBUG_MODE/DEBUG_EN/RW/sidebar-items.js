@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DEBUG_EN_0","Enable debug mode"],["DEBUG_EN_1","Disable debug mode"]]};
+window.SIDEBAR_ITEMS = {"constant":["DEBUG_EN_0","DEBUG_EN_1"]};

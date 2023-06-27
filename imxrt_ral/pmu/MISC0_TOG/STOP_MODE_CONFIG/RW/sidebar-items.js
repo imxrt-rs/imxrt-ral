@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["STANDBY","Analog regulators are ON."],["STOP_MODE_CONFIG_0","SUSPEND (DSM)"],["STOP_MODE_CONFIG_2","STOP (lower power)"],["STOP_MODE_CONFIG_3","STOP (very lower power)"]]};
+window.SIDEBAR_ITEMS = {"constant":["STANDBY","STOP_MODE_CONFIG_0","STOP_MODE_CONFIG_2","STOP_MODE_CONFIG_3"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ADC_COCO_CLEAR_0","No ADC COCO clear"],["ADC_COCO_CLEAR_1","Set ADC COCO clear"]]};
+window.SIDEBAR_ITEMS = {"constant":["ADC_COCO_CLEAR_0","ADC_COCO_CLEAR_1"]};

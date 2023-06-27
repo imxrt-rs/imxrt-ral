@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPCALB_EN_0","SRTC Time calibration is disabled."],["LPCALB_EN_1","SRTC Time calibration is enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["LPCALB_EN_0","LPCALB_EN_1"]};

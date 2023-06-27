@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BTF_0","Extended bit time definitions disabled."],["BTF_1","Extended bit time definitions enabled."]]};
+window.SIDEBAR_ITEMS = {"constant":["BTF_0","BTF_1"]};

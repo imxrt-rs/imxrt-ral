@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["BITS","BITS"]]};
+window.SIDEBAR_ITEMS = {"mod":["BITS"]};

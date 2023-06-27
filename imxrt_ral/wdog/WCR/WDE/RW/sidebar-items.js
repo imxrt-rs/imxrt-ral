@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WDE_0","Disable the Watchdog (Default)."],["WDE_1","Enable the Watchdog."]]};
+window.SIDEBAR_ITEMS = {"constant":["WDE_0","WDE_1"]};

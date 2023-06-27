@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["PERIPH_CLK_SEL_0","derive clock selected by CCM_CBCMR[CORE_CLK_PRE_SEL]"],["PERIPH_CLK_SEL_1","derive clock selected by CCM_CBCMR[PERIPH_CLK2_SEL]"]]};
+window.SIDEBAR_ITEMS = {"constant":["PERIPH_CLK_SEL_0","PERIPH_CLK_SEL_1"]};

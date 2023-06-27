@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RXFF_INT_0","RxFIFO is not full."],["RXFF_INT_1","RxFIFO is full."]]};
+window.SIDEBAR_ITEMS = {"constant":["RXFF_INT_0","RXFF_INT_1"]};

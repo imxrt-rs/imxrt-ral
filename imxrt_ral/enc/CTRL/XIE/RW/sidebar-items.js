@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["XIE_0","INDEX pulse interrupt is disabled"],["XIE_1","INDEX pulse interrupt is enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["XIE_0","XIE_1"]};

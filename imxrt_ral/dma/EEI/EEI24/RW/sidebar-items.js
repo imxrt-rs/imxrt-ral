@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["EEI24_0","The error signal for corresponding channel does not generate an error interrupt"],["EEI24_1","The assertion of the error signal for corresponding channel generates an error interrupt request"]]};
+window.SIDEBAR_ITEMS = {"constant":["EEI24_0","EEI24_1"]};

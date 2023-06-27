@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["ARM_PODF","Divider for ARM clock root"]]};
+window.SIDEBAR_ITEMS = {"mod":["ARM_PODF"]};

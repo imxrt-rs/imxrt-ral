@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["DISABLE_TIME_OUT_0","Enable time out"],["DISABLE_TIME_OUT_1","Disable time out"]]};
+window.SIDEBAR_ITEMS = {"constant":["DISABLE_TIME_OUT_0","DISABLE_TIME_OUT_1"]};

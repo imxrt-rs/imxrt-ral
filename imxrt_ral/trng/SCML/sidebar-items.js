@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["MONO_MAX","Monobit Maximum Limit"],["MONO_RNG","Monobit Range"]]};
+window.SIDEBAR_ITEMS = {"mod":["MONO_MAX","MONO_RNG"]};

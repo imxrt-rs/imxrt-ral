@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["COUNT","Number of receive packets greater than MAX_FL and good CRC"]]};
+window.SIDEBAR_ITEMS = {"mod":["COUNT"]};

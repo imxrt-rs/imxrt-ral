@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["CINT_0","No Card Interrupt"],["CINT_1","Generate Card Interrupt"]]};
+window.SIDEBAR_ITEMS = {"constant":["CINT_0","CINT_1"]};

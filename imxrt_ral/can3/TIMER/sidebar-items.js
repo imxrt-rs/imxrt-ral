@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TIMER","Timer Value"]]};
+window.SIDEBAR_ITEMS = {"mod":["TIMER"]};

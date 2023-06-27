@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ET1P_0","External tamper 1 is active low."],["ET1P_1","External tamper 1 is active high."]]};
+window.SIDEBAR_ITEMS = {"constant":["ET1P_0","ET1P_1"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["ARGB1555","16-bit pixels with alpha"],["ARGB4444","16-bit pixels with alpha"],["ARGB8888","32-bit pixels with alpha"],["RGB444","16-bit pixels without alpha"],["RGB555","16-bit pixels without alpha"],["RGB565","16-bit pixels without alpha"],["RGB888","32-bit pixels without alpha (unpacked 24-bit format)"]]};
+window.SIDEBAR_ITEMS = {"constant":["ARGB1555","ARGB4444","ARGB8888","RGB444","RGB555","RGB565","RGB888"]};

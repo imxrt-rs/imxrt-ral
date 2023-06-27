@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["PRESCALER","Prescaler bits"],["PRESCALER24M","Prescaler bits"]]};
+window.SIDEBAR_ITEMS = {"mod":["PRESCALER","PRESCALER24M"]};

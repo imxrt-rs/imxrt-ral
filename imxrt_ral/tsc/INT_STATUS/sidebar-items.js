@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DETECT","Detect Signal"],["IDLE_SW","Idle Software"],["MEASURE","Measure Signal"],["VALID","Valid Signal"]]};
+window.SIDEBAR_ITEMS = {"mod":["DETECT","IDLE_SW","MEASURE","VALID"]};

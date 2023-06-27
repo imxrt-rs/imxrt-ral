@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DATCONT","Data Content"]]};
+window.SIDEBAR_ITEMS = {"mod":["DATCONT"]};

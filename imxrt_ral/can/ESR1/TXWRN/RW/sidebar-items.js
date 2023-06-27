@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["TXWRN_0","No such occurrence"],["TXWRN_1","TX_Err_Counter >= 96"]]};
+window.SIDEBAR_ITEMS = {"constant":["TXWRN_0","TXWRN_1"]};

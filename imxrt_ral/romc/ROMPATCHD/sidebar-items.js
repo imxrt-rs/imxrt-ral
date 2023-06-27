@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["DATAX","Data Fix Registers - Stores the data used for 1-word data fix operations"]]};
+window.SIDEBAR_ITEMS = {"mod":["DATAX"]};

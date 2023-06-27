@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["LPUART3_STOP_ACK_0","stop acknowledge is not asserted"],["LPUART3_STOP_ACK_1","stop acknowledge is asserted"]]};
+window.SIDEBAR_ITEMS = {"constant":["LPUART3_STOP_ACK_0","LPUART3_STOP_ACK_1"]};

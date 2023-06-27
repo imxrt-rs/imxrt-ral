@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["FREQMEAS","Frequency measurement data"]]};
+window.SIDEBAR_ITEMS = {"mod":["FREQMEAS"]};

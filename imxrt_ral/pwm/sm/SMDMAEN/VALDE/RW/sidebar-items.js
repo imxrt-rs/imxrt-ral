@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["VALDE_0","DMA write requests disabled"],["VALDE_1","DMA write requests for the VALx and FRACVALx registers enabled"]]};
+window.SIDEBAR_ITEMS = {"constant":["VALDE_0","VALDE_1"]};

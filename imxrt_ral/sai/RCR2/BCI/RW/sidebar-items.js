@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["BCI_0","No effect."],["BCI_1","Internal logic is clocked as if bit clock was externally generated."]]};
+window.SIDEBAR_ITEMS = {"constant":["BCI_0","BCI_1"]};

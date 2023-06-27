@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["STATFF_LEVEL_0","4 Double words"],["STATFF_LEVEL_1","8 Double words"],["STATFF_LEVEL_2","12 Double words"],["STATFF_LEVEL_3","16 Double words"],["STATFF_LEVEL_4","24 Double words"],["STATFF_LEVEL_5","32 Double words"],["STATFF_LEVEL_6","48 Double words"],["STATFF_LEVEL_7","64 Double words"]]};
+window.SIDEBAR_ITEMS = {"constant":["STATFF_LEVEL_0","STATFF_LEVEL_1","STATFF_LEVEL_2","STATFF_LEVEL_3","STATFF_LEVEL_4","STATFF_LEVEL_5","STATFF_LEVEL_6","STATFF_LEVEL_7"]};

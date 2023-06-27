@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["WE_0","Windowing mode is not selected."],["WE_1","Windowing mode is selected."]]};
+window.SIDEBAR_ITEMS = {"constant":["WE_0","WE_1"]};

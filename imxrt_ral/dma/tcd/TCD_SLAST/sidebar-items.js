@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["SLAST","Last Source Address Adjustment"]]};
+window.SIDEBAR_ITEMS = {"mod":["SLAST"]};

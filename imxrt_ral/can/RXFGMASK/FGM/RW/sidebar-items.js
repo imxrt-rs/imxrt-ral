@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["FGM_0","The corresponding bit in the filter is “don’t care”"],["FGM_1","The corresponding bit in the filter is checked"]]};
+window.SIDEBAR_ITEMS = {"constant":["FGM_0","FGM_1"]};

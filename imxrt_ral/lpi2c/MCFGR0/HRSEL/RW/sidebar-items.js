@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["HRSEL_0","Host request input is pin HREQ"],["HRSEL_1","Host request input is input trigger"]]};
+window.SIDEBAR_ITEMS = {"constant":["HRSEL_0","HRSEL_1"]};

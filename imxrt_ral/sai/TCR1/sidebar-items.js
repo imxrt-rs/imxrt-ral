@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["TFW","Transmit FIFO Watermark"]]};
+window.SIDEBAR_ITEMS = {"mod":["TFW"]};

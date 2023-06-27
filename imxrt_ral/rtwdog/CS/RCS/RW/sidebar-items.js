@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["RCS_0","Reconfiguring WDOG."],["RCS_1","Reconfiguration is successful."]]};
+window.SIDEBAR_ITEMS = {"constant":["RCS_0","RCS_1"]};
