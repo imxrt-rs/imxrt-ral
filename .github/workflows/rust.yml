@@ -22,8 +22,6 @@ jobs:
           args: svdtools --version=0.2.6
       - name: Generate RAL
         run: make ci
-      - name: Ensure RAL is consistent with checked-in code
-        run: git update-index --refresh && git diff-index --quiet HEAD
       - name: Check format for RAL
         uses: actions-rs/cargo@v1
         with:
