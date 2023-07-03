@@ -1,9 +1,10 @@
 //! Helper types to combine and consolidate IRs across devices.
 
 use crate::ir;
+use serde::{Deserialize, Serialize};
 use std::{
     cmp::Ordering,
-    collections::{hash_map::Entry, HashMap},
+    collections::{hash_map::Entry, HashMap, HashSet},
 };
 
 /// An element version.
@@ -73,14 +74,34 @@ impl<'ir, E> CompareIr<'ir, E> {
     }
 }
 
+type IrPath<'ir> = &'ir str;
+
+/// Extract the part of the IR path that describes the peripheral.
+fn peripheral_part(path: IrPath) -> &str {
+    path.split("::")
+        .next()
+        .expect("IR paths are separated by ::")
+}
+
 /// Assert two elements as equivalent.
 ///
-/// The implementation invokes this callback for similarly-named things
+/// The implementation invokes `compare` for similarly-named things
 /// across IRs. For instance, the input will always be two UART
 /// blocks from two different devices. You'll never see an UART and an
 /// I2C block being compared for equivalence (unless your IR is really
 /// messed up).
-type Equivalence<E> = fn(CompareIr<E>, CompareIr<E>) -> bool;
+trait Equivalence<E> {
+    fn compare(&self, left: CompareIr<E>, right: CompareIr<E>, path: IrPath) -> bool;
+}
+
+impl<E, Equiv> Equivalence<E> for &Equiv
+where
+    Equiv: Equivalence<E>,
+{
+    fn compare(&self, left: CompareIr<E>, right: CompareIr<E>, path: IrPath) -> bool {
+        (*self).compare(left, right, path)
+    }
+}
 
 /// Ensure the items in two, possibly non-sorted contiguous
 /// collections are equivalent.
@@ -91,94 +112,139 @@ fn equivalent_slices<E>(xs: &[E], ys: &[E], equiv: impl Fn(&E, &E) -> bool) -> b
 fn equivalent_options<E>(
     a: Option<CompareIr<E>>,
     b: Option<CompareIr<E>>,
-    equiv: Equivalence<E>,
+    path: IrPath,
+    equiv: impl Equivalence<E>,
 ) -> bool {
     match (a, b) {
-        (Some(a), Some(b)) => equiv(a, b),
+        (Some(a), Some(b)) => equiv.compare(a, b, path),
         (None, None) => true,
         (_, _) => false,
     }
 }
 
-/// Check if two enums are equivalent.
-fn equivalent_enum(
-    CompareIr { elem: a, .. }: CompareIr<ir::Enum>,
-    CompareIr { elem: b, .. }: CompareIr<ir::Enum>,
-) -> bool {
-    a.bit_size == b.bit_size
-        && equivalent_slices(&a.variants, &b.variants, |q, r| q.value == r.value)
+#[derive(Clone, Copy)]
+struct EquivalentEnums<'a> {
+    peripherals: &'a HashSet<String>,
 }
 
-/// Check if two fieldsets are equivalent.
-fn equivalent_fieldsets(
-    CompareIr { elem: a, ir: air }: CompareIr<ir::FieldSet>,
-    CompareIr { elem: b, ir: bir }: CompareIr<ir::FieldSet>,
-) -> bool {
-    let try_equivalent_enum = |a: &Option<String>, b: &Option<String>| -> bool {
-        let a = a
-            .as_ref()
-            .and_then(|a| CompareIr::query(air, |ir| ir.enums.get(a)));
-        let b = b
-            .as_ref()
-            .and_then(|b| CompareIr::query(bir, |ir| ir.enums.get(b)));
-        equivalent_options(a, b, equivalent_enum)
-    };
-
-    a.bit_size == b.bit_size
-        && equivalent_slices(&a.fields, &b.fields, |q, r| {
-            q.name == r.name
-                && q.bit_offset == r.bit_offset
-                && q.array == r.array
-                && q.bit_size == r.bit_size
-                && try_equivalent_enum(&q.enum_read, &r.enum_read)
-                && try_equivalent_enum(&q.enum_write, &r.enum_write)
-                && try_equivalent_enum(&q.enum_readwrite, &r.enum_readwrite)
-        })
+impl Equivalence<ir::Enum> for EquivalentEnums<'_> {
+    fn compare(
+        &self,
+        CompareIr { elem: a, .. }: CompareIr<ir::Enum>,
+        CompareIr { elem: b, .. }: CompareIr<ir::Enum>,
+        path: IrPath,
+    ) -> bool {
+        let assert_name_equivalence = self.peripherals.contains(peripheral_part(path));
+        a.bit_size == b.bit_size
+            && equivalent_slices(&a.variants, &b.variants, |q, r| {
+                q.value == r.value && (!assert_name_equivalence || q.name == r.name)
+            })
+    }
 }
 
-fn equivalent_registers(
-    CompareIr { elem: a, ir: air }: CompareIr<ir::Register>,
-    CompareIr { elem: b, ir: bir }: CompareIr<ir::Register>,
-) -> bool {
-    let query_builder =
-        |ir| move |fieldset: &String| CompareIr::query(ir, |ir| ir.fieldsets.get(fieldset));
-
-    a.access == b.access
-        && a.bit_size == b.bit_size
-        && equivalent_options(
-            a.fieldset.as_ref().and_then(query_builder(air)),
-            b.fieldset.as_ref().and_then(query_builder(bir)),
-            equivalent_fieldsets,
-        )
+#[derive(Clone, Copy)]
+struct EquivalentFieldSets<'a> {
+    enums: EquivalentEnums<'a>,
 }
 
-/// Check if two blocks are equivalent.
-fn equivalent_blocks(
-    CompareIr { elem: a, ir: air }: CompareIr<ir::Block>,
-    CompareIr { elem: b, ir: bir }: CompareIr<ir::Block>,
-) -> bool {
-    a.extends == b.extends
-        && equivalent_slices(&a.items, &b.items, |q, r| {
-            q.byte_offset == r.byte_offset
-                && q.array == r.array
-                && match (&q.inner, &r.inner) {
-                    (
-                        ir::BlockItemInner::Block(ir::BlockItemBlock { block: ablock }),
-                        ir::BlockItemInner::Block(ir::BlockItemBlock { block: bblock }),
-                    ) => equivalent_blocks(
-                        CompareIr::query(air, |ir| ir.blocks.get(ablock)).unwrap(),
-                        CompareIr::query(bir, |ir| ir.blocks.get(bblock)).unwrap(),
-                    ),
-                    (
-                        ir::BlockItemInner::Register(aregister),
-                        ir::BlockItemInner::Register(bregister),
-                    ) => equivalent_registers(
-                        CompareIr::new(aregister, air),
-                        CompareIr::new(bregister, bir),
-                    ),
-                    _ => false,
-                }
-        })
+impl Equivalence<ir::FieldSet> for EquivalentFieldSets<'_> {
+    fn compare(
+        &self,
+        CompareIr { elem: a, ir: air }: CompareIr<ir::FieldSet>,
+        CompareIr { elem: b, ir: bir }: CompareIr<ir::FieldSet>,
+        path: IrPath,
+    ) -> bool {
+        let try_equivalent_enum = |a: &Option<String>, b: &Option<String>| -> bool {
+            let a = a
+                .as_ref()
+                .and_then(|a| CompareIr::query(air, |ir| ir.enums.get(a)));
+            let b = b
+                .as_ref()
+                .and_then(|b| CompareIr::query(bir, |ir| ir.enums.get(b)));
+            equivalent_options(a, b, path, self.enums)
+        };
+
+        a.bit_size == b.bit_size
+            && equivalent_slices(&a.fields, &b.fields, |q, r| {
+                q.name == r.name
+                    && q.bit_offset == r.bit_offset
+                    && q.array == r.array
+                    && q.bit_size == r.bit_size
+                    && try_equivalent_enum(&q.enum_read, &r.enum_read)
+                    && try_equivalent_enum(&q.enum_write, &r.enum_write)
+                    && try_equivalent_enum(&q.enum_readwrite, &r.enum_readwrite)
+            })
+    }
+}
+
+#[derive(Clone, Copy)]
+struct EquivalentBlocks<'a> {
+    fieldsets: EquivalentFieldSets<'a>,
+}
+
+impl EquivalentBlocks<'_> {
+    fn equivalent_registers(
+        &self,
+        CompareIr { elem: a, ir: air }: CompareIr<ir::Register>,
+        CompareIr { elem: b, ir: bir }: CompareIr<ir::Register>,
+        path: IrPath,
+    ) -> bool {
+        let query_builder =
+            |ir| move |fieldset: &String| CompareIr::query(ir, |ir| ir.fieldsets.get(fieldset));
+
+        a.access == b.access
+            && a.bit_size == b.bit_size
+            && equivalent_options(
+                a.fieldset.as_ref().and_then(query_builder(air)),
+                b.fieldset.as_ref().and_then(query_builder(bir)),
+                path,
+                self.fieldsets,
+            )
+    }
+
+    /// Check if two blocks are equivalent.
+    fn equivalent_blocks(
+        &self,
+        CompareIr { elem: a, ir: air }: CompareIr<ir::Block>,
+        CompareIr { elem: b, ir: bir }: CompareIr<ir::Block>,
+        path: IrPath,
+    ) -> bool {
+        a.extends == b.extends
+            && equivalent_slices(&a.items, &b.items, |q, r| {
+                q.byte_offset == r.byte_offset
+                    && q.array == r.array
+                    && match (&q.inner, &r.inner) {
+                        (
+                            ir::BlockItemInner::Block(ir::BlockItemBlock { block: ablock }),
+                            ir::BlockItemInner::Block(ir::BlockItemBlock { block: bblock }),
+                        ) => self.equivalent_blocks(
+                            CompareIr::query(air, |ir| ir.blocks.get(ablock)).unwrap(),
+                            CompareIr::query(bir, |ir| ir.blocks.get(bblock)).unwrap(),
+                            path,
+                        ),
+                        (
+                            ir::BlockItemInner::Register(aregister),
+                            ir::BlockItemInner::Register(bregister),
+                        ) => self.equivalent_registers(
+                            CompareIr::new(aregister, air),
+                            CompareIr::new(bregister, bir),
+                            path,
+                        ),
+                        _ => false,
+                    }
+            })
+    }
+}
+
+impl Equivalence<ir::Block> for EquivalentBlocks<'_> {
+    fn compare(
+        &self,
+        left: CompareIr<ir::Block>,
+        right: CompareIr<ir::Block>,
+        path: IrPath,
+    ) -> bool {
+        self.equivalent_blocks(left, right, path)
+    }
 }
 
 /// Manages versions for an IR element type.
@@ -189,7 +255,7 @@ struct VersionLookup<'ir, E> {
 impl<'ir, E> VersionLookup<'ir, E> {
     /// Create new version lookups for an IR's elements.
     fn new(
-        equiv: Equivalence<E>,
+        equiv: impl Equivalence<E>,
         map: impl Iterator<Item = (&'ir ir::IR, &'ir String, &'ir E)>,
     ) -> Self {
         let versions = map.fold(
@@ -199,7 +265,11 @@ impl<'ir, E> VersionLookup<'ir, E> {
                     .entry(path.as_str())
                     .and_modify(|versions| {
                         if let Some(version) = versions.iter_mut().find(|version| {
-                            (equiv)(CompareIr::from_version(version), CompareIr::new(elem, ir))
+                            equiv.compare(
+                                CompareIr::from_version(version),
+                                CompareIr::new(elem, ir),
+                                path.as_str(),
+                            )
                         }) {
                             version.irs.push(ir);
                         } else {
@@ -215,7 +285,7 @@ impl<'ir, E> VersionLookup<'ir, E> {
     }
 
     fn from_irs(
-        equiv: Equivalence<E>,
+        equiv: impl Equivalence<E>,
         irs: &'ir [ir::IR],
         access: impl Fn(&'ir ir::IR) -> &HashMap<String, E>,
     ) -> Self {
@@ -246,11 +316,16 @@ pub struct IrVersions<'ir> {
 
 impl<'ir> IrVersions<'ir> {
     /// Define versions of IR elements from the collection of IRs.
-    pub fn from_irs(irs: &'ir [ir::IR]) -> Self {
+    pub fn from_irs(irs: &'ir [ir::IR], config: &Config) -> Self {
+        let enums = EquivalentEnums {
+            peripherals: &config.strict_enum_names,
+        };
+        let fieldsets = EquivalentFieldSets { enums };
+        let blocks = EquivalentBlocks { fieldsets };
         Self {
-            enums: VersionLookup::from_irs(equivalent_enum, irs, |ir| &ir.enums),
-            fieldsets: VersionLookup::from_irs(equivalent_fieldsets, irs, |ir| &ir.fieldsets),
-            blocks: VersionLookup::from_irs(equivalent_blocks, irs, |ir| &ir.blocks),
+            enums: VersionLookup::from_irs(enums, irs, |ir| &ir.enums),
+            fieldsets: VersionLookup::from_irs(fieldsets, irs, |ir| &ir.fieldsets),
+            blocks: VersionLookup::from_irs(blocks, irs, |ir| &ir.blocks),
         }
     }
     /// Access an enum version that corresponds to this IR.
@@ -294,8 +369,13 @@ impl<T> Copy for RefHash<'_, T> {}
 
 type RefMap<'a, K, V> = HashMap<RefHash<'a, K>, V>;
 
+#[derive(Default)]
+pub struct Config {
+    strict_enum_names: HashSet<String>,
+}
+
 /// Combine all IRs into a single IR.
-pub fn combine(irs: &[ir::IR]) -> ir::IR {
+pub fn combine(irs: &[ir::IR], config: &Config) -> ir::IR {
     assert!(
         irs.iter().all(|ir| !ir.devices.is_empty()),
         "Cannot combine an IR with empty devices."
@@ -319,7 +399,7 @@ pub fn combine(irs: &[ir::IR]) -> ir::IR {
         );
     }
 
-    let versions = IrVersions::from_irs(irs);
+    let versions = IrVersions::from_irs(irs, config);
 
     let mut consolidated = ir::IR::new();
 
@@ -439,4 +519,41 @@ pub fn combine(irs: &[ir::IR]) -> ir::IR {
     }
 
     consolidated
+}
+
+/// Configurations for the combiner pass.
+#[derive(Debug, Serialize, Deserialize)]
+pub enum Combine {
+    /// The list of peripheral names that require strict enum name
+    /// checks.
+    ///
+    /// By default, the combiner will not check the names of enum variants
+    /// when evaluating enum equivalence. This allows the combiner treat
+    /// superficial name differense, like "OFF / ON" and "DISABLE / ENABLE,"
+    /// as equivalent.
+    ///
+    /// To enable strict name checking, add a peripheral name to this list.
+    /// This means "OFF / ON" and "DISABLE / ENABLE" are not equivalent. It's
+    /// always safe to add to this list; however, it means there may be more
+    /// code generated.
+    StrictEnumNames(Vec<String>),
+}
+
+impl<I> From<I> for Config
+where
+    I: IntoIterator<Item = Combine>,
+{
+    fn from(combines: I) -> Self {
+        let mut config = Config::default();
+
+        for combine in combines {
+            match combine {
+                Combine::StrictEnumNames(peripherals) => {
+                    config.strict_enum_names.extend(peripherals);
+                }
+            }
+        }
+
+        config
+    }
 }

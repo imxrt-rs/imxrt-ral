@@ -16720,10 +16720,10 @@ pub mod LPSPI1_SCK_SELECT_INPUT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_06 for Mode: ALT0"]
-            pub const GPIO_AD_06_ALT0: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_SD_08 for Mode: ALT2"]
-            pub const GPIO_SD_08_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_SD_B0_02 for Mode: ALT4"]
+            pub const GPIO_SD_B0_02_ALT4: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_B0_10 for Mode: ALT1"]
+            pub const GPIO_AD_B0_10_ALT1: u32 = 0x01;
         }
     }
 }
@@ -16736,10 +16736,10 @@ pub mod LPSPI1_SDI_SELECT_INPUT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_03 for Mode: ALT0"]
-            pub const GPIO_AD_03_ALT0: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_SD_05 for Mode: ALT2"]
-            pub const GPIO_SD_05_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_SD_B0_05 for Mode: ALT4"]
+            pub const GPIO_SD_B0_05_ALT4: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_B0_13 for Mode: ALT1"]
+            pub const GPIO_AD_B0_13_ALT1: u32 = 0x01;
         }
     }
 }
@@ -16752,10 +16752,10 @@ pub mod LPSPI1_SDO_SELECT_INPUT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selecting Pad: GPIO_AD_04 for Mode: ALT0"]
-            pub const GPIO_AD_04_ALT0: u32 = 0;
-            #[doc = "Selecting Pad: GPIO_SD_06 for Mode: ALT2"]
-            pub const GPIO_SD_06_ALT2: u32 = 0x01;
+            #[doc = "Selecting Pad: GPIO_SD_B0_04 for Mode: ALT4"]
+            pub const GPIO_SD_B0_04_ALT4: u32 = 0;
+            #[doc = "Selecting Pad: GPIO_AD_B0_12 for Mode: ALT1"]
+            pub const GPIO_AD_B0_12_ALT1: u32 = 0x01;
         }
     }
 }
