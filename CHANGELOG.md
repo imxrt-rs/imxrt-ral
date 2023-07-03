@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.1] 2023-07-03
+
 *Deprecated* The following items will be renamed in the next breaking release:
 
 | Deprecated item | New item             | Notes                          |
@@ -160,6 +162,7 @@ This release also removes mention of 'stm32ral' in the API documentation.
 Initial build and release of imxrt family of peripheral access crates
 
 [Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.0...HEAD
+[0.5.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.4...0.5.0
 [0.4.4]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.2...0.4.3
