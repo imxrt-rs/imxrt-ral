@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["GPIO_SEL"]};
+window.SIDEBAR_ITEMS = {"mod":["GPIO_MUX1_GPIO_SEL"]};

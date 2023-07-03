@@ -7739,8 +7739,8 @@
 }
 <span class="attr">#[doc = <span class="string">&quot;GPR26 General Purpose Register&quot;</span>]
 </span><span class="kw">pub mod </span>GPR26 {
-    <span class="attr">#[doc = <span class="string">&quot;Select GPIO1 or GPIO2&quot;</span>]
-    </span><span class="kw">pub mod </span>GPIO_SEL {
+    <span class="attr">#[doc = <span class="string">&quot;GPIO1 and GPIO6 share same IO MUX function, GPIO_MUX1 selects one GPIO function.&quot;</span>]
+    </span><span class="kw">pub mod </span>GPIO_MUX1_GPIO_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
