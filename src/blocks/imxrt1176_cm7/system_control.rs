@@ -1176,19 +1176,6 @@ pub mod HFSR {
             pub const FORCED_1: u32 = 0x01;
         }
     }
-    #[doc = "Reserved for Debug use. When writing to the register you must write 0 to this bit, otherwise behavior is Unpredictable."]
-    pub mod DEBUGEVT {
-        pub const offset: u32 = 31;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {
-            #[doc = "No Debug event has occurred."]
-            pub const DEBUGEVT_0: u32 = 0;
-            #[doc = "Debug event has occurred. The Debug Fault Status Register has been updated."]
-            pub const DEBUGEVT_1: u32 = 0x01;
-        }
-    }
 }
 #[doc = "Debug Fault Status Register"]
 pub mod DFSR {

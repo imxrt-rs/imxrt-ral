@@ -60,14 +60,6 @@ pub struct RegisterBlock {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD {
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
@@ -88,14 +80,6 @@ pub mod PWD {
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -128,14 +112,6 @@ pub mod PWD {
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -143,14 +119,6 @@ pub mod PWD {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD_SET {
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
@@ -171,14 +139,6 @@ pub mod PWD_SET {
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -211,14 +171,6 @@ pub mod PWD_SET {
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -226,14 +178,6 @@ pub mod PWD_SET {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD_CLR {
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
@@ -254,14 +198,6 @@ pub mod PWD_CLR {
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -294,14 +230,6 @@ pub mod PWD_CLR {
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -309,14 +237,6 @@ pub mod PWD_CLR {
 }
 #[doc = "USB PHY Power-Down Register"]
 pub mod PWD_TOG {
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x03ff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
@@ -337,14 +257,6 @@ pub mod PWD_TOG {
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -377,14 +289,6 @@ pub mod PWD_TOG {
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -400,25 +304,9 @@ pub mod TX {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 4;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Decode to select a 45-Ohm resistance to the USB_DN output pin"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
@@ -432,25 +320,9 @@ pub mod TX {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 20;
-        pub const mask: u32 = 0x3f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Controls the edge-rate of the current sensing transistors used in HS transmit"]
     pub mod USBPHY_TX_EDGECTRL {
         pub const offset: u32 = 26;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD5 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
@@ -467,25 +339,9 @@ pub mod TX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 4;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Decode to select a 45-Ohm resistance to the USB_DN output pin"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
@@ -499,25 +355,9 @@ pub mod TX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 20;
-        pub const mask: u32 = 0x3f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Controls the edge-rate of the current sensing transistors used in HS transmit"]
     pub mod USBPHY_TX_EDGECTRL {
         pub const offset: u32 = 26;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD5 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
@@ -534,25 +374,9 @@ pub mod TX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 4;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Decode to select a 45-Ohm resistance to the USB_DN output pin"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
@@ -566,25 +390,9 @@ pub mod TX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 20;
-        pub const mask: u32 = 0x3f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Controls the edge-rate of the current sensing transistors used in HS transmit"]
     pub mod USBPHY_TX_EDGECTRL {
         pub const offset: u32 = 26;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD5 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
@@ -601,25 +409,9 @@ pub mod TX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 4;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Decode to select a 45-Ohm resistance to the USB_DN output pin"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
@@ -633,25 +425,9 @@ pub mod TX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 20;
-        pub const mask: u32 = 0x3f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Controls the edge-rate of the current sensing transistors used in HS transmit"]
     pub mod USBPHY_TX_EDGECTRL {
         pub const offset: u32 = 26;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD5 {
-        pub const offset: u32 = 29;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
@@ -668,14 +444,6 @@ pub mod RX {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 3;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
@@ -684,26 +452,10 @@ pub mod RX {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 7;
-        pub const mask: u32 = 0x7fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 23;
-        pub const mask: u32 = 0x01ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -719,14 +471,6 @@ pub mod RX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 3;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
@@ -735,26 +479,10 @@ pub mod RX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 7;
-        pub const mask: u32 = 0x7fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 23;
-        pub const mask: u32 = 0x01ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -770,14 +498,6 @@ pub mod RX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 3;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
@@ -786,26 +506,10 @@ pub mod RX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 7;
-        pub const mask: u32 = 0x7fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 23;
-        pub const mask: u32 = 0x01ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -821,14 +525,6 @@ pub mod RX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 3;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
@@ -837,26 +533,10 @@ pub mod RX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 7;
-        pub const mask: u32 = 0x7fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "0 = Normal operation"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 23;
-        pub const mask: u32 = 0x01ff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1060,14 +740,6 @@ pub mod CTRL {
     pub mod FSDLL_RST_EN {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 25;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1315,14 +987,6 @@ pub mod CTRL_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 25;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Almost same as OTGID_STATUS in USBPHYx_STATUS Register"]
     pub mod OTG_ID_VALUE {
         pub const offset: u32 = 27;
@@ -1562,14 +1226,6 @@ pub mod CTRL_CLR {
     pub mod FSDLL_RST_EN {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 25;
-        pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1817,14 +1473,6 @@ pub mod CTRL_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 25;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Almost same as OTGID_STATUS in USBPHYx_STATUS Register"]
     pub mod OTG_ID_VALUE {
         pub const offset: u32 = 27;
@@ -1868,14 +1516,6 @@ pub mod CTRL_TOG {
 }
 #[doc = "USB PHY Status Register"]
 pub mod STATUS {
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates that the device has disconnected while in high-speed host mode."]
     pub mod HOSTDISCONDETECT_STATUS {
         pub const offset: u32 = 3;
@@ -1884,25 +1524,9 @@ pub mod STATUS {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 4;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates that the device has been connected on the USB_DP and USB_DM lines."]
     pub mod DEVPLUGIN_STATUS {
         pub const offset: u32 = 6;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -1916,26 +1540,10 @@ pub mod STATUS {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 9;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Indicates that the host is sending a wake-up after suspend and has triggered an interrupt."]
     pub mod RESUME_STATUS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD4 {
-        pub const offset: u32 = 11;
-        pub const mask: u32 = 0x001f_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1975,14 +1583,6 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
@@ -1999,26 +1599,10 @@ pub mod DEBUG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2050,14 +1634,6 @@ pub mod DEBUG {
     #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -2098,14 +1674,6 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
@@ -2122,26 +1690,10 @@ pub mod DEBUG_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2173,14 +1725,6 @@ pub mod DEBUG_SET {
     #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -2221,14 +1765,6 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
@@ -2245,26 +1781,10 @@ pub mod DEBUG_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2296,14 +1816,6 @@ pub mod DEBUG_CLR {
     #[doc = "Gate Test Clocks"]
     pub mod CLKGATE {
         pub const offset: u32 = 30;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
@@ -2344,14 +1856,6 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 6;
-        pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the end of transmit to the beginning of receive"]
     pub mod TX2RXCOUNT {
         pub const offset: u32 = 8;
@@ -2368,26 +1872,10 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 13;
-        pub const mask: u32 = 0x07 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay in between the detection of squelch to the reset of high-speed RX."]
     pub mod SQUELCHRESETCOUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD2 {
-        pub const offset: u32 = 21;
-        pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2424,14 +1912,6 @@ pub mod DEBUG_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved."]
-    pub mod RSVD3 {
-        pub const offset: u32 = 31;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "UTMI Debug Status Register 0"]
 pub mod DEBUG0_STATUS {
@@ -2462,26 +1942,10 @@ pub mod DEBUG0_STATUS {
 }
 #[doc = "UTMI Debug Status Register 1"]
 pub mod DEBUG1 {
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay increment of the rise of squelch: 00 = Delay is nominal 01 = Delay is +20% 10 = Delay is -20% 11 = Delay is -40%"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 15;
-        pub const mask: u32 = 0x0001_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2489,26 +1953,10 @@ pub mod DEBUG1 {
 }
 #[doc = "UTMI Debug Status Register 1"]
 pub mod DEBUG1_SET {
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay increment of the rise of squelch: 00 = Delay is nominal 01 = Delay is +20% 10 = Delay is -20% 11 = Delay is -40%"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 15;
-        pub const mask: u32 = 0x0001_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2516,26 +1964,10 @@ pub mod DEBUG1_SET {
 }
 #[doc = "UTMI Debug Status Register 1"]
 pub mod DEBUG1_CLR {
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay increment of the rise of squelch: 00 = Delay is nominal 01 = Delay is +20% 10 = Delay is -20% 11 = Delay is -40%"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 15;
-        pub const mask: u32 = 0x0001_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2543,26 +1975,10 @@ pub mod DEBUG1_CLR {
 }
 #[doc = "UTMI Debug Status Register 1"]
 pub mod DEBUG1_TOG {
-    #[doc = "Reserved. Note: This bit should remain clear."]
-    pub mod RSVD0 {
-        pub const offset: u32 = 0;
-        pub const mask: u32 = 0x1fff << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Delay increment of the rise of squelch: 00 = Delay is nominal 01 = Delay is +20% 10 = Delay is -20% 11 = Delay is -40%"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved."]
-    pub mod RSVD1 {
-        pub const offset: u32 = 15;
-        pub const mask: u32 = 0x0001_ffff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}

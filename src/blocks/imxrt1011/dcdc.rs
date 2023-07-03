@@ -333,14 +333,6 @@ pub mod REG3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod MISC_DISABLEFET_LOGIC {
-        pub const offset: u32 = 28;
-        pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
     #[doc = "Disable stepping for the output VDD_SOC of DCDC"]
     pub mod DISABLE_STEP {
         pub const offset: u32 = 30;

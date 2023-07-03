@@ -1,6 +1,7 @@
 //! Helper types to combine and consolidate IRs across devices.
 
 use crate::ir;
+use regex::Regex;
 use serde::{Deserialize, Serialize};
 use std::{
     cmp::Ordering,
@@ -103,6 +104,30 @@ where
     }
 }
 
+/// Equivalence adapter for checking paths against a set of regexes.
+///
+/// If there's a regex match, the element is deemed "never equivalent".
+/// This check happens before calling the wrapped equivalence.
+struct PathExcluded<'a, Equiv> {
+    exclusions: &'a [Regex],
+    equiv: Equiv,
+}
+
+impl<Equiv, E> Equivalence<E> for PathExcluded<'_, Equiv>
+where
+    Equiv: Equivalence<E>,
+{
+    fn compare(&self, left: CompareIr<E>, right: CompareIr<E>, path: IrPath) -> bool {
+        for exclusion in self.exclusions {
+            if exclusion.is_match(path) {
+                return false;
+            }
+        }
+
+        self.equiv.compare(left, right, path)
+    }
+}
+
 /// Ensure the items in two, possibly non-sorted contiguous
 /// collections are equivalent.
 fn equivalent_slices<E>(xs: &[E], ys: &[E], equiv: impl Fn(&E, &E) -> bool) -> bool {
@@ -124,7 +149,8 @@ fn equivalent_options<E>(
 
 #[derive(Clone, Copy)]
 struct EquivalentEnums<'a> {
-    peripherals: &'a HashSet<String>,
+    names: &'a HashSet<String>,
+    descs: &'a HashSet<String>,
 }
 
 impl Equivalence<ir::Enum> for EquivalentEnums<'_> {
@@ -134,10 +160,13 @@ impl Equivalence<ir::Enum> for EquivalentEnums<'_> {
         CompareIr { elem: b, .. }: CompareIr<ir::Enum>,
         path: IrPath,
     ) -> bool {
-        let assert_name_equivalence = self.peripherals.contains(peripheral_part(path));
+        let assert_name_equivalence = self.names.contains(peripheral_part(path));
+        let assert_desc_equivalence = self.descs.contains(peripheral_part(path));
         a.bit_size == b.bit_size
             && equivalent_slices(&a.variants, &b.variants, |q, r| {
-                q.value == r.value && (!assert_name_equivalence || q.name == r.name)
+                q.value == r.value
+                    && (!assert_name_equivalence || q.name == r.name)
+                    && (!assert_desc_equivalence || q.description == r.description)
             })
     }
 }
@@ -317,15 +346,45 @@ pub struct IrVersions<'ir> {
 impl<'ir> IrVersions<'ir> {
     /// Define versions of IR elements from the collection of IRs.
     pub fn from_irs(irs: &'ir [ir::IR], config: &Config) -> Self {
+        let exclusions: Vec<_> = config
+            .never_combine
+            .iter()
+            .map(|path| Regex::new(&path).unwrap())
+            .collect();
+        let exclusions = &exclusions;
+
         let enums = EquivalentEnums {
-            peripherals: &config.strict_enum_names,
+            names: &config.strict_enum_names,
+            descs: &config.strict_enum_descs,
         };
         let fieldsets = EquivalentFieldSets { enums };
         let blocks = EquivalentBlocks { fieldsets };
+
         Self {
-            enums: VersionLookup::from_irs(enums, irs, |ir| &ir.enums),
-            fieldsets: VersionLookup::from_irs(fieldsets, irs, |ir| &ir.fieldsets),
-            blocks: VersionLookup::from_irs(blocks, irs, |ir| &ir.blocks),
+            enums: VersionLookup::from_irs(
+                PathExcluded {
+                    exclusions,
+                    equiv: enums,
+                },
+                irs,
+                |ir| &ir.enums,
+            ),
+            fieldsets: VersionLookup::from_irs(
+                PathExcluded {
+                    exclusions,
+                    equiv: fieldsets,
+                },
+                irs,
+                |ir| &ir.fieldsets,
+            ),
+            blocks: VersionLookup::from_irs(
+                PathExcluded {
+                    exclusions,
+                    equiv: blocks,
+                },
+                irs,
+                |ir| &ir.blocks,
+            ),
         }
     }
     /// Access an enum version that corresponds to this IR.
@@ -372,6 +431,8 @@ type RefMap<'a, K, V> = HashMap<RefHash<'a, K>, V>;
 #[derive(Default)]
 pub struct Config {
     strict_enum_names: HashSet<String>,
+    strict_enum_descs: HashSet<String>,
+    never_combine: HashSet<String>,
 }
 
 /// Combine all IRs into a single IR.
@@ -537,6 +598,18 @@ pub enum Combine {
     /// always safe to add to this list; however, it means there may be more
     /// code generated.
     StrictEnumNames(Vec<String>),
+    /// The list of peripheral names that require strict enum description
+    /// checks.
+    ///
+    /// This is even stricter than [`StrictEnumNames`], since it asserts
+    /// equal descriptions (human-readable descriptions) for each enum variant.
+    StrictEnumDescs(Vec<String>),
+    /// The list of patterns (regex string) to never combine.
+    ///
+    /// You should design patterns to the IR path names. Note that, unlike
+    /// transform regexes, these do not implicitly match only starting
+    /// characters.
+    NeverCombine(Vec<String>),
 }
 
 impl<I> From<I> for Config
@@ -550,6 +623,12 @@ where
             match combine {
                 Combine::StrictEnumNames(peripherals) => {
                     config.strict_enum_names.extend(peripherals);
+                }
+                Combine::StrictEnumDescs(peripherals) => {
+                    config.strict_enum_descs.extend(peripherals);
+                }
+                Combine::NeverCombine(paths) => {
+                    config.never_combine.extend(paths);
                 }
             }
         }

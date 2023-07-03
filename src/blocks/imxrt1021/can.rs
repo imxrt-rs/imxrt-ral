@@ -1677,14 +1677,6 @@ pub mod CS0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 0 ID Register"]
 pub mod ID0 {
@@ -1821,14 +1813,6 @@ pub mod CS1 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1973,14 +1957,6 @@ pub mod CS2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 2 ID Register"]
 pub mod ID2 {
@@ -2117,14 +2093,6 @@ pub mod CS3 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2269,14 +2237,6 @@ pub mod CS4 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 4 ID Register"]
 pub mod ID4 {
@@ -2413,14 +2373,6 @@ pub mod CS5 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2565,14 +2517,6 @@ pub mod CS6 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 6 ID Register"]
 pub mod ID6 {
@@ -2709,14 +2653,6 @@ pub mod CS7 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -2861,14 +2797,6 @@ pub mod CS8 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 8 ID Register"]
 pub mod ID8 {
@@ -3005,14 +2933,6 @@ pub mod CS9 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -3157,14 +3077,6 @@ pub mod CS10 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 10 ID Register"]
 pub mod ID10 {
@@ -3301,14 +3213,6 @@ pub mod CS11 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -3453,14 +3357,6 @@ pub mod CS12 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 12 ID Register"]
 pub mod ID12 {
@@ -3597,14 +3493,6 @@ pub mod CS13 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -3749,14 +3637,6 @@ pub mod CS14 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 14 ID Register"]
 pub mod ID14 {
@@ -3893,14 +3773,6 @@ pub mod CS15 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -4045,14 +3917,6 @@ pub mod CS16 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 16 ID Register"]
 pub mod ID16 {
@@ -4189,14 +4053,6 @@ pub mod CS17 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -4341,14 +4197,6 @@ pub mod CS18 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 18 ID Register"]
 pub mod ID18 {
@@ -4485,14 +4333,6 @@ pub mod CS19 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -4637,14 +4477,6 @@ pub mod CS20 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 20 ID Register"]
 pub mod ID20 {
@@ -4781,14 +4613,6 @@ pub mod CS21 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -4933,14 +4757,6 @@ pub mod CS22 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 22 ID Register"]
 pub mod ID22 {
@@ -5077,14 +4893,6 @@ pub mod CS23 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -5229,14 +5037,6 @@ pub mod CS24 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 24 ID Register"]
 pub mod ID24 {
@@ -5373,14 +5173,6 @@ pub mod CS25 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -5525,14 +5317,6 @@ pub mod CS26 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 26 ID Register"]
 pub mod ID26 {
@@ -5669,14 +5453,6 @@ pub mod CS27 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -5821,14 +5597,6 @@ pub mod CS28 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 28 ID Register"]
 pub mod ID28 {
@@ -5965,14 +5733,6 @@ pub mod CS29 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -6117,14 +5877,6 @@ pub mod CS30 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 30 ID Register"]
 pub mod ID30 {
@@ -6261,14 +6013,6 @@ pub mod CS31 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -6413,14 +6157,6 @@ pub mod CS32 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 32 ID Register"]
 pub mod ID32 {
@@ -6557,14 +6293,6 @@ pub mod CS33 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -6709,14 +6437,6 @@ pub mod CS34 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 34 ID Register"]
 pub mod ID34 {
@@ -6853,14 +6573,6 @@ pub mod CS35 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -7005,14 +6717,6 @@ pub mod CS36 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 36 ID Register"]
 pub mod ID36 {
@@ -7149,14 +6853,6 @@ pub mod CS37 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -7301,14 +6997,6 @@ pub mod CS38 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 38 ID Register"]
 pub mod ID38 {
@@ -7445,14 +7133,6 @@ pub mod CS39 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -7597,14 +7277,6 @@ pub mod CS40 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 40 ID Register"]
 pub mod ID40 {
@@ -7741,14 +7413,6 @@ pub mod CS41 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -7893,14 +7557,6 @@ pub mod CS42 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 42 ID Register"]
 pub mod ID42 {
@@ -8037,14 +7693,6 @@ pub mod CS43 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -8189,14 +7837,6 @@ pub mod CS44 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 44 ID Register"]
 pub mod ID44 {
@@ -8333,14 +7973,6 @@ pub mod CS45 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -8485,14 +8117,6 @@ pub mod CS46 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 46 ID Register"]
 pub mod ID46 {
@@ -8629,14 +8253,6 @@ pub mod CS47 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -8781,14 +8397,6 @@ pub mod CS48 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 48 ID Register"]
 pub mod ID48 {
@@ -8925,14 +8533,6 @@ pub mod CS49 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -9077,14 +8677,6 @@ pub mod CS50 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 50 ID Register"]
 pub mod ID50 {
@@ -9221,14 +8813,6 @@ pub mod CS51 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -9373,14 +8957,6 @@ pub mod CS52 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 52 ID Register"]
 pub mod ID52 {
@@ -9517,14 +9093,6 @@ pub mod CS53 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -9669,14 +9237,6 @@ pub mod CS54 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 54 ID Register"]
 pub mod ID54 {
@@ -9813,14 +9373,6 @@ pub mod CS55 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -9965,14 +9517,6 @@ pub mod CS56 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 56 ID Register"]
 pub mod ID56 {
@@ -10109,14 +9653,6 @@ pub mod CS57 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -10261,14 +9797,6 @@ pub mod CS58 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 58 ID Register"]
 pub mod ID58 {
@@ -10405,14 +9933,6 @@ pub mod CS59 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -10557,14 +10077,6 @@ pub mod CS60 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 60 ID Register"]
 pub mod ID60 {
@@ -10701,14 +10213,6 @@ pub mod CS61 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -10853,14 +10357,6 @@ pub mod CS62 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
 }
 #[doc = "Message Buffer 62 ID Register"]
 pub mod ID62 {
@@ -10997,14 +10493,6 @@ pub mod CS63 {
     pub mod SRR {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
-        pub mod R {}
-        pub mod W {}
-        pub mod RW {}
-    }
-    #[doc = "Reserved"]
-    pub mod CODE {
-        pub const offset: u32 = 24;
-        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
