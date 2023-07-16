@@ -8,3 +8,4 @@ _include:
   - "common_patches/xbara.yaml"
   - "common_patches/instance_renames.yaml"
   - "common_patches/flexio_106x.yaml"
+  - "common_patches/enc.yaml"

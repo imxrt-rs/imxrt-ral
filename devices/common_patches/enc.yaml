@@ -1,0 +1,9 @@
+# Add FILT_PRSC to ENCx FILT registers
+ENC*:
+  FILT:
+    _add:
+      FILT_PRSC:
+        description: "Clock prescaler value"
+        bitOffset: 13
+        bitWidth: 3
+        access: read-write
