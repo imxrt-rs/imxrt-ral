@@ -283,7 +283,7 @@ pub mod FILT {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "prescaler divide IPbus clock to FILT clk"]
+    #[doc = "Clock prescaler value"]
     pub mod FILT_PRSC {
         pub const offset: u16 = 13;
         pub const mask: u16 = 0x07 << offset;

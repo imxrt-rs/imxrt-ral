@@ -8,6 +8,8 @@ _include:
   - "common_patches/lpuart_ridmae.yaml"
   - "common_patches/pit.yaml"
   - "common_patches/xbara.yaml"
+  - "common_patches/enc.yaml"
+  - "common_patches/flexspi.yaml"
 
 # See rationale in imxrt1011.yaml
 _modify:

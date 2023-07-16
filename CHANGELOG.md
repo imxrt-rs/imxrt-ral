@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+Add missing register fields:
+
+- SERCLKDIV in FlexSPI MCR0.
+- FILT_PRSC in ENC FILT.
+
 ## [0.5.1] 2023-07-03
 
 *Deprecated* The following items will be renamed in the next breaking release:
