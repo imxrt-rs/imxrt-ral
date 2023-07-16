@@ -5,7 +5,7 @@ FLEXSPI*:
       SERCLKDIV: 
         description: serial root clock divisor
         bitOffset: 8
-        bitWidth: 10
+        bitWidth: 3
         access: read-write 
     SERCLKDIV: 
       SERCLKDIV_0: [0b000, "Divided by 1"]
