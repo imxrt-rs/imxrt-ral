@@ -30,6 +30,11 @@ and correct the documentation.
 **BREAKING** Correct the name, documentation of the SNVS.LPCR field "LVD_EN" on
 the 1176.
 
+Add missing register fields:
+
+- SERCLKDIV in FlexSPI MCR0.
+- FILT_PRSC in ENC FILT.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature

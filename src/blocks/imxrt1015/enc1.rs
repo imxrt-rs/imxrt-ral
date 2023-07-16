@@ -271,6 +271,14 @@ pub mod FILT {
         pub mod W {}
         pub mod RW {}
     }
+    #[doc = "Clock prescaler value"]
+    pub mod FILT_PRSC {
+        pub const offset: u16 = 13;
+        pub const mask: u16 = 0x07 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {}
+    }
 }
 #[doc = "Watchdog Timeout Register"]
 pub mod WTR {
