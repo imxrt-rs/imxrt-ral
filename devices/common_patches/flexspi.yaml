@@ -1,13 +1,13 @@
-# Add SERCLKDIV to FLEXSPIx MCR0 registers 
-FLEXSPI*: 
-  MCR0: 
-    _add: 
-      SERCLKDIV: 
+# Add SERCLKDIV to FLEXSPIx MCR0 registers
+FLEXSPI*:
+  MCR0:
+    _add:
+      SERCLKDIV:
         description: serial root clock divisor
         bitOffset: 8
         bitWidth: 3
-        access: read-write 
-    SERCLKDIV: 
+        access: read-write
+    SERCLKDIV:
       SERCLKDIV_0: [0b000, "Divided by 1"]
       SERCLKDIV_1: [0b001, "Divided by 2"]
       SERCLKDIV_2: [0b010, "Divided by 3"]
