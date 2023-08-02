@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["FILT_CNT","FILT_PER"]};
+window.SIDEBAR_ITEMS = {"mod":["FILT_CNT","FILT_PER","FILT_PRSC"]};
