@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.2] 2023-08-02
+
 Add missing register fields:
 
 - SERCLKDIV in FlexSPI MCR0.
@@ -167,6 +169,7 @@ This release also removes mention of 'stm32ral' in the API documentation.
 Initial build and release of imxrt family of peripheral access crates
 
 [Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.0...HEAD
+[0.5.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.1...0.5.2
 [0.5.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.4...0.5.0
 [0.4.4]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.3...0.4.4
