@@ -20,8 +20,8 @@ jobs:
         with:
           command: install
           args: svdtools --version=0.2.8
-      - name: Generate RAL
-        run: make ci
+      - name: Remove generated RAL sources, then regenerate the RAL
+        run: rm -rf src/imxrt* src/blocks && make ci
       - name: Ensure RAL is consistent with checked-in code
         run: git update-index --refresh && git diff-index --quiet HEAD
       - name: Check format for RAL
