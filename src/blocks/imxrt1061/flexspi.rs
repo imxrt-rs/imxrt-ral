@@ -136,6 +136,31 @@ pub mod MCR0 {
             pub const ATDFEN_1: u32 = 0x01;
         }
     }
+    #[doc = "The serial root clock could be divided inside FlexSPI . Refer Clocks chapter for more details on clocking."]
+    pub mod SERCLKDIV {
+        pub const offset: u32 = 8;
+        pub const mask: u32 = 0x07 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {
+            #[doc = "Divided by 1"]
+            pub const SERCLKDIV_0: u32 = 0;
+            #[doc = "Divided by 2"]
+            pub const SERCLKDIV_1: u32 = 0x01;
+            #[doc = "Divided by 3"]
+            pub const SERCLKDIV_2: u32 = 0x02;
+            #[doc = "Divided by 4"]
+            pub const SERCLKDIV_3: u32 = 0x03;
+            #[doc = "Divided by 5"]
+            pub const SERCLKDIV_4: u32 = 0x04;
+            #[doc = "Divided by 6"]
+            pub const SERCLKDIV_5: u32 = 0x05;
+            #[doc = "Divided by 7"]
+            pub const SERCLKDIV_6: u32 = 0x06;
+            #[doc = "Divided by 8"]
+            pub const SERCLKDIV_7: u32 = 0x07;
+        }
+    }
     #[doc = "Half Speed Serial Flash access Enable."]
     pub mod HSEN {
         pub const offset: u32 = 11;
@@ -162,7 +187,7 @@ pub mod MCR0 {
             pub const DOZEEN_1: u32 = 0x01;
         }
     }
-    #[doc = "This bit is to support Flash Octal mode access by combining Port A and B Data pins (SIOA\\[3:0\\] and SIOB\\[3:0\\])."]
+    #[doc = "This bit is to support Flash Octal mode access by combining Port A and B Data pins (A_DATA\\[3:0\\] and B_DATA\\[3:0\\])."]
     pub mod COMBINATIONEN {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -175,7 +200,7 @@ pub mod MCR0 {
             pub const COMBINATIONEN_1: u32 = 0x01;
         }
     }
-    #[doc = "This bit is used to force SCK output free-running. For FPGA applications, external device may use SCK clock as reference clock to its internal PLL. If SCK free-running is enabled, data sampling with loopback clock from SCK pad is not supported (MCR0\\[RXCLKSRC\\]=2)."]
+    #[doc = "This bit is used to force SCLK output free-running. For FPGA applications, external device may use SCLK as reference clock to its internal PLL. If SCLK free-running is enabled, data sampling with loopback clock from SCLK pad is not supported (MCR0\\[RXCLKSRC\\]=2)."]
     pub mod SCKFREERUNEN {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
