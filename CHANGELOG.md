@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+Exclude the interrupt vector table when we're building for a target with an
+operating system. This ensures you can build imxrt-ral in different contexts,
+like build scripts.
+
 ## [0.5.2] 2023-08-02
 
 Add missing register fields:
