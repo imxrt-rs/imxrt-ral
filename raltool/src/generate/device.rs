@@ -200,7 +200,7 @@ name."#
             }
         }
 
-        #[cfg(feature = "rt")]
+        #[cfg(all(feature = "rt", target_os = "none"))]
         mod _vectors {
             extern "C" {
                 #(fn #names();)*

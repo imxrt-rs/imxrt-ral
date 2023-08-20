@@ -188,7 +188,7 @@ unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
         self as u16
     }
 }
-#[cfg(feature = "rt")]
+#[cfg(all(feature = "rt", target_os = "none"))]
 mod _vectors {
     extern "C" {
         fn DMA0_DMA16();

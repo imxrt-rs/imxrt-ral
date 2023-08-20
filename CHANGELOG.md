@@ -35,6 +35,10 @@ Add missing register fields:
 - SERCLKDIV in FlexSPI MCR0.
 - FILT_PRSC in ENC FILT.
 
+Exclude the interrupt vector table when we're building for a target with an
+operating system. This ensures you can build imxrt-ral in different contexts,
+like build scripts.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature
