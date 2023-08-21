@@ -1,3 +1,3 @@
 (function() {var implementors = {
-"imxrt_ral":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.71.0/core/cmp/trait.PartialEq.html\" title=\"trait core::cmp::PartialEq\">PartialEq</a>&lt;<a class=\"enum\" href=\"imxrt_ral/enum.Interrupt.html\" title=\"enum imxrt_ral::Interrupt\">Interrupt</a>&gt; for <a class=\"enum\" href=\"imxrt_ral/enum.Interrupt.html\" title=\"enum imxrt_ral::Interrupt\">Interrupt</a>"]]
+"imxrt_ral":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.71.1/core/cmp/trait.PartialEq.html\" title=\"trait core::cmp::PartialEq\">PartialEq</a>&lt;<a class=\"enum\" href=\"imxrt_ral/enum.Interrupt.html\" title=\"enum imxrt_ral::Interrupt\">Interrupt</a>&gt; for <a class=\"enum\" href=\"imxrt_ral/enum.Interrupt.html\" title=\"enum imxrt_ral::Interrupt\">Interrupt</a>"]]
 };if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
