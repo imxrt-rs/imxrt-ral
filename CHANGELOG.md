@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.3] 2023-08-21
+
 Exclude the interrupt vector table when we're building for a target with an
 operating system. This ensures you can build imxrt-ral in different contexts,
 like build scripts.
@@ -173,6 +175,7 @@ This release also removes mention of 'stm32ral' in the API documentation.
 Initial build and release of imxrt family of peripheral access crates
 
 [Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.0...HEAD
+[0.5.3]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.2...0.5.3
 [0.5.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.1...0.5.2
 [0.5.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/imxrt-rs/imxrt-ral/compare/0.4.4...0.5.0
