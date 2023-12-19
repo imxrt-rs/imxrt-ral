@@ -46,6 +46,12 @@ _add:
       size: 0x14
       usage: registers
 
+# SAI[2-4] should reuse the register block from SAI1
+_derive:
+  SAI2: SAI1
+  SAI3: SAI1
+  SAI4: SAI1
+
 # All of the directives below this comment are removing or simplifying
 # duplicated enumeratedValue fields in select register fields. These prevent
 # compilation due to duplicate symbols.

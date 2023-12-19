@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+**BREAKING** In the 1176 API, there is only one SAI module. All SAI instances,
+including those that only have a single channel, now appear to support multiple
+channels. The user is responsible for making sure their SAI instance can
+truly support multiple channels.
+
 **BREAKING** The `flexio1` module is now called `flexio` for the 1010,
 1015, and 1020 families.
 

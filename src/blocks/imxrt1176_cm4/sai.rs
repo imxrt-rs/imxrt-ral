@@ -18,11 +18,11 @@ pub struct RegisterBlock {
     #[doc = "Transmit Configuration 5"]
     pub TCR5: crate::RWRegister<u32>,
     #[doc = "Transmit Data"]
-    pub TDR0: crate::RWRegister<u32>,
-    _reserved0: [u8; 0x1c],
+    pub TDR: [crate::RWRegister<u32>; 4usize],
+    _reserved0: [u8; 0x10],
     #[doc = "Transmit FIFO"]
-    pub TFR0: crate::RORegister<u32>,
-    _reserved1: [u8; 0x1c],
+    pub TFR: [crate::RORegister<u32>; 4usize],
+    _reserved1: [u8; 0x10],
     #[doc = "Transmit Mask"]
     pub TMR: crate::RWRegister<u32>,
     _reserved2: [u8; 0x24],
@@ -39,11 +39,11 @@ pub struct RegisterBlock {
     #[doc = "Receive Configuration 5"]
     pub RCR5: crate::RWRegister<u32>,
     #[doc = "Receive Data"]
-    pub RDR0: crate::RORegister<u32>,
-    _reserved3: [u8; 0x1c],
+    pub RDR: [crate::RORegister<u32>; 4usize],
+    _reserved3: [u8; 0x10],
     #[doc = "Receive FIFO"]
-    pub RFR0: crate::RORegister<u32>,
-    _reserved4: [u8; 0x1c],
+    pub RFR: [crate::RORegister<u32>; 4usize],
+    _reserved4: [u8; 0x10],
     #[doc = "Receive Mask"]
     pub RMR: crate::RWRegister<u32>,
 }
@@ -471,7 +471,15 @@ pub mod TCR3 {
     #[doc = "Transmit Channel Enable"]
     pub mod TCE {
         pub const offset: u32 = 16;
-        pub const mask: u32 = 0x01 << offset;
+        pub const mask: u32 = 0x0f << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {}
+    }
+    #[doc = "Channel FIFO Reset"]
+    pub mod CFR {
+        pub const offset: u32 = 24;
+        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -588,6 +596,23 @@ pub mod TCR4 {
             pub const FPACK_3: u32 = 0x03;
         }
     }
+    #[doc = "FIFO Combine Mode"]
+    pub mod FCOMB {
+        pub const offset: u32 = 26;
+        pub const mask: u32 = 0x03 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {
+            #[doc = "FIFO combine mode disabled."]
+            pub const FCOMB_0: u32 = 0;
+            #[doc = "FIFO combine mode enabled on FIFO reads (from transmit shift registers)."]
+            pub const FCOMB_1: u32 = 0x01;
+            #[doc = "FIFO combine mode enabled on FIFO writes (by software)."]
+            pub const FCOMB_2: u32 = 0x02;
+            #[doc = "FIFO combine mode enabled on FIFO reads (from transmit shift registers) and writes (by software)."]
+            pub const FCOMB_3: u32 = 0x03;
+        }
+    }
     #[doc = "FIFO Continue on Error"]
     pub mod FCONT {
         pub const offset: u32 = 28;
@@ -630,7 +655,7 @@ pub mod TCR5 {
     }
 }
 #[doc = "Transmit Data"]
-pub mod TDR0 {
+pub mod TDR {
     #[doc = "Transmit Data Register"]
     pub mod TDR {
         pub const offset: u32 = 0;
@@ -641,7 +666,7 @@ pub mod TDR0 {
     }
 }
 #[doc = "Transmit FIFO"]
-pub mod TFR0 {
+pub mod TFR {
     #[doc = "Read FIFO Pointer"]
     pub mod RFP {
         pub const offset: u32 = 0;
@@ -657,6 +682,19 @@ pub mod TFR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {}
+    }
+    #[doc = "Write Channel Pointer"]
+    pub mod WCP {
+        pub const offset: u32 = 31;
+        pub const mask: u32 = 0x01 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {
+            #[doc = "No effect."]
+            pub const WCP_0: u32 = 0;
+            #[doc = "FIFO combine is enabled for FIFO writes and this FIFO will be written on the next FIFO write."]
+            pub const WCP_1: u32 = 0x01;
+        }
     }
 }
 #[doc = "Transmit Mask"]
@@ -1042,7 +1080,15 @@ pub mod RCR3 {
     #[doc = "Receive Channel Enable"]
     pub mod RCE {
         pub const offset: u32 = 16;
-        pub const mask: u32 = 0x01 << offset;
+        pub const mask: u32 = 0x0f << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {}
+    }
+    #[doc = "Channel FIFO Reset"]
+    pub mod CFR {
+        pub const offset: u32 = 24;
+        pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -1146,6 +1192,23 @@ pub mod RCR4 {
             pub const FPACK_3: u32 = 0x03;
         }
     }
+    #[doc = "FIFO Combine Mode"]
+    pub mod FCOMB {
+        pub const offset: u32 = 26;
+        pub const mask: u32 = 0x03 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {
+            #[doc = "FIFO combine mode disabled."]
+            pub const FCOMB_0: u32 = 0;
+            #[doc = "FIFO combine mode enabled on FIFO writes (from receive shift registers)."]
+            pub const FCOMB_1: u32 = 0x01;
+            #[doc = "FIFO combine mode enabled on FIFO reads (by software)."]
+            pub const FCOMB_2: u32 = 0x02;
+            #[doc = "FIFO combine mode enabled on FIFO writes (from receive shift registers) and reads (by software)."]
+            pub const FCOMB_3: u32 = 0x03;
+        }
+    }
     #[doc = "FIFO Continue on Error"]
     pub mod FCONT {
         pub const offset: u32 = 28;
@@ -1188,7 +1251,7 @@ pub mod RCR5 {
     }
 }
 #[doc = "Receive Data"]
-pub mod RDR0 {
+pub mod RDR {
     #[doc = "Receive Data Register"]
     pub mod RDR {
         pub const offset: u32 = 0;
@@ -1199,7 +1262,7 @@ pub mod RDR0 {
     }
 }
 #[doc = "Receive FIFO"]
-pub mod RFR0 {
+pub mod RFR {
     #[doc = "Read FIFO Pointer"]
     pub mod RFP {
         pub const offset: u32 = 0;
@@ -1207,6 +1270,19 @@ pub mod RFR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {}
+    }
+    #[doc = "Receive Channel Pointer"]
+    pub mod RCP {
+        pub const offset: u32 = 15;
+        pub const mask: u32 = 0x01 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {
+            #[doc = "No effect."]
+            pub const RCP_0: u32 = 0;
+            #[doc = "FIFO combine is enabled for FIFO reads and this FIFO will be read on the next FIFO read."]
+            pub const RCP_1: u32 = 0x01;
+        }
     }
     #[doc = "Write FIFO Pointer"]
     pub mod WFP {

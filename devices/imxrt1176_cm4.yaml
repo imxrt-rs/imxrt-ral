@@ -108,6 +108,9 @@ _derive:
   GPIO11: GPIO2
   GPIO12: GPIO2
   GPIO13: GPIO2
+  SAI2: SAI1
+  SAI3: SAI1
+  SAI4: SAI1
 
 # All of the directives below this comment are removing or simplifying
 # duplicated enumeratedValue fields in select register fields. These prevent

@@ -4563,6 +4563,8 @@ pub mod rtwdog {
 #[path = "."]
 pub mod sai {
     #[doc = "SAI"]
+    pub const SAI1: *const RegisterBlock = 0x4040_4000 as *const RegisterBlock;
+    #[doc = "SAI"]
     pub const SAI2: *const RegisterBlock = 0x4040_8000 as *const RegisterBlock;
     #[doc = "SAI"]
     pub const SAI3: *const RegisterBlock = 0x4040_c000 as *const RegisterBlock;
@@ -4572,6 +4574,20 @@ pub mod sai {
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
+    pub type SAI1 = Instance<1>;
+    impl crate::private::Sealed for SAI1 {}
+    impl crate::Valid for SAI1 {}
+    impl SAI1 {
+        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r""]
+        #[doc = r" # Safety"]
+        #[doc = r""]
+        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
+        #[inline]
+        pub const unsafe fn instance() -> Self {
+            Instance::new(SAI1)
+        }
+    }
     pub type SAI2 = Instance<2>;
     impl crate::private::Sealed for SAI2 {}
     impl crate::Valid for SAI2 {}
@@ -4616,37 +4632,10 @@ pub mod sai {
     }
     #[doc = r" Returns the instance number `N` for a peripheral instance."]
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        [(SAI2, 2), (SAI3, 3), (SAI4, 4)]
+        [(SAI1, 1), (SAI2, 2), (SAI3, 3), (SAI4, 4)]
             .into_iter()
             .find(|(ptr, _)| core::ptr::eq(rb, *ptr))
             .map(|(_, inst)| inst)
-    }
-}
-#[path = "."]
-pub mod sai1 {
-    #[doc = "SAI"]
-    pub const SAI1: *const RegisterBlock = 0x4040_4000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/sai1.rs"]
-    mod blocks;
-    pub use blocks::*;
-    pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type SAI1 = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for SAI1 {}
-    impl crate::Valid for SAI1 {}
-    impl SAI1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(SAI1)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, SAI1).then_some(0)
     }
 }
 #[path = "."]
@@ -5640,10 +5629,10 @@ pub struct Instances {
     pub RDC_SEMAPHORE2: rdc_semaphore::RDC_SEMAPHORE2,
     pub RTWDOG3: rtwdog::RTWDOG3,
     pub RTWDOG4: rtwdog::RTWDOG4,
+    pub SAI1: sai::SAI1,
     pub SAI2: sai::SAI2,
     pub SAI3: sai::SAI3,
     pub SAI4: sai::SAI4,
-    pub SAI1: sai1::SAI1,
     pub SEMA4: sema4::SEMA4,
     pub SEMC: semc::SEMC,
     pub SNVS: snvs::SNVS,
@@ -5845,10 +5834,10 @@ impl Instances {
             RDC_SEMAPHORE2: rdc_semaphore::RDC_SEMAPHORE2::instance(),
             RTWDOG3: rtwdog::RTWDOG3::instance(),
             RTWDOG4: rtwdog::RTWDOG4::instance(),
+            SAI1: sai::SAI1::instance(),
             SAI2: sai::SAI2::instance(),
             SAI3: sai::SAI3::instance(),
             SAI4: sai::SAI4::instance(),
-            SAI1: sai1::SAI1::instance(),
             SEMA4: sema4::SEMA4::instance(),
             SEMC: semc::SEMC::instance(),
             SNVS: snvs::SNVS::instance(),
