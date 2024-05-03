@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/kpp.rs`."><title>kpp.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/kpp.rs`."><title>kpp.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -168,160 +170,160 @@
 <a href="#168" id="168">168</a>
 <a href="#169" id="169">169</a>
 <a href="#170" id="170">170</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;KPP Registers&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"KPP Registers"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Control Register"</span>]
     </span><span class="kw">pub </span>KPCR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Status Register"</span>]
     </span><span class="kw">pub </span>KPSR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Data Direction Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Data Direction Register"</span>]
     </span><span class="kw">pub </span>KDDR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Data Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Data Register"</span>]
     </span><span class="kw">pub </span>KPDR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Keypad Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Keypad Control Register"</span>]
 </span><span class="kw">pub mod </span>KPCR {
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Row Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Row Enable"</span>]
     </span><span class="kw">pub mod </span>KRE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Row is not included in the keypad key press detect.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Row is not included in the keypad key press detect."</span>]
             </span><span class="kw">pub const </span>KRE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Row is included in the keypad key press detect.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Row is included in the keypad key press detect."</span>]
             </span><span class="kw">pub const </span>KRE_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Column Strobe Open-Drain Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Column Strobe Open-Drain Enable"</span>]
     </span><span class="kw">pub mod </span>KCO {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Column strobe output is totem pole drive.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Column strobe output is totem pole drive."</span>]
             </span><span class="kw">pub const </span>TOTEM_POLE: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Column strobe output is open drain.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Column strobe output is open drain."</span>]
             </span><span class="kw">pub const </span>OPEN_DRAIN: u16 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Keypad Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Keypad Status Register"</span>]
 </span><span class="kw">pub mod </span>KPSR {
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Key Depress&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Key Depress"</span>]
     </span><span class="kw">pub mod </span>KPKD {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No key presses detected&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No key presses detected"</span>]
             </span><span class="kw">pub const </span>KPKD_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;A key has been depressed&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"A key has been depressed"</span>]
             </span><span class="kw">pub const </span>KPKD_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Key Release&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Key Release"</span>]
     </span><span class="kw">pub mod </span>KPKR {
         <span class="kw">pub const </span>offset: u16 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No key release detected&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No key release detected"</span>]
             </span><span class="kw">pub const </span>KPKR_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;All keys have been released&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All keys have been released"</span>]
             </span><span class="kw">pub const </span>KPKR_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Key Depress Synchronizer Clear&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Key Depress Synchronizer Clear"</span>]
     </span><span class="kw">pub mod </span>KDSC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No effect&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No effect"</span>]
             </span><span class="kw">pub const </span>KDSC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Set bits that clear the keypad depress synchronizer chain&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Set bits that clear the keypad depress synchronizer chain"</span>]
             </span><span class="kw">pub const </span>KDSC_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Key Release Synchronizer Set&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Key Release Synchronizer Set"</span>]
     </span><span class="kw">pub mod </span>KRSS {
         <span class="kw">pub const </span>offset: u16 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No effect&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No effect"</span>]
             </span><span class="kw">pub const </span>KRSS_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Set bits which sets keypad release synchronizer chain&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Set bits which sets keypad release synchronizer chain"</span>]
             </span><span class="kw">pub const </span>KRSS_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Key Depress Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Key Depress Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>KDIE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No interrupt request is generated when KPKD is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No interrupt request is generated when KPKD is set."</span>]
             </span><span class="kw">pub const </span>KDIE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;An interrupt request is generated when KPKD is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"An interrupt request is generated when KPKD is set."</span>]
             </span><span class="kw">pub const </span>KDIE_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Release Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Release Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>KRIE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No interrupt request is generated when KPKR is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No interrupt request is generated when KPKR is set."</span>]
             </span><span class="kw">pub const </span>KRIE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;An interrupt request is generated when KPKR is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"An interrupt request is generated when KPKR is set."</span>]
             </span><span class="kw">pub const </span>KRIE_1: u16 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Keypad Data Direction Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Keypad Data Direction Register"</span>]
 </span><span class="kw">pub mod </span>KDDR {
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Row Data Direction&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Row Data Direction"</span>]
     </span><span class="kw">pub mod </span>KRDD {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;ROWn pin configured as an input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"ROWn pin configured as an input."</span>]
             </span><span class="kw">pub const </span>INPUT: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;ROWn pin configured as an output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"ROWn pin configured as an output."</span>]
             </span><span class="kw">pub const </span>OUTPUT: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Column Data Direction Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Column Data Direction Register"</span>]
     </span><span class="kw">pub mod </span>KCDD {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;COLn pin is configured as an input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"COLn pin is configured as an input."</span>]
             </span><span class="kw">pub const </span>INPUT: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;COLn pin is configured as an output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"COLn pin is configured as an output."</span>]
             </span><span class="kw">pub const </span>OUTPUT: u16 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Keypad Data Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Keypad Data Register"</span>]
 </span><span class="kw">pub mod </span>KPDR {
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Row Data&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Row Data"</span>]
     </span><span class="kw">pub mod </span>KRD {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -329,7 +331,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Keypad Column Data&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Keypad Column Data"</span>]
     </span><span class="kw">pub mod </span>KCD {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;

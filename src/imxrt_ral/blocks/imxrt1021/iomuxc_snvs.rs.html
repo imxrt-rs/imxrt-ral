@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1021/iomuxc_snvs.rs`."><title>iomuxc_snvs.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1021/iomuxc_snvs.rs`."><title>iomuxc_snvs.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -833,837 +835,837 @@
 <a href="#833" id="833">833</a>
 <a href="#834" id="834">834</a>
 <a href="#835" id="835">835</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;IOMUXC_SNVS&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"IOMUXC_SNVS"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;SW_MUX_CTL_PAD_WAKEUP SW MUX Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_MUX_CTL_PAD_WAKEUP SW MUX Control Register"</span>]
     </span><span class="kw">pub </span>SW_MUX_CTL_PAD_WAKEUP: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_MUX_CTL_PAD_PMIC_ON_REQ SW MUX Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_MUX_CTL_PAD_PMIC_ON_REQ SW MUX Control Register"</span>]
     </span><span class="kw">pub </span>SW_MUX_CTL_PAD_PMIC_ON_REQ: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_MUX_CTL_PAD_PMIC_STBY_REQ SW MUX Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_MUX_CTL_PAD_PMIC_STBY_REQ SW MUX Control Register"</span>]
     </span><span class="kw">pub </span>SW_MUX_CTL_PAD_PMIC_STBY_REQ: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_TEST_MODE SW PAD Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_TEST_MODE SW PAD Control Register"</span>]
     </span><span class="kw">pub </span>SW_PAD_CTL_PAD_TEST_MODE: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_POR_B SW PAD Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_POR_B SW PAD Control Register"</span>]
     </span><span class="kw">pub </span>SW_PAD_CTL_PAD_POR_B: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_ONOFF SW PAD Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_ONOFF SW PAD Control Register"</span>]
     </span><span class="kw">pub </span>SW_PAD_CTL_PAD_ONOFF: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_WAKEUP SW PAD Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_WAKEUP SW PAD Control Register"</span>]
     </span><span class="kw">pub </span>SW_PAD_CTL_PAD_WAKEUP: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_PMIC_ON_REQ SW PAD Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_PMIC_ON_REQ SW PAD Control Register"</span>]
     </span><span class="kw">pub </span>SW_PAD_CTL_PAD_PMIC_ON_REQ: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_PMIC_STBY_REQ SW PAD Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_PMIC_STBY_REQ SW PAD Control Register"</span>]
     </span><span class="kw">pub </span>SW_PAD_CTL_PAD_PMIC_STBY_REQ: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_MUX_CTL_PAD_WAKEUP SW MUX Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_MUX_CTL_PAD_WAKEUP SW MUX Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_MUX_CTL_PAD_WAKEUP {
-    <span class="attr">#[doc = <span class="string">&quot;MUX Mode Select Field.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MUX Mode Select Field."</span>]
     </span><span class="kw">pub mod </span>MUX_MODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Select mux mode: ALT5 mux port: GPIO5_IO00 of instance: gpio5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Select mux mode: ALT5 mux port: GPIO5_IO00 of instance: gpio5"</span>]
             </span><span class="kw">pub const </span>ALT5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Select mux mode: ALT7 mux port: NMI_GLUE_NMI of instance: nmi_glue&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Select mux mode: ALT7 mux port: NMI_GLUE_NMI of instance: nmi_glue"</span>]
             </span><span class="kw">pub const </span>ALT7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software Input On Field.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Input On Field."</span>]
     </span><span class="kw">pub mod </span>SION {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Input Path is determined by functionality&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input Path is determined by functionality"</span>]
             </span><span class="kw">pub const </span>DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force input path of pad WAKEUP&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force input path of pad WAKEUP"</span>]
             </span><span class="kw">pub const </span>ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_MUX_CTL_PAD_PMIC_ON_REQ SW MUX Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_MUX_CTL_PAD_PMIC_ON_REQ SW MUX Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_MUX_CTL_PAD_PMIC_ON_REQ {
-    <span class="attr">#[doc = <span class="string">&quot;MUX Mode Select Field.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MUX Mode Select Field."</span>]
     </span><span class="kw">pub mod </span>MUX_MODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: snvs_lp&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: snvs_lp"</span>]
             </span><span class="kw">pub const </span>ALT0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Select mux mode: ALT5 mux port: GPIO5_IO00 of instance: gpio5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Select mux mode: ALT5 mux port: GPIO5_IO00 of instance: gpio5"</span>]
             </span><span class="kw">pub const </span>ALT5: u32 = <span class="number">0x05</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software Input On Field.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Input On Field."</span>]
     </span><span class="kw">pub mod </span>SION {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Input Path is determined by functionality&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input Path is determined by functionality"</span>]
             </span><span class="kw">pub const </span>DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force input path of pad PMIC_ON_REQ&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force input path of pad PMIC_ON_REQ"</span>]
             </span><span class="kw">pub const </span>ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_MUX_CTL_PAD_PMIC_STBY_REQ SW MUX Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_MUX_CTL_PAD_PMIC_STBY_REQ SW MUX Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_MUX_CTL_PAD_PMIC_STBY_REQ {
-    <span class="attr">#[doc = <span class="string">&quot;MUX Mode Select Field.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MUX Mode Select Field."</span>]
     </span><span class="kw">pub mod </span>MUX_MODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Select mux mode: ALT0 mux port: CCM_PMIC_VSTBY_REQ of instance: ccm&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Select mux mode: ALT0 mux port: CCM_PMIC_VSTBY_REQ of instance: ccm"</span>]
             </span><span class="kw">pub const </span>ALT0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Select mux mode: ALT5 mux port: GPIO5_IO02 of instance: gpio5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Select mux mode: ALT5 mux port: GPIO5_IO02 of instance: gpio5"</span>]
             </span><span class="kw">pub const </span>ALT5: u32 = <span class="number">0x05</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software Input On Field.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Input On Field."</span>]
     </span><span class="kw">pub mod </span>SION {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Input Path is determined by functionality&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input Path is determined by functionality"</span>]
             </span><span class="kw">pub const </span>DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force input path of pad PMIC_STBY_REQ&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force input path of pad PMIC_STBY_REQ"</span>]
             </span><span class="kw">pub const </span>ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_TEST_MODE SW PAD Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_TEST_MODE SW PAD Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_PAD_CTL_PAD_TEST_MODE {
-    <span class="attr">#[doc = <span class="string">&quot;Slew Rate Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slew Rate Field"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Slow Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Slow Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_0_SLOW_SLEW_RATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Fast Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Fast Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_1_FAST_SLEW_RATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drive Strength Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drive Strength Field"</span>]
     </span><span class="kw">pub mod </span>DSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;output driver disabled;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"output driver disabled;"</span>]
             </span><span class="kw">pub const </span>DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)&quot;</span>]
-            </span><span class="kw">pub const </span>DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"</span>]
+            </span><span class="kw">pub const </span>DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = <span class="number">0x01</span>;
+            <span class="attr">#[doc = <span class="string">"R0/2"</span>]
             </span><span class="kw">pub const </span>DSE_2_R0_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/3"</span>]
             </span><span class="kw">pub const </span>DSE_3_R0_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/4"</span>]
             </span><span class="kw">pub const </span>DSE_4_R0_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/5"</span>]
             </span><span class="kw">pub const </span>DSE_5_R0_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/6"</span>]
             </span><span class="kw">pub const </span>DSE_6_R0_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/7"</span>]
             </span><span class="kw">pub const </span>DSE_7_R0_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Speed Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Speed Field"</span>]
     </span><span class="kw">pub mod </span>SPEED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;medium(100MHz)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"medium(100MHz)"</span>]
             </span><span class="kw">pub const </span>SPEED: u32 = <span class="number">0x02</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Open Drain Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Open Drain Enable Field"</span>]
     </span><span class="kw">pub mod </span>ODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Disabled"</span>]
             </span><span class="kw">pub const </span>ODE_0_OPEN_DRAIN_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Enabled"</span>]
             </span><span class="kw">pub const </span>ODE_1_OPEN_DRAIN_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Enable Field"</span>]
     </span><span class="kw">pub mod </span>PKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Disabled"</span>]
             </span><span class="kw">pub const </span>PKE_0_PULL_KEEPER_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Enabled"</span>]
             </span><span class="kw">pub const </span>PKE_1_PULL_KEEPER_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Select Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Select Field"</span>]
     </span><span class="kw">pub mod </span>PUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Keeper&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Keeper"</span>]
             </span><span class="kw">pub const </span>PUE_0_KEEPER: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull"</span>]
             </span><span class="kw">pub const </span>PUE_1_PULL: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull Up / Down Config. Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull Up / Down Config. Field"</span>]
     </span><span class="kw">pub mod </span>PUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Down&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Down"</span>]
             </span><span class="kw">pub const </span>PUS_0_100K_OHM_PULL_DOWN: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;47K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"47K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_1_47K_OHM_PULL_UP: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_2_100K_OHM_PULL_UP: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;22K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"22K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_3_22K_OHM_PULL_UP: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hyst. Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hyst. Enable Field"</span>]
     </span><span class="kw">pub mod </span>HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Disabled"</span>]
             </span><span class="kw">pub const </span>HYS_0_HYSTERESIS_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Enabled"</span>]
             </span><span class="kw">pub const </span>HYS_1_HYSTERESIS_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_POR_B SW PAD Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_POR_B SW PAD Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_PAD_CTL_PAD_POR_B {
-    <span class="attr">#[doc = <span class="string">&quot;Slew Rate Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slew Rate Field"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Slow Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Slow Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_0_SLOW_SLEW_RATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Fast Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Fast Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_1_FAST_SLEW_RATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drive Strength Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drive Strength Field"</span>]
     </span><span class="kw">pub mod </span>DSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;output driver disabled;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"output driver disabled;"</span>]
             </span><span class="kw">pub const </span>DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)&quot;</span>]
-            </span><span class="kw">pub const </span>DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"</span>]
+            </span><span class="kw">pub const </span>DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = <span class="number">0x01</span>;
+            <span class="attr">#[doc = <span class="string">"R0/2"</span>]
             </span><span class="kw">pub const </span>DSE_2_R0_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/3"</span>]
             </span><span class="kw">pub const </span>DSE_3_R0_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/4"</span>]
             </span><span class="kw">pub const </span>DSE_4_R0_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/5"</span>]
             </span><span class="kw">pub const </span>DSE_5_R0_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/6"</span>]
             </span><span class="kw">pub const </span>DSE_6_R0_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/7"</span>]
             </span><span class="kw">pub const </span>DSE_7_R0_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Speed Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Speed Field"</span>]
     </span><span class="kw">pub mod </span>SPEED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;medium(100MHz)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"medium(100MHz)"</span>]
             </span><span class="kw">pub const </span>SPEED: u32 = <span class="number">0x02</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Open Drain Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Open Drain Enable Field"</span>]
     </span><span class="kw">pub mod </span>ODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Disabled"</span>]
             </span><span class="kw">pub const </span>ODE_0_OPEN_DRAIN_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Enabled"</span>]
             </span><span class="kw">pub const </span>ODE_1_OPEN_DRAIN_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Enable Field"</span>]
     </span><span class="kw">pub mod </span>PKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Disabled"</span>]
             </span><span class="kw">pub const </span>PKE_0_PULL_KEEPER_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Enabled"</span>]
             </span><span class="kw">pub const </span>PKE_1_PULL_KEEPER_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Select Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Select Field"</span>]
     </span><span class="kw">pub mod </span>PUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Keeper&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Keeper"</span>]
             </span><span class="kw">pub const </span>PUE_0_KEEPER: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull"</span>]
             </span><span class="kw">pub const </span>PUE_1_PULL: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull Up / Down Config. Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull Up / Down Config. Field"</span>]
     </span><span class="kw">pub mod </span>PUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Down&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Down"</span>]
             </span><span class="kw">pub const </span>PUS_0_100K_OHM_PULL_DOWN: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;47K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"47K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_1_47K_OHM_PULL_UP: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_2_100K_OHM_PULL_UP: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;22K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"22K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_3_22K_OHM_PULL_UP: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hyst. Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hyst. Enable Field"</span>]
     </span><span class="kw">pub mod </span>HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Disabled"</span>]
             </span><span class="kw">pub const </span>HYS_0_HYSTERESIS_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Enabled"</span>]
             </span><span class="kw">pub const </span>HYS_1_HYSTERESIS_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_ONOFF SW PAD Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_ONOFF SW PAD Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_PAD_CTL_PAD_ONOFF {
-    <span class="attr">#[doc = <span class="string">&quot;Slew Rate Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slew Rate Field"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Slow Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Slow Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_0_SLOW_SLEW_RATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Fast Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Fast Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_1_FAST_SLEW_RATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drive Strength Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drive Strength Field"</span>]
     </span><span class="kw">pub mod </span>DSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;output driver disabled;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"output driver disabled;"</span>]
             </span><span class="kw">pub const </span>DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)&quot;</span>]
-            </span><span class="kw">pub const </span>DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"</span>]
+            </span><span class="kw">pub const </span>DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = <span class="number">0x01</span>;
+            <span class="attr">#[doc = <span class="string">"R0/2"</span>]
             </span><span class="kw">pub const </span>DSE_2_R0_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/3"</span>]
             </span><span class="kw">pub const </span>DSE_3_R0_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/4"</span>]
             </span><span class="kw">pub const </span>DSE_4_R0_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/5"</span>]
             </span><span class="kw">pub const </span>DSE_5_R0_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/6"</span>]
             </span><span class="kw">pub const </span>DSE_6_R0_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/7"</span>]
             </span><span class="kw">pub const </span>DSE_7_R0_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Speed Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Speed Field"</span>]
     </span><span class="kw">pub mod </span>SPEED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;medium(100MHz)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"medium(100MHz)"</span>]
             </span><span class="kw">pub const </span>SPEED: u32 = <span class="number">0x02</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Open Drain Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Open Drain Enable Field"</span>]
     </span><span class="kw">pub mod </span>ODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Disabled"</span>]
             </span><span class="kw">pub const </span>ODE_0_OPEN_DRAIN_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Enabled"</span>]
             </span><span class="kw">pub const </span>ODE_1_OPEN_DRAIN_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Enable Field"</span>]
     </span><span class="kw">pub mod </span>PKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Disabled"</span>]
             </span><span class="kw">pub const </span>PKE_0_PULL_KEEPER_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Enabled"</span>]
             </span><span class="kw">pub const </span>PKE_1_PULL_KEEPER_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Select Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Select Field"</span>]
     </span><span class="kw">pub mod </span>PUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Keeper&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Keeper"</span>]
             </span><span class="kw">pub const </span>PUE_0_KEEPER: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull"</span>]
             </span><span class="kw">pub const </span>PUE_1_PULL: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull Up / Down Config. Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull Up / Down Config. Field"</span>]
     </span><span class="kw">pub mod </span>PUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Down&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Down"</span>]
             </span><span class="kw">pub const </span>PUS_0_100K_OHM_PULL_DOWN: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;47K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"47K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_1_47K_OHM_PULL_UP: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_2_100K_OHM_PULL_UP: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;22K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"22K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_3_22K_OHM_PULL_UP: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hyst. Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hyst. Enable Field"</span>]
     </span><span class="kw">pub mod </span>HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Disabled"</span>]
             </span><span class="kw">pub const </span>HYS_0_HYSTERESIS_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Enabled"</span>]
             </span><span class="kw">pub const </span>HYS_1_HYSTERESIS_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_WAKEUP SW PAD Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_WAKEUP SW PAD Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_PAD_CTL_PAD_WAKEUP {
-    <span class="attr">#[doc = <span class="string">&quot;Slew Rate Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slew Rate Field"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Slow Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Slow Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_0_SLOW_SLEW_RATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Fast Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Fast Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_1_FAST_SLEW_RATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drive Strength Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drive Strength Field"</span>]
     </span><span class="kw">pub mod </span>DSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;output driver disabled;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"output driver disabled;"</span>]
             </span><span class="kw">pub const </span>DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"</span>]
             </span><span class="kw">pub const </span>DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/2"</span>]
             </span><span class="kw">pub const </span>DSE_2_R0_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/3"</span>]
             </span><span class="kw">pub const </span>DSE_3_R0_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/4"</span>]
             </span><span class="kw">pub const </span>DSE_4_R0_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/5"</span>]
             </span><span class="kw">pub const </span>DSE_5_R0_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/6"</span>]
             </span><span class="kw">pub const </span>DSE_6_R0_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/7"</span>]
             </span><span class="kw">pub const </span>DSE_7_R0_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Speed Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Speed Field"</span>]
     </span><span class="kw">pub mod </span>SPEED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;medium(100MHz)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"medium(100MHz)"</span>]
             </span><span class="kw">pub const </span>SPEED: u32 = <span class="number">0x02</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Open Drain Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Open Drain Enable Field"</span>]
     </span><span class="kw">pub mod </span>ODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Disabled"</span>]
             </span><span class="kw">pub const </span>ODE_0_OPEN_DRAIN_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Enabled"</span>]
             </span><span class="kw">pub const </span>ODE_1_OPEN_DRAIN_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Enable Field"</span>]
     </span><span class="kw">pub mod </span>PKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Disabled"</span>]
             </span><span class="kw">pub const </span>PKE_0_PULL_KEEPER_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Enabled"</span>]
             </span><span class="kw">pub const </span>PKE_1_PULL_KEEPER_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Select Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Select Field"</span>]
     </span><span class="kw">pub mod </span>PUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Keeper&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Keeper"</span>]
             </span><span class="kw">pub const </span>PUE_0_KEEPER: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull"</span>]
             </span><span class="kw">pub const </span>PUE_1_PULL: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull Up / Down Config. Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull Up / Down Config. Field"</span>]
     </span><span class="kw">pub mod </span>PUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Down&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Down"</span>]
             </span><span class="kw">pub const </span>PUS_0_100K_OHM_PULL_DOWN: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;47K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"47K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_1_47K_OHM_PULL_UP: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_2_100K_OHM_PULL_UP: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;22K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"22K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_3_22K_OHM_PULL_UP: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hyst. Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hyst. Enable Field"</span>]
     </span><span class="kw">pub mod </span>HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Disabled"</span>]
             </span><span class="kw">pub const </span>HYS_0_HYSTERESIS_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Enabled"</span>]
             </span><span class="kw">pub const </span>HYS_1_HYSTERESIS_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_PMIC_ON_REQ SW PAD Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_PMIC_ON_REQ SW PAD Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_PAD_CTL_PAD_PMIC_ON_REQ {
-    <span class="attr">#[doc = <span class="string">&quot;Slew Rate Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slew Rate Field"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Slow Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Slow Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_0_SLOW_SLEW_RATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Fast Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Fast Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_1_FAST_SLEW_RATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drive Strength Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drive Strength Field"</span>]
     </span><span class="kw">pub mod </span>DSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;output driver disabled;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"output driver disabled;"</span>]
             </span><span class="kw">pub const </span>DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0(150 Ohm @ 3.3V, 260 Ohm@1.8V)&quot;</span>]
-            </span><span class="kw">pub const </span>DSE_1_R0_150_OHM___3_3V__260_OHM_1_8V: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"</span>]
+            </span><span class="kw">pub const </span>DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = <span class="number">0x01</span>;
+            <span class="attr">#[doc = <span class="string">"R0/2"</span>]
             </span><span class="kw">pub const </span>DSE_2_R0_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/3"</span>]
             </span><span class="kw">pub const </span>DSE_3_R0_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/4"</span>]
             </span><span class="kw">pub const </span>DSE_4_R0_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/5"</span>]
             </span><span class="kw">pub const </span>DSE_5_R0_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/6"</span>]
             </span><span class="kw">pub const </span>DSE_6_R0_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/7"</span>]
             </span><span class="kw">pub const </span>DSE_7_R0_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Speed Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Speed Field"</span>]
     </span><span class="kw">pub mod </span>SPEED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;medium(100MHz)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"medium(100MHz)"</span>]
             </span><span class="kw">pub const </span>SPEED: u32 = <span class="number">0x02</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Open Drain Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Open Drain Enable Field"</span>]
     </span><span class="kw">pub mod </span>ODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Disabled"</span>]
             </span><span class="kw">pub const </span>ODE_0_OPEN_DRAIN_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Enabled"</span>]
             </span><span class="kw">pub const </span>ODE_1_OPEN_DRAIN_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Enable Field"</span>]
     </span><span class="kw">pub mod </span>PKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Disabled"</span>]
             </span><span class="kw">pub const </span>PKE_0_PULL_KEEPER_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Enabled"</span>]
             </span><span class="kw">pub const </span>PKE_1_PULL_KEEPER_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Select Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Select Field"</span>]
     </span><span class="kw">pub mod </span>PUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Keeper&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Keeper"</span>]
             </span><span class="kw">pub const </span>PUE_0_KEEPER: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull"</span>]
             </span><span class="kw">pub const </span>PUE_1_PULL: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull Up / Down Config. Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull Up / Down Config. Field"</span>]
     </span><span class="kw">pub mod </span>PUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Down&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Down"</span>]
             </span><span class="kw">pub const </span>PUS_0_100K_OHM_PULL_DOWN: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;47K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"47K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_1_47K_OHM_PULL_UP: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_2_100K_OHM_PULL_UP: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;22K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"22K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_3_22K_OHM_PULL_UP: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hyst. Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hyst. Enable Field"</span>]
     </span><span class="kw">pub mod </span>HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Disabled"</span>]
             </span><span class="kw">pub const </span>HYS_0_HYSTERESIS_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Enabled"</span>]
             </span><span class="kw">pub const </span>HYS_1_HYSTERESIS_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SW_PAD_CTL_PAD_PMIC_STBY_REQ SW PAD Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SW_PAD_CTL_PAD_PMIC_STBY_REQ SW PAD Control Register"</span>]
 </span><span class="kw">pub mod </span>SW_PAD_CTL_PAD_PMIC_STBY_REQ {
-    <span class="attr">#[doc = <span class="string">&quot;Slew Rate Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slew Rate Field"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Slow Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Slow Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_0_SLOW_SLEW_RATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Fast Slew Rate&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Fast Slew Rate"</span>]
             </span><span class="kw">pub const </span>SRE_1_FAST_SLEW_RATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drive Strength Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drive Strength Field"</span>]
     </span><span class="kw">pub mod </span>DSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;output driver disabled;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"output driver disabled;"</span>]
             </span><span class="kw">pub const </span>DSE_0_OUTPUT_DRIVER_DISABLED_: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0(260 Ohm @ 3.3V, 150 Ohm@1.8V, 240 Ohm for DDR)"</span>]
             </span><span class="kw">pub const </span>DSE_1_R0_260_OHM___3_3V__150_OHM_1_8V__240_OHM_FOR_DDR_: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/2"</span>]
             </span><span class="kw">pub const </span>DSE_2_R0_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/3"</span>]
             </span><span class="kw">pub const </span>DSE_3_R0_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/4"</span>]
             </span><span class="kw">pub const </span>DSE_4_R0_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/5"</span>]
             </span><span class="kw">pub const </span>DSE_5_R0_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/6"</span>]
             </span><span class="kw">pub const </span>DSE_6_R0_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;R0/7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"R0/7"</span>]
             </span><span class="kw">pub const </span>DSE_7_R0_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Speed Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Speed Field"</span>]
     </span><span class="kw">pub mod </span>SPEED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;medium(100MHz)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"medium(100MHz)"</span>]
             </span><span class="kw">pub const </span>SPEED: u32 = <span class="number">0x02</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Open Drain Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Open Drain Enable Field"</span>]
     </span><span class="kw">pub mod </span>ODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Disabled"</span>]
             </span><span class="kw">pub const </span>ODE_0_OPEN_DRAIN_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open Drain Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open Drain Enabled"</span>]
             </span><span class="kw">pub const </span>ODE_1_OPEN_DRAIN_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Enable Field"</span>]
     </span><span class="kw">pub mod </span>PKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Disabled"</span>]
             </span><span class="kw">pub const </span>PKE_0_PULL_KEEPER_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull/Keeper Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull/Keeper Enabled"</span>]
             </span><span class="kw">pub const </span>PKE_1_PULL_KEEPER_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull / Keep Select Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull / Keep Select Field"</span>]
     </span><span class="kw">pub mod </span>PUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Keeper&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Keeper"</span>]
             </span><span class="kw">pub const </span>PUE_0_KEEPER: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pull&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pull"</span>]
             </span><span class="kw">pub const </span>PUE_1_PULL: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pull Up / Down Config. Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pull Up / Down Config. Field"</span>]
     </span><span class="kw">pub mod </span>PUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Down&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Down"</span>]
             </span><span class="kw">pub const </span>PUS_0_100K_OHM_PULL_DOWN: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;47K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"47K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_1_47K_OHM_PULL_UP: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;100K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"100K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_2_100K_OHM_PULL_UP: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;22K Ohm Pull Up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"22K Ohm Pull Up"</span>]
             </span><span class="kw">pub const </span>PUS_3_22K_OHM_PULL_UP: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hyst. Enable Field&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hyst. Enable Field"</span>]
     </span><span class="kw">pub mod </span>HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Disabled"</span>]
             </span><span class="kw">pub const </span>HYS_0_HYSTERESIS_DISABLED: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hysteresis Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hysteresis Enabled"</span>]
             </span><span class="kw">pub const </span>HYS_1_HYSTERESIS_ENABLED: u32 = <span class="number">0x01</span>;
         }
     }

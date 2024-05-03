@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1021/cmp.rs`."><title>cmp.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1021/cmp.rs`."><title>cmp.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -330,164 +332,164 @@
 <a href="#330" id="330">330</a>
 <a href="#331" id="331">331</a>
 <a href="#332" id="332">332</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;CMP Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CMP Control Register 0"</span>]
     </span><span class="kw">pub </span>CR0: <span class="kw">crate</span>::RWRegister&lt;u8&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;CMP Control Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CMP Control Register 1"</span>]
     </span><span class="kw">pub </span>CR1: <span class="kw">crate</span>::RWRegister&lt;u8&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;CMP Filter Period Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CMP Filter Period Register"</span>]
     </span><span class="kw">pub </span>FPR: <span class="kw">crate</span>::RWRegister&lt;u8&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;CMP Status and Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CMP Status and Control Register"</span>]
     </span><span class="kw">pub </span>SCR: <span class="kw">crate</span>::RWRegister&lt;u8&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;DAC Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DAC Control Register"</span>]
     </span><span class="kw">pub </span>DACCR: <span class="kw">crate</span>::RWRegister&lt;u8&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;MUX Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MUX Control Register"</span>]
     </span><span class="kw">pub </span>MUXCR: <span class="kw">crate</span>::RWRegister&lt;u8&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;CMP Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"CMP Control Register 0"</span>]
 </span><span class="kw">pub mod </span>CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Comparator hard block hysteresis control&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator hard block hysteresis control"</span>]
     </span><span class="kw">pub mod </span>HYSTCTR {
         <span class="kw">pub const </span>offset: u8 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Level 0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Level 0"</span>]
             </span><span class="kw">pub const </span>HYSTCTR_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Level 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Level 1"</span>]
             </span><span class="kw">pub const </span>HYSTCTR_1: u8 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Level 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Level 2"</span>]
             </span><span class="kw">pub const </span>HYSTCTR_2: u8 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Level 3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Level 3"</span>]
             </span><span class="kw">pub const </span>HYSTCTR_3: u8 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Filter Sample Count&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Filter Sample Count"</span>]
     </span><span class="kw">pub mod </span>FILTER_CNT {
         <span class="kw">pub const </span>offset: u8 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Filter is disabled. If SE = 1, then COUT is a logic 0. This is not a legal state, and is not recommended. If SE = 0, COUT = COUTA.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Filter is disabled. If SE = 1, then COUT is a logic 0. This is not a legal state, and is not recommended. If SE = 0, COUT = COUTA."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;One sample must agree. The comparator output is simply sampled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"One sample must agree. The comparator output is simply sampled."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_1: u8 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2 consecutive samples must agree.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2 consecutive samples must agree."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_2: u8 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;3 consecutive samples must agree.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"3 consecutive samples must agree."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_3: u8 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4 consecutive samples must agree.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4 consecutive samples must agree."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_4: u8 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;5 consecutive samples must agree.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"5 consecutive samples must agree."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_5: u8 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;6 consecutive samples must agree.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"6 consecutive samples must agree."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_6: u8 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;7 consecutive samples must agree.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"7 consecutive samples must agree."</span>]
             </span><span class="kw">pub const </span>FILTER_CNT_7: u8 = <span class="number">0x07</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;CMP Control Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"CMP Control Register 1"</span>]
 </span><span class="kw">pub mod </span>CR1 {
-    <span class="attr">#[doc = <span class="string">&quot;Comparator Module Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator Module Enable"</span>]
     </span><span class="kw">pub mod </span>EN {
         <span class="kw">pub const </span>offset: u8 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Analog Comparator is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Analog Comparator is disabled."</span>]
             </span><span class="kw">pub const </span>EN_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Analog Comparator is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Analog Comparator is enabled."</span>]
             </span><span class="kw">pub const </span>EN_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Comparator Output Pin Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator Output Pin Enable"</span>]
     </span><span class="kw">pub mod </span>OPE {
         <span class="kw">pub const </span>offset: u8 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;CMPO is not available on the associated CMPO output pin. If the comparator does not own the pin, this field has no effect.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CMPO is not available on the associated CMPO output pin. If the comparator does not own the pin, this field has no effect."</span>]
             </span><span class="kw">pub const </span>OPE_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;CMPO is available on the associated CMPO output pin. The comparator output (CMPO) is driven out on the associated CMPO output pin if the comparator owns the pin. If the comparator does not own the field, this bit has no effect.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CMPO is available on the associated CMPO output pin. The comparator output (CMPO) is driven out on the associated CMPO output pin if the comparator owns the pin. If the comparator does not own the field, this bit has no effect."</span>]
             </span><span class="kw">pub const </span>OPE_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Comparator Output Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator Output Select"</span>]
     </span><span class="kw">pub mod </span>COS {
         <span class="kw">pub const </span>offset: u8 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Set the filtered comparator output (CMPO) to equal COUT.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Set the filtered comparator output (CMPO) to equal COUT."</span>]
             </span><span class="kw">pub const </span>COS_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Set the unfiltered comparator output (CMPO) to equal COUTA.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Set the unfiltered comparator output (CMPO) to equal COUTA."</span>]
             </span><span class="kw">pub const </span>COS_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Comparator INVERT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator INVERT"</span>]
     </span><span class="kw">pub mod </span>INV {
         <span class="kw">pub const </span>offset: u8 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Does not invert the comparator output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Does not invert the comparator output."</span>]
             </span><span class="kw">pub const </span>INV_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Inverts the comparator output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Inverts the comparator output."</span>]
             </span><span class="kw">pub const </span>INV_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Power Mode Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Power Mode Select"</span>]
     </span><span class="kw">pub mod </span>PMODE {
         <span class="kw">pub const </span>offset: u8 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Low-Speed (LS) Comparison mode selected. In this mode, CMP has slower output propagation delay and lower current consumption.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low-Speed (LS) Comparison mode selected. In this mode, CMP has slower output propagation delay and lower current consumption."</span>]
             </span><span class="kw">pub const </span>PMODE_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;High-Speed (HS) Comparison mode selected. In this mode, CMP has faster output propagation delay and higher current consumption.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"High-Speed (HS) Comparison mode selected. In this mode, CMP has faster output propagation delay and higher current consumption."</span>]
             </span><span class="kw">pub const </span>PMODE_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Windowing Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Windowing Enable"</span>]
     </span><span class="kw">pub mod </span>WE {
         <span class="kw">pub const </span>offset: u8 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Windowing mode is not selected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Windowing mode is not selected."</span>]
             </span><span class="kw">pub const </span>WE_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Windowing mode is selected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Windowing mode is selected."</span>]
             </span><span class="kw">pub const </span>WE_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sample Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sample Enable"</span>]
     </span><span class="kw">pub mod </span>SE {
         <span class="kw">pub const </span>offset: u8 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Sampling mode is not selected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Sampling mode is not selected."</span>]
             </span><span class="kw">pub const </span>SE_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Sampling mode is selected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Sampling mode is selected."</span>]
             </span><span class="kw">pub const </span>SE_1: u8 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;CMP Filter Period Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"CMP Filter Period Register"</span>]
 </span><span class="kw">pub mod </span>FPR {
-    <span class="attr">#[doc = <span class="string">&quot;Filter Sample Period&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Filter Sample Period"</span>]
     </span><span class="kw">pub mod </span>FILT_PER {
         <span class="kw">pub const </span>offset: u8 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -496,9 +498,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;CMP Status and Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"CMP Status and Control Register"</span>]
 </span><span class="kw">pub mod </span>SCR {
-    <span class="attr">#[doc = <span class="string">&quot;Analog Comparator Output&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Analog Comparator Output"</span>]
     </span><span class="kw">pub mod </span>COUT {
         <span class="kw">pub const </span>offset: u8 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -506,75 +508,75 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Analog Comparator Flag Falling&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Analog Comparator Flag Falling"</span>]
     </span><span class="kw">pub mod </span>CFF {
         <span class="kw">pub const </span>offset: u8 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Falling-edge on COUT has not been detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Falling-edge on COUT has not been detected."</span>]
             </span><span class="kw">pub const </span>CFF_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Falling-edge on COUT has occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Falling-edge on COUT has occurred."</span>]
             </span><span class="kw">pub const </span>CFF_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Analog Comparator Flag Rising&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Analog Comparator Flag Rising"</span>]
     </span><span class="kw">pub mod </span>CFR {
         <span class="kw">pub const </span>offset: u8 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Rising-edge on COUT has not been detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Rising-edge on COUT has not been detected."</span>]
             </span><span class="kw">pub const </span>CFR_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Rising-edge on COUT has occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Rising-edge on COUT has occurred."</span>]
             </span><span class="kw">pub const </span>CFR_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Comparator Interrupt Enable Falling&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator Interrupt Enable Falling"</span>]
     </span><span class="kw">pub mod </span>IEF {
         <span class="kw">pub const </span>offset: u8 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt is disabled."</span>]
             </span><span class="kw">pub const </span>IEF_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt is enabled."</span>]
             </span><span class="kw">pub const </span>IEF_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Comparator Interrupt Enable Rising&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Comparator Interrupt Enable Rising"</span>]
     </span><span class="kw">pub mod </span>IER {
         <span class="kw">pub const </span>offset: u8 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt is disabled."</span>]
             </span><span class="kw">pub const </span>IER_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt is enabled."</span>]
             </span><span class="kw">pub const </span>IER_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;DMA Enable Control&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DMA Enable Control"</span>]
     </span><span class="kw">pub mod </span>DMAEN {
         <span class="kw">pub const </span>offset: u8 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA is disabled."</span>]
             </span><span class="kw">pub const </span>DMAEN_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA is enabled."</span>]
             </span><span class="kw">pub const </span>DMAEN_1: u8 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;DAC Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"DAC Control Register"</span>]
 </span><span class="kw">pub mod </span>DACCR {
-    <span class="attr">#[doc = <span class="string">&quot;DAC Output Voltage Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DAC Output Voltage Select"</span>]
     </span><span class="kw">pub mod </span>VOSEL {
         <span class="kw">pub const </span>offset: u8 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -582,82 +584,82 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Supply Voltage Reference Source Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Supply Voltage Reference Source Select"</span>]
     </span><span class="kw">pub mod </span>VRSEL {
         <span class="kw">pub const </span>offset: u8 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Vin1 is selected as resistor ladder network supply reference.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Vin1 is selected as resistor ladder network supply reference."</span>]
             </span><span class="kw">pub const </span>VRSEL_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Vin2 is selected as resistor ladder network supply reference.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Vin2 is selected as resistor ladder network supply reference."</span>]
             </span><span class="kw">pub const </span>VRSEL_1: u8 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;DAC Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DAC Enable"</span>]
     </span><span class="kw">pub mod </span>DACEN {
         <span class="kw">pub const </span>offset: u8 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DAC is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DAC is disabled."</span>]
             </span><span class="kw">pub const </span>DACEN_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DAC is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DAC is enabled."</span>]
             </span><span class="kw">pub const </span>DACEN_1: u8 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;MUX Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"MUX Control Register"</span>]
 </span><span class="kw">pub mod </span>MUXCR {
-    <span class="attr">#[doc = <span class="string">&quot;Minus Input Mux Control&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Minus Input Mux Control"</span>]
     </span><span class="kw">pub mod </span>MSEL {
         <span class="kw">pub const </span>offset: u8 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IN0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN0"</span>]
             </span><span class="kw">pub const </span>MSEL_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN1"</span>]
             </span><span class="kw">pub const </span>MSEL_1: u8 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN2"</span>]
             </span><span class="kw">pub const </span>MSEL_2: u8 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN3"</span>]
             </span><span class="kw">pub const </span>MSEL_3: u8 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN4"</span>]
             </span><span class="kw">pub const </span>MSEL_4: u8 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN5"</span>]
             </span><span class="kw">pub const </span>MSEL_5: u8 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN6"</span>]
             </span><span class="kw">pub const </span>MSEL_6: u8 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN7"</span>]
             </span><span class="kw">pub const </span>MSEL_7: u8 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Plus Input Mux Control&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Plus Input Mux Control"</span>]
     </span><span class="kw">pub mod </span>PSEL {
         <span class="kw">pub const </span>offset: u8 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u8 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IN0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN0"</span>]
             </span><span class="kw">pub const </span>PSEL_0: u8 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN1"</span>]
             </span><span class="kw">pub const </span>PSEL_1: u8 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN2"</span>]
             </span><span class="kw">pub const </span>PSEL_2: u8 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN3"</span>]
             </span><span class="kw">pub const </span>PSEL_3: u8 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN4"</span>]
             </span><span class="kw">pub const </span>PSEL_4: u8 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN5"</span>]
             </span><span class="kw">pub const </span>PSEL_5: u8 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN6"</span>]
             </span><span class="kw">pub const </span>PSEL_6: u8 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IN7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IN7"</span>]
             </span><span class="kw">pub const </span>PSEL_7: u8 = <span class="number">0x07</span>;
         }
     }

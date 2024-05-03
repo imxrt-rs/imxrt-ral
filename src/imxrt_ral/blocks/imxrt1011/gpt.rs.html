@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/gpt.rs`."><title>gpt.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/gpt.rs`."><title>gpt.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -399,165 +401,165 @@
 <a href="#399" id="399">399</a>
 <a href="#400" id="400">400</a>
 <a href="#401" id="401">401</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;GPT&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"GPT"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;GPT Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Control Register"</span>]
     </span><span class="kw">pub </span>CR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;GPT Prescaler Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Prescaler Register"</span>]
     </span><span class="kw">pub </span>PR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;GPT Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Status Register"</span>]
     </span><span class="kw">pub </span>SR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;GPT Interrupt Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Interrupt Register"</span>]
     </span><span class="kw">pub </span>IR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;GPT Output Compare Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Output Compare Register 1"</span>]
     </span><span class="kw">pub </span>OCR: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">3usize</span>],
-    <span class="attr">#[doc = <span class="string">&quot;GPT Input Capture Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Input Capture Register 1"</span>]
     </span><span class="kw">pub </span>ICR: [<span class="kw">crate</span>::RORegister&lt;u32&gt;; <span class="number">2usize</span>],
-    <span class="attr">#[doc = <span class="string">&quot;GPT Counter Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Counter Register"</span>]
     </span><span class="kw">pub </span>CNT: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Control Register"</span>]
 </span><span class="kw">pub mod </span>CR {
-    <span class="attr">#[doc = <span class="string">&quot;GPT Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Enable"</span>]
     </span><span class="kw">pub mod </span>EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is disabled."</span>]
             </span><span class="kw">pub const </span>EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is enabled."</span>]
             </span><span class="kw">pub const </span>EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPT Enable mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Enable mode"</span>]
     </span><span class="kw">pub mod </span>ENMOD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT counter will retain its value when it is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT counter will retain its value when it is disabled."</span>]
             </span><span class="kw">pub const </span>ENMOD_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT counter value is reset to 0 when it is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT counter value is reset to 0 when it is disabled."</span>]
             </span><span class="kw">pub const </span>ENMOD_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPT debug mode enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT debug mode enable"</span>]
     </span><span class="kw">pub mod </span>DBGEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT is disabled in debug mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is disabled in debug mode."</span>]
             </span><span class="kw">pub const </span>DBGEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT is enabled in debug mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is enabled in debug mode."</span>]
             </span><span class="kw">pub const </span>DBGEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPT Wait Mode enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Wait Mode enable"</span>]
     </span><span class="kw">pub mod </span>WAITEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT is disabled in wait mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is disabled in wait mode."</span>]
             </span><span class="kw">pub const </span>WAITEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT is enabled in wait mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is enabled in wait mode."</span>]
             </span><span class="kw">pub const </span>WAITEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPT Doze Mode Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Doze Mode Enable"</span>]
     </span><span class="kw">pub mod </span>DOZEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT is disabled in doze mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is disabled in doze mode."</span>]
             </span><span class="kw">pub const </span>DOZEEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT is enabled in doze mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is enabled in doze mode."</span>]
             </span><span class="kw">pub const </span>DOZEEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPT Stop Mode enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPT Stop Mode enable"</span>]
     </span><span class="kw">pub mod </span>STOPEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT is disabled in Stop mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is disabled in Stop mode."</span>]
             </span><span class="kw">pub const </span>STOPEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT is enabled in Stop mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is enabled in Stop mode."</span>]
             </span><span class="kw">pub const </span>STOPEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Clock Source select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Clock Source select"</span>]
     </span><span class="kw">pub mod </span>CLKSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No clock"</span>]
             </span><span class="kw">pub const </span>CLKSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Peripheral Clock (ipg_clk)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Peripheral Clock (ipg_clk)"</span>]
             </span><span class="kw">pub const </span>CLKSRC_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;High Frequency Reference Clock (ipg_clk_highfreq)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"High Frequency Reference Clock (ipg_clk_highfreq)"</span>]
             </span><span class="kw">pub const </span>CLKSRC_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;External Clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"External Clock"</span>]
             </span><span class="kw">pub const </span>CLKSRC_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Low Frequency Reference Clock (ipg_clk_32k)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low Frequency Reference Clock (ipg_clk_32k)"</span>]
             </span><span class="kw">pub const </span>CLKSRC_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Crystal oscillator as Reference Clock (ipg_clk_24M)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Crystal oscillator as Reference Clock (ipg_clk_24M)"</span>]
             </span><span class="kw">pub const </span>CLKSRC_5: u32 = <span class="number">0x05</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Free-Run or Restart mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Free-Run or Restart mode"</span>]
     </span><span class="kw">pub mod </span>FRR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Restart mode&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Restart mode"</span>]
             </span><span class="kw">pub const </span>FRR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Free-Run mode&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Free-Run mode"</span>]
             </span><span class="kw">pub const </span>FRR_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable 24 MHz clock input from crystal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable 24 MHz clock input from crystal"</span>]
     </span><span class="kw">pub mod </span>EN_24M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;24M clock disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"24M clock disabled"</span>]
             </span><span class="kw">pub const </span>EN_24M_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;24M clock enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"24M clock enabled"</span>]
             </span><span class="kw">pub const </span>EN_24M_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software reset"</span>]
     </span><span class="kw">pub mod </span>SWR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;GPT is not in reset state&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is not in reset state"</span>]
             </span><span class="kw">pub const </span>SWR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;GPT is in reset state&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"GPT is in reset state"</span>]
             </span><span class="kw">pub const </span>SWR_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;See IM2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See IM2"</span>]
     </span><span class="kw">pub mod </span>IM1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -565,7 +567,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IM2 (bits 19-18, Input Capture Channel 2 operating mode) IM1 (bits 17-16, Input Capture Channel 1 operating mode) The IMn bit field determines the transition on the input pin (for Input capture channel n), which will trigger a capture event&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IM2 (bits 19-18, Input Capture Channel 2 operating mode) IM1 (bits 17-16, Input Capture Channel 1 operating mode) The IMn bit field determines the transition on the input pin (for Input capture channel n), which will trigger a capture event"</span>]
     </span><span class="kw">pub mod </span>IM2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -573,7 +575,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See OM3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See OM3"</span>]
     </span><span class="kw">pub mod </span>OM1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -581,7 +583,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See OM3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See OM3"</span>]
     </span><span class="kw">pub mod </span>OM2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -589,7 +591,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OM3 (bits 28-26) controls the Output Compare Channel 3 operating mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OM3 (bits 28-26) controls the Output Compare Channel 3 operating mode"</span>]
     </span><span class="kw">pub mod </span>OM3 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -597,7 +599,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See F03&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See F03"</span>]
     </span><span class="kw">pub mod </span>FO1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -605,7 +607,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See F03&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See F03"</span>]
     </span><span class="kw">pub mod </span>FO2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -613,7 +615,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;FO3 Force Output Compare Channel 3 FO2 Force Output Compare Channel 2 FO1 Force Output Compare Channel 1 The FOn bit causes the pin action programmed for the timer Output Compare n pin (according to the OMn bits in this register)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"FO3 Force Output Compare Channel 3 FO2 Force Output Compare Channel 2 FO1 Force Output Compare Channel 1 The FOn bit causes the pin action programmed for the timer Output Compare n pin (according to the OMn bits in this register)"</span>]
     </span><span class="kw">pub mod </span>FO3 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -622,42 +624,42 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Prescaler Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Prescaler Register"</span>]
 </span><span class="kw">pub mod </span>PR {
-    <span class="attr">#[doc = <span class="string">&quot;Prescaler bits&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Prescaler bits"</span>]
     </span><span class="kw">pub mod </span>PRESCALER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 1"</span>]
             </span><span class="kw">pub const </span>PRESCALER_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 2"</span>]
             </span><span class="kw">pub const </span>PRESCALER_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 4096&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 4096"</span>]
             </span><span class="kw">pub const </span>PRESCALER_4095: u32 = <span class="number">0x0fff</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Prescaler bits&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Prescaler bits"</span>]
     </span><span class="kw">pub mod </span>PRESCALER24M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 1"</span>]
             </span><span class="kw">pub const </span>PRESCALER24M_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 2"</span>]
             </span><span class="kw">pub const </span>PRESCALER24M_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 16&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 16"</span>]
             </span><span class="kw">pub const </span>PRESCALER24M_15: u32 = <span class="number">0x0f</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Status Register"</span>]
 </span><span class="kw">pub mod </span>SR {
-    <span class="attr">#[doc = <span class="string">&quot;See OF3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See OF3"</span>]
     </span><span class="kw">pub mod </span>OF1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -665,7 +667,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See OF3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See OF3"</span>]
     </span><span class="kw">pub mod </span>OF2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -673,7 +675,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OF3 Output Compare 3 Flag OF2 Output Compare 2 Flag OF1 Output Compare 1 Flag The OFn bit indicates that a compare event has occurred on Output Compare channel n&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OF3 Output Compare 3 Flag OF2 Output Compare 2 Flag OF1 Output Compare 1 Flag The OFn bit indicates that a compare event has occurred on Output Compare channel n"</span>]
     </span><span class="kw">pub mod </span>OF3 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -681,7 +683,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See IF2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See IF2"</span>]
     </span><span class="kw">pub mod </span>IF1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -689,7 +691,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IF2 Input capture 2 Flag IF1 Input capture 1 Flag The IFn bit indicates that a capture event has occurred on Input Capture channel n&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IF2 Input capture 2 Flag IF1 Input capture 1 Flag The IFn bit indicates that a capture event has occurred on Input Capture channel n"</span>]
     </span><span class="kw">pub mod </span>IF2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -697,23 +699,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Rollover Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Rollover Flag"</span>]
     </span><span class="kw">pub mod </span>ROV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Rollover has not occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Rollover has not occurred."</span>]
             </span><span class="kw">pub const </span>ROV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Rollover has occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Rollover has occurred."</span>]
             </span><span class="kw">pub const </span>ROV_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Interrupt Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Interrupt Register"</span>]
 </span><span class="kw">pub mod </span>IR {
-    <span class="attr">#[doc = <span class="string">&quot;See OF3IE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See OF3IE"</span>]
     </span><span class="kw">pub mod </span>OF1IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -721,7 +723,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See OF3IE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See OF3IE"</span>]
     </span><span class="kw">pub mod </span>OF2IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -729,7 +731,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OF3IE Output Compare 3 Interrupt Enable OF2IE Output Compare 2 Interrupt Enable OF1IE Output Compare 1 Interrupt Enable The OFnIE bit controls the Output Compare Channel n interrupt&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OF3IE Output Compare 3 Interrupt Enable OF2IE Output Compare 2 Interrupt Enable OF1IE Output Compare 1 Interrupt Enable The OFnIE bit controls the Output Compare Channel n interrupt"</span>]
     </span><span class="kw">pub mod </span>OF3IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -737,7 +739,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;See IF2IE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"See IF2IE"</span>]
     </span><span class="kw">pub mod </span>IF1IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -745,7 +747,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IF2IE Input capture 2 Interrupt Enable IF1IE Input capture 1 Interrupt Enable The IFnIE bit controls the IFnIE Input Capture n Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IF2IE Input capture 2 Interrupt Enable IF1IE Input capture 1 Interrupt Enable The IFnIE bit controls the IFnIE Input Capture n Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>IF2IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -753,23 +755,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Rollover Interrupt Enable. The ROVIE bit controls the Rollover interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Rollover Interrupt Enable. The ROVIE bit controls the Rollover interrupt."</span>]
     </span><span class="kw">pub mod </span>ROVIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Rollover interrupt is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Rollover interrupt is disabled."</span>]
             </span><span class="kw">pub const </span>ROVIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Rollover interrupt enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Rollover interrupt enabled."</span>]
             </span><span class="kw">pub const </span>ROVIE_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Output Compare Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Output Compare Register 1"</span>]
 </span><span class="kw">pub mod </span>OCR {
-    <span class="attr">#[doc = <span class="string">&quot;Compare Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Compare Value"</span>]
     </span><span class="kw">pub mod </span>COMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -778,9 +780,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Input Capture Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Input Capture Register 1"</span>]
 </span><span class="kw">pub mod </span>ICR {
-    <span class="attr">#[doc = <span class="string">&quot;Capture Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Capture Value"</span>]
     </span><span class="kw">pub mod </span>CAPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -789,9 +791,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;GPT Counter Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"GPT Counter Register"</span>]
 </span><span class="kw">pub mod </span>CNT {
-    <span class="attr">#[doc = <span class="string">&quot;Counter Value. The COUNT bits show the current count value of the GPT counter.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Counter Value. The COUNT bits show the current count value of the GPT counter."</span>]
     </span><span class="kw">pub mod </span>COUNT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;

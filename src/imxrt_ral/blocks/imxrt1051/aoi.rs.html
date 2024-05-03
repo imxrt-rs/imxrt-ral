@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/aoi.rs`."><title>aoi.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/aoi.rs`."><title>aoi.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1130,1134 +1132,1134 @@
 <a href="#1130" id="1130">1130</a>
 <a href="#1131" id="1131">1131</a>
 <a href="#1132" id="1132">1132</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;AND/OR/INVERT module&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"AND/OR/INVERT module"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT010: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT230: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT011: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT231: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT012: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT232: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT013: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
     </span><span class="kw">pub </span>BFCRT233: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT010 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT230 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT011 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT231 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT012 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT232 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 0 and 1 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 0 and 1 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT013 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 1, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 1, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT1_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT1_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT1_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT1_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 0, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 0, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT0_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT0_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT0_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT0_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Boolean Function Term 2 and 3 Configuration Register for EVENTn&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Boolean Function Term 2 and 3 Configuration Register for EVENTn"</span>]
 </span><span class="kw">pub mod </span>BFCRT233 {
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 3, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 3, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT3_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT3_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT3_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT3_AC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, D input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, D input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_DC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_DC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the D input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the D input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_DC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the D input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the D input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_DC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, C input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, C input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_CC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_CC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the C input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the C input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_CC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the C input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the C input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_CC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, B input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, B input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_BC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_BC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the B input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the B input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_BC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the B input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the B input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_BC_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Product term 2, A input configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Product term 2, A input configuration"</span>]
     </span><span class="kw">pub mod </span>PT2_AC {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical zero&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical zero"</span>]
             </span><span class="kw">pub const </span>PT2_AC_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pass the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pass the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Complement the A input in this product term&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Complement the A input in this product term"</span>]
             </span><span class="kw">pub const </span>PT2_AC_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force the A input in this product term to a logical one&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force the A input in this product term to a logical one"</span>]
             </span><span class="kw">pub const </span>PT2_AC_3: u16 = <span class="number">0x03</span>;
         }
     }

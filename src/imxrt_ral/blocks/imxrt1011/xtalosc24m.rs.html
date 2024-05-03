@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/xtalosc24m.rs`."><title>xtalosc24m.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/xtalosc24m.rs`."><title>xtalosc24m.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1873,56 +1875,56 @@
 <a href="#1873" id="1873">1873</a>
 <a href="#1874" id="1874">1874</a>
 <a href="#1875" id="1875">1875</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;XTALOSC24M&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"XTALOSC24M"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
     _reserved0: [u8; <span class="number">0x0150</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
     </span><span class="kw">pub </span>MISC0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
     </span><span class="kw">pub </span>MISC0_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
     </span><span class="kw">pub </span>MISC0_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
     </span><span class="kw">pub </span>MISC0_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x0110</span>],
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
     </span><span class="kw">pub </span>LOWPWR_CTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
     </span><span class="kw">pub </span>LOWPWR_CTRL_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
     </span><span class="kw">pub </span>LOWPWR_CTRL_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
     </span><span class="kw">pub </span>LOWPWR_CTRL_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x20</span>],
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG0_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG0_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG0_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG1_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG1_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG1_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG2_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG2_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
     </span><span class="kw">pub </span>OSC_CONFIG2_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
 </span><span class="kw">pub mod </span>MISC0 {
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to power-down the analog bandgap reference circuitry&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to power-down the analog bandgap reference circuitry"</span>]
     </span><span class="kw">pub mod </span>REFTOP_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1930,45 +1932,45 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to disable the self-bias circuit in the analog bandgap&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to disable the self-bias circuit in the analog bandgap"</span>]
     </span><span class="kw">pub mod </span>REFTOP_SELFBIASOFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Uses coarse bias currents for startup&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses coarse bias currents for startup"</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Uses bandgap-based bias currents for best performance.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses bandgap-based bias currents for best performance."</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGADJ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal VBG&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal VBG"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-3.12%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-3.12%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals the analog bandgap voltage is up and stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals the analog bandgap voltage is up and stable"</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGUP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1976,54 +1978,54 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Configure the analog behavior in stop mode.Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Configure the analog behavior in stop mode.Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>STOP_MODE_CONFIG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=on, New BG=off.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=on, New BG=off."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=off, New BG=on.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=off, New BG=on."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN."</span>]
     </span><span class="kw">pub mod </span>DISCON_HIGH_SNVS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Turn on the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn on the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Turn off the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn off the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field determines the bias current in the 24MHz oscillator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field determines the bias current in the 24MHz oscillator"</span>]
     </span><span class="kw">pub mod </span>OSC_I {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal"</span>]
             </span><span class="kw">pub const </span>NOMINAL: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 12.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 12.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_12_5_PERCENT: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 25.0%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 25.0%"</span>]
             </span><span class="kw">pub const </span>MINUS_25_PERCENT: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 37.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 37.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_37_5_PERCENT: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals that the output of the 24-MHz crystal oscillator is stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals that the output of the 24-MHz crystal oscillator is stable"</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2031,7 +2033,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit enables the detector that signals when the 24MHz crystal oscillator is stable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit enables the detector that signals when the 24MHz crystal oscillator is stable."</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2039,58 +2041,58 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_CTRL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Allow the logic to automatically gate the clock when the XTAL is powered down.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Allow the logic to automatically gate the clock when the XTAL is powered down."</span>]
             </span><span class="kw">pub const </span>ALLOW_AUTO_GATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Prevent the logic from ever gating off the clock.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Prevent the logic from ever gating off the clock."</span>]
             </span><span class="kw">pub const </span>NO_AUTO_GATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;3.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"3.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;5.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"5.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;6.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"6.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;7.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"7.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field indicates which chip source is being used for the rtc clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field indicates which chip source is being used for the rtc clock."</span>]
     </span><span class="kw">pub mod </span>RTC_XTAL_SOURCE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Internal ring oscillator&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Internal ring oscillator"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RTC_XTAL&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RTC_XTAL"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field powers down the 24M crystal oscillator if set true.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field powers down the 24M crystal oscillator if set true."</span>]
     </span><span class="kw">pub mod </span>XTAL_24M_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2098,23 +2100,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Predivider for the source clock of the PLL&#39;s. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Predivider for the source clock of the PLL's. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>VID_PLL_PREDIV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 1"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 2"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
 </span><span class="kw">pub mod </span>MISC0_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to power-down the analog bandgap reference circuitry&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to power-down the analog bandgap reference circuitry"</span>]
     </span><span class="kw">pub mod </span>REFTOP_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2122,45 +2124,45 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to disable the self-bias circuit in the analog bandgap&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to disable the self-bias circuit in the analog bandgap"</span>]
     </span><span class="kw">pub mod </span>REFTOP_SELFBIASOFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Uses coarse bias currents for startup&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses coarse bias currents for startup"</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Uses bandgap-based bias currents for best performance.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses bandgap-based bias currents for best performance."</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGADJ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal VBG&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal VBG"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-3.12%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-3.12%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals the analog bandgap voltage is up and stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals the analog bandgap voltage is up and stable"</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGUP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2168,54 +2170,54 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Configure the analog behavior in stop mode.Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Configure the analog behavior in stop mode.Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>STOP_MODE_CONFIG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=on, New BG=off.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=on, New BG=off."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=off, New BG=on.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=off, New BG=on."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN."</span>]
     </span><span class="kw">pub mod </span>DISCON_HIGH_SNVS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Turn on the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn on the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Turn off the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn off the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field determines the bias current in the 24MHz oscillator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field determines the bias current in the 24MHz oscillator"</span>]
     </span><span class="kw">pub mod </span>OSC_I {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal"</span>]
             </span><span class="kw">pub const </span>NOMINAL: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 12.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 12.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_12_5_PERCENT: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 25.0%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 25.0%"</span>]
             </span><span class="kw">pub const </span>MINUS_25_PERCENT: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 37.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 37.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_37_5_PERCENT: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals that the output of the 24-MHz crystal oscillator is stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals that the output of the 24-MHz crystal oscillator is stable"</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2223,7 +2225,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit enables the detector that signals when the 24MHz crystal oscillator is stable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit enables the detector that signals when the 24MHz crystal oscillator is stable."</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2231,58 +2233,58 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_CTRL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Allow the logic to automatically gate the clock when the XTAL is powered down.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Allow the logic to automatically gate the clock when the XTAL is powered down."</span>]
             </span><span class="kw">pub const </span>ALLOW_AUTO_GATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Prevent the logic from ever gating off the clock.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Prevent the logic from ever gating off the clock."</span>]
             </span><span class="kw">pub const </span>NO_AUTO_GATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;3.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"3.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;5.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"5.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;6.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"6.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;7.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"7.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field indicates which chip source is being used for the rtc clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field indicates which chip source is being used for the rtc clock."</span>]
     </span><span class="kw">pub mod </span>RTC_XTAL_SOURCE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Internal ring oscillator&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Internal ring oscillator"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RTC_XTAL&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RTC_XTAL"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field powers down the 24M crystal oscillator if set true.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field powers down the 24M crystal oscillator if set true."</span>]
     </span><span class="kw">pub mod </span>XTAL_24M_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2290,23 +2292,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Predivider for the source clock of the PLL&#39;s. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Predivider for the source clock of the PLL's. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>VID_PLL_PREDIV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 1"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 2"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
 </span><span class="kw">pub mod </span>MISC0_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to power-down the analog bandgap reference circuitry&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to power-down the analog bandgap reference circuitry"</span>]
     </span><span class="kw">pub mod </span>REFTOP_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2314,45 +2316,45 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to disable the self-bias circuit in the analog bandgap&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to disable the self-bias circuit in the analog bandgap"</span>]
     </span><span class="kw">pub mod </span>REFTOP_SELFBIASOFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Uses coarse bias currents for startup&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses coarse bias currents for startup"</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Uses bandgap-based bias currents for best performance.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses bandgap-based bias currents for best performance."</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGADJ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal VBG&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal VBG"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-3.12%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-3.12%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals the analog bandgap voltage is up and stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals the analog bandgap voltage is up and stable"</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGUP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2360,54 +2362,54 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Configure the analog behavior in stop mode.Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Configure the analog behavior in stop mode.Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>STOP_MODE_CONFIG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=on, New BG=off.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=on, New BG=off."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=off, New BG=on.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=off, New BG=on."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN."</span>]
     </span><span class="kw">pub mod </span>DISCON_HIGH_SNVS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Turn on the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn on the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Turn off the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn off the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field determines the bias current in the 24MHz oscillator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field determines the bias current in the 24MHz oscillator"</span>]
     </span><span class="kw">pub mod </span>OSC_I {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal"</span>]
             </span><span class="kw">pub const </span>NOMINAL: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 12.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 12.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_12_5_PERCENT: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 25.0%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 25.0%"</span>]
             </span><span class="kw">pub const </span>MINUS_25_PERCENT: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 37.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 37.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_37_5_PERCENT: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals that the output of the 24-MHz crystal oscillator is stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals that the output of the 24-MHz crystal oscillator is stable"</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2415,7 +2417,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit enables the detector that signals when the 24MHz crystal oscillator is stable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit enables the detector that signals when the 24MHz crystal oscillator is stable."</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2423,58 +2425,58 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_CTRL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Allow the logic to automatically gate the clock when the XTAL is powered down.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Allow the logic to automatically gate the clock when the XTAL is powered down."</span>]
             </span><span class="kw">pub const </span>ALLOW_AUTO_GATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Prevent the logic from ever gating off the clock.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Prevent the logic from ever gating off the clock."</span>]
             </span><span class="kw">pub const </span>NO_AUTO_GATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;3.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"3.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;5.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"5.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;6.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"6.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;7.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"7.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field indicates which chip source is being used for the rtc clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field indicates which chip source is being used for the rtc clock."</span>]
     </span><span class="kw">pub mod </span>RTC_XTAL_SOURCE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Internal ring oscillator&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Internal ring oscillator"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RTC_XTAL&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RTC_XTAL"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field powers down the 24M crystal oscillator if set true.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field powers down the 24M crystal oscillator if set true."</span>]
     </span><span class="kw">pub mod </span>XTAL_24M_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2482,23 +2484,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Predivider for the source clock of the PLL&#39;s. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Predivider for the source clock of the PLL's. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>VID_PLL_PREDIV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 1"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 2"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Miscellaneous Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Miscellaneous Register 0"</span>]
 </span><span class="kw">pub mod </span>MISC0_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to power-down the analog bandgap reference circuitry&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to power-down the analog bandgap reference circuitry"</span>]
     </span><span class="kw">pub mod </span>REFTOP_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2506,45 +2508,45 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control bit to disable the self-bias circuit in the analog bandgap&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control bit to disable the self-bias circuit in the analog bandgap"</span>]
     </span><span class="kw">pub mod </span>REFTOP_SELFBIASOFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Uses coarse bias currents for startup&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses coarse bias currents for startup"</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Uses bandgap-based bias currents for best performance.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Uses bandgap-based bias currents for best performance."</span>]
             </span><span class="kw">pub const </span>REFTOP_SELFBIASOFF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGADJ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal VBG&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal VBG"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG+2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG+2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-0.78%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-0.78%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-1.56%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-1.56%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-2.34%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-2.34%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;VBG-3.12%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"VBG-3.12%"</span>]
             </span><span class="kw">pub const </span>REFTOP_VBGADJ_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals the analog bandgap voltage is up and stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals the analog bandgap voltage is up and stable"</span>]
     </span><span class="kw">pub mod </span>REFTOP_VBGUP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2552,54 +2554,54 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Configure the analog behavior in stop mode.Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Configure the analog behavior in stop mode.Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>STOP_MODE_CONFIG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All analog except rtc powered down on stop mode assertion. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Certain analog functions such as certain regulators left up. XtalOsc=on, RCOsc=off;"</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=on, New BG=off.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=on, New BG=off."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;XtalOsc=off, RCOsc=on, Old BG=off, New BG=on.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XtalOsc=off, RCOsc=on, Old BG=off, New BG=on."</span>]
             </span><span class="kw">pub const </span>STOP_MODE_CONFIG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit controls a switch from VDD_HIGH_IN to VDD_SNVS_IN."</span>]
     </span><span class="kw">pub mod </span>DISCON_HIGH_SNVS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Turn on the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn on the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Turn off the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Turn off the switch"</span>]
             </span><span class="kw">pub const </span>DISCON_HIGH_SNVS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field determines the bias current in the 24MHz oscillator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field determines the bias current in the 24MHz oscillator"</span>]
     </span><span class="kw">pub mod </span>OSC_I {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Nominal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Nominal"</span>]
             </span><span class="kw">pub const </span>NOMINAL: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 12.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 12.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_12_5_PERCENT: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 25.0%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 25.0%"</span>]
             </span><span class="kw">pub const </span>MINUS_25_PERCENT: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrease current by 37.5%&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrease current by 37.5%"</span>]
             </span><span class="kw">pub const </span>MINUS_37_5_PERCENT: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status bit that signals that the output of the 24-MHz crystal oscillator is stable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status bit that signals that the output of the 24-MHz crystal oscillator is stable"</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2607,7 +2609,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit enables the detector that signals when the 24MHz crystal oscillator is stable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit enables the detector that signals when the 24MHz crystal oscillator is stable."</span>]
     </span><span class="kw">pub mod </span>OSC_XTALOK_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2615,58 +2617,58 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit allows disabling the clock gate (always ungated) for the xtal 24MHz clock that clocks the digital logic in the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_CTRL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Allow the logic to automatically gate the clock when the XTAL is powered down.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Allow the logic to automatically gate the clock when the XTAL is powered down."</span>]
             </span><span class="kw">pub const </span>ALLOW_AUTO_GATE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Prevent the logic from ever gating off the clock.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Prevent the logic from ever gating off the clock."</span>]
             </span><span class="kw">pub const </span>NO_AUTO_GATE: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field specifies the delay between powering up the XTAL 24MHz clock and releasing the clock to the digital logic inside the analog block"</span>]
     </span><span class="kw">pub mod </span>CLKGATE_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;3.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"3.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;5.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"5.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;6.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"6.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;7.0ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"7.0ms"</span>]
             </span><span class="kw">pub const </span>CLKGATE_DELAY_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field indicates which chip source is being used for the rtc clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field indicates which chip source is being used for the rtc clock."</span>]
     </span><span class="kw">pub mod </span>RTC_XTAL_SOURCE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Internal ring oscillator&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Internal ring oscillator"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RTC_XTAL&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RTC_XTAL"</span>]
             </span><span class="kw">pub const </span>RTC_XTAL_SOURCE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field powers down the 24M crystal oscillator if set true.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field powers down the 24M crystal oscillator if set true."</span>]
     </span><span class="kw">pub mod </span>XTAL_24M_PWD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2674,62 +2676,62 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Predivider for the source clock of the PLL&#39;s. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Predivider for the source clock of the PLL's. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>VID_PLL_PREDIV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 1"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divide by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divide by 2"</span>]
             </span><span class="kw">pub const </span>VID_PLL_PREDIV_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
 </span><span class="kw">pub mod </span>LOWPWR_CTRL {
-    <span class="attr">#[doc = <span class="string">&quot;RC Osc. enable control.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC Osc. enable control."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Use XTAL OSC to source the 24MHz clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use XTAL OSC to source the 24MHz clock"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Use RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use RC OSC"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Select the source for the 24MHz clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Select the source for the 24MHz clock."</span>]
     </span><span class="kw">pub mod </span>OSC_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;XTAL OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XTAL OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RC OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bandgap select. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bandgap select. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Low power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power bandgap test bit. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power bandgap test bit. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2737,7 +2739,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power reftop ibias disable. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power reftop ibias disable. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_IBIAS_OFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2745,7 +2747,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L1 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L1 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L1_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2753,7 +2755,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L2 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L2 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L2_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2761,7 +2763,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CPU power gate control. Used as software override. Test purpose only Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CPU power gate control. Used as software override. Test purpose only Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>CPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2769,7 +2771,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display logic power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display logic power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>DISPLAY_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2777,7 +2779,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;For debug purposes only&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"For debug purposes only"</span>]
     </span><span class="kw">pub mod </span>RCOSC_CG_OVERRIDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2785,37 +2787,37 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use"</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.25ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.25ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status of the 24MHz xtal oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status of the 24MHz xtal oscillator."</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_STAT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not stable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not stable"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stable and ready to use&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stable and ready to use"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>MIX_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2823,7 +2825,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPU power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPU power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>GPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2832,48 +2834,48 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
 </span><span class="kw">pub mod </span>LOWPWR_CTRL_SET {
-    <span class="attr">#[doc = <span class="string">&quot;RC Osc. enable control.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC Osc. enable control."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Use XTAL OSC to source the 24MHz clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use XTAL OSC to source the 24MHz clock"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Use RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use RC OSC"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Select the source for the 24MHz clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Select the source for the 24MHz clock."</span>]
     </span><span class="kw">pub mod </span>OSC_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;XTAL OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XTAL OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RC OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bandgap select. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bandgap select. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Low power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power bandgap test bit. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power bandgap test bit. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2881,7 +2883,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power reftop ibias disable. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power reftop ibias disable. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_IBIAS_OFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2889,7 +2891,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L1 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L1 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L1_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2897,7 +2899,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L2 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L2 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L2_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2905,7 +2907,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CPU power gate control. Used as software override. Test purpose only Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CPU power gate control. Used as software override. Test purpose only Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>CPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2913,7 +2915,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display logic power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display logic power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>DISPLAY_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2921,7 +2923,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;For debug purposes only&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"For debug purposes only"</span>]
     </span><span class="kw">pub mod </span>RCOSC_CG_OVERRIDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2929,37 +2931,37 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use"</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.25ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.25ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status of the 24MHz xtal oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status of the 24MHz xtal oscillator."</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_STAT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not stable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not stable"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stable and ready to use&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stable and ready to use"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>MIX_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2967,7 +2969,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPU power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPU power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>GPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2976,48 +2978,48 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
 </span><span class="kw">pub mod </span>LOWPWR_CTRL_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;RC Osc. enable control.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC Osc. enable control."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Use XTAL OSC to source the 24MHz clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use XTAL OSC to source the 24MHz clock"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Use RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use RC OSC"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Select the source for the 24MHz clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Select the source for the 24MHz clock."</span>]
     </span><span class="kw">pub mod </span>OSC_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;XTAL OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XTAL OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RC OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bandgap select. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bandgap select. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Low power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power bandgap test bit. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power bandgap test bit. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3025,7 +3027,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power reftop ibias disable. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power reftop ibias disable. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_IBIAS_OFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3033,7 +3035,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L1 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L1 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L1_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3041,7 +3043,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L2 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L2 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L2_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3049,7 +3051,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CPU power gate control. Used as software override. Test purpose only Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CPU power gate control. Used as software override. Test purpose only Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>CPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3057,7 +3059,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display logic power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display logic power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>DISPLAY_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3065,7 +3067,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;For debug purposes only&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"For debug purposes only"</span>]
     </span><span class="kw">pub mod </span>RCOSC_CG_OVERRIDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3073,37 +3075,37 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use"</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.25ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.25ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status of the 24MHz xtal oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status of the 24MHz xtal oscillator."</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_STAT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not stable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not stable"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stable and ready to use&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stable and ready to use"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>MIX_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3111,7 +3113,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPU power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPU power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>GPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3120,48 +3122,48 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC (LP) Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC (LP) Control Register"</span>]
 </span><span class="kw">pub mod </span>LOWPWR_CTRL_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;RC Osc. enable control.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC Osc. enable control."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Use XTAL OSC to source the 24MHz clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use XTAL OSC to source the 24MHz clock"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Use RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Use RC OSC"</span>]
             </span><span class="kw">pub const </span>RC_OSC_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Select the source for the 24MHz clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Select the source for the 24MHz clock."</span>]
     </span><span class="kw">pub mod </span>OSC_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;XTAL OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"XTAL OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RC OSC&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RC OSC"</span>]
             </span><span class="kw">pub const </span>OSC_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bandgap select. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bandgap select. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Low power bandgap&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low power bandgap"</span>]
             </span><span class="kw">pub const </span>LPBG_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power bandgap test bit. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power bandgap test bit. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>LPBG_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3169,7 +3171,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Low power reftop ibias disable. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low power reftop ibias disable. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>REFTOP_IBIAS_OFF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3177,7 +3179,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L1 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L1 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L1_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3185,7 +3187,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;L2 power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"L2 power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>L2_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3193,7 +3195,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CPU power gate control. Used as software override. Test purpose only Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CPU power gate control. Used as software override. Test purpose only Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>CPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3201,7 +3203,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display logic power gate control. Used as software override. Not related to oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display logic power gate control. Used as software override. Not related to oscillator."</span>]
     </span><span class="kw">pub mod </span>DISPLAY_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3209,7 +3211,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;For debug purposes only&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"For debug purposes only"</span>]
     </span><span class="kw">pub mod </span>RCOSC_CG_OVERRIDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3217,37 +3219,37 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Specifies the time delay between when the 24MHz xtal is powered up until it is stable and ready to use"</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_DELAY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;0.25ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.25ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;0.5ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"0.5ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;1ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2ms&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2ms"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_DELAY_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status of the 24MHz xtal oscillator.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status of the 24MHz xtal oscillator."</span>]
     </span><span class="kw">pub mod </span>XTALOSC_PWRUP_STAT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not stable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not stable"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stable and ready to use&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stable and ready to use"</span>]
             </span><span class="kw">pub const </span>XTALOSC_PWRUP_STAT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Display power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Display power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>MIX_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3255,7 +3257,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GPU power gate control. Used as software mask. Set to zero to force ungated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GPU power gate control. Used as software mask. Set to zero to force ungated."</span>]
     </span><span class="kw">pub mod </span>GPU_PWRGATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3264,9 +3266,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG0 {
-    <span class="attr">#[doc = <span class="string">&quot;Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset."</span>]
     </span><span class="kw">pub mod </span>START {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3274,7 +3276,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the tuning logic to calculate new RC tuning values&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the tuning logic to calculate new RC tuning values"</span>]
     </span><span class="kw">pub mod </span>ENABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3282,7 +3284,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bypasses any calculated RC tuning value and uses the programmed register value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bypasses any calculated RC tuning value and uses the programmed register value."</span>]
     </span><span class="kw">pub mod </span>BYPASS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3290,7 +3292,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Invert the stepping of the calculated RC tuning value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Invert the stepping of the calculated RC tuning value."</span>]
     </span><span class="kw">pub mod </span>INVERT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3298,7 +3300,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RC osc. tuning values.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC osc. tuning values."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3306,7 +3308,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Positive hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Positive hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_PLUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3314,7 +3316,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Negative hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Negative hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_MINUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3322,7 +3324,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3331,9 +3333,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG0_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset."</span>]
     </span><span class="kw">pub mod </span>START {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3341,7 +3343,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the tuning logic to calculate new RC tuning values&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the tuning logic to calculate new RC tuning values"</span>]
     </span><span class="kw">pub mod </span>ENABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3349,7 +3351,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bypasses any calculated RC tuning value and uses the programmed register value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bypasses any calculated RC tuning value and uses the programmed register value."</span>]
     </span><span class="kw">pub mod </span>BYPASS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3357,7 +3359,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Invert the stepping of the calculated RC tuning value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Invert the stepping of the calculated RC tuning value."</span>]
     </span><span class="kw">pub mod </span>INVERT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3365,7 +3367,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RC osc. tuning values.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC osc. tuning values."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3373,7 +3375,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Positive hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Positive hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_PLUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3381,7 +3383,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Negative hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Negative hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_MINUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3389,7 +3391,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3398,9 +3400,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG0_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset."</span>]
     </span><span class="kw">pub mod </span>START {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3408,7 +3410,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the tuning logic to calculate new RC tuning values&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the tuning logic to calculate new RC tuning values"</span>]
     </span><span class="kw">pub mod </span>ENABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3416,7 +3418,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bypasses any calculated RC tuning value and uses the programmed register value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bypasses any calculated RC tuning value and uses the programmed register value."</span>]
     </span><span class="kw">pub mod </span>BYPASS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3424,7 +3426,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Invert the stepping of the calculated RC tuning value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Invert the stepping of the calculated RC tuning value."</span>]
     </span><span class="kw">pub mod </span>INVERT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3432,7 +3434,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RC osc. tuning values.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC osc. tuning values."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3440,7 +3442,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Positive hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Positive hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_PLUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3448,7 +3450,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Negative hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Negative hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_MINUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3456,7 +3458,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3465,9 +3467,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 0 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 0 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG0_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Start/stop bit for the RC tuning calculation logic. If stopped the tuning logic is reset."</span>]
     </span><span class="kw">pub mod </span>START {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3475,7 +3477,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the tuning logic to calculate new RC tuning values&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the tuning logic to calculate new RC tuning values"</span>]
     </span><span class="kw">pub mod </span>ENABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3483,7 +3485,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Bypasses any calculated RC tuning value and uses the programmed register value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Bypasses any calculated RC tuning value and uses the programmed register value."</span>]
     </span><span class="kw">pub mod </span>BYPASS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3491,7 +3493,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Invert the stepping of the calculated RC tuning value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Invert the stepping of the calculated RC tuning value."</span>]
     </span><span class="kw">pub mod </span>INVERT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3499,7 +3501,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RC osc. tuning values.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RC osc. tuning values."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3507,7 +3509,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Positive hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Positive hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_PLUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3515,7 +3517,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Negative hysteresis value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Negative hysteresis value"</span>]
     </span><span class="kw">pub mod </span>HYST_MINUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -3523,7 +3525,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>RC_OSC_PROG_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -3532,9 +3534,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG1 {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the RC OSC frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the RC OSC frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3542,7 +3544,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3551,9 +3553,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG1_SET {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the RC OSC frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the RC OSC frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3561,7 +3563,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3570,9 +3572,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG1_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the RC OSC frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the RC OSC frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3580,7 +3582,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3589,9 +3591,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 1 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 1 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG1_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the RC OSC frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the RC OSC frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3599,7 +3601,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The current tuning value in use.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The current tuning value in use."</span>]
     </span><span class="kw">pub mod </span>COUNT_RC_CUR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3608,9 +3610,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG2 {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the 1MHz clock frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the 1MHz clock frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_1M_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3618,7 +3620,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the 1MHz clock output. 0 - disabled; 1 - enabled.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the 1MHz clock output. 0 - disabled; 1 - enabled."</span>]
     </span><span class="kw">pub mod </span>ENABLE_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3626,7 +3628,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Mux the corrected or uncorrected 1MHz clock to the output&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Mux the corrected or uncorrected 1MHz clock to the output"</span>]
     </span><span class="kw">pub mod </span>MUX_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3634,7 +3636,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flag indicates that the count_1m count wasn&#39;t reached within 1 32kHz period&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flag indicates that the count_1m count wasn't reached within 1 32kHz period"</span>]
     </span><span class="kw">pub mod </span>CLK_1M_ERR_FL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3643,9 +3645,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG2_SET {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the 1MHz clock frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the 1MHz clock frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_1M_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3653,7 +3655,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the 1MHz clock output. 0 - disabled; 1 - enabled.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the 1MHz clock output. 0 - disabled; 1 - enabled."</span>]
     </span><span class="kw">pub mod </span>ENABLE_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3661,7 +3663,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Mux the corrected or uncorrected 1MHz clock to the output&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Mux the corrected or uncorrected 1MHz clock to the output"</span>]
     </span><span class="kw">pub mod </span>MUX_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3669,7 +3671,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flag indicates that the count_1m count wasn&#39;t reached within 1 32kHz period&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flag indicates that the count_1m count wasn't reached within 1 32kHz period"</span>]
     </span><span class="kw">pub mod </span>CLK_1M_ERR_FL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3678,9 +3680,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG2_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the 1MHz clock frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the 1MHz clock frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_1M_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3688,7 +3690,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the 1MHz clock output. 0 - disabled; 1 - enabled.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the 1MHz clock output. 0 - disabled; 1 - enabled."</span>]
     </span><span class="kw">pub mod </span>ENABLE_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3696,7 +3698,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Mux the corrected or uncorrected 1MHz clock to the output&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Mux the corrected or uncorrected 1MHz clock to the output"</span>]
     </span><span class="kw">pub mod </span>MUX_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3704,7 +3706,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flag indicates that the count_1m count wasn&#39;t reached within 1 32kHz period&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flag indicates that the count_1m count wasn't reached within 1 32kHz period"</span>]
     </span><span class="kw">pub mod </span>CLK_1M_ERR_FL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3713,9 +3715,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;XTAL OSC Configuration 2 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"XTAL OSC Configuration 2 Register"</span>]
 </span><span class="kw">pub mod </span>OSC_CONFIG2_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;The target count used to tune the 1MHz clock frequency&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The target count used to tune the 1MHz clock frequency"</span>]
     </span><span class="kw">pub mod </span>COUNT_1M_TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -3723,7 +3725,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the 1MHz clock output. 0 - disabled; 1 - enabled.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the 1MHz clock output. 0 - disabled; 1 - enabled."</span>]
     </span><span class="kw">pub mod </span>ENABLE_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3731,7 +3733,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Mux the corrected or uncorrected 1MHz clock to the output&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Mux the corrected or uncorrected 1MHz clock to the output"</span>]
     </span><span class="kw">pub mod </span>MUX_1M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -3739,7 +3741,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flag indicates that the count_1m count wasn&#39;t reached within 1 32kHz period&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flag indicates that the count_1m count wasn't reached within 1 32kHz period"</span>]
     </span><span class="kw">pub mod </span>CLK_1M_ERR_FL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;

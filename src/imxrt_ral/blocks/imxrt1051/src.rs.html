@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/src.rs`."><title>src.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/src.rs`."><title>src.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -311,110 +313,110 @@
 <a href="#311" id="311">311</a>
 <a href="#312" id="312">312</a>
 <a href="#313" id="313">313</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;SRC&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"SRC"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;SRC Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC Control Register"</span>]
     </span><span class="kw">pub </span>SCR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC Boot Mode Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC Boot Mode Register 1"</span>]
     </span><span class="kw">pub </span>SBMR1: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC Reset Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC Reset Status Register"</span>]
     </span><span class="kw">pub </span>SRSR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved0: [u8; <span class="number">0x10</span>],
-    <span class="attr">#[doc = <span class="string">&quot;SRC Boot Mode Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC Boot Mode Register 2"</span>]
     </span><span class="kw">pub </span>SBMR2: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 1"</span>]
     </span><span class="kw">pub </span>GPR1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 2"</span>]
     </span><span class="kw">pub </span>GPR2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 3"</span>]
     </span><span class="kw">pub </span>GPR3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 4&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 4"</span>]
     </span><span class="kw">pub </span>GPR4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 5&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 5"</span>]
     </span><span class="kw">pub </span>GPR5: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 6&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 6"</span>]
     </span><span class="kw">pub </span>GPR6: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 7&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 7"</span>]
     </span><span class="kw">pub </span>GPR7: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 8&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 8"</span>]
     </span><span class="kw">pub </span>GPR8: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 9&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 9"</span>]
     </span><span class="kw">pub </span>GPR9: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 10&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRC General Purpose Register 10"</span>]
     </span><span class="kw">pub </span>GPR10: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;SRC Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SRC Control Register"</span>]
 </span><span class="kw">pub mod </span>SCR {
-    <span class="attr">#[doc = <span class="string">&quot;Mask wdog_rst_b source&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Mask wdog_rst_b source"</span>]
     </span><span class="kw">pub mod </span>MASK_WDOG_RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;wdog_rst_b is masked&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"wdog_rst_b is masked"</span>]
             </span><span class="kw">pub const </span>MASK_WDOG_RST_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;wdog_rst_b is not masked (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"wdog_rst_b is not masked (default)"</span>]
             </span><span class="kw">pub const </span>MASK_WDOG_RST_10: u32 = <span class="number">0x0a</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software reset for core0 only&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software reset for core0 only"</span>]
     </span><span class="kw">pub mod </span>CORE0_RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;do not assert core0 reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"do not assert core0 reset"</span>]
             </span><span class="kw">pub const </span>CORE0_RST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;assert core0 reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"assert core0 reset"</span>]
             </span><span class="kw">pub const </span>CORE0_RST_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software reset for core0 debug only&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software reset for core0 debug only"</span>]
     </span><span class="kw">pub mod </span>CORE0_DBG_RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;do not assert core0 debug reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"do not assert core0 debug reset"</span>]
             </span><span class="kw">pub const </span>CORE0_DBG_RST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;assert core0 debug reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"assert core0 debug reset"</span>]
             </span><span class="kw">pub const </span>CORE0_DBG_RST_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Do not assert debug resets after power gating event of core&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Do not assert debug resets after power gating event of core"</span>]
     </span><span class="kw">pub mod </span>DBG_RST_MSK_PG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;do not mask core debug resets (debug resets will be asserted after power gating event)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"do not mask core debug resets (debug resets will be asserted after power gating event)"</span>]
             </span><span class="kw">pub const </span>DBG_RST_MSK_PG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;mask core debug resets (debug resets won&#39;t be asserted after power gating event)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"mask core debug resets (debug resets won't be asserted after power gating event)"</span>]
             </span><span class="kw">pub const </span>DBG_RST_MSK_PG_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Mask wdog3_rst_b source&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Mask wdog3_rst_b source"</span>]
     </span><span class="kw">pub mod </span>MASK_WDOG3_RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;wdog3_rst_b is masked&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"wdog3_rst_b is masked"</span>]
             </span><span class="kw">pub const </span>MASK_WDOG3_RST_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;wdog3_rst_b is not masked&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"wdog3_rst_b is not masked"</span>]
             </span><span class="kw">pub const </span>MASK_WDOG3_RST_10: u32 = <span class="number">0x0a</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SRC Boot Mode Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SRC Boot Mode Register 1"</span>]
 </span><span class="kw">pub mod </span>SBMR1 {
-    <span class="attr">#[doc = <span class="string">&quot;Refer to fusemap.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Refer to fusemap."</span>]
     </span><span class="kw">pub mod </span>BOOT_CFG1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -422,7 +424,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Refer to fusemap.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Refer to fusemap."</span>]
     </span><span class="kw">pub mod </span>BOOT_CFG2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -430,7 +432,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Refer to fusemap.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Refer to fusemap."</span>]
     </span><span class="kw">pub mod </span>BOOT_CFG3 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -438,7 +440,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Refer to fusemap.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Refer to fusemap."</span>]
     </span><span class="kw">pub mod </span>BOOT_CFG4 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -447,129 +449,129 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SRC Reset Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SRC Reset Status Register"</span>]
 </span><span class="kw">pub mod </span>SRSR {
-    <span class="attr">#[doc = <span class="string">&quot;Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)"</span>]
     </span><span class="kw">pub mod </span>IPP_RESET_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of ipp_reset_b pin.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of ipp_reset_b pin."</span>]
             </span><span class="kw">pub const </span>IPP_RESET_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of ipp_reset_b pin.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of ipp_reset_b pin."</span>]
             </span><span class="kw">pub const </span>IPP_RESET_B_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates a reset has been caused by CPU lockup.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates a reset has been caused by CPU lockup."</span>]
     </span><span class="kw">pub mod </span>LOCKUP_SYSRESETREQ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the mentioned case.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the mentioned case."</span>]
             </span><span class="kw">pub const </span>LOCKUP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of the mentioned case.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of the mentioned case."</span>]
             </span><span class="kw">pub const </span>LOCKUP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates whether the reset was the result of the csu_reset_b input.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates whether the reset was the result of the csu_reset_b input."</span>]
     </span><span class="kw">pub mod </span>CSU_RESET_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the csu_reset_b event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the csu_reset_b event."</span>]
             </span><span class="kw">pub const </span>CSU_RESET_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of the csu_reset_b event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of the csu_reset_b event."</span>]
             </span><span class="kw">pub const </span>CSU_RESET_B_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates whether the reset was the result of the ipp_user_reset_b qualified reset."</span>]
     </span><span class="kw">pub mod </span>IPP_USER_RESET_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the ipp_user_reset_b qualified as COLD reset event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the ipp_user_reset_b qualified as COLD reset event."</span>]
             </span><span class="kw">pub const </span>IPP_USER_RESET_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of the ipp_user_reset_b qualified as COLD reset event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of the ipp_user_reset_b qualified as COLD reset event."</span>]
             </span><span class="kw">pub const </span>IPP_USER_RESET_B_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;IC Watchdog Time-out reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IC Watchdog Time-out reset"</span>]
     </span><span class="kw">pub mod </span>WDOG_RST_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the watchdog time-out event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the watchdog time-out event."</span>]
             </span><span class="kw">pub const </span>WDOG_RST_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of the watchdog time-out event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of the watchdog time-out event."</span>]
             </span><span class="kw">pub const </span>WDOG_RST_B_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG."</span>]
     </span><span class="kw">pub mod </span>JTAG_RST_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of HIGH-Z reset from JTAG.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of HIGH-Z reset from JTAG."</span>]
             </span><span class="kw">pub const </span>JTAG_RST_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of HIGH-Z reset from JTAG.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of HIGH-Z reset from JTAG."</span>]
             </span><span class="kw">pub const </span>JTAG_RST_B_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;JTAG software reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"JTAG software reset"</span>]
     </span><span class="kw">pub mod </span>JTAG_SW_RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the mentioned case.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the mentioned case."</span>]
             </span><span class="kw">pub const </span>JTAG_SW_RST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the mentioned case.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the mentioned case."</span>]
             </span><span class="kw">pub const </span>JTAG_SW_RST_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;IC Watchdog3 Time-out reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IC Watchdog3 Time-out reset"</span>]
     </span><span class="kw">pub mod </span>WDOG3_RST_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of the watchdog3 time-out event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of the watchdog3 time-out event."</span>]
             </span><span class="kw">pub const </span>WDOG3_RST_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of the watchdog3 time-out event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of the watchdog3 time-out event."</span>]
             </span><span class="kw">pub const </span>WDOG3_RST_B_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Temper Sensor software reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Temper Sensor software reset"</span>]
     </span><span class="kw">pub mod </span>TEMPSENSE_RST_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not a result of software reset from Temperature Sensor.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not a result of software reset from Temperature Sensor."</span>]
             </span><span class="kw">pub const </span>TEMPSENSE_RST_B_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is a result of software reset from Temperature Sensor.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is a result of software reset from Temperature Sensor."</span>]
             </span><span class="kw">pub const </span>TEMPSENSE_RST_B_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SRC Boot Mode Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SRC Boot Mode Register 2"</span>]
 </span><span class="kw">pub mod </span>SBMR2 {
-    <span class="attr">#[doc = <span class="string">&quot;SECONFIG\\[1\\] shows the state of the SECONFIG\\[1\\] fuse&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SECONFIG\\[1\\] shows the state of the SECONFIG\\[1\\] fuse"</span>]
     </span><span class="kw">pub mod </span>SEC_CONFIG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -577,7 +579,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;DIR_BT_DIS shows the state of the DIR_BT_DIS fuse&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DIR_BT_DIS shows the state of the DIR_BT_DIS fuse"</span>]
     </span><span class="kw">pub mod </span>DIR_BT_DIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -585,7 +587,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BT_FUSE_SEL (connected to gpio bt_fuse_sel) shows the state of the BT_FUSE_SEL fuse&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BT_FUSE_SEL (connected to gpio bt_fuse_sel) shows the state of the BT_FUSE_SEL fuse"</span>]
     </span><span class="kw">pub mod </span>BT_FUSE_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -593,7 +595,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BMOD\\[1:0\\] shows the latched state of the BOOT_MODE1 and BOOT_MODE0 signals on the rising edge of POR_B&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BMOD\\[1:0\\] shows the latched state of the BOOT_MODE1 and BOOT_MODE0 signals on the rising edge of POR_B"</span>]
     </span><span class="kw">pub mod </span>BMOD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -602,9 +604,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SRC General Purpose Register 1"</span>]
 </span><span class="kw">pub mod </span>GPR1 {
-    <span class="attr">#[doc = <span class="string">&quot;Holds entry function for core0 for waking-up from low power mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Holds entry function for core0 for waking-up from low power mode"</span>]
     </span><span class="kw">pub mod </span>PERSISTENT_ENTRY0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -613,9 +615,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;SRC General Purpose Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"SRC General Purpose Register 2"</span>]
 </span><span class="kw">pub mod </span>GPR2 {
-    <span class="attr">#[doc = <span class="string">&quot;Holds argument of entry function for core0 for waking-up from low power mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Holds argument of entry function for core0 for waking-up from low power mode"</span>]
     </span><span class="kw">pub mod </span>PERSISTENT_ARG0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/tsc.rs`."><title>tsc.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/tsc.rs`."><title>tsc.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -687,65 +689,65 @@
 <a href="#687" id="687">687</a>
 <a href="#688" id="688">688</a>
 <a href="#689" id="689">689</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;Touch Screen Controller&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"Touch Screen Controller"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"no description available"</span>]
     </span><span class="kw">pub </span>BASIC_SETTING: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved0: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"no description available"</span>]
     </span><span class="kw">pub </span>PRE_CHARGE_TIME: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Flow Control&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flow Control"</span>]
     </span><span class="kw">pub </span>FLOW_CONTROL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Measure Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Measure Value"</span>]
     </span><span class="kw">pub </span>MEASEURE_VALUE: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved3: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Enable"</span>]
     </span><span class="kw">pub </span>INT_EN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved4: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Signal Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Signal Enable"</span>]
     </span><span class="kw">pub </span>INT_SIG_EN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved5: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Intterrupt Status&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Intterrupt Status"</span>]
     </span><span class="kw">pub </span>INT_STATUS: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved6: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"no description available"</span>]
     </span><span class="kw">pub </span>DEBUG_MODE: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved7: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"no description available"</span>]
     </span><span class="kw">pub </span>DEBUG_MODE2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+<span class="attr">#[doc = <span class="string">"no description available"</span>]
 </span><span class="kw">pub mod </span>BASIC_SETTING {
-    <span class="attr">#[doc = <span class="string">&quot;Auto Measure&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Auto Measure"</span>]
     </span><span class="kw">pub mod </span>AUTO_MEASURE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable Auto Measure&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable Auto Measure"</span>]
             </span><span class="kw">pub const </span>AUTO_MEASURE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Auto Measure&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Auto Measure"</span>]
             </span><span class="kw">pub const </span>AUTO_MEASURE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;4/5 Wire detection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"4/5 Wire detection"</span>]
     </span><span class="kw">pub mod </span>_4_5_WIRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4-Wire Detection Mode&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4-Wire Detection Mode"</span>]
             </span><span class="kw">pub const </span>_4_5_WIRE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;5-Wire Detection Mode&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"5-Wire Detection Mode"</span>]
             </span><span class="kw">pub const </span>_4_5_WIRE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Measure Delay Time&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Measure Delay Time"</span>]
     </span><span class="kw">pub mod </span>MEASURE_DELAY_TIME {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x00ff_ffff </span>&lt;&lt; offset;
@@ -754,9 +756,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+<span class="attr">#[doc = <span class="string">"no description available"</span>]
 </span><span class="kw">pub mod </span>PRE_CHARGE_TIME {
-    <span class="attr">#[doc = <span class="string">&quot;Before detection, the top screen needs some time before being pulled up to a high voltage.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Before detection, the top screen needs some time before being pulled up to a high voltage."</span>]
     </span><span class="kw">pub mod </span>PRE_CHARGE_TIME {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -765,9 +767,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flow Control&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flow Control"</span>]
 </span><span class="kw">pub mod </span>FLOW_CONTROL {
-    <span class="attr">#[doc = <span class="string">&quot;Soft Reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Soft Reset"</span>]
     </span><span class="kw">pub mod </span>SW_RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -775,62 +777,62 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Start Measure&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Start Measure"</span>]
     </span><span class="kw">pub mod </span>START_MEASURE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not start measure for now&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not start measure for now"</span>]
             </span><span class="kw">pub const </span>START_MEASURE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Start measure the X/Y coordinate value&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Start measure the X/Y coordinate value"</span>]
             </span><span class="kw">pub const </span>START_MEASURE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Drop Measure&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Drop Measure"</span>]
     </span><span class="kw">pub mod </span>DROP_MEASURE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not drop measure for now&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not drop measure for now"</span>]
             </span><span class="kw">pub const </span>DROP_MEASURE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Drop the measure and controller return to idle status&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Drop the measure and controller return to idle status"</span>]
             </span><span class="kw">pub const </span>DROP_MEASURE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Start Sense&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Start Sense"</span>]
     </span><span class="kw">pub mod </span>START_SENSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Stay at idle status&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stay at idle status"</span>]
             </span><span class="kw">pub const </span>START_SENSE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Start sense detection and (if auto_measure set to 1) measure after detect a touch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Start sense detection and (if auto_measure set to 1) measure after detect a touch"</span>]
             </span><span class="kw">pub const </span>START_SENSE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit is for SW disable registers&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit is for SW disable registers"</span>]
     </span><span class="kw">pub mod </span>DISABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Leave HW state machine control&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Leave HW state machine control"</span>]
             </span><span class="kw">pub const </span>DISABLE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;SW set to idle status&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"SW set to idle status"</span>]
             </span><span class="kw">pub const </span>DISABLE_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Measure Value&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Measure Value"</span>]
 </span><span class="kw">pub mod </span>MEASEURE_VALUE {
-    <span class="attr">#[doc = <span class="string">&quot;Y Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Y Value"</span>]
     </span><span class="kw">pub mod </span>Y_VALUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -838,7 +840,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;X Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"X Value"</span>]
     </span><span class="kw">pub mod </span>X_VALUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -847,51 +849,51 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Interrupt Enable&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Interrupt Enable"</span>]
 </span><span class="kw">pub mod </span>INT_EN {
-    <span class="attr">#[doc = <span class="string">&quot;Measure Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Measure Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>MEASURE_INT_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable measure interrupt&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable measure interrupt"</span>]
             </span><span class="kw">pub const </span>MEASURE_INT_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable measure interrupt&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable measure interrupt"</span>]
             </span><span class="kw">pub const </span>MEASURE_INT_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>DETECT_INT_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable detect interrupt&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable detect interrupt"</span>]
             </span><span class="kw">pub const </span>DETECT_INT_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable detect interrupt&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable detect interrupt"</span>]
             </span><span class="kw">pub const </span>DETECT_INT_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Software Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Software Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>IDLE_SW_INT_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable idle software interrupt&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable idle software interrupt"</span>]
             </span><span class="kw">pub const </span>IDLE_SW_INT_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable idle software interrupt&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable idle software interrupt"</span>]
             </span><span class="kw">pub const </span>IDLE_SW_INT_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Interrupt Signal Enable&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Interrupt Signal Enable"</span>]
 </span><span class="kw">pub mod </span>INT_SIG_EN {
-    <span class="attr">#[doc = <span class="string">&quot;Measure Signal Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Measure Signal Enable"</span>]
     </span><span class="kw">pub mod </span>MEASURE_SIG_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -899,104 +901,104 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Signal Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Signal Enable"</span>]
     </span><span class="kw">pub mod </span>DETECT_SIG_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable detect signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable detect signal"</span>]
             </span><span class="kw">pub const </span>DETECT_SIG_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable detect signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable detect signal"</span>]
             </span><span class="kw">pub const </span>DETECT_SIG_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Valid Signal Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Valid Signal Enable"</span>]
     </span><span class="kw">pub mod </span>VALID_SIG_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable valid signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable valid signal"</span>]
             </span><span class="kw">pub const </span>VALID_SIG_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable valid signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable valid signal"</span>]
             </span><span class="kw">pub const </span>VALID_SIG_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Software Signal Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Software Signal Enable"</span>]
     </span><span class="kw">pub mod </span>IDLE_SW_SIG_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable idle software signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable idle software signal"</span>]
             </span><span class="kw">pub const </span>IDLE_SW_SIG_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable idle software signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable idle software signal"</span>]
             </span><span class="kw">pub const </span>IDLE_SW_SIG_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Intterrupt Status&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Intterrupt Status"</span>]
 </span><span class="kw">pub mod </span>INT_STATUS {
-    <span class="attr">#[doc = <span class="string">&quot;Measure Signal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Measure Signal"</span>]
     </span><span class="kw">pub mod </span>MEASURE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Does not exist a measure signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Does not exist a measure signal"</span>]
             </span><span class="kw">pub const </span>MEASURE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Exist a measure signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Exist a measure signal"</span>]
             </span><span class="kw">pub const </span>MEASURE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Signal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Signal"</span>]
     </span><span class="kw">pub mod </span>DETECT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Does not exist a detect signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Does not exist a detect signal"</span>]
             </span><span class="kw">pub const </span>DETECT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Exist detect signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Exist detect signal"</span>]
             </span><span class="kw">pub const </span>DETECT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Valid Signal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Valid Signal"</span>]
     </span><span class="kw">pub mod </span>VALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;There is no touch detected after measurement, indicates that the measured value is not valid&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"There is no touch detected after measurement, indicates that the measured value is not valid"</span>]
             </span><span class="kw">pub const </span>VALID_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;There is touch detection after measurement, indicates that the measure is valid&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"There is touch detection after measurement, indicates that the measure is valid"</span>]
             </span><span class="kw">pub const </span>VALID_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Software&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Software"</span>]
     </span><span class="kw">pub mod </span>IDLE_SW {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Haven&#39;t return to idle status&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Haven't return to idle status"</span>]
             </span><span class="kw">pub const </span>IDLE_SW_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Already return to idle status&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Already return to idle status"</span>]
             </span><span class="kw">pub const </span>IDLE_SW_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+<span class="attr">#[doc = <span class="string">"no description available"</span>]
 </span><span class="kw">pub mod </span>DEBUG_MODE {
-    <span class="attr">#[doc = <span class="string">&quot;ADC Conversion Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADC Conversion Value"</span>]
     </span><span class="kw">pub mod </span>ADC_CONV_VALUE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -1004,7 +1006,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ADC COCO Signal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADC COCO Signal"</span>]
     </span><span class="kw">pub mod </span>ADC_COCO {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1012,7 +1014,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Hardware Trigger Select Signal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Hardware Trigger Select Signal"</span>]
     </span><span class="kw">pub mod </span>EXT_HWTS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -1020,358 +1022,358 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Trigger&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Trigger"</span>]
     </span><span class="kw">pub mod </span>TRIGGER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No hardware trigger signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No hardware trigger signal"</span>]
             </span><span class="kw">pub const </span>TRIGGER_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware trigger signal, the signal must last at least 1 ips clock period&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware trigger signal, the signal must last at least 1 ips clock period"</span>]
             </span><span class="kw">pub const </span>TRIGGER_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;ADC Coco Clear&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADC Coco Clear"</span>]
     </span><span class="kw">pub mod </span>ADC_COCO_CLEAR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No ADC COCO clear&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No ADC COCO clear"</span>]
             </span><span class="kw">pub const </span>ADC_COCO_CLEAR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Set ADC COCO clear&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Set ADC COCO clear"</span>]
             </span><span class="kw">pub const </span>ADC_COCO_CLEAR_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;ADC COCO Clear Disable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADC COCO Clear Disable"</span>]
     </span><span class="kw">pub mod </span>ADC_COCO_CLEAR_DISABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Allow TSC hardware generates ADC COCO clear&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Allow TSC hardware generates ADC COCO clear"</span>]
             </span><span class="kw">pub const </span>ADC_COCO_CLEAR_DISABLE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Prevent TSC from generate ADC COCO clear signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Prevent TSC from generate ADC COCO clear signal"</span>]
             </span><span class="kw">pub const </span>ADC_COCO_CLEAR_DISABLE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Debug Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Debug Enable"</span>]
     </span><span class="kw">pub mod </span>DEBUG_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable debug mode&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable debug mode"</span>]
             </span><span class="kw">pub const </span>DEBUG_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable debug mode&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable debug mode"</span>]
             </span><span class="kw">pub const </span>DEBUG_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+<span class="attr">#[doc = <span class="string">"no description available"</span>]
 </span><span class="kw">pub mod </span>DEBUG_MODE2 {
-    <span class="attr">#[doc = <span class="string">&quot;XPUL Wire Pull Down Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XPUL Wire Pull Down Switch"</span>]
     </span><span class="kw">pub mod </span>XPUL_PULL_DOWN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>XPUL_PULL_DOWN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>XPUL_PULL_DOWN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;XPUL Wire Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XPUL Wire Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>XPUL_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>XPUL_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>XPUL_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;XPUL Wire 200K Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XPUL Wire 200K Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>XPUL_200K_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>XPUL_200K_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>XPUL_200K_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;XNUR Wire Pull Down Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XNUR Wire Pull Down Switch"</span>]
     </span><span class="kw">pub mod </span>XNUR_PULL_DOWN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>XNUR_PULL_DOWN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>XNUR_PULL_DOWN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;XNUR Wire Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XNUR Wire Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>XNUR_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>XNUR_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>XNUR_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;XNUR Wire 200K Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"XNUR Wire 200K Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>XNUR_200K_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>XNUR_200K_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>XNUR_200K_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;YPLL Wire Pull Down Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"YPLL Wire Pull Down Switch"</span>]
     </span><span class="kw">pub mod </span>YPLL_PULL_DOWN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>YPLL_PULL_DOWN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>YPLL_PULL_DOWN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;YPLL Wire Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"YPLL Wire Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>YPLL_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>YPLL_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open the switch"</span>]
             </span><span class="kw">pub const </span>YPLL_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;YPLL Wire 200K Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"YPLL Wire 200K Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>YPLL_200K_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>YPLL_200K_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>YPLL_200K_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;YNLR Wire Pull Down Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"YNLR Wire Pull Down Switch"</span>]
     </span><span class="kw">pub mod </span>YNLR_PULL_DOWN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>YNLR_PULL_DOWN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>YNLR_PULL_DOWN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;YNLR Wire Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"YNLR Wire Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>YNLR_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>YNLR_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>YNLR_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;YNLR Wire 200K Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"YNLR Wire 200K Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>YNLR_200K_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>YNLR_200K_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>YNLR_200K_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Wiper Wire Pull Down Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Wiper Wire Pull Down Switch"</span>]
     </span><span class="kw">pub mod </span>WIPER_PULL_DOWN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>WIPER_PULL_DOWN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>WIPER_PULL_DOWN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Wiper Wire Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Wiper Wire Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>WIPER_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>WIPER_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>WIPER_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Wiper Wire 200K Pull Up Switch&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Wiper Wire 200K Pull Up Switch"</span>]
     </span><span class="kw">pub mod </span>WIPER_200K_PULL_UP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Close the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Close the switch"</span>]
             </span><span class="kw">pub const </span>WIPER_200K_PULL_UP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Open up the switch&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Open up the switch"</span>]
             </span><span class="kw">pub const </span>WIPER_200K_PULL_UP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Four Wire&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Four Wire"</span>]
     </span><span class="kw">pub mod </span>DETECT_FOUR_WIRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No detect signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No detect signal"</span>]
             </span><span class="kw">pub const </span>DETECT_FOUR_WIRE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Yes, there is a detect on the touch screen.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Yes, there is a detect on the touch screen."</span>]
             </span><span class="kw">pub const </span>DETECT_FOUR_WIRE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Five Wire&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Five Wire"</span>]
     </span><span class="kw">pub mod </span>DETECT_FIVE_WIRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No detect signal&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No detect signal"</span>]
             </span><span class="kw">pub const </span>DETECT_FIVE_WIRE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Yes, there is a detect on the touch screen.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Yes, there is a detect on the touch screen."</span>]
             </span><span class="kw">pub const </span>DETECT_FIVE_WIRE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;State Machine&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"State Machine"</span>]
     </span><span class="kw">pub mod </span>STATE_MACHINE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Idle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Idle"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pre-charge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pre-charge"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Detect&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Detect"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;X-measure&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"X-measure"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Y-measure&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Y-measure"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pre-charge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pre-charge"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Detect&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Detect"</span>]
             </span><span class="kw">pub const </span>STATE_MACHINE_6: u32 = <span class="number">0x06</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Intermediate State&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Intermediate State"</span>]
     </span><span class="kw">pub mod </span>INTERMEDIATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not in intermedia&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not in intermedia"</span>]
             </span><span class="kw">pub const </span>INTERMEDIATE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Intermedia&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Intermedia"</span>]
             </span><span class="kw">pub const </span>INTERMEDIATE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Enable Four Wire&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Enable Four Wire"</span>]
     </span><span class="kw">pub mod </span>DETECT_ENABLE_FOUR_WIRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not read four wire detect value, read default value from analogue&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not read four wire detect value, read default value from analogue"</span>]
             </span><span class="kw">pub const </span>DETECT_ENABLE_FOUR_WIRE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Read four wire detect status from analogue&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Read four wire detect status from analogue"</span>]
             </span><span class="kw">pub const </span>DETECT_ENABLE_FOUR_WIRE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Detect Enable Five Wire&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Detect Enable Five Wire"</span>]
     </span><span class="kw">pub mod </span>DETECT_ENABLE_FIVE_WIRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not read five wire detect value, read default value from analogue&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not read five wire detect value, read default value from analogue"</span>]
             </span><span class="kw">pub const </span>DETECT_ENABLE_FIVE_WIRE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Read five wire detect status from analogue&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Read five wire detect status from analogue"</span>]
             </span><span class="kw">pub const </span>DETECT_ENABLE_FIVE_WIRE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field indicates glitch threshold&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field indicates glitch threshold"</span>]
     </span><span class="kw">pub mod </span>DE_GLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal function: 0x1fff ipg clock cycles; Low power mode: 0x9 low power clock cycles&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal function: 0x1fff ipg clock cycles; Low power mode: 0x9 low power clock cycles"</span>]
             </span><span class="kw">pub const </span>DE_GLITCH_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Normal function: 0xfff ipg clock cycles; Low power mode: :0x7 low power clock cycles&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal function: 0xfff ipg clock cycles; Low power mode: :0x7 low power clock cycles"</span>]
             </span><span class="kw">pub const </span>DE_GLITCH_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Normal function: 0x7ff ipg clock cycles; Low power mode:0x5 low power clock cycles&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal function: 0x7ff ipg clock cycles; Low power mode:0x5 low power clock cycles"</span>]
             </span><span class="kw">pub const </span>DE_GLITCH_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Normal function: 0x3 ipg clock cycles; Low power mode:0x3 low power clock cycles&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal function: 0x3 ipg clock cycles; Low power mode:0x3 low power clock cycles"</span>]
             </span><span class="kw">pub const </span>DE_GLITCH_3: u32 = <span class="number">0x03</span>;
         }
     }

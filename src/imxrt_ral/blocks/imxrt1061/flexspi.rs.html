@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/flexspi.rs`."><title>flexspi.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/flexspi.rs`."><title>flexspi.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1415,88 +1417,88 @@
 <a href="#1415" id="1415">1415</a>
 <a href="#1416" id="1416">1416</a>
 <a href="#1417" id="1417">1417</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;FlexSPI&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"FlexSPI"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Module Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Module Control Register 0"</span>]
     </span><span class="kw">pub </span>MCR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Module Control Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Module Control Register 1"</span>]
     </span><span class="kw">pub </span>MCR1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Module Control Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Module Control Register 2"</span>]
     </span><span class="kw">pub </span>MCR2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;AHB Bus Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Bus Control Register"</span>]
     </span><span class="kw">pub </span>AHBCR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Enable Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Enable Register"</span>]
     </span><span class="kw">pub </span>INTEN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Register"</span>]
     </span><span class="kw">pub </span>INTR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LUT Key Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LUT Key Register"</span>]
     </span><span class="kw">pub </span>LUTKEY: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LUT Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LUT Control Register"</span>]
     </span><span class="kw">pub </span>LUTCR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 0 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer 0 Control Register 0"</span>]
     </span><span class="kw">pub </span>AHBRXBUF0CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 1 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer 1 Control Register 0"</span>]
     </span><span class="kw">pub </span>AHBRXBUF1CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 2 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer 2 Control Register 0"</span>]
     </span><span class="kw">pub </span>AHBRXBUF2CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 3 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer 3 Control Register 0"</span>]
     </span><span class="kw">pub </span>AHBRXBUF3CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved0: [u8; <span class="number">0x30</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Flash A1 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A1 Control Register 0"</span>]
     </span><span class="kw">pub </span>FLSHA1CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Flash A2 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A2 Control Register 0"</span>]
     </span><span class="kw">pub </span>FLSHA2CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Flash B1 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash B1 Control Register 0"</span>]
     </span><span class="kw">pub </span>FLSHB1CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Flash B2 Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash B2 Control Register 0"</span>]
     </span><span class="kw">pub </span>FLSHB2CR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Flash A1 Control Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A1 Control Register 1"</span>]
     </span><span class="kw">pub </span>FLSHCR1: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">4usize</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Flash A1 Control Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A1 Control Register 2"</span>]
     </span><span class="kw">pub </span>FLSHCR2: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">4usize</span>],
     _reserved1: [u8; <span class="number">0x04</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Flash Control Register 4&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash Control Register 4"</span>]
     </span><span class="kw">pub </span>FLSHCR4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x08</span>],
-    <span class="attr">#[doc = <span class="string">&quot;IP Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP Control Register 0"</span>]
     </span><span class="kw">pub </span>IPCR0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;IP Control Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP Control Register 1"</span>]
     </span><span class="kw">pub </span>IPCR1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved3: [u8; <span class="number">0x08</span>],
-    <span class="attr">#[doc = <span class="string">&quot;IP Command Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP Command Register"</span>]
     </span><span class="kw">pub </span>IPCMD: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved4: [u8; <span class="number">0x04</span>],
-    <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP RX FIFO Control Register"</span>]
     </span><span class="kw">pub </span>IPRXFCR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP TX FIFO Control Register"</span>]
     </span><span class="kw">pub </span>IPTXFCR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;DLL Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DLL Control Register 0"</span>]
     </span><span class="kw">pub </span>DLLCR: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">2usize</span>],
     _reserved5: [u8; <span class="number">0x18</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Status Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status Register 0"</span>]
     </span><span class="kw">pub </span>STS0: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Status Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status Register 1"</span>]
     </span><span class="kw">pub </span>STS1: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Status Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status Register 2"</span>]
     </span><span class="kw">pub </span>STS2: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;AHB Suspend Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Suspend Status Register"</span>]
     </span><span class="kw">pub </span>AHBSPNDSTS: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP RX FIFO Status Register"</span>]
     </span><span class="kw">pub </span>IPRXFSTS: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP TX FIFO Status Register"</span>]
     </span><span class="kw">pub </span>IPTXFSTS: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved6: [u8; <span class="number">0x08</span>],
-    <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO Data Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP RX FIFO Data Register 0"</span>]
     </span><span class="kw">pub </span>RFDR: [<span class="kw">crate</span>::RORegister&lt;u32&gt;; <span class="number">32usize</span>],
-    <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO Data Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP TX FIFO Data Register 0"</span>]
     </span><span class="kw">pub </span>TFDR: [<span class="kw">crate</span>::WORegister&lt;u32&gt;; <span class="number">32usize</span>],
-    <span class="attr">#[doc = <span class="string">&quot;LUT 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LUT 0"</span>]
     </span><span class="kw">pub </span>LUT: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">64usize</span>],
 }
-<span class="attr">#[doc = <span class="string">&quot;Module Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Module Control Register 0"</span>]
 </span><span class="kw">pub mod </span>MCR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Software Reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Reset"</span>]
     </span><span class="kw">pub mod </span>SWRESET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1504,7 +1506,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Module Disable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Module Disable"</span>]
     </span><span class="kw">pub mod </span>MDIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1512,125 +1514,125 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sample Clock source selection for Flash Reading&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sample Clock source selection for Flash Reading"</span>]
     </span><span class="kw">pub mod </span>RXCLKSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Dummy Read strobe generated by FlexSPI Controller and loopback internally.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Dummy Read strobe generated by FlexSPI Controller and loopback internally."</span>]
             </span><span class="kw">pub const </span>RXCLKSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Dummy Read strobe generated by FlexSPI Controller and loopback from DQS pad.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Dummy Read strobe generated by FlexSPI Controller and loopback from DQS pad."</span>]
             </span><span class="kw">pub const </span>RXCLKSRC_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Flash provided Read strobe and input from DQS pad&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash provided Read strobe and input from DQS pad"</span>]
             </span><span class="kw">pub const </span>RXCLKSRC_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable AHB bus Read Access to IP RX FIFO.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable AHB bus Read Access to IP RX FIFO."</span>]
     </span><span class="kw">pub mod </span>ARDFEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO should be read by IP Bus. AHB Bus read access to IP RX FIFO memory space will get bus error response.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP RX FIFO should be read by IP Bus. AHB Bus read access to IP RX FIFO memory space will get bus error response."</span>]
             </span><span class="kw">pub const </span>ARDFEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO should be read by AHB Bus. IP Bus read access to IP RX FIFO memory space will always return data zero but no bus error response.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP RX FIFO should be read by AHB Bus. IP Bus read access to IP RX FIFO memory space will always return data zero but no bus error response."</span>]
             </span><span class="kw">pub const </span>ARDFEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable AHB bus Write Access to IP TX FIFO.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable AHB bus Write Access to IP TX FIFO."</span>]
     </span><span class="kw">pub mod </span>ATDFEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO should be written by IP Bus. AHB Bus write access to IP TX FIFO memory space will get bus error response.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP TX FIFO should be written by IP Bus. AHB Bus write access to IP TX FIFO memory space will get bus error response."</span>]
             </span><span class="kw">pub const </span>ATDFEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO should be written by AHB Bus. IP Bus write access to IP TX FIFO memory space will be ignored but no bus error response.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP TX FIFO should be written by AHB Bus. IP Bus write access to IP TX FIFO memory space will be ignored but no bus error response."</span>]
             </span><span class="kw">pub const </span>ATDFEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;The serial root clock could be divided inside FlexSPI . Refer Clocks chapter for more details on clocking.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The serial root clock could be divided inside FlexSPI . Refer Clocks chapter for more details on clocking."</span>]
     </span><span class="kw">pub mod </span>SERCLKDIV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 1"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 2"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 3"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 4&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 4"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 5&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 5"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 6&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 6"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 7&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 7"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Divided by 8&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Divided by 8"</span>]
             </span><span class="kw">pub const </span>SERCLKDIV_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Half Speed Serial Flash access Enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Half Speed Serial Flash access Enable."</span>]
     </span><span class="kw">pub mod </span>HSEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable divide by 2 of serial flash clock for half speed commands.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable divide by 2 of serial flash clock for half speed commands."</span>]
             </span><span class="kw">pub const </span>HSEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable divide by 2 of serial flash clock for half speed commands.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable divide by 2 of serial flash clock for half speed commands."</span>]
             </span><span class="kw">pub const </span>HSEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Doze mode enable bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Doze mode enable bit"</span>]
     </span><span class="kw">pub mod </span>DOZEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Doze mode support disabled. AHB clock and serial clock will not be gated off when there is doze mode request from system.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Doze mode support disabled. AHB clock and serial clock will not be gated off when there is doze mode request from system."</span>]
             </span><span class="kw">pub const </span>DOZEEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Doze mode support enabled. AHB clock and serial clock will be gated off when there is doze mode request from system.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Doze mode support enabled. AHB clock and serial clock will be gated off when there is doze mode request from system."</span>]
             </span><span class="kw">pub const </span>DOZEEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit is to support Flash Octal mode access by combining Port A and B Data pins (A_DATA\\[3:0\\] and B_DATA\\[3:0\\]).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit is to support Flash Octal mode access by combining Port A and B Data pins (A_DATA\\[3:0\\] and B_DATA\\[3:0\\])."</span>]
     </span><span class="kw">pub mod </span>COMBINATIONEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable."</span>]
             </span><span class="kw">pub const </span>COMBINATIONEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable."</span>]
             </span><span class="kw">pub const </span>COMBINATIONEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This bit is used to force SCLK output free-running. For FPGA applications, external device may use SCLK as reference clock to its internal PLL. If SCLK free-running is enabled, data sampling with loopback clock from SCLK pad is not supported (MCR0\\[RXCLKSRC\\]=2).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit is used to force SCLK output free-running. For FPGA applications, external device may use SCLK as reference clock to its internal PLL. If SCLK free-running is enabled, data sampling with loopback clock from SCLK pad is not supported (MCR0\\[RXCLKSRC\\]=2)."</span>]
     </span><span class="kw">pub mod </span>SCKFREERUNEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable."</span>]
             </span><span class="kw">pub const </span>SCKFREERUNEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable."</span>]
             </span><span class="kw">pub const </span>SCKFREERUNEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Time out wait cycle for IP command grant.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Time out wait cycle for IP command grant."</span>]
     </span><span class="kw">pub mod </span>IPGRANTWAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1638,7 +1640,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timeout wait cycle for AHB command grant.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timeout wait cycle for AHB command grant."</span>]
     </span><span class="kw">pub mod </span>AHBGRANTWAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1647,9 +1649,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Module Control Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Module Control Register 1"</span>]
 </span><span class="kw">pub mod </span>MCR1 {
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read/Write access to Serial Flash Memory space will timeout if not data received from Flash or data not transmitted after AHBBUSWAIT * 1024 ahb clock cycles, AHB Bus will get an error response&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read/Write access to Serial Flash Memory space will timeout if not data received from Flash or data not transmitted after AHBBUSWAIT * 1024 ahb clock cycles, AHB Bus will get an error response"</span>]
     </span><span class="kw">pub mod </span>AHBBUSWAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -1657,7 +1659,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Command Sequence Execution will timeout and abort after SEQWAIT * 1024 Serial Root Clock cycles&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Command Sequence Execution will timeout and abort after SEQWAIT * 1024 Serial Root Clock cycles"</span>]
     </span><span class="kw">pub mod </span>SEQWAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -1666,22 +1668,22 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Module Control Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Module Control Register 2"</span>]
 </span><span class="kw">pub mod </span>MCR2 {
-    <span class="attr">#[doc = <span class="string">&quot;This bit determines whether AHB RX Buffer and AHB TX Buffer will be cleaned automatically when FlexSPI returns STOP mode ACK. Software should set this bit if AHB RX Buffer or AHB TX Buffer will be powered off in STOP mode. Otherwise AHB read access after exiting STOP mode may hit AHB RX Buffer or AHB TX Buffer but their data entries are invalid.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This bit determines whether AHB RX Buffer and AHB TX Buffer will be cleaned automatically when FlexSPI returns STOP mode ACK. Software should set this bit if AHB RX Buffer or AHB TX Buffer will be powered off in STOP mode. Otherwise AHB read access after exiting STOP mode may hit AHB RX Buffer or AHB TX Buffer but their data entries are invalid."</span>]
     </span><span class="kw">pub mod </span>CLRAHBBUFOPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;AHB RX/TX Buffer will not be cleaned automatically when FlexSPI return Stop mode ACK.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"AHB RX/TX Buffer will not be cleaned automatically when FlexSPI return Stop mode ACK."</span>]
             </span><span class="kw">pub const </span>CLRAHBBUFOPT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;AHB RX/TX Buffer will be cleaned automatically when FlexSPI return Stop mode ACK.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"AHB RX/TX Buffer will be cleaned automatically when FlexSPI return Stop mode ACK."</span>]
             </span><span class="kw">pub const </span>CLRAHBBUFOPT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;The sampling clock phase selection will be reset to phase 0 when this bit is written with 0x1. This bit will be auto-cleared immediately.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The sampling clock phase selection will be reset to phase 0 when this bit is written with 0x1. This bit will be auto-cleared immediately."</span>]
     </span><span class="kw">pub mod </span>CLRLEARNPHASE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1689,33 +1691,33 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;All external devices are same devices (both in types and size) for A1/A2/B1/B2.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"All external devices are same devices (both in types and size) for A1/A2/B1/B2."</span>]
     </span><span class="kw">pub mod </span>SAMEDEVICEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;In Individual mode, FLSHA1CRx/FLSHA2CRx/FLSHB1CRx/FLSHB2CRx register setting will be applied to Flash A1/A2/B1/B2 separately. In Parallel mode, FLSHA1CRx register setting will be applied to Flash A1 and B1, FLSHA2CRx register setting will be applied to Flash A2 and B2. FLSHB1CRx/FLSHB2CRx register settings will be ignored.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"In Individual mode, FLSHA1CRx/FLSHA2CRx/FLSHB1CRx/FLSHB2CRx register setting will be applied to Flash A1/A2/B1/B2 separately. In Parallel mode, FLSHA1CRx register setting will be applied to Flash A1 and B1, FLSHA2CRx register setting will be applied to Flash A2 and B2. FLSHB1CRx/FLSHB2CRx register settings will be ignored."</span>]
             </span><span class="kw">pub const </span>SAMEDEVICEEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;FLSHA1CR0/FLSHA1CR1/FLSHA1CR2 register settings will be applied to Flash A1/A2/B1/B2. FLSHA2CRx/FLSHB1CRx/FLSHB2CRx will be ignored.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FLSHA1CR0/FLSHA1CR1/FLSHA1CR2 register settings will be applied to Flash A1/A2/B1/B2. FLSHA2CRx/FLSHB1CRx/FLSHB2CRx will be ignored."</span>]
             </span><span class="kw">pub const </span>SAMEDEVICEEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;B_SCLK pad can be used as A_SCLK differential clock output (inverted clock to A_SCLK). In this case, port B flash access is not available. After changing the value of this field, MCR0\\[SWRESET\\] should be set.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"B_SCLK pad can be used as A_SCLK differential clock output (inverted clock to A_SCLK). In this case, port B flash access is not available. After changing the value of this field, MCR0\\[SWRESET\\] should be set."</span>]
     </span><span class="kw">pub mod </span>SCKBDIFFOPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;B_SCLK pad is used as port B SCLK clock output. Port B flash access is available.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"B_SCLK pad is used as port B SCLK clock output. Port B flash access is available."</span>]
             </span><span class="kw">pub const </span>SCKBDIFFOPT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;B_SCLK pad is used as port A SCLK inverted clock output (Differential clock to A_SCLK). Port B flash access is not available.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"B_SCLK pad is used as port A SCLK inverted clock output (Differential clock to A_SCLK). Port B flash access is not available."</span>]
             </span><span class="kw">pub const </span>SCKBDIFFOPT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Wait cycle (in AHB clock cycle) for idle state before suspended command sequence resumed.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Wait cycle (in AHB clock cycle) for idle state before suspended command sequence resumed."</span>]
     </span><span class="kw">pub mod </span>RESUMEWAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1724,48 +1726,48 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;AHB Bus Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"AHB Bus Control Register"</span>]
 </span><span class="kw">pub mod </span>AHBCR {
-    <span class="attr">#[doc = <span class="string">&quot;Parallel mode enabled for AHB triggered Command (both read and write) .&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parallel mode enabled for AHB triggered Command (both read and write) ."</span>]
     </span><span class="kw">pub mod </span>APAREN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Flash will be accessed in Individual mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash will be accessed in Individual mode."</span>]
             </span><span class="kw">pub const </span>APAREN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Flash will be accessed in Parallel mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash will be accessed in Parallel mode."</span>]
             </span><span class="kw">pub const </span>APAREN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable AHB bus cachable read access support.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable AHB bus cachable read access support."</span>]
     </span><span class="kw">pub mod </span>CACHABLEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disabled. When there is AHB bus cachable read access, FlexSPI will not check whether it hit AHB TX Buffer.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disabled. When there is AHB bus cachable read access, FlexSPI will not check whether it hit AHB TX Buffer."</span>]
             </span><span class="kw">pub const </span>CACHABLEEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enabled. When there is AHB bus cachable read access, FlexSPI will check whether it hit AHB TX Buffer first.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enabled. When there is AHB bus cachable read access, FlexSPI will check whether it hit AHB TX Buffer first."</span>]
             </span><span class="kw">pub const </span>CACHABLEEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable AHB bus bufferable write access support. This field affects the last beat of AHB write access, refer for more details about AHB bufferable write.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable AHB bus bufferable write access support. This field affects the last beat of AHB write access, refer for more details about AHB bufferable write."</span>]
     </span><span class="kw">pub mod </span>BUFFERABLEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disabled. For all AHB write access (no matter bufferable or non-bufferable ), FlexSPI will return AHB Bus ready after all data is transmitted to External device and AHB command finished.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disabled. For all AHB write access (no matter bufferable or non-bufferable ), FlexSPI will return AHB Bus ready after all data is transmitted to External device and AHB command finished."</span>]
             </span><span class="kw">pub const </span>BUFFERABLEEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enabled. For AHB bufferable write access, FlexSPI will return AHB Bus ready when the AHB command is granted by arbitrator and will not wait for AHB command finished.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enabled. For AHB bufferable write access, FlexSPI will return AHB Bus ready when the AHB command is granted by arbitrator and will not wait for AHB command finished."</span>]
             </span><span class="kw">pub const </span>BUFFERABLEEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read Prefetch Enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read Prefetch Enable."</span>]
     </span><span class="kw">pub mod </span>PREFETCHEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1773,23 +1775,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read Address option bit. This option bit is intend to remove AHB burst start address alignment limitation.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read Address option bit. This option bit is intend to remove AHB burst start address alignment limitation."</span>]
     </span><span class="kw">pub mod </span>READADDROPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;There is AHB read burst start address alignment limitation when flash is accessed in parallel mode or flash is wordaddressable.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"There is AHB read burst start address alignment limitation when flash is accessed in parallel mode or flash is wordaddressable."</span>]
             </span><span class="kw">pub const </span>READADDROPT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;There is no AHB read burst start address alignment limitation. FlexSPI will fetch more data than AHB burst required to meet the alignment requirement.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"There is no AHB read burst start address alignment limitation. FlexSPI will fetch more data than AHB burst required to meet the alignment requirement."</span>]
             </span><span class="kw">pub const </span>READADDROPT_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Interrupt Enable Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Interrupt Enable Register"</span>]
 </span><span class="kw">pub mod </span>INTEN {
-    <span class="attr">#[doc = <span class="string">&quot;IP triggered Command Sequences Execution finished interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP triggered Command Sequences Execution finished interrupt enable."</span>]
     </span><span class="kw">pub mod </span>IPCMDDONEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1797,7 +1799,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP triggered Command Sequences Grant Timeout interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP triggered Command Sequences Grant Timeout interrupt enable."</span>]
     </span><span class="kw">pub mod </span>IPCMDGEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1805,7 +1807,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB triggered Command Sequences Grant Timeout interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB triggered Command Sequences Grant Timeout interrupt enable."</span>]
     </span><span class="kw">pub mod </span>AHBCMDGEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1813,7 +1815,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP triggered Command Sequences Error Detected interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP triggered Command Sequences Error Detected interrupt enable."</span>]
     </span><span class="kw">pub mod </span>IPCMDERREN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1821,7 +1823,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB triggered Command Sequences Error Detected interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB triggered Command Sequences Error Detected interrupt enable."</span>]
     </span><span class="kw">pub mod </span>AHBCMDERREN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1829,7 +1831,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO WaterMark available interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP RX FIFO WaterMark available interrupt enable."</span>]
     </span><span class="kw">pub mod </span>IPRXWAEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1837,7 +1839,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO WaterMark empty interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP TX FIFO WaterMark empty interrupt enable."</span>]
     </span><span class="kw">pub mod </span>IPTXWEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1845,7 +1847,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SCK is stopped during command sequence because Async RX FIFO full interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SCK is stopped during command sequence because Async RX FIFO full interrupt enable."</span>]
     </span><span class="kw">pub mod </span>SCKSTOPBYRDEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1853,7 +1855,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SCK is stopped during command sequence because Async TX FIFO empty interrupt enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SCK is stopped during command sequence because Async TX FIFO empty interrupt enable."</span>]
     </span><span class="kw">pub mod </span>SCKSTOPBYWREN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1861,7 +1863,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Bus timeout interrupt.Refer Interrupts chapter for more details.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Bus timeout interrupt.Refer Interrupts chapter for more details."</span>]
     </span><span class="kw">pub mod </span>AHBBUSTIMEOUTEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1869,7 +1871,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence execution timeout interrupt enable.Refer Interrupts chapter for more details.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence execution timeout interrupt enable.Refer Interrupts chapter for more details."</span>]
     </span><span class="kw">pub mod </span>SEQTIMEOUTEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1878,9 +1880,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Interrupt Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Interrupt Register"</span>]
 </span><span class="kw">pub mod </span>INTR {
-    <span class="attr">#[doc = <span class="string">&quot;IP triggered Command Sequences Execution finished interrupt. This interrupt is also generated when there is IPCMDGE or IPCMDERR interrupt generated.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP triggered Command Sequences Execution finished interrupt. This interrupt is also generated when there is IPCMDGE or IPCMDERR interrupt generated."</span>]
     </span><span class="kw">pub mod </span>IPCMDDONE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1888,7 +1890,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP triggered Command Sequences Grant Timeout interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP triggered Command Sequences Grant Timeout interrupt."</span>]
     </span><span class="kw">pub mod </span>IPCMDGE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1896,7 +1898,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB triggered Command Sequences Grant Timeout interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB triggered Command Sequences Grant Timeout interrupt."</span>]
     </span><span class="kw">pub mod </span>AHBCMDGE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1904,7 +1906,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP triggered Command Sequences Error Detected interrupt. When an error detected for IP command, this command will be ignored and not executed at all.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP triggered Command Sequences Error Detected interrupt. When an error detected for IP command, this command will be ignored and not executed at all."</span>]
     </span><span class="kw">pub mod </span>IPCMDERR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1912,7 +1914,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB triggered Command Sequences Error Detected interrupt. When an error detected for AHB command, this command will be ignored and not executed at all.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB triggered Command Sequences Error Detected interrupt. When an error detected for AHB command, this command will be ignored and not executed at all."</span>]
     </span><span class="kw">pub mod </span>AHBCMDERR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1920,7 +1922,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO watermark available interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP RX FIFO watermark available interrupt."</span>]
     </span><span class="kw">pub mod </span>IPRXWA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1928,7 +1930,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO watermark empty interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP TX FIFO watermark empty interrupt."</span>]
     </span><span class="kw">pub mod </span>IPTXWE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1936,7 +1938,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SCK is stopped during command sequence because Async RX FIFO full interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SCK is stopped during command sequence because Async RX FIFO full interrupt."</span>]
     </span><span class="kw">pub mod </span>SCKSTOPBYRD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1944,7 +1946,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SCK is stopped during command sequence because Async TX FIFO empty interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SCK is stopped during command sequence because Async TX FIFO empty interrupt."</span>]
     </span><span class="kw">pub mod </span>SCKSTOPBYWR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1952,7 +1954,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Bus timeout interrupt.Refer Interrupts chapter for more details.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Bus timeout interrupt.Refer Interrupts chapter for more details."</span>]
     </span><span class="kw">pub mod </span>AHBBUSTIMEOUT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1960,7 +1962,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence execution timeout interrupt.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence execution timeout interrupt."</span>]
     </span><span class="kw">pub mod </span>SEQTIMEOUT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1969,9 +1971,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LUT Key Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LUT Key Register"</span>]
 </span><span class="kw">pub mod </span>LUTKEY {
-    <span class="attr">#[doc = <span class="string">&quot;The Key to lock or unlock LUT.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The Key to lock or unlock LUT."</span>]
     </span><span class="kw">pub mod </span>KEY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1980,9 +1982,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LUT Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LUT Control Register"</span>]
 </span><span class="kw">pub mod </span>LUTCR {
-    <span class="attr">#[doc = <span class="string">&quot;Lock LUT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock LUT"</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1990,7 +1992,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Unlock LUT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Unlock LUT"</span>]
     </span><span class="kw">pub mod </span>UNLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1999,9 +2001,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 0 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"AHB RX Buffer 0 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>AHBRXBUF0CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer Size in 64 bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer Size in 64 bits."</span>]
     </span><span class="kw">pub mod </span>BUFSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2009,7 +2011,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID)."</span>]
     </span><span class="kw">pub mod </span>MSTRID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2017,7 +2019,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest."</span>]
     </span><span class="kw">pub mod </span>PRIORITY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2025,7 +2027,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master."</span>]
     </span><span class="kw">pub mod </span>PREFETCHEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2034,9 +2036,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 1 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"AHB RX Buffer 1 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>AHBRXBUF1CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer Size in 64 bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer Size in 64 bits."</span>]
     </span><span class="kw">pub mod </span>BUFSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2044,7 +2046,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID)."</span>]
     </span><span class="kw">pub mod </span>MSTRID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2052,7 +2054,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest."</span>]
     </span><span class="kw">pub mod </span>PRIORITY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2060,7 +2062,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master."</span>]
     </span><span class="kw">pub mod </span>PREFETCHEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2069,9 +2071,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 2 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"AHB RX Buffer 2 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>AHBRXBUF2CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer Size in 64 bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer Size in 64 bits."</span>]
     </span><span class="kw">pub mod </span>BUFSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2079,7 +2081,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID)."</span>]
     </span><span class="kw">pub mod </span>MSTRID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2087,7 +2089,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest."</span>]
     </span><span class="kw">pub mod </span>PRIORITY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2095,7 +2097,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master."</span>]
     </span><span class="kw">pub mod </span>PREFETCHEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2104,9 +2106,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer 3 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"AHB RX Buffer 3 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>AHBRXBUF3CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX Buffer Size in 64 bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX Buffer Size in 64 bits."</span>]
     </span><span class="kw">pub mod </span>BUFSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2114,7 +2116,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This AHB RX Buffer is assigned according to AHB Master with ID (MSTR_ID)."</span>]
     </span><span class="kw">pub mod </span>MSTRID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2122,7 +2124,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This priority for AHB Master Read which this AHB RX Buffer is assigned. 7 is the highest priority, 0 the lowest."</span>]
     </span><span class="kw">pub mod </span>PRIORITY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2130,7 +2132,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB Read Prefetch Enable for current AHB RX Buffer corresponding Master."</span>]
     </span><span class="kw">pub mod </span>PREFETCHEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2139,9 +2141,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash A1 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash A1 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>FLSHA1CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Flash Size in KByte.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash Size in KByte."</span>]
     </span><span class="kw">pub mod </span>FLSHSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x007f_ffff </span>&lt;&lt; offset;
@@ -2150,9 +2152,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash A2 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash A2 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>FLSHA2CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Flash Size in KByte.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash Size in KByte."</span>]
     </span><span class="kw">pub mod </span>FLSHSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x007f_ffff </span>&lt;&lt; offset;
@@ -2161,9 +2163,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash B1 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash B1 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>FLSHB1CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Flash Size in KByte.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash Size in KByte."</span>]
     </span><span class="kw">pub mod </span>FLSHSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x007f_ffff </span>&lt;&lt; offset;
@@ -2172,9 +2174,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash B2 Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash B2 Control Register 0"</span>]
 </span><span class="kw">pub mod </span>FLSHB2CR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Flash Size in KByte.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash Size in KByte."</span>]
     </span><span class="kw">pub mod </span>FLSHSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x007f_ffff </span>&lt;&lt; offset;
@@ -2183,9 +2185,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash A1 Control Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash A1 Control Register 1"</span>]
 </span><span class="kw">pub mod </span>FLSHCR1 {
-    <span class="attr">#[doc = <span class="string">&quot;Serial Flash CS setup time.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Serial Flash CS setup time."</span>]
     </span><span class="kw">pub mod </span>TCSS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -2193,7 +2195,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Serial Flash CS Hold time.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Serial Flash CS Hold time."</span>]
     </span><span class="kw">pub mod </span>TCSH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -2201,7 +2203,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Word Addressable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Word Addressable."</span>]
     </span><span class="kw">pub mod </span>WA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2209,7 +2211,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Column Address Size.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Column Address Size."</span>]
     </span><span class="kw">pub mod </span>CAS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2217,20 +2219,20 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CS interval unit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CS interval unit"</span>]
     </span><span class="kw">pub mod </span>CSINTERVALUNIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The CS interval unit is 1 serial clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The CS interval unit is 1 serial clock cycle"</span>]
             </span><span class="kw">pub const </span>CSINTERVALUNIT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The CS interval unit is 256 serial clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The CS interval unit is 256 serial clock cycle"</span>]
             </span><span class="kw">pub const </span>CSINTERVALUNIT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;This field is used to set the minimum interval between flash device Chip selection deassertion and flash device Chip selection assertion. If external flash has a limitation on the interval between command sequences, this field should be set accordingly. If there is no limitation, set this field with value 0x0.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This field is used to set the minimum interval between flash device Chip selection deassertion and flash device Chip selection assertion. If external flash has a limitation on the interval between command sequences, this field should be set accordingly. If there is no limitation, set this field with value 0x0."</span>]
     </span><span class="kw">pub mod </span>CSINTERVAL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2239,9 +2241,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash A1 Control Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash A1 Control Register 2"</span>]
 </span><span class="kw">pub mod </span>FLSHCR2 {
-    <span class="attr">#[doc = <span class="string">&quot;Sequence Index for AHB Read triggered Command in LUT.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence Index for AHB Read triggered Command in LUT."</span>]
     </span><span class="kw">pub mod </span>ARDSEQID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2249,7 +2251,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence Number for AHB Read triggered Command in LUT.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence Number for AHB Read triggered Command in LUT."</span>]
     </span><span class="kw">pub mod </span>ARDSEQNUM {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2257,7 +2259,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence Index for AHB Write triggered Command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence Index for AHB Write triggered Command."</span>]
     </span><span class="kw">pub mod </span>AWRSEQID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2265,7 +2267,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence Number for AHB Write triggered Command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence Number for AHB Write triggered Command."</span>]
     </span><span class="kw">pub mod </span>AWRSEQNUM {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2273,7 +2275,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;For certain devices (such as FPGA), it need some time to write data into internal memory after the command sequences finished on FlexSPI interface&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"For certain devices (such as FPGA), it need some time to write data into internal memory after the command sequences finished on FlexSPI interface"</span>]
     </span><span class="kw">pub mod </span>AWRWAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -2281,32 +2283,32 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AWRWAIT unit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AWRWAIT unit"</span>]
     </span><span class="kw">pub mod </span>AWRWAITUNIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 2 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 2 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 8 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 8 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 32 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 32 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 128 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 128 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 512 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 512 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 2048 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 2048 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 8192 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 8192 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The AWRWAIT unit is 32768 ahb clock cycle&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The AWRWAIT unit is 32768 ahb clock cycle"</span>]
             </span><span class="kw">pub const </span>AWRWAITUNIT_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Clear the instruction pointer which is internally saved pointer by JMP_ON_CS. Refer Programmable Sequence Engine for details.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Clear the instruction pointer which is internally saved pointer by JMP_ON_CS. Refer Programmable Sequence Engine for details."</span>]
     </span><span class="kw">pub mod </span>CLRINSTRPTR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2315,51 +2317,51 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Flash Control Register 4&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Flash Control Register 4"</span>]
 </span><span class="kw">pub mod </span>FLSHCR4 {
-    <span class="attr">#[doc = <span class="string">&quot;Write mask option bit 1. This option bit could be used to remove AHB write burst start address alignment limitation.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Write mask option bit 1. This option bit could be used to remove AHB write burst start address alignment limitation."</span>]
     </span><span class="kw">pub mod </span>WMOPT1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DQS pin will be used as Write Mask when writing to external device. There is no limitation on AHB write burst start address alignment when flash is accessed in individual mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DQS pin will be used as Write Mask when writing to external device. There is no limitation on AHB write burst start address alignment when flash is accessed in individual mode."</span>]
             </span><span class="kw">pub const </span>WMOPT1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DQS pin will not be used as Write Mask when writing to external device. There is limitation on AHB write burst start address alignment when flash is accessed in individual mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DQS pin will not be used as Write Mask when writing to external device. There is limitation on AHB write burst start address alignment when flash is accessed in individual mode."</span>]
             </span><span class="kw">pub const </span>WMOPT1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Write mask enable bit for flash device on port A. When write mask function is needed for memory device on port A, this bit must be set.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Write mask enable bit for flash device on port A. When write mask function is needed for memory device on port A, this bit must be set."</span>]
     </span><span class="kw">pub mod </span>WMENA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Write mask is disabled, DQS(RWDS) pin will be un-driven when writing to external device.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Write mask is disabled, DQS(RWDS) pin will be un-driven when writing to external device."</span>]
             </span><span class="kw">pub const </span>WMENA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Write mask is enabled, DQS(RWDS) pin will be driven by FlexSPI as write mask output when writing to external device.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Write mask is enabled, DQS(RWDS) pin will be driven by FlexSPI as write mask output when writing to external device."</span>]
             </span><span class="kw">pub const </span>WMENA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Write mask enable bit for flash device on port B. When write mask function is needed for memory device on port B, this bit must be set.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Write mask enable bit for flash device on port B. When write mask function is needed for memory device on port B, this bit must be set."</span>]
     </span><span class="kw">pub mod </span>WMENB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Write mask is disabled, DQS(RWDS) pin will be un-driven when writing to external device.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Write mask is disabled, DQS(RWDS) pin will be un-driven when writing to external device."</span>]
             </span><span class="kw">pub const </span>WMENB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Write mask is enabled, DQS(RWDS) pin will be driven by FlexSPI as write mask output when writing to external device.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Write mask is enabled, DQS(RWDS) pin will be driven by FlexSPI as write mask output when writing to external device."</span>]
             </span><span class="kw">pub const </span>WMENB_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP Control Register 0"</span>]
 </span><span class="kw">pub mod </span>IPCR0 {
-    <span class="attr">#[doc = <span class="string">&quot;Serial Flash Address for IP command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Serial Flash Address for IP command."</span>]
     </span><span class="kw">pub mod </span>SFAR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2368,9 +2370,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP Control Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP Control Register 1"</span>]
 </span><span class="kw">pub mod </span>IPCR1 {
-    <span class="attr">#[doc = <span class="string">&quot;Flash Read/Program Data Size (in Bytes) for IP command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash Read/Program Data Size (in Bytes) for IP command."</span>]
     </span><span class="kw">pub mod </span>IDATSZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2378,7 +2380,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence Index in LUT for IP command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence Index in LUT for IP command."</span>]
     </span><span class="kw">pub mod </span>ISEQID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2386,7 +2388,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Sequence Number for IP command: ISEQNUM+1.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sequence Number for IP command: ISEQNUM+1."</span>]
     </span><span class="kw">pub mod </span>ISEQNUM {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2394,23 +2396,23 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Parallel mode Enabled for IP command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parallel mode Enabled for IP command."</span>]
     </span><span class="kw">pub mod </span>IPAREN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Flash will be accessed in Individual mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash will be accessed in Individual mode."</span>]
             </span><span class="kw">pub const </span>IPAREN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Flash will be accessed in Parallel mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash will be accessed in Parallel mode."</span>]
             </span><span class="kw">pub const </span>IPAREN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP Command Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP Command Register"</span>]
 </span><span class="kw">pub mod </span>IPCMD {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit will trigger an IP Command.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit will trigger an IP Command."</span>]
     </span><span class="kw">pub mod </span>TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2419,9 +2421,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP RX FIFO Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP RX FIFO Control Register"</span>]
 </span><span class="kw">pub mod </span>IPRXFCR {
-    <span class="attr">#[doc = <span class="string">&quot;Clear all valid data entries in IP RX FIFO.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Clear all valid data entries in IP RX FIFO."</span>]
     </span><span class="kw">pub mod </span>CLRIPRXF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2429,20 +2431,20 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO reading by DMA enabled.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP RX FIFO reading by DMA enabled."</span>]
     </span><span class="kw">pub mod </span>RXDMAEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO would be read by processor.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP RX FIFO would be read by processor."</span>]
             </span><span class="kw">pub const </span>RXDMAEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IP RX FIFO would be read by DMA.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP RX FIFO would be read by DMA."</span>]
             </span><span class="kw">pub const </span>RXDMAEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watermark level is (RXWMRK+1)*64 Bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watermark level is (RXWMRK+1)*64 Bits."</span>]
     </span><span class="kw">pub mod </span>RXWMRK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2451,9 +2453,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP TX FIFO Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP TX FIFO Control Register"</span>]
 </span><span class="kw">pub mod </span>IPTXFCR {
-    <span class="attr">#[doc = <span class="string">&quot;Clear all valid data entries in IP TX FIFO.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Clear all valid data entries in IP TX FIFO."</span>]
     </span><span class="kw">pub mod </span>CLRIPTXF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2461,20 +2463,20 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO filling by DMA enabled.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"IP TX FIFO filling by DMA enabled."</span>]
     </span><span class="kw">pub mod </span>TXDMAEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO would be filled by processor.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP TX FIFO would be filled by processor."</span>]
             </span><span class="kw">pub const </span>TXDMAEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IP TX FIFO would be filled by DMA.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP TX FIFO would be filled by DMA."</span>]
             </span><span class="kw">pub const </span>TXDMAEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watermark level is (TXWMRK+1)*64 Bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watermark level is (TXWMRK+1)*64 Bits."</span>]
     </span><span class="kw">pub mod </span>TXWMRK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2483,9 +2485,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;DLL Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"DLL Control Register 0"</span>]
 </span><span class="kw">pub mod </span>DLLCR {
-    <span class="attr">#[doc = <span class="string">&quot;DLL calibration enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DLL calibration enable."</span>]
     </span><span class="kw">pub mod </span>DLLEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2493,7 +2495,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software could force a reset on DLL by setting this field to 0x1. This will cause the DLL to lose lock and re-calibrate to detect an ref_clock half period phase shift. The reset action is edge triggered, so software need to clear this bit after set this bit (no delay limitation).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software could force a reset on DLL by setting this field to 0x1. This will cause the DLL to lose lock and re-calibrate to detect an ref_clock half period phase shift. The reset action is edge triggered, so software need to clear this bit after set this bit (no delay limitation)."</span>]
     </span><span class="kw">pub mod </span>DLLRESET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2501,7 +2503,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The delay target for slave delay line is: ((SLVDLYTARGET+1) * 1/32 * clock cycle of reference clock (serial root clock). If serial root clock is &gt;= 100 MHz, DLLEN set to 0x1, OVRDEN set to =0x0, then SLVDLYTARGET setting of 0xF is recommended.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The delay target for slave delay line is: ((SLVDLYTARGET+1) * 1/32 * clock cycle of reference clock (serial root clock). If serial root clock is &gt;= 100 MHz, DLLEN set to 0x1, OVRDEN set to =0x0, then SLVDLYTARGET setting of 0xF is recommended."</span>]
     </span><span class="kw">pub mod </span>SLVDLYTARGET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2509,7 +2511,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Slave clock delay line delay cell number selection override enable.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slave clock delay line delay cell number selection override enable."</span>]
     </span><span class="kw">pub mod </span>OVRDEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2517,7 +2519,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Slave clock delay line delay cell number selection override value.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Slave clock delay line delay cell number selection override value."</span>]
     </span><span class="kw">pub mod </span>OVRDVAL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2526,9 +2528,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Status Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Status Register 0"</span>]
 </span><span class="kw">pub mod </span>STS0 {
-    <span class="attr">#[doc = <span class="string">&quot;This status bit indicates the state machine in SEQ_CTL is idle and there is command sequence executing on FlexSPI interface.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This status bit indicates the state machine in SEQ_CTL is idle and there is command sequence executing on FlexSPI interface."</span>]
     </span><span class="kw">pub mod </span>SEQIDLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2536,7 +2538,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This status bit indicates the state machine in ARB_CTL is busy and there is command sequence granted by arbitrator and not finished yet on FlexSPI interface. When ARB_CTL state (ARBIDLE=0x1) is idle, there will be no transaction on FlexSPI interface also (SEQIDLE=0x1). So this bit should be polled to wait for FlexSPI controller become idle instead of SEQIDLE.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This status bit indicates the state machine in ARB_CTL is busy and there is command sequence granted by arbitrator and not finished yet on FlexSPI interface. When ARB_CTL state (ARBIDLE=0x1) is idle, there will be no transaction on FlexSPI interface also (SEQIDLE=0x1). So this bit should be polled to wait for FlexSPI controller become idle instead of SEQIDLE."</span>]
     </span><span class="kw">pub mod </span>ARBIDLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2544,27 +2546,27 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;This status field indicates the trigger source of current command sequence granted by arbitrator. This field value is meaningless when ARB_CTL is not busy (STS0\\[ARBIDLE\\]=0x1).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"This status field indicates the trigger source of current command sequence granted by arbitrator. This field value is meaningless when ARB_CTL is not busy (STS0\\[ARBIDLE\\]=0x1)."</span>]
     </span><span class="kw">pub mod </span>ARBCMDSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Triggered by AHB read command (triggered by AHB read).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Triggered by AHB read command (triggered by AHB read)."</span>]
             </span><span class="kw">pub const </span>ARBCMDSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Triggered by AHB write command (triggered by AHB Write).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Triggered by AHB write command (triggered by AHB Write)."</span>]
             </span><span class="kw">pub const </span>ARBCMDSRC_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Triggered by IP command (triggered by setting register bit IPCMD.TRG).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Triggered by IP command (triggered by setting register bit IPCMD.TRG)."</span>]
             </span><span class="kw">pub const </span>ARBCMDSRC_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Triggered by suspended command (resumed).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Triggered by suspended command (resumed)."</span>]
             </span><span class="kw">pub const </span>ARBCMDSRC_3: u32 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Status Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Status Register 1"</span>]
 </span><span class="kw">pub mod </span>STS1 {
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the sequence index when an AHB command error is detected. This field will be cleared when INTR\\[AHBCMDERR\\] is write-1-clear(w1c).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the sequence index when an AHB command error is detected. This field will be cleared when INTR\\[AHBCMDERR\\] is write-1-clear(w1c)."</span>]
     </span><span class="kw">pub mod </span>AHBCMDERRID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2572,28 +2574,28 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the Error Code when AHB command Error detected. This field will be cleared when INTR\\[AHBCMDERR\\] is write-1-clear(w1c).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the Error Code when AHB command Error detected. This field will be cleared when INTR\\[AHBCMDERR\\] is write-1-clear(w1c)."</span>]
     </span><span class="kw">pub mod </span>AHBCMDERRCODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No error."</span>]
             </span><span class="kw">pub const </span>AHBCMDERRCODE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;AHB Write command with JMP_ON_CS instruction used in the sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"AHB Write command with JMP_ON_CS instruction used in the sequence."</span>]
             </span><span class="kw">pub const </span>AHBCMDERRCODE_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;There is unknown instruction opcode in the sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"There is unknown instruction opcode in the sequence."</span>]
             </span><span class="kw">pub const </span>AHBCMDERRCODE_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Instruction DUMMY_SDR/DUMMY_RWDS_SDR used in DDR sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Instruction DUMMY_SDR/DUMMY_RWDS_SDR used in DDR sequence."</span>]
             </span><span class="kw">pub const </span>AHBCMDERRCODE_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Instruction DUMMY_DDR/DUMMY_RWDS_DDR used in SDR sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Instruction DUMMY_DDR/DUMMY_RWDS_DDR used in SDR sequence."</span>]
             </span><span class="kw">pub const </span>AHBCMDERRCODE_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Sequence execution timeout.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Sequence execution timeout."</span>]
             </span><span class="kw">pub const </span>AHBCMDERRCODE_14: u32 = <span class="number">0x0e</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the sequence Index when IP command error detected. This field will be cleared when INTR\\[IPCMDERR\\] is write-1-clear(w1c).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the sequence Index when IP command error detected. This field will be cleared when INTR\\[IPCMDERR\\] is write-1-clear(w1c)."</span>]
     </span><span class="kw">pub mod </span>IPCMDERRID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2601,35 +2603,35 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the Error Code when IP command Error detected. This field will be cleared when INTR\\[IPCMDERR\\] is write-1-clear(w1c).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the Error Code when IP command Error detected. This field will be cleared when INTR\\[IPCMDERR\\] is write-1-clear(w1c)."</span>]
     </span><span class="kw">pub mod </span>IPCMDERRCODE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No error."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IP command with JMP_ON_CS instruction used in the sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IP command with JMP_ON_CS instruction used in the sequence."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;There is unknown instruction opcode in the sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"There is unknown instruction opcode in the sequence."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Instruction DUMMY_SDR/DUMMY_RWDS_SDR used in DDR sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Instruction DUMMY_SDR/DUMMY_RWDS_SDR used in DDR sequence."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Instruction DUMMY_DDR/DUMMY_RWDS_DDR used in SDR sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Instruction DUMMY_DDR/DUMMY_RWDS_DDR used in SDR sequence."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Flash access start address exceed the whole flash address range (A1/A2/B1/B2).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash access start address exceed the whole flash address range (A1/A2/B1/B2)."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Sequence execution timeout.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Sequence execution timeout."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_14: u32 = <span class="number">0x0e</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Flash boundary crossed.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Flash boundary crossed."</span>]
             </span><span class="kw">pub const </span>IPCMDERRCODE_15: u32 = <span class="number">0x0f</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Status Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Status Register 2"</span>]
 </span><span class="kw">pub mod </span>STS2 {
-    <span class="attr">#[doc = <span class="string">&quot;Flash A sample clock slave delay line locked.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A sample clock slave delay line locked."</span>]
     </span><span class="kw">pub mod </span>ASLVLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2637,7 +2639,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash A sample clock reference delay line locked.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A sample clock reference delay line locked."</span>]
     </span><span class="kw">pub mod </span>AREFLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2645,7 +2647,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash A sample clock slave delay line delay cell number selection .&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A sample clock slave delay line delay cell number selection ."</span>]
     </span><span class="kw">pub mod </span>ASLVSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2653,7 +2655,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash A sample clock reference delay line delay cell number selection.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash A sample clock reference delay line delay cell number selection."</span>]
     </span><span class="kw">pub mod </span>AREFSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2661,7 +2663,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash B sample clock slave delay line locked.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash B sample clock slave delay line locked."</span>]
     </span><span class="kw">pub mod </span>BSLVLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2669,7 +2671,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash B sample clock reference delay line locked.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash B sample clock reference delay line locked."</span>]
     </span><span class="kw">pub mod </span>BREFLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2677,7 +2679,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash B sample clock slave delay line delay cell number selection.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash B sample clock slave delay line delay cell number selection."</span>]
     </span><span class="kw">pub mod </span>BSLVSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2685,7 +2687,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Flash B sample clock reference delay line delay cell number selection.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Flash B sample clock reference delay line delay cell number selection."</span>]
     </span><span class="kw">pub mod </span>BREFSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2694,9 +2696,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;AHB Suspend Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"AHB Suspend Status Register"</span>]
 </span><span class="kw">pub mod </span>AHBSPNDSTS {
-    <span class="attr">#[doc = <span class="string">&quot;Indicates if an AHB read prefetch command sequence has been suspended.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates if an AHB read prefetch command sequence has been suspended."</span>]
     </span><span class="kw">pub mod </span>ACTIVE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2704,7 +2706,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;AHB RX BUF ID for suspended command sequence.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"AHB RX BUF ID for suspended command sequence."</span>]
     </span><span class="kw">pub mod </span>BUFID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2712,7 +2714,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Left Data size for suspended command sequence (in byte).&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Left Data size for suspended command sequence (in byte)."</span>]
     </span><span class="kw">pub mod </span>DATLFT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2721,9 +2723,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP RX FIFO Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP RX FIFO Status Register"</span>]
 </span><span class="kw">pub mod </span>IPRXFSTS {
-    <span class="attr">#[doc = <span class="string">&quot;Fill level of IP RX FIFO.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Fill level of IP RX FIFO."</span>]
     </span><span class="kw">pub mod </span>FILL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2731,7 +2733,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Total Read Data Counter: RDCNTR * 64 Bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Total Read Data Counter: RDCNTR * 64 Bits."</span>]
     </span><span class="kw">pub mod </span>RDCNTR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2740,9 +2742,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP TX FIFO Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP TX FIFO Status Register"</span>]
 </span><span class="kw">pub mod </span>IPTXFSTS {
-    <span class="attr">#[doc = <span class="string">&quot;Fill level of IP TX FIFO.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Fill level of IP TX FIFO."</span>]
     </span><span class="kw">pub mod </span>FILL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2750,7 +2752,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Total Write Data Counter: WRCNTR * 64 Bits.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Total Write Data Counter: WRCNTR * 64 Bits."</span>]
     </span><span class="kw">pub mod </span>WRCNTR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2759,9 +2761,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP RX FIFO Data Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP RX FIFO Data Register 0"</span>]
 </span><span class="kw">pub mod </span>RFDR {
-    <span class="attr">#[doc = <span class="string">&quot;RX Data&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RX Data"</span>]
     </span><span class="kw">pub mod </span>RXDATA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2770,9 +2772,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;IP TX FIFO Data Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"IP TX FIFO Data Register 0"</span>]
 </span><span class="kw">pub mod </span>TFDR {
-    <span class="attr">#[doc = <span class="string">&quot;TX Data&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"TX Data"</span>]
     </span><span class="kw">pub mod </span>TXDATA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2781,9 +2783,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LUT 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LUT 0"</span>]
 </span><span class="kw">pub mod </span>LUT {
-    <span class="attr">#[doc = <span class="string">&quot;OPERAND0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OPERAND0"</span>]
     </span><span class="kw">pub mod </span>OPERAND0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2791,7 +2793,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;NUM_PADS0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"NUM_PADS0"</span>]
     </span><span class="kw">pub mod </span>NUM_PADS0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2799,7 +2801,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OPCODE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OPCODE"</span>]
     </span><span class="kw">pub mod </span>OPCODE0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2807,7 +2809,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OPERAND1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OPERAND1"</span>]
     </span><span class="kw">pub mod </span>OPERAND1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2815,7 +2817,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;NUM_PADS1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"NUM_PADS1"</span>]
     </span><span class="kw">pub mod </span>NUM_PADS1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2823,7 +2825,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OPCODE1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OPCODE1"</span>]
     </span><span class="kw">pub mod </span>OPCODE1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;

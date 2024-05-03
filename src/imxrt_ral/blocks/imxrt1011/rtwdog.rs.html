@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/rtwdog.rs`."><title>rtwdog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/rtwdog.rs`."><title>rtwdog.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -260,214 +262,214 @@
 <a href="#260" id="260">260</a>
 <a href="#261" id="261">261</a>
 <a href="#262" id="262">262</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;WDOG&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"WDOG"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Control and Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Control and Status Register"</span>]
     </span><span class="kw">pub </span>CS: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Counter Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Counter Register"</span>]
     </span><span class="kw">pub </span>CNT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Timeout Value Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Timeout Value Register"</span>]
     </span><span class="kw">pub </span>TOVAL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Window Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Window Register"</span>]
     </span><span class="kw">pub </span>WIN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Control and Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Control and Status Register"</span>]
 </span><span class="kw">pub mod </span>CS {
-    <span class="attr">#[doc = <span class="string">&quot;Stop Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Stop Enable"</span>]
     </span><span class="kw">pub mod </span>STOP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog disabled in chip stop mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog disabled in chip stop mode."</span>]
             </span><span class="kw">pub const </span>STOP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog enabled in chip stop mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog enabled in chip stop mode."</span>]
             </span><span class="kw">pub const </span>STOP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Wait Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Wait Enable"</span>]
     </span><span class="kw">pub mod </span>WAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog disabled in chip wait mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog disabled in chip wait mode."</span>]
             </span><span class="kw">pub const </span>WAIT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog enabled in chip wait mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog enabled in chip wait mode."</span>]
             </span><span class="kw">pub const </span>WAIT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Debug Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Debug Enable"</span>]
     </span><span class="kw">pub mod </span>DBG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog disabled in chip debug mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog disabled in chip debug mode."</span>]
             </span><span class="kw">pub const </span>DBG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog enabled in chip debug mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog enabled in chip debug mode."</span>]
             </span><span class="kw">pub const </span>DBG_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Test&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Test"</span>]
     </span><span class="kw">pub mod </span>TST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog test mode disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog test mode disabled."</span>]
             </span><span class="kw">pub const </span>TST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog user mode enabled. (Watchdog test mode disabled.) After testing the watchdog, software should use this setting to indicate that the watchdog is functioning normally in user mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog user mode enabled. (Watchdog test mode disabled.) After testing the watchdog, software should use this setting to indicate that the watchdog is functioning normally in user mode."</span>]
             </span><span class="kw">pub const </span>TST_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog test mode enabled, only the low byte is used. CNT\\[CNTLOW\\] is compared with TOVAL\\[TOVALLOW\\].&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog test mode enabled, only the low byte is used. CNT\\[CNTLOW\\] is compared with TOVAL\\[TOVALLOW\\]."</span>]
             </span><span class="kw">pub const </span>TST_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog test mode enabled, only the high byte is used. CNT\\[CNTHIGH\\] is compared with TOVAL\\[TOVALHIGH\\].&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog test mode enabled, only the high byte is used. CNT\\[CNTHIGH\\] is compared with TOVAL\\[TOVALHIGH\\]."</span>]
             </span><span class="kw">pub const </span>TST_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Allow updates&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Allow updates"</span>]
     </span><span class="kw">pub mod </span>UPDATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Updates not allowed. After the initial configuration, the watchdog cannot be later modified without forcing a reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Updates not allowed. After the initial configuration, the watchdog cannot be later modified without forcing a reset."</span>]
             </span><span class="kw">pub const </span>UPDATE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Updates allowed. Software can modify the watchdog configuration registers within 128 bus clocks after performing the unlock write sequence.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Updates allowed. Software can modify the watchdog configuration registers within 128 bus clocks after performing the unlock write sequence."</span>]
             </span><span class="kw">pub const </span>UPDATE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Interrupt&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Interrupt"</span>]
     </span><span class="kw">pub mod </span>INT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog interrupts are disabled. Watchdog resets are not delayed.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog interrupts are disabled. Watchdog resets are not delayed."</span>]
             </span><span class="kw">pub const </span>INT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog interrupts are enabled. Watchdog resets are delayed by 128 bus clocks from the interrupt vector fetch.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog interrupts are enabled. Watchdog resets are delayed by 128 bus clocks from the interrupt vector fetch."</span>]
             </span><span class="kw">pub const </span>INT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Enable"</span>]
     </span><span class="kw">pub mod </span>EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog disabled."</span>]
             </span><span class="kw">pub const </span>EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Watchdog enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Watchdog enabled."</span>]
             </span><span class="kw">pub const </span>EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Clock&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Clock"</span>]
     </span><span class="kw">pub mod </span>CLK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Bus clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Bus clock"</span>]
             </span><span class="kw">pub const </span>CLK_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;LPO clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LPO clock"</span>]
             </span><span class="kw">pub const </span>CLK_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;INTCLK (internal clock)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"INTCLK (internal clock)"</span>]
             </span><span class="kw">pub const </span>CLK_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;ERCLK (external reference clock)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"ERCLK (external reference clock)"</span>]
             </span><span class="kw">pub const </span>CLK_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Reconfiguration Success&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Reconfiguration Success"</span>]
     </span><span class="kw">pub mod </span>RCS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reconfiguring WDOG.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reconfiguring WDOG."</span>]
             </span><span class="kw">pub const </span>RCS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reconfiguration is successful.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reconfiguration is successful."</span>]
             </span><span class="kw">pub const </span>RCS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Unlock status&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Unlock status"</span>]
     </span><span class="kw">pub mod </span>ULK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;WDOG is locked.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"WDOG is locked."</span>]
             </span><span class="kw">pub const </span>ULK_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;WDOG is unlocked.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"WDOG is unlocked."</span>]
             </span><span class="kw">pub const </span>ULK_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog prescaler&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog prescaler"</span>]
     </span><span class="kw">pub mod </span>PRES {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;256 prescaler disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"256 prescaler disabled."</span>]
             </span><span class="kw">pub const </span>PRES_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;256 prescaler enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"256 prescaler enabled."</span>]
             </span><span class="kw">pub const </span>PRES_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables or disables WDOG support for 32-bit (otherwise 16-bit or 8-bit) refresh/unlock command write words&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables or disables WDOG support for 32-bit (otherwise 16-bit or 8-bit) refresh/unlock command write words"</span>]
     </span><span class="kw">pub mod </span>CMD32EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disables support for 32-bit refresh/unlock command write words. Only 16-bit or 8-bit is supported.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disables support for 32-bit refresh/unlock command write words. Only 16-bit or 8-bit is supported."</span>]
             </span><span class="kw">pub const </span>CMD32EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enables support for 32-bit refresh/unlock command write words. 16-bit or 8-bit is NOT supported.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enables support for 32-bit refresh/unlock command write words. 16-bit or 8-bit is NOT supported."</span>]
             </span><span class="kw">pub const </span>CMD32EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Interrupt Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Interrupt Flag"</span>]
     </span><span class="kw">pub mod </span>FLG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No interrupt occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No interrupt occurred."</span>]
             </span><span class="kw">pub const </span>FLG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;An interrupt occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"An interrupt occurred."</span>]
             </span><span class="kw">pub const </span>FLG_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Window&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Window"</span>]
     </span><span class="kw">pub mod </span>WIN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Window mode disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Window mode disabled."</span>]
             </span><span class="kw">pub const </span>WIN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Window mode enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Window mode enabled."</span>]
             </span><span class="kw">pub const </span>WIN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Counter Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Counter Register"</span>]
 </span><span class="kw">pub mod </span>CNT {
-    <span class="attr">#[doc = <span class="string">&quot;Low byte of the Watchdog Counter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low byte of the Watchdog Counter"</span>]
     </span><span class="kw">pub mod </span>CNTLOW {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -475,7 +477,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;High byte of the Watchdog Counter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"High byte of the Watchdog Counter"</span>]
     </span><span class="kw">pub mod </span>CNTHIGH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -484,9 +486,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Timeout Value Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Timeout Value Register"</span>]
 </span><span class="kw">pub mod </span>TOVAL {
-    <span class="attr">#[doc = <span class="string">&quot;Low byte of the timeout value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low byte of the timeout value"</span>]
     </span><span class="kw">pub mod </span>TOVALLOW {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -494,7 +496,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;High byte of the timeout value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"High byte of the timeout value"</span>]
     </span><span class="kw">pub mod </span>TOVALHIGH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -503,9 +505,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Window Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Window Register"</span>]
 </span><span class="kw">pub mod </span>WIN {
-    <span class="attr">#[doc = <span class="string">&quot;Low byte of Watchdog Window&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Low byte of Watchdog Window"</span>]
     </span><span class="kw">pub mod </span>WINLOW {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -513,7 +515,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;High byte of Watchdog Window&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"High byte of Watchdog Window"</span>]
     </span><span class="kw">pub mod </span>WINHIGH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/wdog.rs`."><title>wdog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/wdog.rs`."><title>wdog.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -258,262 +260,262 @@
 <a href="#258" id="258">258</a>
 <a href="#259" id="259">259</a>
 <a href="#260" id="260">260</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;WDOG&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"WDOG"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Control Register"</span>]
     </span><span class="kw">pub </span>WCR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Service Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Service Register"</span>]
     </span><span class="kw">pub </span>WSR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Reset Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Reset Status Register"</span>]
     </span><span class="kw">pub </span>WRSR: <span class="kw">crate</span>::RORegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Interrupt Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Interrupt Control Register"</span>]
     </span><span class="kw">pub </span>WICR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Watchdog Miscellaneous Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Watchdog Miscellaneous Control Register"</span>]
     </span><span class="kw">pub </span>WMCR: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Control Register"</span>]
 </span><span class="kw">pub mod </span>WCR {
-    <span class="attr">#[doc = <span class="string">&quot;WDZST&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WDZST"</span>]
     </span><span class="kw">pub mod </span>WDZST {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Continue timer operation (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Continue timer operation (Default)."</span>]
             </span><span class="kw">pub const </span>WDZST_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Suspend the watchdog timer.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Suspend the watchdog timer."</span>]
             </span><span class="kw">pub const </span>WDZST_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WDBG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WDBG"</span>]
     </span><span class="kw">pub mod </span>WDBG {
         <span class="kw">pub const </span>offset: u16 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Continue WDOG timer operation (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Continue WDOG timer operation (Default)."</span>]
             </span><span class="kw">pub const </span>WDBG_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Suspend the watchdog timer.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Suspend the watchdog timer."</span>]
             </span><span class="kw">pub const </span>WDBG_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WDE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WDE"</span>]
     </span><span class="kw">pub mod </span>WDE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable the Watchdog (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the Watchdog (Default)."</span>]
             </span><span class="kw">pub const </span>WDE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable the Watchdog.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the Watchdog."</span>]
             </span><span class="kw">pub const </span>WDE_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WDT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WDT"</span>]
     </span><span class="kw">pub mod </span>WDT {
         <span class="kw">pub const </span>offset: u16 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No effect on WDOG_B (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No effect on WDOG_B (Default)."</span>]
             </span><span class="kw">pub const </span>WDT_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Assert WDOG_B upon a Watchdog Time-out event.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Assert WDOG_B upon a Watchdog Time-out event."</span>]
             </span><span class="kw">pub const </span>WDT_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;SRS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRS"</span>]
     </span><span class="kw">pub mod </span>SRS {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Assert system reset signal.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Assert system reset signal."</span>]
             </span><span class="kw">pub const </span>SRS_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;No effect on the system (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No effect on the system (Default)."</span>]
             </span><span class="kw">pub const </span>SRS_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WDA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WDA"</span>]
     </span><span class="kw">pub mod </span>WDA {
         <span class="kw">pub const </span>offset: u16 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Assert WDOG_B output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Assert WDOG_B output."</span>]
             </span><span class="kw">pub const </span>WDA_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;No effect on system (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No effect on system (Default)."</span>]
             </span><span class="kw">pub const </span>WDA_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;software reset extension, an option way to generate software reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"software reset extension, an option way to generate software reset"</span>]
     </span><span class="kw">pub mod </span>SRE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;using original way to generate software reset (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"using original way to generate software reset (default)"</span>]
             </span><span class="kw">pub const </span>SRE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;using new way to generate software reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"using new way to generate software reset."</span>]
             </span><span class="kw">pub const </span>SRE_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WDW&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WDW"</span>]
     </span><span class="kw">pub mod </span>WDW {
         <span class="kw">pub const </span>offset: u16 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Continue WDOG timer operation (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Continue WDOG timer operation (Default)."</span>]
             </span><span class="kw">pub const </span>WDW_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Suspend WDOG timer operation.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Suspend WDOG timer operation."</span>]
             </span><span class="kw">pub const </span>WDW_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WT"</span>]
     </span><span class="kw">pub mod </span>WT {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;- 0.5 Seconds (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"- 0.5 Seconds (Default)."</span>]
             </span><span class="kw">pub const </span>WT_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;- 1.0 Seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"- 1.0 Seconds."</span>]
             </span><span class="kw">pub const </span>WT_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;- 1.5 Seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"- 1.5 Seconds."</span>]
             </span><span class="kw">pub const </span>WT_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;- 2.0 Seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"- 2.0 Seconds."</span>]
             </span><span class="kw">pub const </span>WT_3: u16 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;- 128 Seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"- 128 Seconds."</span>]
             </span><span class="kw">pub const </span>WT_255: u16 = <span class="number">0xff</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Service Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Service Register"</span>]
 </span><span class="kw">pub mod </span>WSR {
-    <span class="attr">#[doc = <span class="string">&quot;WSR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WSR"</span>]
     </span><span class="kw">pub mod </span>WSR {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xffff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Write to the Watchdog Service Register (WDOG_WSR).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Write to the Watchdog Service Register (WDOG_WSR)."</span>]
             </span><span class="kw">pub const </span>WSR_21845: u16 = <span class="number">0x5555</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Write to the Watchdog Service Register (WDOG_WSR).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Write to the Watchdog Service Register (WDOG_WSR)."</span>]
             </span><span class="kw">pub const </span>WSR_43690: u16 = <span class="number">0xaaaa</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Reset Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Reset Status Register"</span>]
 </span><span class="kw">pub mod </span>WRSR {
-    <span class="attr">#[doc = <span class="string">&quot;SFTW&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SFTW"</span>]
     </span><span class="kw">pub mod </span>SFTW {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not the result of a software reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not the result of a software reset."</span>]
             </span><span class="kw">pub const </span>SFTW_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is the result of a software reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is the result of a software reset."</span>]
             </span><span class="kw">pub const </span>SFTW_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;TOUT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"TOUT"</span>]
     </span><span class="kw">pub mod </span>TOUT {
         <span class="kw">pub const </span>offset: u16 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not the result of a WDOG timeout.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not the result of a WDOG timeout."</span>]
             </span><span class="kw">pub const </span>TOUT_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is the result of a WDOG timeout.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is the result of a WDOG timeout."</span>]
             </span><span class="kw">pub const </span>TOUT_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;POR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"POR"</span>]
     </span><span class="kw">pub mod </span>POR {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Reset is not the result of a power on reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is not the result of a power on reset."</span>]
             </span><span class="kw">pub const </span>POR_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Reset is the result of a power on reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Reset is the result of a power on reset."</span>]
             </span><span class="kw">pub const </span>POR_1: u16 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Interrupt Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Interrupt Control Register"</span>]
 </span><span class="kw">pub mod </span>WICR {
-    <span class="attr">#[doc = <span class="string">&quot;WICT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WICT"</span>]
     </span><span class="kw">pub mod </span>WICT {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0xff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;WICT\\[7:0\\] = Time duration between interrupt and time-out is 0 seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"WICT\\[7:0\\] = Time duration between interrupt and time-out is 0 seconds."</span>]
             </span><span class="kw">pub const </span>WICT_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;WICT\\[7:0\\] = Time duration between interrupt and time-out is 0.5 seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"WICT\\[7:0\\] = Time duration between interrupt and time-out is 0.5 seconds."</span>]
             </span><span class="kw">pub const </span>WICT_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;WICT\\[7:0\\] = Time duration between interrupt and time-out is 2 seconds (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"WICT\\[7:0\\] = Time duration between interrupt and time-out is 2 seconds (Default)."</span>]
             </span><span class="kw">pub const </span>WICT_4: u16 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;WICT\\[7:0\\] = Time duration between interrupt and time-out is 127.5 seconds.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"WICT\\[7:0\\] = Time duration between interrupt and time-out is 127.5 seconds."</span>]
             </span><span class="kw">pub const </span>WICT_255: u16 = <span class="number">0xff</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WTIS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WTIS"</span>]
     </span><span class="kw">pub mod </span>WTIS {
         <span class="kw">pub const </span>offset: u16 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No interrupt has occurred (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No interrupt has occurred (Default)."</span>]
             </span><span class="kw">pub const </span>WTIS_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt has occurred&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt has occurred"</span>]
             </span><span class="kw">pub const </span>WTIS_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;WIE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WIE"</span>]
     </span><span class="kw">pub mod </span>WIE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable Interrupt (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable Interrupt (Default)."</span>]
             </span><span class="kw">pub const </span>WIE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable Interrupt.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable Interrupt."</span>]
             </span><span class="kw">pub const </span>WIE_1: u16 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Watchdog Miscellaneous Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Watchdog Miscellaneous Control Register"</span>]
 </span><span class="kw">pub mod </span>WMCR {
-    <span class="attr">#[doc = <span class="string">&quot;PDE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"PDE"</span>]
     </span><span class="kw">pub mod </span>PDE {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Power Down Counter of WDOG is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Power Down Counter of WDOG is disabled."</span>]
             </span><span class="kw">pub const </span>PDE_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Power Down Counter of WDOG is enabled (Default).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Power Down Counter of WDOG is enabled (Default)."</span>]
             </span><span class="kw">pub const </span>PDE_1: u16 = <span class="number">0x01</span>;
         }
     }

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/csu.rs`."><title>csu.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/csu.rs`."><title>csu.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1039,1043 +1041,1043 @@
 <a href="#1039" id="1039">1039</a>
 <a href="#1040" id="1040">1040</a>
 <a href="#1041" id="1041">1041</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;CSU registers&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"CSU registers"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Config security level register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Config security level register"</span>]
     </span><span class="kw">pub </span>CSL: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">32usize</span>],
     _reserved0: [u8; <span class="number">0x0180</span>],
-    <span class="attr">#[doc = <span class="string">&quot;HP0 register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HP0 register"</span>]
     </span><span class="kw">pub </span>HP0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x14</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Secure access register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure access register"</span>]
     </span><span class="kw">pub </span>SA: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x013c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;HPCONTROL0 register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HPCONTROL0 register"</span>]
     </span><span class="kw">pub </span>HPCONTROL0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Config security level register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Config security level register"</span>]
 </span><span class="kw">pub mod </span>CSL {
-    <span class="attr">#[doc = <span class="string">&quot;Secure user read access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure user read access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>SUR_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure user read access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user read access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SUR_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure user read access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user read access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SUR_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure supervisor read access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure supervisor read access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>SSR_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor read access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor read access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SSR_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor read access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor read access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SSR_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure user read access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure user read access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>NUR_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user read access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user read access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NUR_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user read access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user read access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NUR_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure supervisor read access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure supervisor read access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>NSR_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor read access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor read access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NSR_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor read access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor read access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NSR_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure user write access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure user write access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>SUW_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure user write access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user write access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SUW_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure user write access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user write access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SUW_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure supervisor write access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure supervisor write access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>SSW_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor write access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor write access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SSW_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor write access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor write access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>SSW_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure user write access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure user write access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>NUW_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user write access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user write access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NUW_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user write access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user write access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NUW_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure supervisor write access control for the second slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure supervisor write access control for the second slave"</span>]
     </span><span class="kw">pub mod </span>NSW_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor write access is disabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor write access is disabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NSW_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor write access is enabled for the second slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor write access is enabled for the second slave."</span>]
             </span><span class="kw">pub const </span>NSW_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;The lock bit corresponding to the second slave. It is written by the secure software.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The lock bit corresponding to the second slave. It is written by the secure software."</span>]
     </span><span class="kw">pub mod </span>LOCK_S2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not locked. Bits 7-0 can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not locked. Bits 7-0 can be written by the software."</span>]
             </span><span class="kw">pub const </span>LOCK_S2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Bits 7-0 are locked and cannot be written by the software&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Bits 7-0 are locked and cannot be written by the software"</span>]
             </span><span class="kw">pub const </span>LOCK_S2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure user read access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure user read access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>SUR_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure user read access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user read access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SUR_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure user read access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user read access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SUR_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure supervisor read access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure supervisor read access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>SSR_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor read access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor read access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SSR_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor read access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor read access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SSR_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure user read access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure user read access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>NUR_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user read access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user read access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NUR_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user read access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user read access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NUR_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure supervisor read access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure supervisor read access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>NSR_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor read access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor read access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NSR_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor read access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor read access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NSR_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure user write access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure user write access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>SUW_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure user write access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user write access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SUW_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure user write access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure user write access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SUW_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Secure supervisor write access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Secure supervisor write access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>SSW_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor write access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor write access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SSW_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The secure supervisor write access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The secure supervisor write access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>SSW_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure user write access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure user write access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>NUW_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user write access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user write access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NUW_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure user write access is enabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure user write access is enabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NUW_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure supervisor write access control for the first slave&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure supervisor write access control for the first slave"</span>]
     </span><span class="kw">pub mod </span>NSW_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor write access is disabled for the first slave.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor write access is disabled for the first slave."</span>]
             </span><span class="kw">pub const </span>NSW_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The non-secure supervisor write access is enabled for the first slave&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The non-secure supervisor write access is enabled for the first slave"</span>]
             </span><span class="kw">pub const </span>NSW_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;The lock bit corresponding to the first slave. It is written by the secure software.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The lock bit corresponding to the first slave. It is written by the secure software."</span>]
     </span><span class="kw">pub mod </span>LOCK_S1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Not locked. The bits 16-23 can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Not locked. The bits 16-23 can be written by the software."</span>]
             </span><span class="kw">pub const </span>LOCK_S1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The bits 16-23 are locked and can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The bits 16-23 are locked and can't be written by the software."</span>]
             </span><span class="kw">pub const </span>LOCK_S1_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;HP0 register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"HP0 register"</span>]
 </span><span class="kw">pub mod </span>HP0 {
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the eDMA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the eDMA"</span>]
     </span><span class="kw">pub mod </span>HP_DMA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_DMA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_DMA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the eDMA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the eDMA"</span>]
     </span><span class="kw">pub mod </span>L_DMA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DMA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DMA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the LCDIF&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the LCDIF"</span>]
     </span><span class="kw">pub mod </span>HP_LCDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_LCDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_LCDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the LCDIF&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the LCDIF"</span>]
     </span><span class="kw">pub mod </span>L_LCDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_LCDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_LCDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the CSI&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the CSI"</span>]
     </span><span class="kw">pub mod </span>HP_CSI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_CSI_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_CSI_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the CSI&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the CSI"</span>]
     </span><span class="kw">pub mod </span>L_CSI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_CSI_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_CSI_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the PXP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the PXP"</span>]
     </span><span class="kw">pub mod </span>HP_PXP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_PXP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_PXP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the PXP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the PXP"</span>]
     </span><span class="kw">pub mod </span>L_PXP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_PXP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_PXP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the DCP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the DCP"</span>]
     </span><span class="kw">pub mod </span>HP_DCP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_DCP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_DCP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the DCP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the DCP"</span>]
     </span><span class="kw">pub mod </span>L_DCP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DCP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit cannot be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit cannot be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DCP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the ENET&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the ENET"</span>]
     </span><span class="kw">pub mod </span>HP_ENET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_ENET_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_ENET_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the ENET&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the ENET"</span>]
     </span><span class="kw">pub mod </span>L_ENET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_ENET_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_ENET_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the USDHC1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the USDHC1"</span>]
     </span><span class="kw">pub mod </span>HP_USDHC1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_USDHC1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_USDHC1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USDHC1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USDHC1"</span>]
     </span><span class="kw">pub mod </span>L_USDHC1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the USDHC2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the USDHC2"</span>]
     </span><span class="kw">pub mod </span>HP_USDHC2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_USDHC2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_USDHC2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USDHC2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USDHC2"</span>]
     </span><span class="kw">pub mod </span>L_USDHC2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the TPSMP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the TPSMP"</span>]
     </span><span class="kw">pub mod </span>HP_TPSMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_TPSMP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_TPSMP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the TPSMP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the TPSMP"</span>]
     </span><span class="kw">pub mod </span>L_TPSMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_TPSMP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_TPSMP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the USB&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Determines whether the register value of the corresponding HP field is passed as the hprot\\[1\\] of the USB"</span>]
     </span><span class="kw">pub mod </span>HP_USB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The hprot1 input signal value is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_USB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The HP register bit is routed to the csu_hprot1 output for the corresponding master.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The HP register bit is routed to the csu_hprot1 output for the corresponding master."</span>]
             </span><span class="kw">pub const </span>HP_USB_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USB&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USB"</span>]
     </span><span class="kw">pub mod </span>L_USB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USB_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Secure access register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Secure access register"</span>]
 </span><span class="kw">pub mod </span>SA {
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_DMA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_DMA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_DMA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the eDMA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the eDMA"</span>]
     </span><span class="kw">pub mod </span>L_DMA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DMA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DMA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_LCDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_LCDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_LCDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the LCDIF&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the LCDIF"</span>]
     </span><span class="kw">pub mod </span>L_LCDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_LCDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_LCDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_CSI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_CSI_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_CSI_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the CSI&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the CSI"</span>]
     </span><span class="kw">pub mod </span>L_CSI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_CSI_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_CSI_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-Secure Access Policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-Secure Access Policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_PXP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_PXP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_PXP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the PXP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the PXP"</span>]
     </span><span class="kw">pub mod </span>L_PXP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_PXP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_PXP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_DCP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_DCP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_DCP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the DCP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the DCP"</span>]
     </span><span class="kw">pub mod </span>L_DCP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DCP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DCP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_ENET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_ENET_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_ENET_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the ENET1 and ENET2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the ENET1 and ENET2"</span>]
     </span><span class="kw">pub mod </span>L_ENET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_ENET_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_ENET_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_USDHC1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_USDHC1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_USDHC1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USDHC1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USDHC1"</span>]
     </span><span class="kw">pub mod </span>L_USDHC1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_USDHC2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_USDHC2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_USDHC2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USDHC2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USDHC2"</span>]
     </span><span class="kw">pub mod </span>L_USDHC2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_TPSMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_TPSMP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_TPSMP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the TPSMP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the TPSMP"</span>]
     </span><span class="kw">pub mod </span>L_TPSMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_TPSMP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_TPSMP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Non-secure access policy indicator bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Non-secure access policy indicator bit"</span>]
     </span><span class="kw">pub mod </span>NSA_USB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_USB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Non-secure access for the corresponding type-1 master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Non-secure access for the corresponding type-1 master"</span>]
             </span><span class="kw">pub const </span>NSA_USB_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USB&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USB"</span>]
     </span><span class="kw">pub mod </span>L_USB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USB_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;HPCONTROL0 register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"HPCONTROL0 register"</span>]
 </span><span class="kw">pub mod </span>HPCONTROL0 {
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the eDMA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the eDMA"</span>]
     </span><span class="kw">pub mod </span>HPC_DMA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_DMA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_DMA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the eDMA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the eDMA"</span>]
     </span><span class="kw">pub mod </span>L_DMA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DMA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DMA_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the LCDIF&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the LCDIF"</span>]
     </span><span class="kw">pub mod </span>HPC_LCDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_LCDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_LCDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the LCDIF&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the LCDIF"</span>]
     </span><span class="kw">pub mod </span>L_LCDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_LCDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_LCDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the CSI&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the CSI"</span>]
     </span><span class="kw">pub mod </span>HPC_CSI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_CSI_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_CSI_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the CSI&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the CSI"</span>]
     </span><span class="kw">pub mod </span>L_CSI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_CSI_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_CSI_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the PXP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the PXP"</span>]
     </span><span class="kw">pub mod </span>HPC_PXP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_PXP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_PXP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the PXP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the PXP"</span>]
     </span><span class="kw">pub mod </span>L_PXP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_PXP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_PXP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the DCP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the DCP"</span>]
     </span><span class="kw">pub mod </span>HPC_DCP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_DCP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_DCP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the DCP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the DCP"</span>]
     </span><span class="kw">pub mod </span>L_DCP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DCP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_DCP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the ENET&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the ENET"</span>]
     </span><span class="kw">pub mod </span>HPC_ENET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_ENET_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_ENET_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the ENET&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the ENET"</span>]
     </span><span class="kw">pub mod </span>L_ENET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_ENET_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_ENET_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the USDHC1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the USDHC1"</span>]
     </span><span class="kw">pub mod </span>HPC_USDHC1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_USDHC1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_USDHC1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USDHC1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USDHC1"</span>]
     </span><span class="kw">pub mod </span>L_USDHC1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC1_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the USDHC2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the USDHC2"</span>]
     </span><span class="kw">pub mod </span>HPC_USDHC2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_USDHC2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_USDHC2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USDHC2.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USDHC2."</span>]
     </span><span class="kw">pub mod </span>L_USDHC2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USDHC2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the TPSMP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the TPSMP"</span>]
     </span><span class="kw">pub mod </span>HPC_TPSMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_TPSMP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_TPSMP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the TPSMP.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the TPSMP."</span>]
     </span><span class="kw">pub mod </span>L_TPSMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_TPSMP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_TPSMP_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates the privilege/user mode for the USB&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates the privilege/user mode for the USB"</span>]
     </span><span class="kw">pub mod </span>HPC_USB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;User mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"User mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_USB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supervisor mode for the corresponding master&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supervisor mode for the corresponding master"</span>]
             </span><span class="kw">pub const </span>HPC_USB_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Lock bit set by the TZ software for the USB.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Lock bit set by the TZ software for the USB."</span>]
     </span><span class="kw">pub mod </span>L_USB {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No lock-the adjacent (next lower) bit can be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No lock-the adjacent (next lower) bit can be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USB_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Lock-the adjacent (next lower) bit can&#39;t be written by the software.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Lock-the adjacent (next lower) bit can't be written by the software."</span>]
             </span><span class="kw">pub const </span>L_USB_1: u32 = <span class="number">0x01</span>;
         }
     }

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/flexio.rs`."><title>flexio.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/flexio.rs`."><title>flexio.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -756,89 +758,89 @@
 <a href="#756" id="756">756</a>
 <a href="#757" id="757">757</a>
 <a href="#758" id="758">758</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;FLEXIO&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"FLEXIO"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Version ID Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Version ID Register"</span>]
     </span><span class="kw">pub </span>VERID: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Parameter Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parameter Register"</span>]
     </span><span class="kw">pub </span>PARAM: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;FlexIO Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"FlexIO Control Register"</span>]
     </span><span class="kw">pub </span>CTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Pin State Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pin State Register"</span>]
     </span><span class="kw">pub </span>PIN: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Status Register"</span>]
     </span><span class="kw">pub </span>SHIFTSTAT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Error Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Error Register"</span>]
     </span><span class="kw">pub </span>SHIFTERR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Timer Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Status Register"</span>]
     </span><span class="kw">pub </span>TIMSTAT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved0: [u8; <span class="number">0x04</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Status Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Status Interrupt Enable"</span>]
     </span><span class="kw">pub </span>SHIFTSIEN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Error Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Error Interrupt Enable"</span>]
     </span><span class="kw">pub </span>SHIFTEIEN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Timer Interrupt Enable Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Interrupt Enable Register"</span>]
     </span><span class="kw">pub </span>TIMIEN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x04</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Status DMA Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Status DMA Enable"</span>]
     </span><span class="kw">pub </span>SHIFTSDEN: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter State Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter State Register"</span>]
     </span><span class="kw">pub </span>SHIFTSTATE: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved3: [u8; <span class="number">0x3c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Control N Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Control N Register"</span>]
     </span><span class="kw">pub </span>SHIFTCTL: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved4: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Configuration N Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Configuration N Register"</span>]
     </span><span class="kw">pub </span>SHIFTCFG: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved5: [u8; <span class="number">0xe0</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUF: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved6: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Bit Swapped Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Bit Swapped Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUFBIS: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved7: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Byte Swapped Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Byte Swapped Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUFBYS: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved8: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Bit Byte Swapped Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Bit Byte Swapped Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUFBBS: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved9: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Timer Control N Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Control N Register"</span>]
     </span><span class="kw">pub </span>TIMCTL: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved10: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Timer Configuration N Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Configuration N Register"</span>]
     </span><span class="kw">pub </span>TIMCFG: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved11: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Timer Compare N Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Compare N Register"</span>]
     </span><span class="kw">pub </span>TIMCMP: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved12: [u8; <span class="number">0x0160</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Nibble Byte Swapped Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Nibble Byte Swapped Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUFNBS: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved13: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Half Word Swapped Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Half Word Swapped Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUFHWS: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
     _reserved14: [u8; <span class="number">0x60</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Nibble Swapped Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Buffer N Nibble Swapped Register"</span>]
     </span><span class="kw">pub </span>SHIFTBUFNIS: [<span class="kw">crate</span>::RWRegister&lt;u32&gt;; <span class="number">8usize</span>],
 }
-<span class="attr">#[doc = <span class="string">&quot;Version ID Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Version ID Register"</span>]
 </span><span class="kw">pub mod </span>VERID {
-    <span class="attr">#[doc = <span class="string">&quot;Feature Specification Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Feature Specification Number"</span>]
     </span><span class="kw">pub mod </span>FEATURE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Standard features implemented.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Standard features implemented."</span>]
             </span><span class="kw">pub const </span>FEATURE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Supports state, logic and parallel modes.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Supports state, logic and parallel modes."</span>]
             </span><span class="kw">pub const </span>FEATURE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Minor Version Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Minor Version Number"</span>]
     </span><span class="kw">pub mod </span>MINOR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -846,7 +848,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Major Version Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Major Version Number"</span>]
     </span><span class="kw">pub mod </span>MAJOR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -855,9 +857,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Parameter Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Parameter Register"</span>]
 </span><span class="kw">pub mod </span>PARAM {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Number"</span>]
     </span><span class="kw">pub mod </span>SHIFTER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -865,7 +867,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Number"</span>]
     </span><span class="kw">pub mod </span>TIMER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -873,7 +875,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Pin Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pin Number"</span>]
     </span><span class="kw">pub mod </span>PIN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -881,7 +883,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Trigger Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Trigger Number"</span>]
     </span><span class="kw">pub mod </span>TRIGGER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -890,77 +892,77 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;FlexIO Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"FlexIO Control Register"</span>]
 </span><span class="kw">pub mod </span>CTRL {
-    <span class="attr">#[doc = <span class="string">&quot;FlexIO Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"FlexIO Enable"</span>]
     </span><span class="kw">pub mod </span>FLEXEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;FlexIO module is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FlexIO module is disabled."</span>]
             </span><span class="kw">pub const </span>FLEXEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;FlexIO module is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FlexIO module is enabled."</span>]
             </span><span class="kw">pub const </span>FLEXEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Software Reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Reset"</span>]
     </span><span class="kw">pub mod </span>SWRST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Software reset is disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Software reset is disabled"</span>]
             </span><span class="kw">pub const </span>SWRST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Software reset is enabled, all FlexIO registers except the Control Register are reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Software reset is enabled, all FlexIO registers except the Control Register are reset."</span>]
             </span><span class="kw">pub const </span>SWRST_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Fast Access&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Fast Access"</span>]
     </span><span class="kw">pub mod </span>FASTACC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Configures for normal register accesses to FlexIO&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Configures for normal register accesses to FlexIO"</span>]
             </span><span class="kw">pub const </span>FASTACC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Configures for fast register accesses to FlexIO&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Configures for fast register accesses to FlexIO"</span>]
             </span><span class="kw">pub const </span>FASTACC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Debug Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Debug Enable"</span>]
     </span><span class="kw">pub mod </span>DBGE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;FlexIO is disabled in debug modes.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FlexIO is disabled in debug modes."</span>]
             </span><span class="kw">pub const </span>DBGE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;FlexIO is enabled in debug modes&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FlexIO is enabled in debug modes"</span>]
             </span><span class="kw">pub const </span>DBGE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Doze Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Doze Enable"</span>]
     </span><span class="kw">pub mod </span>DOZEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;FlexIO enabled in Doze modes.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FlexIO enabled in Doze modes."</span>]
             </span><span class="kw">pub const </span>DOZEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;FlexIO disabled in Doze modes.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FlexIO disabled in Doze modes."</span>]
             </span><span class="kw">pub const </span>DOZEN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Pin State Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Pin State Register"</span>]
 </span><span class="kw">pub mod </span>PIN {
-    <span class="attr">#[doc = <span class="string">&quot;Pin Data Input&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Pin Data Input"</span>]
     </span><span class="kw">pub mod </span>PDI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -969,9 +971,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Status Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTSTAT {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Status Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Status Flag"</span>]
     </span><span class="kw">pub mod </span>SSF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -980,9 +982,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Error Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Error Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTERR {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Error Flags&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Error Flags"</span>]
     </span><span class="kw">pub mod </span>SEF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -991,9 +993,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Timer Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Timer Status Register"</span>]
 </span><span class="kw">pub mod </span>TIMSTAT {
-    <span class="attr">#[doc = <span class="string">&quot;Timer Status Flags&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Status Flags"</span>]
     </span><span class="kw">pub mod </span>TSF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -1002,9 +1004,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Status Interrupt Enable&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Status Interrupt Enable"</span>]
 </span><span class="kw">pub mod </span>SHIFTSIEN {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Status Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Status Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>SSIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -1013,9 +1015,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Error Interrupt Enable&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Error Interrupt Enable"</span>]
 </span><span class="kw">pub mod </span>SHIFTEIEN {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Error Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Error Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>SEIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -1024,9 +1026,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Timer Interrupt Enable Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Timer Interrupt Enable Register"</span>]
 </span><span class="kw">pub mod </span>TIMIEN {
-    <span class="attr">#[doc = <span class="string">&quot;Timer Status Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Status Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>TEIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -1035,9 +1037,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Status DMA Enable&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Status DMA Enable"</span>]
 </span><span class="kw">pub mod </span>SHIFTSDEN {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Status DMA Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Status DMA Enable"</span>]
     </span><span class="kw">pub mod </span>SSDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -1046,9 +1048,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter State Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter State Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTSTATE {
-    <span class="attr">#[doc = <span class="string">&quot;Current State Pointer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Current State Pointer"</span>]
     </span><span class="kw">pub mod </span>STATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -1057,45 +1059,45 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Control N Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Control N Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTCTL {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Mode"</span>]
     </span><span class="kw">pub mod </span>SMOD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disabled."</span>]
             </span><span class="kw">pub const </span>SMOD_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer."</span>]
             </span><span class="kw">pub const </span>SMOD_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer."</span>]
             </span><span class="kw">pub const </span>SMOD_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer."</span>]
             </span><span class="kw">pub const </span>SMOD_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents."</span>]
             </span><span class="kw">pub const </span>SMOD_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;State mode. SHIFTBUF contents are used for storing programmable state attributes.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"State mode. SHIFTBUF contents are used for storing programmable state attributes."</span>]
             </span><span class="kw">pub const </span>SMOD_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table."</span>]
             </span><span class="kw">pub const </span>SMOD_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Pin Polarity&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Pin Polarity"</span>]
     </span><span class="kw">pub mod </span>PINPOL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pin is active high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pin is active high"</span>]
             </span><span class="kw">pub const </span>PINPOL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pin is active low&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pin is active low"</span>]
             </span><span class="kw">pub const </span>PINPOL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Pin Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Pin Select"</span>]
     </span><span class="kw">pub mod </span>PINSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -1103,37 +1105,37 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Pin Configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Pin Configuration"</span>]
     </span><span class="kw">pub mod </span>PINCFG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Shifter pin output disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shifter pin output disabled"</span>]
             </span><span class="kw">pub const </span>PINCFG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Shifter pin open drain or bidirectional output enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shifter pin open drain or bidirectional output enable"</span>]
             </span><span class="kw">pub const </span>PINCFG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Shifter pin bidirectional output data&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shifter pin bidirectional output data"</span>]
             </span><span class="kw">pub const </span>PINCFG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Shifter pin output&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shifter pin output"</span>]
             </span><span class="kw">pub const </span>PINCFG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Polarity&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Polarity"</span>]
     </span><span class="kw">pub mod </span>TIMPOL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Shift on posedge of Shift clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shift on posedge of Shift clock"</span>]
             </span><span class="kw">pub const </span>TIMPOL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Shift on negedge of Shift clock&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shift on negedge of Shift clock"</span>]
             </span><span class="kw">pub const </span>TIMPOL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Select"</span>]
     </span><span class="kw">pub mod </span>TIMSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -1142,54 +1144,54 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Configuration N Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Configuration N Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTCFG {
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Start bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Start bit"</span>]
     </span><span class="kw">pub mod </span>SSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable"</span>]
             </span><span class="kw">pub const </span>SSTART_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift"</span>]
             </span><span class="kw">pub const </span>SSTART_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0"</span>]
             </span><span class="kw">pub const </span>SSTART_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1"</span>]
             </span><span class="kw">pub const </span>SSTART_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Shifter Stop bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shifter Stop bit"</span>]
     </span><span class="kw">pub mod </span>SSTOP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Stop bit disabled for transmitter/receiver/match store&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stop bit disabled for transmitter/receiver/match store"</span>]
             </span><span class="kw">pub const </span>SSTOP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0"</span>]
             </span><span class="kw">pub const </span>SSTOP_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1"</span>]
             </span><span class="kw">pub const </span>SSTOP_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input Source&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input Source"</span>]
     </span><span class="kw">pub mod </span>INSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pin&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pin"</span>]
             </span><span class="kw">pub const </span>INSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Shifter N+1 Output&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Shifter N+1 Output"</span>]
             </span><span class="kw">pub const </span>INSRC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Parallel Width&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parallel Width"</span>]
     </span><span class="kw">pub mod </span>PWIDTH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -1198,9 +1200,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUF {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1209,9 +1211,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Bit Swapped Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Bit Swapped Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUFBIS {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUFBIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1220,9 +1222,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Byte Swapped Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Byte Swapped Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUFBYS {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUFBYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1231,9 +1233,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Bit Byte Swapped Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Bit Byte Swapped Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUFBBS {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUFBBS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1242,39 +1244,39 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Timer Control N Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Timer Control N Register"</span>]
 </span><span class="kw">pub mod </span>TIMCTL {
-    <span class="attr">#[doc = <span class="string">&quot;Timer Mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Mode"</span>]
     </span><span class="kw">pub mod </span>TIMOD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timer Disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer Disabled."</span>]
             </span><span class="kw">pub const </span>TIMOD_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Dual 8-bit counters baud mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Dual 8-bit counters baud mode."</span>]
             </span><span class="kw">pub const </span>TIMOD_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Dual 8-bit counters PWM high mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Dual 8-bit counters PWM high mode."</span>]
             </span><span class="kw">pub const </span>TIMOD_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Single 16-bit counter mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Single 16-bit counter mode."</span>]
             </span><span class="kw">pub const </span>TIMOD_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Pin Polarity&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Pin Polarity"</span>]
     </span><span class="kw">pub mod </span>PINPOL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Pin is active high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pin is active high"</span>]
             </span><span class="kw">pub const </span>PINPOL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Pin is active low&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Pin is active low"</span>]
             </span><span class="kw">pub const </span>PINPOL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Pin Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Pin Select"</span>]
     </span><span class="kw">pub mod </span>PINSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -1282,50 +1284,50 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Pin Configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Pin Configuration"</span>]
     </span><span class="kw">pub mod </span>PINCFG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timer pin output disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer pin output disabled"</span>]
             </span><span class="kw">pub const </span>PINCFG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer pin open drain or bidirectional output enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer pin open drain or bidirectional output enable"</span>]
             </span><span class="kw">pub const </span>PINCFG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer pin bidirectional output data&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer pin bidirectional output data"</span>]
             </span><span class="kw">pub const </span>PINCFG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer pin output&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer pin output"</span>]
             </span><span class="kw">pub const </span>PINCFG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Trigger Source&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Trigger Source"</span>]
     </span><span class="kw">pub mod </span>TRGSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;External trigger selected&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"External trigger selected"</span>]
             </span><span class="kw">pub const </span>TRGSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Internal trigger selected&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Internal trigger selected"</span>]
             </span><span class="kw">pub const </span>TRGSRC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Trigger Polarity&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Trigger Polarity"</span>]
     </span><span class="kw">pub mod </span>TRGPOL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Trigger active high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Trigger active high"</span>]
             </span><span class="kw">pub const </span>TRGPOL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Trigger active low&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Trigger active low"</span>]
             </span><span class="kw">pub const </span>TRGPOL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Trigger Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Trigger Select"</span>]
     </span><span class="kw">pub mod </span>TRGSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -1334,145 +1336,145 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Timer Configuration N Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Timer Configuration N Register"</span>]
 </span><span class="kw">pub mod </span>TIMCFG {
-    <span class="attr">#[doc = <span class="string">&quot;Timer Start Bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Start Bit"</span>]
     </span><span class="kw">pub mod </span>TSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Start bit disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Start bit disabled"</span>]
             </span><span class="kw">pub const </span>TSTART_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Start bit enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Start bit enabled"</span>]
             </span><span class="kw">pub const </span>TSTART_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Stop Bit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Stop Bit"</span>]
     </span><span class="kw">pub mod </span>TSTOP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Stop bit disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stop bit disabled"</span>]
             </span><span class="kw">pub const </span>TSTOP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stop bit is enabled on timer compare&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stop bit is enabled on timer compare"</span>]
             </span><span class="kw">pub const </span>TSTOP_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stop bit is enabled on timer disable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stop bit is enabled on timer disable"</span>]
             </span><span class="kw">pub const </span>TSTOP_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Stop bit is enabled on timer compare and timer disable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Stop bit is enabled on timer compare and timer disable"</span>]
             </span><span class="kw">pub const </span>TSTOP_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Enable"</span>]
     </span><span class="kw">pub mod </span>TIMENA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timer always enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer always enabled"</span>]
             </span><span class="kw">pub const </span>TIMENA_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Timer N-1 enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Timer N-1 enable"</span>]
             </span><span class="kw">pub const </span>TIMENA_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Trigger high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Trigger high"</span>]
             </span><span class="kw">pub const </span>TIMENA_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Trigger high and Pin high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Trigger high and Pin high"</span>]
             </span><span class="kw">pub const </span>TIMENA_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Pin rising edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Pin rising edge"</span>]
             </span><span class="kw">pub const </span>TIMENA_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Pin rising edge and Trigger high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Pin rising edge and Trigger high"</span>]
             </span><span class="kw">pub const </span>TIMENA_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Trigger rising edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Trigger rising edge"</span>]
             </span><span class="kw">pub const </span>TIMENA_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer enabled on Trigger rising or falling edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer enabled on Trigger rising or falling edge"</span>]
             </span><span class="kw">pub const </span>TIMENA_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Disable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Disable"</span>]
     </span><span class="kw">pub mod </span>TIMDIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timer never disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer never disabled"</span>]
             </span><span class="kw">pub const </span>TIMDIS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer disabled on Timer N-1 disable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer disabled on Timer N-1 disable"</span>]
             </span><span class="kw">pub const </span>TIMDIS_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer disabled on Timer compare (upper 8-bits match and decrement)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer disabled on Timer compare (upper 8-bits match and decrement)"</span>]
             </span><span class="kw">pub const </span>TIMDIS_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low"</span>]
             </span><span class="kw">pub const </span>TIMDIS_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer disabled on Pin rising or falling edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer disabled on Pin rising or falling edge"</span>]
             </span><span class="kw">pub const </span>TIMDIS_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer disabled on Pin rising or falling edge provided Trigger is high&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer disabled on Pin rising or falling edge provided Trigger is high"</span>]
             </span><span class="kw">pub const </span>TIMDIS_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer disabled on Trigger falling edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer disabled on Trigger falling edge"</span>]
             </span><span class="kw">pub const </span>TIMDIS_6: u32 = <span class="number">0x06</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Reset"</span>]
     </span><span class="kw">pub mod </span>TIMRST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timer never reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer never reset"</span>]
             </span><span class="kw">pub const </span>TIMRST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer reset on Timer Pin equal to Timer Output&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer reset on Timer Pin equal to Timer Output"</span>]
             </span><span class="kw">pub const </span>TIMRST_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer reset on Timer Trigger equal to Timer Output&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer reset on Timer Trigger equal to Timer Output"</span>]
             </span><span class="kw">pub const </span>TIMRST_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer reset on Timer Pin rising edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer reset on Timer Pin rising edge"</span>]
             </span><span class="kw">pub const </span>TIMRST_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer reset on Trigger rising edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer reset on Trigger rising edge"</span>]
             </span><span class="kw">pub const </span>TIMRST_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer reset on Trigger rising or falling edge&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer reset on Trigger rising or falling edge"</span>]
             </span><span class="kw">pub const </span>TIMRST_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Decrement&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Decrement"</span>]
     </span><span class="kw">pub mod </span>TIMDEC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Decrement counter on FlexIO clock, Shift clock equals Timer output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrement counter on FlexIO clock, Shift clock equals Timer output."</span>]
             </span><span class="kw">pub const </span>TIMDEC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrement counter on Trigger input (both edges), Shift clock equals Timer output.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrement counter on Trigger input (both edges), Shift clock equals Timer output."</span>]
             </span><span class="kw">pub const </span>TIMDEC_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrement counter on Pin input (both edges), Shift clock equals Pin input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrement counter on Pin input (both edges), Shift clock equals Pin input."</span>]
             </span><span class="kw">pub const </span>TIMDEC_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Decrement counter on Trigger input (both edges), Shift clock equals Trigger input."</span>]
             </span><span class="kw">pub const </span>TIMDEC_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Output&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Output"</span>]
     </span><span class="kw">pub mod </span>TIMOUT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timer output is logic one when enabled and is not affected by timer reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer output is logic one when enabled and is not affected by timer reset"</span>]
             </span><span class="kw">pub const </span>TIMOUT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer output is logic zero when enabled and is not affected by timer reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer output is logic zero when enabled and is not affected by timer reset"</span>]
             </span><span class="kw">pub const </span>TIMOUT_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer output is logic one when enabled and on timer reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer output is logic one when enabled and on timer reset"</span>]
             </span><span class="kw">pub const </span>TIMOUT_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timer output is logic zero when enabled and on timer reset&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timer output is logic zero when enabled and on timer reset"</span>]
             </span><span class="kw">pub const </span>TIMOUT_3: u32 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Timer Compare N Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Timer Compare N Register"</span>]
 </span><span class="kw">pub mod </span>TIMCMP {
-    <span class="attr">#[doc = <span class="string">&quot;Timer Compare Value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Compare Value"</span>]
     </span><span class="kw">pub mod </span>CMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -1481,9 +1483,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Nibble Byte Swapped Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Nibble Byte Swapped Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUFNBS {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUFNBS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1492,9 +1494,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Half Word Swapped Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Half Word Swapped Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUFHWS {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUFHWS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -1503,9 +1505,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shifter Buffer N Nibble Swapped Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shifter Buffer N Nibble Swapped Register"</span>]
 </span><span class="kw">pub mod </span>SHIFTBUFNIS {
-    <span class="attr">#[doc = <span class="string">&quot;Shift Buffer&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shift Buffer"</span>]
     </span><span class="kw">pub mod </span>SHIFTBUFNIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;

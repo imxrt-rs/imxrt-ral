@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/pit.rs`."><title>pit.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/pit.rs`."><title>pit.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -157,52 +159,52 @@
 <a href="#157" id="157">157</a>
 <a href="#158" id="158">158</a>
 <a href="#159" id="159">159</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;PIT&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"PIT"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;PIT Module Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"PIT Module Control Register"</span>]
     </span><span class="kw">pub </span>MCR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved0: [u8; <span class="number">0xdc</span>],
-    <span class="attr">#[doc = <span class="string">&quot;PIT Upper Lifetime Timer Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"PIT Upper Lifetime Timer Register"</span>]
     </span><span class="kw">pub </span>LTMR64H: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;PIT Lower Lifetime Timer Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"PIT Lower Lifetime Timer Register"</span>]
     </span><span class="kw">pub </span>LTMR64L: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x18</span>],
-    <span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"no description available"</span>]
     </span><span class="kw">pub </span>TIMER: [timer::RegisterBlock; <span class="number">4usize</span>],
 }
-<span class="attr">#[doc = <span class="string">&quot;PIT Module Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"PIT Module Control Register"</span>]
 </span><span class="kw">pub mod </span>MCR {
-    <span class="attr">#[doc = <span class="string">&quot;Freeze&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Freeze"</span>]
     </span><span class="kw">pub mod </span>FRZ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Timers continue to run in Debug mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timers continue to run in Debug mode."</span>]
             </span><span class="kw">pub const </span>FRZ_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Timers are stopped in Debug mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Timers are stopped in Debug mode."</span>]
             </span><span class="kw">pub const </span>FRZ_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Module Disable for PIT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Module Disable for PIT"</span>]
     </span><span class="kw">pub mod </span>MDIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Clock for standard PIT timers is enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Clock for standard PIT timers is enabled."</span>]
             </span><span class="kw">pub const </span>MDIS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Clock for standard PIT timers is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Clock for standard PIT timers is disabled."</span>]
             </span><span class="kw">pub const </span>MDIS_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;PIT Upper Lifetime Timer Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"PIT Upper Lifetime Timer Register"</span>]
 </span><span class="kw">pub mod </span>LTMR64H {
-    <span class="attr">#[doc = <span class="string">&quot;Life Timer value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Life Timer value"</span>]
     </span><span class="kw">pub mod </span>LTH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -211,9 +213,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;PIT Lower Lifetime Timer Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"PIT Lower Lifetime Timer Register"</span>]
 </span><span class="kw">pub mod </span>LTMR64L {
-    <span class="attr">#[doc = <span class="string">&quot;Life Timer value&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Life Timer value"</span>]
     </span><span class="kw">pub mod </span>LTL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -223,21 +225,21 @@
     }
 }
 <span class="kw">pub mod </span>timer {
-    <span class="attr">#[doc = <span class="string">&quot;no description available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"no description available"</span>]
     #[repr(C)]
     </span><span class="kw">pub struct </span>RegisterBlock {
-        <span class="attr">#[doc = <span class="string">&quot;Timer Load Value Register&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Load Value Register"</span>]
         </span><span class="kw">pub </span>LDVAL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-        <span class="attr">#[doc = <span class="string">&quot;Current Timer Value Register&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Current Timer Value Register"</span>]
         </span><span class="kw">pub </span>CVAL: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-        <span class="attr">#[doc = <span class="string">&quot;Timer Control Register&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Control Register"</span>]
         </span><span class="kw">pub </span>TCTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-        <span class="attr">#[doc = <span class="string">&quot;Timer Flag Register&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Flag Register"</span>]
         </span><span class="kw">pub </span>TFLG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Load Value Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Load Value Register"</span>]
     </span><span class="kw">pub mod </span>LDVAL {
-        <span class="attr">#[doc = <span class="string">&quot;Timer Start Value&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Start Value"</span>]
         </span><span class="kw">pub mod </span>TSV {
             <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
             <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -246,9 +248,9 @@
             <span class="kw">pub mod </span>RW {}
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Current Timer Value Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Current Timer Value Register"</span>]
     </span><span class="kw">pub mod </span>CVAL {
-        <span class="attr">#[doc = <span class="string">&quot;Current Timer Value&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Current Timer Value"</span>]
         </span><span class="kw">pub mod </span>TVL {
             <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
             <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -257,60 +259,60 @@
             <span class="kw">pub mod </span>RW {}
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Control Register"</span>]
     </span><span class="kw">pub mod </span>TCTRL {
-        <span class="attr">#[doc = <span class="string">&quot;Timer Enable&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Enable"</span>]
         </span><span class="kw">pub mod </span>TEN {
             <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
             <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
             <span class="kw">pub mod </span>R {}
             <span class="kw">pub mod </span>W {}
             <span class="kw">pub mod </span>RW {
-                <span class="attr">#[doc = <span class="string">&quot;Timer n is disabled.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Timer n is disabled."</span>]
                 </span><span class="kw">pub const </span>TEN_0: u32 = <span class="number">0</span>;
-                <span class="attr">#[doc = <span class="string">&quot;Timer n is enabled.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Timer n is enabled."</span>]
                 </span><span class="kw">pub const </span>TEN_1: u32 = <span class="number">0x01</span>;
             }
         }
-        <span class="attr">#[doc = <span class="string">&quot;Timer Interrupt Enable&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Interrupt Enable"</span>]
         </span><span class="kw">pub mod </span>TIE {
             <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
             <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
             <span class="kw">pub mod </span>R {}
             <span class="kw">pub mod </span>W {}
             <span class="kw">pub mod </span>RW {
-                <span class="attr">#[doc = <span class="string">&quot;Interrupt requests from Timer n are disabled.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Interrupt requests from Timer n are disabled."</span>]
                 </span><span class="kw">pub const </span>TIE_0: u32 = <span class="number">0</span>;
-                <span class="attr">#[doc = <span class="string">&quot;Interrupt is requested whenever TIF is set.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Interrupt is requested whenever TIF is set."</span>]
                 </span><span class="kw">pub const </span>TIE_1: u32 = <span class="number">0x01</span>;
             }
         }
-        <span class="attr">#[doc = <span class="string">&quot;Chain Mode&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Chain Mode"</span>]
         </span><span class="kw">pub mod </span>CHN {
             <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
             <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
             <span class="kw">pub mod </span>R {}
             <span class="kw">pub mod </span>W {}
             <span class="kw">pub mod </span>RW {
-                <span class="attr">#[doc = <span class="string">&quot;Timer is not chained.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Timer is not chained."</span>]
                 </span><span class="kw">pub const </span>CHN_0: u32 = <span class="number">0</span>;
-                <span class="attr">#[doc = <span class="string">&quot;Timer is chained to a previous timer. For example, for channel 2, if this field is set, Timer 2 is chained to Timer 1.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Timer is chained to a previous timer. For example, for channel 2, if this field is set, Timer 2 is chained to Timer 1."</span>]
                 </span><span class="kw">pub const </span>CHN_1: u32 = <span class="number">0x01</span>;
             }
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Timer Flag Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Timer Flag Register"</span>]
     </span><span class="kw">pub mod </span>TFLG {
-        <span class="attr">#[doc = <span class="string">&quot;Timer Interrupt Flag&quot;</span>]
+        <span class="attr">#[doc = <span class="string">"Timer Interrupt Flag"</span>]
         </span><span class="kw">pub mod </span>TIF {
             <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
             <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
             <span class="kw">pub mod </span>R {}
             <span class="kw">pub mod </span>W {}
             <span class="kw">pub mod </span>RW {
-                <span class="attr">#[doc = <span class="string">&quot;Timeout has not yet occurred.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Timeout has not yet occurred."</span>]
                 </span><span class="kw">pub const </span>TIF_0: u32 = <span class="number">0</span>;
-                <span class="attr">#[doc = <span class="string">&quot;Timeout has occurred.&quot;</span>]
+                <span class="attr">#[doc = <span class="string">"Timeout has occurred."</span>]
                 </span><span class="kw">pub const </span>TIF_1: u32 = <span class="number">0x01</span>;
             }
         }

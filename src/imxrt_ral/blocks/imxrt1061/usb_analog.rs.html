@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/usb_analog.rs`."><title>usb_analog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/usb_analog.rs`."><title>usb_analog.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1311,117 +1313,117 @@
 <a href="#1311" id="1311">1311</a>
 <a href="#1312" id="1312">1312</a>
 <a href="#1313" id="1313">1313</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;USB Analog&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"USB Analog"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
     _reserved0: [u8; <span class="number">0x01a0</span>],
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_VBUS_DETECT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_VBUS_DETECT_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_VBUS_DETECT_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_VBUS_DETECT_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_CHRG_DETECT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_CHRG_DETECT_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_CHRG_DETECT_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB1_CHRG_DETECT_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Status Register"</span>]
     </span><span class="kw">pub </span>USB1_VBUS_DETECT_STAT: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Status Register"</span>]
     </span><span class="kw">pub </span>USB1_CHRG_DETECT_STAT: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB1_LOOPBACK: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB1_LOOPBACK_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB1_LOOPBACK_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB1_LOOPBACK_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB1_MISC: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB1_MISC_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB1_MISC_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB1_MISC_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_VBUS_DETECT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_VBUS_DETECT_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_VBUS_DETECT_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_VBUS_DETECT_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_CHRG_DETECT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_CHRG_DETECT_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_CHRG_DETECT_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
     </span><span class="kw">pub </span>USB2_CHRG_DETECT_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB VBUS Detect Status Register"</span>]
     </span><span class="kw">pub </span>USB2_VBUS_DETECT_STAT: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved3: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Charger Detect Status Register"</span>]
     </span><span class="kw">pub </span>USB2_CHRG_DETECT_STAT: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved4: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB2_LOOPBACK: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB2_LOOPBACK_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB2_LOOPBACK_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
     </span><span class="kw">pub </span>USB2_LOOPBACK_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB2_MISC: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB2_MISC_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB2_MISC_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
     </span><span class="kw">pub </span>USB2_MISC_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Chip Silicon Version&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Chip Silicon Version"</span>]
     </span><span class="kw">pub </span>DIGPROG: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_VBUS_DETECT {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1429,7 +1431,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1437,7 +1439,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1446,34 +1448,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_VBUS_DETECT_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1481,7 +1483,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1489,7 +1491,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1498,34 +1500,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_VBUS_DETECT_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1533,7 +1535,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1541,7 +1543,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1550,34 +1552,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_VBUS_DETECT_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1585,7 +1587,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1593,7 +1595,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1602,177 +1604,177 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_CHRG_DETECT {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_CHRG_DETECT_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_CHRG_DETECT_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB1_CHRG_DETECT_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Status Register"</span>]
 </span><span class="kw">pub mod </span>USB1_VBUS_DETECT_STAT {
-    <span class="attr">#[doc = <span class="string">&quot;Session End for USB OTG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Session End for USB OTG"</span>]
     </span><span class="kw">pub mod </span>SESSEND {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1780,7 +1782,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates VBus is valid for a B-peripheral&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates VBus is valid for a B-peripheral"</span>]
     </span><span class="kw">pub mod </span>BVALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1788,7 +1790,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates VBus is valid for a A-peripheral&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates VBus is valid for a A-peripheral"</span>]
     </span><span class="kw">pub mod </span>AVALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1796,7 +1798,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;VBus valid for USB OTG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"VBus valid for USB OTG"</span>]
     </span><span class="kw">pub mod </span>VBUS_VALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1805,35 +1807,35 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Status Register"</span>]
 </span><span class="kw">pub mod </span>USB1_CHRG_DETECT_STAT {
-    <span class="attr">#[doc = <span class="string">&quot;State of the USB plug contact detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"State of the USB plug contact detector."</span>]
     </span><span class="kw">pub mod </span>PLUG_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The USB plug has not made contact.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The USB plug has not made contact."</span>]
             </span><span class="kw">pub const </span>NO_CONTACT: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The USB plug has made good contact.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The USB plug has made good contact."</span>]
             </span><span class="kw">pub const </span>GOOD_CONTACT: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;State of charger detection. This bit is a read only version of the state of the analog signal.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"State of charger detection. This bit is a read only version of the state of the analog signal."</span>]
     </span><span class="kw">pub mod </span>CHRG_DETECTED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The USB port is not connected to a charger.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The USB port is not connected to a charger."</span>]
             </span><span class="kw">pub const </span>CHARGER_NOT_PRESENT: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;A charger (either a dedicated charger or a host charger) is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"A charger (either a dedicated charger or a host charger) is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>CHARGER_PRESENT: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;DM line state output of the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DM line state output of the charger detector."</span>]
     </span><span class="kw">pub mod </span>DM_STATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1841,7 +1843,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;DP line state output of the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DP line state output of the charger detector."</span>]
     </span><span class="kw">pub mod </span>DP_STATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1850,9 +1852,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB1_LOOPBACK {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1861,9 +1863,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB1_LOOPBACK_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1872,9 +1874,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB1_LOOPBACK_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1883,9 +1885,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB1_LOOPBACK_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1894,9 +1896,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB1_MISC {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1904,7 +1906,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1912,7 +1914,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1921,9 +1923,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB1_MISC_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1931,7 +1933,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1939,7 +1941,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1948,9 +1950,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB1_MISC_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1958,7 +1960,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1966,7 +1968,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1975,9 +1977,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB1_MISC_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1985,7 +1987,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -1993,7 +1995,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2002,34 +2004,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_VBUS_DETECT {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2037,7 +2039,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2045,7 +2047,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2054,34 +2056,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_VBUS_DETECT_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2089,7 +2091,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2097,7 +2099,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2106,34 +2108,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_VBUS_DETECT_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2141,7 +2143,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2149,7 +2151,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2158,34 +2160,34 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_VBUS_DETECT_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold for the VBUSVALID comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold for the VBUSVALID comparator"</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;4.0V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.0V"</span>]
             </span><span class="kw">pub const </span>_4V0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.1V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.1V"</span>]
             </span><span class="kw">pub const </span>_4V1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.2V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.2V"</span>]
             </span><span class="kw">pub const </span>_4V2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.3V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.3V"</span>]
             </span><span class="kw">pub const </span>_4V3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.4V (default)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.4V (default)"</span>]
             </span><span class="kw">pub const </span>_4V4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.5V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.5V"</span>]
             </span><span class="kw">pub const </span>_4V5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.6V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.6V"</span>]
             </span><span class="kw">pub const </span>_4V6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4.7V&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4.7V"</span>]
             </span><span class="kw">pub const </span>_4V7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Powers up comparators for vbus_valid detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Powers up comparators for vbus_valid detector."</span>]
     </span><span class="kw">pub mod </span>VBUSVALID_PWRUP_CMPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2193,7 +2195,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG discharge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG discharge VBUS."</span>]
     </span><span class="kw">pub mod </span>DISCHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2201,7 +2203,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG charge VBUS.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG charge VBUS."</span>]
     </span><span class="kw">pub mod </span>CHARGE_VBUS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2210,177 +2212,177 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_CHRG_DETECT {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_CHRG_DETECT_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_CHRG_DETECT_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Register"</span>]
 </span><span class="kw">pub mod </span>USB2_CHRG_DETECT_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Check the contact of USB plug&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the contact of USB plug"</span>]
     </span><span class="kw">pub mod </span>CHK_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Do not check the contact of USB plug.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check the contact of USB plug."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Check whether the USB plug has been in contact with each other&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether the USB plug has been in contact with each other"</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Check the charger connection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Check the charger connection"</span>]
     </span><span class="kw">pub mod </span>CHK_CHRG_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Check whether a charger (either a dedicated charger or a host charger) is connected to USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Check whether a charger (either a dedicated charger or a host charger) is connected to USB port."</span>]
             </span><span class="kw">pub const </span>CHECK: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Do not check whether a charger is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Do not check whether a charger is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>NO_CHECK: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Control the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Control the charger detector."</span>]
     </span><span class="kw">pub mod </span>EN_B {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable the charger detector."</span>]
             </span><span class="kw">pub const </span>ENABLE: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disable the charger detector.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable the charger detector."</span>]
             </span><span class="kw">pub const </span>DISABLE: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB VBUS Detect Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB VBUS Detect Status Register"</span>]
 </span><span class="kw">pub mod </span>USB2_VBUS_DETECT_STAT {
-    <span class="attr">#[doc = <span class="string">&quot;Session End for USB OTG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Session End for USB OTG"</span>]
     </span><span class="kw">pub mod </span>SESSEND {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2388,7 +2390,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates VBus is valid for a B-peripheral&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates VBus is valid for a B-peripheral"</span>]
     </span><span class="kw">pub mod </span>BVALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2396,7 +2398,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Indicates VBus is valid for a A-peripheral&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicates VBus is valid for a A-peripheral"</span>]
     </span><span class="kw">pub mod </span>AVALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2404,7 +2406,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;VBus valid for USB OTG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"VBus valid for USB OTG"</span>]
     </span><span class="kw">pub mod </span>VBUS_VALID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2413,35 +2415,35 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Charger Detect Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Charger Detect Status Register"</span>]
 </span><span class="kw">pub mod </span>USB2_CHRG_DETECT_STAT {
-    <span class="attr">#[doc = <span class="string">&quot;State of the USB plug contact detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"State of the USB plug contact detector."</span>]
     </span><span class="kw">pub mod </span>PLUG_CONTACT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The USB plug has not made contact.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The USB plug has not made contact."</span>]
             </span><span class="kw">pub const </span>NO_CONTACT: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The USB plug has made good contact.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The USB plug has made good contact."</span>]
             </span><span class="kw">pub const </span>GOOD_CONTACT: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;State of charger detection. This bit is a read only version of the state of the analog signal.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"State of charger detection. This bit is a read only version of the state of the analog signal."</span>]
     </span><span class="kw">pub mod </span>CHRG_DETECTED {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The USB port is not connected to a charger.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The USB port is not connected to a charger."</span>]
             </span><span class="kw">pub const </span>CHARGER_NOT_PRESENT: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;A charger (either a dedicated charger or a host charger) is connected to the USB port.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"A charger (either a dedicated charger or a host charger) is connected to the USB port."</span>]
             </span><span class="kw">pub const </span>CHARGER_PRESENT: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;DM line state output of the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DM line state output of the charger detector."</span>]
     </span><span class="kw">pub mod </span>DM_STATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2449,7 +2451,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;DP line state output of the charger detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DP line state output of the charger detector."</span>]
     </span><span class="kw">pub mod </span>DP_STATE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2458,9 +2460,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB2_LOOPBACK {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2469,9 +2471,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB2_LOOPBACK_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2480,9 +2482,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB2_LOOPBACK_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2491,9 +2493,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Loopback Test Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Loopback Test Register"</span>]
 </span><span class="kw">pub mod </span>USB2_LOOPBACK_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Setting this bit can enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Setting this bit can enable 1"</span>]
     </span><span class="kw">pub mod </span>UTMI_TESTSTART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2502,9 +2504,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB2_MISC {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2512,7 +2514,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2520,7 +2522,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2529,9 +2531,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB2_MISC_SET {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2539,7 +2541,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2547,7 +2549,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2556,9 +2558,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB2_MISC_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2566,7 +2568,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2574,7 +2576,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2583,9 +2585,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;USB Misc Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB Misc Register"</span>]
 </span><span class="kw">pub mod </span>USB2_MISC_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;Use external resistor to generate the current bias for the high speed transmitter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Use external resistor to generate the current bias for the high speed transmitter"</span>]
     </span><span class="kw">pub mod </span>HS_USE_EXTERNAL_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2593,7 +2595,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable the deglitching circuit of the USB PLL output.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable the deglitching circuit of the USB PLL output."</span>]
     </span><span class="kw">pub mod </span>EN_DEGLITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2601,7 +2603,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enables the clk to the UTMI block.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enables the clk to the UTMI block."</span>]
     </span><span class="kw">pub mod </span>EN_CLK_UTMI {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2610,16 +2612,16 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Chip Silicon Version&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Chip Silicon Version"</span>]
 </span><span class="kw">pub mod </span>DIGPROG {
-    <span class="attr">#[doc = <span class="string">&quot;Chip silicon revision&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Chip silicon revision"</span>]
     </span><span class="kw">pub mod </span>SILICON_REVISION {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Silicon revision 1.0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Silicon revision 1.0"</span>]
             </span><span class="kw">pub const </span>SILICON_REVISION_7077888: u32 = <span class="number">0x006c_0000</span>;
         }
     }

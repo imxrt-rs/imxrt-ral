@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/xbara1.rs`."><title>xbara1.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/xbara1.rs`."><title>xbara1.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1622,149 +1624,149 @@
 <a href="#1622" id="1622">1622</a>
 <a href="#1623" id="1623">1623</a>
 <a href="#1624" id="1624">1624</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;Crossbar Switch&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"Crossbar Switch"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 0"</span>]
     </span><span class="kw">pub </span>SEL0: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 1"</span>]
     </span><span class="kw">pub </span>SEL1: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 2"</span>]
     </span><span class="kw">pub </span>SEL2: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 3"</span>]
     </span><span class="kw">pub </span>SEL3: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 4&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 4"</span>]
     </span><span class="kw">pub </span>SEL4: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 5&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 5"</span>]
     </span><span class="kw">pub </span>SEL5: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 6&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 6"</span>]
     </span><span class="kw">pub </span>SEL6: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 7&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 7"</span>]
     </span><span class="kw">pub </span>SEL7: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 8&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 8"</span>]
     </span><span class="kw">pub </span>SEL8: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 9&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 9"</span>]
     </span><span class="kw">pub </span>SEL9: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 10&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 10"</span>]
     </span><span class="kw">pub </span>SEL10: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 11&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 11"</span>]
     </span><span class="kw">pub </span>SEL11: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 12&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 12"</span>]
     </span><span class="kw">pub </span>SEL12: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 13&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 13"</span>]
     </span><span class="kw">pub </span>SEL13: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 14&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 14"</span>]
     </span><span class="kw">pub </span>SEL14: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 15&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 15"</span>]
     </span><span class="kw">pub </span>SEL15: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 16&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 16"</span>]
     </span><span class="kw">pub </span>SEL16: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 17&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 17"</span>]
     </span><span class="kw">pub </span>SEL17: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 18&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 18"</span>]
     </span><span class="kw">pub </span>SEL18: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 19&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 19"</span>]
     </span><span class="kw">pub </span>SEL19: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 20&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 20"</span>]
     </span><span class="kw">pub </span>SEL20: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 21&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 21"</span>]
     </span><span class="kw">pub </span>SEL21: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 22&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 22"</span>]
     </span><span class="kw">pub </span>SEL22: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 23&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 23"</span>]
     </span><span class="kw">pub </span>SEL23: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 24&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 24"</span>]
     </span><span class="kw">pub </span>SEL24: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 25&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 25"</span>]
     </span><span class="kw">pub </span>SEL25: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 26&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 26"</span>]
     </span><span class="kw">pub </span>SEL26: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 27&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 27"</span>]
     </span><span class="kw">pub </span>SEL27: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 28&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 28"</span>]
     </span><span class="kw">pub </span>SEL28: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 29&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 29"</span>]
     </span><span class="kw">pub </span>SEL29: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 30&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 30"</span>]
     </span><span class="kw">pub </span>SEL30: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 31&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 31"</span>]
     </span><span class="kw">pub </span>SEL31: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 32&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 32"</span>]
     </span><span class="kw">pub </span>SEL32: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 33&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 33"</span>]
     </span><span class="kw">pub </span>SEL33: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 34&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 34"</span>]
     </span><span class="kw">pub </span>SEL34: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 35&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 35"</span>]
     </span><span class="kw">pub </span>SEL35: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 36&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 36"</span>]
     </span><span class="kw">pub </span>SEL36: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 37&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 37"</span>]
     </span><span class="kw">pub </span>SEL37: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 38&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 38"</span>]
     </span><span class="kw">pub </span>SEL38: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 39&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 39"</span>]
     </span><span class="kw">pub </span>SEL39: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 40&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 40"</span>]
     </span><span class="kw">pub </span>SEL40: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 41&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 41"</span>]
     </span><span class="kw">pub </span>SEL41: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 42&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 42"</span>]
     </span><span class="kw">pub </span>SEL42: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 43&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 43"</span>]
     </span><span class="kw">pub </span>SEL43: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 44&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 44"</span>]
     </span><span class="kw">pub </span>SEL44: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 45&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 45"</span>]
     </span><span class="kw">pub </span>SEL45: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 46&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 46"</span>]
     </span><span class="kw">pub </span>SEL46: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 47&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 47"</span>]
     </span><span class="kw">pub </span>SEL47: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 48&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 48"</span>]
     </span><span class="kw">pub </span>SEL48: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 49&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 49"</span>]
     </span><span class="kw">pub </span>SEL49: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 50&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 50"</span>]
     </span><span class="kw">pub </span>SEL50: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 51&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 51"</span>]
     </span><span class="kw">pub </span>SEL51: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 52&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 52"</span>]
     </span><span class="kw">pub </span>SEL52: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 53&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 53"</span>]
     </span><span class="kw">pub </span>SEL53: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 54&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 54"</span>]
     </span><span class="kw">pub </span>SEL54: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 55&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 55"</span>]
     </span><span class="kw">pub </span>SEL55: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 56&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 56"</span>]
     </span><span class="kw">pub </span>SEL56: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 57&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 57"</span>]
     </span><span class="kw">pub </span>SEL57: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 58&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 58"</span>]
     </span><span class="kw">pub </span>SEL58: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 59&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 59"</span>]
     </span><span class="kw">pub </span>SEL59: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 60&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 60"</span>]
     </span><span class="kw">pub </span>SEL60: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 61&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 61"</span>]
     </span><span class="kw">pub </span>SEL61: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 62&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 62"</span>]
     </span><span class="kw">pub </span>SEL62: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 63&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 63"</span>]
     </span><span class="kw">pub </span>SEL63: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 64&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 64"</span>]
     </span><span class="kw">pub </span>SEL64: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 65&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Select Register 65"</span>]
     </span><span class="kw">pub </span>SEL65: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Control Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Control Register 0"</span>]
     </span><span class="kw">pub </span>CTRL0: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Crossbar A Control Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Crossbar A Control Register 1"</span>]
     </span><span class="kw">pub </span>CTRL1: <span class="kw">crate</span>::RWRegister&lt;u16&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 0"</span>]
 </span><span class="kw">pub mod </span>SEL0 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT0 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT0 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL0 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1772,7 +1774,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT1 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT1 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL1 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1781,9 +1783,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 1"</span>]
 </span><span class="kw">pub mod </span>SEL1 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT2 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT2 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL2 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1791,7 +1793,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT3 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT3 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL3 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1800,9 +1802,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 2"</span>]
 </span><span class="kw">pub mod </span>SEL2 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT4 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT4 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL4 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1810,7 +1812,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT5 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT5 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL5 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1819,9 +1821,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 3&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 3"</span>]
 </span><span class="kw">pub mod </span>SEL3 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT6 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT6 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL6 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1829,7 +1831,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT7 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT7 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL7 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1838,9 +1840,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 4&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 4"</span>]
 </span><span class="kw">pub mod </span>SEL4 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT8 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT8 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL8 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1848,7 +1850,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT9 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT9 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL9 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1857,9 +1859,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 5&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 5"</span>]
 </span><span class="kw">pub mod </span>SEL5 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT10 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT10 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL10 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1867,7 +1869,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT11 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT11 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL11 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1876,9 +1878,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 6&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 6"</span>]
 </span><span class="kw">pub mod </span>SEL6 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT12 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT12 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL12 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1886,7 +1888,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT13 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT13 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL13 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1895,9 +1897,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 7&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 7"</span>]
 </span><span class="kw">pub mod </span>SEL7 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT14 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT14 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL14 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1905,7 +1907,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT15 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT15 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL15 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1914,9 +1916,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 8&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 8"</span>]
 </span><span class="kw">pub mod </span>SEL8 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT16 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT16 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL16 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1924,7 +1926,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT17 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT17 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL17 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1933,9 +1935,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 9&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 9"</span>]
 </span><span class="kw">pub mod </span>SEL9 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT18 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT18 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL18 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1943,7 +1945,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT19 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT19 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL19 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1952,9 +1954,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 10&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 10"</span>]
 </span><span class="kw">pub mod </span>SEL10 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT20 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT20 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL20 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1962,7 +1964,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT21 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT21 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL21 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1971,9 +1973,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 11&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 11"</span>]
 </span><span class="kw">pub mod </span>SEL11 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT22 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT22 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL22 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1981,7 +1983,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT23 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT23 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL23 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -1990,9 +1992,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 12&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 12"</span>]
 </span><span class="kw">pub mod </span>SEL12 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT24 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT24 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL24 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2000,7 +2002,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT25 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT25 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL25 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2009,9 +2011,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 13&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 13"</span>]
 </span><span class="kw">pub mod </span>SEL13 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT26 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT26 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL26 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2019,7 +2021,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT27 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT27 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL27 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2028,9 +2030,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 14&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 14"</span>]
 </span><span class="kw">pub mod </span>SEL14 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT28 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT28 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL28 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2038,7 +2040,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT29 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT29 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL29 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2047,9 +2049,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 15&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 15"</span>]
 </span><span class="kw">pub mod </span>SEL15 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT30 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT30 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL30 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2057,7 +2059,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT31 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT31 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL31 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2066,9 +2068,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 16&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 16"</span>]
 </span><span class="kw">pub mod </span>SEL16 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT32 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT32 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL32 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2076,7 +2078,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT33 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT33 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL33 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2085,9 +2087,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 17&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 17"</span>]
 </span><span class="kw">pub mod </span>SEL17 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT34 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT34 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL34 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2095,7 +2097,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT35 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT35 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL35 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2104,9 +2106,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 18&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 18"</span>]
 </span><span class="kw">pub mod </span>SEL18 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT36 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT36 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL36 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2114,7 +2116,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT37 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT37 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL37 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2123,9 +2125,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 19&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 19"</span>]
 </span><span class="kw">pub mod </span>SEL19 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT38 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT38 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL38 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2133,7 +2135,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT39 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT39 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL39 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2142,9 +2144,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 20&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 20"</span>]
 </span><span class="kw">pub mod </span>SEL20 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT40 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT40 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL40 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2152,7 +2154,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT41 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT41 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL41 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2161,9 +2163,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 21&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 21"</span>]
 </span><span class="kw">pub mod </span>SEL21 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT42 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT42 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL42 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2171,7 +2173,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT43 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT43 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL43 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2180,9 +2182,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 22&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 22"</span>]
 </span><span class="kw">pub mod </span>SEL22 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT44 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT44 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL44 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2190,7 +2192,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT45 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT45 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL45 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2199,9 +2201,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 23&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 23"</span>]
 </span><span class="kw">pub mod </span>SEL23 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT46 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT46 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL46 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2209,7 +2211,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT47 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT47 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL47 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2218,9 +2220,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 24&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 24"</span>]
 </span><span class="kw">pub mod </span>SEL24 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT48 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT48 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL48 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2228,7 +2230,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT49 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT49 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL49 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2237,9 +2239,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 25&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 25"</span>]
 </span><span class="kw">pub mod </span>SEL25 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT50 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT50 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL50 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2247,7 +2249,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT51 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT51 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL51 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2256,9 +2258,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 26&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 26"</span>]
 </span><span class="kw">pub mod </span>SEL26 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT52 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT52 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL52 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2266,7 +2268,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT53 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT53 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL53 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2275,9 +2277,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 27&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 27"</span>]
 </span><span class="kw">pub mod </span>SEL27 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT54 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT54 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL54 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2285,7 +2287,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT55 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT55 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL55 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2294,9 +2296,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 28&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 28"</span>]
 </span><span class="kw">pub mod </span>SEL28 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT56 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT56 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL56 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2304,7 +2306,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT57 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT57 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL57 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2313,9 +2315,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 29&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 29"</span>]
 </span><span class="kw">pub mod </span>SEL29 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT58 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT58 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL58 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2323,7 +2325,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT59 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT59 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL59 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2332,9 +2334,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 30&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 30"</span>]
 </span><span class="kw">pub mod </span>SEL30 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT60 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT60 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL60 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2342,7 +2344,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT61 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT61 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL61 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2351,9 +2353,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 31&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 31"</span>]
 </span><span class="kw">pub mod </span>SEL31 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT62 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT62 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL62 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2361,7 +2363,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT63 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT63 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL63 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2370,9 +2372,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 32&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 32"</span>]
 </span><span class="kw">pub mod </span>SEL32 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT64 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT64 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL64 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2380,7 +2382,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT65 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT65 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL65 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2389,9 +2391,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 33&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 33"</span>]
 </span><span class="kw">pub mod </span>SEL33 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT66 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT66 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL66 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2399,7 +2401,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT67 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT67 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL67 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2408,9 +2410,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 34&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 34"</span>]
 </span><span class="kw">pub mod </span>SEL34 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT68 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT68 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL68 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2418,7 +2420,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT69 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT69 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL69 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2427,9 +2429,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 35&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 35"</span>]
 </span><span class="kw">pub mod </span>SEL35 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT70 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT70 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL70 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2437,7 +2439,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT71 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT71 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL71 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2446,9 +2448,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 36&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 36"</span>]
 </span><span class="kw">pub mod </span>SEL36 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT72 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT72 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL72 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2456,7 +2458,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT73 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT73 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL73 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2465,9 +2467,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 37&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 37"</span>]
 </span><span class="kw">pub mod </span>SEL37 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT74 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT74 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL74 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2475,7 +2477,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT75 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT75 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL75 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2484,9 +2486,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 38&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 38"</span>]
 </span><span class="kw">pub mod </span>SEL38 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT76 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT76 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL76 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2494,7 +2496,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT77 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT77 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL77 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2503,9 +2505,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 39&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 39"</span>]
 </span><span class="kw">pub mod </span>SEL39 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT78 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT78 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL78 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2513,7 +2515,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT79 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT79 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL79 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2522,9 +2524,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 40&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 40"</span>]
 </span><span class="kw">pub mod </span>SEL40 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT80 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT80 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL80 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2532,7 +2534,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT81 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT81 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL81 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2541,9 +2543,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 41&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 41"</span>]
 </span><span class="kw">pub mod </span>SEL41 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT82 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT82 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL82 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2551,7 +2553,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT83 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT83 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL83 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2560,9 +2562,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 42&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 42"</span>]
 </span><span class="kw">pub mod </span>SEL42 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT84 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT84 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL84 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2570,7 +2572,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT85 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT85 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL85 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2579,9 +2581,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 43&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 43"</span>]
 </span><span class="kw">pub mod </span>SEL43 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT86 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT86 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL86 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2589,7 +2591,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT87 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT87 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL87 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2598,9 +2600,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 44&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 44"</span>]
 </span><span class="kw">pub mod </span>SEL44 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT88 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT88 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL88 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2608,7 +2610,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT89 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT89 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL89 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2617,9 +2619,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 45&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 45"</span>]
 </span><span class="kw">pub mod </span>SEL45 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT90 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT90 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL90 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2627,7 +2629,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT91 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT91 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL91 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2636,9 +2638,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 46&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 46"</span>]
 </span><span class="kw">pub mod </span>SEL46 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT92 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT92 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL92 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2646,7 +2648,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT93 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT93 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL93 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2655,9 +2657,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 47&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 47"</span>]
 </span><span class="kw">pub mod </span>SEL47 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT94 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT94 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL94 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2665,7 +2667,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT95 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT95 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL95 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2674,9 +2676,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 48&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 48"</span>]
 </span><span class="kw">pub mod </span>SEL48 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT96 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT96 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL96 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2684,7 +2686,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT97 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT97 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL97 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2693,9 +2695,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 49&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 49"</span>]
 </span><span class="kw">pub mod </span>SEL49 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT98 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT98 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL98 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2703,7 +2705,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT99 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT99 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL99 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2712,9 +2714,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 50&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 50"</span>]
 </span><span class="kw">pub mod </span>SEL50 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT100 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT100 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL100 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2722,7 +2724,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT101 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT101 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL101 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2731,9 +2733,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 51&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 51"</span>]
 </span><span class="kw">pub mod </span>SEL51 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT102 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT102 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL102 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2741,7 +2743,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT103 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT103 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL103 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2750,9 +2752,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 52&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 52"</span>]
 </span><span class="kw">pub mod </span>SEL52 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT104 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT104 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL104 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2760,7 +2762,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT105 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT105 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL105 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2769,9 +2771,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 53&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 53"</span>]
 </span><span class="kw">pub mod </span>SEL53 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT106 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT106 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL106 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2779,7 +2781,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT107 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT107 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL107 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2788,9 +2790,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 54&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 54"</span>]
 </span><span class="kw">pub mod </span>SEL54 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT108 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT108 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL108 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2798,7 +2800,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT109 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT109 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL109 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2807,9 +2809,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 55&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 55"</span>]
 </span><span class="kw">pub mod </span>SEL55 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT110 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT110 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL110 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2817,7 +2819,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT111 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT111 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL111 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2826,9 +2828,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 56&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 56"</span>]
 </span><span class="kw">pub mod </span>SEL56 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT112 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT112 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL112 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2836,7 +2838,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT113 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT113 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL113 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2845,9 +2847,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 57&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 57"</span>]
 </span><span class="kw">pub mod </span>SEL57 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT114 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT114 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL114 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2855,7 +2857,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT115 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT115 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL115 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2864,9 +2866,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 58&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 58"</span>]
 </span><span class="kw">pub mod </span>SEL58 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT116 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT116 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL116 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2874,7 +2876,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT117 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT117 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL117 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2883,9 +2885,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 59&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 59"</span>]
 </span><span class="kw">pub mod </span>SEL59 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT118 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT118 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL118 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2893,7 +2895,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT119 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT119 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL119 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2902,9 +2904,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 60&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 60"</span>]
 </span><span class="kw">pub mod </span>SEL60 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT120 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT120 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL120 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2912,7 +2914,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT121 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT121 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL121 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2921,9 +2923,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 61&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 61"</span>]
 </span><span class="kw">pub mod </span>SEL61 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT122 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT122 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL122 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2931,7 +2933,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT123 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT123 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL123 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2940,9 +2942,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 62&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 62"</span>]
 </span><span class="kw">pub mod </span>SEL62 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT124 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT124 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL124 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2950,7 +2952,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT125 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT125 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL125 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2959,9 +2961,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 63&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 63"</span>]
 </span><span class="kw">pub mod </span>SEL63 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT126 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT126 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL126 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2969,7 +2971,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT127 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT127 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL127 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2978,9 +2980,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 64&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 64"</span>]
 </span><span class="kw">pub mod </span>SEL64 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT128 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT128 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL128 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2988,7 +2990,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT129 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT129 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL129 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2997,9 +2999,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Select Register 65&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Select Register 65"</span>]
 </span><span class="kw">pub mod </span>SEL65 {
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT130 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT130 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL130 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -3007,7 +3009,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Input (XBARA_INn) to be muxed to XBARA_OUT131 (refer to Functional Description section for input/output assignment)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Input (XBARA_INn) to be muxed to XBARA_OUT131 (refer to Functional Description section for input/output assignment)"</span>]
     </span><span class="kw">pub mod </span>SEL131 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -3016,232 +3018,232 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Control Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Control Register 0"</span>]
 </span><span class="kw">pub mod </span>CTRL0 {
-    <span class="attr">#[doc = <span class="string">&quot;DMA Enable for XBAR_OUT0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DMA Enable for XBAR_OUT0"</span>]
     </span><span class="kw">pub mod </span>DEN0 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA disabled"</span>]
             </span><span class="kw">pub const </span>DEN0_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA enabled"</span>]
             </span><span class="kw">pub const </span>DEN0_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Enable for XBAR_OUT0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Enable for XBAR_OUT0"</span>]
     </span><span class="kw">pub mod </span>IEN0 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt disabled"</span>]
             </span><span class="kw">pub const </span>IEN0_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt enabled"</span>]
             </span><span class="kw">pub const </span>IEN0_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Active edge for edge detection on XBAR_OUT0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Active edge for edge detection on XBAR_OUT0"</span>]
     </span><span class="kw">pub mod </span>EDGE0 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;STS0 never asserts&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS0 never asserts"</span>]
             </span><span class="kw">pub const </span>EDGE0_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS0 asserts on rising edges of XBAR_OUT0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS0 asserts on rising edges of XBAR_OUT0"</span>]
             </span><span class="kw">pub const </span>EDGE0_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS0 asserts on falling edges of XBAR_OUT0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS0 asserts on falling edges of XBAR_OUT0"</span>]
             </span><span class="kw">pub const </span>EDGE0_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS0 asserts on rising and falling edges of XBAR_OUT0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS0 asserts on rising and falling edges of XBAR_OUT0"</span>]
             </span><span class="kw">pub const </span>EDGE0_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Edge detection status for XBAR_OUT0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Edge detection status for XBAR_OUT0"</span>]
     </span><span class="kw">pub mod </span>STS0 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Active edge not yet detected on XBAR_OUT0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge not yet detected on XBAR_OUT0"</span>]
             </span><span class="kw">pub const </span>STS0_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Active edge detected on XBAR_OUT0&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge detected on XBAR_OUT0"</span>]
             </span><span class="kw">pub const </span>STS0_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;DMA Enable for XBAR_OUT1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DMA Enable for XBAR_OUT1"</span>]
     </span><span class="kw">pub mod </span>DEN1 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA disabled"</span>]
             </span><span class="kw">pub const </span>DEN1_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA enabled"</span>]
             </span><span class="kw">pub const </span>DEN1_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Enable for XBAR_OUT1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Enable for XBAR_OUT1"</span>]
     </span><span class="kw">pub mod </span>IEN1 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt disabled"</span>]
             </span><span class="kw">pub const </span>IEN1_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt enabled"</span>]
             </span><span class="kw">pub const </span>IEN1_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Active edge for edge detection on XBAR_OUT1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Active edge for edge detection on XBAR_OUT1"</span>]
     </span><span class="kw">pub mod </span>EDGE1 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;STS1 never asserts&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS1 never asserts"</span>]
             </span><span class="kw">pub const </span>EDGE1_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS1 asserts on rising edges of XBAR_OUT1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS1 asserts on rising edges of XBAR_OUT1"</span>]
             </span><span class="kw">pub const </span>EDGE1_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS1 asserts on falling edges of XBAR_OUT1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS1 asserts on falling edges of XBAR_OUT1"</span>]
             </span><span class="kw">pub const </span>EDGE1_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS1 asserts on rising and falling edges of XBAR_OUT1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS1 asserts on rising and falling edges of XBAR_OUT1"</span>]
             </span><span class="kw">pub const </span>EDGE1_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Edge detection status for XBAR_OUT1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Edge detection status for XBAR_OUT1"</span>]
     </span><span class="kw">pub mod </span>STS1 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Active edge not yet detected on XBAR_OUT1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge not yet detected on XBAR_OUT1"</span>]
             </span><span class="kw">pub const </span>STS1_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Active edge detected on XBAR_OUT1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge detected on XBAR_OUT1"</span>]
             </span><span class="kw">pub const </span>STS1_1: u16 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Crossbar A Control Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Crossbar A Control Register 1"</span>]
 </span><span class="kw">pub mod </span>CTRL1 {
-    <span class="attr">#[doc = <span class="string">&quot;DMA Enable for XBAR_OUT2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DMA Enable for XBAR_OUT2"</span>]
     </span><span class="kw">pub mod </span>DEN2 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA disabled"</span>]
             </span><span class="kw">pub const </span>DEN2_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA enabled"</span>]
             </span><span class="kw">pub const </span>DEN2_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Enable for XBAR_OUT2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Enable for XBAR_OUT2"</span>]
     </span><span class="kw">pub mod </span>IEN2 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt disabled"</span>]
             </span><span class="kw">pub const </span>IEN2_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt enabled"</span>]
             </span><span class="kw">pub const </span>IEN2_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Active edge for edge detection on XBAR_OUT2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Active edge for edge detection on XBAR_OUT2"</span>]
     </span><span class="kw">pub mod </span>EDGE2 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;STS2 never asserts&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS2 never asserts"</span>]
             </span><span class="kw">pub const </span>EDGE2_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS2 asserts on rising edges of XBAR_OUT2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS2 asserts on rising edges of XBAR_OUT2"</span>]
             </span><span class="kw">pub const </span>EDGE2_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS2 asserts on falling edges of XBAR_OUT2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS2 asserts on falling edges of XBAR_OUT2"</span>]
             </span><span class="kw">pub const </span>EDGE2_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS2 asserts on rising and falling edges of XBAR_OUT2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS2 asserts on rising and falling edges of XBAR_OUT2"</span>]
             </span><span class="kw">pub const </span>EDGE2_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Edge detection status for XBAR_OUT2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Edge detection status for XBAR_OUT2"</span>]
     </span><span class="kw">pub mod </span>STS2 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Active edge not yet detected on XBAR_OUT2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge not yet detected on XBAR_OUT2"</span>]
             </span><span class="kw">pub const </span>STS2_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Active edge detected on XBAR_OUT2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge detected on XBAR_OUT2"</span>]
             </span><span class="kw">pub const </span>STS2_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;DMA Enable for XBAR_OUT3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DMA Enable for XBAR_OUT3"</span>]
     </span><span class="kw">pub mod </span>DEN3 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA disabled"</span>]
             </span><span class="kw">pub const </span>DEN3_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA enabled"</span>]
             </span><span class="kw">pub const </span>DEN3_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Interrupt Enable for XBAR_OUT3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Interrupt Enable for XBAR_OUT3"</span>]
     </span><span class="kw">pub mod </span>IEN3 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt disabled"</span>]
             </span><span class="kw">pub const </span>IEN3_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt enabled"</span>]
             </span><span class="kw">pub const </span>IEN3_1: u16 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Active edge for edge detection on XBAR_OUT3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Active edge for edge detection on XBAR_OUT3"</span>]
     </span><span class="kw">pub mod </span>EDGE3 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;STS3 never asserts&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS3 never asserts"</span>]
             </span><span class="kw">pub const </span>EDGE3_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS3 asserts on rising edges of XBAR_OUT3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS3 asserts on rising edges of XBAR_OUT3"</span>]
             </span><span class="kw">pub const </span>EDGE3_1: u16 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS3 asserts on falling edges of XBAR_OUT3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS3 asserts on falling edges of XBAR_OUT3"</span>]
             </span><span class="kw">pub const </span>EDGE3_2: u16 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;STS3 asserts on rising and falling edges of XBAR_OUT3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"STS3 asserts on rising and falling edges of XBAR_OUT3"</span>]
             </span><span class="kw">pub const </span>EDGE3_3: u16 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Edge detection status for XBAR_OUT3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Edge detection status for XBAR_OUT3"</span>]
     </span><span class="kw">pub mod </span>STS3 {
         <span class="kw">pub const </span>offset: u16 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u16 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Active edge not yet detected on XBAR_OUT3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge not yet detected on XBAR_OUT3"</span>]
             </span><span class="kw">pub const </span>STS3_0: u16 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Active edge detected on XBAR_OUT3&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Active edge detected on XBAR_OUT3"</span>]
             </span><span class="kw">pub const </span>STS3_1: u16 = <span class="number">0x01</span>;
         }
     }

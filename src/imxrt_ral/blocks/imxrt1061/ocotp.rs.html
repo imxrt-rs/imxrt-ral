@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/ocotp.rs`."><title>ocotp.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1061/ocotp.rs`."><title>ocotp.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1746,247 +1748,247 @@
 <a href="#1746" id="1746">1746</a>
 <a href="#1747" id="1747">1747</a>
 <a href="#1748" id="1748">1748</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;OCOTP&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"OCOTP"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
     </span><span class="kw">pub </span>CTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
     </span><span class="kw">pub </span>CTRL_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
     </span><span class="kw">pub </span>CTRL_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
     </span><span class="kw">pub </span>CTRL_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Timing Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Timing Register"</span>]
     </span><span class="kw">pub </span>TIMING: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved0: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Write Data Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Write Data Register"</span>]
     </span><span class="kw">pub </span>DATA: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Write Data Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Write Data Register"</span>]
     </span><span class="kw">pub </span>READ_CTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved2: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Read Data Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Read Data Register"</span>]
     </span><span class="kw">pub </span>READ_FUSE_DATA: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved3: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Sticky bit Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Sticky bit Register"</span>]
     </span><span class="kw">pub </span>SW_STICKY: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved4: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
     </span><span class="kw">pub </span>SCS: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
     </span><span class="kw">pub </span>SCS_SET: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
     </span><span class="kw">pub </span>SCS_CLR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
     </span><span class="kw">pub </span>SCS_TOG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller CRC test address&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller CRC test address"</span>]
     </span><span class="kw">pub </span>CRC_ADDR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved5: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller CRC Value Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller CRC Value Register"</span>]
     </span><span class="kw">pub </span>CRC_VALUE: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved6: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Version Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Version Register"</span>]
     </span><span class="kw">pub </span>VERSION: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
     _reserved7: [u8; <span class="number">0x6c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTP Controller Timing Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTP Controller Timing Register"</span>]
     </span><span class="kw">pub </span>TIMING2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved8: [u8; <span class="number">0x02fc</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word0 (Lock controls)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word0 (Lock controls)"</span>]
     </span><span class="kw">pub </span>LOCK: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved9: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word1 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word1 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved10: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word2 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word2 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved11: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word3 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word3 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved12: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word4 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word4 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved13: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word5 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word5 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved14: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word6 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word6 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG5: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved15: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word7 (Configuration and Manufacturing Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word7 (Configuration and Manufacturing Info.)"</span>]
     </span><span class="kw">pub </span>CFG6: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved16: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word0 (Memory Related Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word0 (Memory Related Info.)"</span>]
     </span><span class="kw">pub </span>MEM0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved17: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word1 (Memory Related Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word1 (Memory Related Info.)"</span>]
     </span><span class="kw">pub </span>MEM1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved18: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word2 (Memory Related Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word2 (Memory Related Info.)"</span>]
     </span><span class="kw">pub </span>MEM2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved19: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word3 (Memory Related Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word3 (Memory Related Info.)"</span>]
     </span><span class="kw">pub </span>MEM3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved20: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word4 (Memory Related Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word4 (Memory Related Info.)"</span>]
     </span><span class="kw">pub </span>MEM4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved21: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word5 (Memory Related Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word5 (Memory Related Info.)"</span>]
     </span><span class="kw">pub </span>ANA0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved22: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word6 (General Purpose Customer Defined Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word6 (General Purpose Customer Defined Info.)"</span>]
     </span><span class="kw">pub </span>ANA1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved23: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word7 (General Purpose Customer Defined Info.)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word7 (General Purpose Customer Defined Info.)"</span>]
     </span><span class="kw">pub </span>ANA2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved24: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word0 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word0 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved25: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word1 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word1 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved26: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word2 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word2 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved27: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word3 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word3 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved28: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word4 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word4 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved29: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word5 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word5 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK5: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved30: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word6 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word6 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK6: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved31: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word7 (OTPMK Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word7 (OTPMK Key)"</span>]
     </span><span class="kw">pub </span>OTPMK7: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved32: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word0 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word0 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved33: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word1 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word1 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved34: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word2 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word2 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved35: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word3 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word3 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved36: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word4 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word4 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved37: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word5 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word5 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK5: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved38: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word6 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word6 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK6: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved39: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word7 (SRK Hash)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word7 (SRK Hash)"</span>]
     </span><span class="kw">pub </span>SRK7: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved40: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word0 (Secure JTAG Response Field)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word0 (Secure JTAG Response Field)"</span>]
     </span><span class="kw">pub </span>SJC_RESP0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved41: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word1 (Secure JTAG Response Field)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word1 (Secure JTAG Response Field)"</span>]
     </span><span class="kw">pub </span>SJC_RESP1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved42: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word2 (MAC Address)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word2 (MAC Address)"</span>]
     </span><span class="kw">pub </span>MAC0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved43: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word3 (MAC Address)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word3 (MAC Address)"</span>]
     </span><span class="kw">pub </span>MAC1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved44: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word4 (MAC2 Address)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word4 (MAC2 Address)"</span>]
     </span><span class="kw">pub </span>MAC2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved45: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word5 (CRC Key)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word5 (CRC Key)"</span>]
     </span><span class="kw">pub </span>OTPMK_CRC32: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved46: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word6 (General Purpose Customer Defined Info)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word6 (General Purpose Customer Defined Info)"</span>]
     </span><span class="kw">pub </span>GP1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved47: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word7 (General Purpose Customer Defined Info)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word7 (General Purpose Customer Defined Info)"</span>]
     </span><span class="kw">pub </span>GP2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved48: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word0 (SW GP1)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word0 (SW GP1)"</span>]
     </span><span class="kw">pub </span>SW_GP1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved49: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word1 (SW GP2)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word1 (SW GP2)"</span>]
     </span><span class="kw">pub </span>SW_GP20: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved50: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word2 (SW GP2)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word2 (SW GP2)"</span>]
     </span><span class="kw">pub </span>SW_GP21: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved51: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word3 (SW GP2)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word3 (SW GP2)"</span>]
     </span><span class="kw">pub </span>SW_GP22: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved52: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word4 (SW GP2)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word4 (SW GP2)"</span>]
     </span><span class="kw">pub </span>SW_GP23: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved53: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word5 (Misc Conf)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word5 (Misc Conf)"</span>]
     </span><span class="kw">pub </span>MISC_CONF0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved54: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word6 (Misc Conf)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word6 (Misc Conf)"</span>]
     </span><span class="kw">pub </span>MISC_CONF1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved55: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word7 (SRK Revoke)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word7 (SRK Revoke)"</span>]
     </span><span class="kw">pub </span>SRK_REVOKE: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved56: [u8; <span class="number">0x010c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word0 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word0 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved57: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word1 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word1 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved58: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word2 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word2 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved59: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word3 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word3 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved60: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word4 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word4 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH4: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved61: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word5 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word5 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH5: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved62: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word6 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word6 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH6: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved63: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word7 (ROM Patch)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word7 (ROM Patch)"</span>]
     </span><span class="kw">pub </span>ROM_PATCH7: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved64: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word0 (GP3)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word0 (GP3)"</span>]
     </span><span class="kw">pub </span>GP30: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved65: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word1 (GP3)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word1 (GP3)"</span>]
     </span><span class="kw">pub </span>GP31: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved66: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word2 (GP3)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word2 (GP3)"</span>]
     </span><span class="kw">pub </span>GP32: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved67: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word3 (GP3)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word3 (GP3)"</span>]
     </span><span class="kw">pub </span>GP33: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved68: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word4 (GP4)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word4 (GP4)"</span>]
     </span><span class="kw">pub </span>GP40: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved69: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word5 (GP4)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word5 (GP4)"</span>]
     </span><span class="kw">pub </span>GP41: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved70: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word6 (GP4)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word6 (GP4)"</span>]
     </span><span class="kw">pub </span>GP42: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved71: [u8; <span class="number">0x0c</span>],
-    <span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word7 (GP4)&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word7 (GP4)"</span>]
     </span><span class="kw">pub </span>GP43: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
 </span><span class="kw">pub mod </span>CTRL {
-    <span class="attr">#[doc = <span class="string">&quot;ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADDR"</span>]
     </span><span class="kw">pub mod </span>ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -1994,7 +1996,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2002,7 +2004,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BUSY&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BUSY"</span>]
     </span><span class="kw">pub mod </span>BUSY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2010,7 +2012,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ERROR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ERROR"</span>]
     </span><span class="kw">pub mod </span>ERROR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2018,7 +2020,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RELOAD_SHADOWS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELOAD_SHADOWS"</span>]
     </span><span class="kw">pub mod </span>RELOAD_SHADOWS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2026,7 +2028,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_TEST&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_TEST"</span>]
     </span><span class="kw">pub mod </span>CRC_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2034,7 +2036,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_FAIL&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_FAIL"</span>]
     </span><span class="kw">pub mod </span>CRC_FAIL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2042,7 +2044,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD1"</span>]
     </span><span class="kw">pub mod </span>RSVD1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2050,21 +2052,21 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;WR_UNLOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WR_UNLOCK"</span>]
     </span><span class="kw">pub mod </span>WR_UNLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Key needed to unlock HW_OCOTP_DATA register.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Key needed to unlock HW_OCOTP_DATA register."</span>]
             </span><span class="kw">pub const </span>KEY: u32 = <span class="number">0x3e77</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
 </span><span class="kw">pub mod </span>CTRL_SET {
-    <span class="attr">#[doc = <span class="string">&quot;ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADDR"</span>]
     </span><span class="kw">pub mod </span>ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2072,7 +2074,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2080,7 +2082,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BUSY&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BUSY"</span>]
     </span><span class="kw">pub mod </span>BUSY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2088,7 +2090,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ERROR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ERROR"</span>]
     </span><span class="kw">pub mod </span>ERROR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2096,7 +2098,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RELOAD_SHADOWS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELOAD_SHADOWS"</span>]
     </span><span class="kw">pub mod </span>RELOAD_SHADOWS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2104,7 +2106,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_TEST&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_TEST"</span>]
     </span><span class="kw">pub mod </span>CRC_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2112,7 +2114,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_FAIL&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_FAIL"</span>]
     </span><span class="kw">pub mod </span>CRC_FAIL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2120,7 +2122,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD1"</span>]
     </span><span class="kw">pub mod </span>RSVD1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2128,7 +2130,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;WR_UNLOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WR_UNLOCK"</span>]
     </span><span class="kw">pub mod </span>WR_UNLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2137,9 +2139,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
 </span><span class="kw">pub mod </span>CTRL_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADDR"</span>]
     </span><span class="kw">pub mod </span>ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2147,7 +2149,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2155,7 +2157,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BUSY&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BUSY"</span>]
     </span><span class="kw">pub mod </span>BUSY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2163,7 +2165,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ERROR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ERROR"</span>]
     </span><span class="kw">pub mod </span>ERROR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2171,7 +2173,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RELOAD_SHADOWS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELOAD_SHADOWS"</span>]
     </span><span class="kw">pub mod </span>RELOAD_SHADOWS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2179,7 +2181,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_TEST&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_TEST"</span>]
     </span><span class="kw">pub mod </span>CRC_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2187,7 +2189,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_FAIL&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_FAIL"</span>]
     </span><span class="kw">pub mod </span>CRC_FAIL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2195,7 +2197,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD1"</span>]
     </span><span class="kw">pub mod </span>RSVD1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2203,7 +2205,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;WR_UNLOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WR_UNLOCK"</span>]
     </span><span class="kw">pub mod </span>WR_UNLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2212,9 +2214,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Control Register"</span>]
 </span><span class="kw">pub mod </span>CTRL_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ADDR"</span>]
     </span><span class="kw">pub mod </span>ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2222,7 +2224,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2230,7 +2232,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BUSY&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BUSY"</span>]
     </span><span class="kw">pub mod </span>BUSY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2238,7 +2240,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ERROR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ERROR"</span>]
     </span><span class="kw">pub mod </span>ERROR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2246,7 +2248,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RELOAD_SHADOWS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELOAD_SHADOWS"</span>]
     </span><span class="kw">pub mod </span>RELOAD_SHADOWS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2254,7 +2256,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_TEST&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_TEST"</span>]
     </span><span class="kw">pub mod </span>CRC_TEST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2262,7 +2264,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_FAIL&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_FAIL"</span>]
     </span><span class="kw">pub mod </span>CRC_FAIL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2270,7 +2272,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD1"</span>]
     </span><span class="kw">pub mod </span>RSVD1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2278,7 +2280,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;WR_UNLOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WR_UNLOCK"</span>]
     </span><span class="kw">pub mod </span>WR_UNLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2287,9 +2289,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Timing Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Timing Register"</span>]
 </span><span class="kw">pub mod </span>TIMING {
-    <span class="attr">#[doc = <span class="string">&quot;STROBE_PROG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"STROBE_PROG"</span>]
     </span><span class="kw">pub mod </span>STROBE_PROG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -2297,7 +2299,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RELAX&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELAX"</span>]
     </span><span class="kw">pub mod </span>RELAX {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2305,7 +2307,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;STROBE_READ&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"STROBE_READ"</span>]
     </span><span class="kw">pub mod </span>STROBE_READ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2313,7 +2315,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;WAIT&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"WAIT"</span>]
     </span><span class="kw">pub mod </span>WAIT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2321,7 +2323,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSRVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSRVD0"</span>]
     </span><span class="kw">pub mod </span>RSRVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2330,9 +2332,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Write Data Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Write Data Register"</span>]
 </span><span class="kw">pub mod </span>DATA {
-    <span class="attr">#[doc = <span class="string">&quot;DATA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DATA"</span>]
     </span><span class="kw">pub mod </span>DATA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2341,9 +2343,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Write Data Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Write Data Register"</span>]
 </span><span class="kw">pub mod </span>READ_CTRL {
-    <span class="attr">#[doc = <span class="string">&quot;READ_FUSE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"READ_FUSE"</span>]
     </span><span class="kw">pub mod </span>READ_FUSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2351,7 +2353,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x7fff_ffff </span>&lt;&lt; offset;
@@ -2360,9 +2362,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Read Data Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Read Data Register"</span>]
 </span><span class="kw">pub mod </span>READ_FUSE_DATA {
-    <span class="attr">#[doc = <span class="string">&quot;DATA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DATA"</span>]
     </span><span class="kw">pub mod </span>DATA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2371,9 +2373,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Sticky bit Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Sticky bit Register"</span>]
 </span><span class="kw">pub mod </span>SW_STICKY {
-    <span class="attr">#[doc = <span class="string">&quot;BLOCK_DTCP_KEY&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BLOCK_DTCP_KEY"</span>]
     </span><span class="kw">pub mod </span>BLOCK_DTCP_KEY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2381,7 +2383,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SRK_REVOKE_LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SRK_REVOKE_LOCK"</span>]
     </span><span class="kw">pub mod </span>SRK_REVOKE_LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2389,7 +2391,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;FIELD_RETURN_LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"FIELD_RETURN_LOCK"</span>]
     </span><span class="kw">pub mod </span>FIELD_RETURN_LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2397,7 +2399,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BLOCK_ROM_PART&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BLOCK_ROM_PART"</span>]
     </span><span class="kw">pub mod </span>BLOCK_ROM_PART {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2405,7 +2407,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;JTAG_BLOCK_RELEASE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"JTAG_BLOCK_RELEASE"</span>]
     </span><span class="kw">pub mod </span>JTAG_BLOCK_RELEASE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2413,7 +2415,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07ff_ffff </span>&lt;&lt; offset;
@@ -2422,9 +2424,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
 </span><span class="kw">pub mod </span>SCS {
-    <span class="attr">#[doc = <span class="string">&quot;HAB_JDE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HAB_JDE"</span>]
     </span><span class="kw">pub mod </span>HAB_JDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2432,7 +2434,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SPARE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SPARE"</span>]
     </span><span class="kw">pub mod </span>SPARE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3fff_ffff </span>&lt;&lt; offset;
@@ -2440,7 +2442,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LOCK"</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2449,9 +2451,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
 </span><span class="kw">pub mod </span>SCS_SET {
-    <span class="attr">#[doc = <span class="string">&quot;HAB_JDE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HAB_JDE"</span>]
     </span><span class="kw">pub mod </span>HAB_JDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2459,7 +2461,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SPARE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SPARE"</span>]
     </span><span class="kw">pub mod </span>SPARE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3fff_ffff </span>&lt;&lt; offset;
@@ -2467,7 +2469,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LOCK"</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2476,9 +2478,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
 </span><span class="kw">pub mod </span>SCS_CLR {
-    <span class="attr">#[doc = <span class="string">&quot;HAB_JDE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HAB_JDE"</span>]
     </span><span class="kw">pub mod </span>HAB_JDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2486,7 +2488,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SPARE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SPARE"</span>]
     </span><span class="kw">pub mod </span>SPARE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3fff_ffff </span>&lt;&lt; offset;
@@ -2494,7 +2496,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LOCK"</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2503,9 +2505,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Software Controllable Signals Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Software Controllable Signals Register"</span>]
 </span><span class="kw">pub mod </span>SCS_TOG {
-    <span class="attr">#[doc = <span class="string">&quot;HAB_JDE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"HAB_JDE"</span>]
     </span><span class="kw">pub mod </span>HAB_JDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2513,7 +2515,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SPARE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SPARE"</span>]
     </span><span class="kw">pub mod </span>SPARE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3fff_ffff </span>&lt;&lt; offset;
@@ -2521,7 +2523,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LOCK"</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2530,9 +2532,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller CRC test address&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller CRC test address"</span>]
 </span><span class="kw">pub mod </span>CRC_ADDR {
-    <span class="attr">#[doc = <span class="string">&quot;DATA_START_ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DATA_START_ADDR"</span>]
     </span><span class="kw">pub mod </span>DATA_START_ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2540,7 +2542,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;DATA_END_ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DATA_END_ADDR"</span>]
     </span><span class="kw">pub mod </span>DATA_END_ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2548,7 +2550,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;CRC_ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"CRC_ADDR"</span>]
     </span><span class="kw">pub mod </span>CRC_ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2556,7 +2558,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTPMK_CRC&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTPMK_CRC"</span>]
     </span><span class="kw">pub mod </span>OTPMK_CRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2564,7 +2566,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSVD0"</span>]
     </span><span class="kw">pub mod </span>RSVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x7f </span>&lt;&lt; offset;
@@ -2573,9 +2575,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller CRC Value Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller CRC Value Register"</span>]
 </span><span class="kw">pub mod </span>CRC_VALUE {
-    <span class="attr">#[doc = <span class="string">&quot;DATA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DATA"</span>]
     </span><span class="kw">pub mod </span>DATA {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2584,9 +2586,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Version Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Version Register"</span>]
 </span><span class="kw">pub mod </span>VERSION {
-    <span class="attr">#[doc = <span class="string">&quot;STEP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"STEP"</span>]
     </span><span class="kw">pub mod </span>STEP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
@@ -2594,7 +2596,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;MINOR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MINOR"</span>]
     </span><span class="kw">pub mod </span>MINOR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2602,7 +2604,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;MAJOR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MAJOR"</span>]
     </span><span class="kw">pub mod </span>MAJOR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -2611,9 +2613,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTP Controller Timing Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTP Controller Timing Register"</span>]
 </span><span class="kw">pub mod </span>TIMING2 {
-    <span class="attr">#[doc = <span class="string">&quot;RELAX_PROG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELAX_PROG"</span>]
     </span><span class="kw">pub mod </span>RELAX_PROG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0fff </span>&lt;&lt; offset;
@@ -2621,7 +2623,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSRVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSRVD0"</span>]
     </span><span class="kw">pub mod </span>RSRVD0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2629,7 +2631,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RELAX_READ&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RELAX_READ"</span>]
     </span><span class="kw">pub mod </span>RELAX_READ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x3f </span>&lt;&lt; offset;
@@ -2637,7 +2639,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;RSRVD0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RSRVD0"</span>]
     </span><span class="kw">pub mod </span>RSRVD1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03ff </span>&lt;&lt; offset;
@@ -2646,9 +2648,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word0 (Lock controls)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word0 (Lock controls)"</span>]
 </span><span class="kw">pub mod </span>LOCK {
-    <span class="attr">#[doc = <span class="string">&quot;TESTER&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"TESTER"</span>]
     </span><span class="kw">pub mod </span>TESTER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2656,7 +2658,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;BOOT_CFG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BOOT_CFG"</span>]
     </span><span class="kw">pub mod </span>BOOT_CFG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2664,7 +2666,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;MEM_TRIM&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MEM_TRIM"</span>]
     </span><span class="kw">pub mod </span>MEM_TRIM {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2672,7 +2674,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SJC_RESP&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SJC_RESP"</span>]
     </span><span class="kw">pub mod </span>SJC_RESP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2680,7 +2682,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GP4_RLOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GP4_RLOCK"</span>]
     </span><span class="kw">pub mod </span>GP4_RLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2688,7 +2690,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;MAC_ADDR&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MAC_ADDR"</span>]
     </span><span class="kw">pub mod </span>MAC_ADDR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2696,7 +2698,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GP1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GP1"</span>]
     </span><span class="kw">pub mod </span>GP1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2704,7 +2706,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GP2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GP2"</span>]
     </span><span class="kw">pub mod </span>GP2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2712,7 +2714,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ROM_PATCH&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ROM_PATCH"</span>]
     </span><span class="kw">pub mod </span>ROM_PATCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2720,7 +2722,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SW_GP1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_GP1"</span>]
     </span><span class="kw">pub mod </span>SW_GP1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2728,7 +2730,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTPMK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTPMK"</span>]
     </span><span class="kw">pub mod </span>OTPMK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2736,7 +2738,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;ANALOG&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"ANALOG"</span>]
     </span><span class="kw">pub mod </span>ANALOG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2744,7 +2746,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTPMK_CRC&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTPMK_CRC"</span>]
     </span><span class="kw">pub mod </span>OTPMK_CRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2752,7 +2754,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SW_GP2_LOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_GP2_LOCK"</span>]
     </span><span class="kw">pub mod </span>SW_GP2_LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2760,7 +2762,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;MISC_CONF&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MISC_CONF"</span>]
     </span><span class="kw">pub mod </span>MISC_CONF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2768,7 +2770,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;SW_GP2_RLOCK&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"SW_GP2_RLOCK"</span>]
     </span><span class="kw">pub mod </span>SW_GP2_RLOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2776,7 +2778,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GP4&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GP4"</span>]
     </span><span class="kw">pub mod </span>GP4 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2784,7 +2786,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;GP3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"GP3"</span>]
     </span><span class="kw">pub mod </span>GP3 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2792,7 +2794,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;FIELD_RETURN&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"FIELD_RETURN"</span>]
     </span><span class="kw">pub mod </span>FIELD_RETURN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -2801,9 +2803,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word1 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word1 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2812,9 +2814,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word2 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word2 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2823,9 +2825,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word3 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word3 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2834,9 +2836,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word4 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word4 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG3 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2845,9 +2847,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word5 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word5 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG4 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2856,9 +2858,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word6 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word6 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG5 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2867,9 +2869,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank0 Word7 (Configuration and Manufacturing Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank0 Word7 (Configuration and Manufacturing Info.)"</span>]
 </span><span class="kw">pub mod </span>CFG6 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2878,9 +2880,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word0 (Memory Related Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word0 (Memory Related Info.)"</span>]
 </span><span class="kw">pub mod </span>MEM0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2889,9 +2891,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word1 (Memory Related Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word1 (Memory Related Info.)"</span>]
 </span><span class="kw">pub mod </span>MEM1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2900,9 +2902,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word2 (Memory Related Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word2 (Memory Related Info.)"</span>]
 </span><span class="kw">pub mod </span>MEM2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2911,9 +2913,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word3 (Memory Related Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word3 (Memory Related Info.)"</span>]
 </span><span class="kw">pub mod </span>MEM3 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2922,9 +2924,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word4 (Memory Related Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word4 (Memory Related Info.)"</span>]
 </span><span class="kw">pub mod </span>MEM4 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2933,9 +2935,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word5 (Memory Related Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word5 (Memory Related Info.)"</span>]
 </span><span class="kw">pub mod </span>ANA0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2944,9 +2946,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word6 (General Purpose Customer Defined Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word6 (General Purpose Customer Defined Info.)"</span>]
 </span><span class="kw">pub mod </span>ANA1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2955,9 +2957,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank1 Word7 (General Purpose Customer Defined Info.)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank1 Word7 (General Purpose Customer Defined Info.)"</span>]
 </span><span class="kw">pub mod </span>ANA2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2966,9 +2968,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word0 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word0 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2977,9 +2979,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word1 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word1 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2988,9 +2990,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word2 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word2 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -2999,9 +3001,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word3 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word3 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK3 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3010,9 +3012,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word4 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word4 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK4 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3021,9 +3023,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word5 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word5 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK5 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3032,9 +3034,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word6 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word6 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK6 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3043,9 +3045,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank2 Word7 (OTPMK Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank2 Word7 (OTPMK Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK7 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3054,9 +3056,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word0 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word0 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3065,9 +3067,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word1 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word1 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3076,9 +3078,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word2 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word2 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3087,9 +3089,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word3 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word3 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK3 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3098,9 +3100,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word4 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word4 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK4 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3109,9 +3111,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word5 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word5 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK5 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3120,9 +3122,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word6 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word6 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK6 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3131,9 +3133,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Shadow Register for OTP Bank3 Word7 (SRK Hash)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Shadow Register for OTP Bank3 Word7 (SRK Hash)"</span>]
 </span><span class="kw">pub mod </span>SRK7 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3142,9 +3144,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word0 (Secure JTAG Response Field)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word0 (Secure JTAG Response Field)"</span>]
 </span><span class="kw">pub mod </span>SJC_RESP0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3153,9 +3155,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word1 (Secure JTAG Response Field)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word1 (Secure JTAG Response Field)"</span>]
 </span><span class="kw">pub mod </span>SJC_RESP1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3164,9 +3166,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word2 (MAC Address)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word2 (MAC Address)"</span>]
 </span><span class="kw">pub mod </span>MAC0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3175,9 +3177,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word3 (MAC Address)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word3 (MAC Address)"</span>]
 </span><span class="kw">pub mod </span>MAC1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3186,9 +3188,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word4 (MAC2 Address)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word4 (MAC2 Address)"</span>]
 </span><span class="kw">pub mod </span>MAC2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3197,9 +3199,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word5 (CRC Key)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word5 (CRC Key)"</span>]
 </span><span class="kw">pub mod </span>OTPMK_CRC32 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3208,9 +3210,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word6 (General Purpose Customer Defined Info)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word6 (General Purpose Customer Defined Info)"</span>]
 </span><span class="kw">pub mod </span>GP1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3219,9 +3221,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank4 Word7 (General Purpose Customer Defined Info)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank4 Word7 (General Purpose Customer Defined Info)"</span>]
 </span><span class="kw">pub mod </span>GP2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3230,9 +3232,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word0 (SW GP1)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word0 (SW GP1)"</span>]
 </span><span class="kw">pub mod </span>SW_GP1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3241,9 +3243,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word1 (SW GP2)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word1 (SW GP2)"</span>]
 </span><span class="kw">pub mod </span>SW_GP20 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3252,9 +3254,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word2 (SW GP2)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word2 (SW GP2)"</span>]
 </span><span class="kw">pub mod </span>SW_GP21 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3263,9 +3265,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word3 (SW GP2)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word3 (SW GP2)"</span>]
 </span><span class="kw">pub mod </span>SW_GP22 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3274,9 +3276,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word4 (SW GP2)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word4 (SW GP2)"</span>]
 </span><span class="kw">pub mod </span>SW_GP23 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3285,9 +3287,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word5 (Misc Conf)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word5 (Misc Conf)"</span>]
 </span><span class="kw">pub mod </span>MISC_CONF0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3296,9 +3298,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word6 (Misc Conf)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word6 (Misc Conf)"</span>]
 </span><span class="kw">pub mod </span>MISC_CONF1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3307,9 +3309,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank5 Word7 (SRK Revoke)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank5 Word7 (SRK Revoke)"</span>]
 </span><span class="kw">pub mod </span>SRK_REVOKE {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3318,9 +3320,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word0 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word0 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH0 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3329,9 +3331,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word1 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word1 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH1 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3340,9 +3342,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word2 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word2 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH2 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3351,9 +3353,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word3 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word3 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH3 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3362,9 +3364,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word4 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word4 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH4 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3373,9 +3375,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word5 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word5 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH5 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3384,9 +3386,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word6 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word6 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH6 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3395,9 +3397,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank6 Word7 (ROM Patch)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank6 Word7 (ROM Patch)"</span>]
 </span><span class="kw">pub mod </span>ROM_PATCH7 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3406,9 +3408,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word0 (GP3)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word0 (GP3)"</span>]
 </span><span class="kw">pub mod </span>GP30 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3417,9 +3419,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word1 (GP3)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word1 (GP3)"</span>]
 </span><span class="kw">pub mod </span>GP31 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3428,9 +3430,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word2 (GP3)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word2 (GP3)"</span>]
 </span><span class="kw">pub mod </span>GP32 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3439,9 +3441,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word3 (GP3)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word3 (GP3)"</span>]
 </span><span class="kw">pub mod </span>GP33 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3450,9 +3452,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word4 (GP4)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word4 (GP4)"</span>]
 </span><span class="kw">pub mod </span>GP40 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3461,9 +3463,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word5 (GP4)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word5 (GP4)"</span>]
 </span><span class="kw">pub mod </span>GP41 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3472,9 +3474,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word6 (GP4)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word6 (GP4)"</span>]
 </span><span class="kw">pub mod </span>GP42 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;
@@ -3483,9 +3485,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Value of OTP Bank7 Word7 (GP4)&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Value of OTP Bank7 Word7 (GP4)"</span>]
 </span><span class="kw">pub mod </span>GP43 {
-    <span class="attr">#[doc = <span class="string">&quot;BITS&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"BITS"</span>]
     </span><span class="kw">pub mod </span>BITS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff_ffff </span>&lt;&lt; offset;

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/lpuart.rs`."><title>lpuart.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1011/lpuart.rs`."><title>lpuart.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1488,50 +1490,50 @@
 <a href="#1488" id="1488">1488</a>
 <a href="#1489" id="1489">1489</a>
 <a href="#1490" id="1490">1490</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;LPUART&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"LPUART"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;Version ID Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Version ID Register"</span>]
     </span><span class="kw">pub </span>VERID: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;Parameter Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parameter Register"</span>]
     </span><span class="kw">pub </span>PARAM: <span class="kw">crate</span>::RORegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Global Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Global Register"</span>]
     </span><span class="kw">pub </span>GLOBAL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Pin Configuration Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Pin Configuration Register"</span>]
     </span><span class="kw">pub </span>PINCFG: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Baud Rate Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Baud Rate Register"</span>]
     </span><span class="kw">pub </span>BAUD: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Status Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Status Register"</span>]
     </span><span class="kw">pub </span>STAT: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Control Register"</span>]
     </span><span class="kw">pub </span>CTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Data Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Data Register"</span>]
     </span><span class="kw">pub </span>DATA: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Match Address Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Match Address Register"</span>]
     </span><span class="kw">pub </span>MATCH: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Modem IrDA Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Modem IrDA Register"</span>]
     </span><span class="kw">pub </span>MODIR: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART FIFO Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART FIFO Register"</span>]
     </span><span class="kw">pub </span>FIFO: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;LPUART Watermark Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LPUART Watermark Register"</span>]
     </span><span class="kw">pub </span>WATER: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;Version ID Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Version ID Register"</span>]
 </span><span class="kw">pub mod </span>VERID {
-    <span class="attr">#[doc = <span class="string">&quot;Feature Identification Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Feature Identification Number"</span>]
     </span><span class="kw">pub mod </span>FEATURE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xffff </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Standard feature set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Standard feature set."</span>]
             </span><span class="kw">pub const </span>FEATURE_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Standard feature set with MODEM/IrDA support.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Standard feature set with MODEM/IrDA support."</span>]
             </span><span class="kw">pub const </span>FEATURE_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Minor Version Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Minor Version Number"</span>]
     </span><span class="kw">pub mod </span>MINOR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1539,7 +1541,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Major Version Number&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Major Version Number"</span>]
     </span><span class="kw">pub mod </span>MAJOR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1548,9 +1550,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;Parameter Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"Parameter Register"</span>]
 </span><span class="kw">pub mod </span>PARAM {
-    <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO Size&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit FIFO Size"</span>]
     </span><span class="kw">pub mod </span>TXFIFO {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1558,7 +1560,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive FIFO Size&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive FIFO Size"</span>]
     </span><span class="kw">pub mod </span>RXFIFO {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0xff </span>&lt;&lt; offset;
@@ -1567,45 +1569,45 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Global Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Global Register"</span>]
 </span><span class="kw">pub mod </span>GLOBAL {
-    <span class="attr">#[doc = <span class="string">&quot;Software Reset&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Software Reset"</span>]
     </span><span class="kw">pub mod </span>RST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Module is not reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Module is not reset."</span>]
             </span><span class="kw">pub const </span>RST_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Module is reset.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Module is reset."</span>]
             </span><span class="kw">pub const </span>RST_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Pin Configuration Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Pin Configuration Register"</span>]
 </span><span class="kw">pub mod </span>PINCFG {
-    <span class="attr">#[doc = <span class="string">&quot;Trigger Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Trigger Select"</span>]
     </span><span class="kw">pub mod </span>TRGSEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Input trigger is disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input trigger is disabled."</span>]
             </span><span class="kw">pub const </span>TRGSEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Input trigger is used instead of RXD pin input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input trigger is used instead of RXD pin input."</span>]
             </span><span class="kw">pub const </span>TRGSEL_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Input trigger is used instead of CTS_B pin input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input trigger is used instead of CTS_B pin input."</span>]
             </span><span class="kw">pub const </span>TRGSEL_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is ANDed with the input trigger.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is ANDed with the input trigger."</span>]
             </span><span class="kw">pub const </span>TRGSEL_3: u32 = <span class="number">0x03</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Baud Rate Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Baud Rate Register"</span>]
 </span><span class="kw">pub mod </span>BAUD {
-    <span class="attr">#[doc = <span class="string">&quot;Baud Rate Modulo Divisor.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Baud Rate Modulo Divisor."</span>]
     </span><span class="kw">pub mod </span>SBR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1fff </span>&lt;&lt; offset;
@@ -1613,826 +1615,826 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Stop Bit Number Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Stop Bit Number Select"</span>]
     </span><span class="kw">pub mod </span>SBNS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;One stop bit.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"One stop bit."</span>]
             </span><span class="kw">pub const </span>SBNS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Two stop bits.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Two stop bits."</span>]
             </span><span class="kw">pub const </span>SBNS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;RX Input Active Edge Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RX Input Active Edge Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>RXEDGIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupts from STAT\\[RXEDGIF\\] are disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupts from STAT\\[RXEDGIF\\] are disabled."</span>]
             </span><span class="kw">pub const </span>RXEDGIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt is requested when STAT\\[RXEDGIF\\] flag is 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt is requested when STAT\\[RXEDGIF\\] flag is 1."</span>]
             </span><span class="kw">pub const </span>RXEDGIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;LIN Break Detect Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LIN Break Detect Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>LBKDIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupts from STAT\\[LBKDIF\\] flag are disabled (use polling).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupts from STAT\\[LBKDIF\\] flag are disabled (use polling)."</span>]
             </span><span class="kw">pub const </span>LBKDIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when STAT\\[LBKDIF\\] flag is 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when STAT\\[LBKDIF\\] flag is 1."</span>]
             </span><span class="kw">pub const </span>LBKDIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Resynchronization Disable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Resynchronization Disable"</span>]
     </span><span class="kw">pub mod </span>RESYNCDIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Resynchronization during received data word is supported&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Resynchronization during received data word is supported"</span>]
             </span><span class="kw">pub const </span>RESYNCDIS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Resynchronization during received data word is disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Resynchronization during received data word is disabled"</span>]
             </span><span class="kw">pub const </span>RESYNCDIS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Both Edge Sampling&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Both Edge Sampling"</span>]
     </span><span class="kw">pub mod </span>BOTHEDGE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receiver samples input data using the rising edge of the baud rate clock.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver samples input data using the rising edge of the baud rate clock."</span>]
             </span><span class="kw">pub const </span>BOTHEDGE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receiver samples input data using the rising and falling edge of the baud rate clock.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver samples input data using the rising and falling edge of the baud rate clock."</span>]
             </span><span class="kw">pub const </span>BOTHEDGE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match Configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match Configuration"</span>]
     </span><span class="kw">pub mod </span>MATCFG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Address Match Wakeup&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Address Match Wakeup"</span>]
             </span><span class="kw">pub const </span>MATCFG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Idle Match Wakeup&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Idle Match Wakeup"</span>]
             </span><span class="kw">pub const </span>MATCFG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Match On and Match Off&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Match On and Match Off"</span>]
             </span><span class="kw">pub const </span>MATCFG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enables RWU on Data Match and Match On/Off for transmitter CTS input&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enables RWU on Data Match and Match On/Off for transmitter CTS input"</span>]
             </span><span class="kw">pub const </span>MATCFG_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Idle DMA Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Idle DMA Enable"</span>]
     </span><span class="kw">pub mod </span>RIDMAE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA request disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA request disabled."</span>]
             </span><span class="kw">pub const </span>RIDMAE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA request enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA request enabled."</span>]
             </span><span class="kw">pub const </span>RIDMAE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Full DMA Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Full DMA Enable"</span>]
     </span><span class="kw">pub mod </span>RDMAE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA request disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA request disabled."</span>]
             </span><span class="kw">pub const </span>RDMAE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA request enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA request enabled."</span>]
             </span><span class="kw">pub const </span>RDMAE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter DMA Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter DMA Enable"</span>]
     </span><span class="kw">pub mod </span>TDMAE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DMA request disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA request disabled."</span>]
             </span><span class="kw">pub const </span>TDMAE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;DMA request enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DMA request enabled."</span>]
             </span><span class="kw">pub const </span>TDMAE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Oversampling Ratio&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Oversampling Ratio"</span>]
     </span><span class="kw">pub mod </span>OSR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Writing 0 to this field will result in an oversampling ratio of 16&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Writing 0 to this field will result in an oversampling ratio of 16"</span>]
             </span><span class="kw">pub const </span>OSR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 4, requires BOTHEDGE to be set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 4, requires BOTHEDGE to be set."</span>]
             </span><span class="kw">pub const </span>OSR_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 5, requires BOTHEDGE to be set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 5, requires BOTHEDGE to be set."</span>]
             </span><span class="kw">pub const </span>OSR_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 6, requires BOTHEDGE to be set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 6, requires BOTHEDGE to be set."</span>]
             </span><span class="kw">pub const </span>OSR_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 7, requires BOTHEDGE to be set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 7, requires BOTHEDGE to be set."</span>]
             </span><span class="kw">pub const </span>OSR_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 8.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 8."</span>]
             </span><span class="kw">pub const </span>OSR_7: u32 = <span class="number">0x07</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 9.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 9."</span>]
             </span><span class="kw">pub const </span>OSR_8: u32 = <span class="number">0x08</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 10.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 10."</span>]
             </span><span class="kw">pub const </span>OSR_9: u32 = <span class="number">0x09</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 11.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 11."</span>]
             </span><span class="kw">pub const </span>OSR_10: u32 = <span class="number">0x0a</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 12.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 12."</span>]
             </span><span class="kw">pub const </span>OSR_11: u32 = <span class="number">0x0b</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 13.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 13."</span>]
             </span><span class="kw">pub const </span>OSR_12: u32 = <span class="number">0x0c</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 14.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 14."</span>]
             </span><span class="kw">pub const </span>OSR_13: u32 = <span class="number">0x0d</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 15.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 15."</span>]
             </span><span class="kw">pub const </span>OSR_14: u32 = <span class="number">0x0e</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 16.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 16."</span>]
             </span><span class="kw">pub const </span>OSR_15: u32 = <span class="number">0x0f</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 17.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 17."</span>]
             </span><span class="kw">pub const </span>OSR_16: u32 = <span class="number">0x10</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 18.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 18."</span>]
             </span><span class="kw">pub const </span>OSR_17: u32 = <span class="number">0x11</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 19.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 19."</span>]
             </span><span class="kw">pub const </span>OSR_18: u32 = <span class="number">0x12</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 20.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 20."</span>]
             </span><span class="kw">pub const </span>OSR_19: u32 = <span class="number">0x13</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 21.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 21."</span>]
             </span><span class="kw">pub const </span>OSR_20: u32 = <span class="number">0x14</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 22.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 22."</span>]
             </span><span class="kw">pub const </span>OSR_21: u32 = <span class="number">0x15</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 23.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 23."</span>]
             </span><span class="kw">pub const </span>OSR_22: u32 = <span class="number">0x16</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 24.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 24."</span>]
             </span><span class="kw">pub const </span>OSR_23: u32 = <span class="number">0x17</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 25.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 25."</span>]
             </span><span class="kw">pub const </span>OSR_24: u32 = <span class="number">0x18</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 26.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 26."</span>]
             </span><span class="kw">pub const </span>OSR_25: u32 = <span class="number">0x19</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 27.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 27."</span>]
             </span><span class="kw">pub const </span>OSR_26: u32 = <span class="number">0x1a</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 28.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 28."</span>]
             </span><span class="kw">pub const </span>OSR_27: u32 = <span class="number">0x1b</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 29.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 29."</span>]
             </span><span class="kw">pub const </span>OSR_28: u32 = <span class="number">0x1c</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 30.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 30."</span>]
             </span><span class="kw">pub const </span>OSR_29: u32 = <span class="number">0x1d</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 31.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 31."</span>]
             </span><span class="kw">pub const </span>OSR_30: u32 = <span class="number">0x1e</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Oversampling ratio of 32.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Oversampling ratio of 32."</span>]
             </span><span class="kw">pub const </span>OSR_31: u32 = <span class="number">0x1f</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;10-bit Mode select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"10-bit Mode select"</span>]
     </span><span class="kw">pub mod </span>M10 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receiver and transmitter use 7-bit to 9-bit data characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver and transmitter use 7-bit to 9-bit data characters."</span>]
             </span><span class="kw">pub const </span>M10_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receiver and transmitter use 10-bit data characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver and transmitter use 10-bit data characters."</span>]
             </span><span class="kw">pub const </span>M10_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match Address Mode Enable 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match Address Mode Enable 2"</span>]
     </span><span class="kw">pub mod </span>MAEN2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal operation.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal operation."</span>]
             </span><span class="kw">pub const </span>MAEN2_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enables automatic address matching or data matching mode for MATCH\\[MA2\\].&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enables automatic address matching or data matching mode for MATCH\\[MA2\\]."</span>]
             </span><span class="kw">pub const </span>MAEN2_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match Address Mode Enable 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match Address Mode Enable 1"</span>]
     </span><span class="kw">pub mod </span>MAEN1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal operation.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal operation."</span>]
             </span><span class="kw">pub const </span>MAEN1_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enables automatic address matching or data matching mode for MATCH\\[MA1\\].&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enables automatic address matching or data matching mode for MATCH\\[MA1\\]."</span>]
             </span><span class="kw">pub const </span>MAEN1_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Status Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Status Register"</span>]
 </span><span class="kw">pub mod </span>STAT {
-    <span class="attr">#[doc = <span class="string">&quot;Match 2 Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match 2 Flag"</span>]
     </span><span class="kw">pub mod </span>MA2F {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Received data is not equal to MA2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Received data is not equal to MA2"</span>]
             </span><span class="kw">pub const </span>MA2F_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Received data is equal to MA2&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Received data is equal to MA2"</span>]
             </span><span class="kw">pub const </span>MA2F_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match 1 Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match 1 Flag"</span>]
     </span><span class="kw">pub mod </span>MA1F {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Received data is not equal to MA1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Received data is not equal to MA1"</span>]
             </span><span class="kw">pub const </span>MA1F_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Received data is equal to MA1&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Received data is equal to MA1"</span>]
             </span><span class="kw">pub const </span>MA1F_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Parity Error Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parity Error Flag"</span>]
     </span><span class="kw">pub mod </span>PF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No parity error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No parity error."</span>]
             </span><span class="kw">pub const </span>PF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Parity error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Parity error."</span>]
             </span><span class="kw">pub const </span>PF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Framing Error Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Framing Error Flag"</span>]
     </span><span class="kw">pub mod </span>FE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No framing error detected. This does not guarantee the framing is correct.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No framing error detected. This does not guarantee the framing is correct."</span>]
             </span><span class="kw">pub const </span>FE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Framing error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Framing error."</span>]
             </span><span class="kw">pub const </span>FE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Noise Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Noise Flag"</span>]
     </span><span class="kw">pub mod </span>NF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No noise detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No noise detected."</span>]
             </span><span class="kw">pub const </span>NF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Noise detected in the received character in the DATA register.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Noise detected in the received character in the DATA register."</span>]
             </span><span class="kw">pub const </span>NF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Overrun Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Overrun Flag"</span>]
     </span><span class="kw">pub mod </span>OR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No overrun.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No overrun."</span>]
             </span><span class="kw">pub const </span>OR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive overrun (new LPUART data lost).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive overrun (new LPUART data lost)."</span>]
             </span><span class="kw">pub const </span>OR_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Line Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Line Flag"</span>]
     </span><span class="kw">pub mod </span>IDLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No idle line detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No idle line detected."</span>]
             </span><span class="kw">pub const </span>IDLE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Idle line was detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Idle line was detected."</span>]
             </span><span class="kw">pub const </span>IDLE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Data Register Full Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Data Register Full Flag"</span>]
     </span><span class="kw">pub mod </span>RDRF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receive data buffer empty.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive data buffer empty."</span>]
             </span><span class="kw">pub const </span>RDRF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive data buffer full.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive data buffer full."</span>]
             </span><span class="kw">pub const </span>RDRF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmission Complete Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmission Complete Flag"</span>]
     </span><span class="kw">pub mod </span>TC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter active (sending data, a preamble, or a break).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter active (sending data, a preamble, or a break)."</span>]
             </span><span class="kw">pub const </span>TC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter idle (transmission activity complete).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter idle (transmission activity complete)."</span>]
             </span><span class="kw">pub const </span>TC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit Data Register Empty Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit Data Register Empty Flag"</span>]
     </span><span class="kw">pub mod </span>TDRE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmit data buffer full.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit data buffer full."</span>]
             </span><span class="kw">pub const </span>TDRE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit data buffer empty.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit data buffer empty."</span>]
             </span><span class="kw">pub const </span>TDRE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Active Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Active Flag"</span>]
     </span><span class="kw">pub mod </span>RAF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;LPUART receiver idle waiting for a start bit.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LPUART receiver idle waiting for a start bit."</span>]
             </span><span class="kw">pub const </span>RAF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;LPUART receiver active (RXD input not idle).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LPUART receiver active (RXD input not idle)."</span>]
             </span><span class="kw">pub const </span>RAF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;LIN Break Detection Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LIN Break Detection Enable"</span>]
     </span><span class="kw">pub mod </span>LBKDE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;LIN break detect is disabled, normal break character can be detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LIN break detect is disabled, normal break character can be detected."</span>]
             </span><span class="kw">pub const </span>LBKDE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1)."</span>]
             </span><span class="kw">pub const </span>LBKDE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Break Character Generation Length&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Break Character Generation Length"</span>]
     </span><span class="kw">pub mod </span>BRK13 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Break character is transmitted with length of 9 to 13 bit times.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Break character is transmitted with length of 9 to 13 bit times."</span>]
             </span><span class="kw">pub const </span>BRK13_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Break character is transmitted with length of 12 to 15 bit times.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Break character is transmitted with length of 12 to 15 bit times."</span>]
             </span><span class="kw">pub const </span>BRK13_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Wake Up Idle Detect&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Wake Up Idle Detect"</span>]
     </span><span class="kw">pub mod </span>RWUID {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character. During address match wakeup, the IDLE bit does not set when an address does not match.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character. During address match wakeup, the IDLE bit does not set when an address does not match."</span>]
             </span><span class="kw">pub const </span>RWUID_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;During receive standby state (RWU = 1), the IDLE bit gets set upon detection of an idle character. During address match wakeup, the IDLE bit does set when an address does not match.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"During receive standby state (RWU = 1), the IDLE bit gets set upon detection of an idle character. During address match wakeup, the IDLE bit does set when an address does not match."</span>]
             </span><span class="kw">pub const </span>RWUID_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Data Inversion&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Data Inversion"</span>]
     </span><span class="kw">pub mod </span>RXINV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receive data not inverted.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive data not inverted."</span>]
             </span><span class="kw">pub const </span>RXINV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive data inverted.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive data inverted."</span>]
             </span><span class="kw">pub const </span>RXINV_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;MSB First&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"MSB First"</span>]
     </span><span class="kw">pub mod </span>MSBF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0."</span>]
             </span><span class="kw">pub const </span>MSBF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;MSB (bit9, bit8, bit7 or bit6) is the first bit that is transmitted following the start bit depending on the setting of CTRL\\[M\\], CTRL\\[PE\\] and BAUD\\[M10\\]. Further, the first bit received after the start bit is identified as bit9, bit8, bit7 or bit6 depending on the setting of CTRL\\[M\\] and CTRL\\[PE\\].&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"MSB (bit9, bit8, bit7 or bit6) is the first bit that is transmitted following the start bit depending on the setting of CTRL\\[M\\], CTRL\\[PE\\] and BAUD\\[M10\\]. Further, the first bit received after the start bit is identified as bit9, bit8, bit7 or bit6 depending on the setting of CTRL\\[M\\] and CTRL\\[PE\\]."</span>]
             </span><span class="kw">pub const </span>MSBF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;RXD Pin Active Edge Interrupt Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"RXD Pin Active Edge Interrupt Flag"</span>]
     </span><span class="kw">pub mod </span>RXEDGIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No active edge on the receive pin has occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No active edge on the receive pin has occurred."</span>]
             </span><span class="kw">pub const </span>RXEDGIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;An active edge on the receive pin has occurred.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"An active edge on the receive pin has occurred."</span>]
             </span><span class="kw">pub const </span>RXEDGIF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;LIN Break Detect Interrupt Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"LIN Break Detect Interrupt Flag"</span>]
     </span><span class="kw">pub mod </span>LBKDIF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No LIN break character has been detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No LIN break character has been detected."</span>]
             </span><span class="kw">pub const </span>LBKDIF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;LIN break character has been detected.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LIN break character has been detected."</span>]
             </span><span class="kw">pub const </span>LBKDIF_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Control Register"</span>]
 </span><span class="kw">pub mod </span>CTRL {
-    <span class="attr">#[doc = <span class="string">&quot;Parity Type&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parity Type"</span>]
     </span><span class="kw">pub mod </span>PT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Even parity.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Even parity."</span>]
             </span><span class="kw">pub const </span>PT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Odd parity.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Odd parity."</span>]
             </span><span class="kw">pub const </span>PT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Parity Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parity Enable"</span>]
     </span><span class="kw">pub mod </span>PE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No hardware parity generation or checking.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No hardware parity generation or checking."</span>]
             </span><span class="kw">pub const </span>PE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Parity enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Parity enabled."</span>]
             </span><span class="kw">pub const </span>PE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Line Type Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Line Type Select"</span>]
     </span><span class="kw">pub mod </span>ILT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Idle character bit count starts after start bit.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Idle character bit count starts after start bit."</span>]
             </span><span class="kw">pub const </span>ILT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Idle character bit count starts after stop bit.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Idle character bit count starts after stop bit."</span>]
             </span><span class="kw">pub const </span>ILT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Wakeup Method Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Wakeup Method Select"</span>]
     </span><span class="kw">pub mod </span>WAKE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Configures RWU for idle-line wakeup.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Configures RWU for idle-line wakeup."</span>]
             </span><span class="kw">pub const </span>WAKE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Configures RWU with address-mark wakeup.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Configures RWU with address-mark wakeup."</span>]
             </span><span class="kw">pub const </span>WAKE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;9-Bit or 8-Bit Mode Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"9-Bit or 8-Bit Mode Select"</span>]
     </span><span class="kw">pub mod </span>M {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receiver and transmitter use 8-bit data characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver and transmitter use 8-bit data characters."</span>]
             </span><span class="kw">pub const </span>M_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receiver and transmitter use 9-bit data characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver and transmitter use 9-bit data characters."</span>]
             </span><span class="kw">pub const </span>M_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Source Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Source Select"</span>]
     </span><span class="kw">pub mod </span>RSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin."</span>]
             </span><span class="kw">pub const </span>RSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input."</span>]
             </span><span class="kw">pub const </span>RSRC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Doze Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Doze Enable"</span>]
     </span><span class="kw">pub mod </span>DOZEEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;LPUART is enabled in Doze mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LPUART is enabled in Doze mode."</span>]
             </span><span class="kw">pub const </span>DOZEEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;LPUART is disabled in Doze mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LPUART is disabled in Doze mode."</span>]
             </span><span class="kw">pub const </span>DOZEEN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Loop Mode Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Loop Mode Select"</span>]
     </span><span class="kw">pub mod </span>LOOPS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal operation - RXD and TXD use separate pins.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal operation - RXD and TXD use separate pins."</span>]
             </span><span class="kw">pub const </span>LOOPS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit)."</span>]
             </span><span class="kw">pub const </span>LOOPS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Configuration"</span>]
     </span><span class="kw">pub mod </span>IDLECFG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;1 idle character&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1 idle character"</span>]
             </span><span class="kw">pub const </span>IDLECFG_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;8 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"8 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;16 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"16 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;32 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"32 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;64 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"64 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;128 idle characters&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"128 idle characters"</span>]
             </span><span class="kw">pub const </span>IDLECFG_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;7-Bit Mode Select&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"7-Bit Mode Select"</span>]
     </span><span class="kw">pub mod </span>M7 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receiver and transmitter use 8-bit to 10-bit data characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver and transmitter use 8-bit to 10-bit data characters."</span>]
             </span><span class="kw">pub const </span>M7_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receiver and transmitter use 7-bit data characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver and transmitter use 7-bit data characters."</span>]
             </span><span class="kw">pub const </span>M7_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match 2 Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match 2 Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>MA2IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;MA2F interrupt disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"MA2F interrupt disabled"</span>]
             </span><span class="kw">pub const </span>MA2IE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;MA2F interrupt enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"MA2F interrupt enabled"</span>]
             </span><span class="kw">pub const </span>MA2IE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match 1 Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match 1 Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>MA1IE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;MA1F interrupt disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"MA1F interrupt disabled"</span>]
             </span><span class="kw">pub const </span>MA1IE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;MA1F interrupt enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"MA1F interrupt enabled"</span>]
             </span><span class="kw">pub const </span>MA1IE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Send Break&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Send Break"</span>]
     </span><span class="kw">pub mod </span>SBK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal transmitter operation.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal transmitter operation."</span>]
             </span><span class="kw">pub const </span>SBK_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Queue break character(s) to be sent.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Queue break character(s) to be sent."</span>]
             </span><span class="kw">pub const </span>SBK_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Wakeup Control&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Wakeup Control"</span>]
     </span><span class="kw">pub mod </span>RWU {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Normal receiver operation.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Normal receiver operation."</span>]
             </span><span class="kw">pub const </span>RWU_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;LPUART receiver in standby waiting for wakeup condition.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"LPUART receiver in standby waiting for wakeup condition."</span>]
             </span><span class="kw">pub const </span>RWU_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Enable"</span>]
     </span><span class="kw">pub mod </span>RE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receiver disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver disabled."</span>]
             </span><span class="kw">pub const </span>RE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receiver enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver enabled."</span>]
             </span><span class="kw">pub const </span>RE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter Enable"</span>]
     </span><span class="kw">pub mod </span>TE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter disabled."</span>]
             </span><span class="kw">pub const </span>TE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter enabled."</span>]
             </span><span class="kw">pub const </span>TE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Line Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Line Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>ILIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupts from IDLE disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupts from IDLE disabled; use polling."</span>]
             </span><span class="kw">pub const </span>ILIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when IDLE flag is 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when IDLE flag is 1."</span>]
             </span><span class="kw">pub const </span>ILIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>RIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupts from RDRF disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupts from RDRF disabled; use polling."</span>]
             </span><span class="kw">pub const </span>RIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when RDRF flag is 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when RDRF flag is 1."</span>]
             </span><span class="kw">pub const </span>RIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmission Complete Interrupt Enable for&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmission Complete Interrupt Enable for"</span>]
     </span><span class="kw">pub mod </span>TCIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupts from TC disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupts from TC disabled; use polling."</span>]
             </span><span class="kw">pub const </span>TCIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when TC flag is 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when TC flag is 1."</span>]
             </span><span class="kw">pub const </span>TCIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>TIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupts from TDRE disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupts from TDRE disabled; use polling."</span>]
             </span><span class="kw">pub const </span>TIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when TDRE flag is 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when TDRE flag is 1."</span>]
             </span><span class="kw">pub const </span>TIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Parity Error Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Parity Error Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>PEIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;PF interrupts disabled; use polling).&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"PF interrupts disabled; use polling)."</span>]
             </span><span class="kw">pub const </span>PEIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when PF is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when PF is set."</span>]
             </span><span class="kw">pub const </span>PEIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Framing Error Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Framing Error Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>FEIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">25</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;FE interrupts disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"FE interrupts disabled; use polling."</span>]
             </span><span class="kw">pub const </span>FEIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when FE is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when FE is set."</span>]
             </span><span class="kw">pub const </span>FEIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Noise Error Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Noise Error Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>NEIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;NF interrupts disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"NF interrupts disabled; use polling."</span>]
             </span><span class="kw">pub const </span>NEIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when NF is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when NF is set."</span>]
             </span><span class="kw">pub const </span>NEIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Overrun Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Overrun Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>ORIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;OR interrupts disabled; use polling.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"OR interrupts disabled; use polling."</span>]
             </span><span class="kw">pub const </span>ORIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Hardware interrupt requested when OR is set.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Hardware interrupt requested when OR is set."</span>]
             </span><span class="kw">pub const </span>ORIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit Data Inversion&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit Data Inversion"</span>]
     </span><span class="kw">pub mod </span>TXINV {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmit data not inverted.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit data not inverted."</span>]
             </span><span class="kw">pub const </span>TXINV_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit data inverted.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit data inverted."</span>]
             </span><span class="kw">pub const </span>TXINV_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;TXD Pin Direction in Single-Wire Mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"TXD Pin Direction in Single-Wire Mode"</span>]
     </span><span class="kw">pub mod </span>TXDIR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;TXD pin is an input in single-wire mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"TXD pin is an input in single-wire mode."</span>]
             </span><span class="kw">pub const </span>TXDIR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;TXD pin is an output in single-wire mode.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"TXD pin is an output in single-wire mode."</span>]
             </span><span class="kw">pub const </span>TXDIR_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Bit 9 / Transmit Bit 8&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Bit 9 / Transmit Bit 8"</span>]
     </span><span class="kw">pub mod </span>R9T8 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2440,7 +2442,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Bit 8 / Transmit Bit 9&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Bit 8 / Transmit Bit 9"</span>]
     </span><span class="kw">pub mod </span>R8T9 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2449,9 +2451,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Data Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Data Register"</span>]
 </span><span class="kw">pub mod </span>DATA {
-    <span class="attr">#[doc = <span class="string">&quot;R0T0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R0T0"</span>]
     </span><span class="kw">pub mod </span>R0T0 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2459,7 +2461,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R1T1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R1T1"</span>]
     </span><span class="kw">pub mod </span>R1T1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2467,7 +2469,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R2T2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R2T2"</span>]
     </span><span class="kw">pub mod </span>R2T2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2475,7 +2477,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R3T3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R3T3"</span>]
     </span><span class="kw">pub mod </span>R3T3 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2483,7 +2485,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R4T4&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R4T4"</span>]
     </span><span class="kw">pub mod </span>R4T4 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2491,7 +2493,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R5T5&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R5T5"</span>]
     </span><span class="kw">pub mod </span>R5T5 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2499,7 +2501,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R6T6&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R6T6"</span>]
     </span><span class="kw">pub mod </span>R6T6 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2507,7 +2509,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R7T7&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R7T7"</span>]
     </span><span class="kw">pub mod </span>R7T7 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2515,7 +2517,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R8T8&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R8T8"</span>]
     </span><span class="kw">pub mod </span>R8T8 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2523,7 +2525,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;R9T9&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"R9T9"</span>]
     </span><span class="kw">pub mod </span>R9T9 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -2531,75 +2533,75 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Idle Line&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Idle Line"</span>]
     </span><span class="kw">pub mod </span>IDLINE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receiver was not idle before receiving this character.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver was not idle before receiving this character."</span>]
             </span><span class="kw">pub const </span>IDLINE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receiver was idle before receiving this character.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receiver was idle before receiving this character."</span>]
             </span><span class="kw">pub const </span>IDLINE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Buffer Empty&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Buffer Empty"</span>]
     </span><span class="kw">pub mod </span>RXEMPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receive buffer contains valid data.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive buffer contains valid data."</span>]
             </span><span class="kw">pub const </span>RXEMPT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive buffer is empty, data returned on read is not valid.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive buffer is empty, data returned on read is not valid."</span>]
             </span><span class="kw">pub const </span>RXEMPT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Frame Error / Transmit Special Character&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Frame Error / Transmit Special Character"</span>]
     </span><span class="kw">pub mod </span>FRETSC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The dataword was received without a frame error on read, or transmit a normal character on write.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The dataword was received without a frame error on read, or transmit a normal character on write."</span>]
             </span><span class="kw">pub const </span>FRETSC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The dataword was received with a frame error, or transmit an idle or break character on transmit.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The dataword was received with a frame error, or transmit an idle or break character on transmit."</span>]
             </span><span class="kw">pub const </span>FRETSC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;PARITYE&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"PARITYE"</span>]
     </span><span class="kw">pub mod </span>PARITYE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The dataword was received without a parity error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The dataword was received without a parity error."</span>]
             </span><span class="kw">pub const </span>PARITYE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The dataword was received with a parity error.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The dataword was received with a parity error."</span>]
             </span><span class="kw">pub const </span>PARITYE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;NOISY&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"NOISY"</span>]
     </span><span class="kw">pub mod </span>NOISY {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The dataword was received without noise.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The dataword was received without noise."</span>]
             </span><span class="kw">pub const </span>NOISY_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;The data was received with noise.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The data was received with noise."</span>]
             </span><span class="kw">pub const </span>NOISY_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Match Address Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Match Address Register"</span>]
 </span><span class="kw">pub mod </span>MATCH {
-    <span class="attr">#[doc = <span class="string">&quot;Match Address 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match Address 1"</span>]
     </span><span class="kw">pub mod </span>MA1 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03ff </span>&lt;&lt; offset;
@@ -2607,7 +2609,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Match Address 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Match Address 2"</span>]
     </span><span class="kw">pub mod </span>MA2 {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03ff </span>&lt;&lt; offset;
@@ -2616,87 +2618,87 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Modem IrDA Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Modem IrDA Register"</span>]
 </span><span class="kw">pub mod </span>MODIR {
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter clear-to-send enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter clear-to-send enable"</span>]
     </span><span class="kw">pub mod </span>TXCTSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;CTS has no effect on the transmitter.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CTS has no effect on the transmitter."</span>]
             </span><span class="kw">pub const </span>TXCTSE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission."</span>]
             </span><span class="kw">pub const </span>TXCTSE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter request-to-send enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter request-to-send enable"</span>]
     </span><span class="kw">pub mod </span>TXRTSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The transmitter has no effect on RTS.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The transmitter has no effect on RTS."</span>]
             </span><span class="kw">pub const </span>TXRTSE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;When a character is placed into an empty transmitter data buffer , RTS asserts one bit time before the start bit is transmitted. RTS deasserts one bit time after all characters in the transmitter data buffer and shift register are completely sent, including the last stop bit.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"When a character is placed into an empty transmitter data buffer , RTS asserts one bit time before the start bit is transmitted. RTS deasserts one bit time after all characters in the transmitter data buffer and shift register are completely sent, including the last stop bit."</span>]
             </span><span class="kw">pub const </span>TXRTSE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter request-to-send polarity&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter request-to-send polarity"</span>]
     </span><span class="kw">pub mod </span>TXRTSPOL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter RTS is active low.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter RTS is active low."</span>]
             </span><span class="kw">pub const </span>TXRTSPOL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmitter RTS is active high.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmitter RTS is active high."</span>]
             </span><span class="kw">pub const </span>TXRTSPOL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver request-to-send enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver request-to-send enable"</span>]
     </span><span class="kw">pub mod </span>RXRTSE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;The receiver has no effect on RTS.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"The receiver has no effect on RTS."</span>]
             </span><span class="kw">pub const </span>RXRTSE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RTS is deasserted if the receiver data register is full or a start bit has been detected that would cause the receiver data register to become full. RTS is asserted if the receiver data register is not full and has not detected a start bit that would cause the receiver data register to become full.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RTS is deasserted if the receiver data register is full or a start bit has been detected that would cause the receiver data register to become full. RTS is asserted if the receiver data register is not full and has not detected a start bit that would cause the receiver data register to become full."</span>]
             </span><span class="kw">pub const </span>RXRTSE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit CTS Configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit CTS Configuration"</span>]
     </span><span class="kw">pub mod </span>TXCTSC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;CTS input is sampled at the start of each character.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CTS input is sampled at the start of each character."</span>]
             </span><span class="kw">pub const </span>TXCTSC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;CTS input is sampled when the transmitter is idle.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CTS input is sampled when the transmitter is idle."</span>]
             </span><span class="kw">pub const </span>TXCTSC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit CTS Source&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit CTS Source"</span>]
     </span><span class="kw">pub mod </span>TXCTSSRC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;CTS input is the CTS_B pin.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CTS input is the CTS_B pin."</span>]
             </span><span class="kw">pub const </span>TXCTSSRC_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;CTS input is the inverted Receiver Match result.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"CTS input is the inverted Receiver Match result."</span>]
             </span><span class="kw">pub const </span>TXCTSSRC_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive RTS Configuration&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive RTS Configuration"</span>]
     </span><span class="kw">pub mod </span>RTSWATER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2704,248 +2706,248 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter narrow pulse&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter narrow pulse"</span>]
     </span><span class="kw">pub mod </span>TNP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;1/OSR.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"1/OSR."</span>]
             </span><span class="kw">pub const </span>TNP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;2/OSR.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"2/OSR."</span>]
             </span><span class="kw">pub const </span>TNP_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;3/OSR.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"3/OSR."</span>]
             </span><span class="kw">pub const </span>TNP_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;4/OSR.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"4/OSR."</span>]
             </span><span class="kw">pub const </span>TNP_3: u32 = <span class="number">0x03</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Infrared enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Infrared enable"</span>]
     </span><span class="kw">pub mod </span>IREN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;IR disabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IR disabled."</span>]
             </span><span class="kw">pub const </span>IREN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;IR enabled.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"IR enabled."</span>]
             </span><span class="kw">pub const </span>IREN_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART FIFO Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART FIFO Register"</span>]
 </span><span class="kw">pub mod </span>FIFO {
-    <span class="attr">#[doc = <span class="string">&quot;Receive FIFO Buffer Depth&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive FIFO Buffer Depth"</span>]
     </span><span class="kw">pub mod </span>RXFIFOSIZE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 1 dataword.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 1 dataword."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 4 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 4 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 8 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 8 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 16 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 16 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 32 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 32 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 64 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 64 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 128 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 128 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer depth = 256 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer depth = 256 datawords."</span>]
             </span><span class="kw">pub const </span>RXFIFOSIZE_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive FIFO Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive FIFO Enable"</span>]
     </span><span class="kw">pub mod </span>RXFE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO is not enabled. Buffer is depth 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO is not enabled. Buffer is depth 1."</span>]
             </span><span class="kw">pub const </span>RXFE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive FIFO is enabled. Buffer is depth indicted by RXFIFOSIZE.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive FIFO is enabled. Buffer is depth indicted by RXFIFOSIZE."</span>]
             </span><span class="kw">pub const </span>RXFE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO Buffer Depth&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit FIFO Buffer Depth"</span>]
     </span><span class="kw">pub mod </span>TXFIFOSIZE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 1 dataword.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 1 dataword."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 4 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 4 datawords."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 8 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 8 datawords."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 16 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 16 datawords."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 32 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 32 datawords."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 64 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 64 datawords."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 128 datawords.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 128 datawords."</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer depth = 256 datawords&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer depth = 256 datawords"</span>]
             </span><span class="kw">pub const </span>TXFIFOSIZE_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit FIFO Enable"</span>]
     </span><span class="kw">pub mod </span>TXFE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO is not enabled. Buffer is depth 1.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO is not enabled. Buffer is depth 1."</span>]
             </span><span class="kw">pub const </span>TXFE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO is enabled. Buffer is depth indicated by TXFIFOSIZE.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit FIFO is enabled. Buffer is depth indicated by TXFIFOSIZE."</span>]
             </span><span class="kw">pub const </span>TXFE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive FIFO Underflow Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive FIFO Underflow Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>RXUFE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;RXUF flag does not generate an interrupt to the host.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RXUF flag does not generate an interrupt to the host."</span>]
             </span><span class="kw">pub const </span>RXUFE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;RXUF flag generates an interrupt to the host.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"RXUF flag generates an interrupt to the host."</span>]
             </span><span class="kw">pub const </span>RXUFE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO Overflow Interrupt Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit FIFO Overflow Interrupt Enable"</span>]
     </span><span class="kw">pub mod </span>TXOFE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;TXOF flag does not generate an interrupt to the host.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"TXOF flag does not generate an interrupt to the host."</span>]
             </span><span class="kw">pub const </span>TXOFE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;TXOF flag generates an interrupt to the host.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"TXOF flag generates an interrupt to the host."</span>]
             </span><span class="kw">pub const </span>TXOFE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Idle Empty Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Idle Empty Enable"</span>]
     </span><span class="kw">pub mod </span>RXIDEN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable RDRF assertion due to partially filled FIFO when receiver is idle.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable RDRF assertion due to partially filled FIFO when receiver is idle."</span>]
             </span><span class="kw">pub const </span>RXIDEN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 1 character.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 1 character."</span>]
             </span><span class="kw">pub const </span>RXIDEN_1: u32 = <span class="number">0x01</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 2 characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 2 characters."</span>]
             </span><span class="kw">pub const </span>RXIDEN_2: u32 = <span class="number">0x02</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 4 characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 4 characters."</span>]
             </span><span class="kw">pub const </span>RXIDEN_3: u32 = <span class="number">0x03</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 8 characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 8 characters."</span>]
             </span><span class="kw">pub const </span>RXIDEN_4: u32 = <span class="number">0x04</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 16 characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 16 characters."</span>]
             </span><span class="kw">pub const </span>RXIDEN_5: u32 = <span class="number">0x05</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 32 characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 32 characters."</span>]
             </span><span class="kw">pub const </span>RXIDEN_6: u32 = <span class="number">0x06</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable RDRF assertion due to partially filled FIFO when receiver is idle for 64 characters.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable RDRF assertion due to partially filled FIFO when receiver is idle for 64 characters."</span>]
             </span><span class="kw">pub const </span>RXIDEN_7: u32 = <span class="number">0x07</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive FIFO/Buffer Flush&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive FIFO/Buffer Flush"</span>]
     </span><span class="kw">pub mod </span>RXFLUSH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No flush operation occurs.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No flush operation occurs."</span>]
             </span><span class="kw">pub const </span>RXFLUSH_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;All data in the receive FIFO/buffer is cleared out.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All data in the receive FIFO/buffer is cleared out."</span>]
             </span><span class="kw">pub const </span>RXFLUSH_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit FIFO/Buffer Flush&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit FIFO/Buffer Flush"</span>]
     </span><span class="kw">pub mod </span>TXFLUSH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No flush operation occurs.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No flush operation occurs."</span>]
             </span><span class="kw">pub const </span>TXFLUSH_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;All data in the transmit FIFO/Buffer is cleared out.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"All data in the transmit FIFO/Buffer is cleared out."</span>]
             </span><span class="kw">pub const </span>TXFLUSH_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receiver Buffer Underflow Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receiver Buffer Underflow Flag"</span>]
     </span><span class="kw">pub mod </span>RXUF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No receive buffer underflow has occurred since the last time the flag was cleared.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No receive buffer underflow has occurred since the last time the flag was cleared."</span>]
             </span><span class="kw">pub const </span>RXUF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;At least one receive buffer underflow has occurred since the last time the flag was cleared.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"At least one receive buffer underflow has occurred since the last time the flag was cleared."</span>]
             </span><span class="kw">pub const </span>RXUF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmitter Buffer Overflow Flag&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmitter Buffer Overflow Flag"</span>]
     </span><span class="kw">pub mod </span>TXOF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No transmit buffer overflow has occurred since the last time the flag was cleared.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No transmit buffer overflow has occurred since the last time the flag was cleared."</span>]
             </span><span class="kw">pub const </span>TXOF_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;At least one transmit buffer overflow has occurred since the last time the flag was cleared.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"At least one transmit buffer overflow has occurred since the last time the flag was cleared."</span>]
             </span><span class="kw">pub const </span>TXOF_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Buffer/FIFO Empty&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Buffer/FIFO Empty"</span>]
     </span><span class="kw">pub mod </span>RXEMPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">22</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Receive buffer is not empty.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive buffer is not empty."</span>]
             </span><span class="kw">pub const </span>RXEMPT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Receive buffer is empty.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Receive buffer is empty."</span>]
             </span><span class="kw">pub const </span>RXEMPT_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit Buffer/FIFO Empty&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit Buffer/FIFO Empty"</span>]
     </span><span class="kw">pub mod </span>TXEMPT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Transmit buffer is not empty.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit buffer is not empty."</span>]
             </span><span class="kw">pub const </span>TXEMPT_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Transmit buffer is empty.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Transmit buffer is empty."</span>]
             </span><span class="kw">pub const </span>TXEMPT_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;LPUART Watermark Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"LPUART Watermark Register"</span>]
 </span><span class="kw">pub mod </span>WATER {
-    <span class="attr">#[doc = <span class="string">&quot;Transmit Watermark&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit Watermark"</span>]
     </span><span class="kw">pub mod </span>TXWATER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2953,7 +2955,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Transmit Counter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Transmit Counter"</span>]
     </span><span class="kw">pub mod </span>TXCOUNT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -2961,7 +2963,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Watermark&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Watermark"</span>]
     </span><span class="kw">pub mod </span>RXWATER {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -2969,7 +2971,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Receive Counter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Receive Counter"</span>]
     </span><span class="kw">pub mod </span>RXCOUNT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;

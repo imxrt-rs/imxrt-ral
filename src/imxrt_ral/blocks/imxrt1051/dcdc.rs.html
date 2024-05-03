@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/dcdc.rs`."><title>dcdc.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/dcdc.rs`."><title>dcdc.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -342,21 +344,21 @@
 <a href="#342" id="342">342</a>
 <a href="#343" id="343">343</a>
 <a href="#344" id="344">344</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;DCDC&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"DCDC"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
-    <span class="attr">#[doc = <span class="string">&quot;DCDC Register 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DCDC Register 0"</span>]
     </span><span class="kw">pub </span>REG0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;DCDC Register 1&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DCDC Register 1"</span>]
     </span><span class="kw">pub </span>REG1: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;DCDC Register 2&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DCDC Register 2"</span>]
     </span><span class="kw">pub </span>REG2: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
-    <span class="attr">#[doc = <span class="string">&quot;DCDC Register 3&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"DCDC Register 3"</span>]
     </span><span class="kw">pub </span>REG3: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;DCDC Register 0&quot;</span>]
+<span class="attr">#[doc = <span class="string">"DCDC Register 0"</span>]
 </span><span class="kw">pub mod </span>REG0 {
-    <span class="attr">#[doc = <span class="string">&quot;power down the zero cross detection function for discontinuous conductor mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"power down the zero cross detection function for discontinuous conductor mode"</span>]
     </span><span class="kw">pub mod </span>PWD_ZCD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -364,7 +366,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Disable automatic clock switch from internal osc to xtal clock.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Disable automatic clock switch from internal osc to xtal clock."</span>]
     </span><span class="kw">pub mod </span>DISABLE_AUTO_CLK_SWITCH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">1</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -372,7 +374,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;select 24 MHz Crystal clock for DCDC, when dcdc_disable_auto_clk_switch is set.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"select 24 MHz Crystal clock for DCDC, when dcdc_disable_auto_clk_switch is set."</span>]
     </span><span class="kw">pub mod </span>SEL_CLK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -380,7 +382,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Power down internal osc. Only set this bit, when 24 MHz crystal osc is available&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Power down internal osc. Only set this bit, when 24 MHz crystal osc is available"</span>]
     </span><span class="kw">pub mod </span>PWD_OSC_INT {
         <span class="kw">pub const </span>offset: u32 = <span class="number">3</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -388,7 +390,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The power down signal of the current detector.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The power down signal of the current detector."</span>]
     </span><span class="kw">pub mod </span>PWD_CUR_SNS_CMP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">4</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -396,7 +398,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Set the threshold of current detector, if the peak current of the inductor exceeds the threshold, the current detector will assert&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set the threshold of current detector, if the peak current of the inductor exceeds the threshold, the current detector will assert"</span>]
     </span><span class="kw">pub mod </span>CUR_SNS_THRSH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">5</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -404,7 +406,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;power down overcurrent detection comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"power down overcurrent detection comparator"</span>]
     </span><span class="kw">pub mod </span>PWD_OVERCUR_DET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -412,7 +414,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;The threshold of over current detection in run mode and power save mode: run mode power save mode 0x0 1 A 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"The threshold of over current detection in run mode and power save mode: run mode power save mode 0x0 1 A 0"</span>]
     </span><span class="kw">pub mod </span>OVERCUR_TRIG_ADJ {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -420,7 +422,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;set to \&quot;1\&quot; to power down the low voltage detection comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"set to \"1\" to power down the low voltage detection comparator"</span>]
     </span><span class="kw">pub mod </span>PWD_CMP_BATT_DET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">11</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -428,7 +430,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;adjust value to poslimit_buck register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"adjust value to poslimit_buck register"</span>]
     </span><span class="kw">pub mod </span>ADJ_POSLIMIT_BUCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -436,7 +438,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;enable the overload detection in power save mode, if current is larger than the overloading threshold (typical value is 50 mA), DCDC will switch to the run mode automatically&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"enable the overload detection in power save mode, if current is larger than the overloading threshold (typical value is 50 mA), DCDC will switch to the run mode automatically"</span>]
     </span><span class="kw">pub mod </span>EN_LP_OVERLOAD_SNS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -444,7 +446,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;power down overvoltage detection comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"power down overvoltage detection comparator"</span>]
     </span><span class="kw">pub mod </span>PWD_HIGH_VOLT_DET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -452,7 +454,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;the threshold of the counting number of charging times during the period that lp_overload_freq_sel sets in power save mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"the threshold of the counting number of charging times during the period that lp_overload_freq_sel sets in power save mode"</span>]
     </span><span class="kw">pub mod </span>LP_OVERLOAD_THRSH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">18</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -460,7 +462,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;the period of counting the charging times in power save mode 0: eight 32k cycle 1: sixteen 32k cycle&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"the period of counting the charging times in power save mode 0: eight 32k cycle 1: sixteen 32k cycle"</span>]
     </span><span class="kw">pub mod </span>LP_OVERLOAD_FREQ_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">20</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -468,7 +470,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Adjust hysteretic value in low power from 12.5mV to 25mV&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Adjust hysteretic value in low power from 12.5mV to 25mV"</span>]
     </span><span class="kw">pub mod </span>LP_HIGH_HYS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -476,7 +478,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;power down output range comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"power down output range comparator"</span>]
     </span><span class="kw">pub mod </span>PWD_CMP_OFFSET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">26</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -484,7 +486,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;1&#39;b1: Disable xtalok detection circuit 1&#39;b0: Enable xtalok detection circuit&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"1'b1: Disable xtalok detection circuit 1'b0: Enable xtalok detection circuit"</span>]
     </span><span class="kw">pub mod </span>XTALOK_DISABLE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -492,7 +494,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;reset current alert signal&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"reset current alert signal"</span>]
     </span><span class="kw">pub mod </span>CURRENT_ALERT_RESET {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -500,7 +502,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;set to 1 to switch internal ring osc to xtal 24M&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"set to 1 to switch internal ring osc to xtal 24M"</span>]
     </span><span class="kw">pub mod </span>XTAL_24M_OK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -508,7 +510,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Status register to indicate DCDC status. 1&#39;b1: DCDC already settled 1&#39;b0: DCDC is settling&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Status register to indicate DCDC status. 1'b1: DCDC already settled 1'b0: DCDC is settling"</span>]
     </span><span class="kw">pub mod </span>STS_DC_OK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -517,9 +519,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;DCDC Register 1&quot;</span>]
+<span class="attr">#[doc = <span class="string">"DCDC Register 1"</span>]
 </span><span class="kw">pub mod </span>REG1 {
-    <span class="attr">#[doc = <span class="string">&quot;select the feedback point of the internal regulator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"select the feedback point of the internal regulator"</span>]
     </span><span class="kw">pub mod </span>REG_FBK_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -527,7 +529,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;control the load resistor of the internal regulator of DCDC, the load resistor is connected as default \&quot;1\&quot;, and need set to \&quot;0\&quot; to disconnect the load resistor&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"control the load resistor of the internal regulator of DCDC, the load resistor is connected as default \"1\", and need set to \"0\" to disconnect the load resistor"</span>]
     </span><span class="kw">pub mod </span>REG_RLOAD_SW {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -535,7 +537,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;set the current bias of low power comparator 0x0: 50 nA 0x1: 100 nA 0x2: 200 nA 0x3: 400 nA&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"set the current bias of low power comparator 0x0: 50 nA 0x1: 100 nA 0x2: 200 nA 0x3: 400 nA"</span>]
     </span><span class="kw">pub mod </span>LP_CMP_ISRC_SEL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -543,7 +545,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;increase the threshold detection for common mode analog comparator&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"increase the threshold detection for common mode analog comparator"</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_HST_THRESH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">21</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -551,7 +553,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable hysteresis in switching converter common mode analog comparators&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable hysteresis in switching converter common mode analog comparators"</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_EN_HYST {
         <span class="kw">pub const </span>offset: u32 = <span class="number">23</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -559,7 +561,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;trim bandgap voltage&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"trim bandgap voltage"</span>]
     </span><span class="kw">pub mod </span>VBG_TRIM {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -568,9 +570,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;DCDC Register 2&quot;</span>]
+<span class="attr">#[doc = <span class="string">"DCDC Register 2"</span>]
 </span><span class="kw">pub mod </span>REG2 {
-    <span class="attr">#[doc = <span class="string">&quot;Ratio of integral control parameter to proportional control parameter in the switching DC-DC converter, and can be used to optimize efficiency and loop response&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Ratio of integral control parameter to proportional control parameter in the switching DC-DC converter, and can be used to optimize efficiency and loop response"</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_DC_C {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x03 </span>&lt;&lt; offset;
@@ -578,7 +580,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Magnitude of proportional control parameter in the switching DC-DC converter control loop.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Magnitude of proportional control parameter in the switching DC-DC converter control loop."</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_DC_R {
         <span class="kw">pub const </span>offset: u32 = <span class="number">2</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x0f </span>&lt;&lt; offset;
@@ -586,7 +588,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Two&#39;s complement feed forward step in duty cycle in the switching DC-DC converter&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Two's complement feed forward step in duty cycle in the switching DC-DC converter"</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_DC_FF {
         <span class="kw">pub const </span>offset: u32 = <span class="number">6</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -594,7 +596,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Enable analog circuit of DC-DC converter to respond faster under transient load conditions.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Enable analog circuit of DC-DC converter to respond faster under transient load conditions."</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_EN_RCSCALE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -602,7 +604,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Increase the threshold detection for RC scale circuit.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Increase the threshold detection for RC scale circuit."</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_RCSCALE_THRSH {
         <span class="kw">pub const </span>offset: u32 = <span class="number">12</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -610,7 +612,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Invert the sign of the hysteresis in DC-DC analog comparators.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Invert the sign of the hysteresis in DC-DC analog comparators."</span>]
     </span><span class="kw">pub mod </span>LOOPCTRL_HYST_SIGN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">13</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -618,7 +620,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Set to \&quot;0\&quot; : stop charging if the duty cycle is lower than what set by dcdc_neglimit_in&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set to \"0\" : stop charging if the duty cycle is lower than what set by dcdc_neglimit_in"</span>]
     </span><span class="kw">pub mod </span>DISABLE_PULSE_SKIP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -626,7 +628,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Set high to improve the transition from heavy load to light load&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set high to improve the transition from heavy load to light load"</span>]
     </span><span class="kw">pub mod </span>DCM_SET_CTRL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -635,9 +637,9 @@
         <span class="kw">pub mod </span>RW {}
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;DCDC Register 3&quot;</span>]
+<span class="attr">#[doc = <span class="string">"DCDC Register 3"</span>]
 </span><span class="kw">pub mod </span>REG3 {
-    <span class="attr">#[doc = <span class="string">&quot;Target value of VDD_SOC, 25 mV each step 0x0: 0.8V 0xE: 1.15V 0x1F:1.575V&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Target value of VDD_SOC, 25 mV each step 0x0: 0.8V 0xE: 1.15V 0x1F:1.575V"</span>]
     </span><span class="kw">pub mod </span>TRG {
         <span class="kw">pub const </span>offset: u32 = <span class="number">0</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x1f </span>&lt;&lt; offset;
@@ -645,7 +647,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Target value of standby (low power) mode 0x0: 0&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Target value of standby (low power) mode 0x0: 0"</span>]
     </span><span class="kw">pub mod </span>TARGET_LP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x07 </span>&lt;&lt; offset;
@@ -653,7 +655,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Set DCDC clock to half freqeuncy for continuous mode&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Set DCDC clock to half freqeuncy for continuous mode"</span>]
     </span><span class="kw">pub mod </span>MINPWR_DC_HALFCLK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">24</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -661,7 +663,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Ajust delay to reduce ground noise&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Ajust delay to reduce ground noise"</span>]
     </span><span class="kw">pub mod </span>MISC_DELAY_TIMING {
         <span class="kw">pub const </span>offset: u32 = <span class="number">27</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -669,7 +671,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Reserved&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Reserved"</span>]
     </span><span class="kw">pub mod </span>MISC_DISABLEFET_LOGIC {
         <span class="kw">pub const </span>offset: u32 = <span class="number">28</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
@@ -677,7 +679,7 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">&quot;Disable stepping for the output VDD_SOC of DCDC&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Disable stepping for the output VDD_SOC of DCDC"</span>]
     </span><span class="kw">pub mod </span>DISABLE_STEP {
         <span class="kw">pub const </span>offset: u32 = <span class="number">30</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;

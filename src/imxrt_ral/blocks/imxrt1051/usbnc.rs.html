@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/usbnc.rs`."><title>usbnc.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/./blocks/imxrt1051/usbnc.rs`."><title>usbnc.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="imxrt_ral" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0 (9b00956e5 2024-04-29)" data-channel="1.78.0" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../imxrt_ral/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -157,161 +159,161 @@
 <a href="#157" id="157">157</a>
 <a href="#158" id="158">158</a>
 <a href="#159" id="159">159</a>
-</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">&quot;USB&quot;</span>]
+</pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"USB"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
     _reserved0: [u8; <span class="number">0x0800</span>],
-    <span class="attr">#[doc = <span class="string">&quot;USB OTG1 Control Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"USB OTG1 Control Register"</span>]
     </span><span class="kw">pub </span>USB_OTG1_CTRL: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
     _reserved1: [u8; <span class="number">0x14</span>],
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 UTMI PHY Control 0 Register&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 UTMI PHY Control 0 Register"</span>]
     </span><span class="kw">pub </span>USB_OTG1_PHY_CTRL_0: <span class="kw">crate</span>::RWRegister&lt;u32&gt;,
 }
-<span class="attr">#[doc = <span class="string">&quot;USB OTG1 Control Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"USB OTG1 Control Register"</span>]
 </span><span class="kw">pub mod </span>USB_OTG1_CTRL {
-    <span class="attr">#[doc = <span class="string">&quot;Disable OTG1 Overcurrent Detection&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Disable OTG1 Overcurrent Detection"</span>]
     </span><span class="kw">pub mod </span>OVER_CUR_DIS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">7</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Enables overcurrent detection&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enables overcurrent detection"</span>]
             </span><span class="kw">pub const </span>OVER_CUR_DIS_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Disables overcurrent detection&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disables overcurrent detection"</span>]
             </span><span class="kw">pub const </span>OVER_CUR_DIS_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Polarity of Overcurrent The polarity of OTG1 port overcurrent event&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Polarity of Overcurrent The polarity of OTG1 port overcurrent event"</span>]
     </span><span class="kw">pub mod </span>OVER_CUR_POL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">8</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;High active (high on this signal represents an overcurrent condition)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"High active (high on this signal represents an overcurrent condition)"</span>]
             </span><span class="kw">pub const </span>OVER_CUR_POL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Low active (low on this signal represents an overcurrent condition)&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Low active (low on this signal represents an overcurrent condition)"</span>]
             </span><span class="kw">pub const </span>OVER_CUR_POL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Power Polarity This bit should be set according to PMIC Power Pin polarity.&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Power Polarity This bit should be set according to PMIC Power Pin polarity."</span>]
     </span><span class="kw">pub mod </span>PWR_POL {
         <span class="kw">pub const </span>offset: u32 = <span class="number">9</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;PMIC Power Pin is Low active.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"PMIC Power Pin is Low active."</span>]
             </span><span class="kw">pub const </span>PWR_POL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;PMIC Power Pin is High active.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"PMIC Power Pin is High active."</span>]
             </span><span class="kw">pub const </span>PWR_POL_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Wake-up Interrupt Enable This bit enables or disables the OTG1 wake-up interrupt&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Wake-up Interrupt Enable This bit enables or disables the OTG1 wake-up interrupt"</span>]
     </span><span class="kw">pub mod </span>WIE {
         <span class="kw">pub const </span>offset: u32 = <span class="number">10</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt Disabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt Disabled"</span>]
             </span><span class="kw">pub const </span>WIE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Interrupt Enabled&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Interrupt Enabled"</span>]
             </span><span class="kw">pub const </span>WIE_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Software Wake-up Enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Software Wake-up Enable"</span>]
     </span><span class="kw">pub mod </span>WKUP_SW_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">14</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable"</span>]
             </span><span class="kw">pub const </span>WKUP_SW_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable"</span>]
             </span><span class="kw">pub const </span>WKUP_SW_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Software Wake-up&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Software Wake-up"</span>]
     </span><span class="kw">pub mod </span>WKUP_SW {
         <span class="kw">pub const </span>offset: u32 = <span class="number">15</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Inactive&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Inactive"</span>]
             </span><span class="kw">pub const </span>WKUP_SW_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Force wake-up&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Force wake-up"</span>]
             </span><span class="kw">pub const </span>WKUP_SW_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Wake-up on ID change enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Wake-up on ID change enable"</span>]
     </span><span class="kw">pub mod </span>WKUP_ID_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable"</span>]
             </span><span class="kw">pub const </span>WKUP_ID_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable"</span>]
             </span><span class="kw">pub const </span>WKUP_ID_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 wake-up on VBUS change enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 wake-up on VBUS change enable"</span>]
     </span><span class="kw">pub mod </span>WKUP_VBUS_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">17</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Disable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Disable"</span>]
             </span><span class="kw">pub const </span>WKUP_VBUS_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Enable&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Enable"</span>]
             </span><span class="kw">pub const </span>WKUP_VBUS_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;Wake-up on DPDM change enable&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Wake-up on DPDM change enable"</span>]
     </span><span class="kw">pub mod </span>WKUP_DPDM_EN {
         <span class="kw">pub const </span>offset: u32 = <span class="number">29</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;DPDM changes wake-up to be disabled only when VBUS is 0.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"DPDM changes wake-up to be disabled only when VBUS is 0."</span>]
             </span><span class="kw">pub const </span>WKUP_DPDM_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;(Default) DPDM changes wake-up to be enabled, it is for device only.&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"(Default) DPDM changes wake-up to be enabled, it is for device only."</span>]
             </span><span class="kw">pub const </span>WKUP_DPDM_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
-    <span class="attr">#[doc = <span class="string">&quot;OTG1 Wake-up Interrupt Request This bit indicates that a wake-up interrupt request is received on the OTG1 port&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"OTG1 Wake-up Interrupt Request This bit indicates that a wake-up interrupt request is received on the OTG1 port"</span>]
     </span><span class="kw">pub mod </span>WIR {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;No wake-up interrupt request received&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"No wake-up interrupt request received"</span>]
             </span><span class="kw">pub const </span>WIR_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Wake-up Interrupt Request received&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Wake-up Interrupt Request received"</span>]
             </span><span class="kw">pub const </span>WIR_1: u32 = <span class="number">0x01</span>;
         }
     }
 }
-<span class="attr">#[doc = <span class="string">&quot;OTG1 UTMI PHY Control 0 Register&quot;</span>]
+<span class="attr">#[doc = <span class="string">"OTG1 UTMI PHY Control 0 Register"</span>]
 </span><span class="kw">pub mod </span>USB_OTG1_PHY_CTRL_0 {
-    <span class="attr">#[doc = <span class="string">&quot;Indicating whether OTG1 UTMI PHY clock is valid&quot;</span>]
+    <span class="attr">#[doc = <span class="string">"Indicating whether OTG1 UTMI PHY clock is valid"</span>]
     </span><span class="kw">pub mod </span>UTMI_CLK_VLD {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">&quot;Invalid&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Invalid"</span>]
             </span><span class="kw">pub const </span>UTMI_CLK_VLD_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">&quot;Valid&quot;</span>]
+            <span class="attr">#[doc = <span class="string">"Valid"</span>]
             </span><span class="kw">pub const </span>UTMI_CLK_VLD_1: u32 = <span class="number">0x01</span>;
         }
     }
