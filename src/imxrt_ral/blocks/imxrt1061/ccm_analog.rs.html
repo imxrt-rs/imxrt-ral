@@ -5004,38 +5004,6 @@
 <a href="#5002" id="5002">5002</a>
 <a href="#5003" id="5003">5003</a>
 <a href="#5004" id="5004">5004</a>
-<a href="#5005" id="5005">5005</a>
-<a href="#5006" id="5006">5006</a>
-<a href="#5007" id="5007">5007</a>
-<a href="#5008" id="5008">5008</a>
-<a href="#5009" id="5009">5009</a>
-<a href="#5010" id="5010">5010</a>
-<a href="#5011" id="5011">5011</a>
-<a href="#5012" id="5012">5012</a>
-<a href="#5013" id="5013">5013</a>
-<a href="#5014" id="5014">5014</a>
-<a href="#5015" id="5015">5015</a>
-<a href="#5016" id="5016">5016</a>
-<a href="#5017" id="5017">5017</a>
-<a href="#5018" id="5018">5018</a>
-<a href="#5019" id="5019">5019</a>
-<a href="#5020" id="5020">5020</a>
-<a href="#5021" id="5021">5021</a>
-<a href="#5022" id="5022">5022</a>
-<a href="#5023" id="5023">5023</a>
-<a href="#5024" id="5024">5024</a>
-<a href="#5025" id="5025">5025</a>
-<a href="#5026" id="5026">5026</a>
-<a href="#5027" id="5027">5027</a>
-<a href="#5028" id="5028">5028</a>
-<a href="#5029" id="5029">5029</a>
-<a href="#5030" id="5030">5030</a>
-<a href="#5031" id="5031">5031</a>
-<a href="#5032" id="5032">5032</a>
-<a href="#5033" id="5033">5033</a>
-<a href="#5034" id="5034">5034</a>
-<a href="#5035" id="5035">5035</a>
-<a href="#5036" id="5036">5036</a>
 </pre></div><pre class="rust"><code><span class="attr">#[doc = <span class="string">"CCM_ANALOG"</span>]
 #[repr(C)]
 </span><span class="kw">pub struct </span>RegisterBlock {
@@ -5205,14 +5173,6 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">"Reserved"</span>]
-    </span><span class="kw">pub mod </span>PLL_SEL {
-        <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
-        <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
-        <span class="kw">pub mod </span>R {}
-        <span class="kw">pub mod </span>W {}
-        <span class="kw">pub mod </span>RW {}
-    }
     <span class="attr">#[doc = <span class="string">"1 - PLL is currently locked. 0 - PLL is not currently locked."</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
@@ -5264,14 +5224,6 @@
     <span class="attr">#[doc = <span class="string">"Bypass the PLL."</span>]
     </span><span class="kw">pub mod </span>BYPASS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
-        <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
-        <span class="kw">pub mod </span>R {}
-        <span class="kw">pub mod </span>W {}
-        <span class="kw">pub mod </span>RW {}
-    }
-    <span class="attr">#[doc = <span class="string">"Reserved"</span>]
-    </span><span class="kw">pub mod </span>PLL_SEL {
-        <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
@@ -5333,14 +5285,6 @@
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {}
     }
-    <span class="attr">#[doc = <span class="string">"Reserved"</span>]
-    </span><span class="kw">pub mod </span>PLL_SEL {
-        <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
-        <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
-        <span class="kw">pub mod </span>R {}
-        <span class="kw">pub mod </span>W {}
-        <span class="kw">pub mod </span>RW {}
-    }
     <span class="attr">#[doc = <span class="string">"1 - PLL is currently locked. 0 - PLL is not currently locked."</span>]
     </span><span class="kw">pub mod </span>LOCK {
         <span class="kw">pub const </span>offset: u32 = <span class="number">31</span>;
@@ -5392,14 +5336,6 @@
     <span class="attr">#[doc = <span class="string">"Bypass the PLL."</span>]
     </span><span class="kw">pub mod </span>BYPASS {
         <span class="kw">pub const </span>offset: u32 = <span class="number">16</span>;
-        <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
-        <span class="kw">pub mod </span>R {}
-        <span class="kw">pub mod </span>W {}
-        <span class="kw">pub mod </span>RW {}
-    }
-    <span class="attr">#[doc = <span class="string">"Reserved"</span>]
-    </span><span class="kw">pub mod </span>PLL_SEL {
-        <span class="kw">pub const </span>offset: u32 = <span class="number">19</span>;
         <span class="kw">pub const </span>mask: u32 = <span class="number">0x01 </span>&lt;&lt; offset;
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}

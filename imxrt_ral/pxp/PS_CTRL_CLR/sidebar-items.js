@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["DECX","DECY","FORMAT","RSVD0","RSVD1","WB_SWAP"]};
+window.SIDEBAR_ITEMS = {"mod":["DECX","DECY","FORMAT","WB_SWAP"]};

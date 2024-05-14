@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["BYPASS","C0","RSVD1","UV_OFFSET","YCBCR_MODE","Y_OFFSET"]};
+window.SIDEBAR_ITEMS = {"mod":["BYPASS","C0","UV_OFFSET","YCBCR_MODE","Y_OFFSET"]};

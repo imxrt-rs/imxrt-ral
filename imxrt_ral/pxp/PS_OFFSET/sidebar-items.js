@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["RSVD1","RSVD2","XOFFSET","YOFFSET"]};
+window.SIDEBAR_ITEMS = {"mod":["XOFFSET","YOFFSET"]};

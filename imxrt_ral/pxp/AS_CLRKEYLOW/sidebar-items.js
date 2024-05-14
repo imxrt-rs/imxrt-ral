@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["PIXEL","RSVD1"]};
+window.SIDEBAR_ITEMS = {"mod":["PIXEL"]};

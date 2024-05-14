@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["PITCH","RSVD"]};
+window.SIDEBAR_ITEMS = {"mod":["PITCH"]};

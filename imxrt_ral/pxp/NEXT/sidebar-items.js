@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["ENABLED","POINTER","RSVD"]};
+window.SIDEBAR_ITEMS = {"mod":["ENABLED","POINTER"]};

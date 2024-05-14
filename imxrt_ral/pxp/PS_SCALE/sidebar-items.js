@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["RSVD1","RSVD2","XSCALE","YSCALE"]};
+window.SIDEBAR_ITEMS = {"mod":["XSCALE","YSCALE"]};

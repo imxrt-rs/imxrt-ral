@@ -4072,7 +4072,7 @@
         <span class="kw">pub mod </span>RW {
             <span class="attr">#[doc = <span class="string">"ccm.spdif0_clk_root"</span>]
             </span><span class="kw">pub const </span>SAI1_MCLK3_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"SPDIF_EXT_CLK"</span>]
+            <span class="attr">#[doc = <span class="string">"iomux.spdif_tx_clk2"</span>]
             </span><span class="kw">pub const </span>SAI1_MCLK3_SEL_1: u32 = <span class="number">0x01</span>;
             <span class="attr">#[doc = <span class="string">"spdif.spdif_srclk"</span>]
             </span><span class="kw">pub const </span>SAI1_MCLK3_SEL_2: u32 = <span class="number">0x02</span>;
@@ -4089,7 +4089,7 @@
         <span class="kw">pub mod </span>RW {
             <span class="attr">#[doc = <span class="string">"ccm.spdif0_clk_root"</span>]
             </span><span class="kw">pub const </span>SAI2_MCLK3_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"SPDIF_EXT_CLK"</span>]
+            <span class="attr">#[doc = <span class="string">"iomux.spdif_tx_clk2"</span>]
             </span><span class="kw">pub const </span>SAI2_MCLK3_SEL_1: u32 = <span class="number">0x01</span>;
             <span class="attr">#[doc = <span class="string">"spdif.spdif_srclk"</span>]
             </span><span class="kw">pub const </span>SAI2_MCLK3_SEL_2: u32 = <span class="number">0x02</span>;
@@ -4106,7 +4106,7 @@
         <span class="kw">pub mod </span>RW {
             <span class="attr">#[doc = <span class="string">"ccm.spdif0_clk_root"</span>]
             </span><span class="kw">pub const </span>SAI3_MCLK3_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"SPDIF_EXT_CLK"</span>]
+            <span class="attr">#[doc = <span class="string">"iomux.spdif_tx_clk2"</span>]
             </span><span class="kw">pub const </span>SAI3_MCLK3_SEL_1: u32 = <span class="number">0x01</span>;
             <span class="attr">#[doc = <span class="string">"spdif.spdif_srclk"</span>]
             </span><span class="kw">pub const </span>SAI3_MCLK3_SEL_2: u32 = <span class="number">0x02</span>;
@@ -4134,7 +4134,7 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"ENET1 TX reference clock driven by ref_enetpll."</span>]
+            <span class="attr">#[doc = <span class="string">"ENET1 TX reference clock driven by ref_enetpll. This clock is also output to pins via the IOMUX. ENET_REF_CLK1 function."</span>]
             </span><span class="kw">pub const </span>ENET1_CLK_SEL_0: u32 = <span class="number">0</span>;
             <span class="attr">#[doc = <span class="string">"Gets ENET1 TX reference clock from the ENET1_TX_CLK pin. In this use case, an external OSC provides the clock for both the external PHY and the internal controller."</span>]
             </span><span class="kw">pub const </span>ENET1_CLK_SEL_1: u32 = <span class="number">0x01</span>;
@@ -4240,7 +4240,7 @@
         <span class="kw">pub mod </span>RW {
             <span class="attr">#[doc = <span class="string">"OKAY response"</span>]
             </span><span class="kw">pub const </span>EXC_MON_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"SLVError response"</span>]
+            <span class="attr">#[doc = <span class="string">"SLVError response (default)"</span>]
             </span><span class="kw">pub const </span>EXC_MON_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -4264,9 +4264,9 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"AHB clock is not running (gated) when CM7 is sleeping and TCM is not accessible."</span>]
+            <span class="attr">#[doc = <span class="string">"AHB clock is not running (gated)"</span>]
             </span><span class="kw">pub const </span>CM7_FORCE_HCLK_EN_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"AHB clock is running (enabled) when CM7 is sleeping and TCM is accessible."</span>]
+            <span class="attr">#[doc = <span class="string">"AHB clock is running (enabled)"</span>]
             </span><span class="kw">pub const </span>CM7_FORCE_HCLK_EN_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -4371,9 +4371,9 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"Enters power saving mode only when chip is in SUSPEND mode"</span>]
+            <span class="attr">#[doc = <span class="string">"none memory power saving features enabled, SHUTDOWN/DEEPSLEEP/LIGHTSLEEP will have no effect"</span>]
             </span><span class="kw">pub const </span>L2_MEM_EN_POWERSAVING_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"Controlled by L2_MEM_DEEPSLEEP bitfield"</span>]
+            <span class="attr">#[doc = <span class="string">"memory power saving features enabled, set SHUTDOWN/DEEPSLEEP/LIGHTSLEEP (priority high to low) to enable power saving levels"</span>]
             </span><span class="kw">pub const </span>L2_MEM_EN_POWERSAVING_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -4397,9 +4397,9 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"No force sleep control supported, memory deep sleep mode only entered when whole system in stop mode (OCRAM in normal mode)"</span>]
+            <span class="attr">#[doc = <span class="string">"no force sleep control supported, memory deep sleep mode only entered when whole system in stop mode"</span>]
             </span><span class="kw">pub const </span>L2_MEM_DEEPSLEEP_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"Force memory into deep sleep mode (OCRAM in power saving mode)"</span>]
+            <span class="attr">#[doc = <span class="string">"force memory into deep sleep mode"</span>]
             </span><span class="kw">pub const </span>L2_MEM_DEEPSLEEP_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -4970,9 +4970,9 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"Timer counter works normally"</span>]
+            <span class="attr">#[doc = <span class="string">"timer counter work normally"</span>]
             </span><span class="kw">pub const </span>QTIMER1_TMR_CNTS_FREEZE_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"Reset counter and ouput flags"</span>]
+            <span class="attr">#[doc = <span class="string">"reset counter and ouput flags"</span>]
             </span><span class="kw">pub const </span>QTIMER1_TMR_CNTS_FREEZE_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -5033,9 +5033,9 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"Select \\[127:0\\] from SNVS Master Key as DCP key"</span>]
+            <span class="attr">#[doc = <span class="string">"Select \\[127:0\\] from snvs/ocotp key as dcp key"</span>]
             </span><span class="kw">pub const </span>DCP_KEY_SEL_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"Select \\[255:128\\] from SNVS Master Key as DCP key"</span>]
+            <span class="attr">#[doc = <span class="string">"Select \\[255:128\\] from snvs/ocotp key as dcp key"</span>]
             </span><span class="kw">pub const </span>DCP_KEY_SEL_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -5359,9 +5359,9 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"ENET stop acknowledge is not asserted"</span>]
+            <span class="attr">#[doc = <span class="string">"ENET1 stop acknowledge is not asserted"</span>]
             </span><span class="kw">pub const </span>ENET_STOP_ACK_0: u32 = <span class="number">0</span>;
-            <span class="attr">#[doc = <span class="string">"ENET stop acknowledge is asserted"</span>]
+            <span class="attr">#[doc = <span class="string">"ENET1 stop acknowledge is asserted"</span>]
             </span><span class="kw">pub const </span>ENET_STOP_ACK_1: u32 = <span class="number">0x01</span>;
         }
     }
@@ -6921,7 +6921,7 @@
         <span class="kw">pub mod </span>R {}
         <span class="kw">pub mod </span>W {}
         <span class="kw">pub mod </span>RW {
-            <span class="attr">#[doc = <span class="string">"Select key from SNVS Master Key."</span>]
+            <span class="attr">#[doc = <span class="string">"Select key from Key MUX (SNVS/OTPMK)."</span>]
             </span><span class="kw">pub const </span>DCPKEY_OCOTP_OR_KEYMUX_0: u32 = <span class="number">0</span>;
             <span class="attr">#[doc = <span class="string">"Select key from OCOTP (SW_GP2)."</span>]
             </span><span class="kw">pub const </span>DCPKEY_OCOTP_OR_KEYMUX_1: u32 = <span class="number">0x01</span>;

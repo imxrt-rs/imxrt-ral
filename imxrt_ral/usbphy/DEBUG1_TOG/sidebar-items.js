@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["ENTAILADJVD","RSVD0","RSVD1"]};
+window.SIDEBAR_ITEMS = {"mod":["ENTAILADJVD"]};

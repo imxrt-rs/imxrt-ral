@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["COLOR","RSVD"]};
+window.SIDEBAR_ITEMS = {"mod":["COLOR"]};
