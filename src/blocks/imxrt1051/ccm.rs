@@ -2927,6 +2927,14 @@ pub mod CCGR1 {
         pub mod W {}
         pub mod RW {}
     }
+    #[doc = "gpio5 clock (gpio5_clk_enable)"]
+    pub mod CG15 {
+        pub const offset: u32 = 30;
+        pub const mask: u32 = 0x03 << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {}
+    }
 }
 #[doc = "CCM Clock Gating Register 2"]
 pub mod CCGR2 {

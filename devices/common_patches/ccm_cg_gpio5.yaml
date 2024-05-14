@@ -1,0 +1,11 @@
+# Clock gate 15 in CCM[CCGR1] is missing from 1050 and 1060 MCUs.
+# It isn't reserved according to the reference manual. This
+# clock gate is for GPIO5.
+CCM:
+  CCGR1:
+    _modify:
+      CG15:
+        description: gpio5 clock (gpio5_clk_enable)
+        bitOffset: 30
+        bitWidth: 2
+        access: read-write
