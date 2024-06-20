@@ -6,63 +6,35 @@ jobs:
   gen-ral:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install a stable Rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-      # Not using actions-rs/install, since it's experimental.
-      # Guessing that this tool isn't in the tool cache, so
-      # there's no benefit.
+      - uses: actions/checkout@v4
+      - name: Install a stable Rust toolchain with rustfmt
+        run: rustup toolchain install stable --no-self-update --profile minimal --component rustfmt
       - name: Install svdtools
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: svdtools --version=0.2.8
+        run: cargo install svdtools --version=0.2.8
       - name: Remove generated RAL sources, then regenerate the RAL
         run: rm -rf src/imxrt* src/blocks && make ci
       - name: Ensure RAL is consistent with checked-in code
         run: git update-index --refresh && git diff-index --quiet HEAD
       - name: Check format for RAL
-        uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-          args: --all -- --check
+        run: cargo fmt --all -- --check
 
   lints:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
-        components: clippy
+    - uses: actions/checkout@v4
+    - run: rustup toolchain install stable --no-self-update --profile minimal --component clippy
     - name: Lint raltool
-      uses: actions-rs/clippy-check@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        args: --package=raltool
+      run: cargo clippy --package=raltool
     - name: Lint imxrt-ral
-      uses: actions-rs/clippy-check@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        args: --package=imxrt-ral --features=imxrt1062,rt
+      run: cargo clippy --package=imxrt-ral --features=imxrt1062,rt
 
   build-ral-core:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
+    - uses: actions/checkout@v4
+    - run: rustup toolchain install stable --no-self-update --profile minimal
     - name: Test imxrt-ral for core features
-      uses: actions-rs/cargo@v1
-      with:
-        command: test
-        args: --tests --lib
+      run: cargo test --tests --lib
 
   build-ral:
     runs-on: ubuntu-latest
@@ -81,17 +53,10 @@ jobs:
           - "imxrt1176_cm4,rt"
           - "imxrt1176_cm7,rt"
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        target: thumbv7em-none-eabihf
-        profile: minimal
+    - uses: actions/checkout@v4
+    - run: rustup toolchain install stable --no-self-update --profile minimal --target thumbv7em-none-eabihf
     - name: Build for ${{ matrix.feature }} RAL
-      uses: actions-rs/cargo@v1
-      with:
-        command: build
-        args: --verbose --features ${{ matrix.feature }} --target thumbv7em-none-eabihf
+      run: cargo build --verbose --features ${{ matrix.feature }} --target thumbv7em-none-eabihf
 
   # Run documentation tests
   #
@@ -104,16 +69,10 @@ jobs:
           - "imxrt1062,rt"
           - "imxrt1021,rt"
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
+    - uses: actions/checkout@v4
+    - run: rustup toolchain install stable --no-self-update --profile minimal
     - name: Run doctests for (${{ matrix.feature }}) RAL
-      uses: actions-rs/cargo@v1
-      with:
-        command: test
-        args: --doc --verbose --features ${{ matrix.feature }}
+      run: cargo test --doc --verbose --features ${{ matrix.feature }}
 
   # Run unit, integration tests
   test-ral:
@@ -126,29 +85,15 @@ jobs:
           - "imxrt1062,rt"
           - "imxrt1176_cm4"
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
+    - uses: actions/checkout@v4
+    - run: rustup toolchain install stable --no-self-update --profile minimal
     - name: Run unit, integration tests for ${{ matrix.feature }}
-      uses: actions-rs/cargo@v1
-      with:
-        command: test
-        args: --tests --lib --verbose --features ${{ matrix.feature }}
+      run: cargo test --tests --lib --verbose --features ${{ matrix.feature }}
 
   examples-teensy4:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: thumbv7em-none-eabihf
-          override: true
-          profile: minimal
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install stable --no-self-update --profile minimal --target thumbv7em-none-eabihf
       - name: Build examples/teensy4
-        uses: actions-rs/cargo@v1
-        with:
-          command: build
-          args: --package=imxrt-ral-examples-teensy4 --target thumbv7em-none-eabihf
+        run: cargo build --package=imxrt-ral-examples-teensy4 --target thumbv7em-none-eabihf
