@@ -104,8 +104,6 @@ pub enum Interrupt {
     FLEXRAM = 50,
     #[doc = "51 - KPP"]
     KPP = 51,
-    #[doc = "52 - RESERVED68"]
-    RESERVED68 = 52,
     #[doc = "53 - GPR_IRQ"]
     GPR_IRQ = 53,
     #[doc = "54 - ELCDIF"]
@@ -120,8 +118,6 @@ pub enum Interrupt {
     MIPI_CSI = 58,
     #[doc = "59 - MIPI_DSI"]
     MIPI_DSI = 59,
-    #[doc = "60 - GPU2D"]
-    GPU2D = 60,
     #[doc = "61 - GPIO6_COMBINED_0_15"]
     GPIO6_COMBINED_0_15 = 61,
     #[doc = "62 - GPIO6_COMBINED_16_31"]
@@ -310,14 +306,6 @@ pub enum Interrupt {
     ACMP3 = 159,
     #[doc = "160 - ACMP4"]
     ACMP4 = 160,
-    #[doc = "161 - RESERVED177"]
-    RESERVED177 = 161,
-    #[doc = "162 - RESERVED178"]
-    RESERVED178 = 162,
-    #[doc = "163 - RESERVED179"]
-    RESERVED179 = 163,
-    #[doc = "164 - RESERVED180"]
-    RESERVED180 = 164,
     #[doc = "165 - ENC1"]
     ENC1 = 165,
     #[doc = "166 - ENC2"]
@@ -326,10 +314,6 @@ pub enum Interrupt {
     ENC3 = 167,
     #[doc = "168 - ENC4"]
     ENC4 = 168,
-    #[doc = "169 - RESERVED185"]
-    RESERVED185 = 169,
-    #[doc = "170 - RESERVED186"]
-    RESERVED186 = 170,
     #[doc = "171 - TMR1"]
     TMR1 = 171,
     #[doc = "172 - TMR2"]
@@ -372,22 +356,6 @@ pub enum Interrupt {
     PWM4_3 = 190,
     #[doc = "191 - PWM4_FAULT"]
     PWM4_FAULT = 191,
-    #[doc = "192 - RESERVED208"]
-    RESERVED208 = 192,
-    #[doc = "193 - RESERVED209"]
-    RESERVED209 = 193,
-    #[doc = "194 - RESERVED210"]
-    RESERVED210 = 194,
-    #[doc = "195 - RESERVED211"]
-    RESERVED211 = 195,
-    #[doc = "196 - RESERVED212"]
-    RESERVED212 = 196,
-    #[doc = "197 - RESERVED213"]
-    RESERVED213 = 197,
-    #[doc = "198 - RESERVED214"]
-    RESERVED214 = 198,
-    #[doc = "199 - RESERVED215"]
-    RESERVED215 = 199,
     #[doc = "200 - PDM_HWVAD_EVENT"]
     PDM_HWVAD_EVENT = 200,
     #[doc = "201 - PDM_HWVAD_ERROR"]
@@ -487,7 +455,6 @@ mod _vectors {
         fn CAN3_ERROR();
         fn FLEXRAM();
         fn KPP();
-        fn RESERVED68();
         fn GPR_IRQ();
         fn ELCDIF();
         fn LCDIFV2();
@@ -495,7 +462,6 @@ mod _vectors {
         fn PXP();
         fn MIPI_CSI();
         fn MIPI_DSI();
-        fn GPU2D();
         fn GPIO6_COMBINED_0_15();
         fn GPIO6_COMBINED_16_31();
         fn DAC();
@@ -590,16 +556,10 @@ mod _vectors {
         fn ACMP2();
         fn ACMP3();
         fn ACMP4();
-        fn RESERVED177();
-        fn RESERVED178();
-        fn RESERVED179();
-        fn RESERVED180();
         fn ENC1();
         fn ENC2();
         fn ENC3();
         fn ENC4();
-        fn RESERVED185();
-        fn RESERVED186();
         fn TMR1();
         fn TMR2();
         fn TMR3();
@@ -621,14 +581,6 @@ mod _vectors {
         fn PWM4_2();
         fn PWM4_3();
         fn PWM4_FAULT();
-        fn RESERVED208();
-        fn RESERVED209();
-        fn RESERVED210();
-        fn RESERVED211();
-        fn RESERVED212();
-        fn RESERVED213();
-        fn RESERVED214();
-        fn RESERVED215();
         fn PDM_HWVAD_EVENT();
         fn PDM_HWVAD_ERROR();
         fn PDM_EVENT();
@@ -751,9 +703,7 @@ mod _vectors {
         },
         Vector { _handler: FLEXRAM },
         Vector { _handler: KPP },
-        Vector {
-            _handler: RESERVED68,
-        },
+        Vector { _reserved: 0 },
         Vector { _handler: GPR_IRQ },
         Vector { _handler: ELCDIF },
         Vector { _handler: LCDIFV2 },
@@ -761,7 +711,7 @@ mod _vectors {
         Vector { _handler: PXP },
         Vector { _handler: MIPI_CSI },
         Vector { _handler: MIPI_DSI },
-        Vector { _handler: GPU2D },
+        Vector { _reserved: 0 },
         Vector {
             _handler: GPIO6_COMBINED_0_15,
         },
@@ -950,28 +900,16 @@ mod _vectors {
         Vector { _handler: ACMP2 },
         Vector { _handler: ACMP3 },
         Vector { _handler: ACMP4 },
-        Vector {
-            _handler: RESERVED177,
-        },
-        Vector {
-            _handler: RESERVED178,
-        },
-        Vector {
-            _handler: RESERVED179,
-        },
-        Vector {
-            _handler: RESERVED180,
-        },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
         Vector { _handler: ENC1 },
         Vector { _handler: ENC2 },
         Vector { _handler: ENC3 },
         Vector { _handler: ENC4 },
-        Vector {
-            _handler: RESERVED185,
-        },
-        Vector {
-            _handler: RESERVED186,
-        },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
         Vector { _handler: TMR1 },
         Vector { _handler: TMR2 },
         Vector { _handler: TMR3 },
@@ -1003,30 +941,14 @@ mod _vectors {
         Vector {
             _handler: PWM4_FAULT,
         },
-        Vector {
-            _handler: RESERVED208,
-        },
-        Vector {
-            _handler: RESERVED209,
-        },
-        Vector {
-            _handler: RESERVED210,
-        },
-        Vector {
-            _handler: RESERVED211,
-        },
-        Vector {
-            _handler: RESERVED212,
-        },
-        Vector {
-            _handler: RESERVED213,
-        },
-        Vector {
-            _handler: RESERVED214,
-        },
-        Vector {
-            _handler: RESERVED215,
-        },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
+        Vector { _reserved: 0 },
         Vector {
             _handler: PDM_HWVAD_EVENT,
         },
@@ -3781,33 +3703,6 @@ pub mod mua {
     }
 }
 #[path = "."]
-pub mod nvic {
-    #[doc = "Nested Vectored Interrupt Controller"]
-    pub const NVIC: *const RegisterBlock = 0xe000_e100 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/nvic.rs"]
-    mod blocks;
-    pub use blocks::*;
-    pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type NVIC = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for NVIC {}
-    impl crate::Valid for NVIC {}
-    impl NVIC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(NVIC)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, NVIC).then_some(0)
-    }
-}
-#[path = "."]
 pub mod ocotp {
     #[doc = "no description available"]
     pub const OCOTP: *const RegisterBlock = 0x40ca_c000 as *const RegisterBlock;
@@ -4833,33 +4728,6 @@ pub mod ssarc_lp {
     }
 }
 #[path = "."]
-pub mod system_control {
-    #[doc = "System Control Block"]
-    pub const SYSTEMCONTROL: *const RegisterBlock = 0xe000_e000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm7/system_control.rs"]
-    mod blocks;
-    pub use blocks::*;
-    pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type SYSTEMCONTROL = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for SYSTEMCONTROL {}
-    impl crate::Valid for SYSTEMCONTROL {}
-    impl SYSTEMCONTROL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(SYSTEMCONTROL)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, SYSTEMCONTROL).then_some(0)
-    }
-}
-#[path = "."]
 pub mod tmpsns {
     #[doc = "Temperature Sensor Memory Map"]
     pub const TMPSNS: *const RegisterBlock = 0 as *const RegisterBlock;
@@ -5600,7 +5468,6 @@ pub struct Instances {
     pub MECC2: mecc::MECC2,
     pub MIPI_CSI2RX: mipi_csi2rx::MIPI_CSI2RX,
     pub MUA: mua::MUA,
-    pub NVIC: nvic::NVIC,
     pub OCOTP: ocotp::OCOTP,
     pub OSC_RC_400M: osc_rc_400m::OSC_RC_400M,
     pub OTFAD1: otfad::OTFAD1,
@@ -5646,7 +5513,6 @@ pub struct Instances {
     pub SRC: src::SRC,
     pub SSARC_HP: ssarc_hp::SSARC_HP,
     pub SSARC_LP: ssarc_lp::SSARC_LP,
-    pub SYSTEMCONTROL: system_control::SYSTEMCONTROL,
     pub TMPSNS: tmpsns::TMPSNS,
     pub TMR1: tmr::TMR1,
     pub TMR2: tmr::TMR2,
@@ -5806,7 +5672,6 @@ impl Instances {
             MECC2: mecc::MECC2::instance(),
             MIPI_CSI2RX: mipi_csi2rx::MIPI_CSI2RX::instance(),
             MUA: mua::MUA::instance(),
-            NVIC: nvic::NVIC::instance(),
             OCOTP: ocotp::OCOTP::instance(),
             OSC_RC_400M: osc_rc_400m::OSC_RC_400M::instance(),
             OTFAD1: otfad::OTFAD1::instance(),
@@ -5852,7 +5717,6 @@ impl Instances {
             SRC: src::SRC::instance(),
             SSARC_HP: ssarc_hp::SSARC_HP::instance(),
             SSARC_LP: ssarc_lp::SSARC_LP::instance(),
-            SYSTEMCONTROL: system_control::SYSTEMCONTROL::instance(),
             TMPSNS: tmpsns::TMPSNS::instance(),
             TMR1: tmr::TMR1::instance(),
             TMR2: tmr::TMR2::instance(),

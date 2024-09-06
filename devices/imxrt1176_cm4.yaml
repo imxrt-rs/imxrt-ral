@@ -49,6 +49,10 @@ _delete:
   - USB_OTG2
   - USBNC_OTG2
 
+  # Do you need these? Check out the cortex-m crate (v0.7).
+  - NVIC
+  - SystemControl
+
 _modify:
   _peripherals:
     CM7_GPIO2:
@@ -193,3 +197,17 @@ PWM?:
         bitOffset: 2
         bitWidth: 1
         access: read-write
+
+MCM:
+  _add:
+    _interrupts:
+      CORE:
+        description: CORE
+        value: 19
+
+GPC_STBY_CTRL:
+  _add:
+    _interrupts:
+      GPC:
+        description: GPC
+        value: 117

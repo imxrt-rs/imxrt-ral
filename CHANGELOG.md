@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+**BREAKING** Remove the NVIC and SCB peripherals from the 1176. If you need an
+API for Cortex-M registers, check out the
+[`cortex-m`][https://crates.io/crates/cortex-m] crate.
+
+**BREAKING** The 1176 GPU2D interrupt is marked as reserved, and it's not
+available in the `Interrupt` enum.
+
 **BREAKING** In the 1176 API, there is only one SAI module. All SAI instances,
 including those that only have a single channel, now appear to support multiple
 channels. The user is responsible for making sure their SAI instance can
