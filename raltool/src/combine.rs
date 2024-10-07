@@ -548,7 +548,7 @@ pub fn combine(irs: &[ir::IR], config: &Config) -> ir::IR {
                 for item in &mut block.items {
                     match &mut item.inner {
                         ir::BlockItemInner::Register(reg) => {
-                            for fieldset in &mut reg.fieldset {
+                            if let Some(fieldset) = &mut reg.fieldset {
                                 let version = versions.get_fieldset(ir, fieldset).unwrap();
                                 *fieldset =
                                     fieldsets.get(&RefHash(version.element())).unwrap().into()
