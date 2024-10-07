@@ -59,7 +59,7 @@ see [`read_reg`], [`write_reg`], and [`modify_reg`]. Note that the documentation
 STM32 processor, and may demonstrate a different API for accessing instances.
 
 > Note: `imxrt-ral` does not yet support the `reset_reg` macro, and it does not expose reset
-structs.
+> structs.
 
 ## Resource management
 
