@@ -31,6 +31,12 @@ transforms:
       from: Mimxrt1176Cm4
       to: imxrt1176_cm4
   - Rename:
+      from: Mimxrt1189Cm33
+      to: imxrt1189_cm33
+  - Rename:
+      from: Mimxrt1189Cm7
+      to: imxrt1189_cm7
+  - Rename:
       from: pit::Pit1
       to: pit::Pit
   - Rename:
@@ -130,6 +136,10 @@ transforms:
       from: lpspi::vals::Hrsel
   - DeleteEnums:
       from: lpspi::vals::Pcspol
+  # The 1189 has two DMA peripherals. Avoid collision when unifying with 10xx
+  # names.
+  - Delete:
+      from: dma3::Dma3
   # DMA and DMAMUX are suffixed with numbers on the 1176, since each core
   # has its own instance. They're also suffixed on 10xx chips, even though
   # there's just one instnace. Rename them so that the names are the same across
@@ -162,6 +172,47 @@ transforms:
       fieldset: src::regs::Srsr
       from: LOCKUP
       to: LOCKUP_SYSRESETREQ
+  # Groups of 1189 peripherals that use derivedFrom but with meaningful names
+  # instead of plain numbering. raltool only handles the numbered case, so
+  # delete them until someone needs them.
+  - Delete:
+      from: aon_mif_ln28fdsoi_spllram::AonMifLn28fdsoiSpllram
+  - Delete:
+      from: aon_mif_s28spregh::AonMifS28spregh
+  - Delete:
+      from: aon_mix_slice::AonMixSlice
+  - Delete:
+      from: enetc0_revmii_mac::Enetc0RevmiiMac
+  - Delete:
+      from: enetc0_revmii_phy::Enetc0RevmiiPhy
+  - Delete:
+      from: ethernet_pll::EthernetPll
+  - Delete:
+      from: mu2_mua::Mu2Mua
+  - Delete:
+      from: mu_apps_s3mua::MuAppsS3mua
+  - Delete:
+      from: sw0_global::Sw0Global
+  - Delete:
+      from: tstmr2_tstmra::Tstmr2Tstmra
+  - Delete:
+      from: xcache_pc::XcachePc
+  - Delete:
+      from: m33_pcf::M33Pcf1
+  # Aliased cluster arrays are not supported by raltool at the time of writing.
+  - Delete:
+      from: ecat::RxErrorCntr
+  - Delete:
+      from: ecat::ForwardedRxErrorCntr
+  - Delete:
+      from: ecat::LostLinkCntr
+  - Delete:
+      from: ecat::Fmmu
+  - Delete:
+      from: ecat::Syncmanager
+  # This one probably just needs some renaming to work.
+  - Delete:
+      from: mu2_mub::Mu2Mub
 
 # Settings for the combine pass.
 combines:

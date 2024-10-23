@@ -62,6 +62,9 @@ reserved fields.
 
 Fix the documentation associated with IOMUXC field values.
 
+Add support for NXP's i.MX RT 1189 dual-core MCUs. An `"imxrt1189_cm33"` feature
+targets the Cortex-M33, and an `"imxrt1189_cm7"` feature targets the Cortex-M7.
+
 ## [0.5.0] 2022-12-27
 
 Add support for NXP's i.MX RT 1176 dual-core MCUs. An `"imxrt1176_cm7"` feature

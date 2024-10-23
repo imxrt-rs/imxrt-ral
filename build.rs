@@ -25,6 +25,10 @@ fn main() {
             "src/imxrt1176_cm4.x"
         } else if env::var_os("CARGO_FEATURE_IMXRT1176_CM7").is_some() {
             "src/imxrt1176_cm7.x"
+        } else if env::var_os("CARGO_FEATURE_IMXRT1189_CM33").is_some() {
+            "src/imxrt1189_cm33.x"
+        } else if env::var_os("CARGO_FEATURE_IMXRT1189_CM7").is_some() {
+            "src/imxrt1189_cm7.x"
         } else {
             panic!("No device features selected");
         };

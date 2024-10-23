@@ -138,3 +138,13 @@ pub use imxrt1176_cm4::*;
 mod imxrt1176_cm7;
 #[cfg(feature = "imxrt1176_cm7")]
 pub use imxrt1176_cm7::*;
+#[cfg(feature = "imxrt1189_cm33")]
+#[path = "imxrt1189_cm33.rs"]
+mod imxrt1189_cm33;
+#[cfg(feature = "imxrt1189_cm33")]
+pub use imxrt1189_cm33::*;
+#[cfg(feature = "imxrt1189_cm7")]
+#[path = "imxrt1189_cm7.rs"]
+mod imxrt1189_cm7;
+#[cfg(feature = "imxrt1189_cm7")]
+pub use imxrt1189_cm7::*;

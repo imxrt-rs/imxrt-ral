@@ -5,7 +5,7 @@
 
 SHELL := /usr/bin/env bash
 DEVICES ?= imxrt1011 imxrt1015 imxrt1021 imxrt1051 imxrt1052 imxrt1061 imxrt1062 imxrt1064 \
-	imxrt1176_cm7 imxrt1176_cm4
+	imxrt1176_cm7 imxrt1176_cm4 imxrt1189_cm33 imxrt1189_cm7
 
 all: patch crate rustfmt check
 

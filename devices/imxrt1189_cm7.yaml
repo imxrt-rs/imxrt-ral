@@ -1,0 +1,21 @@
+_svd: "../svd/imxrt1189_cm7.svd"
+
+_derive:
+    SW0_PORT2: SW0_PORT0
+
+RGPIO*:
+    _array:
+        ICR*: {}
+
+IOMUXC:
+    _modify:
+        SW_MUX_CTL_PAD_GPIO_SD_B2_12_DUMMY:
+            name: SW_MUX_CTL_PAD_GPIO_SD_B2_12
+        SW_PAD_CTL_PAD_GPIO_SD_B2_12_DUMMY:
+            name: SW_PAD_CTL_PAD_GPIO_SD_B2_12
+IOMUXC_AON:
+    _modify:
+        SW_MUX_CTL_PAD_GPIO_AON_28_DUMMY:
+            name: SW_MUX_CTL_PAD_GPIO_AON_28
+        SW_PAD_CTL_PAD_GPIO_AON_28_DUMMY:
+            name: SW_PAD_CTL_PAD_GPIO_AON_28

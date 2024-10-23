@@ -43,6 +43,8 @@ imxrt1062 = ["cortex-m"]
 imxrt1064 = ["cortex-m"]
 imxrt1176_cm4 = ["cortex-m"]
 imxrt1176_cm7 = ["cortex-m"]
+imxrt1189_cm33 = ["cortex-m"]
+imxrt1189_cm7 = ["cortex-m"]
 
 [workspace]
 members = [

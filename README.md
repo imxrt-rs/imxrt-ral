@@ -34,6 +34,8 @@ The `imxrt-ral` supports these i.MX RT processors:
 - [x] `"imxrt1064"`
 - [x] `"imxrt1176_cm4"`
 - [x] `"imxrt1176_cm7"`
+- [x] `"imxrt1189_cm33"`
+- [x] `"imxrt1189_cm7"`
 
 The RAL also **requires** a feature flag to specify the processor variant. The RAL is [on crates.io](https://crates.io/crates/imxrt-ral). The RAL provides the `"rt"` feature flag, and the interrupt table definition, that's used by the HAL.
 
