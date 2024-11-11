@@ -52,6 +52,8 @@ jobs:
           - "imxrt1064,rt"
           - "imxrt1176_cm4,rt"
           - "imxrt1176_cm7,rt"
+          - "imxrt1189_cm33,rt"
+          - "imxrt1189_cm7,rt"
     steps:
     - uses: actions/checkout@v4
     - run: rustup toolchain install stable --no-self-update --profile minimal --target thumbv7em-none-eabihf
@@ -84,6 +86,7 @@ jobs:
           - "imxrt1021"
           - "imxrt1062,rt"
           - "imxrt1176_cm4"
+          - "imxrt1189_cm33"
     steps:
     - uses: actions/checkout@v4
     - run: rustup toolchain install stable --no-self-update --profile minimal
