@@ -54,11 +54,13 @@ fn popularity<E>(a: &Version<'_, E>, b: &Version<'_, E>) -> Ordering {
     b.irs.len().cmp(&a.irs.len())
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone)]
 struct CompareIr<'ir, E> {
     elem: &'ir E,
     ir: &'ir ir::IR,
 }
+
+impl<E: Clone> Copy for CompareIr<'_, E> {}
 
 impl<'ir, E> CompareIr<'ir, E> {
     fn from_version(version: &Version<'ir, E>) -> Self {
@@ -209,6 +211,7 @@ impl Equivalence<ir::FieldSet> for EquivalentFieldSets<'_> {
 #[derive(Clone, Copy)]
 struct EquivalentBlocks<'a> {
     fieldsets: EquivalentFieldSets<'a>,
+    force_common: &'a ForceCommonBlockLookup,
 }
 
 impl EquivalentBlocks<'_> {
@@ -272,7 +275,8 @@ impl Equivalence<ir::Block> for EquivalentBlocks<'_> {
         right: CompareIr<ir::Block>,
         path: IrPath,
     ) -> bool {
-        self.equivalent_blocks(left, right, path)
+        self.force_common.equivalent_by_force(left, right, path)
+            || self.equivalent_blocks(left, right, path)
     }
 }
 
@@ -358,7 +362,10 @@ impl<'ir> IrVersions<'ir> {
             descs: &config.strict_enum_descs,
         };
         let fieldsets = EquivalentFieldSets { enums };
-        let blocks = EquivalentBlocks { fieldsets };
+        let blocks = EquivalentBlocks {
+            fieldsets,
+            force_common: &config.force_common,
+        };
 
         Self {
             enums: VersionLookup::from_irs(
@@ -428,11 +435,31 @@ impl<T> Copy for RefHash<'_, T> {}
 
 type RefMap<'a, K, V> = HashMap<RefHash<'a, K>, V>;
 
+/// Block IR path -> Device name
+#[derive(Default)]
+struct ForceCommonBlockLookup(HashMap<String, String>);
+
+impl ForceCommonBlockLookup {
+    fn equivalent_by_force(
+        &self,
+        CompareIr { elem: _, ir: air }: CompareIr<ir::Block>,
+        CompareIr { elem: _, ir: bir }: CompareIr<ir::Block>,
+        path: IrPath,
+    ) -> bool {
+        if let Some(device) = self.0.get(path) {
+            air.devices.contains_key(device) || bir.devices.contains_key(device)
+        } else {
+            false
+        }
+    }
+}
+
 #[derive(Default)]
 pub struct Config {
     strict_enum_names: HashSet<String>,
     strict_enum_descs: HashSet<String>,
     never_combine: HashSet<String>,
+    force_common: ForceCommonBlockLookup,
 }
 
 /// Combine all IRs into a single IR.
@@ -582,6 +609,31 @@ pub fn combine(irs: &[ir::IR], config: &Config) -> ir::IR {
     consolidated
 }
 
+/// Force this MCU's peripheral to become the common block.
+///
+/// When set, the peripheral block of all other MCUs will point
+/// to this MCU's peripheral block. The combiner makes sure that
+/// the other MCU has this peripheral block.
+///
+/// It would be very wrong to apply this onto something like
+/// the CCM, since that IP is specialized for an MCU. However, it
+/// might be OK to apply this onto something like LPSPI, as long
+/// as `mcu` represents a shared subset of all LPSPI functionality.
+#[derive(Debug, Serialize, Deserialize, Hash, PartialEq, Eq)]
+pub struct ForceCommonBlock {
+    /// The deriving MCU.
+    mcu: String,
+    /// The peripheral block that becomes common across
+    /// all MCUs.
+    block: String,
+}
+
+impl ForceCommonBlock {
+    fn into_lookup(self) -> (String, String) {
+        (self.block, self.mcu)
+    }
+}
+
 /// Configurations for the combiner pass.
 #[derive(Debug, Serialize, Deserialize)]
 pub enum Combine {
@@ -610,6 +662,8 @@ pub enum Combine {
     /// transform regexes, these do not implicitly match only starting
     /// characters.
     NeverCombine(Vec<String>),
+    /// The collection of peripheral blocks that are forced to be common.
+    ForceCommonBlock(Vec<ForceCommonBlock>),
 }
 
 impl<I> From<I> for Config
@@ -630,6 +684,10 @@ where
                 Combine::NeverCombine(paths) => {
                     config.never_combine.extend(paths);
                 }
+                Combine::ForceCommonBlock(force_common) => config
+                    .force_common
+                    .0
+                    .extend(force_common.into_iter().map(ForceCommonBlock::into_lookup)),
             }
         }
 

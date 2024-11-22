@@ -2574,11 +2574,10 @@ pub mod gpc_sys_sleep_ctrl {
 }
 #[path = "."]
 pub mod gpt {
-    #[doc = "GPT"]
     pub const GPT2: *const RegisterBlock = 0x42ec_0000 as *const RegisterBlock;
     #[doc = "GPT"]
     pub const GPT1: *const RegisterBlock = 0x446c_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/gpt.rs"]
+    #[path = "blocks/imxrt1011/gpt.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -2855,7 +2854,6 @@ pub mod kpp {
 }
 #[path = "."]
 pub mod lpi2c {
-    #[doc = "Low-Power Inter-Integrated Circuit"]
     pub const LPI2C3: *const RegisterBlock = 0x4253_0000 as *const RegisterBlock;
     #[doc = "Low-Power Inter-Integrated Circuit"]
     pub const LPI2C4: *const RegisterBlock = 0x4254_0000 as *const RegisterBlock;
@@ -2867,7 +2865,7 @@ pub mod lpi2c {
     pub const LPI2C1: *const RegisterBlock = 0x4434_0000 as *const RegisterBlock;
     #[doc = "Low-Power Inter-Integrated Circuit"]
     pub const LPI2C2: *const RegisterBlock = 0x4435_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/lpi2c.rs"]
+    #[path = "blocks/imxrt1011/lpi2c.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -3034,7 +3032,6 @@ pub mod lpit {
 }
 #[path = "."]
 pub mod lpspi {
-    #[doc = "Low-Power Serial Peripheral Interface"]
     pub const LPSPI3: *const RegisterBlock = 0x4255_0000 as *const RegisterBlock;
     #[doc = "Low-Power Serial Peripheral Interface"]
     pub const LPSPI4: *const RegisterBlock = 0x4256_0000 as *const RegisterBlock;
@@ -3046,7 +3043,7 @@ pub mod lpspi {
     pub const LPSPI1: *const RegisterBlock = 0x4436_0000 as *const RegisterBlock;
     #[doc = "Low-Power Serial Peripheral Interface"]
     pub const LPSPI2: *const RegisterBlock = 0x4437_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/lpspi.rs"]
+    #[path = "blocks/imxrt1011/lpspi.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -3213,7 +3210,6 @@ pub mod lptmr {
 }
 #[path = "."]
 pub mod lpuart {
-    #[doc = "LPUART"]
     pub const LPUART3: *const RegisterBlock = 0x4257_0000 as *const RegisterBlock;
     #[doc = "LPUART"]
     pub const LPUART4: *const RegisterBlock = 0x4258_0000 as *const RegisterBlock;
@@ -3237,7 +3233,7 @@ pub mod lpuart {
     pub const LPUART7: *const RegisterBlock = 0x4457_0000 as *const RegisterBlock;
     #[doc = "LPUART"]
     pub const LPUART12: *const RegisterBlock = 0x4458_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/lpuart.rs"]
+    #[path = "blocks/imxrt1011/lpuart.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;

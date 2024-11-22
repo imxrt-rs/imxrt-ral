@@ -3,6 +3,12 @@ _svd: "../svd/imxrt1189_cm7.svd"
 _derive:
     SW0_PORT2: SW0_PORT0
 
+_rebase:
+    LPUART1: LPUART3
+    LPSPI1: LPSPI3
+    LPI2C1: LPI2C3
+    GPT1: GPT2
+
 RGPIO*:
     _array:
         ICR*: {}

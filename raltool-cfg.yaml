@@ -250,3 +250,23 @@ combines:
   # would prevent the 1061 IOMUXC from being combined with the 1062 IOMUXC.
   - NeverCombine:
     - ccm::regs::Ccgr\d+
+  # Force these peripheral blocks to become the common representation for all MCUs.
+  - ForceCommonBlock:
+    # The 1180 supports these three LP* peripherals with additional registers. The combiner
+    # doesn't like those extra registers, so it doesn't treat them as equivalent. The LP*
+    # blocks on the 1000 and 1170 series represent the minimal support for these peripherals,
+    # so it should be safe to use this minimal subset on the 1180.
+    - block: lpuart::Lpuart1
+      mcu: imxrt1011
+    - block: lpspi::Lpspi1
+      mcu: imxrt1011
+    - block: lpi2c::Lpi2c1
+      mcu: imxrt1011
+    # The GPTs defined in the 1000 and 1170 SVDs only support four clock sources. The 1180
+    # SVD has defined five clock sources. One approach to combining these GPTs would be to remove
+    # all enums for the field, since the filed is always the same size. This is faster...
+    #
+    # Curiously, our imxrt-hal driver assmes there's five clock sources! I designed that driver
+    # to one of the reference manuals, which must have had that fifth clock source documented.
+    - block: gpt::Gpt1
+      mcu: imxrt1011
