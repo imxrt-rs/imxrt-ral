@@ -1,5 +1,8 @@
 _svd: "../svd/imxrt1189_cm33.svd"
 
+_include:
+    - "common_patches/pwm1/submodule_cluster_1180.yaml"
+
 _derive:
     SW0_PORT2: SW0_PORT0
 
