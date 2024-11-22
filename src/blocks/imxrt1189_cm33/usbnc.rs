@@ -19,9 +19,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Enables overcurrent detection"]
-            pub const OVRCRNT_DETCT_EN: u32 = 0;
+            pub const OVER_CUR_DIS_0: u32 = 0;
             #[doc = "Disables overcurrent detection"]
-            pub const OVRCRNT_DETCT_DIS: u32 = 0x01;
+            pub const OVER_CUR_DIS_1: u32 = 0x01;
         }
     }
     #[doc = "OVER_CUR_POL"]
@@ -32,9 +32,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "High active (high on this signal represents an overcurrent condition)"]
-            pub const ACTIVE_HI_OVRCRNT: u32 = 0;
+            pub const OVER_CUR_POL_0: u32 = 0;
             #[doc = "Low active (low on this signal represents an overcurrent condition)"]
-            pub const ACTIVE_LOW_OVRCRNT: u32 = 0x01;
+            pub const OVER_CUR_POL_1: u32 = 0x01;
         }
     }
     #[doc = "PWR_POL"]
@@ -45,9 +45,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "PMIC Power Pin is Low active."]
-            pub const ACTIVE_LO_PMIC: u32 = 0;
+            pub const PWR_POL_0: u32 = 0;
             #[doc = "PMIC Power Pin is High active."]
-            pub const ACTIVE_HI_PMIC: u32 = 0x01;
+            pub const PWR_POL_1: u32 = 0x01;
         }
     }
     #[doc = "WIE"]
@@ -58,9 +58,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Interrupt Disabled"]
-            pub const INT_DIS: u32 = 0;
+            pub const WIE_0: u32 = 0;
             #[doc = "Interrupt Enabled"]
-            pub const INT_EN: u32 = 0x01;
+            pub const WIE_1: u32 = 0x01;
         }
     }
     #[doc = "WKUP_SW_EN"]
@@ -71,9 +71,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Disable"]
-            pub const SW_WKUP_DIS: u32 = 0;
+            pub const WKUP_SW_EN_0: u32 = 0;
             #[doc = "Enable"]
-            pub const SW_WKUP_EN: u32 = 0x01;
+            pub const WKUP_SW_EN_1: u32 = 0x01;
         }
     }
     #[doc = "WKUP_SW"]
@@ -84,9 +84,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Inactive"]
-            pub const INACTIVE: u32 = 0;
+            pub const WKUP_SW_0: u32 = 0;
             #[doc = "Force wake-up"]
-            pub const FORCE_WKUP: u32 = 0x01;
+            pub const WKUP_SW_1: u32 = 0x01;
         }
     }
     #[doc = "WKUP_ID_EN"]
@@ -97,9 +97,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Disable"]
-            pub const WKUP_ID_DIS: u32 = 0;
+            pub const WKUP_ID_EN_0: u32 = 0;
             #[doc = "Enable"]
-            pub const WKUP_ID_EN: u32 = 0x01;
+            pub const WKUP_ID_EN_1: u32 = 0x01;
         }
     }
     #[doc = "WKUP_VBUS_EN"]
@@ -110,22 +110,22 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Disable"]
-            pub const WKUP_VBUS_DIS: u32 = 0;
+            pub const WKUP_VBUS_EN_0: u32 = 0;
             #[doc = "Enable"]
-            pub const WKUP_VBUS_EN: u32 = 0x01;
+            pub const WKUP_VBUS_EN_1: u32 = 0x01;
         }
     }
-    #[doc = "Wake-up on DP/DM change enable"]
+    #[doc = "Wake-up on DPDM change enable"]
     pub mod WKUP_DPDM_EN {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DP/DM changes wake-up to be disabled only when VBUS is 0."]
-            pub const DPDM_WKUP_DIS: u32 = 0;
-            #[doc = "(Default) DP/DM changes wake-up to be enabled, it is for device only."]
-            pub const DPDM_WKUP_EN: u32 = 0x01;
+            #[doc = "DPDM changes wake-up to be disabled only when VBUS is 0."]
+            pub const WKUP_DPDM_EN_0: u32 = 0;
+            #[doc = "(Default) DPDM changes wake-up to be enabled, it is for device only."]
+            pub const WKUP_DPDM_EN_1: u32 = 0x01;
         }
     }
     #[doc = "WIR"]
@@ -136,9 +136,9 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {
             #[doc = "No wake-up interrupt request received"]
-            pub const NO_WKUP_REQ: u32 = 0;
+            pub const WIR_0: u32 = 0;
             #[doc = "Wake-up Interrupt Request received"]
-            pub const WKUP_REQ: u32 = 0x01;
+            pub const WIR_1: u32 = 0x01;
         }
     }
 }

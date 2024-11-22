@@ -1,7 +1,12 @@
 _svd: "../svd/imxrt1189_cm33.svd"
 
+_delete:
+  - USB_OTG2
+  - USBNC_OTG2
+
 _include:
     - "common_patches/pwm1/submodule_cluster_1180.yaml"
+    - "common_patches/usb1.yaml"
 
 _derive:
     SW0_PORT2: SW0_PORT0
@@ -11,6 +16,37 @@ _rebase:
     LPSPI1: LPSPI3
     LPI2C1: LPI2C3
     GPT1: GPT2
+
+# Rename USB to match 10xx families.
+# This requires that we remove USB2 peripherals,
+# then re-add them as deriving from USB1. We
+# need this workaround because we cannot modify the
+# names of peripherals that have a derivedFrom attribute.
+_modify:
+  _peripherals:
+    USB_OTG1:
+      name: USB1
+    USBNC_OTG1:
+      name: USBNC1
+
+_add:
+  USB2:
+    derivedFrom: USB1
+    baseAddress: 0x42c90000
+    addressBlock:
+      offset: 0
+      size: 0x1E0
+      usage: registers
+    interrupts:
+      USB_OTG2:
+        value: 214
+  USBNC2:
+    derivedFrom: USBNC1
+    baseAddress: 0x42c90200
+    addressBlock:
+      offset: 0
+      size: 0x14
+      usage: registers
 
 RGPIO*:
     _array:
@@ -28,3 +64,20 @@ IOMUXC_AON:
             name: SW_MUX_CTL_PAD_GPIO_AON_28
         SW_PAD_CTL_PAD_GPIO_AON_28_DUMMY:
             name: SW_PAD_CTL_PAD_GPIO_AON_28
+
+USBHSDCD?:
+  TIMER0:
+    _clear:
+      - TSEQ_INIT
+  TIMER1:
+    _clear:
+      - TVDPSRC_ON
+      - TDCD_DBNC
+  TIMER2_BC11:
+    _clear:
+      - CHECK_DM
+      - TVDPSRC_CON
+  TIMER2_BC12:
+    _clear:
+      - TVDMSRC_ON
+      - TWAIT_AFTER_PRD

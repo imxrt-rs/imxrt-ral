@@ -5381,19 +5381,18 @@ pub mod trdc3 {
     }
 }
 #[path = "."]
-pub mod usb_otg {
+pub mod usb {
     #[doc = "USBC"]
-    pub const USB_OTG1: *const RegisterBlock = 0x42c8_0000 as *const RegisterBlock;
-    #[doc = "USBC"]
-    pub const USB_OTG2: *const RegisterBlock = 0x42c9_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/usb_otg.rs"]
+    pub const USB1: *const RegisterBlock = 0x42c8_0000 as *const RegisterBlock;
+    pub const USB2: *const RegisterBlock = 0x42c9_0000 as *const RegisterBlock;
+    #[path = "blocks/imxrt1011/usb.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type USB_OTG1 = Instance<1>;
-    impl crate::private::Sealed for USB_OTG1 {}
-    impl crate::Valid for USB_OTG1 {}
-    impl USB_OTG1 {
+    pub type USB1 = Instance<1>;
+    impl crate::private::Sealed for USB1 {}
+    impl crate::Valid for USB1 {}
+    impl USB1 {
         #[doc = r" Acquire a vaild, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
@@ -5401,13 +5400,13 @@ pub mod usb_otg {
         #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
         #[inline]
         pub const unsafe fn instance() -> Self {
-            Instance::new(USB_OTG1)
+            Instance::new(USB1)
         }
     }
-    pub type USB_OTG2 = Instance<2>;
-    impl crate::private::Sealed for USB_OTG2 {}
-    impl crate::Valid for USB_OTG2 {}
-    impl USB_OTG2 {
+    pub type USB2 = Instance<2>;
+    impl crate::private::Sealed for USB2 {}
+    impl crate::Valid for USB2 {}
+    impl USB2 {
         #[doc = r" Acquire a vaild, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
@@ -5415,12 +5414,12 @@ pub mod usb_otg {
         #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
         #[inline]
         pub const unsafe fn instance() -> Self {
-            Instance::new(USB_OTG2)
+            Instance::new(USB2)
         }
     }
     #[doc = r" Returns the instance number `N` for a peripheral instance."]
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        [(USB_OTG1, 1), (USB_OTG2, 2)]
+        [(USB1, 1), (USB2, 2)]
             .into_iter()
             .find(|(ptr, _)| core::ptr::eq(rb, *ptr))
             .map(|(_, inst)| inst)
@@ -5432,7 +5431,7 @@ pub mod usbhsdcd {
     pub const USBHSDCD1: *const RegisterBlock = 0x42ca_0800 as *const RegisterBlock;
     #[doc = "USBDCD"]
     pub const USBHSDCD2: *const RegisterBlock = 0x42cb_0800 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/usbhsdcd.rs"]
+    #[path = "blocks/imxrt1176_cm4/usbhsdcd.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -5473,19 +5472,18 @@ pub mod usbhsdcd {
     }
 }
 #[path = "."]
-pub mod usbnc_otg {
+pub mod usbnc {
     #[doc = "USBNC"]
-    pub const USBNC_OTG1: *const RegisterBlock = 0x42c8_0200 as *const RegisterBlock;
-    #[doc = "USBNC"]
-    pub const USBNC_OTG2: *const RegisterBlock = 0x42c9_0200 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/usbnc_otg.rs"]
+    pub const USBNC1: *const RegisterBlock = 0x42c8_0200 as *const RegisterBlock;
+    pub const USBNC2: *const RegisterBlock = 0x42c9_0200 as *const RegisterBlock;
+    #[path = "blocks/imxrt1189_cm33/usbnc.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type USBNC_OTG1 = Instance<1>;
-    impl crate::private::Sealed for USBNC_OTG1 {}
-    impl crate::Valid for USBNC_OTG1 {}
-    impl USBNC_OTG1 {
+    pub type USBNC1 = Instance<1>;
+    impl crate::private::Sealed for USBNC1 {}
+    impl crate::Valid for USBNC1 {}
+    impl USBNC1 {
         #[doc = r" Acquire a vaild, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
@@ -5493,13 +5491,13 @@ pub mod usbnc_otg {
         #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
         #[inline]
         pub const unsafe fn instance() -> Self {
-            Instance::new(USBNC_OTG1)
+            Instance::new(USBNC1)
         }
     }
-    pub type USBNC_OTG2 = Instance<2>;
-    impl crate::private::Sealed for USBNC_OTG2 {}
-    impl crate::Valid for USBNC_OTG2 {}
-    impl USBNC_OTG2 {
+    pub type USBNC2 = Instance<2>;
+    impl crate::private::Sealed for USBNC2 {}
+    impl crate::Valid for USBNC2 {}
+    impl USBNC2 {
         #[doc = r" Acquire a vaild, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
@@ -5507,12 +5505,12 @@ pub mod usbnc_otg {
         #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
         #[inline]
         pub const unsafe fn instance() -> Self {
-            Instance::new(USBNC_OTG2)
+            Instance::new(USBNC2)
         }
     }
     #[doc = r" Returns the instance number `N` for a peripheral instance."]
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        [(USBNC_OTG1, 1), (USBNC_OTG2, 2)]
+        [(USBNC1, 1), (USBNC2, 2)]
             .into_iter()
             .find(|(ptr, _)| core::ptr::eq(rb, *ptr))
             .map(|(_, inst)| inst)
@@ -5936,12 +5934,12 @@ pub struct Instances {
     pub TRDC1: trdc1::TRDC1,
     pub TRDC2: trdc2::TRDC2,
     pub TRDC3: trdc3::TRDC3,
-    pub USB_OTG1: usb_otg::USB_OTG1,
-    pub USB_OTG2: usb_otg::USB_OTG2,
+    pub USB1: usb::USB1,
+    pub USB2: usb::USB2,
     pub USBHSDCD1: usbhsdcd::USBHSDCD1,
     pub USBHSDCD2: usbhsdcd::USBHSDCD2,
-    pub USBNC_OTG1: usbnc_otg::USBNC_OTG1,
-    pub USBNC_OTG2: usbnc_otg::USBNC_OTG2,
+    pub USBNC1: usbnc::USBNC1,
+    pub USBNC2: usbnc::USBNC2,
     pub USBPHY1: usbphy::USBPHY1,
     pub USBPHY2: usbphy::USBPHY2,
     pub USDHC1: usdhc::USDHC1,
@@ -6156,12 +6154,12 @@ impl Instances {
             TRDC1: trdc1::TRDC1::instance(),
             TRDC2: trdc2::TRDC2::instance(),
             TRDC3: trdc3::TRDC3::instance(),
-            USB_OTG1: usb_otg::USB_OTG1::instance(),
-            USB_OTG2: usb_otg::USB_OTG2::instance(),
+            USB1: usb::USB1::instance(),
+            USB2: usb::USB2::instance(),
             USBHSDCD1: usbhsdcd::USBHSDCD1::instance(),
             USBHSDCD2: usbhsdcd::USBHSDCD2::instance(),
-            USBNC_OTG1: usbnc_otg::USBNC_OTG1::instance(),
-            USBNC_OTG2: usbnc_otg::USBNC_OTG2::instance(),
+            USBNC1: usbnc::USBNC1::instance(),
+            USBNC2: usbnc::USBNC2::instance(),
             USBPHY1: usbphy::USBPHY1::instance(),
             USBPHY2: usbphy::USBPHY2::instance(),
             USDHC1: usdhc::USDHC1::instance(),
