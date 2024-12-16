@@ -5,6 +5,19 @@
 Add support for NXP's i.MX RT 1189 dual-core MCUs. An `"imxrt1189_cm33"` feature
 targets the Cortex-M33, and an `"imxrt1189_cm7"` feature targets the Cortex-M7.
 
+## [0.6.1] 2024-12-19
+
+Remove the following peripheral instances from the 1176 API. The base address
+for these instances is incorrectly `NULL`.
+
+- OSC_RC_400M
+- PHY_LDO
+- TMPSNS
+- VMBANDGAP
+
+The register blocks remain part of the API. Users who rely on these instances
+may still use `offset_of!` to compute addresses for indirect accesses.
+
 ## [0.6.0] 2024-12-02
 
 **BREAKING** Remove the NVIC and SCB peripherals from the 1176. If you need an
@@ -50,6 +63,10 @@ approach for combining fieldsets, enabling correct documentation for non-
 reserved fields.
 
 Fix the documentation associated with IOMUXC field values.
+
+## [0.5.4] 2024-12-19
+
+See the 0.6.1 changelog entry.
 
 ## [0.5.3] 2023-08-21
 

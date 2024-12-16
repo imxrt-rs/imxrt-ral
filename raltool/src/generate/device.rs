@@ -71,6 +71,10 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
     for (mod_name, (block_path, periphs)) in &block_to_peripherals {
         let mut consts = TokenStream::new();
         for peripheral in periphs.iter() {
+            if peripheral.base_address == 0 {
+                continue;
+            }
+
             let name = Ident::new(&peripheral.name, span);
             let address = util::hex(peripheral.base_address as u64);
             let doc = util::doc(&peripheral.description);
@@ -101,6 +105,9 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
             let mut instances = TokenStream::new();
             let mut const_to_num: Vec<TokenStream> = Vec::new();
             for peripheral in periphs.iter() {
+                if peripheral.base_address == 0 {
+                    continue;
+                }
                 let name = Ident::new(&peripheral.name, span);
                 let num = num_endings.captures(&peripheral.name).unwrap();
                 let num = util::unsuffixed(
@@ -146,28 +153,33 @@ you should use transforms to rename peripherals, putting numbers at the end of t
 name."#
             );
             let peripheral = periphs.first().unwrap();
-            let name = Ident::new(&peripheral.name, span);
-            number_fn = quote! {
-                /// Returns the instance number `N` for a peripheral instance.
-                pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-                    core::ptr::eq(rb, #name).then_some(0)
-                }
-            };
-            quote! {
-                pub type #name = Instance<{crate::SOLE_INSTANCE}>;
-                impl crate::private::Sealed for #name {}
-                impl crate::Valid for #name {}
-                impl #name {
-                    /// Acquire a vaild, but possibly aliased, instance.
-                    ///
-                    /// # Safety
-                    ///
-                    /// See [the struct-level safety documentation](crate::Instance).
-                    #[inline]
-                    pub const unsafe fn instance() -> Self {
-                        Instance::new(#name)
+            if peripheral.base_address != 0 {
+                let name = Ident::new(&peripheral.name, span);
+                number_fn = quote! {
+                    /// Returns the instance number `N` for a peripheral instance.
+                    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
+                        core::ptr::eq(rb, #name).then_some(0)
+                    }
+                };
+                quote! {
+                    pub type #name = Instance<{crate::SOLE_INSTANCE}>;
+                    impl crate::private::Sealed for #name {}
+                    impl crate::Valid for #name {}
+                    impl #name {
+                        /// Acquire a vaild, but possibly aliased, instance.
+                        ///
+                        /// # Safety
+                        ///
+                        /// See [the struct-level safety documentation](crate::Instance).
+                        #[inline]
+                        pub const unsafe fn instance() -> Self {
+                            Instance::new(#name)
+                        }
                     }
                 }
+            } else {
+                number_fn = quote!();
+                quote!()
             }
         };
 
@@ -236,6 +248,10 @@ name."#
     let mut member_inits = TokenStream::new();
     for (mod_name, (_, peripherals)) in &block_to_peripherals {
         for peripheral in peripherals {
+            if peripheral.base_address == 0 {
+                continue;
+            }
+
             let name = Ident::new(&peripheral.name, span);
             let mod_name = Ident::new(mod_name, span);
             member_decls.extend(quote! {

@@ -86,6 +86,7 @@ jobs:
           - "imxrt1021"
           - "imxrt1062,rt"
           - "imxrt1176_cm4"
+          - "imxrt1176_cm7"
           - "imxrt1189_cm33"
     steps:
     - uses: actions/checkout@v4
