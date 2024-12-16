@@ -3738,30 +3738,10 @@ pub mod ocotp {
 }
 #[path = "."]
 pub mod osc_rc_400m {
-    #[doc = "no description available"]
-    pub const OSC_RC_400M: *const RegisterBlock = 0 as *const RegisterBlock;
     #[path = "blocks/imxrt1176_cm4/osc_rc_400m.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type OSC_RC_400M = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for OSC_RC_400M {}
-    impl crate::Valid for OSC_RC_400M {}
-    impl OSC_RC_400M {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(OSC_RC_400M)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, OSC_RC_400M).then_some(0)
-    }
 }
 #[path = "."]
 pub mod otfad {
@@ -4145,30 +4125,10 @@ pub mod pgmc_ppc0 {
 }
 #[path = "."]
 pub mod phy_ldo {
-    #[doc = "no description available"]
-    pub const PHY_LDO: *const RegisterBlock = 0 as *const RegisterBlock;
     #[path = "blocks/imxrt1176_cm4/phy_ldo.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type PHY_LDO = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for PHY_LDO {}
-    impl crate::Valid for PHY_LDO {}
-    impl PHY_LDO {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(PHY_LDO)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, PHY_LDO).then_some(0)
-    }
 }
 #[path = "."]
 pub mod pit {
@@ -4736,30 +4696,10 @@ pub mod ssarc_lp {
 }
 #[path = "."]
 pub mod tmpsns {
-    #[doc = "Temperature Sensor Memory Map"]
-    pub const TMPSNS: *const RegisterBlock = 0 as *const RegisterBlock;
     #[path = "blocks/imxrt1176_cm4/tmpsns.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type TMPSNS = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for TMPSNS {}
-    impl crate::Valid for TMPSNS {}
-    impl TMPSNS {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(TMPSNS)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, TMPSNS).then_some(0)
-    }
 }
 #[path = "."]
 pub mod tmr {
@@ -5096,30 +5036,10 @@ pub mod video_mux {
 }
 #[path = "."]
 pub mod vmbandgap {
-    #[doc = "no description available"]
-    pub const VMBANDGAP: *const RegisterBlock = 0 as *const RegisterBlock;
     #[path = "blocks/imxrt1176_cm4/vmbandgap.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type VMBANDGAP = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for VMBANDGAP {}
-    impl crate::Valid for VMBANDGAP {}
-    impl VMBANDGAP {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
-        #[doc = r""]
-        #[doc = r" # Safety"]
-        #[doc = r""]
-        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
-        #[inline]
-        pub const unsafe fn instance() -> Self {
-            Instance::new(VMBANDGAP)
-        }
-    }
-    #[doc = r" Returns the instance number `N` for a peripheral instance."]
-    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, VMBANDGAP).then_some(0)
-    }
 }
 #[path = "."]
 pub mod wdog {
@@ -5476,7 +5396,6 @@ pub struct Instances {
     pub MMCAU: mmcau::MMCAU,
     pub MUB: mub::MUB,
     pub OCOTP: ocotp::OCOTP,
-    pub OSC_RC_400M: osc_rc_400m::OSC_RC_400M,
     pub OTFAD1: otfad::OTFAD1,
     pub OTFAD2: otfad::OTFAD2,
     pub PDM: pdm::PDM,
@@ -5495,7 +5414,6 @@ pub struct Instances {
     pub PGMC_CPC_MIF10: pgmc_cpc0_mif::PGMC_CPC_MIF10,
     pub PGMC_CPC_MIF11: pgmc_cpc0_mif::PGMC_CPC_MIF11,
     pub PGMC_PPC0: pgmc_ppc0::PGMC_PPC0,
-    pub PHY_LDO: phy_ldo::PHY_LDO,
     pub PIT1: pit::PIT1,
     pub PIT2: pit::PIT2,
     pub PWM1: pwm::PWM1,
@@ -5520,7 +5438,6 @@ pub struct Instances {
     pub SRC: src::SRC,
     pub SSARC_HP: ssarc_hp::SSARC_HP,
     pub SSARC_LP: ssarc_lp::SSARC_LP,
-    pub TMPSNS: tmpsns::TMPSNS,
     pub TMR1: tmr::TMR1,
     pub TMR2: tmr::TMR2,
     pub TMR3: tmr::TMR3,
@@ -5536,7 +5453,6 @@ pub struct Instances {
     pub USDHC1: usdhc::USDHC1,
     pub USDHC2: usdhc::USDHC2,
     pub VIDEO_MUX: video_mux::VIDEO_MUX,
-    pub VMBANDGAP: vmbandgap::VMBANDGAP,
     pub WDOG1: wdog::WDOG1,
     pub WDOG2: wdog::WDOG2,
     pub XBARA1: xbara1::XBARA1,
@@ -5680,7 +5596,6 @@ impl Instances {
             MMCAU: mmcau::MMCAU::instance(),
             MUB: mub::MUB::instance(),
             OCOTP: ocotp::OCOTP::instance(),
-            OSC_RC_400M: osc_rc_400m::OSC_RC_400M::instance(),
             OTFAD1: otfad::OTFAD1::instance(),
             OTFAD2: otfad::OTFAD2::instance(),
             PDM: pdm::PDM::instance(),
@@ -5699,7 +5614,6 @@ impl Instances {
             PGMC_CPC_MIF10: pgmc_cpc0_mif::PGMC_CPC_MIF10::instance(),
             PGMC_CPC_MIF11: pgmc_cpc0_mif::PGMC_CPC_MIF11::instance(),
             PGMC_PPC0: pgmc_ppc0::PGMC_PPC0::instance(),
-            PHY_LDO: phy_ldo::PHY_LDO::instance(),
             PIT1: pit::PIT1::instance(),
             PIT2: pit::PIT2::instance(),
             PWM1: pwm::PWM1::instance(),
@@ -5724,7 +5638,6 @@ impl Instances {
             SRC: src::SRC::instance(),
             SSARC_HP: ssarc_hp::SSARC_HP::instance(),
             SSARC_LP: ssarc_lp::SSARC_LP::instance(),
-            TMPSNS: tmpsns::TMPSNS::instance(),
             TMR1: tmr::TMR1::instance(),
             TMR2: tmr::TMR2::instance(),
             TMR3: tmr::TMR3::instance(),
@@ -5740,7 +5653,6 @@ impl Instances {
             USDHC1: usdhc::USDHC1::instance(),
             USDHC2: usdhc::USDHC2::instance(),
             VIDEO_MUX: video_mux::VIDEO_MUX::instance(),
-            VMBANDGAP: vmbandgap::VMBANDGAP::instance(),
             WDOG1: wdog::WDOG1::instance(),
             WDOG2: wdog::WDOG2::instance(),
             XBARA1: xbara1::XBARA1::instance(),
