@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.5.4] 2024-12-19
+
+See the 0.6.1 changelog entry.
+
 ## [0.5.3] 2023-08-21
 
 Exclude the interrupt vector table when we're building for a target with an
