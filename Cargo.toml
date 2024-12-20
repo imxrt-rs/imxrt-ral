@@ -14,7 +14,7 @@ include = [
     "Cargo.toml",
     "doc.md",
 ]
-version = "0.6.0"
+version = "0.6.1"
 
 [package.metadata.docs.rs]
 features = ["imxrt1062"]
