@@ -190,8 +190,6 @@ transforms:
   - Delete:
       from: mu2_mua::Mu2Mua
   - Delete:
-      from: mu_apps_s3mua::MuAppsS3mua
-  - Delete:
       from: sw0_global::Sw0Global
   - Delete:
       from: tstmr2_tstmra::Tstmr2Tstmra

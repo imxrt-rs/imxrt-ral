@@ -3617,6 +3617,47 @@ pub mod msgintr {
     }
 }
 #[path = "."]
+pub mod mu_apps_s3mua {
+    #[doc = "S3MUA"]
+    pub const MU_APPS_S3MUA: *const RegisterBlock = 0x4752_0000 as *const RegisterBlock;
+    #[doc = "S3MUA"]
+    pub const MU_RT_S3MUA: *const RegisterBlock = 0x4754_0000 as *const RegisterBlock;
+    #[path = "blocks/imxrt1189_cm33/mu_apps_s3mua.rs"]
+    mod blocks;
+    pub use blocks::*;
+    pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
+    #[doc = r" The const generic instance N is meaningless."]
+    pub type MU_APPS_S3MUA = Instance<255u8>;
+    impl crate::private::Sealed for MU_APPS_S3MUA {}
+    impl crate::Valid for MU_APPS_S3MUA {}
+    impl MU_APPS_S3MUA {
+        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r""]
+        #[doc = r" # Safety"]
+        #[doc = r""]
+        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
+        #[inline]
+        pub const unsafe fn instance() -> Self {
+            Instance::new(MU_APPS_S3MUA)
+        }
+    }
+    #[doc = r" The const generic instance N is meaningless."]
+    pub type MU_RT_S3MUA = Instance<254u8>;
+    impl crate::private::Sealed for MU_RT_S3MUA {}
+    impl crate::Valid for MU_RT_S3MUA {}
+    impl MU_RT_S3MUA {
+        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r""]
+        #[doc = r" # Safety"]
+        #[doc = r""]
+        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
+        #[inline]
+        pub const unsafe fn instance() -> Self {
+            Instance::new(MU_RT_S3MUA)
+        }
+    }
+}
+#[path = "."]
 pub mod netc_f0_pci_hdr_type0 {
     #[doc = "NETC PCI Express ECAM PF config"]
     pub const NETC_F0_PCI_HDR_TYPE0: *const RegisterBlock = 0x6000_0000 as *const RegisterBlock;
@@ -5885,6 +5926,8 @@ pub struct Instances {
     pub MSGINTR4: msgintr::MSGINTR4,
     pub MSGINTR5: msgintr::MSGINTR5,
     pub MSGINTR6: msgintr::MSGINTR6,
+    pub MU_APPS_S3MUA: mu_apps_s3mua::MU_APPS_S3MUA,
+    pub MU_RT_S3MUA: mu_apps_s3mua::MU_RT_S3MUA,
     pub NETC_F0_PCI_HDR_TYPE0: netc_f0_pci_hdr_type0::NETC_F0_PCI_HDR_TYPE0,
     pub NETC_F1_PCI_HDR_TYPE0: netc_f1_pci_hdr_type0::NETC_F1_PCI_HDR_TYPE0,
     pub NETC_F2_PCI_HDR_TYPE0: netc_f2_pci_hdr_type0::NETC_F2_PCI_HDR_TYPE0,
@@ -6106,6 +6149,8 @@ impl Instances {
             MSGINTR4: msgintr::MSGINTR4::instance(),
             MSGINTR5: msgintr::MSGINTR5::instance(),
             MSGINTR6: msgintr::MSGINTR6::instance(),
+            MU_APPS_S3MUA: mu_apps_s3mua::MU_APPS_S3MUA::instance(),
+            MU_RT_S3MUA: mu_apps_s3mua::MU_RT_S3MUA::instance(),
             NETC_F0_PCI_HDR_TYPE0: netc_f0_pci_hdr_type0::NETC_F0_PCI_HDR_TYPE0::instance(),
             NETC_F1_PCI_HDR_TYPE0: netc_f1_pci_hdr_type0::NETC_F1_PCI_HDR_TYPE0::instance(),
             NETC_F2_PCI_HDR_TYPE0: netc_f2_pci_hdr_type0::NETC_F2_PCI_HDR_TYPE0::instance(),
