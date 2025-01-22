@@ -96,7 +96,7 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
             }
         };
 
-        let number_fn: TokenStream;
+        let mut number_fn: Option<TokenStream> = None;
         let instances = if periphs.len() > 1
             && periphs
                 .iter()
@@ -134,56 +134,73 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
                     }
                 });
             }
-            number_fn = quote! {
+            number_fn.replace(quote! {
                 /// Returns the instance number `N` for a peripheral instance.
                 pub fn number(rb: *const RegisterBlock) -> Option<u8> {
                     [#(#const_to_num)*].into_iter()
                         .find(|(ptr, _)| core::ptr::eq(rb, *ptr))
                         .map(|(_, inst)| inst)
                 }
-            };
+            });
             instances
         } else {
-            assert!(
-                periphs.len() == 1,
-                r#"{periphs:#?}
-Cannot generate this constified API when there's multiple, un-numbered peripherals.
-The implementation doesn't automagically handle this right now. Until this is implemented,
-you should use transforms to rename peripherals, putting numbers at the end of the peripheral
-name."#
-            );
-            let peripheral = periphs.first().unwrap();
-            if peripheral.base_address != 0 {
-                let name = Ident::new(&peripheral.name, span);
-                number_fn = quote! {
-                    /// Returns the instance number `N` for a peripheral instance.
-                    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-                        core::ptr::eq(rb, #name).then_some(0)
+            let mut instances = TokenStream::new();
+            let num_periphs = periphs.len();
+
+            let dummy_nums = (1u8..=255).rev();
+            assert!(periphs.len() <= dummy_nums.len());
+
+            for (dummy_num, peripheral) in dummy_nums.zip(periphs) {
+                let instance = if peripheral.base_address != 0 {
+                    let name = Ident::new(&peripheral.name, span);
+
+                    // A single "numbers" function only makes sense when there's
+                    // multiple numbered peripherals. If there's more than one,
+                    // yet they're not numbered, don't generate this function.
+                    if num_periphs == 1 {
+                        number_fn.replace(quote! {
+                            /// Returns the instance number `N` for a peripheral instance.
+                            pub fn number(rb: *const RegisterBlock) -> Option<u8> {
+                                core::ptr::eq(rb, #name).then_some(0)
+                            }
+                        });
                     }
-                };
-                quote! {
-                    pub type #name = Instance<{crate::SOLE_INSTANCE}>;
-                    impl crate::private::Sealed for #name {}
-                    impl crate::Valid for #name {}
-                    impl #name {
-                        /// Acquire a vaild, but possibly aliased, instance.
-                        ///
-                        /// # Safety
-                        ///
-                        /// See [the struct-level safety documentation](crate::Instance).
-                        #[inline]
-                        pub const unsafe fn instance() -> Self {
-                            Instance::new(#name)
+
+                    let alias = if num_periphs == 1 {
+                        quote!(pub type #name = Instance<{ crate::SOLE_INSTANCE }>;)
+                    } else {
+                        quote! {
+                            /// The const generic instance N is meaningless.
+                            pub type #name = Instance< #dummy_num >;
+                        }
+                    };
+
+                    quote! {
+                        #alias
+                        impl crate::private::Sealed for #name {}
+                        impl crate::Valid for #name {}
+                        impl #name {
+                            /// Acquire a vaild, but possibly aliased, instance.
+                            ///
+                            /// # Safety
+                            ///
+                            /// See [the struct-level safety documentation](crate::Instance).
+                            #[inline]
+                            pub const unsafe fn instance() -> Self {
+                                Instance::new(#name)
+                            }
                         }
                     }
-                }
-            } else {
-                number_fn = quote!();
-                quote!()
+                } else {
+                    quote!()
+                };
+                instances.extend(instance);
             }
+            instances
         };
 
         let mod_name = Ident::new(mod_name, span);
+        let number_fn = number_fn.unwrap_or(quote!());
         peripherals.extend(quote! {
             #[path = "."]
             pub mod #mod_name {
