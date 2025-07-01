@@ -21,12 +21,12 @@ DEVICE_PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(DEVICE_YA
 
 DEVICE_FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(DEVICE_YAMLS))
 
-SVDTOOL := svdtools
-RALTOOL := target/release/raltool
+SVDTOOLS ?= svdtools
+RALTOOL  ?= target/release/raltool
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
-	$(SVDTOOL) patch $<
+	$(SVDTOOLS) patch $<
 
 svd/%.svd.formatted: svd/%.svd.patched
 	xmllint $< --format -o $@
@@ -70,7 +70,7 @@ clean: clean-patch clean-html clean-check
 # Generate dependencies for each device YAML
 .deps/%.d: devices/%.yaml
 	@mkdir -p .deps
-	$(SVDTOOL) makedeps $< $@
+	$(SVDTOOLS) makedeps $< $@
 
 crate: patch $(RALTOOL)
 	$(RALTOOL) generate svd/imxrt*.svd.patched --transform raltool-cfg.yaml
