@@ -1,5 +1,5 @@
 (function() {
-    var implementors = Object.fromEntries([["imxrt_ral",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.84.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"enum\" href=\"imxrt_ral/enum.Interrupt.html\" title=\"enum imxrt_ral::Interrupt\">Interrupt</a>"]]]]);
+    var implementors = Object.fromEntries([["imxrt_ral",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.88.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"enum\" href=\"imxrt_ral/enum.Interrupt.html\" title=\"enum imxrt_ral::Interrupt\">Interrupt</a>"]]]]);
     if (window.register_implementors) {
         window.register_implementors(implementors);
     } else {
