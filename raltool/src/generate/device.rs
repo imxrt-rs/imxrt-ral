@@ -122,7 +122,7 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
                     impl crate::Valid for #name {}
 
                     impl #name {
-                        /// Acquire a vaild, but possibly aliased, instance.
+                        /// Acquire a valid, but possibly aliased, instance.
                         ///
                         /// # Safety
                         ///
@@ -180,7 +180,7 @@ pub fn render(_opts: &super::Options, _ir: &IR, d: &Device) -> Result<TokenStrea
                         impl crate::private::Sealed for #name {}
                         impl crate::Valid for #name {}
                         impl #name {
-                            /// Acquire a vaild, but possibly aliased, instance.
+                            /// Acquire a valid, but possibly aliased, instance.
                             ///
                             /// # Safety
                             ///

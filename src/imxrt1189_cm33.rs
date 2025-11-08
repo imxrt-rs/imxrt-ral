@@ -962,7 +962,7 @@ pub mod adc {
     impl crate::private::Sealed for ADC1 {}
     impl crate::Valid for ADC1 {}
     impl ADC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -976,7 +976,7 @@ pub mod adc {
     impl crate::private::Sealed for ADC2 {}
     impl crate::Valid for ADC2 {}
     impl ADC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1006,7 +1006,7 @@ pub mod anadig_ldo_bbsm {
     impl crate::private::Sealed for ANADIG_LDO_BBSM {}
     impl crate::Valid for ANADIG_LDO_BBSM {}
     impl ANADIG_LDO_BBSM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1033,7 +1033,7 @@ pub mod anadig_misc {
     impl crate::private::Sealed for ANADIG_MISC {}
     impl crate::Valid for ANADIG_MISC {}
     impl ANADIG_MISC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1060,7 +1060,7 @@ pub mod anadig_osc {
     impl crate::private::Sealed for ANADIG_OSC {}
     impl crate::Valid for ANADIG_OSC {}
     impl ANADIG_OSC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1087,7 +1087,7 @@ pub mod anadig_pll {
     impl crate::private::Sealed for ANADIG_PLL {}
     impl crate::Valid for ANADIG_PLL {}
     impl ANADIG_PLL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1114,7 +1114,7 @@ pub mod anadig_pmu {
     impl crate::private::Sealed for ANADIG_PMU {}
     impl crate::Valid for ANADIG_PMU {}
     impl ANADIG_PMU {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1141,7 +1141,7 @@ pub mod anadig_slots {
     impl crate::private::Sealed for ANADIG_SLOTS {}
     impl crate::Valid for ANADIG_SLOTS {}
     impl ANADIG_SLOTS {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1168,7 +1168,7 @@ pub mod anadig_tempsensor {
     impl crate::private::Sealed for ANADIG_TEMPSENSOR {}
     impl crate::Valid for ANADIG_TEMPSENSOR {}
     impl ANADIG_TEMPSENSOR {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1201,7 +1201,7 @@ pub mod aoi {
     impl crate::private::Sealed for AOI1 {}
     impl crate::Valid for AOI1 {}
     impl AOI1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1215,7 +1215,7 @@ pub mod aoi {
     impl crate::private::Sealed for AOI2 {}
     impl crate::Valid for AOI2 {}
     impl AOI2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1229,7 +1229,7 @@ pub mod aoi {
     impl crate::private::Sealed for AOI3 {}
     impl crate::Valid for AOI3 {}
     impl AOI3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1243,7 +1243,7 @@ pub mod aoi {
     impl crate::private::Sealed for AOI4 {}
     impl crate::Valid for AOI4 {}
     impl AOI4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1273,7 +1273,7 @@ pub mod asrc {
     impl crate::private::Sealed for ASRC {}
     impl crate::Valid for ASRC {}
     impl ASRC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1300,7 +1300,7 @@ pub mod axbs {
     impl crate::private::Sealed for AXBS {}
     impl crate::Valid for AXBS {}
     impl AXBS {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1327,7 +1327,7 @@ pub mod bbnsm {
     impl crate::private::Sealed for BBNSM {}
     impl crate::Valid for BBNSM {}
     impl BBNSM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1354,7 +1354,7 @@ pub mod blk_ctrl_bbsmmix {
     impl crate::private::Sealed for BLK_CTRL_BBSMMIX {}
     impl crate::Valid for BLK_CTRL_BBSMMIX {}
     impl BLK_CTRL_BBSMMIX {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1381,7 +1381,7 @@ pub mod blk_ctrl_ns_aonmix {
     impl crate::private::Sealed for BLK_CTRL_NS_AONMIX {}
     impl crate::Valid for BLK_CTRL_NS_AONMIX {}
     impl BLK_CTRL_NS_AONMIX {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1408,7 +1408,7 @@ pub mod blk_ctrl_s_aonmix {
     impl crate::private::Sealed for BLK_CTRL_S_AONMIX {}
     impl crate::Valid for BLK_CTRL_S_AONMIX {}
     impl BLK_CTRL_S_AONMIX {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1435,7 +1435,7 @@ pub mod blk_ctrl_wakeupmix {
     impl crate::private::Sealed for BLK_CTRL_WAKEUPMIX {}
     impl crate::Valid for BLK_CTRL_WAKEUPMIX {}
     impl BLK_CTRL_WAKEUPMIX {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1466,7 +1466,7 @@ pub mod can {
     impl crate::private::Sealed for CAN2 {}
     impl crate::Valid for CAN2 {}
     impl CAN2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1480,7 +1480,7 @@ pub mod can {
     impl crate::private::Sealed for CAN1 {}
     impl crate::Valid for CAN1 {}
     impl CAN1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1494,7 +1494,7 @@ pub mod can {
     impl crate::private::Sealed for CAN3 {}
     impl crate::Valid for CAN3 {}
     impl CAN3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1524,7 +1524,7 @@ pub mod ccm {
     impl crate::private::Sealed for CCM {}
     impl crate::Valid for CCM {}
     impl CCM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1551,7 +1551,7 @@ pub mod cm7platform_tcm {
     impl crate::private::Sealed for CM7PLATFORM_TCM {}
     impl crate::Valid for CM7PLATFORM_TCM {}
     impl CM7PLATFORM_TCM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1584,7 +1584,7 @@ pub mod cmp {
     impl crate::private::Sealed for CMP1 {}
     impl crate::Valid for CMP1 {}
     impl CMP1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1598,7 +1598,7 @@ pub mod cmp {
     impl crate::private::Sealed for CMP2 {}
     impl crate::Valid for CMP2 {}
     impl CMP2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1612,7 +1612,7 @@ pub mod cmp {
     impl crate::private::Sealed for CMP3 {}
     impl crate::Valid for CMP3 {}
     impl CMP3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1626,7 +1626,7 @@ pub mod cmp {
     impl crate::private::Sealed for CMP4 {}
     impl crate::Valid for CMP4 {}
     impl CMP4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1657,7 +1657,7 @@ pub mod cp_cm33_imx9rtc__cm33_cache_ecc_mcm {
     impl crate::private::Sealed for CP_CM33_IMX9RTC__CM33_CACHE_ECC_MCM {}
     impl crate::Valid for CP_CM33_IMX9RTC__CM33_CACHE_ECC_MCM {}
     impl CP_CM33_IMX9RTC__CM33_CACHE_ECC_MCM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1685,7 +1685,7 @@ pub mod cp_cm33_imx9rtc__cm33_tcm_mcm {
     impl crate::private::Sealed for CP_CM33_IMX9RTC__CM33_TCM_MCM {}
     impl crate::Valid for CP_CM33_IMX9RTC__CM33_TCM_MCM {}
     impl CP_CM33_IMX9RTC__CM33_TCM_MCM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1712,7 +1712,7 @@ pub mod dac {
     impl crate::private::Sealed for DAC {}
     impl crate::Valid for DAC {}
     impl DAC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1739,7 +1739,7 @@ pub mod dcdc {
     impl crate::private::Sealed for DCDC {}
     impl crate::Valid for DCDC {}
     impl DCDC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1766,7 +1766,7 @@ pub mod dma {
     impl crate::private::Sealed for DMA {}
     impl crate::Valid for DMA {}
     impl DMA {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1793,7 +1793,7 @@ pub mod dma3__tcd {
     impl crate::private::Sealed for DMA3__TCD {}
     impl crate::Valid for DMA3__TCD {}
     impl DMA3__TCD {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1820,7 +1820,7 @@ pub mod dma4__tcd {
     impl crate::private::Sealed for DMA4__TCD {}
     impl crate::Valid for DMA4__TCD {}
     impl DMA4__TCD {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1847,7 +1847,7 @@ pub mod ecat {
     impl crate::private::Sealed for ECAT {}
     impl crate::Valid for ECAT {}
     impl ECAT {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1874,7 +1874,7 @@ pub mod eim {
     impl crate::private::Sealed for EIM {}
     impl crate::Valid for EIM {}
     impl EIM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1901,7 +1901,7 @@ pub mod emdio_base {
     impl crate::private::Sealed for EMDIO_BASE {}
     impl crate::Valid for EMDIO_BASE {}
     impl EMDIO_BASE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1928,7 +1928,7 @@ pub mod emdio_global {
     impl crate::private::Sealed for EMDIO_GLOBAL {}
     impl crate::Valid for EMDIO_GLOBAL {}
     impl EMDIO_GLOBAL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1955,7 +1955,7 @@ pub mod enetc0_base {
     impl crate::private::Sealed for ENETC0_BASE {}
     impl crate::Valid for ENETC0_BASE {}
     impl ENETC0_BASE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -1982,7 +1982,7 @@ pub mod enetc0_common {
     impl crate::private::Sealed for ENETC0_COMMON {}
     impl crate::Valid for ENETC0_COMMON {}
     impl ENETC0_COMMON {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2009,7 +2009,7 @@ pub mod enetc0_eth_mac_port {
     impl crate::private::Sealed for ENETC0_ETH_MAC_PORT {}
     impl crate::Valid for ENETC0_ETH_MAC_PORT {}
     impl ENETC0_ETH_MAC_PORT {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2036,7 +2036,7 @@ pub mod enetc0_port {
     impl crate::private::Sealed for ENETC0_PORT {}
     impl crate::Valid for ENETC0_PORT {}
     impl ENETC0_PORT {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2063,7 +2063,7 @@ pub mod enetc0_si0 {
     impl crate::private::Sealed for ENETC0_SI0 {}
     impl crate::Valid for ENETC0_SI0 {}
     impl ENETC0_SI0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2090,7 +2090,7 @@ pub mod enetc1_base {
     impl crate::private::Sealed for ENETC1_BASE {}
     impl crate::Valid for ENETC1_BASE {}
     impl ENETC1_BASE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2117,7 +2117,7 @@ pub mod enetc1_common {
     impl crate::private::Sealed for ENETC1_COMMON {}
     impl crate::Valid for ENETC1_COMMON {}
     impl ENETC1_COMMON {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2144,7 +2144,7 @@ pub mod enetc1_port {
     impl crate::private::Sealed for ENETC1_PORT {}
     impl crate::Valid for ENETC1_PORT {}
     impl ENETC1_PORT {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2171,7 +2171,7 @@ pub mod enetc1_pseudo_mac_port {
     impl crate::private::Sealed for ENETC1_PSEUDO_MAC_PORT {}
     impl crate::Valid for ENETC1_PSEUDO_MAC_PORT {}
     impl ENETC1_PSEUDO_MAC_PORT {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2198,7 +2198,7 @@ pub mod enetc1_si0 {
     impl crate::private::Sealed for ENETC1_SI0 {}
     impl crate::Valid for ENETC1_SI0 {}
     impl ENETC1_SI0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2225,7 +2225,7 @@ pub mod enetc1_si1 {
     impl crate::private::Sealed for ENETC1_SI1 {}
     impl crate::Valid for ENETC1_SI1 {}
     impl ENETC1_SI1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2258,7 +2258,7 @@ pub mod eqdc {
     impl crate::private::Sealed for EQDC1 {}
     impl crate::Valid for EQDC1 {}
     impl EQDC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2272,7 +2272,7 @@ pub mod eqdc {
     impl crate::private::Sealed for EQDC2 {}
     impl crate::Valid for EQDC2 {}
     impl EQDC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2286,7 +2286,7 @@ pub mod eqdc {
     impl crate::private::Sealed for EQDC3 {}
     impl crate::Valid for EQDC3 {}
     impl EQDC3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2300,7 +2300,7 @@ pub mod eqdc {
     impl crate::private::Sealed for EQDC4 {}
     impl crate::Valid for EQDC4 {}
     impl EQDC4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2330,7 +2330,7 @@ pub mod erm {
     impl crate::private::Sealed for ERM {}
     impl crate::Valid for ERM {}
     impl ERM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2357,7 +2357,7 @@ pub mod ewm {
     impl crate::private::Sealed for EWM {}
     impl crate::Valid for EWM {}
     impl EWM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2386,7 +2386,7 @@ pub mod flexio {
     impl crate::private::Sealed for FLEXIO1 {}
     impl crate::Valid for FLEXIO1 {}
     impl FLEXIO1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2400,7 +2400,7 @@ pub mod flexio {
     impl crate::private::Sealed for FLEXIO2 {}
     impl crate::Valid for FLEXIO2 {}
     impl FLEXIO2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2432,7 +2432,7 @@ pub mod flexspi {
     impl crate::private::Sealed for FLEXSPI1 {}
     impl crate::Valid for FLEXSPI1 {}
     impl FLEXSPI1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2446,7 +2446,7 @@ pub mod flexspi {
     impl crate::private::Sealed for FLEXSPI2 {}
     impl crate::Valid for FLEXSPI2 {}
     impl FLEXSPI2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2476,7 +2476,7 @@ pub mod flexspi_slv {
     impl crate::private::Sealed for FLEXSPI_SLV {}
     impl crate::Valid for FLEXSPI_SLV {}
     impl FLEXSPI_SLV {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2503,7 +2503,7 @@ pub mod gpc_cpu_ctrl {
     impl crate::private::Sealed for GPC_CPU_CTRL {}
     impl crate::Valid for GPC_CPU_CTRL {}
     impl GPC_CPU_CTRL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2530,7 +2530,7 @@ pub mod gpc_global {
     impl crate::private::Sealed for GPC_GLOBAL {}
     impl crate::Valid for GPC_GLOBAL {}
     impl GPC_GLOBAL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2557,7 +2557,7 @@ pub mod gpc_sys_sleep_ctrl {
     impl crate::private::Sealed for GPC_SYS_SLEEP_CTRL {}
     impl crate::Valid for GPC_SYS_SLEEP_CTRL {}
     impl GPC_SYS_SLEEP_CTRL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2585,7 +2585,7 @@ pub mod gpt {
     impl crate::private::Sealed for GPT2 {}
     impl crate::Valid for GPT2 {}
     impl GPT2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2599,7 +2599,7 @@ pub mod gpt {
     impl crate::private::Sealed for GPT1 {}
     impl crate::Valid for GPT1 {}
     impl GPT1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2631,7 +2631,7 @@ pub mod i3c {
     impl crate::private::Sealed for I3C2 {}
     impl crate::Valid for I3C2 {}
     impl I3C2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2645,7 +2645,7 @@ pub mod i3c {
     impl crate::private::Sealed for I3C1 {}
     impl crate::Valid for I3C1 {}
     impl I3C1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2675,7 +2675,7 @@ pub mod iee {
     impl crate::private::Sealed for IEE {}
     impl crate::Valid for IEE {}
     impl IEE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2702,7 +2702,7 @@ pub mod iee_apc {
     impl crate::private::Sealed for IEE_APC {}
     impl crate::Valid for IEE_APC {}
     impl IEE_APC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2729,7 +2729,7 @@ pub mod ierc_f0_pci_hdr_type0 {
     impl crate::private::Sealed for IERC_F0_PCI_HDR_TYPE0 {}
     impl crate::Valid for IERC_F0_PCI_HDR_TYPE0 {}
     impl IERC_F0_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2756,7 +2756,7 @@ pub mod ierc_ierb {
     impl crate::private::Sealed for IERC_IERB {}
     impl crate::Valid for IERC_IERB {}
     impl IERC_IERB {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2783,7 +2783,7 @@ pub mod iomuxc {
     impl crate::private::Sealed for IOMUXC {}
     impl crate::Valid for IOMUXC {}
     impl IOMUXC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2810,7 +2810,7 @@ pub mod iomuxc_aon {
     impl crate::private::Sealed for IOMUXC_AON {}
     impl crate::Valid for IOMUXC_AON {}
     impl IOMUXC_AON {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2837,7 +2837,7 @@ pub mod kpp {
     impl crate::private::Sealed for KPP {}
     impl crate::Valid for KPP {}
     impl KPP {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2873,7 +2873,7 @@ pub mod lpi2c {
     impl crate::private::Sealed for LPI2C3 {}
     impl crate::Valid for LPI2C3 {}
     impl LPI2C3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2887,7 +2887,7 @@ pub mod lpi2c {
     impl crate::private::Sealed for LPI2C4 {}
     impl crate::Valid for LPI2C4 {}
     impl LPI2C4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2901,7 +2901,7 @@ pub mod lpi2c {
     impl crate::private::Sealed for LPI2C5 {}
     impl crate::Valid for LPI2C5 {}
     impl LPI2C5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2915,7 +2915,7 @@ pub mod lpi2c {
     impl crate::private::Sealed for LPI2C6 {}
     impl crate::Valid for LPI2C6 {}
     impl LPI2C6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2929,7 +2929,7 @@ pub mod lpi2c {
     impl crate::private::Sealed for LPI2C1 {}
     impl crate::Valid for LPI2C1 {}
     impl LPI2C1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2943,7 +2943,7 @@ pub mod lpi2c {
     impl crate::private::Sealed for LPI2C2 {}
     impl crate::Valid for LPI2C2 {}
     impl LPI2C2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2984,7 +2984,7 @@ pub mod lpit {
     impl crate::private::Sealed for LPIT2 {}
     impl crate::Valid for LPIT2 {}
     impl LPIT2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -2998,7 +2998,7 @@ pub mod lpit {
     impl crate::private::Sealed for LPIT3 {}
     impl crate::Valid for LPIT3 {}
     impl LPIT3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3012,7 +3012,7 @@ pub mod lpit {
     impl crate::private::Sealed for LPIT1 {}
     impl crate::Valid for LPIT1 {}
     impl LPIT1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3051,7 +3051,7 @@ pub mod lpspi {
     impl crate::private::Sealed for LPSPI3 {}
     impl crate::Valid for LPSPI3 {}
     impl LPSPI3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3065,7 +3065,7 @@ pub mod lpspi {
     impl crate::private::Sealed for LPSPI4 {}
     impl crate::Valid for LPSPI4 {}
     impl LPSPI4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3079,7 +3079,7 @@ pub mod lpspi {
     impl crate::private::Sealed for LPSPI5 {}
     impl crate::Valid for LPSPI5 {}
     impl LPSPI5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3093,7 +3093,7 @@ pub mod lpspi {
     impl crate::private::Sealed for LPSPI6 {}
     impl crate::Valid for LPSPI6 {}
     impl LPSPI6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3107,7 +3107,7 @@ pub mod lpspi {
     impl crate::private::Sealed for LPSPI1 {}
     impl crate::Valid for LPSPI1 {}
     impl LPSPI1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3121,7 +3121,7 @@ pub mod lpspi {
     impl crate::private::Sealed for LPSPI2 {}
     impl crate::Valid for LPSPI2 {}
     impl LPSPI2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3162,7 +3162,7 @@ pub mod lptmr {
     impl crate::private::Sealed for LPTMR2 {}
     impl crate::Valid for LPTMR2 {}
     impl LPTMR2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3176,7 +3176,7 @@ pub mod lptmr {
     impl crate::private::Sealed for LPTMR3 {}
     impl crate::Valid for LPTMR3 {}
     impl LPTMR3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3190,7 +3190,7 @@ pub mod lptmr {
     impl crate::private::Sealed for LPTMR1 {}
     impl crate::Valid for LPTMR1 {}
     impl LPTMR1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3241,7 +3241,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART3 {}
     impl crate::Valid for LPUART3 {}
     impl LPUART3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3255,7 +3255,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART4 {}
     impl crate::Valid for LPUART4 {}
     impl LPUART4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3269,7 +3269,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART5 {}
     impl crate::Valid for LPUART5 {}
     impl LPUART5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3283,7 +3283,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART6 {}
     impl crate::Valid for LPUART6 {}
     impl LPUART6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3297,7 +3297,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART9 {}
     impl crate::Valid for LPUART9 {}
     impl LPUART9 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3311,7 +3311,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART10 {}
     impl crate::Valid for LPUART10 {}
     impl LPUART10 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3325,7 +3325,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART11 {}
     impl crate::Valid for LPUART11 {}
     impl LPUART11 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3339,7 +3339,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART8 {}
     impl crate::Valid for LPUART8 {}
     impl LPUART8 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3353,7 +3353,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART1 {}
     impl crate::Valid for LPUART1 {}
     impl LPUART1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3367,7 +3367,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART2 {}
     impl crate::Valid for LPUART2 {}
     impl LPUART2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3381,7 +3381,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART7 {}
     impl crate::Valid for LPUART7 {}
     impl LPUART7 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3395,7 +3395,7 @@ pub mod lpuart {
     impl crate::private::Sealed for LPUART12 {}
     impl crate::Valid for LPUART12 {}
     impl LPUART12 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3440,7 +3440,7 @@ pub mod mecc {
     impl crate::private::Sealed for MECC1 {}
     impl crate::Valid for MECC1 {}
     impl MECC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3454,7 +3454,7 @@ pub mod mecc {
     impl crate::private::Sealed for MECC2 {}
     impl crate::Valid for MECC2 {}
     impl MECC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3494,7 +3494,7 @@ pub mod msgintr {
     impl crate::private::Sealed for MSGINTR1 {}
     impl crate::Valid for MSGINTR1 {}
     impl MSGINTR1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3508,7 +3508,7 @@ pub mod msgintr {
     impl crate::private::Sealed for MSGINTR2 {}
     impl crate::Valid for MSGINTR2 {}
     impl MSGINTR2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3522,7 +3522,7 @@ pub mod msgintr {
     impl crate::private::Sealed for MSGINTR3 {}
     impl crate::Valid for MSGINTR3 {}
     impl MSGINTR3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3536,7 +3536,7 @@ pub mod msgintr {
     impl crate::private::Sealed for MSGINTR4 {}
     impl crate::Valid for MSGINTR4 {}
     impl MSGINTR4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3550,7 +3550,7 @@ pub mod msgintr {
     impl crate::private::Sealed for MSGINTR5 {}
     impl crate::Valid for MSGINTR5 {}
     impl MSGINTR5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3564,7 +3564,7 @@ pub mod msgintr {
     impl crate::private::Sealed for MSGINTR6 {}
     impl crate::Valid for MSGINTR6 {}
     impl MSGINTR6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3604,7 +3604,7 @@ pub mod mu_apps_s3mua {
     impl crate::private::Sealed for MU_APPS_S3MUA {}
     impl crate::Valid for MU_APPS_S3MUA {}
     impl MU_APPS_S3MUA {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3619,7 +3619,7 @@ pub mod mu_apps_s3mua {
     impl crate::private::Sealed for MU_RT_S3MUA {}
     impl crate::Valid for MU_RT_S3MUA {}
     impl MU_RT_S3MUA {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3642,7 +3642,7 @@ pub mod netc_f0_pci_hdr_type0 {
     impl crate::private::Sealed for NETC_F0_PCI_HDR_TYPE0 {}
     impl crate::Valid for NETC_F0_PCI_HDR_TYPE0 {}
     impl NETC_F0_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3669,7 +3669,7 @@ pub mod netc_f1_pci_hdr_type0 {
     impl crate::private::Sealed for NETC_F1_PCI_HDR_TYPE0 {}
     impl crate::Valid for NETC_F1_PCI_HDR_TYPE0 {}
     impl NETC_F1_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3696,7 +3696,7 @@ pub mod netc_f2_pci_hdr_type0 {
     impl crate::private::Sealed for NETC_F2_PCI_HDR_TYPE0 {}
     impl crate::Valid for NETC_F2_PCI_HDR_TYPE0 {}
     impl NETC_F2_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3723,7 +3723,7 @@ pub mod netc_f3_pci_hdr_type0 {
     impl crate::private::Sealed for NETC_F3_PCI_HDR_TYPE0 {}
     impl crate::Valid for NETC_F3_PCI_HDR_TYPE0 {}
     impl NETC_F3_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3750,7 +3750,7 @@ pub mod netc_f4_pci_hdr_type0 {
     impl crate::private::Sealed for NETC_F4_PCI_HDR_TYPE0 {}
     impl crate::Valid for NETC_F4_PCI_HDR_TYPE0 {}
     impl NETC_F4_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3777,7 +3777,7 @@ pub mod netc_ierb {
     impl crate::private::Sealed for NETC_IERB {}
     impl crate::Valid for NETC_IERB {}
     impl NETC_IERB {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3804,7 +3804,7 @@ pub mod netc_priv {
     impl crate::private::Sealed for NETC_PRIV {}
     impl crate::Valid for NETC_PRIV {}
     impl NETC_PRIV {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3831,7 +3831,7 @@ pub mod netc_vf1_pci_hdr_type0 {
     impl crate::private::Sealed for NETC_VF1_PCI_HDR_TYPE0 {}
     impl crate::Valid for NETC_VF1_PCI_HDR_TYPE0 {}
     impl NETC_VF1_PCI_HDR_TYPE0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3858,7 +3858,7 @@ pub mod ocotp_fsb {
     impl crate::private::Sealed for OCOTP_FSB {}
     impl crate::Valid for OCOTP_FSB {}
     impl OCOTP_FSB {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3885,7 +3885,7 @@ pub mod osc_rc_400m {
     impl crate::private::Sealed for OSC_RC_400M {}
     impl crate::Valid for OSC_RC_400M {}
     impl OSC_RC_400M {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3914,7 +3914,7 @@ pub mod otfad {
     impl crate::private::Sealed for OTFAD1 {}
     impl crate::Valid for OTFAD1 {}
     impl OTFAD1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3928,7 +3928,7 @@ pub mod otfad {
     impl crate::private::Sealed for OTFAD2 {}
     impl crate::Valid for OTFAD2 {}
     impl OTFAD2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3958,7 +3958,7 @@ pub mod pdm {
     impl crate::private::Sealed for PDM {}
     impl crate::Valid for PDM {}
     impl PDM {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -3985,7 +3985,7 @@ pub mod phy_ldo {
     impl crate::private::Sealed for PHY_LDO {}
     impl crate::Valid for PHY_LDO {}
     impl PHY_LDO {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4018,7 +4018,7 @@ pub mod pwm {
     impl crate::private::Sealed for PWM1 {}
     impl crate::Valid for PWM1 {}
     impl PWM1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4032,7 +4032,7 @@ pub mod pwm {
     impl crate::private::Sealed for PWM2 {}
     impl crate::Valid for PWM2 {}
     impl PWM2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4046,7 +4046,7 @@ pub mod pwm {
     impl crate::private::Sealed for PWM3 {}
     impl crate::Valid for PWM3 {}
     impl PWM3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4060,7 +4060,7 @@ pub mod pwm {
     impl crate::private::Sealed for PWM4 {}
     impl crate::Valid for PWM4 {}
     impl PWM4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4100,7 +4100,7 @@ pub mod rgpio {
     impl crate::private::Sealed for RGPIO2 {}
     impl crate::Valid for RGPIO2 {}
     impl RGPIO2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4114,7 +4114,7 @@ pub mod rgpio {
     impl crate::private::Sealed for RGPIO3 {}
     impl crate::Valid for RGPIO3 {}
     impl RGPIO3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4128,7 +4128,7 @@ pub mod rgpio {
     impl crate::private::Sealed for RGPIO4 {}
     impl crate::Valid for RGPIO4 {}
     impl RGPIO4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4142,7 +4142,7 @@ pub mod rgpio {
     impl crate::private::Sealed for RGPIO5 {}
     impl crate::Valid for RGPIO5 {}
     impl RGPIO5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4156,7 +4156,7 @@ pub mod rgpio {
     impl crate::private::Sealed for RGPIO6 {}
     impl crate::Valid for RGPIO6 {}
     impl RGPIO6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4170,7 +4170,7 @@ pub mod rgpio {
     impl crate::private::Sealed for RGPIO1 {}
     impl crate::Valid for RGPIO1 {}
     impl RGPIO1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4215,7 +4215,7 @@ pub mod rtwdog {
     impl crate::private::Sealed for RTWDOG3 {}
     impl crate::Valid for RTWDOG3 {}
     impl RTWDOG3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4229,7 +4229,7 @@ pub mod rtwdog {
     impl crate::private::Sealed for RTWDOG4 {}
     impl crate::Valid for RTWDOG4 {}
     impl RTWDOG4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4243,7 +4243,7 @@ pub mod rtwdog {
     impl crate::private::Sealed for RTWDOG5 {}
     impl crate::Valid for RTWDOG5 {}
     impl RTWDOG5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4257,7 +4257,7 @@ pub mod rtwdog {
     impl crate::private::Sealed for RTWDOG1 {}
     impl crate::Valid for RTWDOG1 {}
     impl RTWDOG1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4271,7 +4271,7 @@ pub mod rtwdog {
     impl crate::private::Sealed for RTWDOG2 {}
     impl crate::Valid for RTWDOG2 {}
     impl RTWDOG2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4309,7 +4309,7 @@ pub mod sai {
     impl crate::private::Sealed for SAI2 {}
     impl crate::Valid for SAI2 {}
     impl SAI2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4323,7 +4323,7 @@ pub mod sai {
     impl crate::private::Sealed for SAI3 {}
     impl crate::Valid for SAI3 {}
     impl SAI3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4353,7 +4353,7 @@ pub mod sai1 {
     impl crate::private::Sealed for SAI1 {}
     impl crate::Valid for SAI1 {}
     impl SAI1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4380,7 +4380,7 @@ pub mod sai4 {
     impl crate::private::Sealed for SAI4 {}
     impl crate::Valid for SAI4 {}
     impl SAI4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4409,7 +4409,7 @@ pub mod sema {
     impl crate::private::Sealed for SEMA2 {}
     impl crate::Valid for SEMA2 {}
     impl SEMA2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4423,7 +4423,7 @@ pub mod sema {
     impl crate::private::Sealed for SEMA1 {}
     impl crate::Valid for SEMA1 {}
     impl SEMA1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4453,7 +4453,7 @@ pub mod semc {
     impl crate::private::Sealed for SEMC {}
     impl crate::Valid for SEMC {}
     impl SEMC {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4484,7 +4484,7 @@ pub mod sinc {
     impl crate::private::Sealed for SINC1 {}
     impl crate::Valid for SINC1 {}
     impl SINC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4498,7 +4498,7 @@ pub mod sinc {
     impl crate::private::Sealed for SINC2 {}
     impl crate::Valid for SINC2 {}
     impl SINC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4512,7 +4512,7 @@ pub mod sinc {
     impl crate::private::Sealed for SINC3 {}
     impl crate::Valid for SINC3 {}
     impl SINC3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4542,7 +4542,7 @@ pub mod spdif {
     impl crate::private::Sealed for SPDIF {}
     impl crate::Valid for SPDIF {}
     impl SPDIF {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4569,7 +4569,7 @@ pub mod src_general_reg {
     impl crate::private::Sealed for SRC_GENERAL_REG {}
     impl crate::Valid for SRC_GENERAL_REG {}
     impl SRC_GENERAL_REG {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4596,7 +4596,7 @@ pub mod sw0_base {
     impl crate::private::Sealed for SW0_BASE {}
     impl crate::Valid for SW0_BASE {}
     impl SW0_BASE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4623,7 +4623,7 @@ pub mod sw0_common {
     impl crate::private::Sealed for SW0_COMMON {}
     impl crate::Valid for SW0_COMMON {}
     impl SW0_COMMON {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4650,7 +4650,7 @@ pub mod sw0_eth_mac_port0 {
     impl crate::private::Sealed for SW0_ETH_MAC_PORT0 {}
     impl crate::Valid for SW0_ETH_MAC_PORT0 {}
     impl SW0_ETH_MAC_PORT0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4677,7 +4677,7 @@ pub mod sw0_eth_mac_port1 {
     impl crate::private::Sealed for SW0_ETH_MAC_PORT1 {}
     impl crate::Valid for SW0_ETH_MAC_PORT1 {}
     impl SW0_ETH_MAC_PORT1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4704,7 +4704,7 @@ pub mod sw0_eth_mac_port2 {
     impl crate::private::Sealed for SW0_ETH_MAC_PORT2 {}
     impl crate::Valid for SW0_ETH_MAC_PORT2 {}
     impl SW0_ETH_MAC_PORT2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4731,7 +4731,7 @@ pub mod sw0_eth_mac_port3 {
     impl crate::private::Sealed for SW0_ETH_MAC_PORT3 {}
     impl crate::Valid for SW0_ETH_MAC_PORT3 {}
     impl SW0_ETH_MAC_PORT3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4764,7 +4764,7 @@ pub mod sw0_port {
     impl crate::private::Sealed for SW0_PORT0 {}
     impl crate::Valid for SW0_PORT0 {}
     impl SW0_PORT0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4778,7 +4778,7 @@ pub mod sw0_port {
     impl crate::private::Sealed for SW0_PORT1 {}
     impl crate::Valid for SW0_PORT1 {}
     impl SW0_PORT1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4792,7 +4792,7 @@ pub mod sw0_port {
     impl crate::private::Sealed for SW0_PORT2 {}
     impl crate::Valid for SW0_PORT2 {}
     impl SW0_PORT2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4806,7 +4806,7 @@ pub mod sw0_port {
     impl crate::private::Sealed for SW0_PORT3 {}
     impl crate::Valid for SW0_PORT3 {}
     impl SW0_PORT3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4841,7 +4841,7 @@ pub mod sw0_port4 {
     impl crate::private::Sealed for SW0_PORT4 {}
     impl crate::Valid for SW0_PORT4 {}
     impl SW0_PORT4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4868,7 +4868,7 @@ pub mod sw0_pseudo_mac_port4 {
     impl crate::private::Sealed for SW0_PSEUDO_MAC_PORT4 {}
     impl crate::Valid for SW0_PSEUDO_MAC_PORT4 {}
     impl SW0_PSEUDO_MAC_PORT4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4895,7 +4895,7 @@ pub mod sys_ctr_compare {
     impl crate::private::Sealed for SYS_CTR_COMPARE {}
     impl crate::Valid for SYS_CTR_COMPARE {}
     impl SYS_CTR_COMPARE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4922,7 +4922,7 @@ pub mod sys_ctr_control {
     impl crate::private::Sealed for SYS_CTR_CONTROL {}
     impl crate::Valid for SYS_CTR_CONTROL {}
     impl SYS_CTR_CONTROL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4949,7 +4949,7 @@ pub mod sys_ctr_read {
     impl crate::private::Sealed for SYS_CTR_READ {}
     impl crate::Valid for SYS_CTR_READ {}
     impl SYS_CTR_READ {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -4976,7 +4976,7 @@ pub mod sys_tick0 {
     impl crate::private::Sealed for SYSTICK0 {}
     impl crate::Valid for SYSTICK0 {}
     impl SYSTICK0 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5003,7 +5003,7 @@ pub mod tmpsns {
     impl crate::private::Sealed for TMPSNS {}
     impl crate::Valid for TMPSNS {}
     impl TMPSNS {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5044,7 +5044,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR1 {}
     impl crate::Valid for TMR1 {}
     impl TMR1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5058,7 +5058,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR2 {}
     impl crate::Valid for TMR2 {}
     impl TMR2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5072,7 +5072,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR3 {}
     impl crate::Valid for TMR3 {}
     impl TMR3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5086,7 +5086,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR4 {}
     impl crate::Valid for TMR4 {}
     impl TMR4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5100,7 +5100,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR5 {}
     impl crate::Valid for TMR5 {}
     impl TMR5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5114,7 +5114,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR6 {}
     impl crate::Valid for TMR6 {}
     impl TMR6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5128,7 +5128,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR7 {}
     impl crate::Valid for TMR7 {}
     impl TMR7 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5142,7 +5142,7 @@ pub mod tmr {
     impl crate::private::Sealed for TMR8 {}
     impl crate::Valid for TMR8 {}
     impl TMR8 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5181,7 +5181,7 @@ pub mod tmr0_base {
     impl crate::private::Sealed for TMR0_BASE {}
     impl crate::Valid for TMR0_BASE {}
     impl TMR0_BASE {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5208,7 +5208,7 @@ pub mod tmr0_global {
     impl crate::private::Sealed for TMR0_GLOBAL {}
     impl crate::Valid for TMR0_GLOBAL {}
     impl TMR0_GLOBAL {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5245,7 +5245,7 @@ pub mod tpm {
     impl crate::private::Sealed for TPM3 {}
     impl crate::Valid for TPM3 {}
     impl TPM3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5259,7 +5259,7 @@ pub mod tpm {
     impl crate::private::Sealed for TPM4 {}
     impl crate::Valid for TPM4 {}
     impl TPM4 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5273,7 +5273,7 @@ pub mod tpm {
     impl crate::private::Sealed for TPM5 {}
     impl crate::Valid for TPM5 {}
     impl TPM5 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5287,7 +5287,7 @@ pub mod tpm {
     impl crate::private::Sealed for TPM6 {}
     impl crate::Valid for TPM6 {}
     impl TPM6 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5301,7 +5301,7 @@ pub mod tpm {
     impl crate::private::Sealed for TPM1 {}
     impl crate::Valid for TPM1 {}
     impl TPM1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5315,7 +5315,7 @@ pub mod tpm {
     impl crate::private::Sealed for TPM2 {}
     impl crate::Valid for TPM2 {}
     impl TPM2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5352,7 +5352,7 @@ pub mod trdc1 {
     impl crate::private::Sealed for TRDC1 {}
     impl crate::Valid for TRDC1 {}
     impl TRDC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5379,7 +5379,7 @@ pub mod trdc2 {
     impl crate::private::Sealed for TRDC2 {}
     impl crate::Valid for TRDC2 {}
     impl TRDC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5406,7 +5406,7 @@ pub mod trdc3 {
     impl crate::private::Sealed for TRDC3 {}
     impl crate::Valid for TRDC3 {}
     impl TRDC3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5434,7 +5434,7 @@ pub mod usb {
     impl crate::private::Sealed for USB1 {}
     impl crate::Valid for USB1 {}
     impl USB1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5448,7 +5448,7 @@ pub mod usb {
     impl crate::private::Sealed for USB2 {}
     impl crate::Valid for USB2 {}
     impl USB2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5480,7 +5480,7 @@ pub mod usbhsdcd {
     impl crate::private::Sealed for USBHSDCD1 {}
     impl crate::Valid for USBHSDCD1 {}
     impl USBHSDCD1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5494,7 +5494,7 @@ pub mod usbhsdcd {
     impl crate::private::Sealed for USBHSDCD2 {}
     impl crate::Valid for USBHSDCD2 {}
     impl USBHSDCD2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5525,7 +5525,7 @@ pub mod usbnc {
     impl crate::private::Sealed for USBNC1 {}
     impl crate::Valid for USBNC1 {}
     impl USBNC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5539,7 +5539,7 @@ pub mod usbnc {
     impl crate::private::Sealed for USBNC2 {}
     impl crate::Valid for USBNC2 {}
     impl USBNC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5571,7 +5571,7 @@ pub mod usbphy {
     impl crate::private::Sealed for USBPHY1 {}
     impl crate::Valid for USBPHY1 {}
     impl USBPHY1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5585,7 +5585,7 @@ pub mod usbphy {
     impl crate::private::Sealed for USBPHY2 {}
     impl crate::Valid for USBPHY2 {}
     impl USBPHY2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5617,7 +5617,7 @@ pub mod usdhc {
     impl crate::private::Sealed for USDHC1 {}
     impl crate::Valid for USDHC1 {}
     impl USDHC1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5631,7 +5631,7 @@ pub mod usdhc {
     impl crate::private::Sealed for USDHC2 {}
     impl crate::Valid for USDHC2 {}
     impl USDHC2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5661,7 +5661,7 @@ pub mod vmbandgap {
     impl crate::private::Sealed for VMBANDGAP {}
     impl crate::Valid for VMBANDGAP {}
     impl VMBANDGAP {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5688,7 +5688,7 @@ pub mod vref {
     impl crate::private::Sealed for VREF {}
     impl crate::Valid for VREF {}
     impl VREF {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5717,7 +5717,7 @@ pub mod xbar {
     impl crate::private::Sealed for XBAR2 {}
     impl crate::Valid for XBAR2 {}
     impl XBAR2 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5731,7 +5731,7 @@ pub mod xbar {
     impl crate::private::Sealed for XBAR3 {}
     impl crate::Valid for XBAR3 {}
     impl XBAR3 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
@@ -5761,7 +5761,7 @@ pub mod xbar1 {
     impl crate::private::Sealed for XBAR1 {}
     impl crate::Valid for XBAR1 {}
     impl XBAR1 {
-        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r" Acquire a valid, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
         #[doc = r""]
