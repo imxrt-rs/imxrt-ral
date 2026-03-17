@@ -198,6 +198,15 @@ PWM?:
         bitWidth: 1
         access: read-write
 
+# Missing in these SVDs, but documented in the reference manual.
+"PWM*":
+  MASK:
+    _add:
+      UPDATE_MASK:
+        bitOffset: 12
+        bitWidth: 4
+        access: read-write
+
 MCM:
   _add:
     _interrupts:

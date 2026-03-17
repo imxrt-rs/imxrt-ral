@@ -109,6 +109,13 @@ pub mod MASK {
             pub const MASKA_1: u16 = 0x01;
         }
     }
+    pub mod UPDATE_MASK {
+        pub const offset: u16 = 12;
+        pub const mask: u16 = 0x0f << offset;
+        pub mod R {}
+        pub mod W {}
+        pub mod RW {}
+    }
 }
 #[doc = "Software Controlled Output Register"]
 pub mod SWCOUT {

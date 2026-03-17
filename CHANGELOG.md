@@ -5,6 +5,8 @@
 Add support for NXP's i.MX RT 1189 dual-core MCUs. An `"imxrt1189_cm33"` feature
 targets the Cortex-M33, and an `"imxrt1189_cm7"` feature targets the Cortex-M7.
 
+Add the `MASK[UPDATE_MASK]` fields for FlexPWM on 1170 MCUs.
+
 ## [0.6.1] 2024-12-19
 
 Remove the following peripheral instances from the 1176 API. The base address
