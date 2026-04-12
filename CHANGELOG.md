@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.6.2] 2026-04-12
+
 Add support for NXP's i.MX RT 1189 dual-core MCUs. An `"imxrt1189_cm33"` feature
 targets the Cortex-M33, and an `"imxrt1189_cm7"` feature targets the Cortex-M7.
 
@@ -242,7 +244,9 @@ This release also removes mention of 'stm32ral' in the API documentation.
 
 Initial build and release of imxrt family of peripheral access crates
 
-[Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.0...HEAD
+[Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.2...HEAD
+[0.6.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.1...0.6.2
+[0.6.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.0...0.6.1
 [0.6.0]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.3...0.6.0
 [0.5.3]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.2...0.5.3
 [0.5.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.1...0.5.2
