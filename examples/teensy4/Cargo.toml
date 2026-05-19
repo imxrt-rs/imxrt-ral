@@ -1,8 +1,7 @@
 [package]
 name = "imxrt-ral-examples-teensy4"
 version = "0.1.0"
-authors = ["Ian McIntyre <ianpmcintyre@gmail.com>"]
-edition = "2018"
+edition = "2024"
 publish = false  # This is an example package
 
 # The imxrt-ral dependency
@@ -13,37 +12,33 @@ publish = false  # This is an example package
 path = "../.."
 features = ["imxrt1062", "rt"]
 
-# The cortex-m-rt crate provides the runtime; see its docs for information
-# on features and requirements.
-[dependencies.cortex-m-rt]
+# Use a runtime specialized for these MCUs.
+[dependencies.imxrt-rt]
 features = ["device"]
-version = "0.6.13"
+version = "0.1"
 
-# This is an extra dependency that helps us boot the Teensy 4.
+# Required when booting from flash.
 [dependencies.teensy4-fcb]
-version = "0.3.0"
+version = "0.4"
 
-# A simple panic handler built for the Teensy 4.
+# A simple panic handler!
 [dependencies.teensy4-panic]
 version = "0.1"
 
-[dependencies.cortex-m-rtic]
-version = "0.6.0-alpha.4"
+[dependencies.rtic]
+version = "2.2"
+features = ["thumbv7-backend"]
 
 [dependencies.cortex-m]
 version = "0.7"
 
 [lib]
-name = "rtic_safe"
+name = "imxrt_ral_shim"
 path = "lib.rs"
 
-[[bin]]
-name = "blink"
-path = "blink.rs"
-
-[[bin]]
-name = "blink-nosync"
-path = "blink-nosync.rs"
+[build-dependencies.imxrt-rt]
+features = ["device"]
+version = "0.1"
 
 [[bin]]
 name = "rtic-blink"

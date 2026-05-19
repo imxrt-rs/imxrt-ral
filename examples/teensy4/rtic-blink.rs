@@ -1,21 +1,15 @@
 //! Demonstrates very basic RTIC support for imxrt-ral
 //!
 //! Flash this program to your Teensy 4, and observe a blinking LED.
-//!
-//! # Limitations
-//!
-//! - There's `unsafe` code to set VTOR. It relies on implementation details of
-//!   the runtime. You should rely on your runtime for this behavior...
-//! - Code executes out of flash (XIP), so interrupt latency is bad. Again, you
-//!   should rely on your runtime to place code in TCM...
 
 #![no_main]
 #![no_std]
 
+use imxrt_rt as _;
 use teensy4_fcb as _;
 use teensy4_panic as _;
 
-#[rtic::app(device = rtic_safe, peripherals = true)]
+#[rtic::app(device = imxrt_ral_shim, peripherals = true)]
 mod app {
     use imxrt_ral as ral;
 
@@ -38,10 +32,10 @@ mod app {
     #[init]
     fn init(
         init::Context {
-            device: rtic_safe::Peripherals(device),
+            device: imxrt_ral_shim::Peripherals(device),
             ..
         }: init::Context,
-    ) -> (Shared, Local, init::Monotonics) {
+    ) -> (Shared, Local) {
         let iomuxc = device.IOMUXC;
         // Set the GPIO pad to a GPIO function (ALT 5)
         ral::write_reg!(ral::iomuxc, iomuxc, SW_MUX_CTL_PAD_GPIO_B0_03, 5);
@@ -87,7 +81,7 @@ mod app {
         ral::modify_reg!(ral::pit::timer, &pit.TIMER[0], TCTRL, TEN: 1);
 
         ral::write_reg!(ral::gpio, gpio2, DR_SET, LED);
-        (Shared {}, Local { gpio2, pit }, init::Monotonics())
+        (Shared {}, Local { gpio2, pit })
     }
 
     #[task(binds = PIT, local = [gpio2, pit])]
@@ -102,14 +96,4 @@ mod app {
 
         cortex_m::asm::dsb();
     }
-}
-
-#[cortex_m_rt::pre_init]
-unsafe fn pre_init() {
-    extern "C" {
-        static __reset_vector: u32;
-    }
-    const SCB_VTOR: *mut u32 = 0xE000_ED08 as *mut u32;
-    // Offset by 4 to point at start of stack
-    core::ptr::write_volatile(SCB_VTOR, (&__reset_vector as *const _ as u32) - 4);
 }

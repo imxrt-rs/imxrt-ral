@@ -1,8 +1,7 @@
-use std::{env, fs, path::PathBuf};
+use imxrt_rt::{Family, RuntimeBuilder};
 
 fn main() {
-    println!("cargo:rerun-if-changed=memory.x");
-    let out_dir: PathBuf = env::var("OUT_DIR").unwrap().into();
-    fs::copy("memory.x", out_dir.join("memory.x")).unwrap();
-    println!("cargo:rustc-link-search={}", out_dir.display());
+    RuntimeBuilder::from_flexspi(Family::Imxrt1060, 1984 * 1024)
+        .build()
+        .unwrap();
 }

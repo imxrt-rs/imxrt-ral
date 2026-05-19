@@ -2,12 +2,12 @@
 
 #![no_std]
 
-pub use imxrt_ral::{interrupt, Interrupt, NVIC_PRIO_BITS};
+pub use imxrt_ral::{Interrupt, NVIC_PRIO_BITS, interrupt};
 
 pub struct Peripherals(pub imxrt_ral::Instances);
 impl Peripherals {
     #[inline]
     pub const unsafe fn steal() -> Self {
-        Self(imxrt_ral::Instances::instances())
+        unsafe { Self(imxrt_ral::Instances::instances()) }
     }
 }
