@@ -17,4 +17,4 @@ rayon = "1.5"
 regex = "1.4.3"
 serde = { version = "1.0.123", features = [ "derive" ]}
 serde_yaml = "0.8.15"
-svd-parser = { version = "0.10.2", features = ["derive-from"] }
+svd-parser = "0.14"

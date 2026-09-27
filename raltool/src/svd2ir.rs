@@ -1,6 +1,6 @@
 use log::*;
 use std::collections::HashMap;
-use svd_parser as svd;
+use svd_parser::svd;
 
 use crate::util;
 use crate::{ir::*, transform};
@@ -45,8 +45,8 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                 }
 
                 let fieldset_bitsize = match r {
-                    svd::Register::Single(info) => info.size,
-                    svd::Register::Array(info, _) => info.size,
+                    svd::Register::Single(info) => info.properties.size,
+                    svd::Register::Array(info, _) => info.properties.size,
                 }
                 .map(BitSize)
                 .expect("Unsized register is not supported");
@@ -128,7 +128,7 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                         None
                     };
 
-                    let access = match r.access {
+                    let access = match r.properties.access {
                         None => Access::ReadWrite,
                         Some(svd::Access::ReadOnly) => Access::Read,
                         Some(svd::Access::WriteOnly) => Access::Write,
@@ -144,7 +144,7 @@ pub fn convert_peripheral(ir: &mut IR, p: &svd::Peripheral) -> anyhow::Result<()
                         byte_offset: r.address_offset,
                         inner: BlockItemInner::Register(Register {
                             access, // todo
-                            bit_size: BitSize(r.size.expect("Must have a bitsize")),
+                            bit_size: BitSize(r.properties.size.expect("Must have a bitsize")),
                             fieldset: fieldset_name.clone(),
                         }),
                     };
