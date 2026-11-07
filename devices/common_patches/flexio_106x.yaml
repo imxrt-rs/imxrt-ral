@@ -57,3 +57,32 @@ FLEXIO*:
     _modify:
       PDI:
         bitWidth: 32
+# The 8 shifters and timers need their 8 status / control bits.
+  SHIFTSTAT:
+    _modify:
+      SSF:
+        bitWidth: 8
+  SHIFTERR:
+    _modify:
+      SEF:
+        bitWidth: 8
+  TIMSTAT:
+    _modify:
+      TSF:
+        bitWidth: 8
+  SHIFTSIEN:
+    _modify:
+      SSIE:
+        bitWidth: 8
+  SHIFTEIEN:
+    _modify:
+      SEIE:
+        bitWidth: 8
+  TIMIEN:
+    _modify:
+      TEIE:
+        bitWidth: 8
+  SHIFTSDEN:
+    _modify:
+      SSDE:
+        bitWidth: 8

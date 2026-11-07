@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+Increase `SHIFTSTAT, SHIFTERR, TIMSTAT, SHIFTSIEN, SHIFTEIEN, TIMIEN, SHIFTSDEN`
+field widths on 1060 MCUs. This follows the 0.5.1 patch to add the extra timers
+and shifters. If you do not have this patch, use register accesses without the
+fields.
+
+```rust
+// Before this change: write affects lower nibble. Bad!
+// After this change: write affects whole byte. Fixed!
+ral::write_reg!(ral::flexio, flexio1, SHIFTSTAT, SSF: 0xFF);
+
+// Always works before and after this change.
+ral::write_reg!(ral::flexio, flexio1, SHIFTSTAT, 0xFF);
+```
+
 ## [0.6.2] 2026-04-12
 
 Add support for NXP's i.MX RT 1189 dual-core MCUs. An `"imxrt1189_cm33"` feature

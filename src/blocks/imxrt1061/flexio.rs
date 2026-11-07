@@ -216,7 +216,7 @@ pub mod SHIFTSTAT {
     #[doc = "Shifter Status Flag"]
     pub mod SSF {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -227,7 +227,7 @@ pub mod SHIFTERR {
     #[doc = "Shifter Error Flags"]
     pub mod SEF {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -238,7 +238,7 @@ pub mod TIMSTAT {
     #[doc = "Timer Status Flags"]
     pub mod TSF {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -249,7 +249,7 @@ pub mod SHIFTSIEN {
     #[doc = "Shifter Status Interrupt Enable"]
     pub mod SSIE {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -260,7 +260,7 @@ pub mod SHIFTEIEN {
     #[doc = "Shifter Error Interrupt Enable"]
     pub mod SEIE {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -271,7 +271,7 @@ pub mod TIMIEN {
     #[doc = "Timer Status Interrupt Enable"]
     pub mod TEIE {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
@@ -282,7 +282,7 @@ pub mod SHIFTSDEN {
     #[doc = "Shifter Status DMA Enable"]
     pub mod SSDE {
         pub const offset: u32 = 0;
-        pub const mask: u32 = 0x0f << offset;
+        pub const mask: u32 = 0xff << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {}
