@@ -1439,7 +1439,7 @@ pub mod flexio {
     pub const FLEXIO2: *const RegisterBlock = 0x401b_0000 as *const RegisterBlock;
     #[doc = "FLEXIO"]
     pub const FLEXIO3: *const RegisterBlock = 0x4202_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1061/flexio.rs"]
+    #[path = "blocks/imxrt1011/flexio.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
