@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.6.3] 2026-11-09
+
 Increase `SHIFTSTAT, SHIFTERR, TIMSTAT, SHIFTSIEN, SHIFTEIEN, TIMIEN, SHIFTSDEN`
 field widths on 1060 MCUs. This follows the 0.5.1 patch to add the extra timers
 and shifters. If you do not have this patch, use register accesses without the
@@ -258,7 +260,8 @@ This release also removes mention of 'stm32ral' in the API documentation.
 
 Initial build and release of imxrt family of peripheral access crates
 
-[Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.2...HEAD
+[Unreleased]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.3...HEAD
+[0.6.3]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.2...0.6.3
 [0.6.2]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.1...0.6.2
 [0.6.1]: https://github.com/imxrt-rs/imxrt-ral/compare/0.6.0...0.6.1
 [0.6.0]: https://github.com/imxrt-rs/imxrt-ral/compare/0.5.3...0.6.0
